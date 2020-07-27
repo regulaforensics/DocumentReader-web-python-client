@@ -25,23 +25,47 @@ class Result(object):
     Do not edit the class manually.
     """
 
-    """
-    allowed enum values
-    """
-    RAW_IMAGE = "1"
-    STATUS = "33"
-    TEXT = "36"
-    IMAGES = "37"
-    MRZ_TEXT = "3"
-    VISUAL_TEXT = "17"
-    BARCODE_TEXT = "18"
-    RFID_TEXT = "102"
-    LEXICAL_ANALYSIS = "15"
-    VISUAL_GRAPHICS = "6"
-    BARCODE_GRAPHICS = "19"
-    RFID_GRAPHICS = "103"
-    DOCUMENT_TYPE_CANDIDATES = "8"
-    DOCUMENT_TYPE = "9"
+    "Contains cropped and rotated image of document. Most of coordinates in other types defined on that image"
+    RAW_IMAGE = int("1")
+
+    "Contains check statuses with details, grouped by source"
+    STATUS = int("33")
+
+    "Contains document textual fields from all sources (mrz, rfid, visual, barcode) with validity and cross-source compare checks"
+    TEXT = int("36")
+
+    "Contains images from all document sources (mrz, rfid, visual, barcode)"
+    IMAGES = int("37")
+
+    "Contains MRZ OCR results"
+    MRZ_TEXT = int("3")
+
+    "Contains Visual zone OCR results"
+    VISUAL_TEXT = int("17")
+
+    "Contains barcode parsing result with text fields"
+    BARCODE_TEXT = int("18")
+
+    "Contains RFID parsing result with text fields"
+    RFID_TEXT = int("102")
+
+    "Contains lexical data analysis results that allow you to compare MRZ OCR results, Visual zone OCR results, barcodes and RFID chip data for an additional assessment of the authenticity of the document (this is an old format, better use TEXT type)"
+    LEXICAL_ANALYSIS = int("15")
+
+    "Contains cropped graphic fields from Visual zone"
+    VISUAL_GRAPHICS = int("6")
+
+    "Contains barcode parsing result with graphic fields"
+    BARCODE_GRAPHICS = int("19")
+
+    "Contains RFID parsing result with graphic fields"
+    RFID_GRAPHICS = int("103")
+
+    "Contains list of document type candidates with their probabilities and descriptions"
+    DOCUMENT_TYPE_CANDIDATES = int("8")
+
+    "Contains description of determined document type, if any"
+    DOCUMENT_TYPE = int("9")
 
     allowable_values = [RAW_IMAGE, STATUS, TEXT, IMAGES, MRZ_TEXT, VISUAL_TEXT, BARCODE_TEXT, RFID_TEXT, LEXICAL_ANALYSIS, VISUAL_GRAPHICS, BARCODE_GRAPHICS, RFID_GRAPHICS, DOCUMENT_TYPE_CANDIDATES, DOCUMENT_TYPE]  # noqa: E501
 

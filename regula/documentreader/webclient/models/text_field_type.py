@@ -25,550 +25,1628 @@ class TextFieldType(object):
     Do not edit the class manually.
     """
 
-    """
-    allowed enum values
-    """
-    DOCUMENT_CLASS_CODE = "0"
-    ISSUING_STATE_CODE = "1"
-    DOCUMENT_NUMBER = "2"
-    DATE_OF_EXPIRY = "3"
-    DATE_OF_ISSUE = "4"
-    DATE_OF_BIRTH = "5"
-    PLACE_OF_BIRTH = "6"
-    PERSONAL_NUMBER = "7"
-    SURNAME = "8"
-    GIVEN_NAME = "9"
-    MOTHERS_NAME = "10"
-    NATIONALITY = "11"
-    SEX = "12"
-    HEIGHT = "13"
-    WEIGHT = "14"
-    EYES_COLOR = "15"
-    HAIR_COLOR = "16"
-    ADDRESS = "17"
-    DONOR = "18"
-    SOCIAL_SECURITY_NUMBER = "19"
-    DL_CLASS = "20"
-    DL_ENDORSED = "21"
-    DL_RESTRICTION_CODE = "22"
-    DL_UNDER_21_DATE = "23"
-    AUTHORITY = "24"
-    SURNAME_AND_GIVEN_NAMES = "25"
-    NATIONALITY_CODE = "26"
-    PASSPORT_NUMBER = "27"
-    INVITATION_NUMBER = "28"
-    VISA_ID = "29"
-    VISA_CLASS = "30"
-    VISA_SUBCLASS = "31"
-    MRZ_TYPE = "35"
-    DOCUMENT_CLASS_NAME = "37"
-    ISSUING_STATE_NAME = "38"
-    PLACE_OF_ISSUE = "39"
-    DOCUMENT_NUMBER_CHECKSUM = "40"
-    DATE_OF_BIRTH_CHECKSUM = "41"
-    DATE_OF_EXPIRY_CHECKSUM = "42"
-    PERSONAL_NUMBER_CHECKSUM = "43"
-    FINAL_CHECKSUM = "44"
-    PASSPORT_NUMBER_CHECKSUM = "45"
-    INVITATION_NUMBER_CHECKSUM = "46"
-    VISA_ID_CHECKSUM = "47"
-    SURNAME_AND_GIVEN_NAME_CHECKSUM = "48"
-    VISA_VALID_UNTIL_CHECKSUM = "49"
-    OTHER = "50"
-    MRZ_STRINGS = "51"
-    NAME_SUFFIX = "52"
-    NAME_PREFIX = "53"
-    DATE_OF_ISSUE_CHECKSUM = "54"
-    DATE_OF_ISSUE_CHECK_DIGIT = "55"
-    DOCUMENT_SERIES = "56"
-    REG_CERT_REG_NUMBER = "57"
-    REG_CERT_CAR_MODEL = "58"
-    REG_CERT_CAR_COLOR = "59"
-    REG_CERT_BODY_NUMBER = "60"
-    REG_CERT_CAR_TYPE = "61"
-    REG_CERT_MAX_WEIGHT = "62"
-    REG_CERT_WEIGHT = "63"
-    ADDRESS_AREA = "64"
-    ADDRESS_STATE = "65"
-    ADDRESS_BUILDING = "66"
-    ADDRESS_HOUSE = "67"
-    ADDRESS_FLAT = "68"
-    PLACE_OF_REGISTRATION = "69"
-    DATE_OF_REGISTRATION = "70"
-    RESIDENT_FROM = "71"
-    RESIDENT_UNTIL = "72"
-    AUTHORITY_CODE = "73"
-    PLACE_OF_BIRTH_AREA = "74"
-    PLACE_OF_BIRTH_STATE_CODE = "75"
-    ADDRESS_STREET = "76"
-    ADDRESS_CITY = "77"
-    ADDRESS_JURISDICTION_CODE = "78"
-    ADDRESS_POSTAL_CODE = "79"
-    DOCUMENT_NUMBER_CHECK_DIGIT = "80"
-    DATE_OF_BIRTH_CHECK_DIGIT = "81"
-    DATE_OF_EXPIRY_CHECK_DIGIT = "82"
-    PERSONAL_NUMBER_CHECK_DIGIT = "83"
-    FINAL_CHECK_DIGIT = "84"
-    PASSPORT_NUMBER_CHECK_DIGIT = "85"
-    INVITATION_NUMBER_CHECK_DIGIT = "86"
-    VISA_ID_CHECK_DIGIT = "87"
-    SURNAME_AND_GIVEN_NAMES_CHECK_DIGIT = "88"
-    VISA_VALID_UNTIL_CHECK_DIGIT = "89"
-    PERMIT_DL_CLASS = "90"
-    PERMIT_DATE_OF_EXPIRY = "91"
-    PERMIT_IDENTIFIER = "92"
-    PERMIT_DATE_OF_ISSUE = "93"
-    PERMIT_RESTRICTION_CODE = "94"
-    PERMIT_ENDORSED = "95"
-    ISSUE_TIMESTAMP = "96"
-    NUMBER_OF_DUPLICATES = "97"
-    MEDICAL_INDICATOR_CODES = "98"
-    NON_RESIDENT_INDICATOR = "99"
-    VISA_TYPE = "100"
-    VISA_VALID_FROM = "101"
-    VISA_VALID_UNTIL = "102"
-    DURATION_OF_STAY = "103"
-    NUMBER_OF_ENTRIES = "104"
-    DAY = "105"
-    MONTH = "106"
-    YEAR = "107"
-    UNIQUE_CUSTOMER_IDENTIFIER = "108"
-    COMMERCIAL_VEHICLE_CODES = "109"
-    AKA_DATE_OF_BIRTH = "110"
-    AKA_SOCIAL_SECURITY_NUMBER = "111"
-    AKA_SURNAME = "112"
-    AKA_GIVEN_NAMES = "113"
-    AKA_NAME_SUFFIX = "114"
-    AKA_NAME_PREFIX = "115"
-    MAILING_ADDRESS_STREET = "116"
-    MAILING_ADDRESS_CITY = "117"
-    MAILING_ADDRESS_JURISDICTION_CODE = "118"
-    MAILING_ADDRESS_POSTAL_CODE = "119"
-    AUDIT_INFORMATION = "120"
-    INVENTORY_NUMBER = "121"
-    RACE_ETHNICITY = "122"
-    JURISDICTION_VEHICLE_CLASS = "123"
-    JURISDICTION_ENDORSEMENT_CODE = "124"
-    JURISDICTION_RESTRICTION_CODE = "125"
-    FAMILY_NAME = "126"
-    GIVEN_NAMES_RUS = "127"
-    VISA_ID_RUS = "128"
-    FATHERS_NAME = "129"
-    FATHERS_NAME_RUS = "130"
-    SURNAME_AND_GIVEN_NAME_RUS = "131"
-    PLACE_OF_BIRTH_RUS = "132"
-    AUTHORITY_RUS = "133"
-    ISSUING_STATE_CODE_NUMERIC = "134"
-    NATIONALITY_CODE_NUMERIC = "135"
-    ENGINE_POWER = "136"
-    ENGINE_VOLUME = "137"
-    CHASSIS_NUMBER = "138"
-    ENGINE_NUMBER = "139"
-    ENGINE_MODEL = "140"
-    VEHICLE_CATEGORY = "141"
-    IDENTITY_CARD_NUMBER = "142"
-    CONTROL_NUMBER = "143"
-    PARENTS_GIVEN_NAMES = "144"
-    SECOND_SURNAME = "145"
-    MIDDLE_NAME = "146"
-    REG_CERT_VIN = "147"
-    REG_CERT_VIN_CHECK_DIGIT = "148"
-    REG_CERT_VIN_CHECKSUM = "149"
-    LINE_1_CHECK_DIGIT = "150"
-    LINE_2_CHECK_DIGIT = "151"
-    LINE_3_CHECK_DIGIT = "152"
-    LINE_1_CHECKSUM = "153"
-    LINE_2_CHECKSUM = "154"
-    LINE_3_CHECKSUM = "155"
-    REG_CERT_REG_NUMBER_CHECK_DIGIT = "156"
-    REG_CERT_REG_NUMBER_CHECKSUM = "157"
-    REG_CERT_VEHICLE_ITS_CODE = "158"
-    CARD_ACCESS_NUMBER = "159"
-    MARITAL_STATUS = "160"
-    COMPANY_NAME = "161"
-    SPECIAL_NOTES = "162"
-    SURNAME_OF_SPOUSE = "163"
-    TRACKING_NUMBER = "164"
-    BOOKLET_NUMBER = "165"
-    CHILDREN = "166"
-    COPY_NUMBER = "167"
-    SERIAL_NUMBER = "168"
-    DOSSIER_NUMBER = "169"
-    AKA_SURNAME_AND_GIVEN_NAMES = "170"
-    TERRITORIAL_VALIDITY = "171"
-    MRZ_STRINGS_WITH_CORRECT_CHECK_SUMS = "172"
-    DL_CDL_RESTRICTION_CODE = "173"
-    DL_UNDER_18_DATE = "174"
-    DL_RECORD_CREATED = "175"
-    DL_DUPLICATE_DATE = "176"
-    DL_ISSUE_TYPE = "177"
-    MILITARY_BOOK_NUMBER = "178"
-    DESTINATION = "179"
-    BLOOD_GROUP = "180"
-    SEQUENCE_NUMBER = "181"
-    REG_CERT_BODY_TYPE = "182"
-    REG_CERT_CAR_MARK = "183"
-    TRANSACTION_NUMBER = "184"
-    AGE = "185"
-    FOLIO_NUMBER = "186"
-    VOTER_KEY = "187"
-    ADDRESS_MUNICIPALITY = "188"
-    ADDRESS_LOCATION = "189"
-    SECTION = "190"
-    OCR_NUMBER = "191"
-    FEDERAL_ELECTIONS = "192"
-    REFERENCE_NUMBER = "193"
-    OPTIONAL_DATA_CHECKSUM = "194"
-    OPTIONAL_DATA_CHECK_DIGIT = "195"
-    VISA_NUMBER = "196"
-    VISA_NUMBER_CHECKSUM = "197"
-    VISA_NUMBER_CHECK_DIGIT = "198"
-    VOTER = "199"
-    PREVIOUS_TYPE = "200"
-    FIELD_FROM_MRZ = "220"
-    CURRENT_DATE = "221"
-    STATUS_DATE_OF_EXPIRY = "251"
-    BANK_NOTE_NUMBER = "252"
-    CSC_CODE = "253"
-    ARTISTIC_NAME = "254"
-    ACADEMIC_TITLE = "255"
-    ADDRESS_COUNTRY = "256"
-    ADDRESS_ZIP_CODE = "257"
-    E_ID_RESIDENCE_PERMIT_1 = "258"
-    E_ID_RESIDENCE_PERMIT_2 = "259"
-    E_ID_PLACE_OF_BIRTH_STREET = "260"
-    E_ID_PLACE_OF_BIRTH_CITY = "261"
-    E_ID_PLACE_OF_BIRTH_STATE = "262"
-    E_ID_PLACE_OF_BIRTH_COUNTRY = "263"
-    E_ID_PLACE_OF_BIRTH_ZIP_CODE = "264"
-    CDL_CLASS = "265"
-    DL_UNDER_19_DATE = "266"
-    WEIGHT_POUNDS = "267"
-    LIMITED_DURATION_DOCUMENT_INDICATOR = "268"
-    ENDORSEMENT_EXPIRATION_DATE = "269"
-    REVISION_DATE = "270"
-    COMPLIANCE_TYPE = "271"
-    FAMILY_NAME_TRUNCATION = "272"
-    FIRST_NAME_TRUNCATION = "273"
-    MIDDLE_NAME_TRUNCATION = "274"
-    EXAM_DATE = "275"
-    ORGANIZATION = "276"
-    DEPARTMENT = "277"
-    PAY_GRADE = "278"
-    RANK = "279"
-    BENEFITS_NUMBER = "280"
-    SPONSOR_SERVICE = "281"
-    SPONSOR_STATUS = "282"
-    SPONSOR = "283"
-    RELATIONSHIP = "284"
-    USCIS = "285"
-    CATEGORY = "286"
-    CONDITIONS = "287"
-    IDENTIFIER = "288"
-    CONFIGURATION = "289"
-    DISCRETIONARY_DATA = "290"
-    LINE_1_OPTIONAL_DATA = "291"
-    LINE_2_OPTIONAL_DATA = "292"
-    LINE_3_OPTIONAL_DATA = "293"
-    EQV_CODE = "294"
-    ALT_CODE = "295"
-    BINARY_CODE = "296"
-    PSEUDO_CODE = "297"
-    FEE = "298"
-    STAMP_NUMBER = "299"
-    SBH_SECURITY_OPTIONS = "300"
-    SBH_INTEGRITY_OPTIONS = "301"
-    DATE_OF_CREATION = "302"
-    VALIDITY_PERIOD = "303"
-    PATRON_HEADER_VERSION = "304"
-    BDB_TYPE = "305"
-    BIOMETRIC_TYPE = "306"
-    BIOMETRIC_SUBTYPE = "307"
-    BIOMETRIC_PRODUCT_ID = "308"
-    BIOMETRIC_FORMAT_OWNER = "309"
-    BIOMETRIC_FORMAT_TYPE = "310"
-    PHONE = "311"
-    PROFESSION = "312"
-    TITLE = "313"
-    PERSONAL_SUMMARY = "314"
-    OTHER_VALID_ID = "315"
-    CUSTODY_INFO = "316"
-    OTHER_NAME = "317"
-    OBSERVATIONS = "318"
-    TAX = "319"
-    DATE_OF_PERSONALIZATION = "320"
-    PERSONALIZATION_SN = "321"
-    DATE_OF_RECORD = "322"
-    PERSON_TO_NOTIFY_DATE_OF_RECORD = "323"
-    PERSON_TO_NOTIFY_NAME = "324"
-    PERSON_TO_NOTIFY_PHONE = "325"
-    PERSON_TO_NOTIFY_ADDRESS = "326"
-    DS_CERTIFICATE_ISSUER = "327"
-    DS_CERTIFICATE_SUBJECT = "328"
-    DS_CERTIFICATE_VALID_FROM = "329"
-    DS_CERTIFICATE_VALID_TO = "330"
-    VRC_DATA_OBJECT_ENTRY = "331"
-    TYPE_APPROVAL_NUMBER = "332"
-    ADMINISTRATIVE_NUMBER = "333"
-    DOCUMENT_DISCRIMINATOR = "334"
-    DATA_DISCRIMINATOR = "335"
-    ISO_ISSUER_ID_NUMBER = "336"
-    GNIB_NUMBER = "340"
-    DEPT_NUMBER = "341"
-    TELEX_CODE = "342"
-    ALLERGIES = "343"
-    SP_CODE = "344"
-    COURT_CODE = "345"
-    CTY = "346"
-    SPONSOR_SSN = "347"
-    DOD_NUMBER = "348"
-    MC_NOVICE_DATE = "349"
-    DUF_NUMBER = "350"
-    AGY = "351"
-    PNR_CODE = "352"
-    FROM_AIRPORT_CODE = "353"
-    TO_AIRPORT_CODE = "354"
-    FLIGHT_NUMBER = "355"
-    DATE_OF_FLIGHT = "356"
-    SEAT_NUMBER = "357"
-    DATE_OF_ISSUE_BOARDING_PASS = "358"
-    CCW_UNTIL = "359"
-    REFERENCE_NUMBER_CHECKSUM = "360"
-    REFERENCE_NUMBER_CHECK_DIGIT = "361"
-    ROOM_NUMBER = "362"
-    RELIGION = "363"
-    REMAINDER_TERM = "364"
-    ELECTRONIC_TICKET_INDICATOR = "365"
-    COMPARTMENT_CODE = "366"
-    CHECK_IN_SEQUENCE_NUMBER = "367"
-    AIRLINE_DESIGNATOR_OF_BOARDING_PASS_ISSUER = "368"
-    AIRLINE_NUMERIC_CODE = "369"
-    TICKET_NUMBER = "370"
-    FREQUENT_FLYER_AIRLINE_DESIGNATOR = "371"
-    FREQUENT_FLYER_NUMBER = "372"
-    FREE_BAGGAGE_ALLOWANCE = "373"
-    PDF_417_CODEC = "374"
-    IDENTITY_CARD_NUMBER_CHECKSUM = "375"
-    IDENTITY_CARD_NUMBER_CHECK_DIGIT = "376"
-    VETERAN = "377"
-    DL_CLASS_CODE_A1_FROM = "378"
-    DL_CLASS_CODE_A1_TO = "379"
-    DL_CLASS_CODE_A1_NOTES = "380"
-    DL_CLASS_CODE_A_FROM = "381"
-    DL_CLASS_CODE_A_TO = "382"
-    DL_CLASS_CODE_A_NOTES = "383"
-    DL_CLASS_CODE_B_FROM = "384"
-    DL_CLASS_CODE_B_TO = "385"
-    DL_CLASS_CODE_B_NOTES = "386"
-    DL_CLASS_CODE_C1_FROM = "387"
-    DL_CLASS_CODE_C1_TO = "388"
-    DL_CLASS_CODE_C1_NOTES = "389"
-    DL_CLASS_CODE_C_FROM = "390"
-    DL_CLASS_CODE_C_TO = "391"
-    DL_CLASS_CODE_C_NOTES = "392"
-    DL_CLASS_CODE_D1_FROM = "393"
-    DL_CLASS_CODE_D1_TO = "394"
-    DL_CLASS_CODE_D1_NOTES = "395"
-    DL_CLASS_CODE_D_FROM = "396"
-    DL_CLASS_CODE_D_TO = "397"
-    DL_CLASS_CODE_D_NOTES = "398"
-    DL_CLASS_CODE_BE_FROM = "399"
-    DL_CLASS_CODE_BE_TO = "400"
-    DL_CLASS_CODE_BE_NOTES = "401"
-    DL_CLASS_CODE_C1E_FROM = "402"
-    DL_CLASS_CODE_C1E_TO = "403"
-    DL_CLASS_CODE_C1E_NOTES = "404"
-    DL_CLASS_CODE_CE_FROM = "405"
-    DL_CLASS_CODE_CE_TO = "406"
-    DL_CLASS_CODE_CE_NOTES = "407"
-    DL_CLASS_CODE_D1E_FROM = "408"
-    DL_CLASS_CODE_D1E_TO = "409"
-    DL_CLASS_CODE_D1E_NOTES = "410"
-    DL_CLASS_CODE_DE_FROM = "411"
-    DL_CLASS_CODE_DE_TO = "412"
-    DL_CLASS_CODE_DE_NOTES = "413"
-    DL_CLASS_CODE_M_FROM = "414"
-    DL_CLASS_CODE_M_TO = "415"
-    DL_CLASS_CODE_M_NOTES = "416"
-    DL_CLASS_CODE_L_FROM = "417"
-    DL_CLASS_CODE_L_TO = "418"
-    DL_CLASS_CODE_L_NOTES = "419"
-    DL_CLASS_CODE_T_FROM = "420"
-    DL_CLASS_CODE_T_TO = "421"
-    DL_CLASS_CODE_T_NOTES = "422"
-    DL_CLASS_CODE_AM_FROM = "423"
-    DL_CLASS_CODE_AM_TO = "424"
-    DL_CLASS_CODE_AM_NOTES = "425"
-    DL_CLASS_CODE_A2_FROM = "426"
-    DL_CLASS_CODE_A2_TO = "427"
-    DL_CLASS_CODE_A2_NOTES = "428"
-    DL_CLASS_CODE_B1_FROM = "429"
-    DL_CLASS_CODE_B1_TO = "430"
-    DL_CLASS_CODE_B1_NOTES = "431"
-    SURNAME_AT_BIRTH = "432"
-    CIVIL_STATUS = "433"
-    NUMBER_OF_SEATS = "434"
-    NUMBER_OF_STANDING_PLACES = "435"
-    MAX_SPEED = "436"
-    FUEL_TYPE = "437"
-    EC_ENVIRONMENTAL_TYPE = "438"
-    POWER_WEIGHT_RATIO = "439"
-    MAX_MASS_OF_TRAILER_BRAKED = "440"
-    MAX_MASS_OF_TRAILER_UNBRAKED = "441"
-    TRANSMISSION_TYPE = "442"
-    TRAILER_HITCH = "443"
-    ACCOMPANIED_BY = "444"
-    POLICE_DISTRICT = "445"
-    FIRST_ISSUE_DATE = "446"
-    PAYLOAD_CAPACITY = "447"
-    NUMBER_OF_AXLES = "448"
-    PERMISSIBLE_AXLE_LOAD = "449"
-    PRECINCT = "450"
-    INVITED_BY = "451"
-    PURPOSE_OF_ENTRY = "452"
-    SKIN_COLOR = "453"
-    COMPLEXION = "454"
-    AIRPORT_FROM = "455"
-    AIRPORT_TO = "456"
-    AIRLINE_NAME = "457"
-    AIRLINE_NAME_FREQUENT_FLYER = "458"
-    LICENSE_NUMBER = "459"
-    IN_TANKS = "460"
-    EXCEPT_IN_TANKS = "461"
-    FAST_TRACK = "462"
-    OWNER = "463"
-    MRZ_STRINGS_ICAO_RFID = "464"
-    NUMBER_OF_CARD_ISSUANCE = "465"
-    NUMBER_OF_CARD_ISSUANCE_CHECKSUM = "466"
-    NUMBER_OF_CARD_ISSUANCE_CHECK_DIGIT = "467"
-    CENTURY_DATE_OF_BIRTH = "468"
-    DL_CLASS_CODE_A3_FROM = "469"
-    DL_CLASS_CODE_A3_TO = "470"
-    DL_CLASS_CODE_A3_NOTES = "471"
-    DL_CLASS_CODE_C2_FROM = "472"
-    DL_CLASS_CODE_C2_TO = "473"
-    DL_CLASS_CODE_C2_NOTES = "474"
-    DL_CLASS_CODE_B2_FROM = "475"
-    DL_CLASS_CODE_B2_TO = "476"
-    DL_CLASS_CODE_B2_NOTES = "477"
-    DL_CLASS_CODE_D2_FROM = "478"
-    DL_CLASS_CODE_D2_TO = "479"
-    DL_CLASS_CODE_D2_NOTES = "480"
-    DL_CLASS_CODE_B2E_FROM = "481"
-    DL_CLASS_CODE_B2E_TO = "482"
-    DL_CLASS_CODE_B2E_NOTES = "483"
-    DL_CLASS_CODE_G_FROM = "484"
-    DL_CLASS_CODE_G_TO = "485"
-    DL_CLASS_CODE_G_NOTES = "486"
-    DL_CLASS_CODE_J_FROM = "487"
-    DL_CLASS_CODE_J_TO = "488"
-    DL_CLASS_CODE_J_NOTES = "489"
-    DL_CLASS_CODE_LC_FROM = "490"
-    DL_CLASS_CODE_LC_TO = "491"
-    DL_CLASS_CODE_LC_NOTES = "492"
-    BANK_CARD_NUMBER = "493"
-    BANK_CARD_VALID_THRU = "494"
-    TAX_NUMBER = "495"
-    HEALTH_NUMBER = "496"
-    GRANDFATHER_NAME = "497"
-    SELECTEE_INDICATOR = "498"
-    MOTHER_SURNAME = "499"
-    MOTHER_GIVEN_NAME = "500"
-    FATHER_SURNAME = "501"
-    FATHER_GIVEN_NAME = "502"
-    MOTHER_DATE_OF_BIRTH = "503"
-    FATHER_DATE_OF_BIRTH = "504"
-    MOTHER_PERSONAL_NUMBER = "505"
-    FATHER_PERSONAL_NUMBER = "506"
-    MOTHER_PLACE_OF_BIRTH = "507"
-    FATHER_PLACE_OF_BIRTH = "508"
-    MOTHER_COUNTRY_OF_BIRTH = "509"
-    FATHER_COUNTRY_OF_BIRTH = "510"
-    DATE_FIRST_RENEWAL = "511"
-    DATE_SECOND_RENEWAL = "512"
-    PLACE_OF_EXAMINATION = "513"
-    APPLICATION_NUMBER = "514"
-    VOUCHER_NUMBER = "515"
-    AUTHORIZATION_NUMBER = "516"
-    FACULTY = "517"
-    FORM_OF_EDUCATION = "518"
-    DNI_NUMBER = "519"
-    RETIREMENT_NUMBER = "520"
-    PROFESSIONAL_ID_NUMBER = "521"
-    AGE_AT_ISSUE = "522"
-    YEARS_SINCE_ISSUE = "523"
-    DL_CLASS_CODE_BTP_FROM = "524"
-    DL_CLASS_CODE_BTP_NOTES = "525"
-    DL_CLASS_CODE_BTP_TO = "526"
-    DL_CLASS_CODE_C3_FROM = "527"
-    DL_CLASS_CODE_C3_NOTES = "528"
-    DL_CLASS_CODE_C3_TO = "529"
-    DL_CLASS_CODE_E_FROM = "530"
-    DL_CLASS_CODE_E_NOTES = "531"
-    DL_CLASS_CODE_E_TO = "532"
-    DL_CLASS_CODE_F_FROM = "533"
-    DL_CLASS_CODE_F_NOTES = "534"
-    DL_CLASS_CODE_F_TO = "535"
-    DL_CLASS_CODE_FA_FROM = "536"
-    DL_CLASS_CODE_FA_NOTES = "537"
-    DL_CLASS_CODE_FA_TO = "538"
-    DL_CLASS_CODE_FA1_FROM = "539"
-    DL_CLASS_CODE_FA1_NOTES = "540"
-    DL_CLASS_CODE_FA1_TO = "541"
-    DL_CLASS_CODE_FB_FROM = "542"
-    DL_CLASS_CODE_FB_NOTES = "543"
-    DL_CLASS_CODE_FB_TO = "544"
-    DL_CLASS_CODE_G1_FROM = "545"
-    DL_CLASS_CODE_G1_NOTES = "546"
-    DL_CLASS_CODE_G1_TO = "547"
-    DL_CLASS_CODE_H_FROM = "548"
-    DL_CLASS_CODE_H_NOTES = "549"
-    DL_CLASS_CODE_H_TO = "550"
-    DL_CLASS_CODE_I_FROM = "551"
-    DL_CLASS_CODE_I_NOTES = "552"
-    DL_CLASS_CODE_I_TO = "553"
-    DL_CLASS_CODE_K_FROM = "554"
-    DL_CLASS_CODE_K_NOTES = "555"
-    DL_CLASS_CODE_K_TO = "556"
-    DL_CLASS_CODE_LK_FROM = "557"
-    DL_CLASS_CODE_LK_NOTES = "558"
-    DL_CLASS_CODE_LK_TO = "559"
-    DL_CLASS_CODE_N_FROM = "560"
-    DL_CLASS_CODE_N_NOTES = "561"
-    DL_CLASS_CODE_N_TO = "562"
-    DL_CLASS_CODE_S_FROM = "563"
-    DL_CLASS_CODE_S_NOTES = "564"
-    DL_CLASS_CODE_S_TO = "565"
-    DL_CLASS_CODE_TB_FROM = "566"
-    DL_CLASS_CODE_TB_NOTES = "567"
-    DL_CLASS_CODE_TB_TO = "568"
-    DL_CLASS_CODE_TM_FROM = "569"
-    DL_CLASS_CODE_TM_NOTES = "570"
-    DL_CLASS_CODE_TM_TO = "571"
-    DL_CLASS_CODE_TR_FROM = "572"
-    DL_CLASS_CODE_TR_NOTES = "573"
-    DL_CLASS_CODE_TR_TO = "574"
-    DL_CLASS_CODE_TV_FROM = "575"
-    DL_CLASS_CODE_TV_NOTES = "576"
-    DL_CLASS_CODE_TV_TO = "577"
-    DL_CLASS_CODE_V_FROM = "578"
-    DL_CLASS_CODE_V_NOTES = "579"
-    DL_CLASS_CODE_V_TO = "580"
-    DL_CLASS_CODE_W_FROM = "581"
-    DL_CLASS_CODE_W_NOTES = "582"
-    DL_CLASS_CODE_W_TO = "583"
-    URL = "584"
-    CALIBER = "585"
-    MODEL = "586"
-    MAKE = "587"
-    NUMBER_OF_CYLINDERS = "588"
-    SURNAME_OF_HUSBAND_AFTER_REGISTRATION = "589"
-    SURNAME_OF_WIFE_AFTER_REGISTRATION = "590"
-    DATE_OF_BIRTH_OF_WIFE = "591"
-    DATE_OF_BIRTH_OF_HUSBAND = "592"
-    CITIZENSHIP_OF_FIRST_PERSON = "593"
-    CITIZENSHIP_OF_SECOND_PERSON = "594"
-    CVV = "595"
+    "Document class code"
+    DOCUMENT_CLASS_CODE = int("0")
+
+    "Issuing country document code in accordance with the standard ISO 3166-1 (ICAO, document 9303)"
+    ISSUING_STATE_CODE = int("1")
+
+    "Document number"
+    DOCUMENT_NUMBER = int("2")
+
+    "Document expiration date"
+    DATE_OF_EXPIRY = int("3")
+
+    "Date of issue"
+    DATE_OF_ISSUE = int("4")
+
+    "Date of birth"
+    DATE_OF_BIRTH = int("5")
+
+    "Place of birth"
+    PLACE_OF_BIRTH = int("6")
+
+    "Personal number"
+    PERSONAL_NUMBER = int("7")
+
+    "Surname"
+    SURNAME = int("8")
+
+    "Given name (names)"
+    GIVEN_NAME = int("9")
+
+    "Mother&#x60;s name"
+    MOTHERS_NAME = int("10")
+
+    "Nationality"
+    NATIONALITY = int("11")
+
+    "Sex"
+    SEX = int("12")
+
+    "Height"
+    HEIGHT = int("13")
+
+    "Weight"
+    WEIGHT = int("14")
+
+    "Eyes color"
+    EYES_COLOR = int("15")
+
+    "Hair color"
+    HAIR_COLOR = int("16")
+
+    "Address"
+    ADDRESS = int("17")
+
+    "Donation stamp"
+    DONOR = int("18")
+
+    "Social security number"
+    SOCIAL_SECURITY_NUMBER = int("19")
+
+    "Driving license class"
+    DL_CLASS = int("20")
+
+    "Driving license permission code"
+    DL_ENDORSED = int("21")
+
+    "Driving license restriction code"
+    DL_RESTRICTION_CODE = int("22")
+
+    "Date when the owner of the document turns 21 years old"
+    DL_UNDER_21_DATE = int("23")
+
+    "Document issuing authority"
+    AUTHORITY = int("24")
+
+    "Full name"
+    SURNAME_AND_GIVEN_NAMES = int("25")
+
+    "Nationality letter code according to standard ISO 3166-1 (ICAO doc 9303)"
+    NATIONALITY_CODE = int("26")
+
+    "Passport number (used in visas)"
+    PASSPORT_NUMBER = int("27")
+
+    "Invitation number (used in visas)"
+    INVITATION_NUMBER = int("28")
+
+    "Visa ID"
+    VISA_ID = int("29")
+
+    "Visa class"
+    VISA_CLASS = int("30")
+
+    "Visa subclass"
+    VISA_SUBCLASS = int("31")
+
+    "MRZ type"
+    MRZ_TYPE = int("35")
+
+    "Full name of the document class"
+    DOCUMENT_CLASS_NAME = int("37")
+
+    "Full name of issuing state"
+    ISSUING_STATE_NAME = int("38")
+
+    "Place of document issue"
+    PLACE_OF_ISSUE = int("39")
+
+    "Document number checksum"
+    DOCUMENT_NUMBER_CHECKSUM = int("40")
+
+    "Date of birth checksum"
+    DATE_OF_BIRTH_CHECKSUM = int("41")
+
+    "Date of document expiration checksum"
+    DATE_OF_EXPIRY_CHECKSUM = int("42")
+
+    "Personal number checksum"
+    PERSONAL_NUMBER_CHECKSUM = int("43")
+
+    "Final checksum"
+    FINAL_CHECKSUM = int("44")
+
+    "Passport number checksum (used in visas)"
+    PASSPORT_NUMBER_CHECKSUM = int("45")
+
+    "Invitation number checksum (used in visas)"
+    INVITATION_NUMBER_CHECKSUM = int("46")
+
+    "Visa identification number checksum"
+    VISA_ID_CHECKSUM = int("47")
+
+    "Full name checksum"
+    SURNAME_AND_GIVEN_NAME_CHECKSUM = int("48")
+
+    "Visa expiration date checksum"
+    VISA_VALID_UNTIL_CHECKSUM = int("49")
+
+    "Other information"
+    OTHER = int("50")
+
+    "MRZ strings"
+    MRZ_STRINGS = int("51")
+
+    "Name suffix"
+    NAME_SUFFIX = int("52")
+
+    "Name prefix"
+    NAME_PREFIX = int("53")
+
+    "Checksum for the date of issue of the document"
+    DATE_OF_ISSUE_CHECKSUM = int("54")
+
+    "Check digit for or the date of issue of the document"
+    DATE_OF_ISSUE_CHECK_DIGIT = int("55")
+
+    "Document series"
+    DOCUMENT_SERIES = int("56")
+
+    "Vehicle registration certificate number"
+    REG_CERT_REG_NUMBER = int("57")
+
+    "Vehicle model"
+    REG_CERT_CAR_MODEL = int("58")
+
+    "Vehicle color"
+    REG_CERT_CAR_COLOR = int("59")
+
+    "Vehicle body number"
+    REG_CERT_BODY_NUMBER = int("60")
+
+    "Vehicle type"
+    REG_CERT_CAR_TYPE = int("61")
+
+    "Vehicle GVWR"
+    REG_CERT_MAX_WEIGHT = int("62")
+
+    "Vehicle unladen weight"
+    REG_CERT_WEIGHT = int("63")
+
+    "Address (region)"
+    ADDRESS_AREA = int("64")
+
+    "Address (state)"
+    ADDRESS_STATE = int("65")
+
+    "Address (building number)"
+    ADDRESS_BUILDING = int("66")
+
+    "Address (house number)"
+    ADDRESS_HOUSE = int("67")
+
+    "Address (flat number)"
+    ADDRESS_FLAT = int("68")
+
+    "Place of registration"
+    PLACE_OF_REGISTRATION = int("69")
+
+    "Date of registration"
+    DATE_OF_REGISTRATION = int("70")
+
+    "Start date of residence"
+    RESIDENT_FROM = int("71")
+
+    "End date of residence"
+    RESIDENT_UNTIL = int("72")
+
+    "Issuing authority code"
+    AUTHORITY_CODE = int("73")
+
+    "Place of birth address (region)"
+    PLACE_OF_BIRTH_AREA = int("74")
+
+    "Place of birth address (state code)"
+    PLACE_OF_BIRTH_STATE_CODE = int("75")
+
+    "Address (street)"
+    ADDRESS_STREET = int("76")
+
+    "Address (city)"
+    ADDRESS_CITY = int("77")
+
+    "Address (tax code)"
+    ADDRESS_JURISDICTION_CODE = int("78")
+
+    "Address (postal code)"
+    ADDRESS_POSTAL_CODE = int("79")
+
+    "Check digit for document number"
+    DOCUMENT_NUMBER_CHECK_DIGIT = int("80")
+
+    "Check digit for date of birth"
+    DATE_OF_BIRTH_CHECK_DIGIT = int("81")
+
+    "Check digit for date of expiry"
+    DATE_OF_EXPIRY_CHECK_DIGIT = int("82")
+
+    "Check digit for personal number"
+    PERSONAL_NUMBER_CHECK_DIGIT = int("83")
+
+    "Final check digit for all MRZ"
+    FINAL_CHECK_DIGIT = int("84")
+
+    "Check digit for passport number (used in visas)"
+    PASSPORT_NUMBER_CHECK_DIGIT = int("85")
+
+    "Check digit for invitation number (used in visas)"
+    INVITATION_NUMBER_CHECK_DIGIT = int("86")
+
+    "Check digit for visa identification number"
+    VISA_ID_CHECK_DIGIT = int("87")
+
+    "Check digit for full name"
+    SURNAME_AND_GIVEN_NAMES_CHECK_DIGIT = int("88")
+
+    "Check digit for visa expiration date"
+    VISA_VALID_UNTIL_CHECK_DIGIT = int("89")
+
+    "Permit type"
+    PERMIT_DL_CLASS = int("90")
+
+    "Permit expiration date"
+    PERMIT_DATE_OF_EXPIRY = int("91")
+
+    "Permit identifier"
+    PERMIT_IDENTIFIER = int("92")
+
+    "Permit issue date"
+    PERMIT_DATE_OF_ISSUE = int("93")
+
+    "Driving restriction code"
+    PERMIT_RESTRICTION_CODE = int("94")
+
+    "Driving permit code"
+    PERMIT_ENDORSED = int("95")
+
+    "A string that is used to validate a document against a database"
+    ISSUE_TIMESTAMP = int("96")
+
+    "Number of duplicates"
+    NUMBER_OF_DUPLICATES = int("97")
+
+    "Medical indicator codes"
+    MEDICAL_INDICATOR_CODES = int("98")
+
+    "Non resident stamp"
+    NON_RESIDENT_INDICATOR = int("99")
+
+    "Visa type"
+    VISA_TYPE = int("100")
+
+    "Visa valid-from date"
+    VISA_VALID_FROM = int("101")
+
+    "Visa valid-until date"
+    VISA_VALID_UNTIL = int("102")
+
+    "Duration of stay on visa"
+    DURATION_OF_STAY = int("103")
+
+    "Number of entries"
+    NUMBER_OF_ENTRIES = int("104")
+
+    "Day in date"
+    DAY = int("105")
+
+    "Month in date"
+    MONTH = int("106")
+
+    "Year in date"
+    YEAR = int("107")
+
+    "Unique customer identifier"
+    UNIQUE_CUSTOMER_IDENTIFIER = int("108")
+
+    "Commercial vehicle code"
+    COMMERCIAL_VEHICLE_CODES = int("109")
+
+    "Also known as (date of birth)"
+    AKA_DATE_OF_BIRTH = int("110")
+
+    "Also known as (social security number)"
+    AKA_SOCIAL_SECURITY_NUMBER = int("111")
+
+    "Also known as (last name)"
+    AKA_SURNAME = int("112")
+
+    "Also known as (first name)"
+    AKA_GIVEN_NAMES = int("113")
+
+    "Also known as (name suffix)"
+    AKA_NAME_SUFFIX = int("114")
+
+    "Also known as (name prefix)"
+    AKA_NAME_PREFIX = int("115")
+
+    "Postal address (street)"
+    MAILING_ADDRESS_STREET = int("116")
+
+    "Postal address (city)"
+    MAILING_ADDRESS_CITY = int("117")
+
+    "Postal address (tax code)"
+    MAILING_ADDRESS_JURISDICTION_CODE = int("118")
+
+    "Postal address (zip)"
+    MAILING_ADDRESS_POSTAL_CODE = int("119")
+
+    "Driver license validation number"
+    AUDIT_INFORMATION = int("120")
+
+    "Inventory number"
+    INVENTORY_NUMBER = int("121")
+
+    "Race ethnicity"
+    RACE_ETHNICITY = int("122")
+
+    "Vehicle legal class"
+    JURISDICTION_VEHICLE_CLASS = int("123")
+
+    "Legal permission code"
+    JURISDICTION_ENDORSEMENT_CODE = int("124")
+
+    "Legal restriction code"
+    JURISDICTION_RESTRICTION_CODE = int("125")
+
+    "Surname and (or) name at birth"
+    FAMILY_NAME = int("126")
+
+    "Name (russian transcription)"
+    GIVEN_NAMES_RUS = int("127")
+
+    "Visa identification number (russian transcription)"
+    VISA_ID_RUS = int("128")
+
+    "Father&#x60;s name"
+    FATHERS_NAME = int("129")
+
+    "Father&#x60;s name (russian transcription)"
+    FATHERS_NAME_RUS = int("130")
+
+    "Full name (russian transcription)"
+    SURNAME_AND_GIVEN_NAME_RUS = int("131")
+
+    "Place of birth (russian transcription)"
+    PLACE_OF_BIRTH_RUS = int("132")
+
+    "Issuing authority (russian transcription)"
+    AUTHORITY_RUS = int("133")
+
+    "Digital code of the state of issue of the document in accordance with ISO 3166-1 (ICAO Doc 9303)"
+    ISSUING_STATE_CODE_NUMERIC = int("134")
+
+    "Digital code of nationality in accordance with ISO 3166-1 (ICAO Doc 9303)"
+    NATIONALITY_CODE_NUMERIC = int("135")
+
+    "Vehicle engine power"
+    ENGINE_POWER = int("136")
+
+    "Vehicle engine volume"
+    ENGINE_VOLUME = int("137")
+
+    "Vehicle chassis number"
+    CHASSIS_NUMBER = int("138")
+
+    "Vehicle engine number"
+    ENGINE_NUMBER = int("139")
+
+    "Vehicle engine model"
+    ENGINE_MODEL = int("140")
+
+    "Vehicle category"
+    VEHICLE_CATEGORY = int("141")
+
+    "Identity card number"
+    IDENTITY_CARD_NUMBER = int("142")
+
+    "Control number"
+    CONTROL_NUMBER = int("143")
+
+    "Parent names"
+    PARENTS_GIVEN_NAMES = int("144")
+
+    "Second last name"
+    SECOND_SURNAME = int("145")
+
+    "Middle name"
+    MIDDLE_NAME = int("146")
+
+    "Vehicle identification number"
+    REG_CERT_VIN = int("147")
+
+    "Check digit for vehicle identification number"
+    REG_CERT_VIN_CHECK_DIGIT = int("148")
+
+    "Checksum for vehicle identification number"
+    REG_CERT_VIN_CHECKSUM = int("149")
+
+    "Check digit of the first line of the MRZ"
+    LINE_1_CHECK_DIGIT = int("150")
+
+    "Check digit of the second line of the MRZ"
+    LINE_2_CHECK_DIGIT = int("151")
+
+    "Check digit of the third line of the MRZ"
+    LINE_3_CHECK_DIGIT = int("152")
+
+    "Checksum of the first line of the MRZ"
+    LINE_1_CHECKSUM = int("153")
+
+    "Checksum of the second line of the MRZ"
+    LINE_2_CHECKSUM = int("154")
+
+    "Checksum of the third line of the MRZ"
+    LINE_3_CHECKSUM = int("155")
+
+    "Check digit of the vehicle registration number"
+    REG_CERT_REG_NUMBER_CHECK_DIGIT = int("156")
+
+    "Checksum of the vehicle registration number"
+    REG_CERT_REG_NUMBER_CHECKSUM = int("157")
+
+    "Vehicle code in accordance with ITS (Intelligent Transport System)"
+    REG_CERT_VEHICLE_ITS_CODE = int("158")
+
+    "Card number for access to the RFID chip"
+    CARD_ACCESS_NUMBER = int("159")
+
+    "Marital status"
+    MARITAL_STATUS = int("160")
+
+    "Company name"
+    COMPANY_NAME = int("161")
+
+    "Special notes"
+    SPECIAL_NOTES = int("162")
+
+    "Spouse&#x60;s last name"
+    SURNAME_OF_SPOUSE = int("163")
+
+    "Document status tracking number"
+    TRACKING_NUMBER = int("164")
+
+    "Booklet number"
+    BOOKLET_NUMBER = int("165")
+
+    "Children"
+    CHILDREN = int("166")
+
+    "Copy number"
+    COPY_NUMBER = int("167")
+
+    "Serial number"
+    SERIAL_NUMBER = int("168")
+
+    "Dossier number"
+    DOSSIER_NUMBER = int("169")
+
+    "Also known as (full name)"
+    AKA_SURNAME_AND_GIVEN_NAMES = int("170")
+
+    "Territorial validity"
+    TERRITORIAL_VALIDITY = int("171")
+
+    "MRZ strings with correct checksums (calculated)"
+    MRZ_STRINGS_WITH_CORRECT_CHECK_SUMS = int("172")
+
+    "Restriction code for commercial driving license"
+    DL_CDL_RESTRICTION_CODE = int("173")
+
+    "Date the document holder turns 18 years old"
+    DL_UNDER_18_DATE = int("174")
+
+    "Record creation date"
+    DL_RECORD_CREATED = int("175")
+
+    "Duplicate creation date"
+    DL_DUPLICATE_DATE = int("176")
+
+    "Driving license type"
+    DL_ISSUE_TYPE = int("177")
+
+    "Military card number"
+    MILITARY_BOOK_NUMBER = int("178")
+
+    "Destination"
+    DESTINATION = int("179")
+
+    "Blood type"
+    BLOOD_GROUP = int("180")
+
+    "Sequence number"
+    SEQUENCE_NUMBER = int("181")
+
+    "Vehicle body type"
+    REG_CERT_BODY_TYPE = int("182")
+
+    "Make of vehicle"
+    REG_CERT_CAR_MARK = int("183")
+
+    "Transaction number"
+    TRANSACTION_NUMBER = int("184")
+
+    "Age"
+    AGE = int("185")
+
+    "Registration number (document on the record-keeping system)"
+    FOLIO_NUMBER = int("186")
+
+    "Voter personal number"
+    VOTER_KEY = int("187")
+
+    "Address (municipality)"
+    ADDRESS_MUNICIPALITY = int("188")
+
+    "Address (locality)"
+    ADDRESS_LOCATION = int("189")
+
+    "Domain/sector"
+    SECTION = int("190")
+
+    "OCR number"
+    OCR_NUMBER = int("191")
+
+    "Federal elections"
+    FEDERAL_ELECTIONS = int("192")
+
+    "Reference number"
+    REFERENCE_NUMBER = int("193")
+
+    "Optional data checksum"
+    OPTIONAL_DATA_CHECKSUM = int("194")
+
+    "Optional data check digit"
+    OPTIONAL_DATA_CHECK_DIGIT = int("195")
+
+    "Visa number"
+    VISA_NUMBER = int("196")
+
+    "Visa number checksum"
+    VISA_NUMBER_CHECKSUM = int("197")
+
+    "Visa number check digit"
+    VISA_NUMBER_CHECK_DIGIT = int("198")
+
+    "Voter"
+    VOTER = int("199")
+
+    "Type/number of previous document"
+    PREVIOUS_TYPE = int("200")
+
+    "Field from MRZ"
+    FIELD_FROM_MRZ = int("220")
+
+    "Current date"
+    CURRENT_DATE = int("221")
+
+    "Status expiration date"
+    STATUS_DATE_OF_EXPIRY = int("251")
+
+    "bank note number"
+    BANK_NOTE_NUMBER = int("252")
+
+    "Code of customer service center"
+    CSC_CODE = int("253")
+
+    "Pseudonym"
+    ARTISTIC_NAME = int("254")
+
+    "Academic rank"
+    ACADEMIC_TITLE = int("255")
+
+    "Address (country)"
+    ADDRESS_COUNTRY = int("256")
+
+    "Address (zip)"
+    ADDRESS_ZIP_CODE = int("257")
+
+    "Information on a permit for permanent residence 1 (field for eID)"
+    E_ID_RESIDENCE_PERMIT_1 = int("258")
+
+    "Information on a permit for permanent residence 2 (field for eID)"
+    E_ID_RESIDENCE_PERMIT_2 = int("259")
+
+    "Place of birth address: street (field for eID)"
+    E_ID_PLACE_OF_BIRTH_STREET = int("260")
+
+    "Place of birth address: city (field for eID)"
+    E_ID_PLACE_OF_BIRTH_CITY = int("261")
+
+    "Place of birth address: state (field for eID)"
+    E_ID_PLACE_OF_BIRTH_STATE = int("262")
+
+    "Place of birth address: country (field for eID)"
+    E_ID_PLACE_OF_BIRTH_COUNTRY = int("263")
+
+    "Place of birth address: zip (field for eID)"
+    E_ID_PLACE_OF_BIRTH_ZIP_CODE = int("264")
+
+    "Commercial driving license class"
+    CDL_CLASS = int("265")
+
+    "Date when the holder of the document is 19 years old"
+    DL_UNDER_19_DATE = int("266")
+
+    "Weight (pounds)"
+    WEIGHT_POUNDS = int("267")
+
+    "Document expiration indicator"
+    LIMITED_DURATION_DOCUMENT_INDICATOR = int("268")
+
+    "Driving license permit"
+    ENDORSEMENT_EXPIRATION_DATE = int("269")
+
+    "Revision date"
+    REVISION_DATE = int("270")
+
+    "Compliance type"
+    COMPLIANCE_TYPE = int("271")
+
+    "Abbreviated last name"
+    FAMILY_NAME_TRUNCATION = int("272")
+
+    "Abbreviated first name"
+    FIRST_NAME_TRUNCATION = int("273")
+
+    "Abbreviated middle name"
+    MIDDLE_NAME_TRUNCATION = int("274")
+
+    "Exam date"
+    EXAM_DATE = int("275")
+
+    "Organization"
+    ORGANIZATION = int("276")
+
+    "Department"
+    DEPARTMENT = int("277")
+
+    "Salary level"
+    PAY_GRADE = int("278")
+
+    "Rank/status/title"
+    RANK = int("279")
+
+    "Number confirming the right to receive benefits"
+    BENEFITS_NUMBER = int("280")
+
+    "Type of armed forces in which sponsor serves"
+    SPONSOR_SERVICE = int("281")
+
+    "Sponsor status"
+    SPONSOR_STATUS = int("282")
+
+    "Sponsor"
+    SPONSOR = int("283")
+
+    "Degree of kindred"
+    RELATIONSHIP = int("284")
+
+    "US Citizenship and Immigration Services Alien Registration Number"
+    USCIS = int("285")
+
+    "Category"
+    CATEGORY = int("286")
+
+    "Remainder term"
+    CONDITIONS = int("287")
+
+    "Conditions"
+    IDENTIFIER = int("288")
+
+    "Identifier"
+    CONFIGURATION = int("289")
+
+    "Configuration"
+    DISCRETIONARY_DATA = int("290")
+
+    "Optional data"
+    LINE_1_OPTIONAL_DATA = int("291")
+
+    "Optional data from MRZ first line"
+    LINE_2_OPTIONAL_DATA = int("292")
+
+    "Optional data from MRZ second line"
+    LINE_3_OPTIONAL_DATA = int("293")
+
+    "Optional data from MRZ third line"
+    EQV_CODE = int("294")
+
+    "EQV-code"
+    ALT_CODE = int("295")
+
+    "ALT-code"
+    BINARY_CODE = int("296")
+
+    "Binary code"
+    PSEUDO_CODE = int("297")
+
+    "Pseudo code"
+    FEE = int("298")
+
+    "Fee"
+    STAMP_NUMBER = int("299")
+
+    "Stamp number"
+    SBH_SECURITY_OPTIONS = int("300")
+
+    "Biometric data protection settings"
+    SBH_INTEGRITY_OPTIONS = int("301")
+
+    "Biometric data integrity parameters"
+    DATE_OF_CREATION = int("302")
+
+    "Biometric data creation date"
+    VALIDITY_PERIOD = int("303")
+
+    "Biometric data validity period"
+    PATRON_HEADER_VERSION = int("304")
+
+    "Biometric data header format version"
+    BDB_TYPE = int("305")
+
+    "Biometric data record type"
+    BIOMETRIC_TYPE = int("306")
+
+    "Biometric data type"
+    BIOMETRIC_SUBTYPE = int("307")
+
+    "Biometric data subtype"
+    BIOMETRIC_PRODUCT_ID = int("308")
+
+    "Biometric data id"
+    BIOMETRIC_FORMAT_OWNER = int("309")
+
+    "Biometric data format"
+    BIOMETRIC_FORMAT_TYPE = int("310")
+
+    "Phone number"
+    PHONE = int("311")
+
+    "Profession"
+    PROFESSION = int("312")
+
+    "Job position"
+    TITLE = int("313")
+
+    "Common personal data"
+    PERSONAL_SUMMARY = int("314")
+
+    "Other valid identifier"
+    OTHER_VALID_ID = int("315")
+
+    "Custody info"
+    CUSTODY_INFO = int("316")
+
+    "Other name"
+    OTHER_NAME = int("317")
+
+    "Additional data"
+    OBSERVATIONS = int("318")
+
+    "Tax information"
+    TAX = int("319")
+
+    "Document personalization date"
+    DATE_OF_PERSONALIZATION = int("320")
+
+    "Personalization serial number"
+    PERSONALIZATION_SN = int("321")
+
+    "Record creation date"
+    DATE_OF_RECORD = int("322")
+
+    "Date of creation of a record of persons for notification in case of unforeseen situations"
+    PERSON_TO_NOTIFY_DATE_OF_RECORD = int("323")
+
+    "Person name for contingency notification"
+    PERSON_TO_NOTIFY_NAME = int("324")
+
+    "Person phone for contingency notification"
+    PERSON_TO_NOTIFY_PHONE = int("325")
+
+    "Person address for contingency notification"
+    PERSON_TO_NOTIFY_ADDRESS = int("326")
+
+    "Text details of the organization issuing the DS certificate"
+    DS_CERTIFICATE_ISSUER = int("327")
+
+    "Text details of the organization issuing the document"
+    DS_CERTIFICATE_SUBJECT = int("328")
+
+    "DS-certificate start date"
+    DS_CERTIFICATE_VALID_FROM = int("329")
+
+    "DS-certificate expiration date"
+    DS_CERTIFICATE_VALID_TO = int("330")
+
+    "Vehicle category/restriction/conditions from data group DG1 of the eDL application"
+    VRC_DATA_OBJECT_ENTRY = int("331")
+
+    "Type confirmation number"
+    TYPE_APPROVAL_NUMBER = int("332")
+
+    "Administrative number"
+    ADMINISTRATIVE_NUMBER = int("333")
+
+    "Document discriminator"
+    DOCUMENT_DISCRIMINATOR = int("334")
+
+    "Data discriminator"
+    DATA_DISCRIMINATOR = int("335")
+
+    "ISO issuer identifier"
+    ISO_ISSUER_ID_NUMBER = int("336")
+
+    "The Garda National Immigration Bureau registration number"
+    GNIB_NUMBER = int("340")
+
+    "Department number"
+    DEPT_NUMBER = int("341")
+
+    "Telegraph code"
+    TELEX_CODE = int("342")
+
+    "Allergies"
+    ALLERGIES = int("343")
+
+    "Sp-code"
+    SP_CODE = int("344")
+
+    "Court restriction code"
+    COURT_CODE = int("345")
+
+    "County code"
+    CTY = int("346")
+
+    "Sponsor social security number"
+    SPONSOR_SSN = int("347")
+
+    "Military identification number"
+    DOD_NUMBER = int("348")
+
+    "Novice driver until ... (date)"
+    MC_NOVICE_DATE = int("349")
+
+    "Registration number in the computer system of the Norwegian Directorate of Immigration (the UDI)"
+    DUF_NUMBER = int("350")
+
+    "Philippines Traffic Police Unit Code"
+    AGY = int("351")
+
+    "PNR-code (book number)"
+    PNR_CODE = int("352")
+
+    "Departure airport code"
+    FROM_AIRPORT_CODE = int("353")
+
+    "Arrival airport code"
+    TO_AIRPORT_CODE = int("354")
+
+    "Flight number"
+    FLIGHT_NUMBER = int("355")
+
+    "Departure date"
+    DATE_OF_FLIGHT = int("356")
+
+    "Seat number"
+    SEAT_NUMBER = int("357")
+
+    "Boarding pass issue date"
+    DATE_OF_ISSUE_BOARDING_PASS = int("358")
+
+    "Hidden weapons license,  valid until... (date)"
+    CCW_UNTIL = int("359")
+
+    "Reference number checksum"
+    REFERENCE_NUMBER_CHECKSUM = int("360")
+
+    "Reference number check digit"
+    REFERENCE_NUMBER_CHECK_DIGIT = int("361")
+
+    "Room number"
+    ROOM_NUMBER = int("362")
+
+    "Religion"
+    RELIGION = int("363")
+
+    "Number of months before the due date expiration of a document"
+    REMAINDER_TERM = int("364")
+
+    "Electronic ticket indicator"
+    ELECTRONIC_TICKET_INDICATOR = int("365")
+
+    "Free baggage allowance"
+    COMPARTMENT_CODE = int("366")
+
+    "Frequent flyer number"
+    CHECK_IN_SEQUENCE_NUMBER = int("367")
+
+    "Airline frequent flyer indicator"
+    AIRLINE_DESIGNATOR_OF_BOARDING_PASS_ISSUER = int("368")
+
+    "Ticket number"
+    AIRLINE_NUMERIC_CODE = int("369")
+
+    "Airline numeric code"
+    TICKET_NUMBER = int("370")
+
+    "Boarding pass issuer code"
+    FREQUENT_FLYER_AIRLINE_DESIGNATOR = int("371")
+
+    "Check-in sequence number"
+    FREQUENT_FLYER_NUMBER = int("372")
+
+    "Compartment code"
+    FREE_BAGGAGE_ALLOWANCE = int("373")
+
+    "PDF417 codec"
+    PDF_417_CODEC = int("374")
+
+    "identity card checksum"
+    IDENTITY_CARD_NUMBER_CHECKSUM = int("375")
+
+    "identity card check digit"
+    IDENTITY_CARD_NUMBER_CHECK_DIGIT = int("376")
+
+    "Veteran"
+    VETERAN = int("377")
+
+    "Validity date of A1 driver’s license"
+    DL_CLASS_CODE_A1_FROM = int("378")
+
+    "Expiration date of A1 driver’s license"
+    DL_CLASS_CODE_A1_TO = int("379")
+
+    "Restrictions for A1 driver’s license"
+    DL_CLASS_CODE_A1_NOTES = int("380")
+
+    "Validity date of A driver’s license"
+    DL_CLASS_CODE_A_FROM = int("381")
+
+    "Expiration date of A driver’s license"
+    DL_CLASS_CODE_A_TO = int("382")
+
+    "Restrictions for A driver’s license"
+    DL_CLASS_CODE_A_NOTES = int("383")
+
+    "Validity date of B driver’s license"
+    DL_CLASS_CODE_B_FROM = int("384")
+
+    "Expiration date of B driver’s license"
+    DL_CLASS_CODE_B_TO = int("385")
+
+    "Restrictions for B driver’s license"
+    DL_CLASS_CODE_B_NOTES = int("386")
+
+    "Validity date of C1 driver’s license"
+    DL_CLASS_CODE_C1_FROM = int("387")
+
+    "Expiration date of C1 driver’s license"
+    DL_CLASS_CODE_C1_TO = int("388")
+
+    "Restrictions for C1 driver’s license"
+    DL_CLASS_CODE_C1_NOTES = int("389")
+
+    "Validity date of C driver’s license"
+    DL_CLASS_CODE_C_FROM = int("390")
+
+    "Expiration date of C driver’s license"
+    DL_CLASS_CODE_C_TO = int("391")
+
+    "Restrictions for C driver’s license"
+    DL_CLASS_CODE_C_NOTES = int("392")
+
+    "Validity date of D1 driver’s license"
+    DL_CLASS_CODE_D1_FROM = int("393")
+
+    "Expiration date of D1 driver’s license"
+    DL_CLASS_CODE_D1_TO = int("394")
+
+    "Restrictions for D1 driver’s license"
+    DL_CLASS_CODE_D1_NOTES = int("395")
+
+    "Validity date of D driver’s license"
+    DL_CLASS_CODE_D_FROM = int("396")
+
+    "Expiration date of D driver’s license"
+    DL_CLASS_CODE_D_TO = int("397")
+
+    "Restrictions for D driver’s license"
+    DL_CLASS_CODE_D_NOTES = int("398")
+
+    "Validity date of BE driver’s license"
+    DL_CLASS_CODE_BE_FROM = int("399")
+
+    "Expiration date of BE driver’s license"
+    DL_CLASS_CODE_BE_TO = int("400")
+
+    "Restrictions for BE driver’s license"
+    DL_CLASS_CODE_BE_NOTES = int("401")
+
+    "Validity date of C1E driver’s license"
+    DL_CLASS_CODE_C1E_FROM = int("402")
+
+    "Expiration date of C1E driver’s license"
+    DL_CLASS_CODE_C1E_TO = int("403")
+
+    "Restrictions for C1E driver’s license"
+    DL_CLASS_CODE_C1E_NOTES = int("404")
+
+    "Validity date of CE driver’s license"
+    DL_CLASS_CODE_CE_FROM = int("405")
+
+    "Expiration date of CE driver’s license"
+    DL_CLASS_CODE_CE_TO = int("406")
+
+    "Restrictions for CE driver’s license"
+    DL_CLASS_CODE_CE_NOTES = int("407")
+
+    "Validity date of D1E driver’s license"
+    DL_CLASS_CODE_D1E_FROM = int("408")
+
+    "Expiration date of D1E driver’s license"
+    DL_CLASS_CODE_D1E_TO = int("409")
+
+    "Restrictions for D1E driver’s license"
+    DL_CLASS_CODE_D1E_NOTES = int("410")
+
+    "Validity date of DE driver’s license"
+    DL_CLASS_CODE_DE_FROM = int("411")
+
+    "Expiration date of DE driver’s license"
+    DL_CLASS_CODE_DE_TO = int("412")
+
+    "Restrictions for DE driver’s license"
+    DL_CLASS_CODE_DE_NOTES = int("413")
+
+    "Validity date of M driver’s license"
+    DL_CLASS_CODE_M_FROM = int("414")
+
+    "Expiration date of M driver’s license"
+    DL_CLASS_CODE_M_TO = int("415")
+
+    "Restrictions for M driver’s license"
+    DL_CLASS_CODE_M_NOTES = int("416")
+
+    "Validity date of L driver’s license"
+    DL_CLASS_CODE_L_FROM = int("417")
+
+    "Expiration date of L driver’s license"
+    DL_CLASS_CODE_L_TO = int("418")
+
+    "Restrictions for L driver’s license"
+    DL_CLASS_CODE_L_NOTES = int("419")
+
+    "Validity date of T driver’s license"
+    DL_CLASS_CODE_T_FROM = int("420")
+
+    "Expiration date of T driver’s license"
+    DL_CLASS_CODE_T_TO = int("421")
+
+    "Restrictions for T driver’s license"
+    DL_CLASS_CODE_T_NOTES = int("422")
+
+    "Validity date of AM driver’s license"
+    DL_CLASS_CODE_AM_FROM = int("423")
+
+    "Expiration date of AM driver’s license"
+    DL_CLASS_CODE_AM_TO = int("424")
+
+    "Restrictions for AM driver’s license"
+    DL_CLASS_CODE_AM_NOTES = int("425")
+
+    "Validity date of A2 driver’s license"
+    DL_CLASS_CODE_A2_FROM = int("426")
+
+    "Expiration date of A2 driver’s license"
+    DL_CLASS_CODE_A2_TO = int("427")
+
+    "Restrictions for A2 driver’s license"
+    DL_CLASS_CODE_A2_NOTES = int("428")
+
+    "Validity date of B1 driver’s license"
+    DL_CLASS_CODE_B1_FROM = int("429")
+
+    "Expiration date of B1 driver’s license"
+    DL_CLASS_CODE_B1_TO = int("430")
+
+    "Restrictions for B1 driver’s license"
+    DL_CLASS_CODE_B1_NOTES = int("431")
+
+    "Last name at birth"
+    SURNAME_AT_BIRTH = int("432")
+
+    "Civil status"
+    CIVIL_STATUS = int("433")
+
+    "Number of seats"
+    NUMBER_OF_SEATS = int("434")
+
+    "Number of standing places"
+    NUMBER_OF_STANDING_PLACES = int("435")
+
+    "Max speed"
+    MAX_SPEED = int("436")
+
+    "Fuel type"
+    FUEL_TYPE = int("437")
+
+    "Vehicle emission class"
+    EC_ENVIRONMENTAL_TYPE = int("438")
+
+    "Engine power-to-weight ratio"
+    POWER_WEIGHT_RATIO = int("439")
+
+    "Trailer with brakes maximum weight"
+    MAX_MASS_OF_TRAILER_BRAKED = int("440")
+
+    "Trailer without brakes maximum weight"
+    MAX_MASS_OF_TRAILER_UNBRAKED = int("441")
+
+    "Transmission type"
+    TRANSMISSION_TYPE = int("442")
+
+    "Trailer equipment"
+    TRAILER_HITCH = int("443")
+
+    "Accompanying person"
+    ACCOMPANIED_BY = int("444")
+
+    "Police district"
+    POLICE_DISTRICT = int("445")
+
+    "Date of document first issue"
+    FIRST_ISSUE_DATE = int("446")
+
+    "Maximum payload"
+    PAYLOAD_CAPACITY = int("447")
+
+    "Number of axles"
+    NUMBER_OF_AXLES = int("448")
+
+    "Axle weight limit"
+    PERMISSIBLE_AXLE_LOAD = int("449")
+
+    "Precinct"
+    PRECINCT = int("450")
+
+    "Inviter"
+    INVITED_BY = int("451")
+
+    "Purpose of arrival"
+    PURPOSE_OF_ENTRY = int("452")
+
+    "Skin color"
+    SKIN_COLOR = int("453")
+
+    "Complexion"
+    COMPLEXION = int("454")
+
+    "Departure airport"
+    AIRPORT_FROM = int("455")
+
+    "Arrival airport"
+    AIRPORT_TO = int("456")
+
+    "Airline name"
+    AIRLINE_NAME = int("457")
+
+    "Airline bonus program for frequent flyers"
+    AIRLINE_NAME_FREQUENT_FLYER = int("458")
+
+    "License number"
+    LICENSE_NUMBER = int("459")
+
+    "In tanks"
+    IN_TANKS = int("460")
+
+    "Other than tanks"
+    EXCEPT_IN_TANKS = int("461")
+
+    "Passenger with fast track priority (express formal procedures at the airport)"
+    FAST_TRACK = int("462")
+
+    "Owner"
+    OWNER = int("463")
+
+    "MRZ strings from ICAO RFID"
+    MRZ_STRINGS_ICAO_RFID = int("464")
+
+    "Number of card issues with this number"
+    NUMBER_OF_CARD_ISSUANCE = int("465")
+
+    "Card issues count checksum"
+    NUMBER_OF_CARD_ISSUANCE_CHECKSUM = int("466")
+
+    "Card issues count check digit"
+    NUMBER_OF_CARD_ISSUANCE_CHECK_DIGIT = int("467")
+
+    "Birth century"
+    CENTURY_DATE_OF_BIRTH = int("468")
+
+    "Validity date of A3 driver’s license"
+    DL_CLASS_CODE_A3_FROM = int("469")
+
+    "Expiration date of A3 driver’s license"
+    DL_CLASS_CODE_A3_TO = int("470")
+
+    "Restrictions for A3 driver’s license"
+    DL_CLASS_CODE_A3_NOTES = int("471")
+
+    "Validity date of C2 driver’s license"
+    DL_CLASS_CODE_C2_FROM = int("472")
+
+    "Expiration date of C2 driver’s license"
+    DL_CLASS_CODE_C2_TO = int("473")
+
+    "Restrictions for C2 driver’s license"
+    DL_CLASS_CODE_C2_NOTES = int("474")
+
+    "Validity date of B2 driver’s license"
+    DL_CLASS_CODE_B2_FROM = int("475")
+
+    "Expiration date of B2 driver’s license"
+    DL_CLASS_CODE_B2_TO = int("476")
+
+    "Restrictions for B2 driver’s license"
+    DL_CLASS_CODE_B2_NOTES = int("477")
+
+    "Validity date of D2 driver’s license"
+    DL_CLASS_CODE_D2_FROM = int("478")
+
+    "Expiration date of D2 driver’s license"
+    DL_CLASS_CODE_D2_TO = int("479")
+
+    "Restrictions for D2 driver’s license"
+    DL_CLASS_CODE_D2_NOTES = int("480")
+
+    "Validity date of B2E driver’s license"
+    DL_CLASS_CODE_B2E_FROM = int("481")
+
+    "Expiration date of B2E driver’s license"
+    DL_CLASS_CODE_B2E_TO = int("482")
+
+    "Restrictions for B2E driver’s license"
+    DL_CLASS_CODE_B2E_NOTES = int("483")
+
+    "Validity date of G driver’s license"
+    DL_CLASS_CODE_G_FROM = int("484")
+
+    "Expiration date of G driver’s license"
+    DL_CLASS_CODE_G_TO = int("485")
+
+    "Restrictions for G driver’s license"
+    DL_CLASS_CODE_G_NOTES = int("486")
+
+    "Validity date of J driver’s license"
+    DL_CLASS_CODE_J_FROM = int("487")
+
+    "Expiration date of J driver’s license"
+    DL_CLASS_CODE_J_TO = int("488")
+
+    "Restrictions for J driver’s license"
+    DL_CLASS_CODE_J_NOTES = int("489")
+
+    "Validity date of LC driver’s license"
+    DL_CLASS_CODE_LC_FROM = int("490")
+
+    "Expiration date of LC driver’s license"
+    DL_CLASS_CODE_LC_TO = int("491")
+
+    "Restrictions for LC driver’s license"
+    DL_CLASS_CODE_LC_NOTES = int("492")
+
+    "Bank card number"
+    BANK_CARD_NUMBER = int("493")
+
+    "Bank card validity"
+    BANK_CARD_VALID_THRU = int("494")
+
+    "Tax number"
+    TAX_NUMBER = int("495")
+
+    "Health insurance number"
+    HEALTH_NUMBER = int("496")
+
+    "Grandfather&#x60;s name"
+    GRANDFATHER_NAME = int("497")
+
+    "Recruit indicator"
+    SELECTEE_INDICATOR = int("498")
+
+    "Mother&#x60;s last name"
+    MOTHER_SURNAME = int("499")
+
+    "Mother&#x60;s first name"
+    MOTHER_GIVEN_NAME = int("500")
+
+    "Father&#x60;s last name"
+    FATHER_SURNAME = int("501")
+
+    "Father&#x60;s first name"
+    FATHER_GIVEN_NAME = int("502")
+
+    "Mother&#x60;s date of birth"
+    MOTHER_DATE_OF_BIRTH = int("503")
+
+    "Father&#x60;s date of birth"
+    FATHER_DATE_OF_BIRTH = int("504")
+
+    "Mother&#x60;s personal number"
+    MOTHER_PERSONAL_NUMBER = int("505")
+
+    "Father&#x60;s personal number"
+    FATHER_PERSONAL_NUMBER = int("506")
+
+    "Mother&#x60;s place of birth"
+    MOTHER_PLACE_OF_BIRTH = int("507")
+
+    "Father&#x60;s place of birth"
+    FATHER_PLACE_OF_BIRTH = int("508")
+
+    "Mother&#x60;s country of birth"
+    MOTHER_COUNTRY_OF_BIRTH = int("509")
+
+    "Father&#x60;s country of birth"
+    FATHER_COUNTRY_OF_BIRTH = int("510")
+
+    "Date of document first renewal"
+    DATE_FIRST_RENEWAL = int("511")
+
+    "Date of document second renewal"
+    DATE_SECOND_RENEWAL = int("512")
+
+    "Place of examination"
+    PLACE_OF_EXAMINATION = int("513")
+
+    "Application number"
+    APPLICATION_NUMBER = int("514")
+
+    "Voucher number"
+    VOUCHER_NUMBER = int("515")
+
+    "Authorization number"
+    AUTHORIZATION_NUMBER = int("516")
+
+    "Faculty"
+    FACULTY = int("517")
+
+    "Form of education"
+    FORM_OF_EDUCATION = int("518")
+
+    "DNI number"
+    DNI_NUMBER = int("519")
+
+    "Retirement number"
+    RETIREMENT_NUMBER = int("520")
+
+    "Professional id number"
+    PROFESSIONAL_ID_NUMBER = int("521")
+
+    "Age at issue"
+    AGE_AT_ISSUE = int("522")
+
+    "Years since issue"
+    YEARS_SINCE_ISSUE = int("523")
+
+    "Validity date of BTP driver’s license"
+    DL_CLASS_CODE_BTP_FROM = int("524")
+
+    "Restrictions for BTP driver’s license"
+    DL_CLASS_CODE_BTP_NOTES = int("525")
+
+    "Expiration date of BTP driver’s license"
+    DL_CLASS_CODE_BTP_TO = int("526")
+
+    "Validity date of C3 driver’s license"
+    DL_CLASS_CODE_C3_FROM = int("527")
+
+    "Restrictions for C3 driver’s license"
+    DL_CLASS_CODE_C3_NOTES = int("528")
+
+    "Expiration date of C3 driver’s license"
+    DL_CLASS_CODE_C3_TO = int("529")
+
+    "Validity date of E driver’s license"
+    DL_CLASS_CODE_E_FROM = int("530")
+
+    "Restrictions for E driver’s license"
+    DL_CLASS_CODE_E_NOTES = int("531")
+
+    "Expiration date of E driver’s license"
+    DL_CLASS_CODE_E_TO = int("532")
+
+    "Validity date of F driver’s license"
+    DL_CLASS_CODE_F_FROM = int("533")
+
+    "Restrictions for F driver’s license"
+    DL_CLASS_CODE_F_NOTES = int("534")
+
+    "Expiration date of F driver’s license"
+    DL_CLASS_CODE_F_TO = int("535")
+
+    "Validity date of FA driver’s license"
+    DL_CLASS_CODE_FA_FROM = int("536")
+
+    "Restrictions for FA driver’s license"
+    DL_CLASS_CODE_FA_NOTES = int("537")
+
+    "Expiration date of FA driver’s license"
+    DL_CLASS_CODE_FA_TO = int("538")
+
+    "Validity date of FA1 driver’s license"
+    DL_CLASS_CODE_FA1_FROM = int("539")
+
+    "Restrictions for FA1 driver’s license"
+    DL_CLASS_CODE_FA1_NOTES = int("540")
+
+    "Expiration date of FA1 driver’s license"
+    DL_CLASS_CODE_FA1_TO = int("541")
+
+    "Validity date of FB driver’s license"
+    DL_CLASS_CODE_FB_FROM = int("542")
+
+    "Restrictions for FB driver’s license"
+    DL_CLASS_CODE_FB_NOTES = int("543")
+
+    "Expiration date of FB driver’s license"
+    DL_CLASS_CODE_FB_TO = int("544")
+
+    "Validity date of G1 driver’s license"
+    DL_CLASS_CODE_G1_FROM = int("545")
+
+    "Restrictions for G1 driver’s license"
+    DL_CLASS_CODE_G1_NOTES = int("546")
+
+    "Expiration date of G1 driver’s license"
+    DL_CLASS_CODE_G1_TO = int("547")
+
+    "Validity date of H driver’s license"
+    DL_CLASS_CODE_H_FROM = int("548")
+
+    "Restrictions for H driver’s license"
+    DL_CLASS_CODE_H_NOTES = int("549")
+
+    "Expiration date of H driver’s license"
+    DL_CLASS_CODE_H_TO = int("550")
+
+    "Validity date of I driver’s license"
+    DL_CLASS_CODE_I_FROM = int("551")
+
+    "Restrictions for I driver’s license"
+    DL_CLASS_CODE_I_NOTES = int("552")
+
+    "Expiration date of I driver’s license"
+    DL_CLASS_CODE_I_TO = int("553")
+
+    "Validity date of K driver’s license"
+    DL_CLASS_CODE_K_FROM = int("554")
+
+    "Restrictions for K driver’s license"
+    DL_CLASS_CODE_K_NOTES = int("555")
+
+    "Expiration date of K driver’s license"
+    DL_CLASS_CODE_K_TO = int("556")
+
+    "Validity date of LK driver’s license"
+    DL_CLASS_CODE_LK_FROM = int("557")
+
+    "Restrictions for LK driver’s license"
+    DL_CLASS_CODE_LK_NOTES = int("558")
+
+    "Expiration date of LK driver’s license"
+    DL_CLASS_CODE_LK_TO = int("559")
+
+    "Validity date of N driver’s license"
+    DL_CLASS_CODE_N_FROM = int("560")
+
+    "Restrictions for N driver’s license"
+    DL_CLASS_CODE_N_NOTES = int("561")
+
+    "Expiration date of N driver’s license"
+    DL_CLASS_CODE_N_TO = int("562")
+
+    "Validity date of S driver’s license"
+    DL_CLASS_CODE_S_FROM = int("563")
+
+    "Restrictions for S driver’s license"
+    DL_CLASS_CODE_S_NOTES = int("564")
+
+    "Expiration date of S driver’s license"
+    DL_CLASS_CODE_S_TO = int("565")
+
+    "Validity date of TB driver’s license"
+    DL_CLASS_CODE_TB_FROM = int("566")
+
+    "Restrictions for TB driver’s license"
+    DL_CLASS_CODE_TB_NOTES = int("567")
+
+    "Expiration date of TB driver’s license"
+    DL_CLASS_CODE_TB_TO = int("568")
+
+    "Validity date of TM driver’s license"
+    DL_CLASS_CODE_TM_FROM = int("569")
+
+    "Restrictions for TM driver’s license"
+    DL_CLASS_CODE_TM_NOTES = int("570")
+
+    "Expiration date of TM driver’s license"
+    DL_CLASS_CODE_TM_TO = int("571")
+
+    "Validity date of TR driver’s license"
+    DL_CLASS_CODE_TR_FROM = int("572")
+
+    "Restrictions for TR driver’s license"
+    DL_CLASS_CODE_TR_NOTES = int("573")
+
+    "Expiration date of TR driver’s license"
+    DL_CLASS_CODE_TR_TO = int("574")
+
+    "Validity date of TV driver’s license"
+    DL_CLASS_CODE_TV_FROM = int("575")
+
+    "Restrictions for TV driver’s license"
+    DL_CLASS_CODE_TV_NOTES = int("576")
+
+    "Expiration date of TV driver’s license"
+    DL_CLASS_CODE_TV_TO = int("577")
+
+    "Validity date of V driver’s license"
+    DL_CLASS_CODE_V_FROM = int("578")
+
+    "Restrictions for V driver’s license"
+    DL_CLASS_CODE_V_NOTES = int("579")
+
+    "Expiration date of V driver’s license"
+    DL_CLASS_CODE_V_TO = int("580")
+
+    "Validity date of W driver’s license"
+    DL_CLASS_CODE_W_FROM = int("581")
+
+    "Restrictions for W driver’s license"
+    DL_CLASS_CODE_W_NOTES = int("582")
+
+    "Expiration date of W driver’s license"
+    DL_CLASS_CODE_W_TO = int("583")
+
+    "URL"
+    URL = int("584")
+
+    "Caliber"
+    CALIBER = int("585")
+
+    "Model"
+    MODEL = int("586")
+
+    "Make"
+    MAKE = int("587")
+
+    "Number of cylinders"
+    NUMBER_OF_CYLINDERS = int("588")
+
+    "Surname of husband after registration"
+    SURNAME_OF_HUSBAND_AFTER_REGISTRATION = int("589")
+
+    "Surname of wife after registration"
+    SURNAME_OF_WIFE_AFTER_REGISTRATION = int("590")
+
+    "Date of birth of wife"
+    DATE_OF_BIRTH_OF_WIFE = int("591")
+
+    "Date of birth of husband"
+    DATE_OF_BIRTH_OF_HUSBAND = int("592")
+
+    "Citizenship of first person"
+    CITIZENSHIP_OF_FIRST_PERSON = int("593")
+
+    "Citizenship of second person"
+    CITIZENSHIP_OF_SECOND_PERSON = int("594")
+
+    "CVV code"
+    CVV = int("595")
 
     allowable_values = [DOCUMENT_CLASS_CODE, ISSUING_STATE_CODE, DOCUMENT_NUMBER, DATE_OF_EXPIRY, DATE_OF_ISSUE, DATE_OF_BIRTH, PLACE_OF_BIRTH, PERSONAL_NUMBER, SURNAME, GIVEN_NAME, MOTHERS_NAME, NATIONALITY, SEX, HEIGHT, WEIGHT, EYES_COLOR, HAIR_COLOR, ADDRESS, DONOR, SOCIAL_SECURITY_NUMBER, DL_CLASS, DL_ENDORSED, DL_RESTRICTION_CODE, DL_UNDER_21_DATE, AUTHORITY, SURNAME_AND_GIVEN_NAMES, NATIONALITY_CODE, PASSPORT_NUMBER, INVITATION_NUMBER, VISA_ID, VISA_CLASS, VISA_SUBCLASS, MRZ_TYPE, DOCUMENT_CLASS_NAME, ISSUING_STATE_NAME, PLACE_OF_ISSUE, DOCUMENT_NUMBER_CHECKSUM, DATE_OF_BIRTH_CHECKSUM, DATE_OF_EXPIRY_CHECKSUM, PERSONAL_NUMBER_CHECKSUM, FINAL_CHECKSUM, PASSPORT_NUMBER_CHECKSUM, INVITATION_NUMBER_CHECKSUM, VISA_ID_CHECKSUM, SURNAME_AND_GIVEN_NAME_CHECKSUM, VISA_VALID_UNTIL_CHECKSUM, OTHER, MRZ_STRINGS, NAME_SUFFIX, NAME_PREFIX, DATE_OF_ISSUE_CHECKSUM, DATE_OF_ISSUE_CHECK_DIGIT, DOCUMENT_SERIES, REG_CERT_REG_NUMBER, REG_CERT_CAR_MODEL, REG_CERT_CAR_COLOR, REG_CERT_BODY_NUMBER, REG_CERT_CAR_TYPE, REG_CERT_MAX_WEIGHT, REG_CERT_WEIGHT, ADDRESS_AREA, ADDRESS_STATE, ADDRESS_BUILDING, ADDRESS_HOUSE, ADDRESS_FLAT, PLACE_OF_REGISTRATION, DATE_OF_REGISTRATION, RESIDENT_FROM, RESIDENT_UNTIL, AUTHORITY_CODE, PLACE_OF_BIRTH_AREA, PLACE_OF_BIRTH_STATE_CODE, ADDRESS_STREET, ADDRESS_CITY, ADDRESS_JURISDICTION_CODE, ADDRESS_POSTAL_CODE, DOCUMENT_NUMBER_CHECK_DIGIT, DATE_OF_BIRTH_CHECK_DIGIT, DATE_OF_EXPIRY_CHECK_DIGIT, PERSONAL_NUMBER_CHECK_DIGIT, FINAL_CHECK_DIGIT, PASSPORT_NUMBER_CHECK_DIGIT, INVITATION_NUMBER_CHECK_DIGIT, VISA_ID_CHECK_DIGIT, SURNAME_AND_GIVEN_NAMES_CHECK_DIGIT, VISA_VALID_UNTIL_CHECK_DIGIT, PERMIT_DL_CLASS, PERMIT_DATE_OF_EXPIRY, PERMIT_IDENTIFIER, PERMIT_DATE_OF_ISSUE, PERMIT_RESTRICTION_CODE, PERMIT_ENDORSED, ISSUE_TIMESTAMP, NUMBER_OF_DUPLICATES, MEDICAL_INDICATOR_CODES, NON_RESIDENT_INDICATOR, VISA_TYPE, VISA_VALID_FROM, VISA_VALID_UNTIL, DURATION_OF_STAY, NUMBER_OF_ENTRIES, DAY, MONTH, YEAR, UNIQUE_CUSTOMER_IDENTIFIER, COMMERCIAL_VEHICLE_CODES, AKA_DATE_OF_BIRTH, AKA_SOCIAL_SECURITY_NUMBER, AKA_SURNAME, AKA_GIVEN_NAMES, AKA_NAME_SUFFIX, AKA_NAME_PREFIX, MAILING_ADDRESS_STREET, MAILING_ADDRESS_CITY, MAILING_ADDRESS_JURISDICTION_CODE, MAILING_ADDRESS_POSTAL_CODE, AUDIT_INFORMATION, INVENTORY_NUMBER, RACE_ETHNICITY, JURISDICTION_VEHICLE_CLASS, JURISDICTION_ENDORSEMENT_CODE, JURISDICTION_RESTRICTION_CODE, FAMILY_NAME, GIVEN_NAMES_RUS, VISA_ID_RUS, FATHERS_NAME, FATHERS_NAME_RUS, SURNAME_AND_GIVEN_NAME_RUS, PLACE_OF_BIRTH_RUS, AUTHORITY_RUS, ISSUING_STATE_CODE_NUMERIC, NATIONALITY_CODE_NUMERIC, ENGINE_POWER, ENGINE_VOLUME, CHASSIS_NUMBER, ENGINE_NUMBER, ENGINE_MODEL, VEHICLE_CATEGORY, IDENTITY_CARD_NUMBER, CONTROL_NUMBER, PARENTS_GIVEN_NAMES, SECOND_SURNAME, MIDDLE_NAME, REG_CERT_VIN, REG_CERT_VIN_CHECK_DIGIT, REG_CERT_VIN_CHECKSUM, LINE_1_CHECK_DIGIT, LINE_2_CHECK_DIGIT, LINE_3_CHECK_DIGIT, LINE_1_CHECKSUM, LINE_2_CHECKSUM, LINE_3_CHECKSUM, REG_CERT_REG_NUMBER_CHECK_DIGIT, REG_CERT_REG_NUMBER_CHECKSUM, REG_CERT_VEHICLE_ITS_CODE, CARD_ACCESS_NUMBER, MARITAL_STATUS, COMPANY_NAME, SPECIAL_NOTES, SURNAME_OF_SPOUSE, TRACKING_NUMBER, BOOKLET_NUMBER, CHILDREN, COPY_NUMBER, SERIAL_NUMBER, DOSSIER_NUMBER, AKA_SURNAME_AND_GIVEN_NAMES, TERRITORIAL_VALIDITY, MRZ_STRINGS_WITH_CORRECT_CHECK_SUMS, DL_CDL_RESTRICTION_CODE, DL_UNDER_18_DATE, DL_RECORD_CREATED, DL_DUPLICATE_DATE, DL_ISSUE_TYPE, MILITARY_BOOK_NUMBER, DESTINATION, BLOOD_GROUP, SEQUENCE_NUMBER, REG_CERT_BODY_TYPE, REG_CERT_CAR_MARK, TRANSACTION_NUMBER, AGE, FOLIO_NUMBER, VOTER_KEY, ADDRESS_MUNICIPALITY, ADDRESS_LOCATION, SECTION, OCR_NUMBER, FEDERAL_ELECTIONS, REFERENCE_NUMBER, OPTIONAL_DATA_CHECKSUM, OPTIONAL_DATA_CHECK_DIGIT, VISA_NUMBER, VISA_NUMBER_CHECKSUM, VISA_NUMBER_CHECK_DIGIT, VOTER, PREVIOUS_TYPE, FIELD_FROM_MRZ, CURRENT_DATE, STATUS_DATE_OF_EXPIRY, BANK_NOTE_NUMBER, CSC_CODE, ARTISTIC_NAME, ACADEMIC_TITLE, ADDRESS_COUNTRY, ADDRESS_ZIP_CODE, E_ID_RESIDENCE_PERMIT_1, E_ID_RESIDENCE_PERMIT_2, E_ID_PLACE_OF_BIRTH_STREET, E_ID_PLACE_OF_BIRTH_CITY, E_ID_PLACE_OF_BIRTH_STATE, E_ID_PLACE_OF_BIRTH_COUNTRY, E_ID_PLACE_OF_BIRTH_ZIP_CODE, CDL_CLASS, DL_UNDER_19_DATE, WEIGHT_POUNDS, LIMITED_DURATION_DOCUMENT_INDICATOR, ENDORSEMENT_EXPIRATION_DATE, REVISION_DATE, COMPLIANCE_TYPE, FAMILY_NAME_TRUNCATION, FIRST_NAME_TRUNCATION, MIDDLE_NAME_TRUNCATION, EXAM_DATE, ORGANIZATION, DEPARTMENT, PAY_GRADE, RANK, BENEFITS_NUMBER, SPONSOR_SERVICE, SPONSOR_STATUS, SPONSOR, RELATIONSHIP, USCIS, CATEGORY, CONDITIONS, IDENTIFIER, CONFIGURATION, DISCRETIONARY_DATA, LINE_1_OPTIONAL_DATA, LINE_2_OPTIONAL_DATA, LINE_3_OPTIONAL_DATA, EQV_CODE, ALT_CODE, BINARY_CODE, PSEUDO_CODE, FEE, STAMP_NUMBER, SBH_SECURITY_OPTIONS, SBH_INTEGRITY_OPTIONS, DATE_OF_CREATION, VALIDITY_PERIOD, PATRON_HEADER_VERSION, BDB_TYPE, BIOMETRIC_TYPE, BIOMETRIC_SUBTYPE, BIOMETRIC_PRODUCT_ID, BIOMETRIC_FORMAT_OWNER, BIOMETRIC_FORMAT_TYPE, PHONE, PROFESSION, TITLE, PERSONAL_SUMMARY, OTHER_VALID_ID, CUSTODY_INFO, OTHER_NAME, OBSERVATIONS, TAX, DATE_OF_PERSONALIZATION, PERSONALIZATION_SN, DATE_OF_RECORD, PERSON_TO_NOTIFY_DATE_OF_RECORD, PERSON_TO_NOTIFY_NAME, PERSON_TO_NOTIFY_PHONE, PERSON_TO_NOTIFY_ADDRESS, DS_CERTIFICATE_ISSUER, DS_CERTIFICATE_SUBJECT, DS_CERTIFICATE_VALID_FROM, DS_CERTIFICATE_VALID_TO, VRC_DATA_OBJECT_ENTRY, TYPE_APPROVAL_NUMBER, ADMINISTRATIVE_NUMBER, DOCUMENT_DISCRIMINATOR, DATA_DISCRIMINATOR, ISO_ISSUER_ID_NUMBER, GNIB_NUMBER, DEPT_NUMBER, TELEX_CODE, ALLERGIES, SP_CODE, COURT_CODE, CTY, SPONSOR_SSN, DOD_NUMBER, MC_NOVICE_DATE, DUF_NUMBER, AGY, PNR_CODE, FROM_AIRPORT_CODE, TO_AIRPORT_CODE, FLIGHT_NUMBER, DATE_OF_FLIGHT, SEAT_NUMBER, DATE_OF_ISSUE_BOARDING_PASS, CCW_UNTIL, REFERENCE_NUMBER_CHECKSUM, REFERENCE_NUMBER_CHECK_DIGIT, ROOM_NUMBER, RELIGION, REMAINDER_TERM, ELECTRONIC_TICKET_INDICATOR, COMPARTMENT_CODE, CHECK_IN_SEQUENCE_NUMBER, AIRLINE_DESIGNATOR_OF_BOARDING_PASS_ISSUER, AIRLINE_NUMERIC_CODE, TICKET_NUMBER, FREQUENT_FLYER_AIRLINE_DESIGNATOR, FREQUENT_FLYER_NUMBER, FREE_BAGGAGE_ALLOWANCE, PDF_417_CODEC, IDENTITY_CARD_NUMBER_CHECKSUM, IDENTITY_CARD_NUMBER_CHECK_DIGIT, VETERAN, DL_CLASS_CODE_A1_FROM, DL_CLASS_CODE_A1_TO, DL_CLASS_CODE_A1_NOTES, DL_CLASS_CODE_A_FROM, DL_CLASS_CODE_A_TO, DL_CLASS_CODE_A_NOTES, DL_CLASS_CODE_B_FROM, DL_CLASS_CODE_B_TO, DL_CLASS_CODE_B_NOTES, DL_CLASS_CODE_C1_FROM, DL_CLASS_CODE_C1_TO, DL_CLASS_CODE_C1_NOTES, DL_CLASS_CODE_C_FROM, DL_CLASS_CODE_C_TO, DL_CLASS_CODE_C_NOTES, DL_CLASS_CODE_D1_FROM, DL_CLASS_CODE_D1_TO, DL_CLASS_CODE_D1_NOTES, DL_CLASS_CODE_D_FROM, DL_CLASS_CODE_D_TO, DL_CLASS_CODE_D_NOTES, DL_CLASS_CODE_BE_FROM, DL_CLASS_CODE_BE_TO, DL_CLASS_CODE_BE_NOTES, DL_CLASS_CODE_C1E_FROM, DL_CLASS_CODE_C1E_TO, DL_CLASS_CODE_C1E_NOTES, DL_CLASS_CODE_CE_FROM, DL_CLASS_CODE_CE_TO, DL_CLASS_CODE_CE_NOTES, DL_CLASS_CODE_D1E_FROM, DL_CLASS_CODE_D1E_TO, DL_CLASS_CODE_D1E_NOTES, DL_CLASS_CODE_DE_FROM, DL_CLASS_CODE_DE_TO, DL_CLASS_CODE_DE_NOTES, DL_CLASS_CODE_M_FROM, DL_CLASS_CODE_M_TO, DL_CLASS_CODE_M_NOTES, DL_CLASS_CODE_L_FROM, DL_CLASS_CODE_L_TO, DL_CLASS_CODE_L_NOTES, DL_CLASS_CODE_T_FROM, DL_CLASS_CODE_T_TO, DL_CLASS_CODE_T_NOTES, DL_CLASS_CODE_AM_FROM, DL_CLASS_CODE_AM_TO, DL_CLASS_CODE_AM_NOTES, DL_CLASS_CODE_A2_FROM, DL_CLASS_CODE_A2_TO, DL_CLASS_CODE_A2_NOTES, DL_CLASS_CODE_B1_FROM, DL_CLASS_CODE_B1_TO, DL_CLASS_CODE_B1_NOTES, SURNAME_AT_BIRTH, CIVIL_STATUS, NUMBER_OF_SEATS, NUMBER_OF_STANDING_PLACES, MAX_SPEED, FUEL_TYPE, EC_ENVIRONMENTAL_TYPE, POWER_WEIGHT_RATIO, MAX_MASS_OF_TRAILER_BRAKED, MAX_MASS_OF_TRAILER_UNBRAKED, TRANSMISSION_TYPE, TRAILER_HITCH, ACCOMPANIED_BY, POLICE_DISTRICT, FIRST_ISSUE_DATE, PAYLOAD_CAPACITY, NUMBER_OF_AXLES, PERMISSIBLE_AXLE_LOAD, PRECINCT, INVITED_BY, PURPOSE_OF_ENTRY, SKIN_COLOR, COMPLEXION, AIRPORT_FROM, AIRPORT_TO, AIRLINE_NAME, AIRLINE_NAME_FREQUENT_FLYER, LICENSE_NUMBER, IN_TANKS, EXCEPT_IN_TANKS, FAST_TRACK, OWNER, MRZ_STRINGS_ICAO_RFID, NUMBER_OF_CARD_ISSUANCE, NUMBER_OF_CARD_ISSUANCE_CHECKSUM, NUMBER_OF_CARD_ISSUANCE_CHECK_DIGIT, CENTURY_DATE_OF_BIRTH, DL_CLASS_CODE_A3_FROM, DL_CLASS_CODE_A3_TO, DL_CLASS_CODE_A3_NOTES, DL_CLASS_CODE_C2_FROM, DL_CLASS_CODE_C2_TO, DL_CLASS_CODE_C2_NOTES, DL_CLASS_CODE_B2_FROM, DL_CLASS_CODE_B2_TO, DL_CLASS_CODE_B2_NOTES, DL_CLASS_CODE_D2_FROM, DL_CLASS_CODE_D2_TO, DL_CLASS_CODE_D2_NOTES, DL_CLASS_CODE_B2E_FROM, DL_CLASS_CODE_B2E_TO, DL_CLASS_CODE_B2E_NOTES, DL_CLASS_CODE_G_FROM, DL_CLASS_CODE_G_TO, DL_CLASS_CODE_G_NOTES, DL_CLASS_CODE_J_FROM, DL_CLASS_CODE_J_TO, DL_CLASS_CODE_J_NOTES, DL_CLASS_CODE_LC_FROM, DL_CLASS_CODE_LC_TO, DL_CLASS_CODE_LC_NOTES, BANK_CARD_NUMBER, BANK_CARD_VALID_THRU, TAX_NUMBER, HEALTH_NUMBER, GRANDFATHER_NAME, SELECTEE_INDICATOR, MOTHER_SURNAME, MOTHER_GIVEN_NAME, FATHER_SURNAME, FATHER_GIVEN_NAME, MOTHER_DATE_OF_BIRTH, FATHER_DATE_OF_BIRTH, MOTHER_PERSONAL_NUMBER, FATHER_PERSONAL_NUMBER, MOTHER_PLACE_OF_BIRTH, FATHER_PLACE_OF_BIRTH, MOTHER_COUNTRY_OF_BIRTH, FATHER_COUNTRY_OF_BIRTH, DATE_FIRST_RENEWAL, DATE_SECOND_RENEWAL, PLACE_OF_EXAMINATION, APPLICATION_NUMBER, VOUCHER_NUMBER, AUTHORIZATION_NUMBER, FACULTY, FORM_OF_EDUCATION, DNI_NUMBER, RETIREMENT_NUMBER, PROFESSIONAL_ID_NUMBER, AGE_AT_ISSUE, YEARS_SINCE_ISSUE, DL_CLASS_CODE_BTP_FROM, DL_CLASS_CODE_BTP_NOTES, DL_CLASS_CODE_BTP_TO, DL_CLASS_CODE_C3_FROM, DL_CLASS_CODE_C3_NOTES, DL_CLASS_CODE_C3_TO, DL_CLASS_CODE_E_FROM, DL_CLASS_CODE_E_NOTES, DL_CLASS_CODE_E_TO, DL_CLASS_CODE_F_FROM, DL_CLASS_CODE_F_NOTES, DL_CLASS_CODE_F_TO, DL_CLASS_CODE_FA_FROM, DL_CLASS_CODE_FA_NOTES, DL_CLASS_CODE_FA_TO, DL_CLASS_CODE_FA1_FROM, DL_CLASS_CODE_FA1_NOTES, DL_CLASS_CODE_FA1_TO, DL_CLASS_CODE_FB_FROM, DL_CLASS_CODE_FB_NOTES, DL_CLASS_CODE_FB_TO, DL_CLASS_CODE_G1_FROM, DL_CLASS_CODE_G1_NOTES, DL_CLASS_CODE_G1_TO, DL_CLASS_CODE_H_FROM, DL_CLASS_CODE_H_NOTES, DL_CLASS_CODE_H_TO, DL_CLASS_CODE_I_FROM, DL_CLASS_CODE_I_NOTES, DL_CLASS_CODE_I_TO, DL_CLASS_CODE_K_FROM, DL_CLASS_CODE_K_NOTES, DL_CLASS_CODE_K_TO, DL_CLASS_CODE_LK_FROM, DL_CLASS_CODE_LK_NOTES, DL_CLASS_CODE_LK_TO, DL_CLASS_CODE_N_FROM, DL_CLASS_CODE_N_NOTES, DL_CLASS_CODE_N_TO, DL_CLASS_CODE_S_FROM, DL_CLASS_CODE_S_NOTES, DL_CLASS_CODE_S_TO, DL_CLASS_CODE_TB_FROM, DL_CLASS_CODE_TB_NOTES, DL_CLASS_CODE_TB_TO, DL_CLASS_CODE_TM_FROM, DL_CLASS_CODE_TM_NOTES, DL_CLASS_CODE_TM_TO, DL_CLASS_CODE_TR_FROM, DL_CLASS_CODE_TR_NOTES, DL_CLASS_CODE_TR_TO, DL_CLASS_CODE_TV_FROM, DL_CLASS_CODE_TV_NOTES, DL_CLASS_CODE_TV_TO, DL_CLASS_CODE_V_FROM, DL_CLASS_CODE_V_NOTES, DL_CLASS_CODE_V_TO, DL_CLASS_CODE_W_FROM, DL_CLASS_CODE_W_NOTES, DL_CLASS_CODE_W_TO, URL, CALIBER, MODEL, MAKE, NUMBER_OF_CYLINDERS, SURNAME_OF_HUSBAND_AFTER_REGISTRATION, SURNAME_OF_WIFE_AFTER_REGISTRATION, DATE_OF_BIRTH_OF_WIFE, DATE_OF_BIRTH_OF_HUSBAND, CITIZENSHIP_OF_FIRST_PERSON, CITIZENSHIP_OF_SECOND_PERSON, CVV]  # noqa: E501
 

@@ -25,12 +25,14 @@ class DocumentTypeRecognitionResult(object):
     Do not edit the class manually.
     """
 
-    """
-    allowed enum values
-    """
-    OK = "0"
-    UNKNOWN = "15"
-    NEED_MORE_IMAGES = "29"
+    "Document type determined. The first element in candidates array is recognition result"
+    OK = int("0")
+
+    "Document type was not determined. Ongoing processing is not possible"
+    UNKNOWN = int("15")
+
+    "To determine document type user should provide more images with different light sources (UV, for example)"
+    NEED_MORE_IMAGES = int("29")
 
     allowable_values = [OK, UNKNOWN, NEED_MORE_IMAGES]  # noqa: E501
 

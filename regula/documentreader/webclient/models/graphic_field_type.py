@@ -25,31 +25,71 @@ class GraphicFieldType(object):
     Do not edit the class manually.
     """
 
-    """
-    allowed enum values
-    """
-    PORTRAIT = "201"
-    FINGERPRINT = "202"
-    EYE = "203"
-    SIGNATURE = "204"
-    BAR_CODE = "205"
-    PROOF_OF_CITIZENSHIP = "206"
-    DOCUMENT_FRONT = "207"
-    DOCUMENT_REAR = "208"
-    COLOR_DYNAMIC = "209"
-    GHOST_PORTRAIT = "210"
-    STAMP = "211"
-    OTHER = "250"
-    FINGER_LEFT_THUMB = "300"
-    FINGER_LEFT_INDEX = "301"
-    FINGER_LEFT_MIDDLE = "302"
-    FINGER_LEFT_RING = "303"
-    FINGER_LEFT_LITTLE = "304"
-    FINGER_RIGHT_THUMB = "305"
-    FINGER_RIGHT_INDEX = "306"
-    FINGER_RIGHT_MIDDLE = "307"
-    FINGER_RIGHT_RING = "308"
-    FINGER_RIGHT_LITTLE = "309"
+    "Document holder photo"
+    PORTRAIT = int("201")
+
+    "Fingerprint of document holder"
+    FINGERPRINT = int("202")
+
+    "Image of the iris of document holder"
+    EYE = int("203")
+
+    "Signature of document holder"
+    SIGNATURE = int("204")
+
+    "Barcode image"
+    BAR_CODE = int("205")
+
+    "Image of document confirming owner citizenship"
+    PROOF_OF_CITIZENSHIP = int("206")
+
+    "Image of the front side of the document"
+    DOCUMENT_FRONT = int("207")
+
+    "Image of the rear side of the document"
+    DOCUMENT_REAR = int("208")
+
+    "Area with dynamic color change"
+    COLOR_DYNAMIC = int("209")
+
+    "Additional Portrait"
+    GHOST_PORTRAIT = int("210")
+
+    "Stamp"
+    STAMP = int("211")
+
+    "Undefined image type"
+    OTHER = int("250")
+
+    "Fingerprint (thumb, left hand)"
+    FINGER_LEFT_THUMB = int("300")
+
+    "Fingerprint (index, left hand)"
+    FINGER_LEFT_INDEX = int("301")
+
+    "Fingerprint (middle, left hand)"
+    FINGER_LEFT_MIDDLE = int("302")
+
+    "Fingerprint (ring, left hand)"
+    FINGER_LEFT_RING = int("303")
+
+    "Fingerprint (little, left hand)"
+    FINGER_LEFT_LITTLE = int("304")
+
+    "Fingerprint (thumb, right hand)"
+    FINGER_RIGHT_THUMB = int("305")
+
+    "Fingerprint (index, right hand)"
+    FINGER_RIGHT_INDEX = int("306")
+
+    "Fingerprint (middle, right hand)"
+    FINGER_RIGHT_MIDDLE = int("307")
+
+    "Fingerprint (ring, right hand)"
+    FINGER_RIGHT_RING = int("308")
+
+    "Fingerprint (little, right hand)"
+    FINGER_RIGHT_LITTLE = int("309")
 
     allowable_values = [PORTRAIT, FINGERPRINT, EYE, SIGNATURE, BAR_CODE, PROOF_OF_CITIZENSHIP, DOCUMENT_FRONT, DOCUMENT_REAR, COLOR_DYNAMIC, GHOST_PORTRAIT, STAMP, OTHER, FINGER_LEFT_THUMB, FINGER_LEFT_INDEX, FINGER_LEFT_MIDDLE, FINGER_LEFT_RING, FINGER_LEFT_LITTLE, FINGER_RIGHT_THUMB, FINGER_RIGHT_INDEX, FINGER_RIGHT_MIDDLE, FINGER_RIGHT_RING, FINGER_RIGHT_LITTLE]  # noqa: E501
 

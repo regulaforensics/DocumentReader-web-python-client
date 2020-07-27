@@ -25,12 +25,14 @@ class RfidLocation(object):
     Do not edit the class manually.
     """
 
-    """
-    allowed enum values
-    """
-    NONE = "0"
-    MAIN_PAGE = "1"
-    BACK_PAGE = "2"
+    "There is no RFID chip in the document"
+    NONE = int("0")
+
+    "The RFID chip is located in the document data page"
+    MAIN_PAGE = int("1")
+
+    "The RFID chip is located in the back page or inlay of the document"
+    BACK_PAGE = int("2")
 
     allowable_values = [NONE, MAIN_PAGE, BACK_PAGE]  # noqa: E501
 

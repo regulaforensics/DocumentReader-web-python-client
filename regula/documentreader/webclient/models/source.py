@@ -25,13 +25,19 @@ class Source(object):
     Do not edit the class manually.
     """
 
-    """
-    allowed enum values
-    """
+    ""
     MRZ = "MRZ"
+
+    ""
     VISUAL = "VISUAL"
+
+    ""
     BARCODE = "BARCODE"
+
+    ""
     RFID = "RFID"
+
+    ""
     MAGNETIC = "MAGNETIC"
 
     allowable_values = [MRZ, VISUAL, BARCODE, RFID, MAGNETIC]  # noqa: E501

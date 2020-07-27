@@ -25,12 +25,14 @@ class ProcessingStatus(object):
     Do not edit the class manually.
     """
 
-    """
-    allowed enum values
-    """
-    NOT_FINISHED = "0"
-    FINISHED = "1"
-    TIMEOUT = "2"
+    "Processing was not finished"
+    NOT_FINISHED = int("0")
+
+    "Processing finished"
+    FINISHED = int("1")
+
+    "Processing finished by timeout"
+    TIMEOUT = int("2")
 
     allowable_values = [NOT_FINISHED, FINISHED, TIMEOUT]  # noqa: E501
 

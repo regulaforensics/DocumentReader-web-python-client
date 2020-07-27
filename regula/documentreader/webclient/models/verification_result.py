@@ -25,14 +25,20 @@ class VerificationResult(object):
     Do not edit the class manually.
     """
 
-    """
-    allowed enum values
-    """
-    DISABLED = "0"
-    VERIFIED = "1"
-    NOT_VERIFIED = "2"
-    COMPARE_MATCH = "3"
-    COMPARE_NOT_MATCH = "4"
+    "Comparison result unknown"
+    DISABLED = int("0")
+
+    "Verification passed"
+    VERIFIED = int("1")
+
+    "Verification failed"
+    NOT_VERIFIED = int("2")
+
+    "Positive comparison result"
+    COMPARE_MATCH = int("3")
+
+    "Negative comparison result"
+    COMPARE_NOT_MATCH = int("4")
 
     allowable_values = [DISABLED, VERIFIED, NOT_VERIFIED, COMPARE_MATCH, COMPARE_NOT_MATCH]  # noqa: E501
 

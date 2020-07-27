@@ -25,13 +25,17 @@ class Light(object):
     Do not edit the class manually.
     """
 
-    """
-    allowed enum values
-    """
-    OFF = "0"
-    WHITE = "6"
-    IR = "24"
-    UV = "128"
+    "No Light"
+    OFF = int("0")
+
+    "White"
+    WHITE = int("6")
+
+    "Infrared"
+    IR = int("24")
+
+    "Ultraviolet"
+    UV = int("128")
 
     allowable_values = [OFF, WHITE, IR, UV]  # noqa: E501
 

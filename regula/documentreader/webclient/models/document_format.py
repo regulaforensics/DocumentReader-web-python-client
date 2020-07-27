@@ -25,22 +25,44 @@ class DocumentFormat(object):
     Do not edit the class manually.
     """
 
-    """
-    allowed enum values
-    """
-    ID1 = "0"
-    ID2 = "1"
-    ID3 = "2"
-    NON = "3"
-    A4 = "4"
-    ID3_X2 = "5"
-    ID1_90 = "10"
-    ID1_180 = "11"
-    ID1_270 = "12"
-    ID2_180 = "13"
-    ID3_180 = "14"
-    CUSTOM = "1000"
-    FLEXIBLE = "1002"
+    "ID1 document format"
+    ID1 = int("0")
+
+    "ID2 document format"
+    ID2 = int("1")
+
+    "ID3 document format"
+    ID3 = int("2")
+
+    "Undefined document format"
+    NON = int("3")
+
+    "A4 document format"
+    A4 = int("4")
+
+    "ID3 double document format"
+    ID3_X2 = int("5")
+
+    "ID1 format document rotated 90 °"
+    ID1_90 = int("10")
+
+    "ID1 format document rotated 180 °"
+    ID1_180 = int("11")
+
+    "ID1 format document rotated 270 °"
+    ID1_270 = int("12")
+
+    "ID2 format document rotated 90 °"
+    ID2_180 = int("13")
+
+    "ID3 format document rotated 180 °"
+    ID3_180 = int("14")
+
+    "Arbitrary format"
+    CUSTOM = int("1000")
+
+    "Flexible format. Standard formats can be resized during cropping, depending on various factors: light, background..."
+    FLEXIBLE = int("1002")
 
     allowable_values = [ID1, ID2, ID3, NON, A4, ID3_X2, ID1_90, ID1_180, ID1_270, ID2_180, ID3_180, CUSTOM, FLEXIBLE]  # noqa: E501
 

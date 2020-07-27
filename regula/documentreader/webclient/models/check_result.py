@@ -25,12 +25,14 @@ class CheckResult(object):
     Do not edit the class manually.
     """
 
-    """
-    allowed enum values
-    """
-    ERROR = "0"
-    OK = "1"
-    WAS_NOT_DONE = "2"
+    "Check was performed and result is NEGATIVE"
+    ERROR = int("0")
+
+    "Check was performed and result is POSITIVE"
+    OK = int("1")
+
+    "Check was NOT PERFORMED"
+    WAS_NOT_DONE = int("2")
 
     allowable_values = [ERROR, OK, WAS_NOT_DONE]  # noqa: E501
 

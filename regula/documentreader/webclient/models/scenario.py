@@ -25,26 +25,58 @@ class Scenario(object):
     Do not edit the class manually.
     """
 
-    """
-    allowed enum values
-    """
+    ""
     MRZ = "Mrz"
+
+    ""
     BARCODE = "Barcode"
+
+    ""
     LOCATE = "Locate"
+
+    ""
     OCR = "Ocr"
+
+    ""
     DOCTYPE = "DocType"
+
+    ""
     MRZ_OR_BARCODE = "MrzOrBarcode"
+
+    ""
     MRZ_OR_LOCATE = "MrzOrLocate"
+
+    ""
     MRZ_AND_LOCATE = "MrzAndLocate"
+
+    ""
     MRZ_OR_OCR = "MrzOrOcr"
+
+    ""
     MRZ_OR_BARCODE_OR_OCR = "MrzOrBarcodeOrOcr"
+
+    ""
     LOCATE_VISUAL_AND_MRZ_OR_OCR = "LocateVisual_And_MrzOrOcr"
+
+    ""
     FULL_PROCESS = "FullProcess"
+
+    ""
     FULL_AUTH = "FullAuth"
+
+    ""
     ID3RUS = "Id3Rus"
+
+    ""
     RUS_STAMP = "RusStamp"
+
+    ""
     OCR_FREE = "OcrFree"
+
+    ""
     CREDIT_CARD = "CreditCard"
+
+    ""
     CAPTURE = "Capture"
 
     allowable_values = [MRZ, BARCODE, LOCATE, OCR, DOCTYPE, MRZ_OR_BARCODE, MRZ_OR_LOCATE, MRZ_AND_LOCATE, MRZ_OR_OCR, MRZ_OR_BARCODE_OR_OCR, LOCATE_VISUAL_AND_MRZ_OR_OCR, FULL_PROCESS, FULL_AUTH, ID3RUS, RUS_STAMP, OCR_FREE, CREDIT_CARD, CAPTURE]  # noqa: E501
