@@ -47,17 +47,21 @@ class ResultItem(object):
         'page_idx': 'page_idx',
         'result_type': 'result_type'
     }
-
     discriminator_value_class_map = {
-        'ImagesResult': 'ImagesResult',
-        'LexicalAnalysisResult': 'LexicalAnalysisResult',
-        'TextDataResult': 'TextDataResult',
-        'DocumentTypesCandidatesResult': 'DocumentTypesCandidatesResult',
-        'StatusResult': 'StatusResult',
-        'ChosenDocumentTypeResult': 'ChosenDocumentTypeResult',
-        'TextResult': 'TextResult',
-        'GraphicsResult': 'GraphicsResult',
-        'RawImageResult': 'RawImageResult'
+        1 : 'RawImageResult',
+        3 : 'TextDataResult',
+        6 : 'GraphicsResult',
+        8 : 'DocumentTypesCandidatesResult',
+        9 : 'ChosenDocumentTypeResult',
+        15 : 'LexicalAnalysisResult',
+        17 : 'TextDataResult',
+        18 : 'TextDataResult',
+        19 : 'GraphicsResult',
+        33 : 'StatusResult',
+        36 : 'TextResult',
+        37 : 'ImagesResult',
+        102 : 'TextDataResult',
+        103 : 'GraphicsResult',
     }
 
     def __init__(self, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=None, local_vars_configuration=None):  # noqa: E501

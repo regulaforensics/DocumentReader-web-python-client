@@ -10,7 +10,6 @@ regula/documentreader/webclient/models/__init__.py
 regula/documentreader/webclient/models/check_result.py
 regula/documentreader/webclient/models/chosen_document_type_result.py
 regula/documentreader/webclient/models/chosen_document_type_result_all_of.py
-regula/documentreader/webclient/models/container_list.py
 regula/documentreader/webclient/models/cross_source_value_comparison.py
 regula/documentreader/webclient/models/details_optical.py
 regula/documentreader/webclient/models/details_rfid.py

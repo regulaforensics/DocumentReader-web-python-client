@@ -45,11 +45,10 @@ class {{classname}}(object):
 {{/vars}}
     }
 {{#discriminator}}
-
     discriminator_value_class_map = {
-{{#children}}
-        '{{^vendorExtensions.x-discriminator-value}}{{name}}{{/vendorExtensions.x-discriminator-value}}{{#vendorExtensions.x-discriminator-value}}{{{vendorExtensions.x-discriminator-value}}}{{/vendorExtensions.x-discriminator-value}}': '{{{classname}}}'{{^-last}},{{/-last}}
-{{/children}}
+    {{#mappedModels}}
+        {{mappingName}} : '{{modelName}}',
+    {{/mappedModels}}
     }
 {{/discriminator}}
 
