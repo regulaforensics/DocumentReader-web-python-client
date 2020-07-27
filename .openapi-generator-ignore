@@ -1,0 +1,10 @@
+docs/
+test/
+.gitlab-ci.yml
+.travis.yml
+git_push.sh
+test-requirements.txt
+tox.ini
+setup.cfg
+README.md
+.gitignore
