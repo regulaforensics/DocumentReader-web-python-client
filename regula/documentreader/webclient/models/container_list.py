@@ -33,7 +33,7 @@ class ContainerList(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'list': 'list[AnyOfRawImageResultTextResultStatusResultTextDataResultGraphicsResultLexicalAnalysisResultChosenDocumentTypeResultDocumentTypesCandidatesResultImagesResult]'
+        'list': 'list[ResultItem]'
     }
 
     attribute_map = {
@@ -57,7 +57,7 @@ class ContainerList(object):
 
 
         :return: The list of this ContainerList.  # noqa: E501
-        :rtype: list[AnyOfRawImageResultTextResultStatusResultTextDataResultGraphicsResultLexicalAnalysisResultChosenDocumentTypeResultDocumentTypesCandidatesResultImagesResult]
+        :rtype: list[ResultItem]
         """
         return self._list
 
@@ -67,7 +67,7 @@ class ContainerList(object):
 
 
         :param list: The list of this ContainerList.  # noqa: E501
-        :type list: list[AnyOfRawImageResultTextResultStatusResultTextDataResultGraphicsResultLexicalAnalysisResultChosenDocumentTypeResultDocumentTypesCandidatesResultImagesResult]
+        :type list: list[ResultItem]
         """
         if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
             raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
