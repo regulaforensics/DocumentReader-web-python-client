@@ -18,7 +18,8 @@ IMAGE_PATH = "resources/australia_passport.jpg"
 with open(IMAGE_PATH, "rb") as f:
     image_payload = f.read()
 
-with DocumentReaderApi(host, verify_ssl=True) as api:
+print(host)
+with DocumentReaderApi(host) as api:
     api.license = license
 
     process_params = ProcessParams(Scenario.FULL_PROCESS, [Result.TEXT, Result.IMAGES])
