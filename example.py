@@ -8,7 +8,7 @@ print("START")
 
 API_BASE_PATH = "API_BASE_PATH"
 host = os.getenv(API_BASE_PATH, None)
-if host:
+if not host:
     host = "http://localhost:8080"
 
 TEST_LICENSE = "TEST_LICENSE"
