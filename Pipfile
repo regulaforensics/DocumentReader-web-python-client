@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+certifi = ">=14.05.14"
+future = "*"
+six = ">=1.10"
+python-dateutil = ">=2.5.3"
+urllib3 = ">=1.15.1"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
