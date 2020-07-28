@@ -1,0 +1,2 @@
+from regula.documentreader.webclient.ext.models.recognition_request import RecognitionImage
+from regula.documentreader.webclient.ext.models.recognition_request import RecognitionRequest
