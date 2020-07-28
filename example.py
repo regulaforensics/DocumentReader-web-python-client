@@ -4,6 +4,8 @@ from regula.documentreader.webclient import ProcessParams, Scenario, Result, Lig
 from regula.documentreader.webclient.ext.api import DocumentReaderApi
 from regula.documentreader.webclient.ext.models import RecognitionImage, RecognitionRequest
 
+print("START")
+
 API_BASE_PATH = "API_BASE_PATH"
 host = os.getenv(API_BASE_PATH, None)
 if host:

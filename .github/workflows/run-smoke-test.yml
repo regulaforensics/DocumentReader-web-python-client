@@ -29,3 +29,6 @@ jobs:
       - name: Run example
         run: |
           python example.py
+        env:
+          API_BASE_PATH: "http://test-api.regulaforensics.com"
+          TEST_LICENSE: ${{secrets.TEST_LICENSE}}
