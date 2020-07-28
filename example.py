@@ -22,7 +22,7 @@ print(host)
 with DocumentReaderApi(host) as api:
     api.license = license
 
-    process_params = ProcessParams(Scenario.FULL_PROCESS, [Result.TEXT, Result.IMAGES])
+    process_params = ProcessParams(Scenario.FULL_PROCESS, [Result.TEXT])
     process_images = [RecognitionImage(image_payload, Light.WHITE)]
     request = RecognitionRequest(process_params, process_images)
 
