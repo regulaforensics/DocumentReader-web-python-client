@@ -12,7 +12,7 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "regula.documentreader.webclient"
+NAME = "regula.documentreader.webclient.gen"
 VERSION = "1.0.0"
 # To install the library, run the following
 #

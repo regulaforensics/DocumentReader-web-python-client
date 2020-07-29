@@ -1,3 +1,4 @@
 {
-  "packageName": "regula.documentreader.webclient"
+  "packageName": "regula.documentreader.webclient.gen",
+  "extPackageName": "regula.documentreader.webclient.ext"
 }

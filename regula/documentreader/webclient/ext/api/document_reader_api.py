@@ -1,5 +1,7 @@
-from regula.documentreader.webclient import DefaultApi, ProcessRequest, ApiClient, Configuration
 from regula.documentreader.webclient.ext.models.recognition_response import RecognitionResponse
+from regula.documentreader.webclient.gen import ApiClient, Configuration
+from regula.documentreader.webclient.gen.api import DefaultApi
+from regula.documentreader.webclient.gen.models import ProcessRequest
 
 
 class DocumentReaderApi(DefaultApi):
