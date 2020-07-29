@@ -1,8 +1,8 @@
 from regula.documentreader.webclient import DefaultApi, ProcessRequest, ApiClient, Configuration
+from regula.documentreader.webclient.ext.models.recognition_response import RecognitionResponse
 
 
 class DocumentReaderApi(DefaultApi):
-
     __license: str
 
     def __init__(self, host=None, debug=False, verify_ssl=False, api_client=None):
@@ -29,6 +29,6 @@ class DocumentReaderApi(DefaultApi):
     def license(self, value):
         self.__license = value
 
-    def process(self, process_request: ProcessRequest):
+    def process(self, process_request: ProcessRequest) -> RecognitionResponse:
         process_request.system_info.license = self.license
-        return self.api_process(process_request)
+        return RecognitionResponse(self.api_process(process_request))
