@@ -1,8 +1,9 @@
 import os
 
-from regula.documentreader.webclient import ProcessParams, Scenario, Result, Light, TextFieldType, Source, CheckResult
 from regula.documentreader.webclient.ext.api import DocumentReaderApi
 from regula.documentreader.webclient.ext.models import RecognitionImage, RecognitionRequest
+from regula.documentreader.webclient.gen import ProcessParams, Scenario, Result, Light, TextFieldType, Source, \
+    CheckResult
 
 print("START")
 
@@ -22,11 +23,12 @@ print(host)
 with DocumentReaderApi(host) as api:
     api.license = license
 
-    process_params = ProcessParams(Scenario.FULL_PROCESS, [Result.TEXT, Result.IMAGES])
+    process_params = ProcessParams(Scenario.FULL_PROCESS, [Result.TEXT, Result.STATUS, Result.IMAGES])
     process_images = [RecognitionImage(image_payload, Light.WHITE)]
     request = RecognitionRequest(process_params, process_images)
 
     response = api.process(request)
+    response.result_by_type(Result.IMAGES)
 
     response_text = response.text
 

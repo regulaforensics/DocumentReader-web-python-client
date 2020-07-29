@@ -1,9 +1,9 @@
-from regula.documentreader.webclient import CheckResult
-from regula.documentreader.webclient.models import TextField as GetTextField
+from regula.documentreader.webclient.gen.models.check_result import CheckResult
+from regula.documentreader.webclient.gen.models.text_field import TextField as GenTextField
 
 
 class TextField:
-    __payload: GetTextField
+    __payload: GenTextField
 
     def __init__(self, payload):
         self.__payload = payload

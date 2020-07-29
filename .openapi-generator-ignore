@@ -9,4 +9,4 @@ setup.cfg
 README.md
 .gitignore
 
-regula/documentreader/webclient/models/container_list.py
+regula/documentreader/webclient/gen/models/container_list.py

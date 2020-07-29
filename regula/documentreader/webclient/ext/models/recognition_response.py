@@ -1,7 +1,11 @@
+import uuid
 from typing import Optional
 
-from regula.documentreader.webclient import ProcessResponse, Result, Status, Images
 from regula.documentreader.webclient.ext.models.text import Text
+from regula.documentreader.webclient.gen.models.images import Images
+from regula.documentreader.webclient.gen.models.process_response import ProcessResponse
+from regula.documentreader.webclient.gen.models.result import Result
+from regula.documentreader.webclient.gen.models.status import Status
 
 
 class RecognitionResponse:

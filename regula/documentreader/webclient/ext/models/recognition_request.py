@@ -1,6 +1,9 @@
 import base64
 
-from regula.documentreader.webclient import ProcessRequest, ProcessRequestImage, ProcessSystemInfo, ImageData
+from regula.documentreader.webclient.gen.models.image_data import ImageData
+from regula.documentreader.webclient.gen.models.process_request import ProcessRequest
+from regula.documentreader.webclient.gen.models.process_request_image import ProcessRequestImage
+from regula.documentreader.webclient.gen.models.process_system_info import ProcessSystemInfo
 
 
 class RecognitionRequest(ProcessRequest):
