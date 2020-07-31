@@ -77,5 +77,3 @@ regula/documentreader/webclient/gen/models/transaction_info.py
 regula/documentreader/webclient/gen/models/verification_result.py
 regula/documentreader/webclient/gen/models/verified_field_map.py
 regula/documentreader/webclient/gen/rest.py
-requirements.txt
-setup.py

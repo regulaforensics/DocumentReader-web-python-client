@@ -631,24 +631,13 @@ class ApiClient(object):
                 klass.openapi_types is not None and
                 isinstance(data, (list, dict))):
 
-            is_other_enable = "OTHER" in six.iterkeys(klass.openapi_types)
-            if is_other_enable:
-                tmp_data = copy(data)
-            else:
-                tmp_data = {}
+            if "raw" in six.iterkeys(klass.openapi_types):
+                kwargs[klass.attribute_map["raw"]] = copy(data)
 
             for attr, attr_type in six.iteritems(klass.openapi_types):
-
-                if klass.attribute_map[attr] in data and tmp_data:
-                    value = tmp_data.pop(klass.attribute_map[attr])
-                    kwargs[attr] = self.__deserialize(value, attr_type)
-
-                elif klass.attribute_map[attr] in data:
+                if klass.attribute_map[attr] in data:
                     value = data[klass.attribute_map[attr]]
                     kwargs[attr] = self.__deserialize(value, attr_type)
-
-            if tmp_data:
-                kwargs[klass.attribute_map["OTHER"]] = tmp_data.popitem()[1]
 
         instance = klass(**kwargs)
         if has_discriminator:

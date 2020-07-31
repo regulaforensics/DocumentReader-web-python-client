@@ -14,7 +14,7 @@ with open("australia_passport.jpg", "rb") as f:
 with DocumentReaderApi(host) as api:
     api.license = license
 
-    process_params = ProcessParams(Scenario.FULL_PROCESS, [Result.STATUS, Result.TEXT, Result.IMAGES])
+    process_params = ProcessParams(Scenario.FULL_PROCESS, [Result.STATUS, Result.TEXT, Result.IMAGES, 6])
     process_images = [RecognitionImage(image_payload, Light.WHITE)]
     request = RecognitionRequest(process_params, process_images)
 
