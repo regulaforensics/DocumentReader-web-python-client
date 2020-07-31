@@ -4,9 +4,11 @@ test/
 .travis.yml
 git_push.sh
 test-requirements.txt
+requirements.txt
 tox.ini
 setup.cfg
 README.md
 .gitignore
+setup.py
 
 regula/documentreader/webclient/gen/models/container_list.py

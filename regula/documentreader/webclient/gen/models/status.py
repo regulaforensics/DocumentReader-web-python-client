@@ -33,7 +33,7 @@ class Status(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'complete': 'CheckResult',
+        'overall_status': 'CheckResult',
         'optical': 'CheckResult',
         'portrait': 'CheckResult',
         'rfid': 'CheckResult',
@@ -43,7 +43,7 @@ class Status(object):
     }
 
     attribute_map = {
-        'complete': 'complete',
+        'overall_status': 'overallStatus',
         'optical': 'optical',
         'portrait': 'portrait',
         'rfid': 'rfid',
@@ -52,13 +52,13 @@ class Status(object):
         'details_optical': 'detailsOptical'
     }
 
-    def __init__(self, complete=None, optical=None, portrait=None, rfid=None, stop_list=None, details_rfid=None, details_optical=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, overall_status=None, optical=None, portrait=None, rfid=None, stop_list=None, details_rfid=None, details_optical=None, local_vars_configuration=None):  # noqa: E501
         """Status - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._complete = None
+        self._overall_status = None
         self._optical = None
         self._portrait = None
         self._rfid = None
@@ -67,7 +67,7 @@ class Status(object):
         self._details_optical = None
         self.discriminator = None
 
-        self.complete = complete
+        self.overall_status = overall_status
         self.optical = optical
         if portrait is not None:
             self.portrait = portrait
@@ -80,27 +80,27 @@ class Status(object):
         self.details_optical = details_optical
 
     @property
-    def complete(self):
-        """Gets the complete of this Status.  # noqa: E501
+    def overall_status(self):
+        """Gets the overall_status of this Status.  # noqa: E501
 
 
-        :return: The complete of this Status.  # noqa: E501
+        :return: The overall_status of this Status.  # noqa: E501
         :rtype: CheckResult
         """
-        return self._complete
+        return self._overall_status
 
-    @complete.setter
-    def complete(self, complete):
-        """Sets the complete of this Status.
+    @overall_status.setter
+    def overall_status(self, overall_status):
+        """Sets the overall_status of this Status.
 
 
-        :param complete: The complete of this Status.  # noqa: E501
-        :type complete: CheckResult
+        :param overall_status: The overall_status of this Status.  # noqa: E501
+        :type overall_status: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and complete is None:  # noqa: E501
-            raise ValueError("Invalid value for `complete`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and overall_status is None:  # noqa: E501
+            raise ValueError("Invalid value for `overall_status`, must not be `None`")  # noqa: E501
 
-        self._complete = complete
+        self._overall_status = overall_status
 
     @property
     def optical(self):

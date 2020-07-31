@@ -38,6 +38,7 @@ class TextField(object):
         'status': 'CheckResult',
         'validity_status': 'CheckResult',
         'comparison_status': 'CheckResult',
+        'value': 'str',
         'value_list': 'list[TextFieldValue]',
         'validity_list': 'list[SourceValidity]',
         'comparison_list': 'list[CrossSourceValueComparison]'
@@ -49,12 +50,13 @@ class TextField(object):
         'status': 'status',
         'validity_status': 'validityStatus',
         'comparison_status': 'comparisonStatus',
+        'value': 'value',
         'value_list': 'valueList',
         'validity_list': 'validityList',
         'comparison_list': 'comparisonList'
     }
 
-    def __init__(self, field_type=None, lcid=None, status=None, validity_status=None, comparison_status=None, value_list=None, validity_list=None, comparison_list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, field_type=None, lcid=None, status=None, validity_status=None, comparison_status=None, value=None, value_list=None, validity_list=None, comparison_list=None, local_vars_configuration=None):  # noqa: E501
         """TextField - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class TextField(object):
         self._status = None
         self._validity_status = None
         self._comparison_status = None
+        self._value = None
         self._value_list = None
         self._validity_list = None
         self._comparison_list = None
@@ -76,6 +79,7 @@ class TextField(object):
         self.status = status
         self.validity_status = validity_status
         self.comparison_status = comparison_status
+        self.value = value
         self.value_list = value_list
         self.validity_list = validity_list
         self.comparison_list = comparison_list
@@ -192,6 +196,31 @@ class TextField(object):
             raise ValueError("Invalid value for `comparison_status`, must not be `None`")  # noqa: E501
 
         self._comparison_status = comparison_status
+
+    @property
+    def value(self):
+        """Gets the value of this TextField.  # noqa: E501
+
+        The most confidence value, selected from valueList  # noqa: E501
+
+        :return: The value of this TextField.  # noqa: E501
+        :rtype: str
+        """
+        return self._value
+
+    @value.setter
+    def value(self, value):
+        """Sets the value of this TextField.
+
+        The most confidence value, selected from valueList  # noqa: E501
+
+        :param value: The value of this TextField.  # noqa: E501
+        :type value: str
+        """
+        if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
+            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
+
+        self._value = value
 
     @property
     def value_list(self):

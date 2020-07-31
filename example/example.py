@@ -34,7 +34,7 @@ with DocumentReaderApi(host) as api:
     doc_number_mrz_visual_matching = doc_number_field.get_comparison(Source.MRZ, Source.VISUAL)
 
     response_status = response.status
-    doc_overall_status = "valid" if response_status.complete == CheckResult.OK else "not valid"
+    doc_overall_status = "valid" if response_status.overall_status == CheckResult.OK else "not valid"
 
     response_images = response.images
 
