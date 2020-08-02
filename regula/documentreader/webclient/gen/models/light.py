@@ -16,6 +16,8 @@ import re  # noqa: F401
 import six
 
 from regula.documentreader.webclient.gen.configuration import Configuration
+# this line was added to enable pycharm type hinting
+from regula.documentreader.webclient.gen.models import *
 
 
 class Light(object):
