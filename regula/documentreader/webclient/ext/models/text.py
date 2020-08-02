@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 from regula.documentreader.webclient.ext.models.text_field import TextField
 from regula.documentreader.webclient.gen.models.text import Text as GenText
@@ -17,3 +17,14 @@ class Text(GenText):
         if field:
             return "todo"
         return None
+
+    @property
+    def field_list(self) -> List[TextField]:
+        # fix type hinting
+        return super().field_list
+
+    @field_list.setter
+    def field_list(self, field_list: List[TextField]):
+        if self.local_vars_configuration.client_side_validation and field_list is None:
+            raise ValueError("Invalid value for `field_list`, must not be `None`")
+        self._field_list = field_list
