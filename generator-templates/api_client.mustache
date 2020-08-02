@@ -303,11 +303,10 @@ class ApiClient(object):
             # convert str to class
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
-            elif hasattr({{modelPackage}}, klass):
-                klass = getattr({{modelPackage}}, klass)
+            elif hasattr({{extPackageName}}.models, klass):
+                klass = getattr({{extPackageName}}.models, klass)
             else:
-                import {{extPackageName}}.models as ext_models
-                klass = getattr(ext_models, klass)
+                klass = getattr({{modelPackage}}, klass)
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)
         elif klass == object:

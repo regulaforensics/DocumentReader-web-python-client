@@ -8,6 +8,7 @@ with open("README.md", "r") as fh:
 setup(
     name="regula.documentreader.webclient",
     version="5.2.0-beta.0",
+    python_requires=">=3.5",
     description="Regula's Document Reader python client",
     long_description=long_description,
     long_description_content_type="text/markdown",

@@ -17,7 +17,7 @@ class RecognitionResponse:
     def text(self) -> Optional[Text]:
         result = self.result_by_type(Result.TEXT)
         if result:
-            return Text(result.text)
+            return result.text
         return None
 
     @property

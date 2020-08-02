@@ -279,11 +279,10 @@ class ApiClient(object):
             # convert str to class
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
-            elif hasattr(regula.documentreader.webclient.gen.models, klass):
-                klass = getattr(regula.documentreader.webclient.gen.models, klass)
+            elif hasattr(regula.documentreader.webclient.ext.models, klass):
+                klass = getattr(regula.documentreader.webclient.ext.models, klass)
             else:
-                import regula.documentreader.webclient.ext.models as ext_models
-                klass = getattr(ext_models, klass)
+                klass = getattr(regula.documentreader.webclient.gen.models, klass)
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)
         elif klass == object:

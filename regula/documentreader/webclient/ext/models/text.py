@@ -4,15 +4,12 @@ from regula.documentreader.webclient.ext.models.text_field import TextField
 from regula.documentreader.webclient.gen.models.text import Text as GenText
 
 
-class Text:
-
-    def __init__(self, payload: GenText):
-        self.__payload = payload
+class Text(GenText):
 
     def get_field(self, field_type: int, lcid=0) -> Optional[TextField]:
-        for i in self.__payload.field_list:
-            if i.field_type == field_type and i.lcid == lcid:
-                return TextField(i)
+        for field in self.field_list:
+            if field.field_type == field_type and field.lcid == lcid:
+                return field
         return None
 
     def get_field_value(self, field_type: int, lcid=0) -> Optional[str]:
