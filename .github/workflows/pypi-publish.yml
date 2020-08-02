@@ -1,0 +1,29 @@
+name: publish pypi package
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install pipenv
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade setuptools wheel
+          python -m pip install --upgrade pipenv
+      - name: Install dependencies
+        run: pipenv install --dev
+      - name: Publish package
+        run: |
+          pipenv run pipenv-setup sync
+          pipenv run python setup.py sdist bdist_wheel
+          pipenv run twine upload -u __token__ -p ${{secrets.PYPI_PUBLISH_TOKEN}} dist/*
+        env:
+          PACKAGE_VERSION_TO_PUBLISH: ${{ github.event.release.name }}

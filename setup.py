@@ -1,4 +1,5 @@
 # coding: utf-8
+import os
 
 from setuptools import setup, find_packages
 
@@ -7,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="regula.documentreader.webclient",
-    version="5.2.0-beta.0",
+    version=os.getenv("PACKAGE_VERSION_TO_PUBLISH", "5.2.0-beta.0"),
     python_requires=">=3.5",
     description="Regula's Document Reader python client",
     long_description=long_description,
@@ -30,5 +31,5 @@ setup(
         "urllib3==1.25.10",
     ],
     packages=find_packages(exclude=["test", "tests", "example"]),
-    include_package_data=True
+    include_package_data=True,
 )
