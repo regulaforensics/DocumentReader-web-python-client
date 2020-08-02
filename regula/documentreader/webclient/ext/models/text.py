@@ -1,7 +1,7 @@
 from typing import Optional, List
 
 from regula.documentreader.webclient.ext.models.text_field import TextField
-from regula.documentreader.webclient.gen.models.text import Text as GenText
+from regula.documentreader.webclient.gen.models import Text as GenText
 
 
 class Text(GenText):

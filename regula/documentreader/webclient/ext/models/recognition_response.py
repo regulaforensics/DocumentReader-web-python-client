@@ -1,8 +1,8 @@
-from typing import Optional
+from typing import Optional, List
 
+from regula.documentreader.webclient.ext.models.images import Images
 from regula.documentreader.webclient.ext.models.text import Text
 from regula.documentreader.webclient.gen import ResultItem
-from regula.documentreader.webclient.gen.models.images import Images
 from regula.documentreader.webclient.gen.models.process_response import ProcessResponse
 from regula.documentreader.webclient.gen.models.result import Result
 from regula.documentreader.webclient.gen.models.status import Status
@@ -11,7 +11,7 @@ from regula.documentreader.webclient.gen.models.status import Status
 class RecognitionResponse:
 
     def __init__(self, process_response: ProcessResponse):
-        self.__process_response = process_response
+        self.low_lvl_response = process_response
 
     @property
     def text(self) -> Optional[Text]:
@@ -31,11 +31,15 @@ class RecognitionResponse:
     def images(self) -> Optional[Images]:
         result = self.result_by_type(Result.IMAGES)
         if result:
+            result.images._normalized_input_images_results = self.results_by_type(Result.RAW_IMAGE)
             return result.images
         return None
 
     def result_by_type(self, result_type) -> Optional[ResultItem]:
-        for i in self.__process_response.container_list.list:
+        for i in self.low_lvl_response.container_list.list:
             if i.result_type == result_type:
                 return i
         return None
+
+    def results_by_type(self, result_type) -> List[ResultItem]:
+        return [r for r in self.low_lvl_response.container_list.list if r.result_type == result_type]
