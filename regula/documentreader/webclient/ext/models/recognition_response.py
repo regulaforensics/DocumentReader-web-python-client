@@ -1,7 +1,7 @@
-import uuid
 from typing import Optional
 
 from regula.documentreader.webclient.ext.models.text import Text
+from regula.documentreader.webclient.gen import ResultItem
 from regula.documentreader.webclient.gen.models.images import Images
 from regula.documentreader.webclient.gen.models.process_response import ProcessResponse
 from regula.documentreader.webclient.gen.models.result import Result
@@ -9,7 +9,6 @@ from regula.documentreader.webclient.gen.models.status import Status
 
 
 class RecognitionResponse:
-    __process_response: ProcessResponse
 
     def __init__(self, process_response: ProcessResponse):
         self.__process_response = process_response
@@ -18,8 +17,7 @@ class RecognitionResponse:
     def text(self) -> Optional[Text]:
         result = self.result_by_type(Result.TEXT)
         if result:
-            i = result.text
-            return Text(i)
+            return Text(result.text)
         return None
 
     @property
@@ -36,7 +34,7 @@ class RecognitionResponse:
             return result.images
         return None
 
-    def result_by_type(self, result_type):
+    def result_by_type(self, result_type) -> Optional[ResultItem]:
         for i in self.__process_response.container_list.list:
             if i.result_type == result_type:
                 return i

@@ -38,7 +38,7 @@ with DocumentReaderApi(host) as api:
 
     response_images = response.images
 
-    print(f"""
+    print("""
     ---------------------------------------------------------------------------
                    Document Overall Status: {doc_overall_status}
                     Document Number Visual: {doc_number_visual}
@@ -47,4 +47,8 @@ with DocumentReaderApi(host) as api:
            Validity Of Document Number MRZ: {doc_number_mrz_validity}
               MRZ-Visual values comparison: {doc_number_mrz_visual_matching}
     ---------------------------------------------------------------------------
-    """)
+    """.format(
+        doc_overall_status=doc_overall_status, doc_number_visual=doc_number_visual,
+        doc_number_mrz=doc_number_mrz, doc_number_visual_validity=doc_number_mrz_validity,
+        doc_number_mrz_validity=doc_number_mrz_validity, doc_number_mrz_visual_matching=doc_number_mrz_visual_matching,
+    ))

@@ -5,7 +5,6 @@ from regula.documentreader.webclient.gen.models import ProcessRequest
 
 
 class DocumentReaderApi(DefaultApi):
-    __license: str
 
     def __init__(self, host=None, debug=False, verify_ssl=False, api_client=None):
         if api_client:
@@ -16,6 +15,7 @@ class DocumentReaderApi(DefaultApi):
             configuration.verify_ssl = verify_ssl
 
             super().__init__(ApiClient(configuration=configuration))
+        self.__license = None
 
     def __enter__(self):
         return self
@@ -24,11 +24,11 @@ class DocumentReaderApi(DefaultApi):
         self.api_client.close()
 
     @property
-    def license(self):
+    def license(self) -> str:
         return self.__license
 
     @license.setter
-    def license(self, value):
+    def license(self, value: str):
         self.__license = value
 
     def process(self, process_request: ProcessRequest) -> RecognitionResponse:
