@@ -10,25 +10,24 @@ on:
 
 jobs:
   run_smoke_test:
-
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.8]
-
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
+          python-version: 3.5
+      - name: Install pipenv
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Run example
-        run: |
-          python example.py
+          python -m pip install --upgrade setuptools wheel
+          python -m pip install --upgrade pipenv==2018.11.26
+      - name: Install test dependencies
+        run: pipenv install --dev
+        working-directory: example
+      - name: Run smoke test
+        run: pipenv run python example.py
+        working-directory: example
         env:
           API_BASE_PATH: "http://test-api.regulaforensics.com"
           TEST_LICENSE: ${{secrets.TEST_LICENSE}}
