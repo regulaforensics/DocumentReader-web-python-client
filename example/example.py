@@ -27,8 +27,8 @@ with DocumentReaderApi(host) as api:
 
     # text fields example
     doc_number_field = response.text.get_field(TextFieldType.DOCUMENT_NUMBER)
-    doc_number_visual = doc_number_field.get_value()
-    doc_number_mrz = doc_number_field.get_value(Source.MRZ)
+    doc_number_mrz = doc_number_field.get_value()
+    doc_number_visual = doc_number_field.get_value(Source.VISUAL)
     doc_number_visual_validity = doc_number_field.source_validity(Source.VISUAL)
     doc_number_mrz_validity = doc_number_field.source_validity(Source.MRZ)
     doc_number_mrz_visual_matching = doc_number_field.cross_source_comparison(Source.MRZ, Source.VISUAL)
