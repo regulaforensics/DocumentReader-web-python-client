@@ -1,4 +1,4 @@
-# Regula's Document Reader web application python client
+# Regula Document Reader web application python client
 
 ## Development
 
