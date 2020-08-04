@@ -1,15 +1,12 @@
 # Regula Document Reader web API Python 3.5+ client
 
-Before you start: if you just want to play with an online demo, visit our [playground](https://api.regulaforensics.com).
+:bulb: Before you start: if you just want to play with an online demo, visit our [playground](https://api.regulaforensics.com).
 
-## Running local example
-
-NOTE: for some systems `python3` and `pip3` commands should be used, instead of `python` and `pip`.
+:warning: NOTE: for some systems `python3` and `pip3` commands should be used, instead of `python` and `pip`.
 
 Requirements:
 - installed python 3.5 or higher
 - installed [pip](https://pip.pypa.io/en/stable/installing/)
-- running [Regula Document Reader web API with trial license](https://docs.regulaforensics.com/web/quick-start-guide)
 
 Verify Python and pip versions:
 ```bash
@@ -30,15 +27,30 @@ Setup project and download dependencies:
 pip install -e ./
 ```
 
-Run example:
+### Running with local Regula Document Reader web API installation
+
+Follow [the instructions](https://docs.regulaforensics.com/web/quick-start-guide) to run Regula Document Reader web API. 
+Assuming you have successfully launched instance, use next line command to run example:
 ```bash
 cd example
 python example.py
 
-# If Regula Document Reader web API is running not on localhost, also specify host via env variable:
+# If Regula Document Reader web API is running not on localhost, specify host via env variable:
 API_BASE_PATH="http://192.168.0.101:8080" python example.py
 ```
 
+### Running using Regula Document Reader web API test SaaS
+
+Get your [free trial here](https://mobile.regulaforensics.com/). You should obtain `regula.license` file. 
+Copy it to **example** folder. You are ready for running!
+
+Execute example:
+```bash
+cd example
+API_BASE_PATH="https://test-api.regulaforensics.com" python example.py
+```
+
+### Output 
 This sample generates next text output:
 ```text
     ---------------------------------------------------------------------------
@@ -50,11 +62,5 @@ This sample generates next text output:
               MRZ-Visual values comparison: 1
     ---------------------------------------------------------------------------
 ```
-Also, it creates [portrait](portrait.jpg) and [document image](document-image.jpg) 
-pictures inside current folder.
-
+Also, it creates [portrait](portrait.jpg) and [document image](document-image.jpg) pictures inside current folder.
 Edit on your own [example.py](./example.py), and re-run to see your results.
-
-## Detailed guide
-
-tbd

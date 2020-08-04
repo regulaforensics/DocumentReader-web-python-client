@@ -8,11 +8,17 @@ from regula.documentreader.webclient.gen.models import ProcessParams, Scenario, 
 host = os.getenv("API_BASE_PATH", "http://localhost:8080")
 license = os.getenv("TEST_LICENSE", None)  # optional, used here only for smoke test purposes
 
+# read optional local license file
+if os.path.isfile('regula.license') and os.access('regula.license', os.R_OK):
+    with open("regula.license", "rb") as f:
+        print("Found local license file. Using it for performing request...")
+        license = f.read()
+
 with open("australia_passport.jpg", "rb") as f:
     input_image = f.read()
 
 with DocumentReaderApi(host) as api:
-    api.license = license  # used here only for smoke test purposes, most clients will attach license on server side
+    api.license = license
 
     params = ProcessParams(
         scenario=Scenario.FULL_PROCESS,
