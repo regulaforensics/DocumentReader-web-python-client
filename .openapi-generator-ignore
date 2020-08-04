@@ -10,5 +10,6 @@ setup.cfg
 README.md
 .gitignore
 setup.py
+regula/documentreader/webclient/__init__.py
 
 regula/documentreader/webclient/gen/models/container_list.py

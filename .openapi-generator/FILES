@@ -1,6 +1,5 @@
 regula/__init__.py
 regula/documentreader/__init__.py
-regula/documentreader/webclient/__init__.py
 regula/documentreader/webclient/gen/__init__.py
 regula/documentreader/webclient/gen/api/__init__.py
 regula/documentreader/webclient/gen/api/default_api.py
