@@ -35,9 +35,9 @@ with DocumentReaderApi(host) as api:
 
     # images fields example
     document_image = response.images.document_image()
-    portrait_Field = response.images.get_field(GraphicFieldType.PORTRAIT)
-    portrait_From_Visual = portrait_Field.get_value(Source.VISUAL)
-    with open('portrait.jpg', 'wb') as f: f.write(portrait_From_Visual)
+    portrait_field = response.images.get_field(GraphicFieldType.PORTRAIT)
+    portrait_from_visual = portrait_field.get_value(Source.VISUAL)
+    with open('portrait.jpg', 'wb') as f: f.write(portrait_from_visual)
     with open('document-image.jpg', 'wb') as f: f.write(document_image)
 
     # low-lvl(original) response
