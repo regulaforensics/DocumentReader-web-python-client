@@ -6,19 +6,19 @@ from regula.documentreader.webclient.gen.models import ProcessParams, Scenario, 
     CheckResult, GraphicFieldType
 
 host = os.getenv("API_BASE_PATH", "http://localhost:8080")
-license = os.getenv("TEST_LICENSE", None)  # optional, used here only for smoke test purposes
+regula_license = os.getenv("TEST_LICENSE", None)  # optional, used here only for smoke test purposes
 
 # read optional local license file
 if os.path.isfile('regula.license') and os.access('regula.license', os.R_OK):
     with open("regula.license", "rb") as f:
         print("Found local license file. Using it for performing request...")
-        license = f.read()
+        regula_license = f.read()
 
 with open("australia_passport.jpg", "rb") as f:
     input_image = f.read()
 
 with DocumentReaderApi(host) as api:
-    api.license = license
+    api.license = regula_license
 
     params = ProcessParams(
         scenario=Scenario.FULL_PROCESS,
@@ -43,11 +43,10 @@ with DocumentReaderApi(host) as api:
     document_image = response.images.document_image()
     portrait_field = response.images.get_field(GraphicFieldType.PORTRAIT)
     portrait_from_visual = portrait_field.get_value(Source.VISUAL)
-    with open('portrait.jpg', 'wb') as f: f.write(portrait_from_visual)
-    with open('document-image.jpg', 'wb') as f: f.write(document_image)
-
-    # low-lvl(original) response
-    response.low_lvl_response
+    with open('portrait.jpg', 'wb') as f:
+        f.write(portrait_from_visual)
+    with open('document-image.jpg', 'wb') as f:
+        f.write(document_image)
 
     print("""
     ---------------------------------------------------------------------------
