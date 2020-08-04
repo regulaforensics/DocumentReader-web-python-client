@@ -12,11 +12,11 @@ with open("australia_passport.jpg", "rb") as f:
     input_image = f.read()
 
 with DocumentReaderApi(host) as api:
-    api.license = license  # used here only for smoke test purposes, most of clients will attach license on server side
+    api.license = license  # used here only for smoke test purposes, most clients will attach license on server side
 
     params = ProcessParams(
         scenario=Scenario.FULL_PROCESS,
-        result_type_output=[Result.RAW_IMAGE, Result.STATUS, Result.TEXT, Result.IMAGES]
+        result_type_output=[Result.DOCUMENT_IMAGE, Result.STATUS, Result.TEXT, Result.IMAGES]
     )
     request = RecognitionRequest(process_params=params, images=[input_image])
     response = api.process(request)
@@ -34,11 +34,11 @@ with DocumentReaderApi(host) as api:
     doc_number_mrz_visual_matching = doc_number_field.cross_source_comparison(Source.MRZ, Source.VISUAL)
 
     # images fields example
-    normalized_input_image = response.images.normalized_input_image()
+    document_image = response.images.document_image()
     portrait_Field = response.images.get_field(GraphicFieldType.PORTRAIT)
     portrait_From_Visual = portrait_Field.get_value(Source.VISUAL)
-    with open('portraitFromVisual.jpg', 'wb') as f: f.write(portrait_From_Visual)
-    with open('normalizedInputImage.jpg', 'wb') as f: f.write(normalized_input_image)
+    with open('portrait.jpg', 'wb') as f: f.write(portrait_From_Visual)
+    with open('document-image.jpg', 'wb') as f: f.write(document_image)
 
     # low-lvl(original) response
     response.low_lvl_response

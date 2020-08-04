@@ -26,7 +26,7 @@ class ImagesField(GetImagesField):
 
 
 class Images(GenImages):
-    _normalized_input_images_results = None
+    _document_images_results = None
 
     def get_field(self, field_type: int) -> Optional[ImagesField]:
         for field in self.field_list:
@@ -34,14 +34,24 @@ class Images(GenImages):
                 return field
         return None
 
-    def normalized_input_image(self) -> Optional[bytes]:
-        images = self.normalized_input_images()
+    def document_image(self) -> Optional[bytes]:
+        """
+           Contains cropped and rotated with perspective compensation image of document.
+           Single input image can contain multiple document side/pages, which will be returned as separated results.
+           Most coordinates in other types defined on that image.
+        """
+        images = self.document_images()
         if not images:
             return None
         return images.pop()
 
-    def normalized_input_images(self) -> Optional[List[bytes]]:
-        if self._normalized_input_images_results:
+    def document_images(self) -> Optional[List[bytes]]:
+        """
+           Contains cropped and rotated with perspective compensation image of document.
+           Single input image can contain multiple document side/pages, which will be returned as separated results.
+           Most coordinates in other types defined on that image.
+        """
+        if self._document_images_results:
             return [base64.b64decode(image.raw_image_container.image)
-                    for image in self._normalized_input_images_results]
+                    for image in self._document_images_results]
         return None

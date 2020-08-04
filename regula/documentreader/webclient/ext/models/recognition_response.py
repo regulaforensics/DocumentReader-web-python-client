@@ -31,7 +31,7 @@ class RecognitionResponse:
     def images(self) -> Optional[Images]:
         result = self.result_by_type(Result.IMAGES)
         if result:
-            result.images._normalized_input_images_results = self.results_by_type(Result.RAW_IMAGE)
+            result.images._document_images_results = self.results_by_type(Result.DOCUMENT_IMAGE)
             return result.images
         return None
 
