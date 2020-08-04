@@ -1,7 +1,12 @@
+import base64
+from typing import Union
+
 from regula.documentreader.webclient.ext.models.recognition_response import RecognitionResponse
 from regula.documentreader.webclient.gen import ApiClient, Configuration
 from regula.documentreader.webclient.gen.api import DefaultApi
 from regula.documentreader.webclient.gen.models import ProcessRequest
+
+Base64String = str
 
 
 class DocumentReaderApi(DefaultApi):
@@ -24,12 +29,15 @@ class DocumentReaderApi(DefaultApi):
         self.api_client.close()
 
     @property
-    def license(self) -> str:
+    def license(self) -> Base64String:
         return self.__license
 
     @license.setter
-    def license(self, value: str):
-        self.__license = value
+    def license(self, value: Union[Base64String, bytes]):
+        if isinstance(value, bytes):
+            self.__license = base64.b64encode(value).decode("utf-8")
+        else:
+            self.__license = value
 
     def process(self, process_request: ProcessRequest) -> RecognitionResponse:
         process_request.system_info.license = self.license
