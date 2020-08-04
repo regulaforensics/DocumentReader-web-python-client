@@ -12,6 +12,7 @@ Requirements:
 Cloning example
 ```bash
 git clone https://github.com/regulaforensics/DocumentReader-web-python-client.git
+cd DocumentReader-web-python-client
 cd example
 ```
 
