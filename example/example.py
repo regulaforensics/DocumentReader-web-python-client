@@ -22,7 +22,7 @@ with DocumentReaderApi(host) as api:
 
     params = ProcessParams(
         scenario=Scenario.FULL_PROCESS,
-        result_type_output=[Result.DOCUMENT_IMAGE, Result.STATUS, Result.TEXT, Result.IMAGES]
+        result_type_output=[Result.STATUS, Result.TEXT, Result.IMAGES]
     )
     request = RecognitionRequest(process_params=params, images=[input_image])
     response = api.process(request)
@@ -40,9 +40,8 @@ with DocumentReaderApi(host) as api:
     doc_number_mrz_visual_matching = doc_number_field.cross_source_comparison(Source.MRZ, Source.VISUAL)
 
     # images fields example
-    document_image = response.images.document_image()
-    portrait_field = response.images.get_field(GraphicFieldType.PORTRAIT)
-    portrait_from_visual = portrait_field.get_value(Source.VISUAL)
+    document_image = response.images.get_field(GraphicFieldType.DOCUMENT_FRONT).get_value()
+    portrait_from_visual = response.images.get_field(GraphicFieldType.PORTRAIT).get_value(Source.VISUAL)
     with open('portrait.jpg', 'wb') as f:
         f.write(portrait_from_visual)
     with open('document-image.jpg', 'wb') as f:
