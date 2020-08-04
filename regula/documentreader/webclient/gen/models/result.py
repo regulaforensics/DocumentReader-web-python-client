@@ -27,8 +27,8 @@ class Result(object):
     Do not edit the class manually.
     """
 
-    "Contains cropped and rotated image of document. Most of coordinates in other types defined on that image"
-    RAW_IMAGE = int("1")
+    "Contains cropped and rotated with perspective compensation image of document. Single input image can contain multiple document side/pages, which will be returned as separated results. Most of coordinates in other types defined on that image"
+    DOCUMENT_IMAGE = int("1")
 
     "Contains check statuses with details, grouped by source"
     STATUS = int("33")
@@ -69,7 +69,7 @@ class Result(object):
     "Contains description of determined document type, if any"
     DOCUMENT_TYPE = int("9")
 
-    allowable_values = [RAW_IMAGE, STATUS, TEXT, IMAGES, MRZ_TEXT, VISUAL_TEXT, BARCODE_TEXT, RFID_TEXT, LEXICAL_ANALYSIS, VISUAL_GRAPHICS, BARCODE_GRAPHICS, RFID_GRAPHICS, DOCUMENT_TYPE_CANDIDATES, DOCUMENT_TYPE]  # noqa: E501
+    allowable_values = [DOCUMENT_IMAGE, STATUS, TEXT, IMAGES, MRZ_TEXT, VISUAL_TEXT, BARCODE_TEXT, RFID_TEXT, LEXICAL_ANALYSIS, VISUAL_GRAPHICS, BARCODE_GRAPHICS, RFID_GRAPHICS, DOCUMENT_TYPE_CANDIDATES, DOCUMENT_TYPE]  # noqa: E501
 
     """
     Attributes:

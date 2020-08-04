@@ -50,7 +50,7 @@ class ResultItem(object):
         'result_type': 'result_type'
     }
     discriminator_value_class_map = {
-        1 : 'RawImageResult',
+        1 : 'DocumentImageResult',
         3 : 'TextDataResult',
         6 : 'GraphicsResult',
         8 : 'DocumentTypesCandidatesResult',

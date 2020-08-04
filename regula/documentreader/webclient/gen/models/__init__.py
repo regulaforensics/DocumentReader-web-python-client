@@ -24,6 +24,8 @@ from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID
 from regula.documentreader.webclient.gen.models.doc_visual_extended_field import DocVisualExtendedField
 from regula.documentreader.webclient.gen.models.doc_visual_extended_info import DocVisualExtendedInfo
 from regula.documentreader.webclient.gen.models.document_format import DocumentFormat
+from regula.documentreader.webclient.gen.models.document_image_result import DocumentImageResult
+from regula.documentreader.webclient.gen.models.document_image_result_all_of import DocumentImageResultAllOf
 from regula.documentreader.webclient.gen.models.document_type import DocumentType
 from regula.documentreader.webclient.gen.models.document_type_recognition_result import DocumentTypeRecognitionResult
 from regula.documentreader.webclient.gen.models.document_types_candidates_list import DocumentTypesCandidatesList
@@ -54,8 +56,6 @@ from regula.documentreader.webclient.gen.models.process_request_image import Pro
 from regula.documentreader.webclient.gen.models.process_response import ProcessResponse
 from regula.documentreader.webclient.gen.models.process_system_info import ProcessSystemInfo
 from regula.documentreader.webclient.gen.models.processing_status import ProcessingStatus
-from regula.documentreader.webclient.gen.models.raw_image_result import RawImageResult
-from regula.documentreader.webclient.gen.models.raw_image_result_all_of import RawImageResultAllOf
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from regula.documentreader.webclient.gen.models.result import Result
 from regula.documentreader.webclient.gen.models.result_item import ResultItem

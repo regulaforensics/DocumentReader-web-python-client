@@ -17,6 +17,8 @@ regula/documentreader/webclient/gen/models/details_rfid.py
 regula/documentreader/webclient/gen/models/doc_visual_extended_field.py
 regula/documentreader/webclient/gen/models/doc_visual_extended_info.py
 regula/documentreader/webclient/gen/models/document_format.py
+regula/documentreader/webclient/gen/models/document_image_result.py
+regula/documentreader/webclient/gen/models/document_image_result_all_of.py
 regula/documentreader/webclient/gen/models/document_type.py
 regula/documentreader/webclient/gen/models/document_type_recognition_result.py
 regula/documentreader/webclient/gen/models/document_types_candidates_list.py
@@ -47,8 +49,6 @@ regula/documentreader/webclient/gen/models/process_request_image.py
 regula/documentreader/webclient/gen/models/process_response.py
 regula/documentreader/webclient/gen/models/process_system_info.py
 regula/documentreader/webclient/gen/models/processing_status.py
-regula/documentreader/webclient/gen/models/raw_image_result.py
-regula/documentreader/webclient/gen/models/raw_image_result_all_of.py
 regula/documentreader/webclient/gen/models/rectangle_coordinates.py
 regula/documentreader/webclient/gen/models/result.py
 regula/documentreader/webclient/gen/models/result_item.py
