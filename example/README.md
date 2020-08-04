@@ -4,29 +4,39 @@ Before you start: if you just want to play with an online demo, visit our [playg
 
 ## Running local example
 
+NOTE: for some systems `python3` and `pip3` commands should be used, instead of `python` and `pip`.
+
 Requirements:
 - installed python 3.5 or higher
-- installed [pipenv](https://pypi.org/project/pipenv)
+- installed [pip](https://pip.pypa.io/en/stable/installing/)
 - running [Regula Document Reader web API with trial license](https://docs.regulaforensics.com/web/quick-start-guide)
 
-Cloning example
+Verify Python and pip versions:
+```bash
+python --version  
+> Python 3.8.2
+pip --version     
+> pip 20.2.1 from /home/user/.local/lib/python3.8/site-packages/pip (python 3.8)
+```
+
+Cloning example:
 ```bash
 git clone https://github.com/regulaforensics/DocumentReader-web-python-client.git
 cd DocumentReader-web-python-client
-cd example
 ```
 
 Setup project and download dependencies:
 ```bash
-pipenv install
+pip install -e ./
 ```
 
 Run example:
 ```bash
-pipenv run python example.py
+cd example
+python example.py
 
 # If Regula Document Reader web API is running not on localhost, also specify host via env variable:
-API_BASE_PATH="http://192.168.0.101:8080" pipenv run python example.py
+API_BASE_PATH="http://192.168.0.101:8080" python example.py
 ```
 
 This sample generates next text output:
