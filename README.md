@@ -28,9 +28,7 @@ pipenv install regula.documentreader.webclient
 ## Example
 Performing request:
 ```python
-from regula.documentreader.webclient.ext.api import DocumentReaderApi
-from regula.documentreader.webclient.ext.models import *
-from regula.documentreader.webclient.gen.models import *
+from regula.documentreader.webclient import *
 
 with open("australia_passport.jpg", "rb") as f:
     input_image = f.read()
