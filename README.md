@@ -32,15 +32,25 @@ from regula.documentreader.webclient.ext.api import DocumentReaderApi
 from regula.documentreader.webclient.ext.models import *
 from regula.documentreader.webclient.gen.models import *
 
-with open("australia_passport.jpg", "rb") as f:
-    input_image = f.read()
+with open("WHITE.jpg", "rb") as f:
+    white_page_0 = f.read()
+
+with open("IR.jpg", "rb") as f:
+    ir_page_0 = f.read()
+
+with open("UV.jpg", "rb") as f:
+    uv_page_0 = f.read()
 
 with DocumentReaderApi(host='http://localhost:8080') as api:
     params = ProcessParams(
-        scenario=Scenario.FULL_PROCESS,
+        scenario=Scenario.FULL_AUTH,
         result_type_output=[Result.DOCUMENT_IMAGE, Result.STATUS, Result.TEXT, Result.IMAGES]
     )
-    request = RecognitionRequest(process_params=params, images=[input_image])
+    request = RecognitionRequest(process_params=params, images=[
+        RecognitionImage(image=white_page_0, light_index=6, page_index=0),
+        RecognitionImage(image=ir_page_0, light_index=24, page_index=0),
+        RecognitionImage(image=uv_page_0, light_index=128, page_index=0),    
+    ])
     response = api.process(request)
 ```
 

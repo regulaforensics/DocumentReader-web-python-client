@@ -14,13 +14,13 @@ if os.path.isfile('regula.license') and os.access('regula.license', os.R_OK):
         print("Found local license file. Using it for performing request...")
         regula_license = f.read()
 
-with open(os.path.join("WHITE.jpg"), "rb") as f:
+with open("WHITE.jpg", "rb") as f:
     white_page_0 = f.read()
 
-with open(os.path.join("IR.jpg"), "rb") as f:
+with open("IR.jpg", "rb") as f:
     ir_page_0 = f.read()
 
-with open(os.path.join("UV.jpg"), "rb") as f:
+with open("UV.jpg", "rb") as f:
     uv_page_0 = f.read()
 
 
