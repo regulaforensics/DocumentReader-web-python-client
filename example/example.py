@@ -14,9 +14,6 @@ if os.path.isfile('regula.license') and os.access('regula.license', os.R_OK):
         print("Found local license file. Using it for performing request...")
         regula_license = f.read()
 
-with open("australia_passport.jpg", "rb") as f:
-    input_image = f.read()
-
 with open(os.path.join("WHITE.jpg"), "rb") as f:
     white_page_0 = f.read()
 
