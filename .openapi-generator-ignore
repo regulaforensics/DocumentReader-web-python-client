@@ -13,3 +13,4 @@ setup.py
 regula/documentreader/webclient/__init__.py
 
 regula/documentreader/webclient/gen/models/container_list.py
+regula/documentreader/webclient/gen/models/authenticity_check_result.py

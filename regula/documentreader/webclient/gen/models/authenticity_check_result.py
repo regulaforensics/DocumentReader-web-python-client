@@ -32,7 +32,7 @@ class AuthenticityCheckResult(object):
         'type': 'SecurityFeatureType',
         'result': 'CheckResult',
         'count': 'int',
-        'list': 'list[AnyOfSecurityFeatureResultIdentResultFiberResultOCRSecurityTextResultPhotoIdentResult]'
+        'list': 'list[AuthenticityCheckResultItem]'
     }
 
     attribute_map = {
