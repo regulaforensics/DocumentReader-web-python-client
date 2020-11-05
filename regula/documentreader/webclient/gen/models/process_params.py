@@ -36,7 +36,9 @@ class ProcessParams(object):
         'date_format': 'str',
         'image_dpi_out_max': 'int',
         'already_cropped': 'bool',
-        'custom_params': 'dict(str, object)'
+        'custom_params': 'dict(str, object)',
+        'log': 'bool',
+        'force_doc_id': 'int'
     }
 
     attribute_map = {
@@ -47,10 +49,12 @@ class ProcessParams(object):
         'date_format': 'dateFormat',
         'image_dpi_out_max': 'imageDpiOutMax',
         'already_cropped': 'alreadyCropped',
-        'custom_params': 'customParams'
+        'custom_params': 'customParams',
+        'log': 'log',
+        'force_doc_id': 'forceDocID'
     }
 
-    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, field_types_filter=None, date_format=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, field_types_filter=None, date_format=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, log=None, force_doc_id=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -64,6 +68,8 @@ class ProcessParams(object):
         self._image_dpi_out_max = None
         self._already_cropped = None
         self._custom_params = None
+        self._log = None
+        self._force_doc_id = None
         self.discriminator = None
 
         self.scenario = scenario
@@ -81,6 +87,10 @@ class ProcessParams(object):
             self.already_cropped = already_cropped
         if custom_params is not None:
             self.custom_params = custom_params
+        if log is not None:
+            self.log = log
+        if force_doc_id is not None:
+            self.force_doc_id = force_doc_id
 
     @property
     def scenario(self):
@@ -265,6 +275,52 @@ class ProcessParams(object):
         """
 
         self._custom_params = custom_params
+
+    @property
+    def log(self):
+        """Gets the log of this ProcessParams.  # noqa: E501
+
+        This option can be set to true if you need to get base64 string of transaction processing log.  # noqa: E501
+
+        :return: The log of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._log
+
+    @log.setter
+    def log(self, log):
+        """Sets the log of this ProcessParams.
+
+        This option can be set to true if you need to get base64 string of transaction processing log.  # noqa: E501
+
+        :param log: The log of this ProcessParams.  # noqa: E501
+        :type log: bool
+        """
+
+        self._log = log
+
+    @property
+    def force_doc_id(self):
+        """Gets the force_doc_id of this ProcessParams.  # noqa: E501
+
+        Force use of specific template ID and skip document type identification step.  # noqa: E501
+
+        :return: The force_doc_id of this ProcessParams.  # noqa: E501
+        :rtype: int
+        """
+        return self._force_doc_id
+
+    @force_doc_id.setter
+    def force_doc_id(self, force_doc_id):
+        """Sets the force_doc_id of this ProcessParams.
+
+        Force use of specific template ID and skip document type identification step.  # noqa: E501
+
+        :param force_doc_id: The force_doc_id of this ProcessParams.  # noqa: E501
+        :type force_doc_id: int
+        """
+
+        self._force_doc_id = force_doc_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

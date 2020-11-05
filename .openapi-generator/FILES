@@ -13,6 +13,7 @@ regula/documentreader/webclient/gen/models/chosen_document_type_result_all_of.py
 regula/documentreader/webclient/gen/models/cross_source_value_comparison.py
 regula/documentreader/webclient/gen/models/details_optical.py
 regula/documentreader/webclient/gen/models/details_rfid.py
+regula/documentreader/webclient/gen/models/device_info.py
 regula/documentreader/webclient/gen/models/doc_visual_extended_field.py
 regula/documentreader/webclient/gen/models/doc_visual_extended_info.py
 regula/documentreader/webclient/gen/models/document_format.py
@@ -23,6 +24,7 @@ regula/documentreader/webclient/gen/models/document_type_recognition_result.py
 regula/documentreader/webclient/gen/models/document_types_candidates_list.py
 regula/documentreader/webclient/gen/models/document_types_candidates_result.py
 regula/documentreader/webclient/gen/models/document_types_candidates_result_all_of.py
+regula/documentreader/webclient/gen/models/fdsid_list.py
 regula/documentreader/webclient/gen/models/graphic_field.py
 regula/documentreader/webclient/gen/models/graphic_field_type.py
 regula/documentreader/webclient/gen/models/graphic_fields_list.py
@@ -71,7 +73,6 @@ regula/documentreader/webclient/gen/models/text_field_type.py
 regula/documentreader/webclient/gen/models/text_field_value.py
 regula/documentreader/webclient/gen/models/text_result.py
 regula/documentreader/webclient/gen/models/text_result_all_of.py
-regula/documentreader/webclient/gen/models/tfdsid_list.py
 regula/documentreader/webclient/gen/models/transaction_info.py
 regula/documentreader/webclient/gen/models/verification_result.py
 regula/documentreader/webclient/gen/models/verified_field_map.py

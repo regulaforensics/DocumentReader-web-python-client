@@ -30,6 +30,7 @@ class TextField(object):
     """
     openapi_types = {
         'field_type': 'TextFieldType',
+        'field_name': 'str',
         'lcid': 'LCID',
         'status': 'CheckResult',
         'validity_status': 'CheckResult',
@@ -42,6 +43,7 @@ class TextField(object):
 
     attribute_map = {
         'field_type': 'fieldType',
+        'field_name': 'fieldName',
         'lcid': 'lcid',
         'status': 'status',
         'validity_status': 'validityStatus',
@@ -52,13 +54,14 @@ class TextField(object):
         'comparison_list': 'comparisonList'
     }
 
-    def __init__(self, field_type=None, lcid=None, status=None, validity_status=None, comparison_status=None, value=None, value_list=None, validity_list=None, comparison_list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, field_type=None, field_name=None, lcid=None, status=None, validity_status=None, comparison_status=None, value=None, value_list=None, validity_list=None, comparison_list=None, local_vars_configuration=None):  # noqa: E501
         """TextField - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._field_type = None
+        self._field_name = None
         self._lcid = None
         self._status = None
         self._validity_status = None
@@ -70,6 +73,7 @@ class TextField(object):
         self.discriminator = None
 
         self.field_type = field_type
+        self.field_name = field_name
         if lcid is not None:
             self.lcid = lcid
         self.status = status
@@ -102,6 +106,31 @@ class TextField(object):
             raise ValueError("Invalid value for `field_type`, must not be `None`")  # noqa: E501
 
         self._field_type = field_type
+
+    @property
+    def field_name(self):
+        """Gets the field_name of this TextField.  # noqa: E501
+
+        Field name. Only use to search values for fields with fieldType=50(other). In general, use fieldType for lookup.  # noqa: E501
+
+        :return: The field_name of this TextField.  # noqa: E501
+        :rtype: str
+        """
+        return self._field_name
+
+    @field_name.setter
+    def field_name(self, field_name):
+        """Sets the field_name of this TextField.
+
+        Field name. Only use to search values for fields with fieldType=50(other). In general, use fieldType for lookup.  # noqa: E501
+
+        :param field_name: The field_name of this TextField.  # noqa: E501
+        :type field_name: str
+        """
+        if self.local_vars_configuration.client_side_validation and field_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `field_name`, must not be `None`")  # noqa: E501
+
+        self._field_name = field_name
 
     @property
     def lcid(self):

@@ -30,6 +30,7 @@ from regula.documentreader.webclient.gen.models.container_list import ContainerL
 from regula.documentreader.webclient.gen.models.cross_source_value_comparison import CrossSourceValueComparison
 from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical
 from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID
+from regula.documentreader.webclient.gen.models.device_info import DeviceInfo
 from regula.documentreader.webclient.gen.models.doc_visual_extended_field import DocVisualExtendedField
 from regula.documentreader.webclient.gen.models.doc_visual_extended_info import DocVisualExtendedInfo
 from regula.documentreader.webclient.gen.models.document_format import DocumentFormat
@@ -40,6 +41,7 @@ from regula.documentreader.webclient.gen.models.document_type_recognition_result
 from regula.documentreader.webclient.gen.models.document_types_candidates_list import DocumentTypesCandidatesList
 from regula.documentreader.webclient.gen.models.document_types_candidates_result import DocumentTypesCandidatesResult
 from regula.documentreader.webclient.gen.models.document_types_candidates_result_all_of import DocumentTypesCandidatesResultAllOf
+from regula.documentreader.webclient.gen.models.fdsid_list import FDSIDList
 from regula.documentreader.webclient.gen.models.graphic_field import GraphicField
 from regula.documentreader.webclient.gen.models.graphic_field_type import GraphicFieldType
 from regula.documentreader.webclient.gen.models.graphic_fields_list import GraphicFieldsList
@@ -79,7 +81,6 @@ from regula.documentreader.webclient.gen.models.status_result_all_of import Stat
 from regula.documentreader.webclient.gen.models.string_recognition_result import StringRecognitionResult
 from regula.documentreader.webclient.gen.models.symbol_candidate import SymbolCandidate
 from regula.documentreader.webclient.gen.models.symbol_recognition_result import SymbolRecognitionResult
-from regula.documentreader.webclient.gen.models.tfdsid_list import TFDSIDList
 from regula.documentreader.webclient.gen.models.text import Text
 from regula.documentreader.webclient.gen.models.text_available_source import TextAvailableSource
 from regula.documentreader.webclient.gen.models.text_data_result import TextDataResult

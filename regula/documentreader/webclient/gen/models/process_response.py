@@ -32,17 +32,19 @@ class ProcessResponse(object):
         'chip_page': 'RfidLocation',
         'processing_finished': 'ProcessingStatus',
         'container_list': 'ContainerList',
-        'transaction_info': 'TransactionInfo'
+        'transaction_info': 'TransactionInfo',
+        'log': 'str'
     }
 
     attribute_map = {
         'chip_page': 'ChipPage',
         'processing_finished': 'ProcessingFinished',
         'container_list': 'ContainerList',
-        'transaction_info': 'TransactionInfo'
+        'transaction_info': 'TransactionInfo',
+        'log': 'log'
     }
 
-    def __init__(self, chip_page=None, processing_finished=None, container_list=None, transaction_info=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, chip_page=None, processing_finished=None, container_list=None, transaction_info=None, log=None, local_vars_configuration=None):  # noqa: E501
         """ProcessResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -52,12 +54,15 @@ class ProcessResponse(object):
         self._processing_finished = None
         self._container_list = None
         self._transaction_info = None
+        self._log = None
         self.discriminator = None
 
         self.chip_page = chip_page
         self.processing_finished = processing_finished
         self.container_list = container_list
         self.transaction_info = transaction_info
+        if log is not None:
+            self.log = log
 
     @property
     def chip_page(self):
@@ -150,6 +155,29 @@ class ProcessResponse(object):
             raise ValueError("Invalid value for `transaction_info`, must not be `None`")  # noqa: E501
 
         self._transaction_info = transaction_info
+
+    @property
+    def log(self):
+        """Gets the log of this ProcessResponse.  # noqa: E501
+
+        Base64 encoded transaction processing log  # noqa: E501
+
+        :return: The log of this ProcessResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._log
+
+    @log.setter
+    def log(self, log):
+        """Sets the log of this ProcessResponse.
+
+        Base64 encoded transaction processing log  # noqa: E501
+
+        :param log: The log of this ProcessResponse.  # noqa: E501
+        :type log: str
+        """
+
+        self._log = log
 
     def to_dict(self):
         """Returns the model properties as a dict"""
