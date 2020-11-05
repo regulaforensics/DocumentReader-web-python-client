@@ -33,7 +33,7 @@ class OneCandidate(object):
         'id': 'int',
         'p': 'float',
         'rfid_presence': 'RfidLocation',
-        'fdsid_list': 'TFDSIDList',
+        'fdsid_list': 'FDSIDList',
         'necessary_lights': 'int',
         'check_authenticity': 'int',
         'uv_exp': 'int',
@@ -190,7 +190,7 @@ class OneCandidate(object):
 
 
         :return: The fdsid_list of this OneCandidate.  # noqa: E501
-        :rtype: TFDSIDList
+        :rtype: FDSIDList
         """
         return self._fdsid_list
 
@@ -200,7 +200,7 @@ class OneCandidate(object):
 
 
         :param fdsid_list: The fdsid_list of this OneCandidate.  # noqa: E501
-        :type fdsid_list: TFDSIDList
+        :type fdsid_list: FDSIDList
         """
 
         self._fdsid_list = fdsid_list
