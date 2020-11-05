@@ -30,6 +30,7 @@ class DocVisualExtendedField(object):
     """
     openapi_types = {
         'w_field_type': 'TextFieldType',
+        'field_name': 'str',
         'w_lcid': 'LCID',
         'strings_result': 'list[StringRecognitionResult]',
         'buf_text': 'str',
@@ -40,6 +41,7 @@ class DocVisualExtendedField(object):
 
     attribute_map = {
         'w_field_type': 'wFieldType',
+        'field_name': 'FieldName',
         'w_lcid': 'wLCID',
         'strings_result': 'StringsResult',
         'buf_text': 'Buf_Text',
@@ -48,13 +50,14 @@ class DocVisualExtendedField(object):
         'rfid_origin_tag_entry': 'RFID_OriginTagEntry'
     }
 
-    def __init__(self, w_field_type=None, w_lcid=None, strings_result=None, buf_text=None, field_rect=None, rfid_origin_dg=None, rfid_origin_tag_entry=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, w_field_type=None, field_name=None, w_lcid=None, strings_result=None, buf_text=None, field_rect=None, rfid_origin_dg=None, rfid_origin_tag_entry=None, local_vars_configuration=None):  # noqa: E501
         """DocVisualExtendedField - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._w_field_type = None
+        self._field_name = None
         self._w_lcid = None
         self._strings_result = None
         self._buf_text = None
@@ -64,6 +67,7 @@ class DocVisualExtendedField(object):
         self.discriminator = None
 
         self.w_field_type = w_field_type
+        self.field_name = field_name
         self.w_lcid = w_lcid
         if strings_result is not None:
             self.strings_result = strings_result
@@ -97,6 +101,31 @@ class DocVisualExtendedField(object):
             raise ValueError("Invalid value for `w_field_type`, must not be `None`")  # noqa: E501
 
         self._w_field_type = w_field_type
+
+    @property
+    def field_name(self):
+        """Gets the field_name of this DocVisualExtendedField.  # noqa: E501
+
+        Field name. Only use to search values for fields with fieldType=50(other). In general, use wFieldType for lookup.  # noqa: E501
+
+        :return: The field_name of this DocVisualExtendedField.  # noqa: E501
+        :rtype: str
+        """
+        return self._field_name
+
+    @field_name.setter
+    def field_name(self, field_name):
+        """Sets the field_name of this DocVisualExtendedField.
+
+        Field name. Only use to search values for fields with fieldType=50(other). In general, use wFieldType for lookup.  # noqa: E501
+
+        :param field_name: The field_name of this DocVisualExtendedField.  # noqa: E501
+        :type field_name: str
+        """
+        if self.local_vars_configuration.client_side_validation and field_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `field_name`, must not be `None`")  # noqa: E501
+
+        self._field_name = field_name
 
     @property
     def w_lcid(self):
