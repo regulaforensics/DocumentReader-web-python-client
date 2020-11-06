@@ -1,9 +1,11 @@
 import base64
 from typing import Union
 
+from regula.documentreader.webclient import ProcessResponse
+from regula.documentreader.webclient.gen import ApiClient
 from regula.documentreader.webclient.ext.models.recognition_response import RecognitionResponse
-from regula.documentreader.webclient.gen import ApiClient, Configuration
 from regula.documentreader.webclient.gen.api import DefaultApi
+from regula.documentreader.webclient.gen.configuration import Configuration
 from regula.documentreader.webclient.gen.models import ProcessRequest
 
 Base64String = str
@@ -13,13 +15,16 @@ class DocumentReaderApi(DefaultApi):
 
     def __init__(self, host=None, debug=False, verify_ssl=False, api_client=None):
         if api_client:
-            super().__init__(api_client)
+            self.api_client = api_client
         else:
             configuration = Configuration(host=host)
             configuration.debug = debug
             configuration.verify_ssl = verify_ssl
 
-            super().__init__(ApiClient(configuration=configuration))
+            self.api_client = ApiClient(configuration=configuration)
+
+        super().__init__(self.api_client)
+
         self.__license = None
 
     def __enter__(self):
@@ -42,3 +47,12 @@ class DocumentReaderApi(DefaultApi):
     def process(self, process_request: ProcessRequest) -> RecognitionResponse:
         process_request.system_info.license = self.license
         return RecognitionResponse(self.api_process(process_request))
+
+    def deserialize_to_recognition_response(self, content: Union[bytes, bytearray, str]) -> RecognitionResponse:
+        response = self.__to_response_object(content)
+        response = self.api_client.deserialize(response, ProcessResponse)
+        return RecognitionResponse(response)
+
+    @staticmethod
+    def __to_response_object(content: Union[bytes, bytearray, str]):
+        return type(ProcessResponse.__name__, (object,), {"data": content})()

@@ -32,8 +32,6 @@ with DocumentReaderApi(host) as api:
     doc_number_field = response.text.get_field(TextFieldType.DOCUMENT_NUMBER)
     doc_number_field_by_name = response.text.get_field_by_name("Document Number")
 
-    assert doc_number_field == doc_number_field_by_name
-    
     doc_number_mrz = doc_number_field.get_value()
     doc_number_visual = doc_number_field.get_value(Source.VISUAL)
     doc_number_visual_validity = doc_number_field.source_validity(Source.VISUAL)
