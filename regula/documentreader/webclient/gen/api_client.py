@@ -20,7 +20,7 @@ import six
 from six.moves.urllib.parse import quote
 
 from regula.documentreader.webclient.gen.configuration import Configuration
-import regula.documentreader.webclient.gen.models
+import regula.documentreader.webclient.gen.model
 from regula.documentreader.webclient.gen import rest
 from regula.documentreader.webclient.gen.exceptions import ApiValueError, ApiException
 
@@ -276,7 +276,7 @@ class ApiClient(object):
             elif hasattr(regula.documentreader.webclient.ext.models, klass):
                 klass = getattr(regula.documentreader.webclient.ext.models, klass)
             else:
-                klass = getattr(regula.documentreader.webclient.gen.models, klass)
+                klass = getattr(regula.documentreader.webclient.gen.model, klass)
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)
         elif klass == object:
