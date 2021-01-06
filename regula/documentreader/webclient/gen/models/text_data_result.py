@@ -29,37 +29,39 @@ class TextDataResult(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'doc_visual_extended_info': 'DocVisualExtendedInfo',
         'buf_length': 'int',
         'light': 'int',
         'list_idx': 'int',
         'page_idx': 'int',
-        'result_type': 'int',
-        'doc_visual_extended_info': 'DocVisualExtendedInfo'
+        'result_type': 'int'
     }
 
     attribute_map = {
+        'doc_visual_extended_info': 'DocVisualExtendedInfo',
         'buf_length': 'buf_length',
         'light': 'light',
         'list_idx': 'list_idx',
         'page_idx': 'page_idx',
-        'result_type': 'result_type',
-        'doc_visual_extended_info': 'DocVisualExtendedInfo'
+        'result_type': 'result_type'
     }
 
-    def __init__(self, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=None, doc_visual_extended_info=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, doc_visual_extended_info=None, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=0, local_vars_configuration=None):  # noqa: E501
         """TextDataResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._doc_visual_extended_info = None
         self._buf_length = None
         self._light = None
         self._list_idx = None
         self._page_idx = None
         self._result_type = None
-        self._doc_visual_extended_info = None
         self.discriminator = None
 
+        if doc_visual_extended_info is not None:
+            self.doc_visual_extended_info = doc_visual_extended_info
         if buf_length is not None:
             self.buf_length = buf_length
         if light is not None:
@@ -69,8 +71,27 @@ class TextDataResult(object):
         if page_idx is not None:
             self.page_idx = page_idx
         self.result_type = result_type
-        if doc_visual_extended_info is not None:
-            self.doc_visual_extended_info = doc_visual_extended_info
+
+    @property
+    def doc_visual_extended_info(self):
+        """Gets the doc_visual_extended_info of this TextDataResult.  # noqa: E501
+
+
+        :return: The doc_visual_extended_info of this TextDataResult.  # noqa: E501
+        :rtype: DocVisualExtendedInfo
+        """
+        return self._doc_visual_extended_info
+
+    @doc_visual_extended_info.setter
+    def doc_visual_extended_info(self, doc_visual_extended_info):
+        """Sets the doc_visual_extended_info of this TextDataResult.
+
+
+        :param doc_visual_extended_info: The doc_visual_extended_info of this TextDataResult.  # noqa: E501
+        :type doc_visual_extended_info: DocVisualExtendedInfo
+        """
+
+        self._doc_visual_extended_info = doc_visual_extended_info
 
     @property
     def buf_length(self):
@@ -180,27 +201,6 @@ class TextDataResult(object):
             raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
-
-    @property
-    def doc_visual_extended_info(self):
-        """Gets the doc_visual_extended_info of this TextDataResult.  # noqa: E501
-
-
-        :return: The doc_visual_extended_info of this TextDataResult.  # noqa: E501
-        :rtype: DocVisualExtendedInfo
-        """
-        return self._doc_visual_extended_info
-
-    @doc_visual_extended_info.setter
-    def doc_visual_extended_info(self, doc_visual_extended_info):
-        """Sets the doc_visual_extended_info of this TextDataResult.
-
-
-        :param doc_visual_extended_info: The doc_visual_extended_info of this TextDataResult.  # noqa: E501
-        :type doc_visual_extended_info: DocVisualExtendedInfo
-        """
-
-        self._doc_visual_extended_info = doc_visual_extended_info
 
     def to_dict(self):
         """Returns the model properties as a dict"""

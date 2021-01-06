@@ -9,6 +9,7 @@ from __future__ import absolute_import
 
 # import models into model package
 from regula.documentreader.webclient.gen.models.check_result import CheckResult
+from regula.documentreader.webclient.gen.models.chosen_document_type import ChosenDocumentType
 from regula.documentreader.webclient.gen.models.chosen_document_type_result import ChosenDocumentTypeResult
 from regula.documentreader.webclient.gen.models.chosen_document_type_result_all_of import ChosenDocumentTypeResultAllOf
 from regula.documentreader.webclient.gen.models.container_list import ContainerList
@@ -19,10 +20,12 @@ from regula.documentreader.webclient.gen.models.device_info import DeviceInfo
 from regula.documentreader.webclient.gen.models.doc_visual_extended_field import DocVisualExtendedField
 from regula.documentreader.webclient.gen.models.doc_visual_extended_info import DocVisualExtendedInfo
 from regula.documentreader.webclient.gen.models.document_format import DocumentFormat
+from regula.documentreader.webclient.gen.models.document_image import DocumentImage
 from regula.documentreader.webclient.gen.models.document_image_result import DocumentImageResult
 from regula.documentreader.webclient.gen.models.document_image_result_all_of import DocumentImageResultAllOf
 from regula.documentreader.webclient.gen.models.document_type import DocumentType
 from regula.documentreader.webclient.gen.models.document_type_recognition_result import DocumentTypeRecognitionResult
+from regula.documentreader.webclient.gen.models.document_types_candidates import DocumentTypesCandidates
 from regula.documentreader.webclient.gen.models.document_types_candidates_list import DocumentTypesCandidatesList
 from regula.documentreader.webclient.gen.models.document_types_candidates_result import DocumentTypesCandidatesResult
 from regula.documentreader.webclient.gen.models.document_types_candidates_result_all_of import DocumentTypesCandidatesResultAllOf
@@ -33,6 +36,7 @@ from regula.documentreader.webclient.gen.models.graphic_fields_list import Graph
 from regula.documentreader.webclient.gen.models.graphics_result import GraphicsResult
 from regula.documentreader.webclient.gen.models.graphics_result_all_of import GraphicsResultAllOf
 from regula.documentreader.webclient.gen.models.image_data import ImageData
+from regula.documentreader.webclient.gen.models.image_qa import ImageQA
 from regula.documentreader.webclient.gen.models.images import Images
 from regula.documentreader.webclient.gen.models.images_available_source import ImagesAvailableSource
 from regula.documentreader.webclient.gen.models.images_field import ImagesField

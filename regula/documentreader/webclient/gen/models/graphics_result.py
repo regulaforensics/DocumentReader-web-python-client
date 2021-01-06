@@ -29,37 +29,38 @@ class GraphicsResult(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'doc_graphics_info': 'GraphicFieldsList',
         'buf_length': 'int',
         'light': 'int',
         'list_idx': 'int',
         'page_idx': 'int',
-        'result_type': 'int',
-        'doc_graphics_info': 'GraphicFieldsList'
+        'result_type': 'int'
     }
 
     attribute_map = {
+        'doc_graphics_info': 'DocGraphicsInfo',
         'buf_length': 'buf_length',
         'light': 'light',
         'list_idx': 'list_idx',
         'page_idx': 'page_idx',
-        'result_type': 'result_type',
-        'doc_graphics_info': 'DocGraphicsInfo'
+        'result_type': 'result_type'
     }
 
-    def __init__(self, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=None, doc_graphics_info=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, doc_graphics_info=None, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=0, local_vars_configuration=None):  # noqa: E501
         """GraphicsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._doc_graphics_info = None
         self._buf_length = None
         self._light = None
         self._list_idx = None
         self._page_idx = None
         self._result_type = None
-        self._doc_graphics_info = None
         self.discriminator = None
 
+        self.doc_graphics_info = doc_graphics_info
         if buf_length is not None:
             self.buf_length = buf_length
         if light is not None:
@@ -69,7 +70,29 @@ class GraphicsResult(object):
         if page_idx is not None:
             self.page_idx = page_idx
         self.result_type = result_type
-        self.doc_graphics_info = doc_graphics_info
+
+    @property
+    def doc_graphics_info(self):
+        """Gets the doc_graphics_info of this GraphicsResult.  # noqa: E501
+
+
+        :return: The doc_graphics_info of this GraphicsResult.  # noqa: E501
+        :rtype: GraphicFieldsList
+        """
+        return self._doc_graphics_info
+
+    @doc_graphics_info.setter
+    def doc_graphics_info(self, doc_graphics_info):
+        """Sets the doc_graphics_info of this GraphicsResult.
+
+
+        :param doc_graphics_info: The doc_graphics_info of this GraphicsResult.  # noqa: E501
+        :type doc_graphics_info: GraphicFieldsList
+        """
+        if self.local_vars_configuration.client_side_validation and doc_graphics_info is None:  # noqa: E501
+            raise ValueError("Invalid value for `doc_graphics_info`, must not be `None`")  # noqa: E501
+
+        self._doc_graphics_info = doc_graphics_info
 
     @property
     def buf_length(self):
@@ -179,29 +202,6 @@ class GraphicsResult(object):
             raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
-
-    @property
-    def doc_graphics_info(self):
-        """Gets the doc_graphics_info of this GraphicsResult.  # noqa: E501
-
-
-        :return: The doc_graphics_info of this GraphicsResult.  # noqa: E501
-        :rtype: GraphicFieldsList
-        """
-        return self._doc_graphics_info
-
-    @doc_graphics_info.setter
-    def doc_graphics_info(self, doc_graphics_info):
-        """Sets the doc_graphics_info of this GraphicsResult.
-
-
-        :param doc_graphics_info: The doc_graphics_info of this GraphicsResult.  # noqa: E501
-        :type doc_graphics_info: GraphicFieldsList
-        """
-        if self.local_vars_configuration.client_side_validation and doc_graphics_info is None:  # noqa: E501
-            raise ValueError("Invalid value for `doc_graphics_info`, must not be `None`")  # noqa: E501
-
-        self._doc_graphics_info = doc_graphics_info
 
     def to_dict(self):
         """Returns the model properties as a dict"""

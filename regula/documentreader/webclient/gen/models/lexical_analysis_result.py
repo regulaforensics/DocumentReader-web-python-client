@@ -29,37 +29,39 @@ class LexicalAnalysisResult(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'list_verified_fields': 'ListVerifiedFields',
         'buf_length': 'int',
         'light': 'int',
         'list_idx': 'int',
         'page_idx': 'int',
-        'result_type': 'int',
-        'list_verified_fields': 'ListVerifiedFields'
+        'result_type': 'int'
     }
 
     attribute_map = {
+        'list_verified_fields': 'ListVerifiedFields',
         'buf_length': 'buf_length',
         'light': 'light',
         'list_idx': 'list_idx',
         'page_idx': 'page_idx',
-        'result_type': 'result_type',
-        'list_verified_fields': 'ListVerifiedFields'
+        'result_type': 'result_type'
     }
 
-    def __init__(self, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=None, list_verified_fields=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, list_verified_fields=None, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=0, local_vars_configuration=None):  # noqa: E501
         """LexicalAnalysisResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._list_verified_fields = None
         self._buf_length = None
         self._light = None
         self._list_idx = None
         self._page_idx = None
         self._result_type = None
-        self._list_verified_fields = None
         self.discriminator = None
 
+        if list_verified_fields is not None:
+            self.list_verified_fields = list_verified_fields
         if buf_length is not None:
             self.buf_length = buf_length
         if light is not None:
@@ -69,8 +71,27 @@ class LexicalAnalysisResult(object):
         if page_idx is not None:
             self.page_idx = page_idx
         self.result_type = result_type
-        if list_verified_fields is not None:
-            self.list_verified_fields = list_verified_fields
+
+    @property
+    def list_verified_fields(self):
+        """Gets the list_verified_fields of this LexicalAnalysisResult.  # noqa: E501
+
+
+        :return: The list_verified_fields of this LexicalAnalysisResult.  # noqa: E501
+        :rtype: ListVerifiedFields
+        """
+        return self._list_verified_fields
+
+    @list_verified_fields.setter
+    def list_verified_fields(self, list_verified_fields):
+        """Sets the list_verified_fields of this LexicalAnalysisResult.
+
+
+        :param list_verified_fields: The list_verified_fields of this LexicalAnalysisResult.  # noqa: E501
+        :type list_verified_fields: ListVerifiedFields
+        """
+
+        self._list_verified_fields = list_verified_fields
 
     @property
     def buf_length(self):
@@ -180,27 +201,6 @@ class LexicalAnalysisResult(object):
             raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
-
-    @property
-    def list_verified_fields(self):
-        """Gets the list_verified_fields of this LexicalAnalysisResult.  # noqa: E501
-
-
-        :return: The list_verified_fields of this LexicalAnalysisResult.  # noqa: E501
-        :rtype: ListVerifiedFields
-        """
-        return self._list_verified_fields
-
-    @list_verified_fields.setter
-    def list_verified_fields(self, list_verified_fields):
-        """Sets the list_verified_fields of this LexicalAnalysisResult.
-
-
-        :param list_verified_fields: The list_verified_fields of this LexicalAnalysisResult.  # noqa: E501
-        :type list_verified_fields: ListVerifiedFields
-        """
-
-        self._list_verified_fields = list_verified_fields
 
     def to_dict(self):
         """Returns the model properties as a dict"""
