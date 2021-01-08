@@ -29,37 +29,38 @@ class ImagesResult(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'images': 'Images',
         'buf_length': 'int',
         'light': 'int',
         'list_idx': 'int',
         'page_idx': 'int',
-        'result_type': 'int',
-        'images': 'Images'
+        'result_type': 'int'
     }
 
     attribute_map = {
+        'images': 'Images',
         'buf_length': 'buf_length',
         'light': 'light',
         'list_idx': 'list_idx',
         'page_idx': 'page_idx',
-        'result_type': 'result_type',
-        'images': 'Images'
+        'result_type': 'result_type'
     }
 
-    def __init__(self, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=None, images=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, images=None, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=0, local_vars_configuration=None):  # noqa: E501
         """ImagesResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._images = None
         self._buf_length = None
         self._light = None
         self._list_idx = None
         self._page_idx = None
         self._result_type = None
-        self._images = None
         self.discriminator = None
 
+        self.images = images
         if buf_length is not None:
             self.buf_length = buf_length
         if light is not None:
@@ -69,7 +70,29 @@ class ImagesResult(object):
         if page_idx is not None:
             self.page_idx = page_idx
         self.result_type = result_type
-        self.images = images
+
+    @property
+    def images(self):
+        """Gets the images of this ImagesResult.  # noqa: E501
+
+
+        :return: The images of this ImagesResult.  # noqa: E501
+        :rtype: Images
+        """
+        return self._images
+
+    @images.setter
+    def images(self, images):
+        """Sets the images of this ImagesResult.
+
+
+        :param images: The images of this ImagesResult.  # noqa: E501
+        :type images: Images
+        """
+        if self.local_vars_configuration.client_side_validation and images is None:  # noqa: E501
+            raise ValueError("Invalid value for `images`, must not be `None`")  # noqa: E501
+
+        self._images = images
 
     @property
     def buf_length(self):
@@ -179,29 +202,6 @@ class ImagesResult(object):
             raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
-
-    @property
-    def images(self):
-        """Gets the images of this ImagesResult.  # noqa: E501
-
-
-        :return: The images of this ImagesResult.  # noqa: E501
-        :rtype: Images
-        """
-        return self._images
-
-    @images.setter
-    def images(self, images):
-        """Sets the images of this ImagesResult.
-
-
-        :param images: The images of this ImagesResult.  # noqa: E501
-        :type images: Images
-        """
-        if self.local_vars_configuration.client_side_validation and images is None:  # noqa: E501
-            raise ValueError("Invalid value for `images`, must not be `None`")  # noqa: E501
-
-        self._images = images
 
     def to_dict(self):
         """Returns the model properties as a dict"""

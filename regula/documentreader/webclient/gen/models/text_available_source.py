@@ -40,7 +40,7 @@ class TextAvailableSource(object):
         'container_type': 'containerType'
     }
 
-    def __init__(self, source=None, validity_status=None, container_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, source=None, validity_status=None, container_type=0, local_vars_configuration=None):  # noqa: E501
         """TextAvailableSource - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

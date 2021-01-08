@@ -29,37 +29,38 @@ class DocumentImageResult(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'raw_image_container': 'ImageData',
         'buf_length': 'int',
         'light': 'int',
         'list_idx': 'int',
         'page_idx': 'int',
-        'result_type': 'int',
-        'raw_image_container': 'ImageData'
+        'result_type': 'int'
     }
 
     attribute_map = {
+        'raw_image_container': 'RawImageContainer',
         'buf_length': 'buf_length',
         'light': 'light',
         'list_idx': 'list_idx',
         'page_idx': 'page_idx',
-        'result_type': 'result_type',
-        'raw_image_container': 'RawImageContainer'
+        'result_type': 'result_type'
     }
 
-    def __init__(self, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=None, raw_image_container=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, raw_image_container=None, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=0, local_vars_configuration=None):  # noqa: E501
         """DocumentImageResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._raw_image_container = None
         self._buf_length = None
         self._light = None
         self._list_idx = None
         self._page_idx = None
         self._result_type = None
-        self._raw_image_container = None
         self.discriminator = None
 
+        self.raw_image_container = raw_image_container
         if buf_length is not None:
             self.buf_length = buf_length
         if light is not None:
@@ -69,7 +70,29 @@ class DocumentImageResult(object):
         if page_idx is not None:
             self.page_idx = page_idx
         self.result_type = result_type
-        self.raw_image_container = raw_image_container
+
+    @property
+    def raw_image_container(self):
+        """Gets the raw_image_container of this DocumentImageResult.  # noqa: E501
+
+
+        :return: The raw_image_container of this DocumentImageResult.  # noqa: E501
+        :rtype: ImageData
+        """
+        return self._raw_image_container
+
+    @raw_image_container.setter
+    def raw_image_container(self, raw_image_container):
+        """Sets the raw_image_container of this DocumentImageResult.
+
+
+        :param raw_image_container: The raw_image_container of this DocumentImageResult.  # noqa: E501
+        :type raw_image_container: ImageData
+        """
+        if self.local_vars_configuration.client_side_validation and raw_image_container is None:  # noqa: E501
+            raise ValueError("Invalid value for `raw_image_container`, must not be `None`")  # noqa: E501
+
+        self._raw_image_container = raw_image_container
 
     @property
     def buf_length(self):
@@ -179,29 +202,6 @@ class DocumentImageResult(object):
             raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
-
-    @property
-    def raw_image_container(self):
-        """Gets the raw_image_container of this DocumentImageResult.  # noqa: E501
-
-
-        :return: The raw_image_container of this DocumentImageResult.  # noqa: E501
-        :rtype: ImageData
-        """
-        return self._raw_image_container
-
-    @raw_image_container.setter
-    def raw_image_container(self, raw_image_container):
-        """Sets the raw_image_container of this DocumentImageResult.
-
-
-        :param raw_image_container: The raw_image_container of this DocumentImageResult.  # noqa: E501
-        :type raw_image_container: ImageData
-        """
-        if self.local_vars_configuration.client_side_validation and raw_image_container is None:  # noqa: E501
-            raise ValueError("Invalid value for `raw_image_container`, must not be `None`")  # noqa: E501
-
-        self._raw_image_container = raw_image_container
 
     def to_dict(self):
         """Returns the model properties as a dict"""

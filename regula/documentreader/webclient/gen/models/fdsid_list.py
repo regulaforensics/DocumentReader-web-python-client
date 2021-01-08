@@ -29,7 +29,7 @@ class FDSIDList(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'icao': 'str',
+        'icao_code': 'str',
         'list': 'list[int]',
         'd_type': 'DocumentType',
         'd_format': 'DocumentFormat',
@@ -42,7 +42,7 @@ class FDSIDList(object):
     }
 
     attribute_map = {
-        'icao': 'ICAO',
+        'icao_code': 'ICAOCode',
         'list': 'List',
         'd_type': 'dType',
         'd_format': 'dFormat',
@@ -54,13 +54,13 @@ class FDSIDList(object):
         'd_state_name': 'dStateName'
     }
 
-    def __init__(self, icao=None, list=None, d_type=None, d_format=None, d_mrz=None, d_description=None, d_year=None, d_country_name=None, d_state_code=None, d_state_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, icao_code=None, list=None, d_type=None, d_format=None, d_mrz=None, d_description=None, d_year=None, d_country_name=None, d_state_code=None, d_state_name=None, local_vars_configuration=None):  # noqa: E501
         """FDSIDList - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._icao = None
+        self._icao_code = None
         self._list = None
         self._d_type = None
         self._d_format = None
@@ -72,8 +72,8 @@ class FDSIDList(object):
         self._d_state_name = None
         self.discriminator = None
 
-        if icao is not None:
-            self.icao = icao
+        if icao_code is not None:
+            self.icao_code = icao_code
         if list is not None:
             self.list = list
         if d_type is not None:
@@ -94,33 +94,33 @@ class FDSIDList(object):
             self.d_state_name = d_state_name
 
     @property
-    def icao(self):
-        """Gets the icao of this FDSIDList.  # noqa: E501
+    def icao_code(self):
+        """Gets the icao_code of this FDSIDList.  # noqa: E501
 
         ICAO code of the issuing country  # noqa: E501
 
-        :return: The icao of this FDSIDList.  # noqa: E501
+        :return: The icao_code of this FDSIDList.  # noqa: E501
         :rtype: str
         """
-        return self._icao
+        return self._icao_code
 
-    @icao.setter
-    def icao(self, icao):
-        """Sets the icao of this FDSIDList.
+    @icao_code.setter
+    def icao_code(self, icao_code):
+        """Sets the icao_code of this FDSIDList.
 
         ICAO code of the issuing country  # noqa: E501
 
-        :param icao: The icao of this FDSIDList.  # noqa: E501
-        :type icao: str
+        :param icao_code: The icao_code of this FDSIDList.  # noqa: E501
+        :type icao_code: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                icao is not None and len(icao) > 4):
-            raise ValueError("Invalid value for `icao`, length must be less than or equal to `4`")  # noqa: E501
+                icao_code is not None and len(icao_code) > 3):
+            raise ValueError("Invalid value for `icao_code`, length must be less than or equal to `3`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                icao is not None and len(icao) < 4):
-            raise ValueError("Invalid value for `icao`, length must be greater than or equal to `4`")  # noqa: E501
+                icao_code is not None and len(icao_code) < 3):
+            raise ValueError("Invalid value for `icao_code`, length must be greater than or equal to `3`")  # noqa: E501
 
-        self._icao = icao
+        self._icao_code = icao_code
 
     @property
     def list(self):

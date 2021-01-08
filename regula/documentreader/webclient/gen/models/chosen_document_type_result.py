@@ -29,37 +29,39 @@ class ChosenDocumentTypeResult(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'one_candidate': 'OneCandidate',
         'buf_length': 'int',
         'light': 'int',
         'list_idx': 'int',
         'page_idx': 'int',
-        'result_type': 'int',
-        'one_candidate': 'OneCandidate'
+        'result_type': 'int'
     }
 
     attribute_map = {
+        'one_candidate': 'OneCandidate',
         'buf_length': 'buf_length',
         'light': 'light',
         'list_idx': 'list_idx',
         'page_idx': 'page_idx',
-        'result_type': 'result_type',
-        'one_candidate': 'OneCandidate'
+        'result_type': 'result_type'
     }
 
-    def __init__(self, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=None, one_candidate=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, one_candidate=None, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=0, local_vars_configuration=None):  # noqa: E501
         """ChosenDocumentTypeResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._one_candidate = None
         self._buf_length = None
         self._light = None
         self._list_idx = None
         self._page_idx = None
         self._result_type = None
-        self._one_candidate = None
         self.discriminator = None
 
+        if one_candidate is not None:
+            self.one_candidate = one_candidate
         if buf_length is not None:
             self.buf_length = buf_length
         if light is not None:
@@ -69,8 +71,27 @@ class ChosenDocumentTypeResult(object):
         if page_idx is not None:
             self.page_idx = page_idx
         self.result_type = result_type
-        if one_candidate is not None:
-            self.one_candidate = one_candidate
+
+    @property
+    def one_candidate(self):
+        """Gets the one_candidate of this ChosenDocumentTypeResult.  # noqa: E501
+
+
+        :return: The one_candidate of this ChosenDocumentTypeResult.  # noqa: E501
+        :rtype: OneCandidate
+        """
+        return self._one_candidate
+
+    @one_candidate.setter
+    def one_candidate(self, one_candidate):
+        """Sets the one_candidate of this ChosenDocumentTypeResult.
+
+
+        :param one_candidate: The one_candidate of this ChosenDocumentTypeResult.  # noqa: E501
+        :type one_candidate: OneCandidate
+        """
+
+        self._one_candidate = one_candidate
 
     @property
     def buf_length(self):
@@ -180,27 +201,6 @@ class ChosenDocumentTypeResult(object):
             raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
-
-    @property
-    def one_candidate(self):
-        """Gets the one_candidate of this ChosenDocumentTypeResult.  # noqa: E501
-
-
-        :return: The one_candidate of this ChosenDocumentTypeResult.  # noqa: E501
-        :rtype: OneCandidate
-        """
-        return self._one_candidate
-
-    @one_candidate.setter
-    def one_candidate(self, one_candidate):
-        """Sets the one_candidate of this ChosenDocumentTypeResult.
-
-
-        :param one_candidate: The one_candidate of this ChosenDocumentTypeResult.  # noqa: E501
-        :type one_candidate: OneCandidate
-        """
-
-        self._one_candidate = one_candidate
 
     def to_dict(self):
         """Returns the model properties as a dict"""

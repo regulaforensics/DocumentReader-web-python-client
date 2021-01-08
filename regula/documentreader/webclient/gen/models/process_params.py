@@ -38,7 +38,13 @@ class ProcessParams(object):
         'already_cropped': 'bool',
         'custom_params': 'dict(str, object)',
         'log': 'bool',
-        'force_doc_id': 'int'
+        'force_doc_id': 'int',
+        'match_text_field_mask': 'bool',
+        'fast_doc_detect': 'bool',
+        'update_ocr_validity_by_glare': 'bool',
+        'generate_double_page_spread_image': 'bool',
+        'check_required_text_fields': 'bool',
+        'image_qa': 'ImageQA'
     }
 
     attribute_map = {
@@ -51,10 +57,16 @@ class ProcessParams(object):
         'already_cropped': 'alreadyCropped',
         'custom_params': 'customParams',
         'log': 'log',
-        'force_doc_id': 'forceDocID'
+        'force_doc_id': 'forceDocID',
+        'match_text_field_mask': 'matchTextFieldMask',
+        'fast_doc_detect': 'fastDocDetect',
+        'update_ocr_validity_by_glare': 'updateOCRValidityByGlare',
+        'generate_double_page_spread_image': 'generateDoublePageSpreadImage',
+        'check_required_text_fields': 'checkRequiredTextFields',
+        'image_qa': 'imageQA'
     }
 
-    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, field_types_filter=None, date_format=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, log=None, force_doc_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, field_types_filter=None, date_format=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, log=None, force_doc_id=None, match_text_field_mask=True, fast_doc_detect=True, update_ocr_validity_by_glare=False, generate_double_page_spread_image=None, check_required_text_fields=False, image_qa=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -70,6 +82,12 @@ class ProcessParams(object):
         self._custom_params = None
         self._log = None
         self._force_doc_id = None
+        self._match_text_field_mask = None
+        self._fast_doc_detect = None
+        self._update_ocr_validity_by_glare = None
+        self._generate_double_page_spread_image = None
+        self._check_required_text_fields = None
+        self._image_qa = None
         self.discriminator = None
 
         self.scenario = scenario
@@ -91,6 +109,18 @@ class ProcessParams(object):
             self.log = log
         if force_doc_id is not None:
             self.force_doc_id = force_doc_id
+        if match_text_field_mask is not None:
+            self.match_text_field_mask = match_text_field_mask
+        if fast_doc_detect is not None:
+            self.fast_doc_detect = fast_doc_detect
+        if update_ocr_validity_by_glare is not None:
+            self.update_ocr_validity_by_glare = update_ocr_validity_by_glare
+        if generate_double_page_spread_image is not None:
+            self.generate_double_page_spread_image = generate_double_page_spread_image
+        if check_required_text_fields is not None:
+            self.check_required_text_fields = check_required_text_fields
+        if image_qa is not None:
+            self.image_qa = image_qa
 
     @property
     def scenario(self):
@@ -321,6 +351,142 @@ class ProcessParams(object):
         """
 
         self._force_doc_id = force_doc_id
+
+    @property
+    def match_text_field_mask(self):
+        """Gets the match_text_field_mask of this ProcessParams.  # noqa: E501
+
+        When disabled, text field OCR will be done as is and then the recognized value will be matched to the field mask for validity. If enabled, we are trying to read a field value with maximum efforts to match the mask and provide a correctly formatted value, making assumptions based on the provided field mask in the template.  # noqa: E501
+
+        :return: The match_text_field_mask of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._match_text_field_mask
+
+    @match_text_field_mask.setter
+    def match_text_field_mask(self, match_text_field_mask):
+        """Sets the match_text_field_mask of this ProcessParams.
+
+        When disabled, text field OCR will be done as is and then the recognized value will be matched to the field mask for validity. If enabled, we are trying to read a field value with maximum efforts to match the mask and provide a correctly formatted value, making assumptions based on the provided field mask in the template.  # noqa: E501
+
+        :param match_text_field_mask: The match_text_field_mask of this ProcessParams.  # noqa: E501
+        :type match_text_field_mask: bool
+        """
+
+        self._match_text_field_mask = match_text_field_mask
+
+    @property
+    def fast_doc_detect(self):
+        """Gets the fast_doc_detect of this ProcessParams.  # noqa: E501
+
+        When enabled, shorten the list of candidates to process during document detection in a single image process mode. Reduces processing time for specific backgrounds.  # noqa: E501
+
+        :return: The fast_doc_detect of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._fast_doc_detect
+
+    @fast_doc_detect.setter
+    def fast_doc_detect(self, fast_doc_detect):
+        """Sets the fast_doc_detect of this ProcessParams.
+
+        When enabled, shorten the list of candidates to process during document detection in a single image process mode. Reduces processing time for specific backgrounds.  # noqa: E501
+
+        :param fast_doc_detect: The fast_doc_detect of this ProcessParams.  # noqa: E501
+        :type fast_doc_detect: bool
+        """
+
+        self._fast_doc_detect = fast_doc_detect
+
+    @property
+    def update_ocr_validity_by_glare(self):
+        """Gets the update_ocr_validity_by_glare of this ProcessParams.  # noqa: E501
+
+        When enabled, fail OCR field validity, if there is a glare over the text field on the image.  # noqa: E501
+
+        :return: The update_ocr_validity_by_glare of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._update_ocr_validity_by_glare
+
+    @update_ocr_validity_by_glare.setter
+    def update_ocr_validity_by_glare(self, update_ocr_validity_by_glare):
+        """Sets the update_ocr_validity_by_glare of this ProcessParams.
+
+        When enabled, fail OCR field validity, if there is a glare over the text field on the image.  # noqa: E501
+
+        :param update_ocr_validity_by_glare: The update_ocr_validity_by_glare of this ProcessParams.  # noqa: E501
+        :type update_ocr_validity_by_glare: bool
+        """
+
+        self._update_ocr_validity_by_glare = update_ocr_validity_by_glare
+
+    @property
+    def generate_double_page_spread_image(self):
+        """Gets the generate_double_page_spread_image of this ProcessParams.  # noqa: E501
+
+        When enabled together with \"doublePageSpread\" and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner.  # noqa: E501
+
+        :return: The generate_double_page_spread_image of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._generate_double_page_spread_image
+
+    @generate_double_page_spread_image.setter
+    def generate_double_page_spread_image(self, generate_double_page_spread_image):
+        """Sets the generate_double_page_spread_image of this ProcessParams.
+
+        When enabled together with \"doublePageSpread\" and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner.  # noqa: E501
+
+        :param generate_double_page_spread_image: The generate_double_page_spread_image of this ProcessParams.  # noqa: E501
+        :type generate_double_page_spread_image: bool
+        """
+
+        self._generate_double_page_spread_image = generate_double_page_spread_image
+
+    @property
+    def check_required_text_fields(self):
+        """Gets the check_required_text_fields of this ProcessParams.  # noqa: E501
+
+        When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have \"error\" in validity status.  # noqa: E501
+
+        :return: The check_required_text_fields of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._check_required_text_fields
+
+    @check_required_text_fields.setter
+    def check_required_text_fields(self, check_required_text_fields):
+        """Sets the check_required_text_fields of this ProcessParams.
+
+        When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have \"error\" in validity status.  # noqa: E501
+
+        :param check_required_text_fields: The check_required_text_fields of this ProcessParams.  # noqa: E501
+        :type check_required_text_fields: bool
+        """
+
+        self._check_required_text_fields = check_required_text_fields
+
+    @property
+    def image_qa(self):
+        """Gets the image_qa of this ProcessParams.  # noqa: E501
+
+
+        :return: The image_qa of this ProcessParams.  # noqa: E501
+        :rtype: ImageQA
+        """
+        return self._image_qa
+
+    @image_qa.setter
+    def image_qa(self, image_qa):
+        """Sets the image_qa of this ProcessParams.
+
+
+        :param image_qa: The image_qa of this ProcessParams.  # noqa: E501
+        :type image_qa: ImageQA
+        """
+
+        self._image_qa = image_qa
 
     def to_dict(self):
         """Returns the model properties as a dict"""

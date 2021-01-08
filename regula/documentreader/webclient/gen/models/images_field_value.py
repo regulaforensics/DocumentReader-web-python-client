@@ -50,7 +50,7 @@ class ImagesFieldValue(object):
         'rfid_origin': 'rfidOrigin'
     }
 
-    def __init__(self, source=None, value=None, original_value=None, page_index=None, light_index=None, container_type=None, field_rect=None, rfid_origin=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, source=None, value=None, original_value=None, page_index=None, light_index=None, container_type=0, field_rect=None, rfid_origin=None, local_vars_configuration=None):  # noqa: E501
         """ImagesFieldValue - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

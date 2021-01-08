@@ -29,37 +29,38 @@ class StatusResult(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'status': 'Status',
         'buf_length': 'int',
         'light': 'int',
         'list_idx': 'int',
         'page_idx': 'int',
-        'result_type': 'int',
-        'status': 'Status'
+        'result_type': 'int'
     }
 
     attribute_map = {
+        'status': 'Status',
         'buf_length': 'buf_length',
         'light': 'light',
         'list_idx': 'list_idx',
         'page_idx': 'page_idx',
-        'result_type': 'result_type',
-        'status': 'Status'
+        'result_type': 'result_type'
     }
 
-    def __init__(self, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=None, status=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, status=None, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=0, local_vars_configuration=None):  # noqa: E501
         """StatusResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._status = None
         self._buf_length = None
         self._light = None
         self._list_idx = None
         self._page_idx = None
         self._result_type = None
-        self._status = None
         self.discriminator = None
 
+        self.status = status
         if buf_length is not None:
             self.buf_length = buf_length
         if light is not None:
@@ -69,7 +70,29 @@ class StatusResult(object):
         if page_idx is not None:
             self.page_idx = page_idx
         self.result_type = result_type
-        self.status = status
+
+    @property
+    def status(self):
+        """Gets the status of this StatusResult.  # noqa: E501
+
+
+        :return: The status of this StatusResult.  # noqa: E501
+        :rtype: Status
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this StatusResult.
+
+
+        :param status: The status of this StatusResult.  # noqa: E501
+        :type status: Status
+        """
+        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
+            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
+
+        self._status = status
 
     @property
     def buf_length(self):
@@ -179,29 +202,6 @@ class StatusResult(object):
             raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
-
-    @property
-    def status(self):
-        """Gets the status of this StatusResult.  # noqa: E501
-
-
-        :return: The status of this StatusResult.  # noqa: E501
-        :rtype: Status
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """Sets the status of this StatusResult.
-
-
-        :param status: The status of this StatusResult.  # noqa: E501
-        :type status: Status
-        """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
-
-        self._status = status
 
     def to_dict(self):
         """Returns the model properties as a dict"""
