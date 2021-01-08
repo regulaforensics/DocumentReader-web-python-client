@@ -145,6 +145,12 @@ class DefaultApi(object):
 
         # Authentication setting
         auth_settings = []  # noqa: E501
+        
+        response_types_map = {
+            200: "ProcessResponse",
+            400: None,
+            403: None,
+        }
 
         return self.api_client.call_api(
             '/api/process', 'POST',
@@ -154,7 +160,7 @@ class DefaultApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ProcessResponse',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -263,6 +269,10 @@ class DefaultApi(object):
 
         # Authentication setting
         auth_settings = []  # noqa: E501
+        
+        response_types_map = {
+            200: "DeviceInfo",
+        }
 
         return self.api_client.call_api(
             '/api/ping', 'GET',
@@ -272,7 +282,7 @@ class DefaultApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='DeviceInfo',  # noqa: E501
+            response_types_map=response_types_map,
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

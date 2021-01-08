@@ -72,6 +72,8 @@ class Configuration(object):
     :param server_operation_variables: Mapping from operation ID to a mapping with
       string values to replace variables in templated server configuration.
       The validation of enums is performed for variables with defined enum values before.
+    :param ssl_ca_cert: str - the path to a file of concatenated CA certificates 
+      in PEM format 
 
     """
 
@@ -84,6 +86,7 @@ class Configuration(object):
                  disabled_client_side_validations="",
                  server_index=None, server_variables=None,
                  server_operation_index=None, server_operation_variables=None,
+                 ssl_ca_cert=None,
                  ):
         """Constructor
         """
@@ -149,7 +152,7 @@ class Configuration(object):
            Set this to false to skip verifying SSL certificate when calling API
            from https server.
         """
-        self.ssl_ca_cert = None
+        self.ssl_ca_cert = ssl_ca_cert
         """Set this to customize the certificate file to verify the peer.
         """
         self.cert_file = None
@@ -184,6 +187,10 @@ class Configuration(object):
         """
         # Enable client side validation
         self.client_side_validation = True
+
+        self.socket_options = None
+        """Options to pass down to the underlying urllib3 socket
+        """
 
     def __deepcopy__(self, memo):
         cls = self.__class__
