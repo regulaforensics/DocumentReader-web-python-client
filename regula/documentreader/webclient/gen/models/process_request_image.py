@@ -30,30 +30,30 @@ class ProcessRequestImage(object):
     """
     openapi_types = {
         'image_data': 'ImageData',
-        'light_index': 'Light',
+        'light': 'Light',
         'page_idx': 'int'
     }
 
     attribute_map = {
         'image_data': 'ImageData',
-        'light_index': 'LightIndex',
+        'light': 'light',
         'page_idx': 'page_idx'
     }
 
-    def __init__(self, image_data=None, light_index=None, page_idx=0, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, image_data=None, light=None, page_idx=0, local_vars_configuration=None):  # noqa: E501
         """ProcessRequestImage - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._image_data = None
-        self._light_index = None
+        self._light = None
         self._page_idx = None
         self.discriminator = None
 
         self.image_data = image_data
-        if light_index is not None:
-            self.light_index = light_index
+        if light is not None:
+            self.light = light
         if page_idx is not None:
             self.page_idx = page_idx
 
@@ -81,25 +81,25 @@ class ProcessRequestImage(object):
         self._image_data = image_data
 
     @property
-    def light_index(self):
-        """Gets the light_index of this ProcessRequestImage.  # noqa: E501
+    def light(self):
+        """Gets the light of this ProcessRequestImage.  # noqa: E501
 
 
-        :return: The light_index of this ProcessRequestImage.  # noqa: E501
+        :return: The light of this ProcessRequestImage.  # noqa: E501
         :rtype: Light
         """
-        return self._light_index
+        return self._light
 
-    @light_index.setter
-    def light_index(self, light_index):
-        """Sets the light_index of this ProcessRequestImage.
+    @light.setter
+    def light(self, light):
+        """Sets the light of this ProcessRequestImage.
 
 
-        :param light_index: The light_index of this ProcessRequestImage.  # noqa: E501
-        :type light_index: Light
+        :param light: The light of this ProcessRequestImage.  # noqa: E501
+        :type light: Light
         """
 
-        self._light_index = light_index
+        self._light = light
 
     @property
     def page_idx(self):

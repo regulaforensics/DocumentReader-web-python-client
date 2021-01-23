@@ -71,7 +71,8 @@ class DocVisualExtendedField(object):
         self.w_lcid = w_lcid
         if strings_result is not None:
             self.strings_result = strings_result
-        self.buf_text = buf_text
+        if buf_text is not None:
+            self.buf_text = buf_text
         if field_rect is not None:
             self.field_rect = field_rect
         if rfid_origin_dg is not None:
@@ -193,8 +194,6 @@ class DocVisualExtendedField(object):
         :param buf_text: The buf_text of this DocVisualExtendedField.  # noqa: E501
         :type buf_text: str
         """
-        if self.local_vars_configuration.client_side_validation and buf_text is None:  # noqa: E501
-            raise ValueError("Invalid value for `buf_text`, must not be `None`")  # noqa: E501
 
         self._buf_text = buf_text
 
