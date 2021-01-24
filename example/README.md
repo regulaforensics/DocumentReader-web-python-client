@@ -55,10 +55,10 @@ This sample generates next text output:
 ```text
     ---------------------------------------------------------------------------
                    Document Overall Status: not valid
-                    Document Number Visual: U0996738
-                       Document Number MRZ: U0996738
-        Validity Of Document Number Visual: 1
-           Validity Of Document Number MRZ: 1
+                    Document Number Visual: OO0000000
+                       Document Number MRZ: OO0000000
+        Validity Of Document Number Visual: 0
+           Validity Of Document Number MRZ: 0
               MRZ-Visual values comparison: 1
     ---------------------------------------------------------------------------
 ```

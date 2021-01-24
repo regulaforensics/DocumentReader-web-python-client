@@ -11,17 +11,35 @@ if os.path.isfile('regula.license') and os.access('regula.license', os.R_OK):
         print("Found local license file. Using it for performing request...")
         regula_license = f.read()
 
-with open("australia_passport.jpg", "rb") as f:
-    input_image = f.read()
+with open("WHITE.jpg", "rb") as f:
+    white_page_0 = f.read()
+
+with open("IR.jpg", "rb") as f:
+    ir_page_0 = f.read()
+
+with open("UV.jpg", "rb") as f:
+    uv_page_0 = f.read()
 
 with DocumentReaderApi(host) as api:
     api.license = regula_license
 
     params = ProcessParams(
-        scenario=Scenario.FULL_PROCESS,
-        result_type_output=[Result.STATUS, Result.TEXT, Result.IMAGES]
+        scenario=Scenario.FULL_AUTH,
+        result_type_output=[
+            # actual results
+            Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
+            Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES,
+            # legacy results
+            Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
+            Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
+            Result.LEXICAL_ANALYSIS
+        ]
     )
-    request = RecognitionRequest(process_params=params, images=[input_image])
+    request = RecognitionRequest(process_params=params, images=[
+        RecognitionImage(image=white_page_0, light_index=Light.WHITE, page_index=0),
+        RecognitionImage(image=ir_page_0, light_index=Light.IR, page_index=0),
+        RecognitionImage(image=uv_page_0, light_index=Light.UV, page_index=0),
+    ])
     response = api.process(request)
 
     # status examples
