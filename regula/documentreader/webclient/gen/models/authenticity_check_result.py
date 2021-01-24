@@ -31,7 +31,7 @@ class AuthenticityCheckResult(object):
     openapi_types = {
         'type': 'SecurityFeatureType',
         'result': 'CheckResult',
-        'list': 'list[AnyOfSecurityFeatureResultIdentResultFiberResultOCRSecurityTextResultPhotoIdentResult]'
+        'list': 'list[AuthenticityCheckResultItem]'
     }
 
     attribute_map = {
@@ -107,7 +107,7 @@ class AuthenticityCheckResult(object):
 
 
         :return: The list of this AuthenticityCheckResult.  # noqa: E501
-        :rtype: list[AnyOfSecurityFeatureResultIdentResultFiberResultOCRSecurityTextResultPhotoIdentResult]
+        :rtype: list[AuthenticityCheckResultItem]
         """
         return self._list
 
@@ -117,7 +117,7 @@ class AuthenticityCheckResult(object):
 
 
         :param list: The list of this AuthenticityCheckResult.  # noqa: E501
-        :type list: list[AnyOfSecurityFeatureResultIdentResultFiberResultOCRSecurityTextResultPhotoIdentResult]
+        :type list: list[AuthenticityCheckResultItem]
         """
         if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
             raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
