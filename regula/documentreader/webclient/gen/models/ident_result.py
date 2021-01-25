@@ -54,7 +54,7 @@ class IdentResult(object):
         'area_list': 'AreaList'
     }
 
-    def __init__(self, type=None, element_result=None, element_diagnose=None, element_type=None, light_index=None, area=None, image=None, etalon_image=None, percent_value=None, area_list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=0, element_result=None, element_diagnose=None, element_type=None, light_index=None, area=None, image=None, etalon_image=None, percent_value=None, area_list=None, local_vars_configuration=None):  # noqa: E501
         """IdentResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

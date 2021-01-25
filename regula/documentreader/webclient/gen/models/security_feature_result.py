@@ -52,7 +52,7 @@ class SecurityFeatureResult(object):
         'reserved2': 'Reserved2'
     }
 
-    def __init__(self, type=None, element_result=None, element_diagnose=None, element_type=None, element_rect=None, visibility=None, critical_flag=None, area_list=None, reserved2=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=0, element_result=None, element_diagnose=None, element_type=None, element_rect=None, visibility=None, critical_flag=None, area_list=None, reserved2=None, local_vars_configuration=None):  # noqa: E501
         """SecurityFeatureResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
