@@ -1,5 +1,6 @@
 from typing import Optional, List
 
+from regula.documentreader.webclient.ext.models.authenticity.authenticity_check_list import AuthenticityCheckList
 from regula.documentreader.webclient.ext.models.images import Images
 from regula.documentreader.webclient.ext.models.text import Text
 from regula.documentreader.webclient.gen import ResultItem
@@ -32,6 +33,13 @@ class RecognitionResponse:
         result = self.result_by_type(Result.IMAGES)
         if result:
             return result.images
+        return None
+
+    @property
+    def authenticity(self) -> Optional[AuthenticityCheckList]:
+        result = self.result_by_type(Result.AUTHENTICITY)
+        if result:
+            return result.authenticity_check_list
         return None
 
     def result_by_type(self, result_type) -> Optional[ResultItem]:

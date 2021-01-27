@@ -56,6 +56,14 @@ with DocumentReaderApi(host) as api:
     doc_number_mrz_validity = doc_number_field.source_validity(Source.MRZ)
     doc_number_mrz_visual_matching = doc_number_field.cross_source_comparison(Source.MRZ, Source.VISUAL)
 
+    doc_authenticity = response.authenticity
+
+    doc_ir_b900 = doc_authenticity.ir_b900_checks
+    doc_ir_b900_blank = doc_ir_b900.checks_by_element(SecurityFeatureType.BLANK)
+
+    doc_image_pattern = doc_authenticity.image_pattern_checks
+    doc_image_pattern_blank = doc_image_pattern.checks_by_element(SecurityFeatureType.BLANK)
+
     # images fields example
     document_image = response.images.get_field(GraphicFieldType.DOCUMENT_FRONT).get_value()
     portrait_from_visual = response.images.get_field(GraphicFieldType.PORTRAIT).get_value(Source.VISUAL)
