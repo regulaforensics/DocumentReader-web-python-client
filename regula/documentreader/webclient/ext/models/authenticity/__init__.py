@@ -1,0 +1,6 @@
+from regula.documentreader.webclient.ext.models.authenticity.authenticity_check_list import AuthenticityCheckList
+from regula.documentreader.webclient.ext.models.authenticity.fiber import FiberChecks
+from regula.documentreader.webclient.ext.models.authenticity.ident import IdentChecks
+from regula.documentreader.webclient.ext.models.authenticity.image_ident import ImageIdentChecks
+from regula.documentreader.webclient.ext.models.authenticity.ocr_security_text import OCRSecurityTextChecks
+from regula.documentreader.webclient.ext.models.authenticity.security_feature import SecurityFeatureChecks

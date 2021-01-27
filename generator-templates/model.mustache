@@ -190,8 +190,8 @@ class {{classname}}(object):
         """Returns the real base class specified by the discriminator"""
         discriminator_key = self.attribute_map[self.discriminator]
         discriminator_value = data[discriminator_key]
-        from regula.documentreader.webclient.ext.models import RawResultItem
-        return self.discriminator_value_class_map.get(discriminator_value, RawResultItem.__name__)
+        from regula.documentreader.webclient.ext.models import Raw{{classname}}
+        return self.discriminator_value_class_map.get(discriminator_value, Raw{{classname}}.__name__)
 
 {{/discriminator}}
     def to_dict(self):

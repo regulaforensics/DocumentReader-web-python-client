@@ -151,8 +151,8 @@ class AuthenticityCheckResultItem(object):
         """Returns the real base class specified by the discriminator"""
         discriminator_key = self.attribute_map[self.discriminator]
         discriminator_value = data[discriminator_key]
-        from regula.documentreader.webclient.ext.models import RawResultItem
-        return self.discriminator_value_class_map.get(discriminator_value, RawResultItem.__name__)
+        from regula.documentreader.webclient.ext.models import RawAuthenticityCheckResultItem
+        return self.discriminator_value_class_map.get(discriminator_value, RawAuthenticityCheckResultItem.__name__)
 
     def to_dict(self):
         """Returns the model properties as a dict"""
