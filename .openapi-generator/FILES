@@ -10,7 +10,6 @@ regula/documentreader/webclient/gen/exceptions.py
 regula/documentreader/webclient/gen/models/__init__.py
 regula/documentreader/webclient/gen/models/area_container.py
 regula/documentreader/webclient/gen/models/authenticity_check_list.py
-regula/documentreader/webclient/gen/models/authenticity_check_result.py
 regula/documentreader/webclient/gen/models/authenticity_check_result_item.py
 regula/documentreader/webclient/gen/models/authenticity_result.py
 regula/documentreader/webclient/gen/models/authenticity_result_all_of.py

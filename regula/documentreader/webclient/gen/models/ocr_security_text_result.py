@@ -60,7 +60,7 @@ class OCRSecurityTextResult(object):
         'reserved2': 'Reserved2'
     }
 
-    def __init__(self, type=None, element_result=None, element_diagnose=None, critical_flag=None, light_type=None, field_rect=None, etalon_result_type=None, etalon_field_type=None, etalon_light_type=None, security_text_result_ocr=None, etalon_result_ocr=None, reserved1=None, reserved2=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=0, element_result=None, element_diagnose=None, critical_flag=None, light_type=None, field_rect=None, etalon_result_type=None, etalon_field_type=None, etalon_light_type=None, security_text_result_ocr=None, etalon_result_ocr=None, reserved1=None, reserved2=None, local_vars_configuration=None):  # noqa: E501
         """OCRSecurityTextResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
