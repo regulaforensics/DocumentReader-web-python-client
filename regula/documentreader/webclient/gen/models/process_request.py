@@ -31,16 +31,18 @@ class ProcessRequest(object):
     openapi_types = {
         'process_param': 'ProcessParams',
         'list': 'list[ProcessRequestImage]',
-        'system_info': 'ProcessSystemInfo'
+        'system_info': 'ProcessSystemInfo',
+        'pass_back_object': 'dict(str, object)'
     }
 
     attribute_map = {
         'process_param': 'processParam',
         'list': 'List',
-        'system_info': 'systemInfo'
+        'system_info': 'systemInfo',
+        'pass_back_object': 'passBackObject'
     }
 
-    def __init__(self, process_param=None, list=None, system_info=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, process_param=None, list=None, system_info=None, pass_back_object=None, local_vars_configuration=None):  # noqa: E501
         """ProcessRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -49,12 +51,15 @@ class ProcessRequest(object):
         self._process_param = None
         self._list = None
         self._system_info = None
+        self._pass_back_object = None
         self.discriminator = None
 
         self.process_param = process_param
         self.list = list
         if system_info is not None:
             self.system_info = system_info
+        if pass_back_object is not None:
+            self.pass_back_object = pass_back_object
 
     @property
     def process_param(self):
@@ -122,6 +127,29 @@ class ProcessRequest(object):
         """
 
         self._system_info = system_info
+
+    @property
+    def pass_back_object(self):
+        """Gets the pass_back_object of this ProcessRequest.  # noqa: E501
+
+        Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs.  # noqa: E501
+
+        :return: The pass_back_object of this ProcessRequest.  # noqa: E501
+        :rtype: dict(str, object)
+        """
+        return self._pass_back_object
+
+    @pass_back_object.setter
+    def pass_back_object(self, pass_back_object):
+        """Sets the pass_back_object of this ProcessRequest.
+
+        Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs.  # noqa: E501
+
+        :param pass_back_object: The pass_back_object of this ProcessRequest.  # noqa: E501
+        :type pass_back_object: dict(str, object)
+        """
+
+        self._pass_back_object = pass_back_object
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -58,7 +58,7 @@ class FiberResult(object):
         'color_values': 'ColorValues'
     }
 
-    def __init__(self, type=None, element_result=None, element_diagnose=None, rect_count=None, expected_count=None, light_value=None, light_disp=None, rect_array=None, width=None, length=None, area=None, color_values=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=0, element_result=None, element_diagnose=None, rect_count=None, expected_count=None, light_value=None, light_disp=None, rect_array=None, width=None, length=None, area=None, color_values=None, local_vars_configuration=None):  # noqa: E501
         """FiberResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

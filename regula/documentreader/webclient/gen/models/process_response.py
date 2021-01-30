@@ -33,7 +33,8 @@ class ProcessResponse(object):
         'processing_finished': 'ProcessingStatus',
         'container_list': 'ContainerList',
         'transaction_info': 'TransactionInfo',
-        'log': 'str'
+        'log': 'str',
+        'pass_back_object': 'dict(str, object)'
     }
 
     attribute_map = {
@@ -41,10 +42,11 @@ class ProcessResponse(object):
         'processing_finished': 'ProcessingFinished',
         'container_list': 'ContainerList',
         'transaction_info': 'TransactionInfo',
-        'log': 'log'
+        'log': 'log',
+        'pass_back_object': 'passBackObject'
     }
 
-    def __init__(self, chip_page=None, processing_finished=None, container_list=None, transaction_info=None, log=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, chip_page=None, processing_finished=None, container_list=None, transaction_info=None, log=None, pass_back_object=None, local_vars_configuration=None):  # noqa: E501
         """ProcessResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -55,6 +57,7 @@ class ProcessResponse(object):
         self._container_list = None
         self._transaction_info = None
         self._log = None
+        self._pass_back_object = None
         self.discriminator = None
 
         self.chip_page = chip_page
@@ -63,6 +66,8 @@ class ProcessResponse(object):
         self.transaction_info = transaction_info
         if log is not None:
             self.log = log
+        if pass_back_object is not None:
+            self.pass_back_object = pass_back_object
 
     @property
     def chip_page(self):
@@ -178,6 +183,29 @@ class ProcessResponse(object):
         """
 
         self._log = log
+
+    @property
+    def pass_back_object(self):
+        """Gets the pass_back_object of this ProcessResponse.  # noqa: E501
+
+        Free-form object provided in request. See passBackObject property of ProcessRequest.  # noqa: E501
+
+        :return: The pass_back_object of this ProcessResponse.  # noqa: E501
+        :rtype: dict(str, object)
+        """
+        return self._pass_back_object
+
+    @pass_back_object.setter
+    def pass_back_object(self, pass_back_object):
+        """Sets the pass_back_object of this ProcessResponse.
+
+        Free-form object provided in request. See passBackObject property of ProcessRequest.  # noqa: E501
+
+        :param pass_back_object: The pass_back_object of this ProcessResponse.  # noqa: E501
+        :type pass_back_object: dict(str, object)
+        """
+
+        self._pass_back_object = pass_back_object
 
     def to_dict(self):
         """Returns the model properties as a dict"""
