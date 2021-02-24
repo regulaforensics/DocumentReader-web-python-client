@@ -14,6 +14,7 @@ from regula.documentreader.webclient.gen.models.authenticity_check_result import
 from regula.documentreader.webclient.gen.models.authenticity_check_result_item import AuthenticityCheckResultItem
 from regula.documentreader.webclient.gen.models.authenticity_result import AuthenticityResult
 from regula.documentreader.webclient.gen.models.authenticity_result_all_of import AuthenticityResultAllOf
+from regula.documentreader.webclient.gen.models.authenticity_result_type import AuthenticityResultType
 from regula.documentreader.webclient.gen.models.check_diagnose import CheckDiagnose
 from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from regula.documentreader.webclient.gen.models.chosen_document_type import ChosenDocumentType
@@ -60,6 +61,7 @@ from regula.documentreader.webclient.gen.models.lexical_analysis_result import L
 from regula.documentreader.webclient.gen.models.lexical_analysis_result_all_of import LexicalAnalysisResultAllOf
 from regula.documentreader.webclient.gen.models.light import Light
 from regula.documentreader.webclient.gen.models.list_verified_fields import ListVerifiedFields
+from regula.documentreader.webclient.gen.models.measure_system import MeasureSystem
 from regula.documentreader.webclient.gen.models.ocr_security_text_result import OCRSecurityTextResult
 from regula.documentreader.webclient.gen.models.ocr_security_text_result_all_of import OCRSecurityTextResultAllOf
 from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate
