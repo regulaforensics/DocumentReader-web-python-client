@@ -48,6 +48,7 @@ class ProcessParams(object):
         'update_ocr_validity_by_glare': 'bool',
         'generate_double_page_spread_image': 'bool',
         'check_required_text_fields': 'bool',
+        'return_cropped_barcode': 'bool',
         'image_qa': 'ImageQA'
     }
 
@@ -68,10 +69,11 @@ class ProcessParams(object):
         'update_ocr_validity_by_glare': 'updateOCRValidityByGlare',
         'generate_double_page_spread_image': 'generateDoublePageSpreadImage',
         'check_required_text_fields': 'checkRequiredTextFields',
+        'return_cropped_barcode': 'returnCroppedBarcode',
         'image_qa': 'imageQA'
     }
 
-    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, log=None, force_doc_id=None, match_text_field_mask=True, fast_doc_detect=True, update_ocr_validity_by_glare=False, generate_double_page_spread_image=None, check_required_text_fields=False, image_qa=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, log=None, force_doc_id=None, match_text_field_mask=True, fast_doc_detect=True, update_ocr_validity_by_glare=False, generate_double_page_spread_image=None, check_required_text_fields=False, return_cropped_barcode=False, image_qa=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -93,6 +95,7 @@ class ProcessParams(object):
         self._update_ocr_validity_by_glare = None
         self._generate_double_page_spread_image = None
         self._check_required_text_fields = None
+        self._return_cropped_barcode = None
         self._image_qa = None
         self.discriminator = None
 
@@ -127,6 +130,8 @@ class ProcessParams(object):
             self.generate_double_page_spread_image = generate_double_page_spread_image
         if check_required_text_fields is not None:
             self.check_required_text_fields = check_required_text_fields
+        if return_cropped_barcode is not None:
+            self.return_cropped_barcode = return_cropped_barcode
         if image_qa is not None:
             self.image_qa = image_qa
 
@@ -495,6 +500,29 @@ class ProcessParams(object):
         """
 
         self._check_required_text_fields = check_required_text_fields
+
+    @property
+    def return_cropped_barcode(self):
+        """Gets the return_cropped_barcode of this ProcessParams.  # noqa: E501
+
+        When enabled, returns cropped barcode images for unknown documents  # noqa: E501
+
+        :return: The return_cropped_barcode of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._return_cropped_barcode
+
+    @return_cropped_barcode.setter
+    def return_cropped_barcode(self, return_cropped_barcode):
+        """Sets the return_cropped_barcode of this ProcessParams.
+
+        When enabled, returns cropped barcode images for unknown documents  # noqa: E501
+
+        :param return_cropped_barcode: The return_cropped_barcode of this ProcessParams.  # noqa: E501
+        :type return_cropped_barcode: bool
+        """
+
+        self._return_cropped_barcode = return_cropped_barcode
 
     @property
     def image_qa(self):
