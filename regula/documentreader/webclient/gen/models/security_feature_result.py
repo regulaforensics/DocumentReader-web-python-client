@@ -35,7 +35,7 @@ class SecurityFeatureResult(object):
         'type': 'int',
         'element_result': 'CheckResult',
         'element_diagnose': 'CheckDiagnose',
-        'element_type': 'SecurityFeatureType',
+        'element_type': 'SecurityFeatureType2',
         'element_rect': 'RectangleCoordinates',
         'visibility': 'Visibility',
         'critical_flag': 'Critical',
@@ -163,7 +163,7 @@ class SecurityFeatureResult(object):
 
 
         :return: The element_type of this SecurityFeatureResult.  # noqa: E501
-        :rtype: SecurityFeatureType
+        :rtype: SecurityFeatureType2
         """
         return self._element_type
 
@@ -173,7 +173,7 @@ class SecurityFeatureResult(object):
 
 
         :param element_type: The element_type of this SecurityFeatureResult.  # noqa: E501
-        :type element_type: SecurityFeatureType
+        :type element_type: SecurityFeatureType2
         """
 
         self._element_type = element_type

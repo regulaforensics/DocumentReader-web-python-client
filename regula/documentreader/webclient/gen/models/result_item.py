@@ -56,6 +56,7 @@ class ResultItem(object):
         19 : 'GraphicsResult',
         20 : 'AuthenticityResult',
         3 : 'TextDataResult',
+        30 : 'ImagesResult',
         33 : 'StatusResult',
         36 : 'TextResult',
         37 : 'ImagesResult',

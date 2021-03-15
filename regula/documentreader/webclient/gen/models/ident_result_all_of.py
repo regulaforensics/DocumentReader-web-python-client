@@ -32,7 +32,7 @@ class IdentResultAllOf(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'element_type': 'SecurityFeatureType',
+        'element_type': 'SecurityFeatureType2',
         'light_index': 'Light',
         'area': 'RectangleCoordinates',
         'image': 'ImageData',
@@ -87,7 +87,7 @@ class IdentResultAllOf(object):
 
 
         :return: The element_type of this IdentResultAllOf.  # noqa: E501
-        :rtype: SecurityFeatureType
+        :rtype: SecurityFeatureType2
         """
         return self._element_type
 
@@ -97,7 +97,7 @@ class IdentResultAllOf(object):
 
 
         :param element_type: The element_type of this IdentResultAllOf.  # noqa: E501
-        :type element_type: SecurityFeatureType
+        :type element_type: SecurityFeatureType2
         """
 
         self._element_type = element_type

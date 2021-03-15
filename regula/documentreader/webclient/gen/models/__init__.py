@@ -8,6 +8,7 @@
 from __future__ import absolute_import
 
 # import models into model package
+from regula.documentreader.webclient.gen.models.area_array import AreaArray
 from regula.documentreader.webclient.gen.models.area_container import AreaContainer
 from regula.documentreader.webclient.gen.models.authenticity_check_list import AuthenticityCheckList
 from regula.documentreader.webclient.gen.models.authenticity_check_result import AuthenticityCheckResult
@@ -50,6 +51,9 @@ from regula.documentreader.webclient.gen.models.ident_result import IdentResult
 from regula.documentreader.webclient.gen.models.ident_result_all_of import IdentResultAllOf
 from regula.documentreader.webclient.gen.models.image_data import ImageData
 from regula.documentreader.webclient.gen.models.image_qa import ImageQA
+from regula.documentreader.webclient.gen.models.image_quality_check import ImageQualityCheck
+from regula.documentreader.webclient.gen.models.image_quality_check_type import ImageQualityCheckType
+from regula.documentreader.webclient.gen.models.image_quality_list_result import ImageQualityListResult
 from regula.documentreader.webclient.gen.models.images import Images
 from regula.documentreader.webclient.gen.models.images_available_source import ImagesAvailableSource
 from regula.documentreader.webclient.gen.models.images_field import ImagesField
@@ -86,6 +90,7 @@ from regula.documentreader.webclient.gen.models.scenario import Scenario
 from regula.documentreader.webclient.gen.models.security_feature_result import SecurityFeatureResult
 from regula.documentreader.webclient.gen.models.security_feature_result_all_of import SecurityFeatureResultAllOf
 from regula.documentreader.webclient.gen.models.security_feature_type import SecurityFeatureType
+from regula.documentreader.webclient.gen.models.security_feature_type2 import SecurityFeatureType2
 from regula.documentreader.webclient.gen.models.source import Source
 from regula.documentreader.webclient.gen.models.source_validity import SourceValidity
 from regula.documentreader.webclient.gen.models.status import Status

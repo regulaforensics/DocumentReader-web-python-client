@@ -32,7 +32,7 @@ class SecurityFeatureResultAllOf(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'element_type': 'SecurityFeatureType',
+        'element_type': 'SecurityFeatureType2',
         'element_rect': 'RectangleCoordinates',
         'visibility': 'Visibility',
         'critical_flag': 'Critical',
@@ -82,7 +82,7 @@ class SecurityFeatureResultAllOf(object):
 
 
         :return: The element_type of this SecurityFeatureResultAllOf.  # noqa: E501
-        :rtype: SecurityFeatureType
+        :rtype: SecurityFeatureType2
         """
         return self._element_type
 
@@ -92,7 +92,7 @@ class SecurityFeatureResultAllOf(object):
 
 
         :param element_type: The element_type of this SecurityFeatureResultAllOf.  # noqa: E501
-        :type element_type: SecurityFeatureType
+        :type element_type: SecurityFeatureType2
         """
 
         self._element_type = element_type

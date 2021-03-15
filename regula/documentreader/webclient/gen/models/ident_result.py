@@ -35,7 +35,7 @@ class IdentResult(object):
         'type': 'int',
         'element_result': 'CheckResult',
         'element_diagnose': 'CheckDiagnose',
-        'element_type': 'SecurityFeatureType',
+        'element_type': 'SecurityFeatureType2',
         'light_index': 'Light',
         'area': 'RectangleCoordinates',
         'image': 'ImageData',
@@ -168,7 +168,7 @@ class IdentResult(object):
 
 
         :return: The element_type of this IdentResult.  # noqa: E501
-        :rtype: SecurityFeatureType
+        :rtype: SecurityFeatureType2
         """
         return self._element_type
 
@@ -178,7 +178,7 @@ class IdentResult(object):
 
 
         :param element_type: The element_type of this IdentResult.  # noqa: E501
-        :type element_type: SecurityFeatureType
+        :type element_type: SecurityFeatureType2
         """
 
         self._element_type = element_type
