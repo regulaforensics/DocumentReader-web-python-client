@@ -1,5 +1,6 @@
 from typing import Optional, List
 
+from regula.documentreader.webclient import ImageQualityCheckList
 from regula.documentreader.webclient.ext.models.authenticity.authenticity_check_list import AuthenticityCheckList
 from regula.documentreader.webclient.ext.models.images import Images
 from regula.documentreader.webclient.ext.models.text import Text
@@ -42,8 +43,14 @@ class RecognitionResponse:
             return result.authenticity_check_list
         return None
 
+    @property
+    def image_quality_checks(self) -> Optional[ImageQualityCheckList]:
+        result = self.result_by_type(Result.IMAGE_QUALITY)
+        return result.image_quality_check_list if result is not None else None
+
     def result_by_type(self, result_type) -> Optional[ResultItem]:
-        for i in self.low_lvl_response.container_list.list:
+        ls = self.low_lvl_response.container_list.list
+        for i in ls:
             if i.result_type == result_type:
                 return i
         return None
