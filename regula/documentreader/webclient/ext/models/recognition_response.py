@@ -36,23 +36,21 @@ class RecognitionResponse:
             return result.images
         return None
 
-    @property
-    def authenticity(self) -> Optional[AuthenticityCheckList]:
-        result = self.result_by_type(Result.AUTHENTICITY)
+    def authenticity(self, page_idx=0) -> Optional[AuthenticityCheckList]:
+        result = self.result_by_type(Result.AUTHENTICITY, page_idx)
         if result:
             return result.authenticity_check_list
         return None
 
-    @property
-    def image_quality_checks(self) -> Optional[ImageQualityCheckList]:
-        result = self.result_by_type(Result.IMAGE_QUALITY)
+    def image_quality_checks(self, page_idx=0) -> Optional[ImageQualityCheckList]:
+        result = self.result_by_type(Result.IMAGE_QUALITY, page_idx)
         return result.image_quality_check_list if result is not None else None
 
-    def result_by_type(self, result_type) -> Optional[ResultItem]:
-        ls = self.low_lvl_response.container_list.list
-        for i in ls:
-            if i.result_type == result_type:
-                return i
+    def result_by_type(self, result_type, page_id=0) -> Optional[ResultItem]:
+        container_list = self.low_lvl_response.container_list.list
+        for response in container_list:
+            if response.result_type == result_type:
+                return response
         return None
 
     def results_by_type(self, result_type) -> List[ResultItem]:

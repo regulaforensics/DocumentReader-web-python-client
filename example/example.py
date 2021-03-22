@@ -24,7 +24,7 @@ with DocumentReaderApi(host) as api:
     api.license = regula_license
 
     params = ProcessParams(
-        scenario=Scenario.FULL_PROCESS,
+        scenario=Scenario.FULL_AUTH,
         result_type_output=[
             # actual results
             Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
@@ -56,9 +56,9 @@ with DocumentReaderApi(host) as api:
     doc_number_mrz_validity = doc_number_field.source_validity(Source.MRZ)
     doc_number_mrz_visual_matching = doc_number_field.cross_source_comparison(Source.MRZ, Source.VISUAL)
 
-    doc_authenticity = response.authenticity
+    doc_authenticity = response.authenticity()
 
-    doc_ir_b900 = doc_authenticity.ir_b900_checks\
+    doc_ir_b900 = doc_authenticity.ir_b900_checks \
         if doc_authenticity is not None else None
     #                                                      if FULL_PROCESS then auth is None
 
@@ -79,7 +79,7 @@ with DocumentReaderApi(host) as api:
     with open('document-image.jpg', 'wb') as f:
         f.write(document_image)
 
-    doc_image_quality = response.image_quality_checks
+    doc_image_quality = response.image_quality_checks()
     print("""
     ---------------------------------------------------------------------------
                    Document Overall Status: {doc_overall_status}
