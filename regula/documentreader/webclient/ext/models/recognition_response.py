@@ -1,5 +1,4 @@
 from typing import Optional, List
-
 from regula.documentreader.webclient import ImageQualityCheckList
 from regula.documentreader.webclient.ext.models.authenticity.authenticity_check_list import AuthenticityCheckList
 from regula.documentreader.webclient.ext.models.images import Images
@@ -37,16 +36,23 @@ class RecognitionResponse:
         return None
 
     def authenticity(self, page_idx=0) -> Optional[AuthenticityCheckList]:
-        result = self.result_by_type(Result.AUTHENTICITY, page_idx)
+        result = self.pageable_result_by_type(Result.AUTHENTICITY, page_idx)
         if result:
             return result.authenticity_check_list
         return None
 
     def image_quality_checks(self, page_idx=0) -> Optional[ImageQualityCheckList]:
-        result = self.result_by_type(Result.IMAGE_QUALITY, page_idx)
+        result = self.pageable_result_by_type(Result.IMAGE_QUALITY, page_idx)
         return result.image_quality_check_list if result is not None else None
 
-    def result_by_type(self, result_type, page_id=0) -> Optional[ResultItem]:
+    def pageable_result_by_type(self, result_type: int, page_idx: int) -> Optional[ResultItem]:
+        container_list = self.low_lvl_response.container_list.list
+        for response in container_list:
+            if response.result_type == result_type and response.page_idx == page_idx:
+                return response
+        return None
+
+    def result_by_type(self, result_type: int) -> Optional[ResultItem]:
         container_list = self.low_lvl_response.container_list.list
         for response in container_list:
             if response.result_type == result_type:
