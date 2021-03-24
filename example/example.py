@@ -24,11 +24,11 @@ with DocumentReaderApi(host) as api:
     api.license = regula_license
 
     params = ProcessParams(
-        scenario=Scenario.FULL_AUTH,
+        scenario=Scenario.FULL_PROCESS,
         result_type_output=[
             # actual results
             Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
-            Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES,
+            Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES, Result.IMAGE_QUALITY,
             # legacy results
             Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
             Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
