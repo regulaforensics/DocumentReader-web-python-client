@@ -13,7 +13,7 @@ Base64String = str
 
 class DocumentReaderApi(DefaultApi, ProcessApi):
 
-    def __init__(self, host=None, debug=False, verify_ssl=False, api_client=None):
+    def __init__(self, host=None, debug=False, verify_ssl=True, api_client=None):
         if api_client:
             self.api_client = api_client
         else:
