@@ -72,7 +72,11 @@ with DocumentReaderApi(host) as api:
     with open('document-image.jpg', 'wb') as f:
         f.write(document_image)
 
+    info = api.ping()
+
     print("""
+    ---------------------------------------------------------------------------
+                        Web API version: {ping_version}
     ---------------------------------------------------------------------------
                    Document Overall Status: {doc_overall_status}
                     Document Number Visual: {doc_number_visual}
@@ -82,6 +86,7 @@ with DocumentReaderApi(host) as api:
               MRZ-Visual values comparison: {doc_number_mrz_visual_matching}
     ---------------------------------------------------------------------------
     """.format(
+        ping_version=info.version,
         doc_overall_status=doc_overall_status, doc_number_visual=doc_number_visual,
         doc_number_mrz=doc_number_mrz, doc_number_visual_validity=doc_number_mrz_validity,
         doc_number_mrz_validity=doc_number_mrz_validity, doc_number_mrz_visual_matching=doc_number_mrz_visual_matching,
