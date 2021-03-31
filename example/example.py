@@ -24,11 +24,11 @@ with DocumentReaderApi(host) as api:
     api.license = regula_license
 
     params = ProcessParams(
-        scenario=Scenario.FULL_AUTH,
+        scenario=Scenario.FULL_PROCESS,
         result_type_output=[
             # actual results
             Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
-            Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES,
+            Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES, Result.IMAGE_QUALITY,
             # legacy results
             Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
             Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
@@ -56,13 +56,20 @@ with DocumentReaderApi(host) as api:
     doc_number_mrz_validity = doc_number_field.source_validity(Source.MRZ)
     doc_number_mrz_visual_matching = doc_number_field.cross_source_comparison(Source.MRZ, Source.VISUAL)
 
-    doc_authenticity = response.authenticity
+    doc_authenticity = response.authenticity()
 
-    doc_ir_b900 = doc_authenticity.ir_b900_checks
-    doc_ir_b900_blank = doc_ir_b900.checks_by_element(SecurityFeatureType.BLANK)
+    doc_ir_b900 = doc_authenticity.ir_b900_checks \
+        if doc_authenticity is not None else None
+    #                                                      if FULL_PROCESS then auth is None
 
-    doc_image_pattern = doc_authenticity.image_pattern_checks
-    doc_image_pattern_blank = doc_image_pattern.checks_by_element(SecurityFeatureType.BLANK)
+    doc_ir_b900_blank = doc_ir_b900.checks_by_element(SecurityFeatureType.BLANK) \
+        if doc_authenticity is not None else None
+
+    doc_image_pattern = doc_authenticity.image_pattern_checks \
+        if doc_authenticity is not None else None
+
+    doc_image_pattern_blank = doc_image_pattern.checks_by_element(SecurityFeatureType.BLANK) \
+        if doc_authenticity is not None else None
 
     # images fields example
     document_image = response.images.get_field(GraphicFieldType.DOCUMENT_FRONT).get_value()
@@ -72,6 +79,7 @@ with DocumentReaderApi(host) as api:
     with open('document-image.jpg', 'wb') as f:
         f.write(document_image)
 
+    doc_image_quality = response.image_quality_checks()
     print("""
     ---------------------------------------------------------------------------
                    Document Overall Status: {doc_overall_status}
