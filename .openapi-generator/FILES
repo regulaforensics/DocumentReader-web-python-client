@@ -52,8 +52,8 @@ regula/documentreader/webclient/gen/models/image_qa.py
 regula/documentreader/webclient/gen/models/image_quality_check.py
 regula/documentreader/webclient/gen/models/image_quality_check_list.py
 regula/documentreader/webclient/gen/models/image_quality_check_type.py
-regula/documentreader/webclient/gen/models/image_quality_list_result.py
-regula/documentreader/webclient/gen/models/image_quality_list_result_all_of.py
+regula/documentreader/webclient/gen/models/image_quality_result.py
+regula/documentreader/webclient/gen/models/image_quality_result_all_of.py
 regula/documentreader/webclient/gen/models/images.py
 regula/documentreader/webclient/gen/models/images_available_source.py
 regula/documentreader/webclient/gen/models/images_field.py

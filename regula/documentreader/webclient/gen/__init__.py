@@ -70,8 +70,8 @@ from regula.documentreader.webclient.gen.models.image_qa import ImageQA
 from regula.documentreader.webclient.gen.models.image_quality_check import ImageQualityCheck
 from regula.documentreader.webclient.gen.models.image_quality_check_list import ImageQualityCheckList
 from regula.documentreader.webclient.gen.models.image_quality_check_type import ImageQualityCheckType
-from regula.documentreader.webclient.gen.models.image_quality_list_result import ImageQualityListResult
-from regula.documentreader.webclient.gen.models.image_quality_list_result_all_of import ImageQualityListResultAllOf
+from regula.documentreader.webclient.gen.models.image_quality_result import ImageQualityResult
+from regula.documentreader.webclient.gen.models.image_quality_result_all_of import ImageQualityResultAllOf
 from regula.documentreader.webclient.gen.models.images import Images
 from regula.documentreader.webclient.gen.models.images_available_source import ImagesAvailableSource
 from regula.documentreader.webclient.gen.models.images_field import ImagesField
