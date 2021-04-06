@@ -90,7 +90,7 @@ class Configuration(object):
                  ):
         """Constructor
         """
-        self._base_path = "http://localhost:8080" if host is None else host
+        self._base_path = "https://api.regulaforensics.com" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -385,16 +385,16 @@ class Configuration(object):
         """
         return [
             {
-                'url': "http://localhost:8080/",
-                'description': "Local on-premise installation",
-            },
-            {
                 'url': "https://api.regulaforensics.com/",
-                'description': "Regula document reader SaaS",
+                'description': "Latest stable Regula Document Reader demo endpoint",
             },
             {
                 'url': "https://test-api.regulaforensics.com/",
-                'description': "Regula document reader test SaaS",
+                'description': "Nightly Regula document reader demo endpoint",
+            },
+            {
+                'url': "http://localhost:8080/",
+                'description': "Local on-premise installation",
             }
         ]
 
