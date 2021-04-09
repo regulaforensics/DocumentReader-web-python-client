@@ -2,7 +2,12 @@
 
 :bulb: Before you start: if you just want to play with an online demo, visit our [playground](https://api.regulaforensics.com).
 
-:warning: NOTE: for some systems `python3` and `pip3` commands should be used, instead of `python` and `pip`.
+:warning: NOTE: for some systems, `python3` and `pip3` commands should be used instead of `python` and `pip`.
+
+:warning: NOTE: If a custom Document Reader endpoint is not specified, demo web API will be used by default.
+By sending requests to demo Regula Document Reader web API, 
+you agree with our [Privacy Policy](https://api.regulaforensics.com/terms) 
+and [License Agreement](https://downloads.regulaforensics.com/work/SDK/doc/Eula.pdf).
 
 Requirements:
 - installed python 3.5 or higher
@@ -27,31 +32,29 @@ Setup project and download dependencies:
 pip install -e ./
 ```
 
-### Running with local Regula Document Reader web API installation
-
-Follow [the instructions](https://docs.regulaforensics.com/web/quick-start-guide) to run Regula Document Reader web API. 
-Assuming you have successfully launched instance, use next line command to run example:
-```bash
-cd example
-python example.py
-
-# If Regula Document Reader web API is running not on localhost, specify host via env variable:
-API_BASE_PATH="http://192.168.0.101:8080" python example.py
-```
-
-### Running using Regula Document Reader web API test SaaS
-
-Get your [free trial here](https://mobile.regulaforensics.com/). You should obtain `regula.license` file. 
-Copy it to **example** folder. You are ready for running!
+### Running the client with demo Regula Document Reader web API
 
 Execute example:
 ```bash
 cd example
-API_BASE_PATH="https://test-api.regulaforensics.com" python example.py
+python example.py
+```
+
+### Running the client with local Regula Document Reader web API installation
+
+Get your [free trial here](https://mobile.regulaforensics.com/). When you receive the `regula.license` file, 
+copy it to the [example](../example) folder. Now you are ready for start!
+
+Follow [the instructions](https://docs.regulaforensics.com/web/quick-start-guide) to run Regula Document Reader web API.
+If the instance has been launched successfully, use the following line command to run the example:
+
+```bash
+cd example
+API_BASE_PATH="http://127.0.0.1:8080" python example.py
 ```
 
 ### Output 
-This sample generates next text output:
+This sample generates the following text output:
 ```text
     ---------------------------------------------------------------------------
                    Document Overall Status: not valid
@@ -62,5 +65,6 @@ This sample generates next text output:
               MRZ-Visual values comparison: 1
     ---------------------------------------------------------------------------
 ```
-Also, it creates [portrait](portrait.jpg) and [document image](document-image.jpg) pictures inside current folder.
-Edit on your own [example.py](./example.py), and re-run to see your results.
+Also, it stores [portrait](portrait.jpg) and [document image](document-image.jpg) images in the current folder.
+You can modify [this example](../example/src/main/java/com/regula/documentreader/webclient/example/Main.java) 
+and re-run it to get your own results.
