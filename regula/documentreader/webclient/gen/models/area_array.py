@@ -33,7 +33,7 @@ class AreaArray(object):
     """
     openapi_types = {
         'list': 'list[RectangleCoordinates]',
-        'points': 'PointArray'
+        'points': 'list[PointArray]'
     }
 
     attribute_map = {
@@ -83,7 +83,7 @@ class AreaArray(object):
 
 
         :return: The points of this AreaArray.  # noqa: E501
-        :rtype: PointArray
+        :rtype: list[PointArray]
         """
         return self._points
 
@@ -93,7 +93,7 @@ class AreaArray(object):
 
 
         :param points: The points of this AreaArray.  # noqa: E501
-        :type points: PointArray
+        :type points: list[PointArray]
         """
 
         self._points = points
