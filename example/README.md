@@ -6,7 +6,7 @@
 
 :warning: NOTE: If a custom Document Reader endpoint is not specified, demo web API will be used by default.
 By sending requests to demo Regula Document Reader web API, 
-you agree with our [Privacy Policy](https://api.regulaforensics.com/terms) 
+you agree with our [Privacy Policy](https://regulaforensics.com/en/company/privacy/) 
 and [License Agreement](https://downloads.regulaforensics.com/work/SDK/doc/Eula.pdf).
 
 Requirements:
