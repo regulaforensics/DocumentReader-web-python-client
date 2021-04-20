@@ -2,7 +2,7 @@ import os
 
 from regula.documentreader.webclient import *
 
-host = os.getenv("API_BASE_PATH", "http://localhost:8080")
+host = os.getenv("API_BASE_PATH", "https://api.regulaforensics.com")
 regula_license = os.getenv("TEST_LICENSE", None)  # optional, used here only for smoke test purposes
 
 # read optional local license file
