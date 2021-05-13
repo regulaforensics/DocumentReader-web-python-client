@@ -67,6 +67,7 @@ from regula.documentreader.webclient.gen.models.lexical_analysis_result import L
 from regula.documentreader.webclient.gen.models.lexical_analysis_result_all_of import LexicalAnalysisResultAllOf
 from regula.documentreader.webclient.gen.models.light import Light
 from regula.documentreader.webclient.gen.models.list_verified_fields import ListVerifiedFields
+from regula.documentreader.webclient.gen.models.log_level import LogLevel
 from regula.documentreader.webclient.gen.models.measure_system import MeasureSystem
 from regula.documentreader.webclient.gen.models.ocr_security_text_result import OCRSecurityTextResult
 from regula.documentreader.webclient.gen.models.ocr_security_text_result_all_of import OCRSecurityTextResultAllOf

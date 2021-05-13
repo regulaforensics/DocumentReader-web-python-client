@@ -49,7 +49,12 @@ class ProcessParams(object):
         'generate_double_page_spread_image': 'bool',
         'check_required_text_fields': 'bool',
         'return_cropped_barcode': 'bool',
-        'image_qa': 'ImageQA'
+        'image_qa': 'ImageQA',
+        'force_doc_format': 'DocumentFormat',
+        'no_graphics': 'bool',
+        'document_area_min': 'float',
+        'log_level': 'LogLevel',
+        'depersonalize_log': 'bool'
     }
 
     attribute_map = {
@@ -70,10 +75,15 @@ class ProcessParams(object):
         'generate_double_page_spread_image': 'generateDoublePageSpreadImage',
         'check_required_text_fields': 'checkRequiredTextFields',
         'return_cropped_barcode': 'returnCroppedBarcode',
-        'image_qa': 'imageQA'
+        'image_qa': 'imageQA',
+        'force_doc_format': 'forceDocFormat',
+        'no_graphics': 'noGraphics',
+        'document_area_min': 'documentAreaMin',
+        'log_level': 'logLevel',
+        'depersonalize_log': 'depersonalizeLog'
     }
 
-    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, log=None, force_doc_id=None, match_text_field_mask=True, fast_doc_detect=True, update_ocr_validity_by_glare=False, generate_double_page_spread_image=None, check_required_text_fields=False, return_cropped_barcode=False, image_qa=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, log=None, force_doc_id=None, match_text_field_mask=True, fast_doc_detect=True, update_ocr_validity_by_glare=False, generate_double_page_spread_image=None, check_required_text_fields=False, return_cropped_barcode=False, image_qa=None, force_doc_format=None, no_graphics=False, document_area_min=0, log_level=None, depersonalize_log=False, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -97,6 +107,11 @@ class ProcessParams(object):
         self._check_required_text_fields = None
         self._return_cropped_barcode = None
         self._image_qa = None
+        self._force_doc_format = None
+        self._no_graphics = None
+        self._document_area_min = None
+        self._log_level = None
+        self._depersonalize_log = None
         self.discriminator = None
 
         self.scenario = scenario
@@ -134,6 +149,16 @@ class ProcessParams(object):
             self.return_cropped_barcode = return_cropped_barcode
         if image_qa is not None:
             self.image_qa = image_qa
+        if force_doc_format is not None:
+            self.force_doc_format = force_doc_format
+        if no_graphics is not None:
+            self.no_graphics = no_graphics
+        if document_area_min is not None:
+            self.document_area_min = document_area_min
+        if log_level is not None:
+            self.log_level = log_level
+        if depersonalize_log is not None:
+            self.depersonalize_log = depersonalize_log
 
     @property
     def scenario(self):
@@ -544,6 +569,117 @@ class ProcessParams(object):
         """
 
         self._image_qa = image_qa
+
+    @property
+    def force_doc_format(self):
+        """Gets the force_doc_format of this ProcessParams.  # noqa: E501
+
+
+        :return: The force_doc_format of this ProcessParams.  # noqa: E501
+        :rtype: DocumentFormat
+        """
+        return self._force_doc_format
+
+    @force_doc_format.setter
+    def force_doc_format(self, force_doc_format):
+        """Sets the force_doc_format of this ProcessParams.
+
+
+        :param force_doc_format: The force_doc_format of this ProcessParams.  # noqa: E501
+        :type force_doc_format: DocumentFormat
+        """
+
+        self._force_doc_format = force_doc_format
+
+    @property
+    def no_graphics(self):
+        """Gets the no_graphics of this ProcessParams.  # noqa: E501
+
+        When enabled no graphic fields will be cropped from document image.  # noqa: E501
+
+        :return: The no_graphics of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._no_graphics
+
+    @no_graphics.setter
+    def no_graphics(self, no_graphics):
+        """Sets the no_graphics of this ProcessParams.
+
+        When enabled no graphic fields will be cropped from document image.  # noqa: E501
+
+        :param no_graphics: The no_graphics of this ProcessParams.  # noqa: E501
+        :type no_graphics: bool
+        """
+
+        self._no_graphics = no_graphics
+
+    @property
+    def document_area_min(self):
+        """Gets the document_area_min of this ProcessParams.  # noqa: E501
+
+        Specifies minimal area of the image that document should cover to be treated as candidate when locating. Value should be in range from 0 to 1, where 1 is when document should fully cover the image.  # noqa: E501
+
+        :return: The document_area_min of this ProcessParams.  # noqa: E501
+        :rtype: float
+        """
+        return self._document_area_min
+
+    @document_area_min.setter
+    def document_area_min(self, document_area_min):
+        """Sets the document_area_min of this ProcessParams.
+
+        Specifies minimal area of the image that document should cover to be treated as candidate when locating. Value should be in range from 0 to 1, where 1 is when document should fully cover the image.  # noqa: E501
+
+        :param document_area_min: The document_area_min of this ProcessParams.  # noqa: E501
+        :type document_area_min: float
+        """
+
+        self._document_area_min = document_area_min
+
+    @property
+    def log_level(self):
+        """Gets the log_level of this ProcessParams.  # noqa: E501
+
+
+        :return: The log_level of this ProcessParams.  # noqa: E501
+        :rtype: LogLevel
+        """
+        return self._log_level
+
+    @log_level.setter
+    def log_level(self, log_level):
+        """Sets the log_level of this ProcessParams.
+
+
+        :param log_level: The log_level of this ProcessParams.  # noqa: E501
+        :type log_level: LogLevel
+        """
+
+        self._log_level = log_level
+
+    @property
+    def depersonalize_log(self):
+        """Gets the depersonalize_log of this ProcessParams.  # noqa: E501
+
+        When enabled all personal data will be forcibly removed from the logs.  # noqa: E501
+
+        :return: The depersonalize_log of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._depersonalize_log
+
+    @depersonalize_log.setter
+    def depersonalize_log(self, depersonalize_log):
+        """Sets the depersonalize_log of this ProcessParams.
+
+        When enabled all personal data will be forcibly removed from the logs.  # noqa: E501
+
+        :param depersonalize_log: The depersonalize_log of this ProcessParams.  # noqa: E501
+        :type depersonalize_log: bool
+        """
+
+        self._depersonalize_log = depersonalize_log
 
     def to_dict(self):
         """Returns the model properties as a dict"""

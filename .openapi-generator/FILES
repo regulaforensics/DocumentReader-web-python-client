@@ -65,6 +65,7 @@ regula/documentreader/webclient/gen/models/lexical_analysis_result.py
 regula/documentreader/webclient/gen/models/lexical_analysis_result_all_of.py
 regula/documentreader/webclient/gen/models/light.py
 regula/documentreader/webclient/gen/models/list_verified_fields.py
+regula/documentreader/webclient/gen/models/log_level.py
 regula/documentreader/webclient/gen/models/measure_system.py
 regula/documentreader/webclient/gen/models/ocr_security_text_result.py
 regula/documentreader/webclient/gen/models/ocr_security_text_result_all_of.py
