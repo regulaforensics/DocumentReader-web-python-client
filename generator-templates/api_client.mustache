@@ -81,22 +81,7 @@ class ModelSerDe:
         return {key: self.sanitize_for_serialization(val)
                 for key, val in six.iteritems(obj_dict)}
 
-    def deserialize(self, response, response_type):
-        """Deserializes response into an object.
-
-        :param response: RESTResponse object to be deserialized.
-        :param response_type: class literal for
-            deserialized object, or string of class name.
-
-        :return: deserialized object.
-        """
-        try:
-            data = json.loads(response.data)
-        except ValueError:
-            data = response.data
-        return self.__deserialize(data, response_type)
-
-    def __deserialize(self, data, klass):
+    def deserialize_raw(self, data, klass):
         """Deserializes dict, list, str into an object.
 
         :param data: dict, list or str.
@@ -110,12 +95,12 @@ class ModelSerDe:
         if type(klass) == str:
             if klass.startswith('list['):
                 sub_kls = re.match(r'list\[(.*)\]', klass).group(1)
-                return [self.__deserialize(sub_data, sub_kls)
+                return [self.deserialize_raw(sub_data, sub_kls)
                         for sub_data in data]
 
             if klass.startswith('dict('):
                 sub_kls = re.match(r'dict\(([^,]*), (.*)\)', klass).group(2)
-                return {k: self.__deserialize(v, sub_kls)
+                return {k: self.deserialize_raw(v, sub_kls)
                         for k, v in six.iteritems(data)}
 
             # convert str to class
@@ -222,14 +207,14 @@ class ModelSerDe:
             for attr, attr_type in six.iteritems(klass.openapi_types):
                 if klass.attribute_map[attr] in data:
                     value = data[klass.attribute_map[attr]]
-                    kwargs[attr] = self.__deserialize(value, attr_type)
+                    kwargs[attr] = self.deserialize_raw(value, attr_type)
 
         instance = klass(**kwargs)
 
         if has_discriminator:
             klass_name = instance.get_real_child_model(data)
             if klass_name:
-                instance = self.__deserialize(data, klass_name)
+                instance = self.deserialize_raw(data, klass_name)
         return instance
 
 
@@ -440,6 +425,21 @@ class ApiClient(ModelSerDe, object):
             raise tornado.gen.Return((return_data, response_data.status,
                                       response_data.getheaders()))
 {{/tornado}}
+
+    def deserialize(self, response, response_type):
+        """Deserializes response into an object.
+
+        :param response: RESTResponse object to be deserialized.
+        :param response_type: class literal for
+            deserialized object, or string of class name.
+
+        :return: deserialized object.
+        """
+        try:
+            data = json.loads(response.data)
+        except ValueError:
+            data = response.data
+        return self.deserialize_raw(data, response_type)
 
     def call_api(self, resource_path, method,
                  path_params=None, query_params=None, header_params=None,
