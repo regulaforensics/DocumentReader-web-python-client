@@ -35,6 +35,7 @@ class ProcessParams(object):
         'scenario': 'Scenario',
         'result_type_output': 'list[Result]',
         'double_page_spread': 'bool',
+        'generate_double_page_spread_image': 'bool',
         'field_types_filter': 'list[TextFieldType]',
         'date_format': 'str',
         'measure_system': 'MeasureSystem',
@@ -42,25 +43,29 @@ class ProcessParams(object):
         'already_cropped': 'bool',
         'custom_params': 'dict(str, object)',
         'log': 'bool',
+        'log_level': 'LogLevel',
         'force_doc_id': 'int',
         'match_text_field_mask': 'bool',
         'fast_doc_detect': 'bool',
         'update_ocr_validity_by_glare': 'bool',
-        'generate_double_page_spread_image': 'bool',
         'check_required_text_fields': 'bool',
         'return_cropped_barcode': 'bool',
         'image_qa': 'ImageQA',
         'force_doc_format': 'DocumentFormat',
         'no_graphics': 'bool',
         'document_area_min': 'float',
-        'log_level': 'LogLevel',
-        'depersonalize_log': 'bool'
+        'depersonalize_log': 'bool',
+        'multi_doc_on_image': 'bool',
+        'shift_expiry_date': 'int',
+        'minimal_holder_age': 'int',
+        'return_uncropped_image': 'bool'
     }
 
     attribute_map = {
         'scenario': 'scenario',
         'result_type_output': 'resultTypeOutput',
         'double_page_spread': 'doublePageSpread',
+        'generate_double_page_spread_image': 'generateDoublePageSpreadImage',
         'field_types_filter': 'fieldTypesFilter',
         'date_format': 'dateFormat',
         'measure_system': 'measureSystem',
@@ -68,22 +73,25 @@ class ProcessParams(object):
         'already_cropped': 'alreadyCropped',
         'custom_params': 'customParams',
         'log': 'log',
+        'log_level': 'logLevel',
         'force_doc_id': 'forceDocID',
         'match_text_field_mask': 'matchTextFieldMask',
         'fast_doc_detect': 'fastDocDetect',
         'update_ocr_validity_by_glare': 'updateOCRValidityByGlare',
-        'generate_double_page_spread_image': 'generateDoublePageSpreadImage',
         'check_required_text_fields': 'checkRequiredTextFields',
         'return_cropped_barcode': 'returnCroppedBarcode',
         'image_qa': 'imageQA',
         'force_doc_format': 'forceDocFormat',
         'no_graphics': 'noGraphics',
         'document_area_min': 'documentAreaMin',
-        'log_level': 'logLevel',
-        'depersonalize_log': 'depersonalizeLog'
+        'depersonalize_log': 'depersonalizeLog',
+        'multi_doc_on_image': 'multiDocOnImage',
+        'shift_expiry_date': 'shiftExpiryDate',
+        'minimal_holder_age': 'minimalHolderAge',
+        'return_uncropped_image': 'returnUncroppedImage'
     }
 
-    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, log=None, force_doc_id=None, match_text_field_mask=True, fast_doc_detect=True, update_ocr_validity_by_glare=False, generate_double_page_spread_image=None, check_required_text_fields=False, return_cropped_barcode=False, image_qa=None, force_doc_format=None, no_graphics=False, document_area_min=0, log_level=None, depersonalize_log=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -92,6 +100,7 @@ class ProcessParams(object):
         self._scenario = None
         self._result_type_output = None
         self._double_page_spread = None
+        self._generate_double_page_spread_image = None
         self._field_types_filter = None
         self._date_format = None
         self._measure_system = None
@@ -99,19 +108,22 @@ class ProcessParams(object):
         self._already_cropped = None
         self._custom_params = None
         self._log = None
+        self._log_level = None
         self._force_doc_id = None
         self._match_text_field_mask = None
         self._fast_doc_detect = None
         self._update_ocr_validity_by_glare = None
-        self._generate_double_page_spread_image = None
         self._check_required_text_fields = None
         self._return_cropped_barcode = None
         self._image_qa = None
         self._force_doc_format = None
         self._no_graphics = None
         self._document_area_min = None
-        self._log_level = None
         self._depersonalize_log = None
+        self._multi_doc_on_image = None
+        self._shift_expiry_date = None
+        self._minimal_holder_age = None
+        self._return_uncropped_image = None
         self.discriminator = None
 
         self.scenario = scenario
@@ -119,6 +131,8 @@ class ProcessParams(object):
             self.result_type_output = result_type_output
         if double_page_spread is not None:
             self.double_page_spread = double_page_spread
+        if generate_double_page_spread_image is not None:
+            self.generate_double_page_spread_image = generate_double_page_spread_image
         if field_types_filter is not None:
             self.field_types_filter = field_types_filter
         if date_format is not None:
@@ -133,6 +147,8 @@ class ProcessParams(object):
             self.custom_params = custom_params
         if log is not None:
             self.log = log
+        if log_level is not None:
+            self.log_level = log_level
         if force_doc_id is not None:
             self.force_doc_id = force_doc_id
         if match_text_field_mask is not None:
@@ -141,8 +157,6 @@ class ProcessParams(object):
             self.fast_doc_detect = fast_doc_detect
         if update_ocr_validity_by_glare is not None:
             self.update_ocr_validity_by_glare = update_ocr_validity_by_glare
-        if generate_double_page_spread_image is not None:
-            self.generate_double_page_spread_image = generate_double_page_spread_image
         if check_required_text_fields is not None:
             self.check_required_text_fields = check_required_text_fields
         if return_cropped_barcode is not None:
@@ -155,10 +169,16 @@ class ProcessParams(object):
             self.no_graphics = no_graphics
         if document_area_min is not None:
             self.document_area_min = document_area_min
-        if log_level is not None:
-            self.log_level = log_level
         if depersonalize_log is not None:
             self.depersonalize_log = depersonalize_log
+        if multi_doc_on_image is not None:
+            self.multi_doc_on_image = multi_doc_on_image
+        if shift_expiry_date is not None:
+            self.shift_expiry_date = shift_expiry_date
+        if minimal_holder_age is not None:
+            self.minimal_holder_age = minimal_holder_age
+        if return_uncropped_image is not None:
+            self.return_uncropped_image = return_uncropped_image
 
     @property
     def scenario(self):
@@ -228,6 +248,29 @@ class ProcessParams(object):
         """
 
         self._double_page_spread = double_page_spread
+
+    @property
+    def generate_double_page_spread_image(self):
+        """Gets the generate_double_page_spread_image of this ProcessParams.  # noqa: E501
+
+        When enabled together with \"doublePageSpread\" and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner.  # noqa: E501
+
+        :return: The generate_double_page_spread_image of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._generate_double_page_spread_image
+
+    @generate_double_page_spread_image.setter
+    def generate_double_page_spread_image(self, generate_double_page_spread_image):
+        """Sets the generate_double_page_spread_image of this ProcessParams.
+
+        When enabled together with \"doublePageSpread\" and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner.  # noqa: E501
+
+        :param generate_double_page_spread_image: The generate_double_page_spread_image of this ProcessParams.  # noqa: E501
+        :type generate_double_page_spread_image: bool
+        """
+
+        self._generate_double_page_spread_image = generate_double_page_spread_image
 
     @property
     def field_types_filter(self):
@@ -389,6 +432,27 @@ class ProcessParams(object):
         self._log = log
 
     @property
+    def log_level(self):
+        """Gets the log_level of this ProcessParams.  # noqa: E501
+
+
+        :return: The log_level of this ProcessParams.  # noqa: E501
+        :rtype: LogLevel
+        """
+        return self._log_level
+
+    @log_level.setter
+    def log_level(self, log_level):
+        """Sets the log_level of this ProcessParams.
+
+
+        :param log_level: The log_level of this ProcessParams.  # noqa: E501
+        :type log_level: LogLevel
+        """
+
+        self._log_level = log_level
+
+    @property
     def force_doc_id(self):
         """Gets the force_doc_id of this ProcessParams.  # noqa: E501
 
@@ -479,29 +543,6 @@ class ProcessParams(object):
         """
 
         self._update_ocr_validity_by_glare = update_ocr_validity_by_glare
-
-    @property
-    def generate_double_page_spread_image(self):
-        """Gets the generate_double_page_spread_image of this ProcessParams.  # noqa: E501
-
-        When enabled together with \"doublePageSpread\" and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner.  # noqa: E501
-
-        :return: The generate_double_page_spread_image of this ProcessParams.  # noqa: E501
-        :rtype: bool
-        """
-        return self._generate_double_page_spread_image
-
-    @generate_double_page_spread_image.setter
-    def generate_double_page_spread_image(self, generate_double_page_spread_image):
-        """Sets the generate_double_page_spread_image of this ProcessParams.
-
-        When enabled together with \"doublePageSpread\" and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner.  # noqa: E501
-
-        :param generate_double_page_spread_image: The generate_double_page_spread_image of this ProcessParams.  # noqa: E501
-        :type generate_double_page_spread_image: bool
-        """
-
-        self._generate_double_page_spread_image = generate_double_page_spread_image
 
     @property
     def check_required_text_fields(self):
@@ -638,27 +679,6 @@ class ProcessParams(object):
         self._document_area_min = document_area_min
 
     @property
-    def log_level(self):
-        """Gets the log_level of this ProcessParams.  # noqa: E501
-
-
-        :return: The log_level of this ProcessParams.  # noqa: E501
-        :rtype: LogLevel
-        """
-        return self._log_level
-
-    @log_level.setter
-    def log_level(self, log_level):
-        """Sets the log_level of this ProcessParams.
-
-
-        :param log_level: The log_level of this ProcessParams.  # noqa: E501
-        :type log_level: LogLevel
-        """
-
-        self._log_level = log_level
-
-    @property
     def depersonalize_log(self):
         """Gets the depersonalize_log of this ProcessParams.  # noqa: E501
 
@@ -680,6 +700,98 @@ class ProcessParams(object):
         """
 
         self._depersonalize_log = depersonalize_log
+
+    @property
+    def multi_doc_on_image(self):
+        """Gets the multi_doc_on_image of this ProcessParams.  # noqa: E501
+
+        This option allows locating and cropping multiple documents from one image if enabled.  # noqa: E501
+
+        :return: The multi_doc_on_image of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._multi_doc_on_image
+
+    @multi_doc_on_image.setter
+    def multi_doc_on_image(self, multi_doc_on_image):
+        """Sets the multi_doc_on_image of this ProcessParams.
+
+        This option allows locating and cropping multiple documents from one image if enabled.  # noqa: E501
+
+        :param multi_doc_on_image: The multi_doc_on_image of this ProcessParams.  # noqa: E501
+        :type multi_doc_on_image: bool
+        """
+
+        self._multi_doc_on_image = multi_doc_on_image
+
+    @property
+    def shift_expiry_date(self):
+        """Gets the shift_expiry_date of this ProcessParams.  # noqa: E501
+
+        This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months.  # noqa: E501
+
+        :return: The shift_expiry_date of this ProcessParams.  # noqa: E501
+        :rtype: int
+        """
+        return self._shift_expiry_date
+
+    @shift_expiry_date.setter
+    def shift_expiry_date(self, shift_expiry_date):
+        """Sets the shift_expiry_date of this ProcessParams.
+
+        This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months.  # noqa: E501
+
+        :param shift_expiry_date: The shift_expiry_date of this ProcessParams.  # noqa: E501
+        :type shift_expiry_date: int
+        """
+
+        self._shift_expiry_date = shift_expiry_date
+
+    @property
+    def minimal_holder_age(self):
+        """Gets the minimal_holder_age of this ProcessParams.  # noqa: E501
+
+        This options allows specifying the minimal age in years of the document holder for the document to be considered valid.  # noqa: E501
+
+        :return: The minimal_holder_age of this ProcessParams.  # noqa: E501
+        :rtype: int
+        """
+        return self._minimal_holder_age
+
+    @minimal_holder_age.setter
+    def minimal_holder_age(self, minimal_holder_age):
+        """Sets the minimal_holder_age of this ProcessParams.
+
+        This options allows specifying the minimal age in years of the document holder for the document to be considered valid.  # noqa: E501
+
+        :param minimal_holder_age: The minimal_holder_age of this ProcessParams.  # noqa: E501
+        :type minimal_holder_age: int
+        """
+
+        self._minimal_holder_age = minimal_holder_age
+
+    @property
+    def return_uncropped_image(self):
+        """Gets the return_uncropped_image of this ProcessParams.  # noqa: E501
+
+        This option allows returning input images in output if enabled.  # noqa: E501
+
+        :return: The return_uncropped_image of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._return_uncropped_image
+
+    @return_uncropped_image.setter
+    def return_uncropped_image(self, return_uncropped_image):
+        """Sets the return_uncropped_image of this ProcessParams.
+
+        This option allows returning input images in output if enabled.  # noqa: E501
+
+        :param return_uncropped_image: The return_uncropped_image of this ProcessParams.  # noqa: E501
+        :type return_uncropped_image: bool
+        """
+
+        self._return_uncropped_image = return_uncropped_image
 
     def to_dict(self):
         """Returns the model properties as a dict"""
