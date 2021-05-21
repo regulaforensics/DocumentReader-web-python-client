@@ -58,7 +58,8 @@ class ProcessParams(object):
         'multi_doc_on_image': 'bool',
         'shift_expiry_date': 'int',
         'minimal_holder_age': 'int',
-        'return_uncropped_image': 'bool'
+        'return_uncropped_image': 'bool',
+        'mrz_formats_filter': 'list[MRZFormat]'
     }
 
     attribute_map = {
@@ -88,10 +89,11 @@ class ProcessParams(object):
         'multi_doc_on_image': 'multiDocOnImage',
         'shift_expiry_date': 'shiftExpiryDate',
         'minimal_holder_age': 'minimalHolderAge',
-        'return_uncropped_image': 'returnUncroppedImage'
+        'return_uncropped_image': 'returnUncroppedImage',
+        'mrz_formats_filter': 'mrzFormatsFilter'
     }
 
-    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -124,6 +126,7 @@ class ProcessParams(object):
         self._shift_expiry_date = None
         self._minimal_holder_age = None
         self._return_uncropped_image = None
+        self._mrz_formats_filter = None
         self.discriminator = None
 
         self.scenario = scenario
@@ -179,6 +182,8 @@ class ProcessParams(object):
             self.minimal_holder_age = minimal_holder_age
         if return_uncropped_image is not None:
             self.return_uncropped_image = return_uncropped_image
+        if mrz_formats_filter is not None:
+            self.mrz_formats_filter = mrz_formats_filter
 
     @property
     def scenario(self):
@@ -792,6 +797,29 @@ class ProcessParams(object):
         """
 
         self._return_uncropped_image = return_uncropped_image
+
+    @property
+    def mrz_formats_filter(self):
+        """Gets the mrz_formats_filter of this ProcessParams.  # noqa: E501
+
+        This option allows limiting MRZ formats to be recognized by specifying them in array.  # noqa: E501
+
+        :return: The mrz_formats_filter of this ProcessParams.  # noqa: E501
+        :rtype: list[MRZFormat]
+        """
+        return self._mrz_formats_filter
+
+    @mrz_formats_filter.setter
+    def mrz_formats_filter(self, mrz_formats_filter):
+        """Sets the mrz_formats_filter of this ProcessParams.
+
+        This option allows limiting MRZ formats to be recognized by specifying them in array.  # noqa: E501
+
+        :param mrz_formats_filter: The mrz_formats_filter of this ProcessParams.  # noqa: E501
+        :type mrz_formats_filter: list[MRZFormat]
+        """
+
+        self._mrz_formats_filter = mrz_formats_filter
 
     def to_dict(self):
         """Returns the model properties as a dict"""
