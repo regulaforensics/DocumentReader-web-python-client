@@ -41,7 +41,7 @@ class ImageQA(object):
         'angle_threshold': 'angleThreshold'
     }
 
-    def __init__(self, dpi_threshold=150, angle_threshold=5, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, dpi_threshold=None, angle_threshold=None, local_vars_configuration=None):  # noqa: E501
         """ImageQA - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
