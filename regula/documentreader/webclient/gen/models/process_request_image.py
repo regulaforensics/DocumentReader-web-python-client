@@ -43,7 +43,7 @@ class ProcessRequestImage(object):
         'page_idx': 'page_idx'
     }
 
-    def __init__(self, image_data=None, light=None, page_idx=0, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, image_data=None, light=None, page_idx=None, local_vars_configuration=None):  # noqa: E501
         """ProcessRequestImage - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
