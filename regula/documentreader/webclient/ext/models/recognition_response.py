@@ -61,3 +61,8 @@ class RecognitionResponse:
 
     def results_by_type(self, result_type) -> List[ResultItem]:
         return [r for r in self.low_lvl_response.container_list.list if r.result_type == result_type]
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, RecognitionResponse):
+            return False
+        return self.low_lvl_response == other.low_lvl_response
