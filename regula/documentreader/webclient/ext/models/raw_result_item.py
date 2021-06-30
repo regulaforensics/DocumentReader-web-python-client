@@ -20,9 +20,7 @@ class RawResultItem(ResultItem):
         return self.__raw
 
     def to_dict(self):
-        result = super(RawResultItem, self).to_dict()
-        result["raw"] = self.__raw
-        return result
+        return self.__raw
 
     def get_real_child_model(self, data):
         return None
