@@ -65,7 +65,9 @@ class ModelSerDe:
         elif isinstance(obj, (datetime.datetime, datetime.date)):
             return obj.isoformat()
 
-        if isinstance(obj, dict):
+        if isinstance(obj, regula.documentreader.webclient.ext.models.RawResultItem):
+            obj_dict = obj.raw
+        elif isinstance(obj, dict):
             obj_dict = obj
         else:
             # Convert model obj to dict except
