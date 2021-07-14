@@ -37,7 +37,8 @@ class ProcessResponse(object):
         'container_list': 'ContainerList',
         'transaction_info': 'TransactionInfo',
         'log': 'str',
-        'pass_back_object': 'dict(str, object)'
+        'pass_back_object': 'dict(str, object)',
+        'more_pages_available': 'int'
     }
 
     attribute_map = {
@@ -46,10 +47,11 @@ class ProcessResponse(object):
         'container_list': 'ContainerList',
         'transaction_info': 'TransactionInfo',
         'log': 'log',
-        'pass_back_object': 'passBackObject'
+        'pass_back_object': 'passBackObject',
+        'more_pages_available': 'morePagesAvailable'
     }
 
-    def __init__(self, chip_page=None, processing_finished=None, container_list=None, transaction_info=None, log=None, pass_back_object=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, chip_page=None, processing_finished=None, container_list=None, transaction_info=None, log=None, pass_back_object=None, more_pages_available=None, local_vars_configuration=None):  # noqa: E501
         """ProcessResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,6 +63,7 @@ class ProcessResponse(object):
         self._transaction_info = None
         self._log = None
         self._pass_back_object = None
+        self._more_pages_available = None
         self.discriminator = None
 
         if chip_page is not None:
@@ -72,6 +75,8 @@ class ProcessResponse(object):
             self.log = log
         if pass_back_object is not None:
             self.pass_back_object = pass_back_object
+        if more_pages_available is not None:
+            self.more_pages_available = more_pages_available
 
     @property
     def chip_page(self):
@@ -208,6 +213,27 @@ class ProcessResponse(object):
         """
 
         self._pass_back_object = pass_back_object
+
+    @property
+    def more_pages_available(self):
+        """Gets the more_pages_available of this ProcessResponse.  # noqa: E501
+
+
+        :return: The more_pages_available of this ProcessResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._more_pages_available
+
+    @more_pages_available.setter
+    def more_pages_available(self, more_pages_available):
+        """Sets the more_pages_available of this ProcessResponse.
+
+
+        :param more_pages_available: The more_pages_available of this ProcessResponse.  # noqa: E501
+        :type more_pages_available: int
+        """
+
+        self._more_pages_available = more_pages_available
 
     def to_dict(self):
         """Returns the model properties as a dict"""
