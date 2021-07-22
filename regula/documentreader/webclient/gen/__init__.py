@@ -90,6 +90,7 @@ from regula.documentreader.webclient.gen.models.ocr_security_text_result import 
 from regula.documentreader.webclient.gen.models.ocr_security_text_result_all_of import OCRSecurityTextResultAllOf
 from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate
 from regula.documentreader.webclient.gen.models.original_symbol import OriginalSymbol
+from regula.documentreader.webclient.gen.models.per_document_config import PerDocumentConfig
 from regula.documentreader.webclient.gen.models.photo_ident_result import PhotoIdentResult
 from regula.documentreader.webclient.gen.models.photo_ident_result_all_of import PhotoIdentResultAllOf
 from regula.documentreader.webclient.gen.models.point import Point

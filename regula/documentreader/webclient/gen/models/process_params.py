@@ -42,6 +42,7 @@ class ProcessParams(object):
         'image_dpi_out_max': 'int',
         'already_cropped': 'bool',
         'custom_params': 'dict(str, object)',
+        'config': 'list[PerDocumentConfig]',
         'log': 'bool',
         'log_level': 'LogLevel',
         'force_doc_id': 'int',
@@ -59,7 +60,8 @@ class ProcessParams(object):
         'shift_expiry_date': 'int',
         'minimal_holder_age': 'int',
         'return_uncropped_image': 'bool',
-        'mrz_formats_filter': 'list[MRZFormat]'
+        'mrz_formats_filter': 'list[MRZFormat]',
+        'force_read_mrz_before_locate': 'bool'
     }
 
     attribute_map = {
@@ -73,6 +75,7 @@ class ProcessParams(object):
         'image_dpi_out_max': 'imageDpiOutMax',
         'already_cropped': 'alreadyCropped',
         'custom_params': 'customParams',
+        'config': 'config',
         'log': 'log',
         'log_level': 'logLevel',
         'force_doc_id': 'forceDocID',
@@ -90,10 +93,11 @@ class ProcessParams(object):
         'shift_expiry_date': 'shiftExpiryDate',
         'minimal_holder_age': 'minimalHolderAge',
         'return_uncropped_image': 'returnUncroppedImage',
-        'mrz_formats_filter': 'mrzFormatsFilter'
+        'mrz_formats_filter': 'mrzFormatsFilter',
+        'force_read_mrz_before_locate': 'forceReadMrzBeforeLocate'
     }
 
-    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -109,6 +113,7 @@ class ProcessParams(object):
         self._image_dpi_out_max = None
         self._already_cropped = None
         self._custom_params = None
+        self._config = None
         self._log = None
         self._log_level = None
         self._force_doc_id = None
@@ -127,6 +132,7 @@ class ProcessParams(object):
         self._minimal_holder_age = None
         self._return_uncropped_image = None
         self._mrz_formats_filter = None
+        self._force_read_mrz_before_locate = None
         self.discriminator = None
 
         self.scenario = scenario
@@ -148,6 +154,8 @@ class ProcessParams(object):
             self.already_cropped = already_cropped
         if custom_params is not None:
             self.custom_params = custom_params
+        if config is not None:
+            self.config = config
         if log is not None:
             self.log = log
         if log_level is not None:
@@ -184,6 +192,8 @@ class ProcessParams(object):
             self.return_uncropped_image = return_uncropped_image
         if mrz_formats_filter is not None:
             self.mrz_formats_filter = mrz_formats_filter
+        if force_read_mrz_before_locate is not None:
+            self.force_read_mrz_before_locate = force_read_mrz_before_locate
 
     @property
     def scenario(self):
@@ -412,6 +422,29 @@ class ProcessParams(object):
         """
 
         self._custom_params = custom_params
+
+    @property
+    def config(self):
+        """Gets the config of this ProcessParams.  # noqa: E501
+
+        This option allows to set additional custom configuration per document type. If recognized document has id specified in config, processing adjusts according to designated configuration.  # noqa: E501
+
+        :return: The config of this ProcessParams.  # noqa: E501
+        :rtype: list[PerDocumentConfig]
+        """
+        return self._config
+
+    @config.setter
+    def config(self, config):
+        """Sets the config of this ProcessParams.
+
+        This option allows to set additional custom configuration per document type. If recognized document has id specified in config, processing adjusts according to designated configuration.  # noqa: E501
+
+        :param config: The config of this ProcessParams.  # noqa: E501
+        :type config: list[PerDocumentConfig]
+        """
+
+        self._config = config
 
     @property
     def log(self):
@@ -820,6 +853,29 @@ class ProcessParams(object):
         """
 
         self._mrz_formats_filter = mrz_formats_filter
+
+    @property
+    def force_read_mrz_before_locate(self):
+        """Gets the force_read_mrz_before_locate of this ProcessParams.  # noqa: E501
+
+        This option can be set to true to make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality.  # noqa: E501
+
+        :return: The force_read_mrz_before_locate of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._force_read_mrz_before_locate
+
+    @force_read_mrz_before_locate.setter
+    def force_read_mrz_before_locate(self, force_read_mrz_before_locate):
+        """Sets the force_read_mrz_before_locate of this ProcessParams.
+
+        This option can be set to true to make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality.  # noqa: E501
+
+        :param force_read_mrz_before_locate: The force_read_mrz_before_locate of this ProcessParams.  # noqa: E501
+        :type force_read_mrz_before_locate: bool
+        """
+
+        self._force_read_mrz_before_locate = force_read_mrz_before_locate
 
     def to_dict(self):
         """Returns the model properties as a dict"""
