@@ -29,6 +29,7 @@ with DocumentReaderApi(host) as api:
             # actual results
             Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
             Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES, Result.IMAGE_QUALITY,
+            Result.DOCUMENT_POSITION,
             # legacy results
             Result.MRZ_TEXT, Result.VISUAL_TEXT, Result.BARCODE_TEXT, Result.RFID_TEXT,
             Result.VISUAL_GRAPHICS, Result.BARCODE_GRAPHICS, Result.RFID_GRAPHICS,
