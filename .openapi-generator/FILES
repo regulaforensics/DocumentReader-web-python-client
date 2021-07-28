@@ -31,6 +31,9 @@ regula/documentreader/webclient/gen/models/document_format.py
 regula/documentreader/webclient/gen/models/document_image.py
 regula/documentreader/webclient/gen/models/document_image_result.py
 regula/documentreader/webclient/gen/models/document_image_result_all_of.py
+regula/documentreader/webclient/gen/models/document_position.py
+regula/documentreader/webclient/gen/models/document_position_result.py
+regula/documentreader/webclient/gen/models/document_position_result_all_of.py
 regula/documentreader/webclient/gen/models/document_type.py
 regula/documentreader/webclient/gen/models/document_type_recognition_result.py
 regula/documentreader/webclient/gen/models/document_types_candidates.py
