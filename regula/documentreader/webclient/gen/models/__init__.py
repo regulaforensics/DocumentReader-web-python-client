@@ -33,6 +33,9 @@ from regula.documentreader.webclient.gen.models.document_format import DocumentF
 from regula.documentreader.webclient.gen.models.document_image import DocumentImage
 from regula.documentreader.webclient.gen.models.document_image_result import DocumentImageResult
 from regula.documentreader.webclient.gen.models.document_image_result_all_of import DocumentImageResultAllOf
+from regula.documentreader.webclient.gen.models.document_position import DocumentPosition
+from regula.documentreader.webclient.gen.models.document_position_result import DocumentPositionResult
+from regula.documentreader.webclient.gen.models.document_position_result_all_of import DocumentPositionResultAllOf
 from regula.documentreader.webclient.gen.models.document_type import DocumentType
 from regula.documentreader.webclient.gen.models.document_type_recognition_result import DocumentTypeRecognitionResult
 from regula.documentreader.webclient.gen.models.document_types_candidates import DocumentTypesCandidates
