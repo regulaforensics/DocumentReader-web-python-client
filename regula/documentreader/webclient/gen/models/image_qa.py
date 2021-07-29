@@ -34,22 +34,22 @@ class ImageQA(object):
     openapi_types = {
         'dpi_threshold': 'int',
         'angle_threshold': 'int',
-        'disable_focus_check': 'bool',
-        'disable_glares_check': 'bool',
-        'disable_colorness_check': 'bool',
-        'disable_moire_check': 'bool'
+        'focus_check': 'bool',
+        'glares_check': 'bool',
+        'colorness_check': 'bool',
+        'moire_check': 'bool'
     }
 
     attribute_map = {
         'dpi_threshold': 'dpiThreshold',
         'angle_threshold': 'angleThreshold',
-        'disable_focus_check': 'disableFocusCheck',
-        'disable_glares_check': 'disableGlaresCheck',
-        'disable_colorness_check': 'disableColornessCheck',
-        'disable_moire_check': 'disableMoireCheck'
+        'focus_check': 'focusCheck',
+        'glares_check': 'glaresCheck',
+        'colorness_check': 'colornessCheck',
+        'moire_check': 'moireCheck'
     }
 
-    def __init__(self, dpi_threshold=None, angle_threshold=None, disable_focus_check=None, disable_glares_check=None, disable_colorness_check=None, disable_moire_check=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, dpi_threshold=None, angle_threshold=None, focus_check=None, glares_check=None, colorness_check=None, moire_check=None, local_vars_configuration=None):  # noqa: E501
         """ImageQA - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,24 +57,24 @@ class ImageQA(object):
 
         self._dpi_threshold = None
         self._angle_threshold = None
-        self._disable_focus_check = None
-        self._disable_glares_check = None
-        self._disable_colorness_check = None
-        self._disable_moire_check = None
+        self._focus_check = None
+        self._glares_check = None
+        self._colorness_check = None
+        self._moire_check = None
         self.discriminator = None
 
         if dpi_threshold is not None:
             self.dpi_threshold = dpi_threshold
         if angle_threshold is not None:
             self.angle_threshold = angle_threshold
-        if disable_focus_check is not None:
-            self.disable_focus_check = disable_focus_check
-        if disable_glares_check is not None:
-            self.disable_glares_check = disable_glares_check
-        if disable_colorness_check is not None:
-            self.disable_colorness_check = disable_colorness_check
-        if disable_moire_check is not None:
-            self.disable_moire_check = disable_moire_check
+        if focus_check is not None:
+            self.focus_check = focus_check
+        if glares_check is not None:
+            self.glares_check = glares_check
+        if colorness_check is not None:
+            self.colorness_check = colorness_check
+        if moire_check is not None:
+            self.moire_check = moire_check
 
     @property
     def dpi_threshold(self):
@@ -123,96 +123,96 @@ class ImageQA(object):
         self._angle_threshold = angle_threshold
 
     @property
-    def disable_focus_check(self):
-        """Gets the disable_focus_check of this ImageQA.  # noqa: E501
+    def focus_check(self):
+        """Gets the focus_check of this ImageQA.  # noqa: E501
 
         This option disabled focus check during performing image quality validation  # noqa: E501
 
-        :return: The disable_focus_check of this ImageQA.  # noqa: E501
+        :return: The focus_check of this ImageQA.  # noqa: E501
         :rtype: bool
         """
-        return self._disable_focus_check
+        return self._focus_check
 
-    @disable_focus_check.setter
-    def disable_focus_check(self, disable_focus_check):
-        """Sets the disable_focus_check of this ImageQA.
+    @focus_check.setter
+    def focus_check(self, focus_check):
+        """Sets the focus_check of this ImageQA.
 
         This option disabled focus check during performing image quality validation  # noqa: E501
 
-        :param disable_focus_check: The disable_focus_check of this ImageQA.  # noqa: E501
-        :type disable_focus_check: bool
+        :param focus_check: The focus_check of this ImageQA.  # noqa: E501
+        :type focus_check: bool
         """
 
-        self._disable_focus_check = disable_focus_check
+        self._focus_check = focus_check
 
     @property
-    def disable_glares_check(self):
-        """Gets the disable_glares_check of this ImageQA.  # noqa: E501
+    def glares_check(self):
+        """Gets the glares_check of this ImageQA.  # noqa: E501
 
         This option disabled glares check during performing image quality validation  # noqa: E501
 
-        :return: The disable_glares_check of this ImageQA.  # noqa: E501
+        :return: The glares_check of this ImageQA.  # noqa: E501
         :rtype: bool
         """
-        return self._disable_glares_check
+        return self._glares_check
 
-    @disable_glares_check.setter
-    def disable_glares_check(self, disable_glares_check):
-        """Sets the disable_glares_check of this ImageQA.
+    @glares_check.setter
+    def glares_check(self, glares_check):
+        """Sets the glares_check of this ImageQA.
 
         This option disabled glares check during performing image quality validation  # noqa: E501
 
-        :param disable_glares_check: The disable_glares_check of this ImageQA.  # noqa: E501
-        :type disable_glares_check: bool
+        :param glares_check: The glares_check of this ImageQA.  # noqa: E501
+        :type glares_check: bool
         """
 
-        self._disable_glares_check = disable_glares_check
+        self._glares_check = glares_check
 
     @property
-    def disable_colorness_check(self):
-        """Gets the disable_colorness_check of this ImageQA.  # noqa: E501
+    def colorness_check(self):
+        """Gets the colorness_check of this ImageQA.  # noqa: E501
 
         This option disabled colorness check during performing image quality validation  # noqa: E501
 
-        :return: The disable_colorness_check of this ImageQA.  # noqa: E501
+        :return: The colorness_check of this ImageQA.  # noqa: E501
         :rtype: bool
         """
-        return self._disable_colorness_check
+        return self._colorness_check
 
-    @disable_colorness_check.setter
-    def disable_colorness_check(self, disable_colorness_check):
-        """Sets the disable_colorness_check of this ImageQA.
+    @colorness_check.setter
+    def colorness_check(self, colorness_check):
+        """Sets the colorness_check of this ImageQA.
 
         This option disabled colorness check during performing image quality validation  # noqa: E501
 
-        :param disable_colorness_check: The disable_colorness_check of this ImageQA.  # noqa: E501
-        :type disable_colorness_check: bool
+        :param colorness_check: The colorness_check of this ImageQA.  # noqa: E501
+        :type colorness_check: bool
         """
 
-        self._disable_colorness_check = disable_colorness_check
+        self._colorness_check = colorness_check
 
     @property
-    def disable_moire_check(self):
-        """Gets the disable_moire_check of this ImageQA.  # noqa: E501
+    def moire_check(self):
+        """Gets the moire_check of this ImageQA.  # noqa: E501
 
         This option disabled moire patterns check during performing image quality validation  # noqa: E501
 
-        :return: The disable_moire_check of this ImageQA.  # noqa: E501
+        :return: The moire_check of this ImageQA.  # noqa: E501
         :rtype: bool
         """
-        return self._disable_moire_check
+        return self._moire_check
 
-    @disable_moire_check.setter
-    def disable_moire_check(self, disable_moire_check):
-        """Sets the disable_moire_check of this ImageQA.
+    @moire_check.setter
+    def moire_check(self, moire_check):
+        """Sets the moire_check of this ImageQA.
 
         This option disabled moire patterns check during performing image quality validation  # noqa: E501
 
-        :param disable_moire_check: The disable_moire_check of this ImageQA.  # noqa: E501
-        :type disable_moire_check: bool
+        :param moire_check: The moire_check of this ImageQA.  # noqa: E501
+        :type moire_check: bool
         """
 
-        self._disable_moire_check = disable_moire_check
+        self._moire_check = moire_check
 
     def to_dict(self):
         """Returns the model properties as a dict"""
