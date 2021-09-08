@@ -1,12 +1,15 @@
 import base64
-from typing import List, Union
+import json
+from typing import List, Union, Optional
 
+from regula.documentreader.webclient.gen.api_client import ModelSerDe
 from regula.documentreader.webclient.gen.models import ImageData, ProcessParams
 from regula.documentreader.webclient.gen.models.process_request import ProcessRequest
 from regula.documentreader.webclient.gen.models.process_request_image import ProcessRequestImage
 from regula.documentreader.webclient.gen.models.process_system_info import ProcessSystemInfo
 
 Base64String = str
+serde = ModelSerDe()
 
 
 class RecognitionImage(ProcessRequestImage):
@@ -25,3 +28,11 @@ class RecognitionRequest(ProcessRequest):
             else:
                 input_images.append(image)
         super().__init__(process_params, input_images, ProcessSystemInfo())
+
+
+class RawRecognitionRequest(dict):
+    def __init__(self, raw_json_request: Union[bytes, str], process_params: Optional[ProcessParams] = None):
+        request = json.loads(raw_json_request)
+        if process_params:
+            request["processParam"] = serde.sanitize_for_serialization(process_params)
+        super().__init__(request)

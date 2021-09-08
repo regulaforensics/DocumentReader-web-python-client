@@ -1,7 +1,7 @@
 import base64
-from typing import Union
+from typing import Union, Dict
 
-from regula.documentreader.webclient import ProcessResponse
+from regula.documentreader.webclient import ProcessResponse, ProcessSystemInfo
 from regula.documentreader.webclient.gen import ApiClient
 from regula.documentreader.webclient.ext.models.recognition_response import RecognitionResponse
 from regula.documentreader.webclient.gen.api import DefaultApi, ProcessApi
@@ -44,8 +44,13 @@ class DocumentReaderApi(DefaultApi, ProcessApi):
         else:
             self.__license = value
 
-    def process(self, process_request: ProcessRequest) -> RecognitionResponse:
-        process_request.system_info.license = self.license
+    def process(self, process_request: Union[ProcessRequest, Dict]) -> RecognitionResponse:
+        if self.license and isinstance(process_request, ProcessRequest):
+            if process_request.system_info is None:
+                process_request.system_info = ProcessSystemInfo(license=self.license)
+            elif process_request.system_info.license is None:
+                process_request.system_info.license = self.license
+
         return RecognitionResponse(self.api_process(process_request))
 
     def deserialize_to_recognition_response(self, content: Union[bytes, bytearray, str]) -> RecognitionResponse:
