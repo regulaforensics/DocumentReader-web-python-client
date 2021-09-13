@@ -15,6 +15,7 @@ setuptools = ">=21.0.0"
 pipenv-setup = "*"
 wheel = "*"
 twine = "*"
+chardet = "*"
 
 [requires]
 python_version = "3.8"
