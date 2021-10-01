@@ -61,7 +61,8 @@ class ProcessParams(object):
         'minimal_holder_age': 'int',
         'return_uncropped_image': 'bool',
         'mrz_formats_filter': 'list[MRZFormat]',
-        'force_read_mrz_before_locate': 'bool'
+        'force_read_mrz_before_locate': 'bool',
+        'parse_barcodes': 'bool'
     }
 
     attribute_map = {
@@ -94,10 +95,11 @@ class ProcessParams(object):
         'minimal_holder_age': 'minimalHolderAge',
         'return_uncropped_image': 'returnUncroppedImage',
         'mrz_formats_filter': 'mrzFormatsFilter',
-        'force_read_mrz_before_locate': 'forceReadMrzBeforeLocate'
+        'force_read_mrz_before_locate': 'forceReadMrzBeforeLocate',
+        'parse_barcodes': 'parseBarcodes'
     }
 
-    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -133,6 +135,7 @@ class ProcessParams(object):
         self._return_uncropped_image = None
         self._mrz_formats_filter = None
         self._force_read_mrz_before_locate = None
+        self._parse_barcodes = None
         self.discriminator = None
 
         self.scenario = scenario
@@ -194,6 +197,8 @@ class ProcessParams(object):
             self.mrz_formats_filter = mrz_formats_filter
         if force_read_mrz_before_locate is not None:
             self.force_read_mrz_before_locate = force_read_mrz_before_locate
+        if parse_barcodes is not None:
+            self.parse_barcodes = parse_barcodes
 
     @property
     def scenario(self):
@@ -876,6 +881,29 @@ class ProcessParams(object):
         """
 
         self._force_read_mrz_before_locate = force_read_mrz_before_locate
+
+    @property
+    def parse_barcodes(self):
+        """Gets the parse_barcodes of this ProcessParams.  # noqa: E501
+
+        This option can be set to false to stop parsing after barcode is read.  # noqa: E501
+
+        :return: The parse_barcodes of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._parse_barcodes
+
+    @parse_barcodes.setter
+    def parse_barcodes(self, parse_barcodes):
+        """Sets the parse_barcodes of this ProcessParams.
+
+        This option can be set to false to stop parsing after barcode is read.  # noqa: E501
+
+        :param parse_barcodes: The parse_barcodes of this ProcessParams.  # noqa: E501
+        :type parse_barcodes: bool
+        """
+
+        self._parse_barcodes = parse_barcodes
 
     def to_dict(self):
         """Returns the model properties as a dict"""
