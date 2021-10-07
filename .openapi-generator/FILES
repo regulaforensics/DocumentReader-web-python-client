@@ -112,6 +112,7 @@ regula/documentreader/webclient/gen/models/text_data_result_all_of.py
 regula/documentreader/webclient/gen/models/text_field.py
 regula/documentreader/webclient/gen/models/text_field_type.py
 regula/documentreader/webclient/gen/models/text_field_value.py
+regula/documentreader/webclient/gen/models/text_post_processing.py
 regula/documentreader/webclient/gen/models/text_result.py
 regula/documentreader/webclient/gen/models/text_result_all_of.py
 regula/documentreader/webclient/gen/models/transaction_info.py

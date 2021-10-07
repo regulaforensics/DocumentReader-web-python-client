@@ -130,6 +130,7 @@ from regula.documentreader.webclient.gen.models.text_data_result_all_of import T
 from regula.documentreader.webclient.gen.models.text_field import TextField
 from regula.documentreader.webclient.gen.models.text_field_type import TextFieldType
 from regula.documentreader.webclient.gen.models.text_field_value import TextFieldValue
+from regula.documentreader.webclient.gen.models.text_post_processing import TextPostProcessing
 from regula.documentreader.webclient.gen.models.text_result import TextResult
 from regula.documentreader.webclient.gen.models.text_result_all_of import TextResultAllOf
 from regula.documentreader.webclient.gen.models.transaction_info import TransactionInfo
