@@ -62,7 +62,8 @@ class ProcessParams(object):
         'return_uncropped_image': 'bool',
         'mrz_formats_filter': 'list[MRZFormat]',
         'force_read_mrz_before_locate': 'bool',
-        'parse_barcodes': 'bool'
+        'parse_barcodes': 'bool',
+        'convert_case': 'TextPostProcessing'
     }
 
     attribute_map = {
@@ -96,10 +97,11 @@ class ProcessParams(object):
         'return_uncropped_image': 'returnUncroppedImage',
         'mrz_formats_filter': 'mrzFormatsFilter',
         'force_read_mrz_before_locate': 'forceReadMrzBeforeLocate',
-        'parse_barcodes': 'parseBarcodes'
+        'parse_barcodes': 'parseBarcodes',
+        'convert_case': 'convertCase'
     }
 
-    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -136,6 +138,7 @@ class ProcessParams(object):
         self._mrz_formats_filter = None
         self._force_read_mrz_before_locate = None
         self._parse_barcodes = None
+        self._convert_case = None
         self.discriminator = None
 
         self.scenario = scenario
@@ -199,6 +202,8 @@ class ProcessParams(object):
             self.force_read_mrz_before_locate = force_read_mrz_before_locate
         if parse_barcodes is not None:
             self.parse_barcodes = parse_barcodes
+        if convert_case is not None:
+            self.convert_case = convert_case
 
     @property
     def scenario(self):
@@ -904,6 +909,27 @@ class ProcessParams(object):
         """
 
         self._parse_barcodes = parse_barcodes
+
+    @property
+    def convert_case(self):
+        """Gets the convert_case of this ProcessParams.  # noqa: E501
+
+
+        :return: The convert_case of this ProcessParams.  # noqa: E501
+        :rtype: TextPostProcessing
+        """
+        return self._convert_case
+
+    @convert_case.setter
+    def convert_case(self, convert_case):
+        """Sets the convert_case of this ProcessParams.
+
+
+        :param convert_case: The convert_case of this ProcessParams.  # noqa: E501
+        :type convert_case: TextPostProcessing
+        """
+
+        self._convert_case = convert_case
 
     def to_dict(self):
         """Returns the model properties as a dict"""
