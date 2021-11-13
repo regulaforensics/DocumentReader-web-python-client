@@ -86,7 +86,7 @@ class ProcessParams(object):
         'update_ocr_validity_by_glare': 'updateOCRValidityByGlare',
         'check_required_text_fields': 'checkRequiredTextFields',
         'return_cropped_barcode': 'returnCroppedBarcode',
-        'image_qa': 'imageQA',
+        'image_qa': 'imageQa',
         'force_doc_format': 'forceDocFormat',
         'no_graphics': 'noGraphics',
         'document_area_min': 'documentAreaMin',
