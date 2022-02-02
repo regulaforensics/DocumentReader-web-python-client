@@ -126,7 +126,7 @@ class ImageQA(object):
     def focus_check(self):
         """Gets the focus_check of this ImageQA.  # noqa: E501
 
-        This option disabled focus check during performing image quality validation  # noqa: E501
+        This option enables focus check while performing image quality validation.  # noqa: E501
 
         :return: The focus_check of this ImageQA.  # noqa: E501
         :rtype: bool
@@ -137,7 +137,7 @@ class ImageQA(object):
     def focus_check(self, focus_check):
         """Sets the focus_check of this ImageQA.
 
-        This option disabled focus check during performing image quality validation  # noqa: E501
+        This option enables focus check while performing image quality validation.  # noqa: E501
 
         :param focus_check: The focus_check of this ImageQA.  # noqa: E501
         :type focus_check: bool
@@ -149,7 +149,7 @@ class ImageQA(object):
     def glares_check(self):
         """Gets the glares_check of this ImageQA.  # noqa: E501
 
-        This option disabled glares check during performing image quality validation  # noqa: E501
+        This option enables glares check while performing image quality validation.  # noqa: E501
 
         :return: The glares_check of this ImageQA.  # noqa: E501
         :rtype: bool
@@ -160,7 +160,7 @@ class ImageQA(object):
     def glares_check(self, glares_check):
         """Sets the glares_check of this ImageQA.
 
-        This option disabled glares check during performing image quality validation  # noqa: E501
+        This option enables glares check while performing image quality validation.  # noqa: E501
 
         :param glares_check: The glares_check of this ImageQA.  # noqa: E501
         :type glares_check: bool
@@ -172,7 +172,7 @@ class ImageQA(object):
     def colorness_check(self):
         """Gets the colorness_check of this ImageQA.  # noqa: E501
 
-        This option disabled colorness check during performing image quality validation  # noqa: E501
+        This option enables colorness check while performing image quality validation.  # noqa: E501
 
         :return: The colorness_check of this ImageQA.  # noqa: E501
         :rtype: bool
@@ -183,7 +183,7 @@ class ImageQA(object):
     def colorness_check(self, colorness_check):
         """Sets the colorness_check of this ImageQA.
 
-        This option disabled colorness check during performing image quality validation  # noqa: E501
+        This option enables colorness check while performing image quality validation.  # noqa: E501
 
         :param colorness_check: The colorness_check of this ImageQA.  # noqa: E501
         :type colorness_check: bool
@@ -195,7 +195,7 @@ class ImageQA(object):
     def moire_check(self):
         """Gets the moire_check of this ImageQA.  # noqa: E501
 
-        This option disabled moire patterns check during performing image quality validation  # noqa: E501
+        This option enables moire patterns check while performing image quality validation.  # noqa: E501
 
         :return: The moire_check of this ImageQA.  # noqa: E501
         :rtype: bool
@@ -206,7 +206,7 @@ class ImageQA(object):
     def moire_check(self, moire_check):
         """Sets the moire_check of this ImageQA.
 
-        This option disabled moire patterns check during performing image quality validation  # noqa: E501
+        This option enables moire patterns check while performing image quality validation.  # noqa: E501
 
         :param moire_check: The moire_check of this ImageQA.  # noqa: E501
         :type moire_check: bool
