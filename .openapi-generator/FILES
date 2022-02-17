@@ -40,6 +40,8 @@ regula/documentreader/webclient/gen/models/document_types_candidates.py
 regula/documentreader/webclient/gen/models/document_types_candidates_list.py
 regula/documentreader/webclient/gen/models/document_types_candidates_result.py
 regula/documentreader/webclient/gen/models/document_types_candidates_result_all_of.py
+regula/documentreader/webclient/gen/models/encrypted_rcl_result.py
+regula/documentreader/webclient/gen/models/encrypted_rcl_result_all_of.py
 regula/documentreader/webclient/gen/models/fdsid_list.py
 regula/documentreader/webclient/gen/models/fiber_result.py
 regula/documentreader/webclient/gen/models/fiber_result_all_of.py
@@ -66,6 +68,8 @@ regula/documentreader/webclient/gen/models/images_result_all_of.py
 regula/documentreader/webclient/gen/models/lcid.py
 regula/documentreader/webclient/gen/models/lexical_analysis_result.py
 regula/documentreader/webclient/gen/models/lexical_analysis_result_all_of.py
+regula/documentreader/webclient/gen/models/license_result.py
+regula/documentreader/webclient/gen/models/license_result_all_of.py
 regula/documentreader/webclient/gen/models/light.py
 regula/documentreader/webclient/gen/models/list_verified_fields.py
 regula/documentreader/webclient/gen/models/log_level.py
