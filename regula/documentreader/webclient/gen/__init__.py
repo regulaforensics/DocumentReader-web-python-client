@@ -58,6 +58,8 @@ from regula.documentreader.webclient.gen.models.document_types_candidates import
 from regula.documentreader.webclient.gen.models.document_types_candidates_list import DocumentTypesCandidatesList
 from regula.documentreader.webclient.gen.models.document_types_candidates_result import DocumentTypesCandidatesResult
 from regula.documentreader.webclient.gen.models.document_types_candidates_result_all_of import DocumentTypesCandidatesResultAllOf
+from regula.documentreader.webclient.gen.models.encrypted_rcl_result import EncryptedRCLResult
+from regula.documentreader.webclient.gen.models.encrypted_rcl_result_all_of import EncryptedRCLResultAllOf
 from regula.documentreader.webclient.gen.models.fdsid_list import FDSIDList
 from regula.documentreader.webclient.gen.models.fiber_result import FiberResult
 from regula.documentreader.webclient.gen.models.fiber_result_all_of import FiberResultAllOf
@@ -84,6 +86,8 @@ from regula.documentreader.webclient.gen.models.images_result_all_of import Imag
 from regula.documentreader.webclient.gen.models.lcid import LCID
 from regula.documentreader.webclient.gen.models.lexical_analysis_result import LexicalAnalysisResult
 from regula.documentreader.webclient.gen.models.lexical_analysis_result_all_of import LexicalAnalysisResultAllOf
+from regula.documentreader.webclient.gen.models.license_result import LicenseResult
+from regula.documentreader.webclient.gen.models.license_result_all_of import LicenseResultAllOf
 from regula.documentreader.webclient.gen.models.light import Light
 from regula.documentreader.webclient.gen.models.list_verified_fields import ListVerifiedFields
 from regula.documentreader.webclient.gen.models.log_level import LogLevel

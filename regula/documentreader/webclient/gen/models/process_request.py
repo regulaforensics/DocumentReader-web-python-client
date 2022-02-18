@@ -34,6 +34,7 @@ class ProcessRequest(object):
     openapi_types = {
         'process_param': 'ProcessParams',
         'list': 'list[ProcessRequestImage]',
+        'container_list': 'ContainerList',
         'system_info': 'ProcessSystemInfo',
         'pass_back_object': 'dict(str, object)'
     }
@@ -41,11 +42,12 @@ class ProcessRequest(object):
     attribute_map = {
         'process_param': 'processParam',
         'list': 'List',
+        'container_list': 'ContainerList',
         'system_info': 'systemInfo',
         'pass_back_object': 'passBackObject'
     }
 
-    def __init__(self, process_param=None, list=None, system_info=None, pass_back_object=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, process_param=None, list=None, container_list=None, system_info=None, pass_back_object=None, local_vars_configuration=None):  # noqa: E501
         """ProcessRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,12 +55,16 @@ class ProcessRequest(object):
 
         self._process_param = None
         self._list = None
+        self._container_list = None
         self._system_info = None
         self._pass_back_object = None
         self.discriminator = None
 
         self.process_param = process_param
-        self.list = list
+        if list is not None:
+            self.list = list
+        if container_list is not None:
+            self.container_list = container_list
         if system_info is not None:
             self.system_info = system_info
         if pass_back_object is not None:
@@ -105,10 +111,29 @@ class ProcessRequest(object):
         :param list: The list of this ProcessRequest.  # noqa: E501
         :type list: list[ProcessRequestImage]
         """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
 
         self._list = list
+
+    @property
+    def container_list(self):
+        """Gets the container_list of this ProcessRequest.  # noqa: E501
+
+
+        :return: The container_list of this ProcessRequest.  # noqa: E501
+        :rtype: ContainerList
+        """
+        return self._container_list
+
+    @container_list.setter
+    def container_list(self, container_list):
+        """Sets the container_list of this ProcessRequest.
+
+
+        :param container_list: The container_list of this ProcessRequest.  # noqa: E501
+        :type container_list: ContainerList
+        """
+
+        self._container_list = container_list
 
     @property
     def system_info(self):
