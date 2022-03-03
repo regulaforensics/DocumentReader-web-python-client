@@ -32,6 +32,7 @@ class ProcessRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'tag': 'str',
         'process_param': 'ProcessParams',
         'list': 'list[ProcessRequestImage]',
         'container_list': 'ContainerList',
@@ -40,6 +41,7 @@ class ProcessRequest(object):
     }
 
     attribute_map = {
+        'tag': 'tag',
         'process_param': 'processParam',
         'list': 'List',
         'container_list': 'ContainerList',
@@ -47,12 +49,13 @@ class ProcessRequest(object):
         'pass_back_object': 'passBackObject'
     }
 
-    def __init__(self, process_param=None, list=None, container_list=None, system_info=None, pass_back_object=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, tag=None, process_param=None, list=None, container_list=None, system_info=None, pass_back_object=None, local_vars_configuration=None):  # noqa: E501
         """ProcessRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._tag = None
         self._process_param = None
         self._list = None
         self._container_list = None
@@ -60,6 +63,8 @@ class ProcessRequest(object):
         self._pass_back_object = None
         self.discriminator = None
 
+        if tag is not None:
+            self.tag = tag
         self.process_param = process_param
         if list is not None:
             self.list = list
@@ -69,6 +74,29 @@ class ProcessRequest(object):
             self.system_info = system_info
         if pass_back_object is not None:
             self.pass_back_object = pass_back_object
+
+    @property
+    def tag(self):
+        """Gets the tag of this ProcessRequest.  # noqa: E501
+
+        session id  # noqa: E501
+
+        :return: The tag of this ProcessRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._tag
+
+    @tag.setter
+    def tag(self, tag):
+        """Sets the tag of this ProcessRequest.
+
+        session id  # noqa: E501
+
+        :param tag: The tag of this ProcessRequest.  # noqa: E501
+        :type tag: str
+        """
+
+        self._tag = tag
 
     @property
     def process_param(self):

@@ -15,6 +15,8 @@ regula/documentreader/webclient/gen/models/authenticity_check_result_item.py
 regula/documentreader/webclient/gen/models/authenticity_result.py
 regula/documentreader/webclient/gen/models/authenticity_result_all_of.py
 regula/documentreader/webclient/gen/models/authenticity_result_type.py
+regula/documentreader/webclient/gen/models/bc_pdf417_info.py
+regula/documentreader/webclient/gen/models/bc_roidetect.py
 regula/documentreader/webclient/gen/models/check_diagnose.py
 regula/documentreader/webclient/gen/models/check_result.py
 regula/documentreader/webclient/gen/models/chosen_document_type.py
@@ -22,9 +24,12 @@ regula/documentreader/webclient/gen/models/chosen_document_type_result.py
 regula/documentreader/webclient/gen/models/chosen_document_type_result_all_of.py
 regula/documentreader/webclient/gen/models/critical.py
 regula/documentreader/webclient/gen/models/cross_source_value_comparison.py
+regula/documentreader/webclient/gen/models/data_module.py
 regula/documentreader/webclient/gen/models/details_optical.py
 regula/documentreader/webclient/gen/models/details_rfid.py
 regula/documentreader/webclient/gen/models/device_info.py
+regula/documentreader/webclient/gen/models/doc_bar_code_info.py
+regula/documentreader/webclient/gen/models/doc_bar_code_info_all_of.py
 regula/documentreader/webclient/gen/models/doc_visual_extended_field.py
 regula/documentreader/webclient/gen/models/doc_visual_extended_info.py
 regula/documentreader/webclient/gen/models/document_format.py
@@ -79,6 +84,7 @@ regula/documentreader/webclient/gen/models/ocr_security_text_result.py
 regula/documentreader/webclient/gen/models/ocr_security_text_result_all_of.py
 regula/documentreader/webclient/gen/models/one_candidate.py
 regula/documentreader/webclient/gen/models/original_symbol.py
+regula/documentreader/webclient/gen/models/p_array_field.py
 regula/documentreader/webclient/gen/models/per_document_config.py
 regula/documentreader/webclient/gen/models/photo_ident_result.py
 regula/documentreader/webclient/gen/models/photo_ident_result_all_of.py
