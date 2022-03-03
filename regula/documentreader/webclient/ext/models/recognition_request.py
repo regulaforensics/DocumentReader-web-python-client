@@ -62,7 +62,7 @@ class RecognitionRequest(ProcessRequest):
     def __init__(
             self, process_params: ProcessParams,
             images: List[Union[RecognitionImage, bytes, Base64String]] = None,
-            container_list: ContainerList = None
+            container_list: ContainerList = None, tag=None
     ):
         input_images = []
         if images:
@@ -71,6 +71,12 @@ class RecognitionRequest(ProcessRequest):
                     input_images.append(RecognitionImage(image))
                 else:
                     input_images.append(image)
-            super().__init__(process_params, list=input_images, system_info=ProcessSystemInfo())
+            super().__init__(
+                process_param=process_params, list=input_images,
+                system_info=ProcessSystemInfo(), tag=tag
+            )
         if container_list:
-            super().__init__(process_params, container_list=container_list, system_info=ProcessSystemInfo())
+            super().__init__(
+                process_param=process_params, container_list=container_list,
+                system_info=ProcessSystemInfo(), tag=tag
+            )
