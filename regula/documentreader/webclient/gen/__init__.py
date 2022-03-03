@@ -32,6 +32,8 @@ from regula.documentreader.webclient.gen.models.authenticity_check_result_item i
 from regula.documentreader.webclient.gen.models.authenticity_result import AuthenticityResult
 from regula.documentreader.webclient.gen.models.authenticity_result_all_of import AuthenticityResultAllOf
 from regula.documentreader.webclient.gen.models.authenticity_result_type import AuthenticityResultType
+from regula.documentreader.webclient.gen.models.bc_pdf417_info import BcPDF417INFO
+from regula.documentreader.webclient.gen.models.bc_roidetect import BcROIDETECT
 from regula.documentreader.webclient.gen.models.check_diagnose import CheckDiagnose
 from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from regula.documentreader.webclient.gen.models.chosen_document_type import ChosenDocumentType
@@ -40,9 +42,12 @@ from regula.documentreader.webclient.gen.models.chosen_document_type_result_all_
 from regula.documentreader.webclient.gen.models.container_list import ContainerList
 from regula.documentreader.webclient.gen.models.critical import Critical
 from regula.documentreader.webclient.gen.models.cross_source_value_comparison import CrossSourceValueComparison
+from regula.documentreader.webclient.gen.models.data_module import DataModule
 from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical
 from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID
 from regula.documentreader.webclient.gen.models.device_info import DeviceInfo
+from regula.documentreader.webclient.gen.models.doc_bar_code_info import DocBarCodeInfo
+from regula.documentreader.webclient.gen.models.doc_bar_code_info_all_of import DocBarCodeInfoAllOf
 from regula.documentreader.webclient.gen.models.doc_visual_extended_field import DocVisualExtendedField
 from regula.documentreader.webclient.gen.models.doc_visual_extended_info import DocVisualExtendedInfo
 from regula.documentreader.webclient.gen.models.document_format import DocumentFormat
@@ -97,6 +102,7 @@ from regula.documentreader.webclient.gen.models.ocr_security_text_result import 
 from regula.documentreader.webclient.gen.models.ocr_security_text_result_all_of import OCRSecurityTextResultAllOf
 from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate
 from regula.documentreader.webclient.gen.models.original_symbol import OriginalSymbol
+from regula.documentreader.webclient.gen.models.p_array_field import PArrayField
 from regula.documentreader.webclient.gen.models.per_document_config import PerDocumentConfig
 from regula.documentreader.webclient.gen.models.photo_ident_result import PhotoIdentResult
 from regula.documentreader.webclient.gen.models.photo_ident_result_all_of import PhotoIdentResultAllOf
