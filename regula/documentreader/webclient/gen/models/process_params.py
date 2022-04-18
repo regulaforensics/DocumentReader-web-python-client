@@ -67,7 +67,7 @@ class ProcessParams(object):
         'split_names': 'bool',
         'disable_perforation_ocr': 'bool',
         'process_auth': 'bool',
-        'document_group_filter': 'str',
+        'document_group_filter': 'list[DocumentType]',
         'respect_image_quality': 'bool'
     }
 
@@ -1032,7 +1032,7 @@ class ProcessParams(object):
         Filter documents by group  # noqa: E501
 
         :return: The document_group_filter of this ProcessParams.  # noqa: E501
-        :rtype: str
+        :rtype: list[DocumentType]
         """
         return self._document_group_filter
 
@@ -1043,7 +1043,7 @@ class ProcessParams(object):
         Filter documents by group  # noqa: E501
 
         :param document_group_filter: The document_group_filter of this ProcessParams.  # noqa: E501
-        :type document_group_filter: str
+        :type document_group_filter: list[DocumentType]
         """
 
         self._document_group_filter = document_group_filter
