@@ -37,7 +37,8 @@ class ImageQA(object):
         'focus_check': 'bool',
         'glares_check': 'bool',
         'colorness_check': 'bool',
-        'moire_check': 'bool'
+        'moire_check': 'bool',
+        'glares_check_params': 'GlaresCheckParams'
     }
 
     attribute_map = {
@@ -46,10 +47,11 @@ class ImageQA(object):
         'focus_check': 'focusCheck',
         'glares_check': 'glaresCheck',
         'colorness_check': 'colornessCheck',
-        'moire_check': 'moireCheck'
+        'moire_check': 'moireCheck',
+        'glares_check_params': 'glaresCheckParams'
     }
 
-    def __init__(self, dpi_threshold=None, angle_threshold=None, focus_check=None, glares_check=None, colorness_check=None, moire_check=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, dpi_threshold=None, angle_threshold=None, focus_check=None, glares_check=None, colorness_check=None, moire_check=None, glares_check_params=None, local_vars_configuration=None):  # noqa: E501
         """ImageQA - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,6 +63,7 @@ class ImageQA(object):
         self._glares_check = None
         self._colorness_check = None
         self._moire_check = None
+        self._glares_check_params = None
         self.discriminator = None
 
         if dpi_threshold is not None:
@@ -75,6 +78,8 @@ class ImageQA(object):
             self.colorness_check = colorness_check
         if moire_check is not None:
             self.moire_check = moire_check
+        if glares_check_params is not None:
+            self.glares_check_params = glares_check_params
 
     @property
     def dpi_threshold(self):
@@ -213,6 +218,27 @@ class ImageQA(object):
         """
 
         self._moire_check = moire_check
+
+    @property
+    def glares_check_params(self):
+        """Gets the glares_check_params of this ImageQA.  # noqa: E501
+
+
+        :return: The glares_check_params of this ImageQA.  # noqa: E501
+        :rtype: GlaresCheckParams
+        """
+        return self._glares_check_params
+
+    @glares_check_params.setter
+    def glares_check_params(self, glares_check_params):
+        """Sets the glares_check_params of this ImageQA.
+
+
+        :param glares_check_params: The glares_check_params of this ImageQA.  # noqa: E501
+        :type glares_check_params: GlaresCheckParams
+        """
+
+        self._glares_check_params = glares_check_params
 
     def to_dict(self):
         """Returns the model properties as a dict"""

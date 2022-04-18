@@ -63,7 +63,12 @@ class ProcessParams(object):
         'mrz_formats_filter': 'list[MRZFormat]',
         'force_read_mrz_before_locate': 'bool',
         'parse_barcodes': 'bool',
-        'convert_case': 'TextPostProcessing'
+        'convert_case': 'TextPostProcessing',
+        'split_names': 'bool',
+        'disable_perforation_ocr': 'bool',
+        'process_auth': 'bool',
+        'document_group_filter': 'list[DocumentType]',
+        'respect_image_quality': 'bool'
     }
 
     attribute_map = {
@@ -98,10 +103,15 @@ class ProcessParams(object):
         'mrz_formats_filter': 'mrzFormatsFilter',
         'force_read_mrz_before_locate': 'forceReadMrzBeforeLocate',
         'parse_barcodes': 'parseBarcodes',
-        'convert_case': 'convertCase'
+        'convert_case': 'convertCase',
+        'split_names': 'splitNames',
+        'disable_perforation_ocr': 'disablePerforationOCR',
+        'process_auth': 'processAuth',
+        'document_group_filter': 'documentGroupFilter',
+        'respect_image_quality': 'respectImageQuality'
     }
 
-    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, process_auth=None, document_group_filter=None, respect_image_quality=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -139,6 +149,11 @@ class ProcessParams(object):
         self._force_read_mrz_before_locate = None
         self._parse_barcodes = None
         self._convert_case = None
+        self._split_names = None
+        self._disable_perforation_ocr = None
+        self._process_auth = None
+        self._document_group_filter = None
+        self._respect_image_quality = None
         self.discriminator = None
 
         self.scenario = scenario
@@ -204,6 +219,16 @@ class ProcessParams(object):
             self.parse_barcodes = parse_barcodes
         if convert_case is not None:
             self.convert_case = convert_case
+        if split_names is not None:
+            self.split_names = split_names
+        if disable_perforation_ocr is not None:
+            self.disable_perforation_ocr = disable_perforation_ocr
+        if process_auth is not None:
+            self.process_auth = process_auth
+        if document_group_filter is not None:
+            self.document_group_filter = document_group_filter
+        if respect_image_quality is not None:
+            self.respect_image_quality = respect_image_quality
 
     @property
     def scenario(self):
@@ -930,6 +955,121 @@ class ProcessParams(object):
         """
 
         self._convert_case = convert_case
+
+    @property
+    def split_names(self):
+        """Gets the split_names of this ProcessParams.  # noqa: E501
+
+        If it is set to true, the Surname and GivenNames fields from the MRZ will be divided into the ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields  # noqa: E501
+
+        :return: The split_names of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._split_names
+
+    @split_names.setter
+    def split_names(self, split_names):
+        """Sets the split_names of this ProcessParams.
+
+        If it is set to true, the Surname and GivenNames fields from the MRZ will be divided into the ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields  # noqa: E501
+
+        :param split_names: The split_names of this ProcessParams.  # noqa: E501
+        :type split_names: bool
+        """
+
+        self._split_names = split_names
+
+    @property
+    def disable_perforation_ocr(self):
+        """Gets the disable_perforation_ocr of this ProcessParams.  # noqa: E501
+
+        Disables reading perforated fields  # noqa: E501
+
+        :return: The disable_perforation_ocr of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._disable_perforation_ocr
+
+    @disable_perforation_ocr.setter
+    def disable_perforation_ocr(self, disable_perforation_ocr):
+        """Sets the disable_perforation_ocr of this ProcessParams.
+
+        Disables reading perforated fields  # noqa: E501
+
+        :param disable_perforation_ocr: The disable_perforation_ocr of this ProcessParams.  # noqa: E501
+        :type disable_perforation_ocr: bool
+        """
+
+        self._disable_perforation_ocr = disable_perforation_ocr
+
+    @property
+    def process_auth(self):
+        """Gets the process_auth of this ProcessParams.  # noqa: E501
+
+        Checks filter  # noqa: E501
+
+        :return: The process_auth of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._process_auth
+
+    @process_auth.setter
+    def process_auth(self, process_auth):
+        """Sets the process_auth of this ProcessParams.
+
+        Checks filter  # noqa: E501
+
+        :param process_auth: The process_auth of this ProcessParams.  # noqa: E501
+        :type process_auth: bool
+        """
+
+        self._process_auth = process_auth
+
+    @property
+    def document_group_filter(self):
+        """Gets the document_group_filter of this ProcessParams.  # noqa: E501
+
+        Filter documents by group  # noqa: E501
+
+        :return: The document_group_filter of this ProcessParams.  # noqa: E501
+        :rtype: list[DocumentType]
+        """
+        return self._document_group_filter
+
+    @document_group_filter.setter
+    def document_group_filter(self, document_group_filter):
+        """Sets the document_group_filter of this ProcessParams.
+
+        Filter documents by group  # noqa: E501
+
+        :param document_group_filter: The document_group_filter of this ProcessParams.  # noqa: E501
+        :type document_group_filter: list[DocumentType]
+        """
+
+        self._document_group_filter = document_group_filter
+
+    @property
+    def respect_image_quality(self):
+        """Gets the respect_image_quality of this ProcessParams.  # noqa: E501
+
+        When it true ImageQuality can affect on Optical Status  # noqa: E501
+
+        :return: The respect_image_quality of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._respect_image_quality
+
+    @respect_image_quality.setter
+    def respect_image_quality(self, respect_image_quality):
+        """Sets the respect_image_quality of this ProcessParams.
+
+        When it true ImageQuality can affect on Optical Status  # noqa: E501
+
+        :param respect_image_quality: The respect_image_quality of this ProcessParams.  # noqa: E501
+        :type respect_image_quality: bool
+        """
+
+        self._respect_image_quality = respect_image_quality
 
     def to_dict(self):
         """Returns the model properties as a dict"""
