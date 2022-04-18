@@ -68,6 +68,7 @@ from regula.documentreader.webclient.gen.models.encrypted_rcl_result_all_of impo
 from regula.documentreader.webclient.gen.models.fdsid_list import FDSIDList
 from regula.documentreader.webclient.gen.models.fiber_result import FiberResult
 from regula.documentreader.webclient.gen.models.fiber_result_all_of import FiberResultAllOf
+from regula.documentreader.webclient.gen.models.glares_check_params import GlaresCheckParams
 from regula.documentreader.webclient.gen.models.graphic_field import GraphicField
 from regula.documentreader.webclient.gen.models.graphic_field_type import GraphicFieldType
 from regula.documentreader.webclient.gen.models.graphic_fields_list import GraphicFieldsList

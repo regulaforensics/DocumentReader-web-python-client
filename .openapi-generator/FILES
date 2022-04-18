@@ -50,6 +50,7 @@ regula/documentreader/webclient/gen/models/encrypted_rcl_result_all_of.py
 regula/documentreader/webclient/gen/models/fdsid_list.py
 regula/documentreader/webclient/gen/models/fiber_result.py
 regula/documentreader/webclient/gen/models/fiber_result_all_of.py
+regula/documentreader/webclient/gen/models/glares_check_params.py
 regula/documentreader/webclient/gen/models/graphic_field.py
 regula/documentreader/webclient/gen/models/graphic_field_type.py
 regula/documentreader/webclient/gen/models/graphic_fields_list.py
