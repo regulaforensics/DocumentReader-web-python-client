@@ -52,6 +52,7 @@ class ProcessParams(object):
         'check_required_text_fields': 'bool',
         'return_cropped_barcode': 'bool',
         'image_qa': 'ImageQA',
+        'respect_image_quality': 'bool',
         'force_doc_format': 'DocumentFormat',
         'no_graphics': 'bool',
         'document_area_min': 'float',
@@ -63,7 +64,10 @@ class ProcessParams(object):
         'mrz_formats_filter': 'list[MRZFormat]',
         'force_read_mrz_before_locate': 'bool',
         'parse_barcodes': 'bool',
-        'convert_case': 'TextPostProcessing'
+        'convert_case': 'TextPostProcessing',
+        'split_names': 'bool',
+        'disable_perforation_ocr': 'bool',
+        'document_group_filter': 'list[DocumentType]'
     }
 
     attribute_map = {
@@ -87,6 +91,7 @@ class ProcessParams(object):
         'check_required_text_fields': 'checkRequiredTextFields',
         'return_cropped_barcode': 'returnCroppedBarcode',
         'image_qa': 'imageQa',
+        'respect_image_quality': 'respectImageQuality',
         'force_doc_format': 'forceDocFormat',
         'no_graphics': 'noGraphics',
         'document_area_min': 'documentAreaMin',
@@ -98,10 +103,13 @@ class ProcessParams(object):
         'mrz_formats_filter': 'mrzFormatsFilter',
         'force_read_mrz_before_locate': 'forceReadMrzBeforeLocate',
         'parse_barcodes': 'parseBarcodes',
-        'convert_case': 'convertCase'
+        'convert_case': 'convertCase',
+        'split_names': 'splitNames',
+        'disable_perforation_ocr': 'disablePerforationOCR',
+        'document_group_filter': 'documentGroupFilter'
     }
 
-    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -127,6 +135,7 @@ class ProcessParams(object):
         self._check_required_text_fields = None
         self._return_cropped_barcode = None
         self._image_qa = None
+        self._respect_image_quality = None
         self._force_doc_format = None
         self._no_graphics = None
         self._document_area_min = None
@@ -139,6 +148,9 @@ class ProcessParams(object):
         self._force_read_mrz_before_locate = None
         self._parse_barcodes = None
         self._convert_case = None
+        self._split_names = None
+        self._disable_perforation_ocr = None
+        self._document_group_filter = None
         self.discriminator = None
 
         self.scenario = scenario
@@ -180,6 +192,8 @@ class ProcessParams(object):
             self.return_cropped_barcode = return_cropped_barcode
         if image_qa is not None:
             self.image_qa = image_qa
+        if respect_image_quality is not None:
+            self.respect_image_quality = respect_image_quality
         if force_doc_format is not None:
             self.force_doc_format = force_doc_format
         if no_graphics is not None:
@@ -204,6 +218,12 @@ class ProcessParams(object):
             self.parse_barcodes = parse_barcodes
         if convert_case is not None:
             self.convert_case = convert_case
+        if split_names is not None:
+            self.split_names = split_names
+        if disable_perforation_ocr is not None:
+            self.disable_perforation_ocr = disable_perforation_ocr
+        if document_group_filter is not None:
+            self.document_group_filter = document_group_filter
 
     @property
     def scenario(self):
@@ -255,7 +275,7 @@ class ProcessParams(object):
     def double_page_spread(self):
         """Gets the double_page_spread of this ProcessParams.  # noqa: E501
 
-        This option can be set to true if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. By default is set to false.  # noqa: E501
+        Enable this option if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. Disabled by default.  # noqa: E501
 
         :return: The double_page_spread of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -266,7 +286,7 @@ class ProcessParams(object):
     def double_page_spread(self, double_page_spread):
         """Sets the double_page_spread of this ProcessParams.
 
-        This option can be set to true if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. By default is set to false.  # noqa: E501
+        Enable this option if the image you provide contains double page spread of the passport and you want to process both pages in one go. It makes sense to use it for documents that have meaningful information on both pages, like Russian domestic passport, or some others. Disabled by default.  # noqa: E501
 
         :param double_page_spread: The double_page_spread of this ProcessParams.  # noqa: E501
         :type double_page_spread: bool
@@ -278,7 +298,7 @@ class ProcessParams(object):
     def generate_double_page_spread_image(self):
         """Gets the generate_double_page_spread_image of this ProcessParams.  # noqa: E501
 
-        When enabled together with \"doublePageSpread\" and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner.  # noqa: E501
+        When enabled together with \"doublePageSpread\" and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner. Disabled by default.  # noqa: E501
 
         :return: The generate_double_page_spread_image of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -289,7 +309,7 @@ class ProcessParams(object):
     def generate_double_page_spread_image(self, generate_double_page_spread_image):
         """Sets the generate_double_page_spread_image of this ProcessParams.
 
-        When enabled together with \"doublePageSpread\" and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner.  # noqa: E501
+        When enabled together with \"doublePageSpread\" and there is a passport with two pages spread in the image, pages will be cropped, straightened and aligned together, as if the document was captured on a flatbed scanner. Disabled by default.  # noqa: E501
 
         :param generate_double_page_spread_image: The generate_double_page_spread_image of this ProcessParams.  # noqa: E501
         :type generate_double_page_spread_image: bool
@@ -301,7 +321,7 @@ class ProcessParams(object):
     def field_types_filter(self):
         """Gets the field_types_filter of this ProcessParams.  # noqa: E501
 
-        List of text field types to extract. If empty, all text fields from template will be extracted. Narrowing the list can shorten processing time. By default is empty.  # noqa: E501
+        List of text field types to extract. If empty, all text fields from template will be extracted. Narrowing the list can shorten processing time. Empty by default.  # noqa: E501
 
         :return: The field_types_filter of this ProcessParams.  # noqa: E501
         :rtype: list[TextFieldType]
@@ -312,7 +332,7 @@ class ProcessParams(object):
     def field_types_filter(self, field_types_filter):
         """Sets the field_types_filter of this ProcessParams.
 
-        List of text field types to extract. If empty, all text fields from template will be extracted. Narrowing the list can shorten processing time. By default is empty.  # noqa: E501
+        List of text field types to extract. If empty, all text fields from template will be extracted. Narrowing the list can shorten processing time. Empty by default.  # noqa: E501
 
         :param field_types_filter: The field_types_filter of this ProcessParams.  # noqa: E501
         :type field_types_filter: list[TextFieldType]
@@ -391,7 +411,7 @@ class ProcessParams(object):
     def already_cropped(self):
         """Gets the already_cropped of this ProcessParams.  # noqa: E501
 
-        This option can be set to true if you know for sure that the image you provide contains already cropped document by its edges. This was designed to process on the server side images captured and cropped on mobile. By default is set to false.  # noqa: E501
+        This option can be enabled if you know for sure that the image you provide contains already cropped document by its edges. This was designed to process on the server side images captured and cropped on mobile. Disabled by default.  # noqa: E501
 
         :return: The already_cropped of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -402,7 +422,7 @@ class ProcessParams(object):
     def already_cropped(self, already_cropped):
         """Sets the already_cropped of this ProcessParams.
 
-        This option can be set to true if you know for sure that the image you provide contains already cropped document by its edges. This was designed to process on the server side images captured and cropped on mobile. By default is set to false.  # noqa: E501
+        This option can be enabled if you know for sure that the image you provide contains already cropped document by its edges. This was designed to process on the server side images captured and cropped on mobile. Disabled by default.  # noqa: E501
 
         :param already_cropped: The already_cropped of this ProcessParams.  # noqa: E501
         :type already_cropped: bool
@@ -414,7 +434,7 @@ class ProcessParams(object):
     def custom_params(self):
         """Gets the custom_params of this ProcessParams.  # noqa: E501
 
-        This option allows to pass custom processing parameters that can be implemented in future without changing API.  # noqa: E501
+        This option allows passing custom processing parameters that can be implemented in future without changing API.  # noqa: E501
 
         :return: The custom_params of this ProcessParams.  # noqa: E501
         :rtype: dict(str, object)
@@ -425,7 +445,7 @@ class ProcessParams(object):
     def custom_params(self, custom_params):
         """Sets the custom_params of this ProcessParams.
 
-        This option allows to pass custom processing parameters that can be implemented in future without changing API.  # noqa: E501
+        This option allows passing custom processing parameters that can be implemented in future without changing API.  # noqa: E501
 
         :param custom_params: The custom_params of this ProcessParams.  # noqa: E501
         :type custom_params: dict(str, object)
@@ -437,7 +457,7 @@ class ProcessParams(object):
     def config(self):
         """Gets the config of this ProcessParams.  # noqa: E501
 
-        This option allows to set additional custom configuration per document type. If recognized document has id specified in config, processing adjusts according to designated configuration.  # noqa: E501
+        This option allows setting additional custom configuration per document type. If recognized document has ID specified in config, processing adjusts according to designated configuration.  # noqa: E501
 
         :return: The config of this ProcessParams.  # noqa: E501
         :rtype: list[PerDocumentConfig]
@@ -448,7 +468,7 @@ class ProcessParams(object):
     def config(self, config):
         """Sets the config of this ProcessParams.
 
-        This option allows to set additional custom configuration per document type. If recognized document has id specified in config, processing adjusts according to designated configuration.  # noqa: E501
+        This option allows setting additional custom configuration per document type. If recognized document has ID specified in config, processing adjusts according to designated configuration.  # noqa: E501
 
         :param config: The config of this ProcessParams.  # noqa: E501
         :type config: list[PerDocumentConfig]
@@ -460,7 +480,7 @@ class ProcessParams(object):
     def log(self):
         """Gets the log of this ProcessParams.  # noqa: E501
 
-        This option can be set to true if you need to get base64 string of transaction processing log.  # noqa: E501
+        When enabled, results will contain transaction processing log. Disabled by default  # noqa: E501
 
         :return: The log of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -471,7 +491,7 @@ class ProcessParams(object):
     def log(self, log):
         """Sets the log of this ProcessParams.
 
-        This option can be set to true if you need to get base64 string of transaction processing log.  # noqa: E501
+        When enabled, results will contain transaction processing log. Disabled by default  # noqa: E501
 
         :param log: The log of this ProcessParams.  # noqa: E501
         :type log: bool
@@ -527,7 +547,7 @@ class ProcessParams(object):
     def match_text_field_mask(self):
         """Gets the match_text_field_mask of this ProcessParams.  # noqa: E501
 
-        When disabled, text field OCR will be done as is and then the recognized value will be matched to the field mask for validity. If enabled, we are trying to read a field value with maximum efforts to match the mask and provide a correctly formatted value, making assumptions based on the provided field mask in the template.  # noqa: E501
+        When disabled, text field OCR will be done as is and then the recognized value will be matched to the field mask for validity. If enabled, we are trying to read a field value with maximum efforts to match the mask and provide a correctly formatted value, making assumptions based on the provided field mask in the template. Enabled by default.  # noqa: E501
 
         :return: The match_text_field_mask of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -538,7 +558,7 @@ class ProcessParams(object):
     def match_text_field_mask(self, match_text_field_mask):
         """Sets the match_text_field_mask of this ProcessParams.
 
-        When disabled, text field OCR will be done as is and then the recognized value will be matched to the field mask for validity. If enabled, we are trying to read a field value with maximum efforts to match the mask and provide a correctly formatted value, making assumptions based on the provided field mask in the template.  # noqa: E501
+        When disabled, text field OCR will be done as is and then the recognized value will be matched to the field mask for validity. If enabled, we are trying to read a field value with maximum efforts to match the mask and provide a correctly formatted value, making assumptions based on the provided field mask in the template. Enabled by default.  # noqa: E501
 
         :param match_text_field_mask: The match_text_field_mask of this ProcessParams.  # noqa: E501
         :type match_text_field_mask: bool
@@ -550,7 +570,7 @@ class ProcessParams(object):
     def fast_doc_detect(self):
         """Gets the fast_doc_detect of this ProcessParams.  # noqa: E501
 
-        When enabled, shorten the list of candidates to process during document detection in a single image process mode. Reduces processing time for specific backgrounds.  # noqa: E501
+        When enabled, shorten the list of candidates to process during document detection in a single image process mode. Reduces processing time for specific backgrounds. Enabled by default.  # noqa: E501
 
         :return: The fast_doc_detect of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -561,7 +581,7 @@ class ProcessParams(object):
     def fast_doc_detect(self, fast_doc_detect):
         """Sets the fast_doc_detect of this ProcessParams.
 
-        When enabled, shorten the list of candidates to process during document detection in a single image process mode. Reduces processing time for specific backgrounds.  # noqa: E501
+        When enabled, shorten the list of candidates to process during document detection in a single image process mode. Reduces processing time for specific backgrounds. Enabled by default.  # noqa: E501
 
         :param fast_doc_detect: The fast_doc_detect of this ProcessParams.  # noqa: E501
         :type fast_doc_detect: bool
@@ -573,7 +593,7 @@ class ProcessParams(object):
     def update_ocr_validity_by_glare(self):
         """Gets the update_ocr_validity_by_glare of this ProcessParams.  # noqa: E501
 
-        When enabled, fail OCR field validity, if there is a glare over the text field on the image.  # noqa: E501
+        When enabled, fail OCR field validity, if there is a glare over the text field on the image. Disabled by default.  # noqa: E501
 
         :return: The update_ocr_validity_by_glare of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -584,7 +604,7 @@ class ProcessParams(object):
     def update_ocr_validity_by_glare(self, update_ocr_validity_by_glare):
         """Sets the update_ocr_validity_by_glare of this ProcessParams.
 
-        When enabled, fail OCR field validity, if there is a glare over the text field on the image.  # noqa: E501
+        When enabled, fail OCR field validity, if there is a glare over the text field on the image. Disabled by default.  # noqa: E501
 
         :param update_ocr_validity_by_glare: The update_ocr_validity_by_glare of this ProcessParams.  # noqa: E501
         :type update_ocr_validity_by_glare: bool
@@ -596,7 +616,7 @@ class ProcessParams(object):
     def check_required_text_fields(self):
         """Gets the check_required_text_fields of this ProcessParams.  # noqa: E501
 
-        When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have \"error\" in validity status.  # noqa: E501
+        When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have 'error' in validity status. Disabled by default.  # noqa: E501
 
         :return: The check_required_text_fields of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -607,7 +627,7 @@ class ProcessParams(object):
     def check_required_text_fields(self, check_required_text_fields):
         """Sets the check_required_text_fields of this ProcessParams.
 
-        When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have \"error\" in validity status.  # noqa: E501
+        When enabled, each field in template will be checked for value presence and if the field is marked as required, but has no value, it will have 'error' in validity status. Disabled by default.  # noqa: E501
 
         :param check_required_text_fields: The check_required_text_fields of this ProcessParams.  # noqa: E501
         :type check_required_text_fields: bool
@@ -619,7 +639,7 @@ class ProcessParams(object):
     def return_cropped_barcode(self):
         """Gets the return_cropped_barcode of this ProcessParams.  # noqa: E501
 
-        When enabled, returns cropped barcode images for unknown documents  # noqa: E501
+        When enabled, returns cropped barcode images for unknown documents. Disabled by default.  # noqa: E501
 
         :return: The return_cropped_barcode of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -630,7 +650,7 @@ class ProcessParams(object):
     def return_cropped_barcode(self, return_cropped_barcode):
         """Sets the return_cropped_barcode of this ProcessParams.
 
-        When enabled, returns cropped barcode images for unknown documents  # noqa: E501
+        When enabled, returns cropped barcode images for unknown documents. Disabled by default.  # noqa: E501
 
         :param return_cropped_barcode: The return_cropped_barcode of this ProcessParams.  # noqa: E501
         :type return_cropped_barcode: bool
@@ -660,6 +680,29 @@ class ProcessParams(object):
         self._image_qa = image_qa
 
     @property
+    def respect_image_quality(self):
+        """Gets the respect_image_quality of this ProcessParams.  # noqa: E501
+
+        When enabled, image quality checks status affects document optical and overall status. Disabled by default.  # noqa: E501
+
+        :return: The respect_image_quality of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._respect_image_quality
+
+    @respect_image_quality.setter
+    def respect_image_quality(self, respect_image_quality):
+        """Sets the respect_image_quality of this ProcessParams.
+
+        When enabled, image quality checks status affects document optical and overall status. Disabled by default.  # noqa: E501
+
+        :param respect_image_quality: The respect_image_quality of this ProcessParams.  # noqa: E501
+        :type respect_image_quality: bool
+        """
+
+        self._respect_image_quality = respect_image_quality
+
+    @property
     def force_doc_format(self):
         """Gets the force_doc_format of this ProcessParams.  # noqa: E501
 
@@ -684,7 +727,7 @@ class ProcessParams(object):
     def no_graphics(self):
         """Gets the no_graphics of this ProcessParams.  # noqa: E501
 
-        When enabled no graphic fields will be cropped from document image.  # noqa: E501
+        When enabled, no graphic fields will be cropped from document image. Disabled by default.  # noqa: E501
 
         :return: The no_graphics of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -695,7 +738,7 @@ class ProcessParams(object):
     def no_graphics(self, no_graphics):
         """Sets the no_graphics of this ProcessParams.
 
-        When enabled no graphic fields will be cropped from document image.  # noqa: E501
+        When enabled, no graphic fields will be cropped from document image. Disabled by default.  # noqa: E501
 
         :param no_graphics: The no_graphics of this ProcessParams.  # noqa: E501
         :type no_graphics: bool
@@ -730,7 +773,7 @@ class ProcessParams(object):
     def depersonalize_log(self):
         """Gets the depersonalize_log of this ProcessParams.  # noqa: E501
 
-        When enabled all personal data will be forcibly removed from the logs.  # noqa: E501
+        When enabled, all personal data will be forcibly removed from the logs. Disabled by default.  # noqa: E501
 
         :return: The depersonalize_log of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -741,7 +784,7 @@ class ProcessParams(object):
     def depersonalize_log(self, depersonalize_log):
         """Sets the depersonalize_log of this ProcessParams.
 
-        When enabled all personal data will be forcibly removed from the logs.  # noqa: E501
+        When enabled, all personal data will be forcibly removed from the logs. Disabled by default.  # noqa: E501
 
         :param depersonalize_log: The depersonalize_log of this ProcessParams.  # noqa: E501
         :type depersonalize_log: bool
@@ -753,7 +796,7 @@ class ProcessParams(object):
     def multi_doc_on_image(self):
         """Gets the multi_doc_on_image of this ProcessParams.  # noqa: E501
 
-        This option allows locating and cropping multiple documents from one image if enabled.  # noqa: E501
+        This option allows locating and cropping multiple documents from one image if enabled. Disabled by default.  # noqa: E501
 
         :return: The multi_doc_on_image of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -764,7 +807,7 @@ class ProcessParams(object):
     def multi_doc_on_image(self, multi_doc_on_image):
         """Sets the multi_doc_on_image of this ProcessParams.
 
-        This option allows locating and cropping multiple documents from one image if enabled.  # noqa: E501
+        This option allows locating and cropping multiple documents from one image if enabled. Disabled by default.  # noqa: E501
 
         :param multi_doc_on_image: The multi_doc_on_image of this ProcessParams.  # noqa: E501
         :type multi_doc_on_image: bool
@@ -776,7 +819,7 @@ class ProcessParams(object):
     def shift_expiry_date(self):
         """Gets the shift_expiry_date of this ProcessParams.  # noqa: E501
 
-        This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months.  # noqa: E501
+        This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months. 0 by default  # noqa: E501
 
         :return: The shift_expiry_date of this ProcessParams.  # noqa: E501
         :rtype: int
@@ -787,7 +830,7 @@ class ProcessParams(object):
     def shift_expiry_date(self, shift_expiry_date):
         """Sets the shift_expiry_date of this ProcessParams.
 
-        This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months.  # noqa: E501
+        This option allows shifting the date of expiry into the future or past for number of months specified. This is useful, for example, in some cases when document might be still valid for some period after original expiration date to prevent negative validity status for such documents. Or by shifting the date to the past will set negative validity for the documents that is about to expire in a specified number of months. 0 by default  # noqa: E501
 
         :param shift_expiry_date: The shift_expiry_date of this ProcessParams.  # noqa: E501
         :type shift_expiry_date: int
@@ -822,7 +865,7 @@ class ProcessParams(object):
     def return_uncropped_image(self):
         """Gets the return_uncropped_image of this ProcessParams.  # noqa: E501
 
-        This option allows returning input images in output if enabled.  # noqa: E501
+        When enabled, returns input images in output. Disabled by default.  # noqa: E501
 
         :return: The return_uncropped_image of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -833,7 +876,7 @@ class ProcessParams(object):
     def return_uncropped_image(self, return_uncropped_image):
         """Sets the return_uncropped_image of this ProcessParams.
 
-        This option allows returning input images in output if enabled.  # noqa: E501
+        When enabled, returns input images in output. Disabled by default.  # noqa: E501
 
         :param return_uncropped_image: The return_uncropped_image of this ProcessParams.  # noqa: E501
         :type return_uncropped_image: bool
@@ -868,7 +911,7 @@ class ProcessParams(object):
     def force_read_mrz_before_locate(self):
         """Gets the force_read_mrz_before_locate of this ProcessParams.  # noqa: E501
 
-        This option can be set to true to make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality.  # noqa: E501
+        When enabled, make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality. Disabled by default.  # noqa: E501
 
         :return: The force_read_mrz_before_locate of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -879,7 +922,7 @@ class ProcessParams(object):
     def force_read_mrz_before_locate(self, force_read_mrz_before_locate):
         """Sets the force_read_mrz_before_locate of this ProcessParams.
 
-        This option can be set to true to make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality.  # noqa: E501
+        When enabled, make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality. Disabled by default.  # noqa: E501
 
         :param force_read_mrz_before_locate: The force_read_mrz_before_locate of this ProcessParams.  # noqa: E501
         :type force_read_mrz_before_locate: bool
@@ -891,7 +934,7 @@ class ProcessParams(object):
     def parse_barcodes(self):
         """Gets the parse_barcodes of this ProcessParams.  # noqa: E501
 
-        This option can be set to false to stop parsing after barcode is read.  # noqa: E501
+        This option can be disabled to stop parsing after barcode is read. Enabled by default.  # noqa: E501
 
         :return: The parse_barcodes of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -902,7 +945,7 @@ class ProcessParams(object):
     def parse_barcodes(self, parse_barcodes):
         """Sets the parse_barcodes of this ProcessParams.
 
-        This option can be set to false to stop parsing after barcode is read.  # noqa: E501
+        This option can be disabled to stop parsing after barcode is read. Enabled by default.  # noqa: E501
 
         :param parse_barcodes: The parse_barcodes of this ProcessParams.  # noqa: E501
         :type parse_barcodes: bool
@@ -930,6 +973,75 @@ class ProcessParams(object):
         """
 
         self._convert_case = convert_case
+
+    @property
+    def split_names(self):
+        """Gets the split_names of this ProcessParams.  # noqa: E501
+
+        When enabled, the Surname and GivenNames field will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default.  # noqa: E501
+
+        :return: The split_names of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._split_names
+
+    @split_names.setter
+    def split_names(self, split_names):
+        """Sets the split_names of this ProcessParams.
+
+        When enabled, the Surname and GivenNames field will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default.  # noqa: E501
+
+        :param split_names: The split_names of this ProcessParams.  # noqa: E501
+        :type split_names: bool
+        """
+
+        self._split_names = split_names
+
+    @property
+    def disable_perforation_ocr(self):
+        """Gets the disable_perforation_ocr of this ProcessParams.  # noqa: E501
+
+        When enabled, OCR of perforated fields in the document template will not be performed. Disabled by default.  # noqa: E501
+
+        :return: The disable_perforation_ocr of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._disable_perforation_ocr
+
+    @disable_perforation_ocr.setter
+    def disable_perforation_ocr(self, disable_perforation_ocr):
+        """Sets the disable_perforation_ocr of this ProcessParams.
+
+        When enabled, OCR of perforated fields in the document template will not be performed. Disabled by default.  # noqa: E501
+
+        :param disable_perforation_ocr: The disable_perforation_ocr of this ProcessParams.  # noqa: E501
+        :type disable_perforation_ocr: bool
+        """
+
+        self._disable_perforation_ocr = disable_perforation_ocr
+
+    @property
+    def document_group_filter(self):
+        """Gets the document_group_filter of this ProcessParams.  # noqa: E501
+
+        List of specific eligible document types from DocumentType enum to recognize from. You may, for example, specify only passports to be recognized by setting this property. Empty by default.  # noqa: E501
+
+        :return: The document_group_filter of this ProcessParams.  # noqa: E501
+        :rtype: list[DocumentType]
+        """
+        return self._document_group_filter
+
+    @document_group_filter.setter
+    def document_group_filter(self, document_group_filter):
+        """Sets the document_group_filter of this ProcessParams.
+
+        List of specific eligible document types from DocumentType enum to recognize from. You may, for example, specify only passports to be recognized by setting this property. Empty by default.  # noqa: E501
+
+        :param document_group_filter: The document_group_filter of this ProcessParams.  # noqa: E501
+        :type document_group_filter: list[DocumentType]
+        """
+
+        self._document_group_filter = document_group_filter
 
     def to_dict(self):
         """Returns the model properties as a dict"""
