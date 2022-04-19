@@ -195,7 +195,7 @@ class ImageQA(object):
     def moire_check(self):
         """Gets the moire_check of this ImageQA.  # noqa: E501
 
-        This option enables moire patterns check while performing image quality validation.  # noqa: E501
+        This option enables screen capture (moire patterns) check while performing image quality validation.  # noqa: E501
 
         :return: The moire_check of this ImageQA.  # noqa: E501
         :rtype: bool
@@ -206,7 +206,7 @@ class ImageQA(object):
     def moire_check(self, moire_check):
         """Sets the moire_check of this ImageQA.
 
-        This option enables moire patterns check while performing image quality validation.  # noqa: E501
+        This option enables screen capture (moire patterns) check while performing image quality validation.  # noqa: E501
 
         :param moire_check: The moire_check of this ImageQA.  # noqa: E501
         :type moire_check: bool
