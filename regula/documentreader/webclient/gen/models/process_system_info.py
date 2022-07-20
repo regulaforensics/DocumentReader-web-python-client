@@ -33,15 +33,17 @@ class ProcessSystemInfo(object):
     """
     openapi_types = {
         'license': 'str',
-        'recaptcha_token': 'str'
+        'recaptcha_token': 'str',
+        'commit_transactions': 'bool'
     }
 
     attribute_map = {
         'license': 'license',
-        'recaptcha_token': 'recaptcha_token'
+        'recaptcha_token': 'recaptcha_token',
+        'commit_transactions': 'commit_transactions'
     }
 
-    def __init__(self, license=None, recaptcha_token=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, license=None, recaptcha_token=None, commit_transactions=None, local_vars_configuration=None):  # noqa: E501
         """ProcessSystemInfo - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -49,12 +51,15 @@ class ProcessSystemInfo(object):
 
         self._license = None
         self._recaptcha_token = None
+        self._commit_transactions = None
         self.discriminator = None
 
         if license is not None:
             self.license = license
         if recaptcha_token is not None:
             self.recaptcha_token = recaptcha_token
+        if commit_transactions is not None:
+            self.commit_transactions = commit_transactions
 
     @property
     def license(self):
@@ -101,6 +106,27 @@ class ProcessSystemInfo(object):
         """
 
         self._recaptcha_token = recaptcha_token
+
+    @property
+    def commit_transactions(self):
+        """Gets the commit_transactions of this ProcessSystemInfo.  # noqa: E501
+
+
+        :return: The commit_transactions of this ProcessSystemInfo.  # noqa: E501
+        :rtype: bool
+        """
+        return self._commit_transactions
+
+    @commit_transactions.setter
+    def commit_transactions(self, commit_transactions):
+        """Sets the commit_transactions of this ProcessSystemInfo.
+
+
+        :param commit_transactions: The commit_transactions of this ProcessSystemInfo.  # noqa: E501
+        :type commit_transactions: bool
+        """
+
+        self._commit_transactions = commit_transactions
 
     def to_dict(self):
         """Returns the model properties as a dict"""
