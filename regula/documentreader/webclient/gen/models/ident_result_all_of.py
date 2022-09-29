@@ -38,7 +38,7 @@ class IdentResultAllOf(object):
         'image': 'ImageData',
         'etalon_image': 'ImageData',
         'percent_value': 'int',
-        'area_list': 'list[AreaContainer]'
+        'area_list': 'AreaContainer'
     }
 
     attribute_map = {
@@ -215,7 +215,7 @@ class IdentResultAllOf(object):
 
 
         :return: The area_list of this IdentResultAllOf.  # noqa: E501
-        :rtype: list[AreaContainer]
+        :rtype: AreaContainer
         """
         return self._area_list
 
@@ -225,7 +225,7 @@ class IdentResultAllOf(object):
 
 
         :param area_list: The area_list of this IdentResultAllOf.  # noqa: E501
-        :type area_list: list[AreaContainer]
+        :type area_list: AreaContainer
         """
 
         self._area_list = area_list

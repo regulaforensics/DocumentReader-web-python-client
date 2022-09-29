@@ -32,23 +32,51 @@ class AuthenticityCheckList(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'count': 'int',
         'list': 'list[AuthenticityCheckResult]'
     }
 
     attribute_map = {
+        'count': 'Count',
         'list': 'List'
     }
 
-    def __init__(self, list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, count=None, list=None, local_vars_configuration=None):  # noqa: E501
         """AuthenticityCheckList - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._count = None
         self._list = None
         self.discriminator = None
 
+        if count is not None:
+            self.count = count
         self.list = list
+
+    @property
+    def count(self):
+        """Gets the count of this AuthenticityCheckList.  # noqa: E501
+
+        Count of items in List  # noqa: E501
+
+        :return: The count of this AuthenticityCheckList.  # noqa: E501
+        :rtype: int
+        """
+        return self._count
+
+    @count.setter
+    def count(self, count):
+        """Sets the count of this AuthenticityCheckList.
+
+        Count of items in List  # noqa: E501
+
+        :param count: The count of this AuthenticityCheckList.  # noqa: E501
+        :type count: int
+        """
+
+        self._count = count
 
     @property
     def list(self):
