@@ -39,7 +39,7 @@ class SecurityFeatureResult(object):
         'element_rect': 'RectangleCoordinates',
         'visibility': 'Visibility',
         'critical_flag': 'Critical',
-        'area_list': 'list[AreaContainer]',
+        'area_list': 'AreaContainer',
         'reserved2': 'int'
     }
 
@@ -247,7 +247,7 @@ class SecurityFeatureResult(object):
 
 
         :return: The area_list of this SecurityFeatureResult.  # noqa: E501
-        :rtype: list[AreaContainer]
+        :rtype: AreaContainer
         """
         return self._area_list
 
@@ -257,7 +257,7 @@ class SecurityFeatureResult(object):
 
 
         :param area_list: The area_list of this SecurityFeatureResult.  # noqa: E501
-        :type area_list: list[AreaContainer]
+        :type area_list: AreaContainer
         """
 
         self._area_list = area_list
