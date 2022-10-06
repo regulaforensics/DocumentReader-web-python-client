@@ -41,6 +41,8 @@ class ProcessApi(object):
 
         :param process_request: (required)
         :type process_request: ProcessRequest
+        :param x_request_id:
+        :type x_request_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -70,6 +72,8 @@ class ProcessApi(object):
 
         :param process_request: (required)
         :type process_request: ProcessRequest
+        :param x_request_id:
+        :type x_request_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -96,7 +100,8 @@ class ProcessApi(object):
         local_var_params = locals()
 
         all_params = [
-            'process_request'
+            'process_request',
+            'x_request_id'
         ]
         all_params.extend(
             [
@@ -128,6 +133,8 @@ class ProcessApi(object):
         query_params = []
 
         header_params = {}
+        if 'x_request_id' in local_var_params:
+            header_params['X-RequestID'] = local_var_params['x_request_id']  # noqa: E501
 
         form_params = []
         local_var_files = {}
