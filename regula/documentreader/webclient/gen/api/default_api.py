@@ -39,6 +39,8 @@ class DefaultApi(object):
         >>> thread = api.ping(async_req=True)
         >>> result = thread.get()
 
+        :param x_request_id:
+        :type x_request_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -66,6 +68,8 @@ class DefaultApi(object):
         >>> thread = api.ping_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param x_request_id:
+        :type x_request_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -92,6 +96,7 @@ class DefaultApi(object):
         local_var_params = locals()
 
         all_params = [
+            'x_request_id'
         ]
         all_params.extend(
             [
@@ -119,6 +124,8 @@ class DefaultApi(object):
         query_params = []
 
         header_params = {}
+        if 'x_request_id' in local_var_params:
+            header_params['X-RequestID'] = local_var_params['x_request_id']  # noqa: E501
 
         form_params = []
         local_var_files = {}
