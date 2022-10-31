@@ -38,7 +38,8 @@ class ProcessResponse(object):
         'transaction_info': 'TransactionInfo',
         'log': 'str',
         'pass_back_object': 'dict(str, object)',
-        'more_pages_available': 'int'
+        'more_pages_available': 'int',
+        'elapsed_time': 'int'
     }
 
     attribute_map = {
@@ -48,10 +49,11 @@ class ProcessResponse(object):
         'transaction_info': 'TransactionInfo',
         'log': 'log',
         'pass_back_object': 'passBackObject',
-        'more_pages_available': 'morePagesAvailable'
+        'more_pages_available': 'morePagesAvailable',
+        'elapsed_time': 'elapsedTime'
     }
 
-    def __init__(self, chip_page=None, processing_finished=None, container_list=None, transaction_info=None, log=None, pass_back_object=None, more_pages_available=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, chip_page=None, processing_finished=None, container_list=None, transaction_info=None, log=None, pass_back_object=None, more_pages_available=None, elapsed_time=None, local_vars_configuration=None):  # noqa: E501
         """ProcessResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -64,6 +66,7 @@ class ProcessResponse(object):
         self._log = None
         self._pass_back_object = None
         self._more_pages_available = None
+        self._elapsed_time = None
         self.discriminator = None
 
         if chip_page is not None:
@@ -77,6 +80,8 @@ class ProcessResponse(object):
             self.pass_back_object = pass_back_object
         if more_pages_available is not None:
             self.more_pages_available = more_pages_available
+        if elapsed_time is not None:
+            self.elapsed_time = elapsed_time
 
     @property
     def chip_page(self):
@@ -234,6 +239,29 @@ class ProcessResponse(object):
         """
 
         self._more_pages_available = more_pages_available
+
+    @property
+    def elapsed_time(self):
+        """Gets the elapsed_time of this ProcessResponse.  # noqa: E501
+
+        Time the document processing has taken, ms.  # noqa: E501
+
+        :return: The elapsed_time of this ProcessResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._elapsed_time
+
+    @elapsed_time.setter
+    def elapsed_time(self, elapsed_time):
+        """Sets the elapsed_time of this ProcessResponse.
+
+        Time the document processing has taken, ms.  # noqa: E501
+
+        :param elapsed_time: The elapsed_time of this ProcessResponse.  # noqa: E501
+        :type elapsed_time: int
+        """
+
+        self._elapsed_time = elapsed_time
 
     def to_dict(self):
         """Returns the model properties as a dict"""
