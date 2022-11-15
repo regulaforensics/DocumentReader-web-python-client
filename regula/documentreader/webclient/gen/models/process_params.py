@@ -32,6 +32,8 @@ class ProcessParams(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'image_output_max_height': 'int',
+        'image_output_max_width': 'int',
         'scenario': 'Scenario',
         'result_type_output': 'list[Result]',
         'double_page_spread': 'bool',
@@ -68,10 +70,17 @@ class ProcessParams(object):
         'split_names': 'bool',
         'disable_perforation_ocr': 'bool',
         'document_group_filter': 'list[DocumentType]',
-        'process_auth': 'list[AuthenticityResultType]'
+        'process_auth': 'AuthenticityResultType[object]',
+        'device_id': 'int',
+        'device_type': 'int',
+        'device_type_hex': 'str',
+        'ignore_device_id_from_image': 'bool',
+        'document_id_list': 'list[int]'
     }
 
     attribute_map = {
+        'image_output_max_height': 'imageOutputMaxHeight',
+        'image_output_max_width': 'imageOutputMaxWidth',
         'scenario': 'scenario',
         'result_type_output': 'resultTypeOutput',
         'double_page_spread': 'doublePageSpread',
@@ -108,15 +117,22 @@ class ProcessParams(object):
         'split_names': 'splitNames',
         'disable_perforation_ocr': 'disablePerforationOCR',
         'document_group_filter': 'documentGroupFilter',
-        'process_auth': 'processAuth'
+        'process_auth': 'processAuth',
+        'device_id': 'deviceId',
+        'device_type': 'deviceType',
+        'device_type_hex': 'deviceTypeHex',
+        'ignore_device_id_from_image': 'ignoreDeviceIdFromImage',
+        'document_id_list': 'documentIdList'
     }
 
-    def __init__(self, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, process_auth=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, image_output_max_height=None, image_output_max_width=None, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, process_auth=None, device_id=None, device_type=None, device_type_hex=None, ignore_device_id_from_image=None, document_id_list=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._image_output_max_height = None
+        self._image_output_max_width = None
         self._scenario = None
         self._result_type_output = None
         self._double_page_spread = None
@@ -154,8 +170,17 @@ class ProcessParams(object):
         self._disable_perforation_ocr = None
         self._document_group_filter = None
         self._process_auth = None
+        self._device_id = None
+        self._device_type = None
+        self._device_type_hex = None
+        self._ignore_device_id_from_image = None
+        self._document_id_list = None
         self.discriminator = None
 
+        if image_output_max_height is not None:
+            self.image_output_max_height = image_output_max_height
+        if image_output_max_width is not None:
+            self.image_output_max_width = image_output_max_width
         self.scenario = scenario
         if result_type_output is not None:
             self.result_type_output = result_type_output
@@ -229,6 +254,62 @@ class ProcessParams(object):
             self.document_group_filter = document_group_filter
         if process_auth is not None:
             self.process_auth = process_auth
+        if device_id is not None:
+            self.device_id = device_id
+        if device_type is not None:
+            self.device_type = device_type
+        if device_type_hex is not None:
+            self.device_type_hex = device_type_hex
+        if ignore_device_id_from_image is not None:
+            self.ignore_device_id_from_image = ignore_device_id_from_image
+        if document_id_list is not None:
+            self.document_id_list = document_id_list
+
+    @property
+    def image_output_max_height(self):
+        """Gets the image_output_max_height of this ProcessParams.  # noqa: E501
+
+        This parameter allows setting maximum height in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0.  # noqa: E501
+
+        :return: The image_output_max_height of this ProcessParams.  # noqa: E501
+        :rtype: int
+        """
+        return self._image_output_max_height
+
+    @image_output_max_height.setter
+    def image_output_max_height(self, image_output_max_height):
+        """Sets the image_output_max_height of this ProcessParams.
+
+        This parameter allows setting maximum height in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0.  # noqa: E501
+
+        :param image_output_max_height: The image_output_max_height of this ProcessParams.  # noqa: E501
+        :type image_output_max_height: int
+        """
+
+        self._image_output_max_height = image_output_max_height
+
+    @property
+    def image_output_max_width(self):
+        """Gets the image_output_max_width of this ProcessParams.  # noqa: E501
+
+        This parameter allows setting maximum width in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0.  # noqa: E501
+
+        :return: The image_output_max_width of this ProcessParams.  # noqa: E501
+        :rtype: int
+        """
+        return self._image_output_max_width
+
+    @image_output_max_width.setter
+    def image_output_max_width(self, image_output_max_width):
+        """Sets the image_output_max_width of this ProcessParams.
+
+        This parameter allows setting maximum width in pixels of output images and thus reducing image size to desired. Does not change the aspect ratio. Changes disabled if equals to 0. Default 0.  # noqa: E501
+
+        :param image_output_max_width: The image_output_max_width of this ProcessParams.  # noqa: E501
+        :type image_output_max_width: int
+        """
+
+        self._image_output_max_width = image_output_max_width
 
     @property
     def scenario(self):
@@ -393,7 +474,7 @@ class ProcessParams(object):
     def image_dpi_out_max(self):
         """Gets the image_dpi_out_max of this ProcessParams.  # noqa: E501
 
-        This option controls maximum resolution in dpi of output images. Resolution will remain original in case 0 is supplied. By default is set to return images in response with resolution not greater than 300 dpi.  # noqa: E501
+        This parameter controls maximum resolution in dpi of output images. Resolution will remain original in case 0 is supplied. By default is set to return images in response with resolution not greater than 300 dpi for all scenarios except FullAuth. In FullAuth scenario this limit is 1000 dpi by default.  # noqa: E501
 
         :return: The image_dpi_out_max of this ProcessParams.  # noqa: E501
         :rtype: int
@@ -404,7 +485,7 @@ class ProcessParams(object):
     def image_dpi_out_max(self, image_dpi_out_max):
         """Sets the image_dpi_out_max of this ProcessParams.
 
-        This option controls maximum resolution in dpi of output images. Resolution will remain original in case 0 is supplied. By default is set to return images in response with resolution not greater than 300 dpi.  # noqa: E501
+        This parameter controls maximum resolution in dpi of output images. Resolution will remain original in case 0 is supplied. By default is set to return images in response with resolution not greater than 300 dpi for all scenarios except FullAuth. In FullAuth scenario this limit is 1000 dpi by default.  # noqa: E501
 
         :param image_dpi_out_max: The image_dpi_out_max of this ProcessParams.  # noqa: E501
         :type image_dpi_out_max: int
@@ -1052,10 +1133,9 @@ class ProcessParams(object):
     def process_auth(self):
         """Gets the process_auth of this ProcessParams.  # noqa: E501
 
-        Authenticity checks that should be performed regardless of the document type. The available checks are listed in the eRPRM_Authenticity enum. Note that only supported by your license checks can be added.   # noqa: E501
 
         :return: The process_auth of this ProcessParams.  # noqa: E501
-        :rtype: list[AuthenticityResultType]
+        :rtype: AuthenticityResultType[object]
         """
         return self._process_auth
 
@@ -1063,13 +1143,127 @@ class ProcessParams(object):
     def process_auth(self, process_auth):
         """Sets the process_auth of this ProcessParams.
 
-        Authenticity checks that should be performed regardless of the document type. The available checks are listed in the eRPRM_Authenticity enum. Note that only supported by your license checks can be added.   # noqa: E501
 
         :param process_auth: The process_auth of this ProcessParams.  # noqa: E501
-        :type process_auth: list[AuthenticityResultType]
+        :type process_auth: AuthenticityResultType[object]
         """
 
         self._process_auth = process_auth
+
+    @property
+    def device_id(self):
+        """Gets the device_id of this ProcessParams.  # noqa: E501
+
+        This parameter is used to specify the document reader device type from which input images were captured. Default 0.  # noqa: E501
+
+        :return: The device_id of this ProcessParams.  # noqa: E501
+        :rtype: int
+        """
+        return self._device_id
+
+    @device_id.setter
+    def device_id(self, device_id):
+        """Sets the device_id of this ProcessParams.
+
+        This parameter is used to specify the document reader device type from which input images were captured. Default 0.  # noqa: E501
+
+        :param device_id: The device_id of this ProcessParams.  # noqa: E501
+        :type device_id: int
+        """
+
+        self._device_id = device_id
+
+    @property
+    def device_type(self):
+        """Gets the device_type of this ProcessParams.  # noqa: E501
+
+        This parameter is used to specify the document reader device type from which input images were captured. Default 0.  # noqa: E501
+
+        :return: The device_type of this ProcessParams.  # noqa: E501
+        :rtype: int
+        """
+        return self._device_type
+
+    @device_type.setter
+    def device_type(self, device_type):
+        """Sets the device_type of this ProcessParams.
+
+        This parameter is used to specify the document reader device type from which input images were captured. Default 0.  # noqa: E501
+
+        :param device_type: The device_type of this ProcessParams.  # noqa: E501
+        :type device_type: int
+        """
+
+        self._device_type = device_type
+
+    @property
+    def device_type_hex(self):
+        """Gets the device_type_hex of this ProcessParams.  # noqa: E501
+
+        This parameter is used to specify the document reader device type from which input images were captured  # noqa: E501
+
+        :return: The device_type_hex of this ProcessParams.  # noqa: E501
+        :rtype: str
+        """
+        return self._device_type_hex
+
+    @device_type_hex.setter
+    def device_type_hex(self, device_type_hex):
+        """Sets the device_type_hex of this ProcessParams.
+
+        This parameter is used to specify the document reader device type from which input images were captured  # noqa: E501
+
+        :param device_type_hex: The device_type_hex of this ProcessParams.  # noqa: E501
+        :type device_type_hex: str
+        """
+
+        self._device_type_hex = device_type_hex
+
+    @property
+    def ignore_device_id_from_image(self):
+        """Gets the ignore_device_id_from_image of this ProcessParams.  # noqa: E501
+
+        This parameter is used to tell the processing engine to ignore any parameters saved in the image when scanned from the document reader device. Default false  # noqa: E501
+
+        :return: The ignore_device_id_from_image of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ignore_device_id_from_image
+
+    @ignore_device_id_from_image.setter
+    def ignore_device_id_from_image(self, ignore_device_id_from_image):
+        """Sets the ignore_device_id_from_image of this ProcessParams.
+
+        This parameter is used to tell the processing engine to ignore any parameters saved in the image when scanned from the document reader device. Default false  # noqa: E501
+
+        :param ignore_device_id_from_image: The ignore_device_id_from_image of this ProcessParams.  # noqa: E501
+        :type ignore_device_id_from_image: bool
+        """
+
+        self._ignore_device_id_from_image = ignore_device_id_from_image
+
+    @property
+    def document_id_list(self):
+        """Gets the document_id_list of this ProcessParams.  # noqa: E501
+
+        List of the document ID's to process. All documents will be processed, if empty.  # noqa: E501
+
+        :return: The document_id_list of this ProcessParams.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._document_id_list
+
+    @document_id_list.setter
+    def document_id_list(self, document_id_list):
+        """Sets the document_id_list of this ProcessParams.
+
+        List of the document ID's to process. All documents will be processed, if empty.  # noqa: E501
+
+        :param document_id_list: The document_id_list of this ProcessParams.  # noqa: E501
+        :type document_id_list: list[int]
+        """
+
+        self._document_id_list = document_id_list
 
     def to_dict(self):
         """Returns the model properties as a dict"""

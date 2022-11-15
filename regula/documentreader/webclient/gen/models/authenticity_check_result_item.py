@@ -64,6 +64,7 @@ class AuthenticityCheckResultItem(object):
         65536 : 'SecurityFeatureResult',
         8 : 'SecurityFeatureResult',
         8192 : 'SecurityFeatureResult',
+        8388608 : 'SecurityFeatureResult',
     }
 
     def __init__(self, type=0, element_result=None, element_diagnose=None, local_vars_configuration=None):  # noqa: E501
