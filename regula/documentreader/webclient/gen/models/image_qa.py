@@ -37,7 +37,8 @@ class ImageQA(object):
         'focus_check': 'bool',
         'glares_check': 'bool',
         'colorness_check': 'bool',
-        'moire_check': 'bool'
+        'moire_check': 'bool',
+        'document_position_indent': 'int'
     }
 
     attribute_map = {
@@ -46,10 +47,11 @@ class ImageQA(object):
         'focus_check': 'focusCheck',
         'glares_check': 'glaresCheck',
         'colorness_check': 'colornessCheck',
-        'moire_check': 'moireCheck'
+        'moire_check': 'moireCheck',
+        'document_position_indent': 'documentPositionIndent'
     }
 
-    def __init__(self, dpi_threshold=None, angle_threshold=None, focus_check=None, glares_check=None, colorness_check=None, moire_check=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, dpi_threshold=None, angle_threshold=None, focus_check=None, glares_check=None, colorness_check=None, moire_check=None, document_position_indent=None, local_vars_configuration=None):  # noqa: E501
         """ImageQA - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,6 +63,7 @@ class ImageQA(object):
         self._glares_check = None
         self._colorness_check = None
         self._moire_check = None
+        self._document_position_indent = None
         self.discriminator = None
 
         if dpi_threshold is not None:
@@ -75,6 +78,8 @@ class ImageQA(object):
             self.colorness_check = colorness_check
         if moire_check is not None:
             self.moire_check = moire_check
+        if document_position_indent is not None:
+            self.document_position_indent = document_position_indent
 
     @property
     def dpi_threshold(self):
@@ -213,6 +218,29 @@ class ImageQA(object):
         """
 
         self._moire_check = moire_check
+
+    @property
+    def document_position_indent(self):
+        """Gets the document_position_indent of this ImageQA.  # noqa: E501
+
+        This parameter specifies the necessary margin. Default 0.  # noqa: E501
+
+        :return: The document_position_indent of this ImageQA.  # noqa: E501
+        :rtype: int
+        """
+        return self._document_position_indent
+
+    @document_position_indent.setter
+    def document_position_indent(self, document_position_indent):
+        """Sets the document_position_indent of this ImageQA.
+
+        This parameter specifies the necessary margin. Default 0.  # noqa: E501
+
+        :param document_position_indent: The document_position_indent of this ImageQA.  # noqa: E501
+        :type document_position_indent: int
+        """
+
+        self._document_position_indent = document_position_indent
 
     def to_dict(self):
         """Returns the model properties as a dict"""
