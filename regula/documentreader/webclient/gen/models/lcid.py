@@ -61,7 +61,7 @@ class LCID(object):
 
     ARABIC_TUNISIA = int("7169")
 
-    ARABIC_UAE = int("4337")
+    ARABIC_UAE = int("14337")
 
     ARABIC_YEMEN = int("9217")
 
