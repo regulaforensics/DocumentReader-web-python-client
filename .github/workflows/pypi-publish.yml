@@ -22,7 +22,7 @@ jobs:
         run: pipenv install --dev
       - name: Publish package
         run: |
-          pipenv run pipenv-setup sync
+          pipenv run pipenv install
           pipenv run python setup.py sdist bdist_wheel
           pipenv run twine upload -u __token__ -p ${{secrets.PYPI_PUBLISH_TOKEN}} dist/*
         env:
