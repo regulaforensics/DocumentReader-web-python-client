@@ -114,7 +114,7 @@ class OCRSecurityTextResult(object):
     def type(self):
         """Gets the type of this OCRSecurityTextResult.  # noqa: E501
 
-        Same as authenticity result type, but used for safe parsing of not-described values. See authenticity result type  # noqa: E501
+        Same as authenticity result type, but used for safe parsing of not-described values: https://docs.regulaforensics.com/develop/doc-reader-sdk/web-service/development/enums/authenticity-result-type/  # noqa: E501
 
         :return: The type of this OCRSecurityTextResult.  # noqa: E501
         :rtype: int
@@ -125,7 +125,7 @@ class OCRSecurityTextResult(object):
     def type(self, type):
         """Sets the type of this OCRSecurityTextResult.
 
-        Same as authenticity result type, but used for safe parsing of not-described values. See authenticity result type  # noqa: E501
+        Same as authenticity result type, but used for safe parsing of not-described values: https://docs.regulaforensics.com/develop/doc-reader-sdk/web-service/development/enums/authenticity-result-type/  # noqa: E501
 
         :param type: The type of this OCRSecurityTextResult.  # noqa: E501
         :type type: int
