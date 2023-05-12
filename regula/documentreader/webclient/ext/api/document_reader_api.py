@@ -33,6 +33,9 @@ class DocumentReaderApi(DefaultApi, ProcessApi):
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.api_client.close()
 
+    def set_configuration(self, configuration) -> None:
+        self.api_client.configuration = configuration
+
     @property
     def license(self) -> Base64String:
         return self.__license
