@@ -87,6 +87,7 @@ from regula.documentreader.webclient.gen.models.ocr_security_text_result_all_of 
 from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate
 from regula.documentreader.webclient.gen.models.original_symbol import OriginalSymbol
 from regula.documentreader.webclient.gen.models.p_array_field import PArrayField
+from regula.documentreader.webclient.gen.models.parsing_notification_codes import ParsingNotificationCodes
 from regula.documentreader.webclient.gen.models.per_document_config import PerDocumentConfig
 from regula.documentreader.webclient.gen.models.photo_ident_result import PhotoIdentResult
 from regula.documentreader.webclient.gen.models.photo_ident_result_all_of import PhotoIdentResultAllOf
@@ -94,6 +95,7 @@ from regula.documentreader.webclient.gen.models.point import Point
 from regula.documentreader.webclient.gen.models.point_array import PointArray
 from regula.documentreader.webclient.gen.models.points_container import PointsContainer
 from regula.documentreader.webclient.gen.models.process_params import ProcessParams
+from regula.documentreader.webclient.gen.models.process_params_rfid import ProcessParamsRfid
 from regula.documentreader.webclient.gen.models.process_request import ProcessRequest
 from regula.documentreader.webclient.gen.models.process_request_image import ProcessRequestImage
 from regula.documentreader.webclient.gen.models.process_response import ProcessResponse

@@ -75,7 +75,8 @@ class ProcessParams(object):
         'device_type': 'int',
         'device_type_hex': 'str',
         'ignore_device_id_from_image': 'bool',
-        'document_id_list': 'list[int]'
+        'document_id_list': 'list[int]',
+        'rfid': 'ProcessParamsRfid'
     }
 
     attribute_map = {
@@ -122,10 +123,11 @@ class ProcessParams(object):
         'device_type': 'deviceType',
         'device_type_hex': 'deviceTypeHex',
         'ignore_device_id_from_image': 'ignoreDeviceIdFromImage',
-        'document_id_list': 'documentIdList'
+        'document_id_list': 'documentIdList',
+        'rfid': 'rfid'
     }
 
-    def __init__(self, image_output_max_height=None, image_output_max_width=None, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, process_auth=None, device_id=None, device_type=None, device_type_hex=None, ignore_device_id_from_image=None, document_id_list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, image_output_max_height=None, image_output_max_width=None, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, process_auth=None, device_id=None, device_type=None, device_type_hex=None, ignore_device_id_from_image=None, document_id_list=None, rfid=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -175,6 +177,7 @@ class ProcessParams(object):
         self._device_type_hex = None
         self._ignore_device_id_from_image = None
         self._document_id_list = None
+        self._rfid = None
         self.discriminator = None
 
         if image_output_max_height is not None:
@@ -264,6 +267,8 @@ class ProcessParams(object):
             self.ignore_device_id_from_image = ignore_device_id_from_image
         if document_id_list is not None:
             self.document_id_list = document_id_list
+        if rfid is not None:
+            self.rfid = rfid
 
     @property
     def image_output_max_height(self):
@@ -1264,6 +1269,27 @@ class ProcessParams(object):
         """
 
         self._document_id_list = document_id_list
+
+    @property
+    def rfid(self):
+        """Gets the rfid of this ProcessParams.  # noqa: E501
+
+
+        :return: The rfid of this ProcessParams.  # noqa: E501
+        :rtype: ProcessParamsRfid
+        """
+        return self._rfid
+
+    @rfid.setter
+    def rfid(self, rfid):
+        """Sets the rfid of this ProcessParams.
+
+
+        :param rfid: The rfid of this ProcessParams.  # noqa: E501
+        :type rfid: ProcessParamsRfid
+        """
+
+        self._rfid = rfid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

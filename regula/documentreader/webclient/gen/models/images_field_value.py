@@ -35,6 +35,7 @@ class ImagesFieldValue(object):
         'source': 'Source',
         'value': 'str',
         'original_value': 'str',
+        'original_page_index': 'int',
         'page_index': 'int',
         'light_index': 'Light',
         'container_type': 'int',
@@ -46,6 +47,7 @@ class ImagesFieldValue(object):
         'source': 'source',
         'value': 'value',
         'original_value': 'originalValue',
+        'original_page_index': 'originalPageIndex',
         'page_index': 'pageIndex',
         'light_index': 'lightIndex',
         'container_type': 'containerType',
@@ -53,7 +55,7 @@ class ImagesFieldValue(object):
         'rfid_origin': 'rfidOrigin'
     }
 
-    def __init__(self, source=None, value=None, original_value=None, page_index=None, light_index=None, container_type=0, field_rect=None, rfid_origin=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, source=None, value=None, original_value=None, original_page_index=None, page_index=None, light_index=None, container_type=0, field_rect=None, rfid_origin=None, local_vars_configuration=None):  # noqa: E501
         """ImagesFieldValue - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,6 +64,7 @@ class ImagesFieldValue(object):
         self._source = None
         self._value = None
         self._original_value = None
+        self._original_page_index = None
         self._page_index = None
         self._light_index = None
         self._container_type = None
@@ -73,6 +76,8 @@ class ImagesFieldValue(object):
         self.value = value
         if original_value is not None:
             self.original_value = original_value
+        if original_page_index is not None:
+            self.original_page_index = original_page_index
         self.page_index = page_index
         self.light_index = light_index
         self.container_type = container_type
@@ -151,6 +156,29 @@ class ImagesFieldValue(object):
         """
 
         self._original_value = original_value
+
+    @property
+    def original_page_index(self):
+        """Gets the original_page_index of this ImagesFieldValue.  # noqa: E501
+
+        Original page index  # noqa: E501
+
+        :return: The original_page_index of this ImagesFieldValue.  # noqa: E501
+        :rtype: int
+        """
+        return self._original_page_index
+
+    @original_page_index.setter
+    def original_page_index(self, original_page_index):
+        """Sets the original_page_index of this ImagesFieldValue.
+
+        Original page index  # noqa: E501
+
+        :param original_page_index: The original_page_index of this ImagesFieldValue.  # noqa: E501
+        :type original_page_index: int
+        """
+
+        self._original_page_index = original_page_index
 
     @property
     def page_index(self):
