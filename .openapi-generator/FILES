@@ -85,6 +85,7 @@ regula/documentreader/webclient/gen/models/ocr_security_text_result_all_of.py
 regula/documentreader/webclient/gen/models/one_candidate.py
 regula/documentreader/webclient/gen/models/original_symbol.py
 regula/documentreader/webclient/gen/models/p_array_field.py
+regula/documentreader/webclient/gen/models/parsing_notification_codes.py
 regula/documentreader/webclient/gen/models/per_document_config.py
 regula/documentreader/webclient/gen/models/photo_ident_result.py
 regula/documentreader/webclient/gen/models/photo_ident_result_all_of.py
@@ -92,6 +93,7 @@ regula/documentreader/webclient/gen/models/point.py
 regula/documentreader/webclient/gen/models/point_array.py
 regula/documentreader/webclient/gen/models/points_container.py
 regula/documentreader/webclient/gen/models/process_params.py
+regula/documentreader/webclient/gen/models/process_params_rfid.py
 regula/documentreader/webclient/gen/models/process_request.py
 regula/documentreader/webclient/gen/models/process_request_image.py
 regula/documentreader/webclient/gen/models/process_response.py
