@@ -1,14 +1,11 @@
 name: Trivy Scan
 
 on:
-  #pull_request:
-  #  branches:
-  #    - main
-  #    - master
-  #    - develop
-  push:
+  pull_request:
     branches:
-      - sp-9923-repo-scan
+      - main
+      - master
+      - develop
 
 jobs:
   trivy-scan:
@@ -25,4 +22,3 @@ jobs:
         exit-code: '1'
         ignore-unfixed: true
         severity: 'CRITICAL,HIGH,MEDIUM,LOW'
-        
