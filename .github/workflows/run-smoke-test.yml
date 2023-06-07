@@ -1,9 +1,6 @@
 name: run smoke test
 
 on:
-  push:
-    branches:
-      - master
   pull_request:
     branches:
       - master
