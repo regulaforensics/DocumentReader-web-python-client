@@ -1,3 +1,5 @@
+import base64
+import json
 from typing import Optional, List
 from regula.documentreader.webclient import ImageQualityCheckList, OneCandidate
 from regula.documentreader.webclient.ext.models.authenticity.authenticity_check_list import AuthenticityCheckList
@@ -20,6 +22,10 @@ class RecognitionResponse:
         if result:
             return result.text
         return None
+
+    @property
+    def json(self) -> str:
+        return json.dumps(self.low_lvl_response.to_dict())
 
     @property
     def status(self) -> Optional[Status]:
