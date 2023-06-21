@@ -1,3 +1,4 @@
+import json
 import base64
 from typing import List, Union
 
@@ -80,3 +81,7 @@ class RecognitionRequest(ProcessRequest):
                 process_param=process_params, container_list=container_list,
                 system_info=ProcessSystemInfo(), tag=tag
             )
+
+    @property
+    def json(self) -> str:
+        return json.dumps(self.to_dict())

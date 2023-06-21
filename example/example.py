@@ -43,6 +43,9 @@ with DocumentReaderApi(host) as api:
     ])
     response = api.process(request)
 
+    request_json = request.json   # example for request & response raw json
+    response_json = response.json
+
     # status examples
     response_status = response.status
     doc_overall_status = "valid" if response_status.overall_status == CheckResult.OK else "not valid"
