@@ -24,7 +24,7 @@ setup(
         "regula",
     ],
     install_requires=[
-        "certifi==2022.12.7",
+        "certifi==2023.7.22",
         "python-dateutil==2.8.1",
         "six==1.15.0",
         "urllib3==1.26.5",
