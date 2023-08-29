@@ -1,5 +1,6 @@
 import base64
 import json
+import zlib
 from typing import Optional, List
 from regula.documentreader.webclient import ImageQualityCheckList, OneCandidate
 from regula.documentreader.webclient.ext.models.authenticity.authenticity_check_list import AuthenticityCheckList
@@ -71,6 +72,14 @@ class RecognitionResponse:
 
     def results_by_type(self, result_type) -> List[ResultItem]:
         return [r for r in self.low_lvl_response.container_list.list if r.result_type == result_type]
+
+    def log(self) -> Optional[str]:
+        log_base64 = self.low_lvl_response.log
+        if not log_base64:
+            return None
+        buffer = base64.b64decode(log_base64.encode("UTF-8"))
+        log_text = zlib.decompress(buffer).decode("UTF-8")
+        return log_text
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, RecognitionResponse):
