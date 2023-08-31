@@ -66,6 +66,8 @@ from regula.documentreader.webclient.gen.models.document_types_candidates_result
 from regula.documentreader.webclient.gen.models.encrypted_rcl_result import EncryptedRCLResult
 from regula.documentreader.webclient.gen.models.encrypted_rcl_result_all_of import EncryptedRCLResultAllOf
 from regula.documentreader.webclient.gen.models.fdsid_list import FDSIDList
+from regula.documentreader.webclient.gen.models.face_api import FaceApi
+from regula.documentreader.webclient.gen.models.face_api_search import FaceApiSearch
 from regula.documentreader.webclient.gen.models.fiber_result import FiberResult
 from regula.documentreader.webclient.gen.models.fiber_result_all_of import FiberResultAllOf
 from regula.documentreader.webclient.gen.models.graphic_field import GraphicField

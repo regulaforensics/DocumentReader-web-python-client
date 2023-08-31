@@ -35,6 +35,8 @@ class ProcessRequest(object):
         'tag': 'str',
         'process_param': 'ProcessParams',
         'list': 'list[ProcessRequestImage]',
+        'live_portrait': 'str',
+        'ext_portrait': 'str',
         'container_list': 'ContainerList',
         'system_info': 'ProcessSystemInfo',
         'pass_back_object': 'dict(str, object)'
@@ -44,12 +46,14 @@ class ProcessRequest(object):
         'tag': 'tag',
         'process_param': 'processParam',
         'list': 'List',
+        'live_portrait': 'livePortrait',
+        'ext_portrait': 'extPortrait',
         'container_list': 'ContainerList',
         'system_info': 'systemInfo',
         'pass_back_object': 'passBackObject'
     }
 
-    def __init__(self, tag=None, process_param=None, list=None, container_list=None, system_info=None, pass_back_object=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, tag=None, process_param=None, list=None, live_portrait=None, ext_portrait=None, container_list=None, system_info=None, pass_back_object=None, local_vars_configuration=None):  # noqa: E501
         """ProcessRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -58,6 +62,8 @@ class ProcessRequest(object):
         self._tag = None
         self._process_param = None
         self._list = None
+        self._live_portrait = None
+        self._ext_portrait = None
         self._container_list = None
         self._system_info = None
         self._pass_back_object = None
@@ -68,6 +74,10 @@ class ProcessRequest(object):
         self.process_param = process_param
         if list is not None:
             self.list = list
+        if live_portrait is not None:
+            self.live_portrait = live_portrait
+        if ext_portrait is not None:
+            self.ext_portrait = ext_portrait
         if container_list is not None:
             self.container_list = container_list
         if system_info is not None:
@@ -141,6 +151,52 @@ class ProcessRequest(object):
         """
 
         self._list = list
+
+    @property
+    def live_portrait(self):
+        """Gets the live_portrait of this ProcessRequest.  # noqa: E501
+
+        Live portrait photo  # noqa: E501
+
+        :return: The live_portrait of this ProcessRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._live_portrait
+
+    @live_portrait.setter
+    def live_portrait(self, live_portrait):
+        """Sets the live_portrait of this ProcessRequest.
+
+        Live portrait photo  # noqa: E501
+
+        :param live_portrait: The live_portrait of this ProcessRequest.  # noqa: E501
+        :type live_portrait: str
+        """
+
+        self._live_portrait = live_portrait
+
+    @property
+    def ext_portrait(self):
+        """Gets the ext_portrait of this ProcessRequest.  # noqa: E501
+
+        Portrait photo from an external source  # noqa: E501
+
+        :return: The ext_portrait of this ProcessRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._ext_portrait
+
+    @ext_portrait.setter
+    def ext_portrait(self, ext_portrait):
+        """Sets the ext_portrait of this ProcessRequest.
+
+        Portrait photo from an external source  # noqa: E501
+
+        :param ext_portrait: The ext_portrait of this ProcessRequest.  # noqa: E501
+        :type ext_portrait: str
+        """
+
+        self._ext_portrait = ext_portrait
 
     @property
     def container_list(self):
