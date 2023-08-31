@@ -47,6 +47,8 @@ regula/documentreader/webclient/gen/models/document_types_candidates_result.py
 regula/documentreader/webclient/gen/models/document_types_candidates_result_all_of.py
 regula/documentreader/webclient/gen/models/encrypted_rcl_result.py
 regula/documentreader/webclient/gen/models/encrypted_rcl_result_all_of.py
+regula/documentreader/webclient/gen/models/face_api.py
+regula/documentreader/webclient/gen/models/face_api_search.py
 regula/documentreader/webclient/gen/models/fdsid_list.py
 regula/documentreader/webclient/gen/models/fiber_result.py
 regula/documentreader/webclient/gen/models/fiber_result_all_of.py
