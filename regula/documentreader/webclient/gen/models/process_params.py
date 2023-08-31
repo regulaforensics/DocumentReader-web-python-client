@@ -32,6 +32,10 @@ class ProcessParams(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'one_shot_identification': 'bool',
+        'use_face_api': 'bool',
+        'face_api': 'FaceApi',
+        'do_detect_can': 'bool',
         'image_output_max_height': 'int',
         'image_output_max_width': 'int',
         'scenario': 'Scenario',
@@ -80,6 +84,10 @@ class ProcessParams(object):
     }
 
     attribute_map = {
+        'one_shot_identification': 'oneShotIdentification',
+        'use_face_api': 'useFaceApi',
+        'face_api': 'faceApi',
+        'do_detect_can': 'doDetectCan',
         'image_output_max_height': 'imageOutputMaxHeight',
         'image_output_max_width': 'imageOutputMaxWidth',
         'scenario': 'scenario',
@@ -127,12 +135,16 @@ class ProcessParams(object):
         'rfid': 'rfid'
     }
 
-    def __init__(self, image_output_max_height=None, image_output_max_width=None, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, process_auth=None, device_id=None, device_type=None, device_type_hex=None, ignore_device_id_from_image=None, document_id_list=None, rfid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, one_shot_identification=None, use_face_api=None, face_api=None, do_detect_can=None, image_output_max_height=None, image_output_max_width=None, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, process_auth=None, device_id=None, device_type=None, device_type_hex=None, ignore_device_id_from_image=None, document_id_list=None, rfid=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._one_shot_identification = None
+        self._use_face_api = None
+        self._face_api = None
+        self._do_detect_can = None
         self._image_output_max_height = None
         self._image_output_max_width = None
         self._scenario = None
@@ -180,6 +192,14 @@ class ProcessParams(object):
         self._rfid = None
         self.discriminator = None
 
+        if one_shot_identification is not None:
+            self.one_shot_identification = one_shot_identification
+        if use_face_api is not None:
+            self.use_face_api = use_face_api
+        if face_api is not None:
+            self.face_api = face_api
+        if do_detect_can is not None:
+            self.do_detect_can = do_detect_can
         if image_output_max_height is not None:
             self.image_output_max_height = image_output_max_height
         if image_output_max_width is not None:
@@ -269,6 +289,96 @@ class ProcessParams(object):
             self.document_id_list = document_id_list
         if rfid is not None:
             self.rfid = rfid
+
+    @property
+    def one_shot_identification(self):
+        """Gets the one_shot_identification of this ProcessParams.  # noqa: E501
+
+        This parameter allows processing an image that contains a person and a document and compare the portrait photo from the document with the person's face  # noqa: E501
+
+        :return: The one_shot_identification of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._one_shot_identification
+
+    @one_shot_identification.setter
+    def one_shot_identification(self, one_shot_identification):
+        """Sets the one_shot_identification of this ProcessParams.
+
+        This parameter allows processing an image that contains a person and a document and compare the portrait photo from the document with the person's face  # noqa: E501
+
+        :param one_shot_identification: The one_shot_identification of this ProcessParams.  # noqa: E501
+        :type one_shot_identification: bool
+        """
+
+        self._one_shot_identification = one_shot_identification
+
+    @property
+    def use_face_api(self):
+        """Gets the use_face_api of this ProcessParams.  # noqa: E501
+
+        This parameter allows comparing faces on Regula Face Web Service  # noqa: E501
+
+        :return: The use_face_api of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_face_api
+
+    @use_face_api.setter
+    def use_face_api(self, use_face_api):
+        """Sets the use_face_api of this ProcessParams.
+
+        This parameter allows comparing faces on Regula Face Web Service  # noqa: E501
+
+        :param use_face_api: The use_face_api of this ProcessParams.  # noqa: E501
+        :type use_face_api: bool
+        """
+
+        self._use_face_api = use_face_api
+
+    @property
+    def face_api(self):
+        """Gets the face_api of this ProcessParams.  # noqa: E501
+
+
+        :return: The face_api of this ProcessParams.  # noqa: E501
+        :rtype: FaceApi
+        """
+        return self._face_api
+
+    @face_api.setter
+    def face_api(self, face_api):
+        """Sets the face_api of this ProcessParams.
+
+
+        :param face_api: The face_api of this ProcessParams.  # noqa: E501
+        :type face_api: FaceApi
+        """
+
+        self._face_api = face_api
+
+    @property
+    def do_detect_can(self):
+        """Gets the do_detect_can of this ProcessParams.  # noqa: E501
+
+        This parameter allows enabling the CAN (Card Access Number) detection and recognition when using scenarios with document location and MRZ reading, such as the MrzAndLocate scenario.  # noqa: E501
+
+        :return: The do_detect_can of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._do_detect_can
+
+    @do_detect_can.setter
+    def do_detect_can(self, do_detect_can):
+        """Sets the do_detect_can of this ProcessParams.
+
+        This parameter allows enabling the CAN (Card Access Number) detection and recognition when using scenarios with document location and MRZ reading, such as the MrzAndLocate scenario.  # noqa: E501
+
+        :param do_detect_can: The do_detect_can of this ProcessParams.  # noqa: E501
+        :type do_detect_can: bool
+        """
+
+        self._do_detect_can = do_detect_can
 
     @property
     def image_output_max_height(self):
