@@ -30,6 +30,7 @@ regula/documentreader/webclient/gen/models/details_rfid.py
 regula/documentreader/webclient/gen/models/device_info.py
 regula/documentreader/webclient/gen/models/doc_bar_code_info.py
 regula/documentreader/webclient/gen/models/doc_bar_code_info_all_of.py
+regula/documentreader/webclient/gen/models/doc_bar_code_info_fields_list.py
 regula/documentreader/webclient/gen/models/doc_visual_extended_field.py
 regula/documentreader/webclient/gen/models/doc_visual_extended_info.py
 regula/documentreader/webclient/gen/models/document_format.py
