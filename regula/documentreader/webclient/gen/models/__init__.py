@@ -32,6 +32,7 @@ from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID
 from regula.documentreader.webclient.gen.models.device_info import DeviceInfo
 from regula.documentreader.webclient.gen.models.doc_bar_code_info import DocBarCodeInfo
 from regula.documentreader.webclient.gen.models.doc_bar_code_info_all_of import DocBarCodeInfoAllOf
+from regula.documentreader.webclient.gen.models.doc_bar_code_info_fields_list import DocBarCodeInfoFieldsList
 from regula.documentreader.webclient.gen.models.doc_visual_extended_field import DocVisualExtendedField
 from regula.documentreader.webclient.gen.models.doc_visual_extended_info import DocVisualExtendedInfo
 from regula.documentreader.webclient.gen.models.document_format import DocumentFormat
