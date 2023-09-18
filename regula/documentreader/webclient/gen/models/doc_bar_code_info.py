@@ -32,8 +32,7 @@ class DocBarCodeInfo(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'n_fields': 'int',
-        'p_array_fields': 'list[PArrayField]',
+        'doc_bar_code_info': 'DocBarCodeInfoFieldsList',
         'buf_length': 'int',
         'light': 'int',
         'list_idx': 'int',
@@ -42,8 +41,7 @@ class DocBarCodeInfo(object):
     }
 
     attribute_map = {
-        'n_fields': 'nFields',
-        'p_array_fields': 'pArrayFields',
+        'doc_bar_code_info': 'DocBarCodeInfo',
         'buf_length': 'buf_length',
         'light': 'light',
         'list_idx': 'list_idx',
@@ -51,14 +49,13 @@ class DocBarCodeInfo(object):
         'result_type': 'result_type'
     }
 
-    def __init__(self, n_fields=None, p_array_fields=None, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=0, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, doc_bar_code_info=None, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=0, local_vars_configuration=None):  # noqa: E501
         """DocBarCodeInfo - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._n_fields = None
-        self._p_array_fields = None
+        self._doc_bar_code_info = None
         self._buf_length = None
         self._light = None
         self._list_idx = None
@@ -66,10 +63,8 @@ class DocBarCodeInfo(object):
         self._result_type = None
         self.discriminator = None
 
-        if n_fields is not None:
-            self.n_fields = n_fields
-        if p_array_fields is not None:
-            self.p_array_fields = p_array_fields
+        if doc_bar_code_info is not None:
+            self.doc_bar_code_info = doc_bar_code_info
         if buf_length is not None:
             self.buf_length = buf_length
         if light is not None:
@@ -81,50 +76,25 @@ class DocBarCodeInfo(object):
         self.result_type = result_type
 
     @property
-    def n_fields(self):
-        """Gets the n_fields of this DocBarCodeInfo.  # noqa: E501
+    def doc_bar_code_info(self):
+        """Gets the doc_bar_code_info of this DocBarCodeInfo.  # noqa: E501
 
-        Count of array fields  # noqa: E501
 
-        :return: The n_fields of this DocBarCodeInfo.  # noqa: E501
-        :rtype: int
+        :return: The doc_bar_code_info of this DocBarCodeInfo.  # noqa: E501
+        :rtype: DocBarCodeInfoFieldsList
         """
-        return self._n_fields
+        return self._doc_bar_code_info
 
-    @n_fields.setter
-    def n_fields(self, n_fields):
-        """Sets the n_fields of this DocBarCodeInfo.
+    @doc_bar_code_info.setter
+    def doc_bar_code_info(self, doc_bar_code_info):
+        """Sets the doc_bar_code_info of this DocBarCodeInfo.
 
-        Count of array fields  # noqa: E501
 
-        :param n_fields: The n_fields of this DocBarCodeInfo.  # noqa: E501
-        :type n_fields: int
+        :param doc_bar_code_info: The doc_bar_code_info of this DocBarCodeInfo.  # noqa: E501
+        :type doc_bar_code_info: DocBarCodeInfoFieldsList
         """
 
-        self._n_fields = n_fields
-
-    @property
-    def p_array_fields(self):
-        """Gets the p_array_fields of this DocBarCodeInfo.  # noqa: E501
-
-        Data from barcode  # noqa: E501
-
-        :return: The p_array_fields of this DocBarCodeInfo.  # noqa: E501
-        :rtype: list[PArrayField]
-        """
-        return self._p_array_fields
-
-    @p_array_fields.setter
-    def p_array_fields(self, p_array_fields):
-        """Sets the p_array_fields of this DocBarCodeInfo.
-
-        Data from barcode  # noqa: E501
-
-        :param p_array_fields: The p_array_fields of this DocBarCodeInfo.  # noqa: E501
-        :type p_array_fields: list[PArrayField]
-        """
-
-        self._p_array_fields = p_array_fields
+        self._doc_bar_code_info = doc_bar_code_info
 
     @property
     def buf_length(self):
