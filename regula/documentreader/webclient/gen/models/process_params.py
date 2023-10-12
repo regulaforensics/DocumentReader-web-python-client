@@ -74,7 +74,7 @@ class ProcessParams(object):
         'split_names': 'bool',
         'disable_perforation_ocr': 'bool',
         'document_group_filter': 'list[DocumentType]',
-        'process_auth': 'AuthenticityResultType[object]',
+        'process_auth': 'int',
         'device_id': 'int',
         'device_type': 'int',
         'device_type_hex': 'str',
@@ -1248,9 +1248,10 @@ class ProcessParams(object):
     def process_auth(self):
         """Gets the process_auth of this ProcessParams.  # noqa: E501
 
+        Authenticity checks that should be performed regardless of the document type. The available checks are listed in the eRPRM_Authenticity enum. Note that only supported by your license checks can be added.   # noqa: E501
 
         :return: The process_auth of this ProcessParams.  # noqa: E501
-        :rtype: AuthenticityResultType[object]
+        :rtype: int
         """
         return self._process_auth
 
@@ -1258,9 +1259,10 @@ class ProcessParams(object):
     def process_auth(self, process_auth):
         """Sets the process_auth of this ProcessParams.
 
+        Authenticity checks that should be performed regardless of the document type. The available checks are listed in the eRPRM_Authenticity enum. Note that only supported by your license checks can be added.   # noqa: E501
 
         :param process_auth: The process_auth of this ProcessParams.  # noqa: E501
-        :type process_auth: AuthenticityResultType[object]
+        :type process_auth: int
         """
 
         self._process_auth = process_auth
