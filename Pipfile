@@ -7,7 +7,7 @@ name = "pypi"
 certifi = "==2023.7.22"
 six = ">=1.10"
 python-dateutil = ">=2.5.3"
-urllib3 = ">=1.15.1"
+urllib3 = "~=1.26.17"
 vistir = ">=0.4.0, <=0.6.1"
 
 [dev-packages]
