@@ -32,6 +32,7 @@ class ImageQA(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'brightness_threshold': 'float',
         'dpi_threshold': 'int',
         'angle_threshold': 'int',
         'focus_check': 'bool',
@@ -42,6 +43,7 @@ class ImageQA(object):
     }
 
     attribute_map = {
+        'brightness_threshold': 'brightnessThreshold',
         'dpi_threshold': 'dpiThreshold',
         'angle_threshold': 'angleThreshold',
         'focus_check': 'focusCheck',
@@ -51,12 +53,13 @@ class ImageQA(object):
         'document_position_indent': 'documentPositionIndent'
     }
 
-    def __init__(self, dpi_threshold=None, angle_threshold=None, focus_check=None, glares_check=None, colorness_check=None, moire_check=None, document_position_indent=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, brightness_threshold=None, dpi_threshold=None, angle_threshold=None, focus_check=None, glares_check=None, colorness_check=None, moire_check=None, document_position_indent=None, local_vars_configuration=None):  # noqa: E501
         """ImageQA - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._brightness_threshold = None
         self._dpi_threshold = None
         self._angle_threshold = None
         self._focus_check = None
@@ -66,6 +69,8 @@ class ImageQA(object):
         self._document_position_indent = None
         self.discriminator = None
 
+        if brightness_threshold is not None:
+            self.brightness_threshold = brightness_threshold
         if dpi_threshold is not None:
             self.dpi_threshold = dpi_threshold
         if angle_threshold is not None:
@@ -80,6 +85,29 @@ class ImageQA(object):
             self.moire_check = moire_check
         if document_position_indent is not None:
             self.document_position_indent = document_position_indent
+
+    @property
+    def brightness_threshold(self):
+        """Gets the brightness_threshold of this ImageQA.  # noqa: E501
+
+        Set the threshold for an actual document brightness below which the check fails  # noqa: E501
+
+        :return: The brightness_threshold of this ImageQA.  # noqa: E501
+        :rtype: float
+        """
+        return self._brightness_threshold
+
+    @brightness_threshold.setter
+    def brightness_threshold(self, brightness_threshold):
+        """Sets the brightness_threshold of this ImageQA.
+
+        Set the threshold for an actual document brightness below which the check fails  # noqa: E501
+
+        :param brightness_threshold: The brightness_threshold of this ImageQA.  # noqa: E501
+        :type brightness_threshold: float
+        """
+
+        self._brightness_threshold = brightness_threshold
 
     @property
     def dpi_threshold(self):

@@ -40,7 +40,9 @@ class ImageQualityCheckType(object):
 
     Portrait = int("7")
 
-    allowable_values = [ImageGlares, ImageFocus, ImageResolution, ImageColorness, Perspective, Bounds, ScreenCapture, Portrait]  # noqa: E501
+    Brightness = int("8")
+
+    allowable_values = [ImageGlares, ImageFocus, ImageResolution, ImageColorness, Perspective, Bounds, ScreenCapture, Portrait, Brightness]  # noqa: E501
 
     """
     Attributes:
