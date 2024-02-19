@@ -4,12 +4,14 @@ regula/documentreader/webclient/gen/__init__.py
 regula/documentreader/webclient/gen/api/__init__.py
 regula/documentreader/webclient/gen/api/default_api.py
 regula/documentreader/webclient/gen/api/process_api.py
+regula/documentreader/webclient/gen/api/transaction_api.py
 regula/documentreader/webclient/gen/api_client.py
 regula/documentreader/webclient/gen/configuration.py
 regula/documentreader/webclient/gen/exceptions.py
 regula/documentreader/webclient/gen/models/__init__.py
 regula/documentreader/webclient/gen/models/area_array.py
 regula/documentreader/webclient/gen/models/area_container.py
+regula/documentreader/webclient/gen/models/auth_params.py
 regula/documentreader/webclient/gen/models/authenticity_check_list.py
 regula/documentreader/webclient/gen/models/authenticity_check_result_item.py
 regula/documentreader/webclient/gen/models/authenticity_result.py
@@ -73,6 +75,11 @@ regula/documentreader/webclient/gen/models/images_field.py
 regula/documentreader/webclient/gen/models/images_field_value.py
 regula/documentreader/webclient/gen/models/images_result.py
 regula/documentreader/webclient/gen/models/images_result_all_of.py
+regula/documentreader/webclient/gen/models/in_data.py
+regula/documentreader/webclient/gen/models/in_data_rfid_session.py
+regula/documentreader/webclient/gen/models/in_data_video.py
+regula/documentreader/webclient/gen/models/inline_response200.py
+regula/documentreader/webclient/gen/models/inline_response2001.py
 regula/documentreader/webclient/gen/models/lcid.py
 regula/documentreader/webclient/gen/models/lexical_analysis_result.py
 regula/documentreader/webclient/gen/models/lexical_analysis_result_all_of.py
@@ -80,6 +87,7 @@ regula/documentreader/webclient/gen/models/license_result.py
 regula/documentreader/webclient/gen/models/license_result_all_of.py
 regula/documentreader/webclient/gen/models/light.py
 regula/documentreader/webclient/gen/models/list_verified_fields.py
+regula/documentreader/webclient/gen/models/liveness_params.py
 regula/documentreader/webclient/gen/models/log_level.py
 regula/documentreader/webclient/gen/models/measure_system.py
 regula/documentreader/webclient/gen/models/mrz_format.py
@@ -87,6 +95,7 @@ regula/documentreader/webclient/gen/models/ocr_security_text_result.py
 regula/documentreader/webclient/gen/models/ocr_security_text_result_all_of.py
 regula/documentreader/webclient/gen/models/one_candidate.py
 regula/documentreader/webclient/gen/models/original_symbol.py
+regula/documentreader/webclient/gen/models/out_data.py
 regula/documentreader/webclient/gen/models/p_array_field.py
 regula/documentreader/webclient/gen/models/parsing_notification_codes.py
 regula/documentreader/webclient/gen/models/per_document_config.py
@@ -131,6 +140,7 @@ regula/documentreader/webclient/gen/models/text_post_processing.py
 regula/documentreader/webclient/gen/models/text_result.py
 regula/documentreader/webclient/gen/models/text_result_all_of.py
 regula/documentreader/webclient/gen/models/transaction_info.py
+regula/documentreader/webclient/gen/models/transaction_process_get_response.py
 regula/documentreader/webclient/gen/models/verification_result.py
 regula/documentreader/webclient/gen/models/verified_field_map.py
 regula/documentreader/webclient/gen/models/visibility.py

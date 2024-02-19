@@ -10,6 +10,7 @@ from __future__ import absolute_import
 # import models into model package
 from regula.documentreader.webclient.gen.models.area_array import AreaArray
 from regula.documentreader.webclient.gen.models.area_container import AreaContainer
+from regula.documentreader.webclient.gen.models.auth_params import AuthParams
 from regula.documentreader.webclient.gen.models.authenticity_check_list import AuthenticityCheckList
 from regula.documentreader.webclient.gen.models.authenticity_check_result import AuthenticityCheckResult
 from regula.documentreader.webclient.gen.models.authenticity_check_result_item import AuthenticityCheckResultItem
@@ -75,6 +76,11 @@ from regula.documentreader.webclient.gen.models.images_field import ImagesField
 from regula.documentreader.webclient.gen.models.images_field_value import ImagesFieldValue
 from regula.documentreader.webclient.gen.models.images_result import ImagesResult
 from regula.documentreader.webclient.gen.models.images_result_all_of import ImagesResultAllOf
+from regula.documentreader.webclient.gen.models.in_data import InData
+from regula.documentreader.webclient.gen.models.in_data_rfid_session import InDataRfidSession
+from regula.documentreader.webclient.gen.models.in_data_video import InDataVideo
+from regula.documentreader.webclient.gen.models.inline_response200 import InlineResponse200
+from regula.documentreader.webclient.gen.models.inline_response2001 import InlineResponse2001
 from regula.documentreader.webclient.gen.models.lcid import LCID
 from regula.documentreader.webclient.gen.models.lexical_analysis_result import LexicalAnalysisResult
 from regula.documentreader.webclient.gen.models.lexical_analysis_result_all_of import LexicalAnalysisResultAllOf
@@ -82,6 +88,7 @@ from regula.documentreader.webclient.gen.models.license_result import LicenseRes
 from regula.documentreader.webclient.gen.models.license_result_all_of import LicenseResultAllOf
 from regula.documentreader.webclient.gen.models.light import Light
 from regula.documentreader.webclient.gen.models.list_verified_fields import ListVerifiedFields
+from regula.documentreader.webclient.gen.models.liveness_params import LivenessParams
 from regula.documentreader.webclient.gen.models.log_level import LogLevel
 from regula.documentreader.webclient.gen.models.mrz_format import MRZFormat
 from regula.documentreader.webclient.gen.models.measure_system import MeasureSystem
@@ -89,6 +96,7 @@ from regula.documentreader.webclient.gen.models.ocr_security_text_result import 
 from regula.documentreader.webclient.gen.models.ocr_security_text_result_all_of import OCRSecurityTextResultAllOf
 from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate
 from regula.documentreader.webclient.gen.models.original_symbol import OriginalSymbol
+from regula.documentreader.webclient.gen.models.out_data import OutData
 from regula.documentreader.webclient.gen.models.p_array_field import PArrayField
 from regula.documentreader.webclient.gen.models.parsing_notification_codes import ParsingNotificationCodes
 from regula.documentreader.webclient.gen.models.per_document_config import PerDocumentConfig
@@ -133,6 +141,7 @@ from regula.documentreader.webclient.gen.models.text_post_processing import Text
 from regula.documentreader.webclient.gen.models.text_result import TextResult
 from regula.documentreader.webclient.gen.models.text_result_all_of import TextResultAllOf
 from regula.documentreader.webclient.gen.models.transaction_info import TransactionInfo
+from regula.documentreader.webclient.gen.models.transaction_process_get_response import TransactionProcessGetResponse
 from regula.documentreader.webclient.gen.models.verification_result import VerificationResult
 from regula.documentreader.webclient.gen.models.verified_field_map import VerifiedFieldMap
 from regula.documentreader.webclient.gen.models.visibility import Visibility
