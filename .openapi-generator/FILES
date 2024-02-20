@@ -69,6 +69,7 @@ regula/documentreader/webclient/gen/models/image_quality_check_list.py
 regula/documentreader/webclient/gen/models/image_quality_check_type.py
 regula/documentreader/webclient/gen/models/image_quality_result.py
 regula/documentreader/webclient/gen/models/image_quality_result_all_of.py
+regula/documentreader/webclient/gen/models/image_transaction_data.py
 regula/documentreader/webclient/gen/models/images.py
 regula/documentreader/webclient/gen/models/images_available_source.py
 regula/documentreader/webclient/gen/models/images_field.py
@@ -139,6 +140,7 @@ regula/documentreader/webclient/gen/models/text_field_value.py
 regula/documentreader/webclient/gen/models/text_post_processing.py
 regula/documentreader/webclient/gen/models/text_result.py
 regula/documentreader/webclient/gen/models/text_result_all_of.py
+regula/documentreader/webclient/gen/models/transaction_image.py
 regula/documentreader/webclient/gen/models/transaction_info.py
 regula/documentreader/webclient/gen/models/transaction_process_get_response.py
 regula/documentreader/webclient/gen/models/verification_result.py
