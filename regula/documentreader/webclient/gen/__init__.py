@@ -87,6 +87,7 @@ from regula.documentreader.webclient.gen.models.image_quality_check_list import 
 from regula.documentreader.webclient.gen.models.image_quality_check_type import ImageQualityCheckType
 from regula.documentreader.webclient.gen.models.image_quality_result import ImageQualityResult
 from regula.documentreader.webclient.gen.models.image_quality_result_all_of import ImageQualityResultAllOf
+from regula.documentreader.webclient.gen.models.image_transaction_data import ImageTransactionData
 from regula.documentreader.webclient.gen.models.images import Images
 from regula.documentreader.webclient.gen.models.images_available_source import ImagesAvailableSource
 from regula.documentreader.webclient.gen.models.images_field import ImagesField
@@ -157,6 +158,7 @@ from regula.documentreader.webclient.gen.models.text_field_value import TextFiel
 from regula.documentreader.webclient.gen.models.text_post_processing import TextPostProcessing
 from regula.documentreader.webclient.gen.models.text_result import TextResult
 from regula.documentreader.webclient.gen.models.text_result_all_of import TextResultAllOf
+from regula.documentreader.webclient.gen.models.transaction_image import TransactionImage
 from regula.documentreader.webclient.gen.models.transaction_info import TransactionInfo
 from regula.documentreader.webclient.gen.models.transaction_process_get_response import TransactionProcessGetResponse
 from regula.documentreader.webclient.gen.models.verification_result import VerificationResult
