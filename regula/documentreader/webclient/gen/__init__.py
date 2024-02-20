@@ -161,6 +161,7 @@ from regula.documentreader.webclient.gen.models.text_result_all_of import TextRe
 from regula.documentreader.webclient.gen.models.transaction_image import TransactionImage
 from regula.documentreader.webclient.gen.models.transaction_info import TransactionInfo
 from regula.documentreader.webclient.gen.models.transaction_process_get_response import TransactionProcessGetResponse
+from regula.documentreader.webclient.gen.models.transaction_process_request import TransactionProcessRequest
 from regula.documentreader.webclient.gen.models.verification_result import VerificationResult
 from regula.documentreader.webclient.gen.models.verified_field_map import VerifiedFieldMap
 from regula.documentreader.webclient.gen.models.visibility import Visibility
