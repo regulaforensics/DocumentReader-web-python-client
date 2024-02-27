@@ -300,19 +300,17 @@ class TransactionApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def api_v2_transaction_transaction_id_process_post(self, transaction_id, x_client_key, transaction_process_request, **kwargs):  # noqa: E501
+    def api_v2_transaction_transaction_id_process_post(self, transaction_id, transaction_process_request, **kwargs):  # noqa: E501
         """Preprocess  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_transaction_transaction_id_process_post(transaction_id, x_client_key, transaction_process_request, async_req=True)
+        >>> thread = api.api_v2_transaction_transaction_id_process_post(transaction_id, transaction_process_request, async_req=True)
         >>> result = thread.get()
 
         :param transaction_id: Transaction id (required)
         :type transaction_id: int
-        :param x_client_key: (required)
-        :type x_client_key: str
         :param transaction_process_request: (required)
         :type transaction_process_request: TransactionProcessRequest
         :param async_req: Whether to execute the request asynchronously.
@@ -331,21 +329,19 @@ class TransactionApi(object):
         :rtype: InlineResponse200
         """
         kwargs['_return_http_data_only'] = True
-        return self.api_v2_transaction_transaction_id_process_post_with_http_info(transaction_id, x_client_key, transaction_process_request, **kwargs)  # noqa: E501
+        return self.api_v2_transaction_transaction_id_process_post_with_http_info(transaction_id, transaction_process_request, **kwargs)  # noqa: E501
 
-    def api_v2_transaction_transaction_id_process_post_with_http_info(self, transaction_id, x_client_key, transaction_process_request, **kwargs):  # noqa: E501
+    def api_v2_transaction_transaction_id_process_post_with_http_info(self, transaction_id, transaction_process_request, **kwargs):  # noqa: E501
         """Preprocess  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.api_v2_transaction_transaction_id_process_post_with_http_info(transaction_id, x_client_key, transaction_process_request, async_req=True)
+        >>> thread = api.api_v2_transaction_transaction_id_process_post_with_http_info(transaction_id, transaction_process_request, async_req=True)
         >>> result = thread.get()
 
         :param transaction_id: Transaction id (required)
         :type transaction_id: int
-        :param x_client_key: (required)
-        :type x_client_key: str
         :param transaction_process_request: (required)
         :type transaction_process_request: TransactionProcessRequest
         :param async_req: Whether to execute the request asynchronously.
@@ -375,7 +371,6 @@ class TransactionApi(object):
 
         all_params = [
             'transaction_id',
-            'x_client_key',
             'transaction_process_request'
         ]
         all_params.extend(
@@ -400,10 +395,6 @@ class TransactionApi(object):
         if self.api_client.client_side_validation and ('transaction_id' not in local_var_params or  # noqa: E501
                                                         local_var_params['transaction_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `transaction_id` when calling `api_v2_transaction_transaction_id_process_post`")  # noqa: E501
-        # verify the required parameter 'x_client_key' is set
-        if self.api_client.client_side_validation and ('x_client_key' not in local_var_params or  # noqa: E501
-                                                        local_var_params['x_client_key'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `x_client_key` when calling `api_v2_transaction_transaction_id_process_post`")  # noqa: E501
         # verify the required parameter 'transaction_process_request' is set
         if self.api_client.client_side_validation and ('transaction_process_request' not in local_var_params or  # noqa: E501
                                                         local_var_params['transaction_process_request'] is None):  # noqa: E501
@@ -418,8 +409,6 @@ class TransactionApi(object):
         query_params = []
 
         header_params = {}
-        if 'x_client_key' in local_var_params:
-            header_params['X-CLIENT-KEY'] = local_var_params['x_client_key']  # noqa: E501
 
         form_params = []
         local_var_files = {}
