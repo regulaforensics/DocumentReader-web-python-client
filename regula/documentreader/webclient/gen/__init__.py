@@ -95,7 +95,6 @@ from regula.documentreader.webclient.gen.models.images_field_value import Images
 from regula.documentreader.webclient.gen.models.images_result import ImagesResult
 from regula.documentreader.webclient.gen.models.images_result_all_of import ImagesResultAllOf
 from regula.documentreader.webclient.gen.models.in_data import InData
-from regula.documentreader.webclient.gen.models.in_data_rfid_session import InDataRfidSession
 from regula.documentreader.webclient.gen.models.in_data_video import InDataVideo
 from regula.documentreader.webclient.gen.models.inline_response200 import InlineResponse200
 from regula.documentreader.webclient.gen.models.inline_response2001 import InlineResponse2001
@@ -159,6 +158,7 @@ from regula.documentreader.webclient.gen.models.text_post_processing import Text
 from regula.documentreader.webclient.gen.models.text_result import TextResult
 from regula.documentreader.webclient.gen.models.text_result_all_of import TextResultAllOf
 from regula.documentreader.webclient.gen.models.transaction_image import TransactionImage
+from regula.documentreader.webclient.gen.models.transaction_images_field_value import TransactionImagesFieldValue
 from regula.documentreader.webclient.gen.models.transaction_info import TransactionInfo
 from regula.documentreader.webclient.gen.models.transaction_process_get_response import TransactionProcessGetResponse
 from regula.documentreader.webclient.gen.models.transaction_process_request import TransactionProcessRequest

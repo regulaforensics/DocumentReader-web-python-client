@@ -32,30 +32,35 @@ class OutData(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'url': 'str'
+        'url': 'str',
+        'images': 'list[TransactionImagesFieldValue]'
     }
 
     attribute_map = {
-        'url': 'url'
+        'url': 'url',
+        'images': 'images'
     }
 
-    def __init__(self, url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, images=None, local_vars_configuration=None):  # noqa: E501
         """OutData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._url = None
+        self._images = None
         self.discriminator = None
 
         if url is not None:
             self.url = url
+        if images is not None:
+            self.images = images
 
     @property
     def url(self):
         """Gets the url of this OutData.  # noqa: E501
 
-        Image url  # noqa: E501
+        Response url  # noqa: E501
 
         :return: The url of this OutData.  # noqa: E501
         :rtype: str
@@ -66,13 +71,34 @@ class OutData(object):
     def url(self, url):
         """Sets the url of this OutData.
 
-        Image url  # noqa: E501
+        Response url  # noqa: E501
 
         :param url: The url of this OutData.  # noqa: E501
         :type url: str
         """
 
         self._url = url
+
+    @property
+    def images(self):
+        """Gets the images of this OutData.  # noqa: E501
+
+
+        :return: The images of this OutData.  # noqa: E501
+        :rtype: list[TransactionImagesFieldValue]
+        """
+        return self._images
+
+    @images.setter
+    def images(self, images):
+        """Sets the images of this OutData.
+
+
+        :param images: The images of this OutData.  # noqa: E501
+        :type images: list[TransactionImagesFieldValue]
+        """
+
+        self._images = images
 
     def to_dict(self):
         """Returns the model properties as a dict"""

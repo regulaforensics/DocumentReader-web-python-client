@@ -77,7 +77,6 @@ regula/documentreader/webclient/gen/models/images_field_value.py
 regula/documentreader/webclient/gen/models/images_result.py
 regula/documentreader/webclient/gen/models/images_result_all_of.py
 regula/documentreader/webclient/gen/models/in_data.py
-regula/documentreader/webclient/gen/models/in_data_rfid_session.py
 regula/documentreader/webclient/gen/models/in_data_video.py
 regula/documentreader/webclient/gen/models/inline_response200.py
 regula/documentreader/webclient/gen/models/inline_response2001.py
@@ -141,6 +140,7 @@ regula/documentreader/webclient/gen/models/text_post_processing.py
 regula/documentreader/webclient/gen/models/text_result.py
 regula/documentreader/webclient/gen/models/text_result_all_of.py
 regula/documentreader/webclient/gen/models/transaction_image.py
+regula/documentreader/webclient/gen/models/transaction_images_field_value.py
 regula/documentreader/webclient/gen/models/transaction_info.py
 regula/documentreader/webclient/gen/models/transaction_process_get_response.py
 regula/documentreader/webclient/gen/models/transaction_process_request.py

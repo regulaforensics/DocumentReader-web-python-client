@@ -32,55 +32,29 @@ class InData(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'rfid_session': 'InDataRfidSession',
         'video': 'InDataVideo',
-        'images': 'list[ImageTransactionData]'
+        'images': 'list[TransactionImagesFieldValue]'
     }
 
     attribute_map = {
-        'rfid_session': 'rfidSession',
         'video': 'video',
         'images': 'images'
     }
 
-    def __init__(self, rfid_session=None, video=None, images=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, video=None, images=None, local_vars_configuration=None):  # noqa: E501
         """InData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._rfid_session = None
         self._video = None
         self._images = None
         self.discriminator = None
 
-        if rfid_session is not None:
-            self.rfid_session = rfid_session
         if video is not None:
             self.video = video
         if images is not None:
             self.images = images
-
-    @property
-    def rfid_session(self):
-        """Gets the rfid_session of this InData.  # noqa: E501
-
-
-        :return: The rfid_session of this InData.  # noqa: E501
-        :rtype: InDataRfidSession
-        """
-        return self._rfid_session
-
-    @rfid_session.setter
-    def rfid_session(self, rfid_session):
-        """Sets the rfid_session of this InData.
-
-
-        :param rfid_session: The rfid_session of this InData.  # noqa: E501
-        :type rfid_session: InDataRfidSession
-        """
-
-        self._rfid_session = rfid_session
 
     @property
     def video(self):
@@ -109,7 +83,7 @@ class InData(object):
 
 
         :return: The images of this InData.  # noqa: E501
-        :rtype: list[ImageTransactionData]
+        :rtype: list[TransactionImagesFieldValue]
         """
         return self._images
 
@@ -119,7 +93,7 @@ class InData(object):
 
 
         :param images: The images of this InData.  # noqa: E501
-        :type images: list[ImageTransactionData]
+        :type images: list[TransactionImagesFieldValue]
         """
 
         self._images = images
