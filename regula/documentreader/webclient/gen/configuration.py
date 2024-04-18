@@ -389,7 +389,7 @@ class Configuration(object):
                 'description': "Latest stable Regula Document Reader demo endpoint",
             },
             {
-                'url': "https://test-api.regulaforensics.com/",
+                'url': "https://nightly-api.regulaforensics.com/",
                 'description': "Nightly Regula document reader demo endpoint",
             },
             {
