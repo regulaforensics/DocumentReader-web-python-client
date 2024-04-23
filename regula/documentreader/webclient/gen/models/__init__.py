@@ -78,6 +78,7 @@ from regula.documentreader.webclient.gen.models.images_field_value import Images
 from regula.documentreader.webclient.gen.models.images_result import ImagesResult
 from regula.documentreader.webclient.gen.models.images_result_all_of import ImagesResultAllOf
 from regula.documentreader.webclient.gen.models.in_data import InData
+from regula.documentreader.webclient.gen.models.in_data_transaction_images_field_value import InDataTransactionImagesFieldValue
 from regula.documentreader.webclient.gen.models.in_data_video import InDataVideo
 from regula.documentreader.webclient.gen.models.inline_response200 import InlineResponse200
 from regula.documentreader.webclient.gen.models.inline_response2001 import InlineResponse2001
@@ -92,11 +93,13 @@ from regula.documentreader.webclient.gen.models.liveness_params import LivenessP
 from regula.documentreader.webclient.gen.models.log_level import LogLevel
 from regula.documentreader.webclient.gen.models.mrz_format import MRZFormat
 from regula.documentreader.webclient.gen.models.measure_system import MeasureSystem
+from regula.documentreader.webclient.gen.models.mrz_detect_mode_enum import MrzDetectModeEnum
 from regula.documentreader.webclient.gen.models.ocr_security_text_result import OCRSecurityTextResult
 from regula.documentreader.webclient.gen.models.ocr_security_text_result_all_of import OCRSecurityTextResultAllOf
 from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate
 from regula.documentreader.webclient.gen.models.original_symbol import OriginalSymbol
 from regula.documentreader.webclient.gen.models.out_data import OutData
+from regula.documentreader.webclient.gen.models.out_data_transaction_images_field_value import OutDataTransactionImagesFieldValue
 from regula.documentreader.webclient.gen.models.p_array_field import PArrayField
 from regula.documentreader.webclient.gen.models.parsing_notification_codes import ParsingNotificationCodes
 from regula.documentreader.webclient.gen.models.per_document_config import PerDocumentConfig
@@ -141,7 +144,6 @@ from regula.documentreader.webclient.gen.models.text_post_processing import Text
 from regula.documentreader.webclient.gen.models.text_result import TextResult
 from regula.documentreader.webclient.gen.models.text_result_all_of import TextResultAllOf
 from regula.documentreader.webclient.gen.models.transaction_image import TransactionImage
-from regula.documentreader.webclient.gen.models.transaction_images_field_value import TransactionImagesFieldValue
 from regula.documentreader.webclient.gen.models.transaction_info import TransactionInfo
 from regula.documentreader.webclient.gen.models.transaction_process_get_response import TransactionProcessGetResponse
 from regula.documentreader.webclient.gen.models.transaction_process_request import TransactionProcessRequest

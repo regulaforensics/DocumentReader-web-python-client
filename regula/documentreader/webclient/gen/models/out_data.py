@@ -33,7 +33,7 @@ class OutData(object):
     """
     openapi_types = {
         'url': 'str',
-        'images': 'list[TransactionImagesFieldValue]'
+        'images': 'list[OutDataTransactionImagesFieldValue]'
     }
 
     attribute_map = {
@@ -85,7 +85,7 @@ class OutData(object):
 
 
         :return: The images of this OutData.  # noqa: E501
-        :rtype: list[TransactionImagesFieldValue]
+        :rtype: list[OutDataTransactionImagesFieldValue]
         """
         return self._images
 
@@ -95,7 +95,7 @@ class OutData(object):
 
 
         :param images: The images of this OutData.  # noqa: E501
-        :type images: list[TransactionImagesFieldValue]
+        :type images: list[OutDataTransactionImagesFieldValue]
         """
 
         self._images = images

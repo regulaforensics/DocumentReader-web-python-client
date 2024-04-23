@@ -39,7 +39,8 @@ class InlineResponse2001(object):
         'log': 'str',
         'pass_back_object': 'dict(str, object)',
         'more_pages_available': 'int',
-        'elapsed_time': 'int'
+        'elapsed_time': 'int',
+        'core_lib_result_code': 'int'
     }
 
     attribute_map = {
@@ -50,10 +51,11 @@ class InlineResponse2001(object):
         'log': 'log',
         'pass_back_object': 'passBackObject',
         'more_pages_available': 'morePagesAvailable',
-        'elapsed_time': 'elapsedTime'
+        'elapsed_time': 'elapsedTime',
+        'core_lib_result_code': 'CoreLibResultCode'
     }
 
-    def __init__(self, chip_page=None, processing_finished=None, container_list=None, transaction_info=None, log=None, pass_back_object=None, more_pages_available=None, elapsed_time=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, chip_page=None, processing_finished=None, container_list=None, transaction_info=None, log=None, pass_back_object=None, more_pages_available=None, elapsed_time=None, core_lib_result_code=None, local_vars_configuration=None):  # noqa: E501
         """InlineResponse2001 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,6 +69,7 @@ class InlineResponse2001(object):
         self._pass_back_object = None
         self._more_pages_available = None
         self._elapsed_time = None
+        self._core_lib_result_code = None
         self.discriminator = None
 
         if chip_page is not None:
@@ -85,6 +88,8 @@ class InlineResponse2001(object):
             self.more_pages_available = more_pages_available
         if elapsed_time is not None:
             self.elapsed_time = elapsed_time
+        if core_lib_result_code is not None:
+            self.core_lib_result_code = core_lib_result_code
 
     @property
     def chip_page(self):
@@ -259,6 +264,27 @@ class InlineResponse2001(object):
         """
 
         self._elapsed_time = elapsed_time
+
+    @property
+    def core_lib_result_code(self):
+        """Gets the core_lib_result_code of this InlineResponse2001.  # noqa: E501
+
+
+        :return: The core_lib_result_code of this InlineResponse2001.  # noqa: E501
+        :rtype: int
+        """
+        return self._core_lib_result_code
+
+    @core_lib_result_code.setter
+    def core_lib_result_code(self, core_lib_result_code):
+        """Sets the core_lib_result_code of this InlineResponse2001.
+
+
+        :param core_lib_result_code: The core_lib_result_code of this InlineResponse2001.  # noqa: E501
+        :type core_lib_result_code: int
+        """
+
+        self._core_lib_result_code = core_lib_result_code
 
     def to_dict(self):
         """Returns the model properties as a dict"""
