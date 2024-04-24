@@ -33,6 +33,7 @@ class ChosenDocumentTypeResult(object):
     """
     openapi_types = {
         'one_candidate': 'OneCandidate',
+        'xml_buffer': 'str',
         'buf_length': 'int',
         'light': 'int',
         'list_idx': 'int',
@@ -42,6 +43,7 @@ class ChosenDocumentTypeResult(object):
 
     attribute_map = {
         'one_candidate': 'OneCandidate',
+        'xml_buffer': 'XML_buffer',
         'buf_length': 'buf_length',
         'light': 'light',
         'list_idx': 'list_idx',
@@ -49,13 +51,14 @@ class ChosenDocumentTypeResult(object):
         'result_type': 'result_type'
     }
 
-    def __init__(self, one_candidate=None, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=0, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, one_candidate=None, xml_buffer=None, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=0, local_vars_configuration=None):  # noqa: E501
         """ChosenDocumentTypeResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._one_candidate = None
+        self._xml_buffer = None
         self._buf_length = None
         self._light = None
         self._list_idx = None
@@ -65,6 +68,8 @@ class ChosenDocumentTypeResult(object):
 
         if one_candidate is not None:
             self.one_candidate = one_candidate
+        if xml_buffer is not None:
+            self.xml_buffer = xml_buffer
         if buf_length is not None:
             self.buf_length = buf_length
         if light is not None:
@@ -95,6 +100,27 @@ class ChosenDocumentTypeResult(object):
         """
 
         self._one_candidate = one_candidate
+
+    @property
+    def xml_buffer(self):
+        """Gets the xml_buffer of this ChosenDocumentTypeResult.  # noqa: E501
+
+
+        :return: The xml_buffer of this ChosenDocumentTypeResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._xml_buffer
+
+    @xml_buffer.setter
+    def xml_buffer(self, xml_buffer):
+        """Sets the xml_buffer of this ChosenDocumentTypeResult.
+
+
+        :param xml_buffer: The xml_buffer of this ChosenDocumentTypeResult.  # noqa: E501
+        :type xml_buffer: str
+        """
+
+        self._xml_buffer = xml_buffer
 
     @property
     def buf_length(self):

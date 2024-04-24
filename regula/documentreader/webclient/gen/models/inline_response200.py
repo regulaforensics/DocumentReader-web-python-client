@@ -32,29 +32,81 @@ class InlineResponse200(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'out_data': 'OutData',
+        'in_data': 'InData',
         'tag': 'str',
         'transaction_id': 'str'
     }
 
     attribute_map = {
+        'out_data': 'OutData',
+        'in_data': 'InData',
         'tag': 'tag',
         'transaction_id': 'transactionId'
     }
 
-    def __init__(self, tag=None, transaction_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, out_data=None, in_data=None, tag=None, transaction_id=None, local_vars_configuration=None):  # noqa: E501
         """InlineResponse200 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._out_data = None
+        self._in_data = None
         self._tag = None
         self._transaction_id = None
         self.discriminator = None
 
+        if out_data is not None:
+            self.out_data = out_data
+        if in_data is not None:
+            self.in_data = in_data
         if tag is not None:
             self.tag = tag
         if transaction_id is not None:
             self.transaction_id = transaction_id
+
+    @property
+    def out_data(self):
+        """Gets the out_data of this InlineResponse200.  # noqa: E501
+
+
+        :return: The out_data of this InlineResponse200.  # noqa: E501
+        :rtype: OutData
+        """
+        return self._out_data
+
+    @out_data.setter
+    def out_data(self, out_data):
+        """Sets the out_data of this InlineResponse200.
+
+
+        :param out_data: The out_data of this InlineResponse200.  # noqa: E501
+        :type out_data: OutData
+        """
+
+        self._out_data = out_data
+
+    @property
+    def in_data(self):
+        """Gets the in_data of this InlineResponse200.  # noqa: E501
+
+
+        :return: The in_data of this InlineResponse200.  # noqa: E501
+        :rtype: InData
+        """
+        return self._in_data
+
+    @in_data.setter
+    def in_data(self, in_data):
+        """Sets the in_data of this InlineResponse200.
+
+
+        :param in_data: The in_data of this InlineResponse200.  # noqa: E501
+        :type in_data: InData
+        """
+
+        self._in_data = in_data
 
     @property
     def tag(self):

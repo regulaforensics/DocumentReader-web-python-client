@@ -41,7 +41,8 @@ class FDSIDList(object):
         'd_year': 'str',
         'd_country_name': 'str',
         'd_state_code': 'str',
-        'd_state_name': 'str'
+        'd_state_name': 'str',
+        'is_deprecated': 'bool'
     }
 
     attribute_map = {
@@ -54,10 +55,11 @@ class FDSIDList(object):
         'd_year': 'dYear',
         'd_country_name': 'dCountryName',
         'd_state_code': 'dStateCode',
-        'd_state_name': 'dStateName'
+        'd_state_name': 'dStateName',
+        'is_deprecated': 'isDeprecated'
     }
 
-    def __init__(self, icao_code=None, list=None, d_type=None, d_format=None, d_mrz=None, d_description=None, d_year=None, d_country_name=None, d_state_code=None, d_state_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, icao_code=None, list=None, d_type=None, d_format=None, d_mrz=None, d_description=None, d_year=None, d_country_name=None, d_state_code=None, d_state_name=None, is_deprecated=None, local_vars_configuration=None):  # noqa: E501
         """FDSIDList - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -73,6 +75,7 @@ class FDSIDList(object):
         self._d_country_name = None
         self._d_state_code = None
         self._d_state_name = None
+        self._is_deprecated = None
         self.discriminator = None
 
         if icao_code is not None:
@@ -95,6 +98,8 @@ class FDSIDList(object):
             self.d_state_code = d_state_code
         if d_state_name is not None:
             self.d_state_name = d_state_name
+        if is_deprecated is not None:
+            self.is_deprecated = is_deprecated
 
     @property
     def icao_code(self):
@@ -327,6 +332,29 @@ class FDSIDList(object):
         """
 
         self._d_state_name = d_state_name
+
+    @property
+    def is_deprecated(self):
+        """Gets the is_deprecated of this FDSIDList.  # noqa: E501
+
+        Whether the document is deprecated  # noqa: E501
+
+        :return: The is_deprecated of this FDSIDList.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_deprecated
+
+    @is_deprecated.setter
+    def is_deprecated(self, is_deprecated):
+        """Sets the is_deprecated of this FDSIDList.
+
+        Whether the document is deprecated  # noqa: E501
+
+        :param is_deprecated: The is_deprecated of this FDSIDList.  # noqa: E501
+        :type is_deprecated: bool
+        """
+
+        self._is_deprecated = is_deprecated
 
     def to_dict(self):
         """Returns the model properties as a dict"""

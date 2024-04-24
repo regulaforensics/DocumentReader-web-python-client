@@ -63,7 +63,6 @@ class ProcessParams(object):
         'respect_image_quality': 'bool',
         'force_doc_format': 'DocumentFormat',
         'no_graphics': 'bool',
-        'document_area_min': 'float',
         'depersonalize_log': 'bool',
         'multi_doc_on_image': 'bool',
         'shift_expiry_date': 'int',
@@ -84,7 +83,8 @@ class ProcessParams(object):
         'document_id_list': 'list[int]',
         'rfid': 'ProcessParamsRfid',
         'check_auth': 'bool',
-        'auth_params': 'AuthParams'
+        'auth_params': 'AuthParams',
+        'mrz_detect_mode': 'MrzDetectModeEnum'
     }
 
     attribute_map = {
@@ -119,7 +119,6 @@ class ProcessParams(object):
         'respect_image_quality': 'respectImageQuality',
         'force_doc_format': 'forceDocFormat',
         'no_graphics': 'noGraphics',
-        'document_area_min': 'documentAreaMin',
         'depersonalize_log': 'depersonalizeLog',
         'multi_doc_on_image': 'multiDocOnImage',
         'shift_expiry_date': 'shiftExpiryDate',
@@ -140,10 +139,11 @@ class ProcessParams(object):
         'document_id_list': 'documentIdList',
         'rfid': 'rfid',
         'check_auth': 'checkAuth',
-        'auth_params': 'authParams'
+        'auth_params': 'authParams',
+        'mrz_detect_mode': 'mrzDetectMode'
     }
 
-    def __init__(self, lcid_filter=[], lcid_ignore_filter=[], one_shot_identification=None, use_face_api=None, face_api=None, do_detect_can=None, image_output_max_height=None, image_output_max_width=None, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, document_area_min=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, process_auth=None, device_id=None, device_type=None, device_type_hex=None, ignore_device_id_from_image=None, document_id_list=None, rfid=None, check_auth=None, auth_params=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, lcid_filter=[], lcid_ignore_filter=[], one_shot_identification=None, use_face_api=None, face_api=None, do_detect_can=None, image_output_max_height=None, image_output_max_width=None, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, process_auth=None, device_id=None, device_type=None, device_type_hex=None, ignore_device_id_from_image=None, document_id_list=None, rfid=None, check_auth=None, auth_params=None, mrz_detect_mode=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -180,7 +180,6 @@ class ProcessParams(object):
         self._respect_image_quality = None
         self._force_doc_format = None
         self._no_graphics = None
-        self._document_area_min = None
         self._depersonalize_log = None
         self._multi_doc_on_image = None
         self._shift_expiry_date = None
@@ -202,6 +201,7 @@ class ProcessParams(object):
         self._rfid = None
         self._check_auth = None
         self._auth_params = None
+        self._mrz_detect_mode = None
         self.discriminator = None
 
         if lcid_filter is not None:
@@ -265,8 +265,6 @@ class ProcessParams(object):
             self.force_doc_format = force_doc_format
         if no_graphics is not None:
             self.no_graphics = no_graphics
-        if document_area_min is not None:
-            self.document_area_min = document_area_min
         if depersonalize_log is not None:
             self.depersonalize_log = depersonalize_log
         if multi_doc_on_image is not None:
@@ -309,6 +307,8 @@ class ProcessParams(object):
             self.check_auth = check_auth
         if auth_params is not None:
             self.auth_params = auth_params
+        if mrz_detect_mode is not None:
+            self.mrz_detect_mode = mrz_detect_mode
 
     @property
     def lcid_filter(self):
@@ -1014,29 +1014,6 @@ class ProcessParams(object):
         self._no_graphics = no_graphics
 
     @property
-    def document_area_min(self):
-        """Gets the document_area_min of this ProcessParams.  # noqa: E501
-
-        Specifies minimal area of the image that document should cover to be treated as candidate when locating. Value should be in range from 0 to 1, where 1 is when document should fully cover the image.  # noqa: E501
-
-        :return: The document_area_min of this ProcessParams.  # noqa: E501
-        :rtype: float
-        """
-        return self._document_area_min
-
-    @document_area_min.setter
-    def document_area_min(self, document_area_min):
-        """Sets the document_area_min of this ProcessParams.
-
-        Specifies minimal area of the image that document should cover to be treated as candidate when locating. Value should be in range from 0 to 1, where 1 is when document should fully cover the image.  # noqa: E501
-
-        :param document_area_min: The document_area_min of this ProcessParams.  # noqa: E501
-        :type document_area_min: float
-        """
-
-        self._document_area_min = document_area_min
-
-    @property
     def depersonalize_log(self):
         """Gets the depersonalize_log of this ProcessParams.  # noqa: E501
 
@@ -1245,7 +1222,7 @@ class ProcessParams(object):
     def split_names(self):
         """Gets the split_names of this ProcessParams.  # noqa: E501
 
-        When enabled, the Surname and GivenNames field will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default.  # noqa: E501
+        When enabled, the Surname and GivenNames fields from MRZ will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default.  # noqa: E501
 
         :return: The split_names of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -1256,7 +1233,7 @@ class ProcessParams(object):
     def split_names(self, split_names):
         """Sets the split_names of this ProcessParams.
 
-        When enabled, the Surname and GivenNames field will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default.  # noqa: E501
+        When enabled, the Surname and GivenNames fields from MRZ will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default.  # noqa: E501
 
         :param split_names: The split_names of this ProcessParams.  # noqa: E501
         :type split_names: bool
@@ -1512,6 +1489,27 @@ class ProcessParams(object):
         """
 
         self._auth_params = auth_params
+
+    @property
+    def mrz_detect_mode(self):
+        """Gets the mrz_detect_mode of this ProcessParams.  # noqa: E501
+
+
+        :return: The mrz_detect_mode of this ProcessParams.  # noqa: E501
+        :rtype: MrzDetectModeEnum
+        """
+        return self._mrz_detect_mode
+
+    @mrz_detect_mode.setter
+    def mrz_detect_mode(self, mrz_detect_mode):
+        """Sets the mrz_detect_mode of this ProcessParams.
+
+
+        :param mrz_detect_mode: The mrz_detect_mode of this ProcessParams.  # noqa: E501
+        :type mrz_detect_mode: MrzDetectModeEnum
+        """
+
+        self._mrz_detect_mode = mrz_detect_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""

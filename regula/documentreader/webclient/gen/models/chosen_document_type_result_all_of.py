@@ -32,24 +32,29 @@ class ChosenDocumentTypeResultAllOf(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'one_candidate': 'OneCandidate'
+        'one_candidate': 'OneCandidate',
+        'xml_buffer': 'str'
     }
 
     attribute_map = {
-        'one_candidate': 'OneCandidate'
+        'one_candidate': 'OneCandidate',
+        'xml_buffer': 'XML_buffer'
     }
 
-    def __init__(self, one_candidate=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, one_candidate=None, xml_buffer=None, local_vars_configuration=None):  # noqa: E501
         """ChosenDocumentTypeResultAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._one_candidate = None
+        self._xml_buffer = None
         self.discriminator = None
 
         if one_candidate is not None:
             self.one_candidate = one_candidate
+        if xml_buffer is not None:
+            self.xml_buffer = xml_buffer
 
     @property
     def one_candidate(self):
@@ -71,6 +76,27 @@ class ChosenDocumentTypeResultAllOf(object):
         """
 
         self._one_candidate = one_candidate
+
+    @property
+    def xml_buffer(self):
+        """Gets the xml_buffer of this ChosenDocumentTypeResultAllOf.  # noqa: E501
+
+
+        :return: The xml_buffer of this ChosenDocumentTypeResultAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._xml_buffer
+
+    @xml_buffer.setter
+    def xml_buffer(self, xml_buffer):
+        """Sets the xml_buffer of this ChosenDocumentTypeResultAllOf.
+
+
+        :param xml_buffer: The xml_buffer of this ChosenDocumentTypeResultAllOf.  # noqa: E501
+        :type xml_buffer: str
+        """
+
+        self._xml_buffer = xml_buffer
 
     def to_dict(self):
         """Returns the model properties as a dict"""
