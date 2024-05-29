@@ -146,6 +146,7 @@ regula/documentreader/webclient/gen/models/transaction_image.py
 regula/documentreader/webclient/gen/models/transaction_info.py
 regula/documentreader/webclient/gen/models/transaction_process_get_response.py
 regula/documentreader/webclient/gen/models/transaction_process_request.py
+regula/documentreader/webclient/gen/models/transaction_scenario_request.py
 regula/documentreader/webclient/gen/models/verification_result.py
 regula/documentreader/webclient/gen/models/verified_field_map.py
 regula/documentreader/webclient/gen/models/visibility.py

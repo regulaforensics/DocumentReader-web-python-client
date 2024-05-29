@@ -149,7 +149,7 @@ class TransactionApi(object):
         }
 
         return self.api_client.call_api(
-            '/api/v2/tag/{tag_id}', 'DELETE',
+            '/api/v2/tag/{tagId}', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -294,7 +294,7 @@ class TransactionApi(object):
         }
 
         return self.api_client.call_api(
-            '/api/v2/transaction/{transaction_id}/file', 'GET',
+            '/api/v2/transaction/{transactionId}/file', 'GET',
             path_params,
             query_params,
             header_params,
@@ -429,7 +429,7 @@ class TransactionApi(object):
         }
 
         return self.api_client.call_api(
-            '/api/v2/transaction/{transaction_id}', 'GET',
+            '/api/v2/transaction/{transactionId}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -579,7 +579,7 @@ class TransactionApi(object):
         }
 
         return self.api_client.call_api(
-            '/api/v2/transaction/{transaction_id}/process', 'POST',
+            '/api/v2/transaction/{transactionId}/process', 'POST',
             path_params,
             query_params,
             header_params,
@@ -721,7 +721,7 @@ class TransactionApi(object):
         }
 
         return self.api_client.call_api(
-            '/api/v2/transaction/{transaction_id}/results', 'GET',
+            '/api/v2/transaction/{transactionId}/results', 'GET',
             path_params,
             query_params,
             header_params,
