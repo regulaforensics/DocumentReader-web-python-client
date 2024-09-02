@@ -38,7 +38,6 @@ class ImageQA(object):
         'focus_check': 'bool',
         'glares_check': 'bool',
         'colorness_check': 'bool',
-        'moire_check': 'bool',
         'document_position_indent': 'int'
     }
 
@@ -49,11 +48,10 @@ class ImageQA(object):
         'focus_check': 'focusCheck',
         'glares_check': 'glaresCheck',
         'colorness_check': 'colornessCheck',
-        'moire_check': 'moireCheck',
         'document_position_indent': 'documentPositionIndent'
     }
 
-    def __init__(self, brightness_threshold=None, dpi_threshold=None, angle_threshold=None, focus_check=None, glares_check=None, colorness_check=None, moire_check=None, document_position_indent=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, brightness_threshold=None, dpi_threshold=None, angle_threshold=None, focus_check=None, glares_check=None, colorness_check=None, document_position_indent=None, local_vars_configuration=None):  # noqa: E501
         """ImageQA - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,7 +63,6 @@ class ImageQA(object):
         self._focus_check = None
         self._glares_check = None
         self._colorness_check = None
-        self._moire_check = None
         self._document_position_indent = None
         self.discriminator = None
 
@@ -81,8 +78,6 @@ class ImageQA(object):
             self.glares_check = glares_check
         if colorness_check is not None:
             self.colorness_check = colorness_check
-        if moire_check is not None:
-            self.moire_check = moire_check
         if document_position_indent is not None:
             self.document_position_indent = document_position_indent
 
@@ -223,29 +218,6 @@ class ImageQA(object):
         """
 
         self._colorness_check = colorness_check
-
-    @property
-    def moire_check(self):
-        """Gets the moire_check of this ImageQA.  # noqa: E501
-
-        This option enables screen capture (moire patterns) check while performing image quality validation.  # noqa: E501
-
-        :return: The moire_check of this ImageQA.  # noqa: E501
-        :rtype: bool
-        """
-        return self._moire_check
-
-    @moire_check.setter
-    def moire_check(self, moire_check):
-        """Sets the moire_check of this ImageQA.
-
-        This option enables screen capture (moire patterns) check while performing image quality validation.  # noqa: E501
-
-        :param moire_check: The moire_check of this ImageQA.  # noqa: E501
-        :type moire_check: bool
-        """
-
-        self._moire_check = moire_check
 
     @property
     def document_position_indent(self):

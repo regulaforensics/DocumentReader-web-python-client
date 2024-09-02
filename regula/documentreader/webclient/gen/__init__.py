@@ -73,6 +73,7 @@ from regula.documentreader.webclient.gen.models.face_api import FaceApi
 from regula.documentreader.webclient.gen.models.face_api_search import FaceApiSearch
 from regula.documentreader.webclient.gen.models.fiber_result import FiberResult
 from regula.documentreader.webclient.gen.models.fiber_result_all_of import FiberResultAllOf
+from regula.documentreader.webclient.gen.models.get_transactions_by_tag_response import GetTransactionsByTagResponse
 from regula.documentreader.webclient.gen.models.graphic_field import GraphicField
 from regula.documentreader.webclient.gen.models.graphic_field_type import GraphicFieldType
 from regula.documentreader.webclient.gen.models.graphic_fields_list import GraphicFieldsList
@@ -164,7 +165,6 @@ from regula.documentreader.webclient.gen.models.transaction_image import Transac
 from regula.documentreader.webclient.gen.models.transaction_info import TransactionInfo
 from regula.documentreader.webclient.gen.models.transaction_process_get_response import TransactionProcessGetResponse
 from regula.documentreader.webclient.gen.models.transaction_process_request import TransactionProcessRequest
-from regula.documentreader.webclient.gen.models.transaction_scenario_request import TransactionScenarioRequest
 from regula.documentreader.webclient.gen.models.verification_result import VerificationResult
 from regula.documentreader.webclient.gen.models.verified_field_map import VerifiedFieldMap
 from regula.documentreader.webclient.gen.models.visibility import Visibility
