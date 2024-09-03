@@ -3,7 +3,7 @@ name: run smoke test
 on:
   pull_request:
     branches:
-      - master
+      - develop
 
 jobs:
   run_smoke_test:
