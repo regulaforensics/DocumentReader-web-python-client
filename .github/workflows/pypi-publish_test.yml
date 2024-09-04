@@ -26,4 +26,4 @@ jobs:
           pipenv run pipenv install
           pipenv run python setup.py sdist bdist_wheel
         env:
-          PACKAGE_VERSION_TO_PUBLISH: ${{ github.event.release.name }}
+          PACKAGE_VERSION_TO_PUBLISH: "7.4.4"
