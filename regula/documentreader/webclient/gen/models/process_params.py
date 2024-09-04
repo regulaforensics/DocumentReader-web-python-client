@@ -84,7 +84,8 @@ class ProcessParams(object):
         'rfid': 'ProcessParamsRfid',
         'check_auth': 'bool',
         'auth_params': 'AuthParams',
-        'mrz_detect_mode': 'MrzDetectModeEnum'
+        'mrz_detect_mode': 'MrzDetectModeEnum',
+        'generate_numeric_codes': 'bool'
     }
 
     attribute_map = {
@@ -140,10 +141,11 @@ class ProcessParams(object):
         'rfid': 'rfid',
         'check_auth': 'checkAuth',
         'auth_params': 'authParams',
-        'mrz_detect_mode': 'mrzDetectMode'
+        'mrz_detect_mode': 'mrzDetectMode',
+        'generate_numeric_codes': 'generateNumericCodes'
     }
 
-    def __init__(self, lcid_filter=[], lcid_ignore_filter=[], one_shot_identification=None, use_face_api=None, face_api=None, do_detect_can=None, image_output_max_height=None, image_output_max_width=None, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, process_auth=None, device_id=None, device_type=None, device_type_hex=None, ignore_device_id_from_image=None, document_id_list=None, rfid=None, check_auth=None, auth_params=None, mrz_detect_mode=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, lcid_filter=None, lcid_ignore_filter=None, one_shot_identification=None, use_face_api=None, face_api=None, do_detect_can=None, image_output_max_height=None, image_output_max_width=None, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, process_auth=None, device_id=None, device_type=None, device_type_hex=None, ignore_device_id_from_image=None, document_id_list=None, rfid=None, check_auth=None, auth_params=None, mrz_detect_mode=None, generate_numeric_codes=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -202,6 +204,7 @@ class ProcessParams(object):
         self._check_auth = None
         self._auth_params = None
         self._mrz_detect_mode = None
+        self._generate_numeric_codes = None
         self.discriminator = None
 
         if lcid_filter is not None:
@@ -309,6 +312,8 @@ class ProcessParams(object):
             self.auth_params = auth_params
         if mrz_detect_mode is not None:
             self.mrz_detect_mode = mrz_detect_mode
+        if generate_numeric_codes is not None:
+            self.generate_numeric_codes = generate_numeric_codes
 
     @property
     def lcid_filter(self):
@@ -1510,6 +1515,29 @@ class ProcessParams(object):
         """
 
         self._mrz_detect_mode = mrz_detect_mode
+
+    @property
+    def generate_numeric_codes(self):
+        """Gets the generate_numeric_codes of this ProcessParams.  # noqa: E501
+
+        This parameter is used to generate numeric representation for issuing state and nationality codes  # noqa: E501
+
+        :return: The generate_numeric_codes of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._generate_numeric_codes
+
+    @generate_numeric_codes.setter
+    def generate_numeric_codes(self, generate_numeric_codes):
+        """Sets the generate_numeric_codes of this ProcessParams.
+
+        This parameter is used to generate numeric representation for issuing state and nationality codes  # noqa: E501
+
+        :param generate_numeric_codes: The generate_numeric_codes of this ProcessParams.  # noqa: E501
+        :type generate_numeric_codes: bool
+        """
+
+        self._generate_numeric_codes = generate_numeric_codes
 
     def to_dict(self):
         """Returns the model properties as a dict"""
