@@ -106,6 +106,7 @@ from regula.documentreader.webclient.gen.models.lexical_analysis_result_all_of i
 from regula.documentreader.webclient.gen.models.license_result import LicenseResult
 from regula.documentreader.webclient.gen.models.license_result_all_of import LicenseResultAllOf
 from regula.documentreader.webclient.gen.models.light import Light
+from regula.documentreader.webclient.gen.models.list_transactions_by_tag_response import ListTransactionsByTagResponse
 from regula.documentreader.webclient.gen.models.list_verified_fields import ListVerifiedFields
 from regula.documentreader.webclient.gen.models.liveness_params import LivenessParams
 from regula.documentreader.webclient.gen.models.log_level import LogLevel

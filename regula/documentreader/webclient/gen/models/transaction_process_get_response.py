@@ -33,7 +33,7 @@ class TransactionProcessGetResponse(object):
     """
     openapi_types = {
         'transaction_id': 'int',
-        'tag': 'str',
+        'tag': 'int',
         'out_data': 'OutData',
         'in_data': 'InData'
     }
@@ -93,7 +93,7 @@ class TransactionProcessGetResponse(object):
 
 
         :return: The tag of this TransactionProcessGetResponse.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._tag
 
@@ -103,7 +103,7 @@ class TransactionProcessGetResponse(object):
 
 
         :param tag: The tag of this TransactionProcessGetResponse.  # noqa: E501
-        :type tag: str
+        :type tag: int
         """
 
         self._tag = tag

@@ -34,7 +34,7 @@ class InlineResponse200(object):
     openapi_types = {
         'out_data': 'OutData',
         'in_data': 'InData',
-        'tag': 'str',
+        'tag': 'int',
         'transaction_id': 'str'
     }
 
@@ -114,7 +114,7 @@ class InlineResponse200(object):
 
 
         :return: The tag of this InlineResponse200.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._tag
 
@@ -124,7 +124,7 @@ class InlineResponse200(object):
 
 
         :param tag: The tag of this InlineResponse200.  # noqa: E501
-        :type tag: str
+        :type tag: int
         """
 
         self._tag = tag

@@ -34,7 +34,7 @@ class ProcessRequest(object):
     openapi_types = {
         'process_param': 'ProcessParams',
         'list': 'list[ProcessRequestImage]',
-        'tag': 'str',
+        'tag': 'int',
         'tenant': 'str',
         'env': 'str',
         'live_portrait': 'str',
@@ -146,7 +146,7 @@ class ProcessRequest(object):
         Session ID  # noqa: E501
 
         :return: The tag of this ProcessRequest.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._tag
 
@@ -157,7 +157,7 @@ class ProcessRequest(object):
         Session ID  # noqa: E501
 
         :param tag: The tag of this ProcessRequest.  # noqa: E501
-        :type tag: str
+        :type tag: int
         """
 
         self._tag = tag
