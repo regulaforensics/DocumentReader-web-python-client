@@ -175,7 +175,7 @@ class TransactionApi(object):
         >>> result = thread.get()
 
         :param tag_id: Tag id (required)
-        :type tag_id: int
+        :type tag_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -189,7 +189,7 @@ class TransactionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: list[GetTransactionsByTagResponse]
+        :rtype: ListTransactionsByTagResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.api_v2_tag_tag_id_transactions_get_with_http_info(tag_id, **kwargs)  # noqa: E501
@@ -204,7 +204,7 @@ class TransactionApi(object):
         >>> result = thread.get()
 
         :param tag_id: Tag id (required)
-        :type tag_id: int
+        :type tag_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -225,7 +225,7 @@ class TransactionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(list[GetTransactionsByTagResponse], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(ListTransactionsByTagResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -278,7 +278,7 @@ class TransactionApi(object):
         auth_settings = []  # noqa: E501
         
         response_types_map = {
-            200: "list[GetTransactionsByTagResponse]",
+            200: "ListTransactionsByTagResponse",
             400: None,
             403: None,
         }

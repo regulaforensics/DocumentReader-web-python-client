@@ -35,6 +35,7 @@ class PhotoIdentResult(object):
         'type': 'int',
         'element_result': 'CheckResult',
         'element_diagnose': 'CheckDiagnose',
+        'percent_value': 'int',
         'light_index': 'Light',
         'area': 'RectangleCoordinates',
         'source_image': 'ImageData',
@@ -50,6 +51,7 @@ class PhotoIdentResult(object):
         'type': 'Type',
         'element_result': 'ElementResult',
         'element_diagnose': 'ElementDiagnose',
+        'percent_value': 'PercentValue',
         'light_index': 'LightIndex',
         'area': 'Area',
         'source_image': 'SourceImage',
@@ -61,7 +63,7 @@ class PhotoIdentResult(object):
         'reserved3': 'Reserved3'
     }
 
-    def __init__(self, type=0, element_result=None, element_diagnose=None, light_index=None, area=None, source_image=None, result_images=None, field_types_count=None, field_types_list=None, step=None, angle=None, reserved3=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=0, element_result=None, element_diagnose=None, percent_value=None, light_index=None, area=None, source_image=None, result_images=None, field_types_count=None, field_types_list=None, step=None, angle=None, reserved3=None, local_vars_configuration=None):  # noqa: E501
         """PhotoIdentResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -70,6 +72,7 @@ class PhotoIdentResult(object):
         self._type = None
         self._element_result = None
         self._element_diagnose = None
+        self._percent_value = None
         self._light_index = None
         self._area = None
         self._source_image = None
@@ -86,6 +89,8 @@ class PhotoIdentResult(object):
             self.element_result = element_result
         if element_diagnose is not None:
             self.element_diagnose = element_diagnose
+        if percent_value is not None:
+            self.percent_value = percent_value
         if light_index is not None:
             self.light_index = light_index
         if area is not None:
@@ -171,6 +176,27 @@ class PhotoIdentResult(object):
         """
 
         self._element_diagnose = element_diagnose
+
+    @property
+    def percent_value(self):
+        """Gets the percent_value of this PhotoIdentResult.  # noqa: E501
+
+
+        :return: The percent_value of this PhotoIdentResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._percent_value
+
+    @percent_value.setter
+    def percent_value(self, percent_value):
+        """Sets the percent_value of this PhotoIdentResult.
+
+
+        :param percent_value: The percent_value of this PhotoIdentResult.  # noqa: E501
+        :type percent_value: int
+        """
+
+        self._percent_value = percent_value
 
     @property
     def light_index(self):
