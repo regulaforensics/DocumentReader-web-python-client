@@ -189,7 +189,7 @@ class TransactionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: list[GetTransactionsByTagResponse]
+        :rtype: ListTransactionsByTagResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.api_v2_tag_tag_id_transactions_get_with_http_info(tag_id, **kwargs)  # noqa: E501
@@ -225,7 +225,7 @@ class TransactionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(list[GetTransactionsByTagResponse], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(ListTransactionsByTagResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -278,7 +278,7 @@ class TransactionApi(object):
         auth_settings = []  # noqa: E501
         
         response_types_map = {
-            200: "list[GetTransactionsByTagResponse]",
+            200: "ListTransactionsByTagResponse",
             400: None,
             403: None,
         }

@@ -34,13 +34,15 @@ class AuthenticityCheckResultItem(object):
     openapi_types = {
         'type': 'int',
         'element_result': 'CheckResult',
-        'element_diagnose': 'CheckDiagnose'
+        'element_diagnose': 'CheckDiagnose',
+        'percent_value': 'int'
     }
 
     attribute_map = {
         'type': 'Type',
         'element_result': 'ElementResult',
-        'element_diagnose': 'ElementDiagnose'
+        'element_diagnose': 'ElementDiagnose',
+        'percent_value': 'PercentValue'
     }
     discriminator_value_class_map = {
         1 : 'SecurityFeatureResult',
@@ -67,7 +69,7 @@ class AuthenticityCheckResultItem(object):
         8388608 : 'SecurityFeatureResult',
     }
 
-    def __init__(self, type=0, element_result=None, element_diagnose=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=0, element_result=None, element_diagnose=None, percent_value=None, local_vars_configuration=None):  # noqa: E501
         """AuthenticityCheckResultItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -76,6 +78,7 @@ class AuthenticityCheckResultItem(object):
         self._type = None
         self._element_result = None
         self._element_diagnose = None
+        self._percent_value = None
         self.discriminator = 'type'
 
         self.type = type
@@ -83,6 +86,8 @@ class AuthenticityCheckResultItem(object):
             self.element_result = element_result
         if element_diagnose is not None:
             self.element_diagnose = element_diagnose
+        if percent_value is not None:
+            self.percent_value = percent_value
 
     @property
     def type(self):
@@ -150,6 +155,27 @@ class AuthenticityCheckResultItem(object):
         """
 
         self._element_diagnose = element_diagnose
+
+    @property
+    def percent_value(self):
+        """Gets the percent_value of this AuthenticityCheckResultItem.  # noqa: E501
+
+
+        :return: The percent_value of this AuthenticityCheckResultItem.  # noqa: E501
+        :rtype: int
+        """
+        return self._percent_value
+
+    @percent_value.setter
+    def percent_value(self, percent_value):
+        """Sets the percent_value of this AuthenticityCheckResultItem.
+
+
+        :param percent_value: The percent_value of this AuthenticityCheckResultItem.  # noqa: E501
+        :type percent_value: int
+        """
+
+        self._percent_value = percent_value
 
     def get_real_child_model(self, data):
         """Returns the real base class specified by the discriminator"""
