@@ -35,12 +35,12 @@ class IdentResult(object):
         'type': 'int',
         'element_result': 'CheckResult',
         'element_diagnose': 'CheckDiagnose',
+        'percent_value': 'int',
         'element_type': 'SecurityFeatureType',
         'light_index': 'Light',
         'area': 'RectangleCoordinates',
         'image': 'ImageData',
         'etalon_image': 'ImageData',
-        'percent_value': 'int',
         'area_list': 'AreaContainer'
     }
 
@@ -48,16 +48,16 @@ class IdentResult(object):
         'type': 'Type',
         'element_result': 'ElementResult',
         'element_diagnose': 'ElementDiagnose',
+        'percent_value': 'PercentValue',
         'element_type': 'ElementType',
         'light_index': 'LightIndex',
         'area': 'Area',
         'image': 'Image',
         'etalon_image': 'EtalonImage',
-        'percent_value': 'PercentValue',
         'area_list': 'AreaList'
     }
 
-    def __init__(self, type=0, element_result=None, element_diagnose=None, element_type=None, light_index=None, area=None, image=None, etalon_image=None, percent_value=None, area_list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=0, element_result=None, element_diagnose=None, percent_value=None, element_type=None, light_index=None, area=None, image=None, etalon_image=None, area_list=None, local_vars_configuration=None):  # noqa: E501
         """IdentResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,12 +66,12 @@ class IdentResult(object):
         self._type = None
         self._element_result = None
         self._element_diagnose = None
+        self._percent_value = None
         self._element_type = None
         self._light_index = None
         self._area = None
         self._image = None
         self._etalon_image = None
-        self._percent_value = None
         self._area_list = None
         self.discriminator = None
 
@@ -80,6 +80,8 @@ class IdentResult(object):
             self.element_result = element_result
         if element_diagnose is not None:
             self.element_diagnose = element_diagnose
+        if percent_value is not None:
+            self.percent_value = percent_value
         if element_type is not None:
             self.element_type = element_type
         if light_index is not None:
@@ -90,8 +92,6 @@ class IdentResult(object):
             self.image = image
         if etalon_image is not None:
             self.etalon_image = etalon_image
-        if percent_value is not None:
-            self.percent_value = percent_value
         if area_list is not None:
             self.area_list = area_list
 
@@ -161,6 +161,29 @@ class IdentResult(object):
         """
 
         self._element_diagnose = element_diagnose
+
+    @property
+    def percent_value(self):
+        """Gets the percent_value of this IdentResult.  # noqa: E501
+
+        Probability percent for IMAGE_PATTERN check or element's visibility for IR_VISIBILITY  # noqa: E501
+
+        :return: The percent_value of this IdentResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._percent_value
+
+    @percent_value.setter
+    def percent_value(self, percent_value):
+        """Sets the percent_value of this IdentResult.
+
+        Probability percent for IMAGE_PATTERN check or element's visibility for IR_VISIBILITY  # noqa: E501
+
+        :param percent_value: The percent_value of this IdentResult.  # noqa: E501
+        :type percent_value: int
+        """
+
+        self._percent_value = percent_value
 
     @property
     def element_type(self):
@@ -266,29 +289,6 @@ class IdentResult(object):
         """
 
         self._etalon_image = etalon_image
-
-    @property
-    def percent_value(self):
-        """Gets the percent_value of this IdentResult.  # noqa: E501
-
-        Probability percent for IMAGE_PATTERN check or element's visibility for IR_VISIBILITY  # noqa: E501
-
-        :return: The percent_value of this IdentResult.  # noqa: E501
-        :rtype: int
-        """
-        return self._percent_value
-
-    @percent_value.setter
-    def percent_value(self, percent_value):
-        """Sets the percent_value of this IdentResult.
-
-        Probability percent for IMAGE_PATTERN check or element's visibility for IR_VISIBILITY  # noqa: E501
-
-        :param percent_value: The percent_value of this IdentResult.  # noqa: E501
-        :type percent_value: int
-        """
-
-        self._percent_value = percent_value
 
     @property
     def area_list(self):
