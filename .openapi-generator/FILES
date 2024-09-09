@@ -55,6 +55,7 @@ regula/documentreader/webclient/gen/models/face_api_search.py
 regula/documentreader/webclient/gen/models/fdsid_list.py
 regula/documentreader/webclient/gen/models/fiber_result.py
 regula/documentreader/webclient/gen/models/fiber_result_all_of.py
+regula/documentreader/webclient/gen/models/get_transactions_by_tag_response.py
 regula/documentreader/webclient/gen/models/graphic_field.py
 regula/documentreader/webclient/gen/models/graphic_field_type.py
 regula/documentreader/webclient/gen/models/graphic_fields_list.py
@@ -87,6 +88,7 @@ regula/documentreader/webclient/gen/models/lexical_analysis_result_all_of.py
 regula/documentreader/webclient/gen/models/license_result.py
 regula/documentreader/webclient/gen/models/license_result_all_of.py
 regula/documentreader/webclient/gen/models/light.py
+regula/documentreader/webclient/gen/models/list_transactions_by_tag_response.py
 regula/documentreader/webclient/gen/models/list_verified_fields.py
 regula/documentreader/webclient/gen/models/liveness_params.py
 regula/documentreader/webclient/gen/models/log_level.py
@@ -146,7 +148,6 @@ regula/documentreader/webclient/gen/models/transaction_image.py
 regula/documentreader/webclient/gen/models/transaction_info.py
 regula/documentreader/webclient/gen/models/transaction_process_get_response.py
 regula/documentreader/webclient/gen/models/transaction_process_request.py
-regula/documentreader/webclient/gen/models/transaction_scenario_request.py
 regula/documentreader/webclient/gen/models/verification_result.py
 regula/documentreader/webclient/gen/models/verified_field_map.py
 regula/documentreader/webclient/gen/models/visibility.py

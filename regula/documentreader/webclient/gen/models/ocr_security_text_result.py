@@ -35,6 +35,7 @@ class OCRSecurityTextResult(object):
         'type': 'int',
         'element_result': 'CheckResult',
         'element_diagnose': 'CheckDiagnose',
+        'percent_value': 'int',
         'critical_flag': 'Critical',
         'light_type': 'Light',
         'field_rect': 'RectangleCoordinates',
@@ -51,6 +52,7 @@ class OCRSecurityTextResult(object):
         'type': 'Type',
         'element_result': 'ElementResult',
         'element_diagnose': 'ElementDiagnose',
+        'percent_value': 'PercentValue',
         'critical_flag': 'CriticalFlag',
         'light_type': 'LightType',
         'field_rect': 'FieldRect',
@@ -63,7 +65,7 @@ class OCRSecurityTextResult(object):
         'reserved2': 'Reserved2'
     }
 
-    def __init__(self, type=0, element_result=None, element_diagnose=None, critical_flag=None, light_type=None, field_rect=None, etalon_result_type=None, etalon_field_type=None, etalon_light_type=None, security_text_result_ocr=None, etalon_result_ocr=None, reserved1=None, reserved2=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=0, element_result=None, element_diagnose=None, percent_value=None, critical_flag=None, light_type=None, field_rect=None, etalon_result_type=None, etalon_field_type=None, etalon_light_type=None, security_text_result_ocr=None, etalon_result_ocr=None, reserved1=None, reserved2=None, local_vars_configuration=None):  # noqa: E501
         """OCRSecurityTextResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,6 +74,7 @@ class OCRSecurityTextResult(object):
         self._type = None
         self._element_result = None
         self._element_diagnose = None
+        self._percent_value = None
         self._critical_flag = None
         self._light_type = None
         self._field_rect = None
@@ -89,6 +92,8 @@ class OCRSecurityTextResult(object):
             self.element_result = element_result
         if element_diagnose is not None:
             self.element_diagnose = element_diagnose
+        if percent_value is not None:
+            self.percent_value = percent_value
         if critical_flag is not None:
             self.critical_flag = critical_flag
         if light_type is not None:
@@ -176,6 +181,27 @@ class OCRSecurityTextResult(object):
         """
 
         self._element_diagnose = element_diagnose
+
+    @property
+    def percent_value(self):
+        """Gets the percent_value of this OCRSecurityTextResult.  # noqa: E501
+
+
+        :return: The percent_value of this OCRSecurityTextResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._percent_value
+
+    @percent_value.setter
+    def percent_value(self, percent_value):
+        """Sets the percent_value of this OCRSecurityTextResult.
+
+
+        :param percent_value: The percent_value of this OCRSecurityTextResult.  # noqa: E501
+        :type percent_value: int
+        """
+
+        self._percent_value = percent_value
 
     @property
     def critical_flag(self):

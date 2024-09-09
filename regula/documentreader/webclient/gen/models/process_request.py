@@ -32,9 +32,11 @@ class ProcessRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'tag': 'str',
         'process_param': 'ProcessParams',
         'list': 'list[ProcessRequestImage]',
+        'tag': 'str',
+        'tenant': 'str',
+        'env': 'str',
         'live_portrait': 'str',
         'ext_portrait': 'str',
         'container_list': 'ContainerList',
@@ -43,9 +45,11 @@ class ProcessRequest(object):
     }
 
     attribute_map = {
-        'tag': 'tag',
         'process_param': 'processParam',
         'list': 'List',
+        'tag': 'tag',
+        'tenant': 'tenant',
+        'env': 'env',
         'live_portrait': 'livePortrait',
         'ext_portrait': 'extPortrait',
         'container_list': 'ContainerList',
@@ -53,15 +57,17 @@ class ProcessRequest(object):
         'pass_back_object': 'passBackObject'
     }
 
-    def __init__(self, tag=None, process_param=None, list=None, live_portrait=None, ext_portrait=None, container_list=None, system_info=None, pass_back_object=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, process_param=None, list=None, tag=None, tenant=None, env=None, live_portrait=None, ext_portrait=None, container_list=None, system_info=None, pass_back_object=None, local_vars_configuration=None):  # noqa: E501
         """ProcessRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._tag = None
         self._process_param = None
         self._list = None
+        self._tag = None
+        self._tenant = None
+        self._env = None
         self._live_portrait = None
         self._ext_portrait = None
         self._container_list = None
@@ -69,11 +75,15 @@ class ProcessRequest(object):
         self._pass_back_object = None
         self.discriminator = None
 
-        if tag is not None:
-            self.tag = tag
         self.process_param = process_param
         if list is not None:
             self.list = list
+        if tag is not None:
+            self.tag = tag
+        if tenant is not None:
+            self.tenant = tenant
+        if env is not None:
+            self.env = env
         if live_portrait is not None:
             self.live_portrait = live_portrait
         if ext_portrait is not None:
@@ -84,29 +94,6 @@ class ProcessRequest(object):
             self.system_info = system_info
         if pass_back_object is not None:
             self.pass_back_object = pass_back_object
-
-    @property
-    def tag(self):
-        """Gets the tag of this ProcessRequest.  # noqa: E501
-
-        session id  # noqa: E501
-
-        :return: The tag of this ProcessRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._tag
-
-    @tag.setter
-    def tag(self, tag):
-        """Sets the tag of this ProcessRequest.
-
-        session id  # noqa: E501
-
-        :param tag: The tag of this ProcessRequest.  # noqa: E501
-        :type tag: str
-        """
-
-        self._tag = tag
 
     @property
     def process_param(self):
@@ -151,6 +138,75 @@ class ProcessRequest(object):
         """
 
         self._list = list
+
+    @property
+    def tag(self):
+        """Gets the tag of this ProcessRequest.  # noqa: E501
+
+        Session ID  # noqa: E501
+
+        :return: The tag of this ProcessRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._tag
+
+    @tag.setter
+    def tag(self, tag):
+        """Sets the tag of this ProcessRequest.
+
+        Session ID  # noqa: E501
+
+        :param tag: The tag of this ProcessRequest.  # noqa: E501
+        :type tag: str
+        """
+
+        self._tag = tag
+
+    @property
+    def tenant(self):
+        """Gets the tenant of this ProcessRequest.  # noqa: E501
+
+        Customer name  # noqa: E501
+
+        :return: The tenant of this ProcessRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._tenant
+
+    @tenant.setter
+    def tenant(self, tenant):
+        """Sets the tenant of this ProcessRequest.
+
+        Customer name  # noqa: E501
+
+        :param tenant: The tenant of this ProcessRequest.  # noqa: E501
+        :type tenant: str
+        """
+
+        self._tenant = tenant
+
+    @property
+    def env(self):
+        """Gets the env of this ProcessRequest.  # noqa: E501
+
+        Environment type  # noqa: E501
+
+        :return: The env of this ProcessRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._env
+
+    @env.setter
+    def env(self, env):
+        """Sets the env of this ProcessRequest.
+
+        Environment type  # noqa: E501
+
+        :param env: The env of this ProcessRequest.  # noqa: E501
+        :type env: str
+        """
+
+        self._env = env
 
     @property
     def live_portrait(self):

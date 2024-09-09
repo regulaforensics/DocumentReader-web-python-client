@@ -18,6 +18,7 @@ pipenv-setup = "*"
 wheel = "*"
 twine = "*"
 chardet = "*"
+packaging = ">=22.0"
 
 [requires]
 python_version = "3.8"
