@@ -14,11 +14,11 @@ requests = ">=2.32.3"
 
 [dev-packages]
 setuptools = ">=21.0.0"
-pipenv-setup = "*"
+pipenv-setup = ">=3.2.0"
 wheel = "*"
 twine = "*"
 chardet = "*"
-packaging = ">=22.0"
+packaging = "*"
 
 [requires]
 python_version = "3.8"
