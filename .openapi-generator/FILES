@@ -19,6 +19,7 @@ regula/documentreader/webclient/gen/models/authenticity_result_all_of.py
 regula/documentreader/webclient/gen/models/authenticity_result_type.py
 regula/documentreader/webclient/gen/models/bc_pdf417_info.py
 regula/documentreader/webclient/gen/models/bc_roidetect.py
+regula/documentreader/webclient/gen/models/binary_data_result.py
 regula/documentreader/webclient/gen/models/check_diagnose.py
 regula/documentreader/webclient/gen/models/check_result.py
 regula/documentreader/webclient/gen/models/chosen_document_type.py
@@ -98,6 +99,7 @@ regula/documentreader/webclient/gen/models/mrz_format.py
 regula/documentreader/webclient/gen/models/ocr_security_text_result.py
 regula/documentreader/webclient/gen/models/ocr_security_text_result_all_of.py
 regula/documentreader/webclient/gen/models/one_candidate.py
+regula/documentreader/webclient/gen/models/original_graphics_result.py
 regula/documentreader/webclient/gen/models/original_symbol.py
 regula/documentreader/webclient/gen/models/out_data.py
 regula/documentreader/webclient/gen/models/out_data_transaction_images_field_value.py
@@ -116,6 +118,7 @@ regula/documentreader/webclient/gen/models/process_request_image.py
 regula/documentreader/webclient/gen/models/process_response.py
 regula/documentreader/webclient/gen/models/process_system_info.py
 regula/documentreader/webclient/gen/models/processing_status.py
+regula/documentreader/webclient/gen/models/raw_data_result.py
 regula/documentreader/webclient/gen/models/raw_image_container_list.py
 regula/documentreader/webclient/gen/models/rectangle_coordinates.py
 regula/documentreader/webclient/gen/models/result.py
@@ -134,6 +137,8 @@ regula/documentreader/webclient/gen/models/status_result_all_of.py
 regula/documentreader/webclient/gen/models/string_recognition_result.py
 regula/documentreader/webclient/gen/models/symbol_candidate.py
 regula/documentreader/webclient/gen/models/symbol_recognition_result.py
+regula/documentreader/webclient/gen/models/t_binary_data.py
+regula/documentreader/webclient/gen/models/t_original_rfid_graphics.py
 regula/documentreader/webclient/gen/models/text.py
 regula/documentreader/webclient/gen/models/text_available_source.py
 regula/documentreader/webclient/gen/models/text_data_result.py
