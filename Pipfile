@@ -13,12 +13,12 @@ idna = "==3.7"
 requests = ">=2.32.3"
 
 [dev-packages]
+#pipenv-setup = ">=2.1.0"
 setuptools = ">=21.0.0"
-pipenv-setup = ">=3.2.0"
 wheel = "*"
 twine = "*"
 chardet = "*"
-packaging = "*"
+packaging = ">=22.0"
 
 [requires]
 python_version = "3.8"
