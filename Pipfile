@@ -13,7 +13,6 @@ idna = "==3.7"
 requests = ">=2.32.3"
 
 [dev-packages]
-#pipenv-setup = ">=2.1.0"
 setuptools = ">=21.0.0"
 wheel = "*"
 twine = "*"
