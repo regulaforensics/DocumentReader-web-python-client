@@ -48,8 +48,11 @@ class ResultItem(object):
     }
     discriminator_value_class_map = {
         1 : 'DocumentImageResult',
+        101 : 'RawDataResult',
         102 : 'TextDataResult',
         103 : 'GraphicsResult',
+        104 : 'BinaryDataResult',
+        105 : 'OriginalGraphicsResult',
         15 : 'LexicalAnalysisResult',
         17 : 'TextDataResult',
         18 : 'TextDataResult',
