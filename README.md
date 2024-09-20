@@ -1,4 +1,4 @@
-# Regula Document Reader web API Python 3.5+ client
+# Regula Document Reader web API Python 3.8+ client
 
 [![pypi](https://img.shields.io/pypi/v/regula.documentreader.webclient?style=flat-square)](https://support.regulaforensics.com/hc/en-us/articles/115000916306-Documentation)
 [![OpenAPI](https://img.shields.io/badge/OpenAPI-defs-8c0a56?style=flat-square)](https://github.com/regulaforensics/DocumentReader-web-openapi)
@@ -9,7 +9,7 @@ Documents recognition as easy as reading two bytes.
 
 If you have any problems with or questions about this client, please contact us
 through a [GitHub issue](https://github.com/regulaforensics/DocumentReader-web-python-client/issues).
-You are invited to contribute [new features, fixes, or updates](https://github.com/regulaforensics/DocumentReader-web-python-client/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22), large or small; 
+You are invited to contribute [new features, fixes, or updates](https://github.com/regulaforensics/DocumentReader-web-python-client/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22), large or small;
 We are always thrilled to receive pull requests, and do our best to process them as fast as we can.
 See [dev guide](./dev.md)
 

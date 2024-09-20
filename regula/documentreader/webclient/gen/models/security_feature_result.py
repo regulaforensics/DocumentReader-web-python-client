@@ -35,6 +35,7 @@ class SecurityFeatureResult(object):
         'type': 'int',
         'element_result': 'CheckResult',
         'element_diagnose': 'CheckDiagnose',
+        'percent_value': 'int',
         'element_type': 'SecurityFeatureType',
         'element_rect': 'RectangleCoordinates',
         'visibility': 'Visibility',
@@ -47,6 +48,7 @@ class SecurityFeatureResult(object):
         'type': 'Type',
         'element_result': 'ElementResult',
         'element_diagnose': 'ElementDiagnose',
+        'percent_value': 'PercentValue',
         'element_type': 'ElementType',
         'element_rect': 'ElementRect',
         'visibility': 'Visibility',
@@ -55,7 +57,7 @@ class SecurityFeatureResult(object):
         'reserved2': 'Reserved2'
     }
 
-    def __init__(self, type=0, element_result=None, element_diagnose=None, element_type=None, element_rect=None, visibility=None, critical_flag=None, area_list=None, reserved2=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=0, element_result=None, element_diagnose=None, percent_value=None, element_type=None, element_rect=None, visibility=None, critical_flag=None, area_list=None, reserved2=None, local_vars_configuration=None):  # noqa: E501
         """SecurityFeatureResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -64,6 +66,7 @@ class SecurityFeatureResult(object):
         self._type = None
         self._element_result = None
         self._element_diagnose = None
+        self._percent_value = None
         self._element_type = None
         self._element_rect = None
         self._visibility = None
@@ -77,6 +80,8 @@ class SecurityFeatureResult(object):
             self.element_result = element_result
         if element_diagnose is not None:
             self.element_diagnose = element_diagnose
+        if percent_value is not None:
+            self.percent_value = percent_value
         if element_type is not None:
             self.element_type = element_type
         if element_rect is not None:
@@ -156,6 +161,27 @@ class SecurityFeatureResult(object):
         """
 
         self._element_diagnose = element_diagnose
+
+    @property
+    def percent_value(self):
+        """Gets the percent_value of this SecurityFeatureResult.  # noqa: E501
+
+
+        :return: The percent_value of this SecurityFeatureResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._percent_value
+
+    @percent_value.setter
+    def percent_value(self, percent_value):
+        """Sets the percent_value of this SecurityFeatureResult.
+
+
+        :param percent_value: The percent_value of this SecurityFeatureResult.  # noqa: E501
+        :type percent_value: int
+        """
+
+        self._percent_value = percent_value
 
     @property
     def element_type(self):
