@@ -19,6 +19,7 @@ from regula.documentreader.webclient.gen.models.authenticity_result_all_of impor
 from regula.documentreader.webclient.gen.models.authenticity_result_type import AuthenticityResultType
 from regula.documentreader.webclient.gen.models.bc_pdf417_info import BcPDF417INFO
 from regula.documentreader.webclient.gen.models.bc_roidetect import BcROIDETECT
+from regula.documentreader.webclient.gen.models.binary_data_result import BinaryDataResult
 from regula.documentreader.webclient.gen.models.check_diagnose import CheckDiagnose
 from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from regula.documentreader.webclient.gen.models.chosen_document_type import ChosenDocumentType
@@ -99,6 +100,7 @@ from regula.documentreader.webclient.gen.models.mrz_detect_mode_enum import MrzD
 from regula.documentreader.webclient.gen.models.ocr_security_text_result import OCRSecurityTextResult
 from regula.documentreader.webclient.gen.models.ocr_security_text_result_all_of import OCRSecurityTextResultAllOf
 from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate
+from regula.documentreader.webclient.gen.models.original_graphics_result import OriginalGraphicsResult
 from regula.documentreader.webclient.gen.models.original_symbol import OriginalSymbol
 from regula.documentreader.webclient.gen.models.out_data import OutData
 from regula.documentreader.webclient.gen.models.out_data_transaction_images_field_value import OutDataTransactionImagesFieldValue
@@ -117,6 +119,7 @@ from regula.documentreader.webclient.gen.models.process_request_image import Pro
 from regula.documentreader.webclient.gen.models.process_response import ProcessResponse
 from regula.documentreader.webclient.gen.models.process_system_info import ProcessSystemInfo
 from regula.documentreader.webclient.gen.models.processing_status import ProcessingStatus
+from regula.documentreader.webclient.gen.models.raw_data_result import RawDataResult
 from regula.documentreader.webclient.gen.models.raw_image_container_list import RawImageContainerList
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from regula.documentreader.webclient.gen.models.result import Result
@@ -135,6 +138,8 @@ from regula.documentreader.webclient.gen.models.status_result_all_of import Stat
 from regula.documentreader.webclient.gen.models.string_recognition_result import StringRecognitionResult
 from regula.documentreader.webclient.gen.models.symbol_candidate import SymbolCandidate
 from regula.documentreader.webclient.gen.models.symbol_recognition_result import SymbolRecognitionResult
+from regula.documentreader.webclient.gen.models.t_binary_data import TBinaryData
+from regula.documentreader.webclient.gen.models.t_original_rfid_graphics import TOriginalRFIDGraphics
 from regula.documentreader.webclient.gen.models.text import Text
 from regula.documentreader.webclient.gen.models.text_available_source import TextAvailableSource
 from regula.documentreader.webclient.gen.models.text_data_result import TextDataResult
