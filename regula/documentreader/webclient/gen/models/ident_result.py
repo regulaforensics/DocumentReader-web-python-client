@@ -166,7 +166,6 @@ class IdentResult(object):
     def percent_value(self):
         """Gets the percent_value of this IdentResult.  # noqa: E501
 
-        Probability percent for IMAGE_PATTERN check or element's visibility for IR_VISIBILITY  # noqa: E501
 
         :return: The percent_value of this IdentResult.  # noqa: E501
         :rtype: int
@@ -177,7 +176,6 @@ class IdentResult(object):
     def percent_value(self, percent_value):
         """Sets the percent_value of this IdentResult.
 
-        Probability percent for IMAGE_PATTERN check or element's visibility for IR_VISIBILITY  # noqa: E501
 
         :param percent_value: The percent_value of this IdentResult.  # noqa: E501
         :type percent_value: int
