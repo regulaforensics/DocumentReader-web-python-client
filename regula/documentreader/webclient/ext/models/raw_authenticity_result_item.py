@@ -10,8 +10,8 @@ class RawAuthenticityCheckResultItem(AuthenticityCheckResultItem):
     attribute_map = copy(AuthenticityCheckResultItem.attribute_map)
     attribute_map["raw"] = "raw"
 
-    def __init__(self, type=0, element_result=None, element_diagnose=None, raw=None, local_vars_configuration=None):
-        super().__init__(type, element_result, element_diagnose, local_vars_configuration)
+    def __init__(self, type=0, element_result=None, element_diagnose=None, raw=None, percent_value=None, local_vars_configuration=None):
+        super().__init__(type, element_result, element_diagnose, percent_value, local_vars_configuration)
         self.__raw = raw
 
     @property
