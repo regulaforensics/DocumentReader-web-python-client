@@ -1,8 +1,9 @@
 name: publish pypi package
 
 on:
-  release:
-    types: [published]
+  pull_request:
+    branches:
+      - test_publish
 
 jobs:
   build:
@@ -24,6 +25,6 @@ jobs:
         run: |
           pipenv run pipenv install
           pipenv run python setup.py sdist bdist_wheel
-          pipenv run twine upload -u __token__ -p ${{secrets.PYPI_PUBLISH_TOKEN}} dist/*
+#          pipenv run twine upload -u __token__ -p ${{secrets.PYPI_PUBLISH_TOKEN}} dist/*
         env:
-          PACKAGE_VERSION_TO_PUBLISH: ${{ github.event.release.name }}
+          PACKAGE_VERSION_TO_PUBLISH: ""
