@@ -73,7 +73,8 @@ class ImagesFieldValue(object):
         self.discriminator = None
 
         self.source = source
-        self.value = value
+        if value is not None:
+            self.value = value
         if original_value is not None:
             self.original_value = original_value
         if original_page_index is not None:
@@ -129,8 +130,6 @@ class ImagesFieldValue(object):
         :param value: The value of this ImagesFieldValue.  # noqa: E501
         :type value: str
         """
-        if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
 
