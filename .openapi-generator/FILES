@@ -2,7 +2,7 @@ regula/__init__.py
 regula/documentreader/__init__.py
 regula/documentreader/webclient/gen/__init__.py
 regula/documentreader/webclient/gen/api/__init__.py
-regula/documentreader/webclient/gen/api/default_api.py
+regula/documentreader/webclient/gen/api/healthcheck_api.py
 regula/documentreader/webclient/gen/api/process_api.py
 regula/documentreader/webclient/gen/api/transaction_api.py
 regula/documentreader/webclient/gen/api_client.py
@@ -30,6 +30,7 @@ regula/documentreader/webclient/gen/models/data_module.py
 regula/documentreader/webclient/gen/models/details_optical.py
 regula/documentreader/webclient/gen/models/details_rfid.py
 regula/documentreader/webclient/gen/models/device_info.py
+regula/documentreader/webclient/gen/models/device_info2.py
 regula/documentreader/webclient/gen/models/doc_bar_code_info.py
 regula/documentreader/webclient/gen/models/doc_bar_code_info_all_of.py
 regula/documentreader/webclient/gen/models/doc_bar_code_info_fields_list.py
