@@ -11,7 +11,7 @@ from __future__ import absolute_import
 __version__ = "1.0.0"
 
 # import apis into sdk package
-from regula.documentreader.webclient.gen.api.default_api import DefaultApi
+from regula.documentreader.webclient.gen.api.healthcheck_api import HealthcheckApi
 from regula.documentreader.webclient.gen.api.process_api import ProcessApi
 from regula.documentreader.webclient.gen.api.transaction_api import TransactionApi
 
@@ -48,6 +48,7 @@ from regula.documentreader.webclient.gen.models.data_module import DataModule
 from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical
 from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID
 from regula.documentreader.webclient.gen.models.device_info import DeviceInfo
+from regula.documentreader.webclient.gen.models.device_info2 import DeviceInfo2
 from regula.documentreader.webclient.gen.models.doc_bar_code_info import DocBarCodeInfo
 from regula.documentreader.webclient.gen.models.doc_bar_code_info_all_of import DocBarCodeInfoAllOf
 from regula.documentreader.webclient.gen.models.doc_bar_code_info_fields_list import DocBarCodeInfoFieldsList
