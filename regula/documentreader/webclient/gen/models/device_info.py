@@ -32,91 +32,75 @@ class DeviceInfo(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'app_name': 'str',
-        'version': 'str',
+        'app': 'str',
         'license_id': 'str',
+        'license_type': 'str',
         'license_serial': 'str',
-        'valid_until': 'datetime',
-        'server_time': 'datetime'
+        'license_valid_until': 'datetime',
+        'scenarios': 'list[str]',
+        'version': 'str'
     }
 
     attribute_map = {
-        'app_name': 'app-name',
-        'version': 'version',
-        'license_id': 'license-id',
-        'license_serial': 'license-serial',
-        'valid_until': 'valid-until',
-        'server_time': 'server-time'
+        'app': 'app',
+        'license_id': 'licenseId',
+        'license_type': 'licenseType',
+        'license_serial': 'licenseSerial',
+        'license_valid_until': 'licenseValidUntil',
+        'scenarios': 'scenarios',
+        'version': 'version'
     }
 
-    def __init__(self, app_name=None, version=None, license_id=None, license_serial=None, valid_until=None, server_time=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, app=None, license_id=None, license_type=None, license_serial=None, license_valid_until=None, scenarios=None, version=None, local_vars_configuration=None):  # noqa: E501
         """DeviceInfo - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._app_name = None
-        self._version = None
+        self._app = None
         self._license_id = None
+        self._license_type = None
         self._license_serial = None
-        self._valid_until = None
-        self._server_time = None
+        self._license_valid_until = None
+        self._scenarios = None
+        self._version = None
         self.discriminator = None
 
-        if app_name is not None:
-            self.app_name = app_name
-        if version is not None:
-            self.version = version
+        if app is not None:
+            self.app = app
         if license_id is not None:
             self.license_id = license_id
+        if license_type is not None:
+            self.license_type = license_type
         if license_serial is not None:
             self.license_serial = license_serial
-        if valid_until is not None:
-            self.valid_until = valid_until
-        if server_time is not None:
-            self.server_time = server_time
+        if license_valid_until is not None:
+            self.license_valid_until = license_valid_until
+        if scenarios is not None:
+            self.scenarios = scenarios
+        if version is not None:
+            self.version = version
 
     @property
-    def app_name(self):
-        """Gets the app_name of this DeviceInfo.  # noqa: E501
+    def app(self):
+        """Gets the app of this DeviceInfo.  # noqa: E501
 
 
-        :return: The app_name of this DeviceInfo.  # noqa: E501
+        :return: The app of this DeviceInfo.  # noqa: E501
         :rtype: str
         """
-        return self._app_name
+        return self._app
 
-    @app_name.setter
-    def app_name(self, app_name):
-        """Sets the app_name of this DeviceInfo.
+    @app.setter
+    def app(self, app):
+        """Sets the app of this DeviceInfo.
 
 
-        :param app_name: The app_name of this DeviceInfo.  # noqa: E501
-        :type app_name: str
+        :param app: The app of this DeviceInfo.  # noqa: E501
+        :type app: str
         """
 
-        self._app_name = app_name
-
-    @property
-    def version(self):
-        """Gets the version of this DeviceInfo.  # noqa: E501
-
-
-        :return: The version of this DeviceInfo.  # noqa: E501
-        :rtype: str
-        """
-        return self._version
-
-    @version.setter
-    def version(self, version):
-        """Sets the version of this DeviceInfo.
-
-
-        :param version: The version of this DeviceInfo.  # noqa: E501
-        :type version: str
-        """
-
-        self._version = version
+        self._app = app
 
     @property
     def license_id(self):
@@ -140,6 +124,27 @@ class DeviceInfo(object):
         self._license_id = license_id
 
     @property
+    def license_type(self):
+        """Gets the license_type of this DeviceInfo.  # noqa: E501
+
+
+        :return: The license_type of this DeviceInfo.  # noqa: E501
+        :rtype: str
+        """
+        return self._license_type
+
+    @license_type.setter
+    def license_type(self, license_type):
+        """Sets the license_type of this DeviceInfo.
+
+
+        :param license_type: The license_type of this DeviceInfo.  # noqa: E501
+        :type license_type: str
+        """
+
+        self._license_type = license_type
+
+    @property
     def license_serial(self):
         """Gets the license_serial of this DeviceInfo.  # noqa: E501
 
@@ -161,46 +166,67 @@ class DeviceInfo(object):
         self._license_serial = license_serial
 
     @property
-    def valid_until(self):
-        """Gets the valid_until of this DeviceInfo.  # noqa: E501
+    def license_valid_until(self):
+        """Gets the license_valid_until of this DeviceInfo.  # noqa: E501
 
 
-        :return: The valid_until of this DeviceInfo.  # noqa: E501
+        :return: The license_valid_until of this DeviceInfo.  # noqa: E501
         :rtype: datetime
         """
-        return self._valid_until
+        return self._license_valid_until
 
-    @valid_until.setter
-    def valid_until(self, valid_until):
-        """Sets the valid_until of this DeviceInfo.
+    @license_valid_until.setter
+    def license_valid_until(self, license_valid_until):
+        """Sets the license_valid_until of this DeviceInfo.
 
 
-        :param valid_until: The valid_until of this DeviceInfo.  # noqa: E501
-        :type valid_until: datetime
+        :param license_valid_until: The license_valid_until of this DeviceInfo.  # noqa: E501
+        :type license_valid_until: datetime
         """
 
-        self._valid_until = valid_until
+        self._license_valid_until = license_valid_until
 
     @property
-    def server_time(self):
-        """Gets the server_time of this DeviceInfo.  # noqa: E501
+    def scenarios(self):
+        """Gets the scenarios of this DeviceInfo.  # noqa: E501
 
 
-        :return: The server_time of this DeviceInfo.  # noqa: E501
-        :rtype: datetime
+        :return: The scenarios of this DeviceInfo.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._server_time
+        return self._scenarios
 
-    @server_time.setter
-    def server_time(self, server_time):
-        """Sets the server_time of this DeviceInfo.
+    @scenarios.setter
+    def scenarios(self, scenarios):
+        """Sets the scenarios of this DeviceInfo.
 
 
-        :param server_time: The server_time of this DeviceInfo.  # noqa: E501
-        :type server_time: datetime
+        :param scenarios: The scenarios of this DeviceInfo.  # noqa: E501
+        :type scenarios: list[str]
         """
 
-        self._server_time = server_time
+        self._scenarios = scenarios
+
+    @property
+    def version(self):
+        """Gets the version of this DeviceInfo.  # noqa: E501
+
+
+        :return: The version of this DeviceInfo.  # noqa: E501
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this DeviceInfo.
+
+
+        :param version: The version of this DeviceInfo.  # noqa: E501
+        :type version: str
+        """
+
+        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

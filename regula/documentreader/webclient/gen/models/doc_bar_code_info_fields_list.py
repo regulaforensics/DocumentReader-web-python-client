@@ -51,10 +51,8 @@ class DocBarCodeInfoFieldsList(object):
         self._p_array_fields = None
         self.discriminator = None
 
-        if n_fields is not None:
-            self.n_fields = n_fields
-        if p_array_fields is not None:
-            self.p_array_fields = p_array_fields
+        self.n_fields = n_fields
+        self.p_array_fields = p_array_fields
 
     @property
     def n_fields(self):
@@ -76,6 +74,8 @@ class DocBarCodeInfoFieldsList(object):
         :param n_fields: The n_fields of this DocBarCodeInfoFieldsList.  # noqa: E501
         :type n_fields: int
         """
+        if self.local_vars_configuration.client_side_validation and n_fields is None:  # noqa: E501
+            raise ValueError("Invalid value for `n_fields`, must not be `None`")  # noqa: E501
 
         self._n_fields = n_fields
 
@@ -99,6 +99,8 @@ class DocBarCodeInfoFieldsList(object):
         :param p_array_fields: The p_array_fields of this DocBarCodeInfoFieldsList.  # noqa: E501
         :type p_array_fields: list[PArrayField]
         """
+        if self.local_vars_configuration.client_side_validation and p_array_fields is None:  # noqa: E501
+            raise ValueError("Invalid value for `p_array_fields`, must not be `None`")  # noqa: E501
 
         self._p_array_fields = p_array_fields
 

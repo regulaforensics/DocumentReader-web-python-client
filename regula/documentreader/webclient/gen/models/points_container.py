@@ -53,8 +53,7 @@ class PointsContainer(object):
 
         if point_count is not None:
             self.point_count = point_count
-        if points_list is not None:
-            self.points_list = points_list
+        self.points_list = points_list
 
     @property
     def point_count(self):
@@ -95,6 +94,8 @@ class PointsContainer(object):
         :param points_list: The points_list of this PointsContainer.  # noqa: E501
         :type points_list: list[Point]
         """
+        if self.local_vars_configuration.client_side_validation and points_list is None:  # noqa: E501
+            raise ValueError("Invalid value for `points_list`, must not be `None`")  # noqa: E501
 
         self._points_list = points_list
 

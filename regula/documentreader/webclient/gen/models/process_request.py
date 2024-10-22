@@ -32,6 +32,7 @@ class ProcessRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'lcid_filter': 'list[LCID]',
         'process_param': 'ProcessParams',
         'list': 'list[ProcessRequestImage]',
         'tag': 'str',
@@ -45,6 +46,7 @@ class ProcessRequest(object):
     }
 
     attribute_map = {
+        'lcid_filter': 'lcidFilter',
         'process_param': 'processParam',
         'list': 'List',
         'tag': 'tag',
@@ -57,12 +59,13 @@ class ProcessRequest(object):
         'pass_back_object': 'passBackObject'
     }
 
-    def __init__(self, process_param=None, list=None, tag=None, tenant=None, env=None, live_portrait=None, ext_portrait=None, container_list=None, system_info=None, pass_back_object=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, lcid_filter=None, process_param=None, list=None, tag=None, tenant=None, env=None, live_portrait=None, ext_portrait=None, container_list=None, system_info=None, pass_back_object=None, local_vars_configuration=None):  # noqa: E501
         """ProcessRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._lcid_filter = None
         self._process_param = None
         self._list = None
         self._tag = None
@@ -75,6 +78,8 @@ class ProcessRequest(object):
         self._pass_back_object = None
         self.discriminator = None
 
+        if lcid_filter is not None:
+            self.lcid_filter = lcid_filter
         self.process_param = process_param
         if list is not None:
             self.list = list
@@ -94,6 +99,29 @@ class ProcessRequest(object):
             self.system_info = system_info
         if pass_back_object is not None:
             self.pass_back_object = pass_back_object
+
+    @property
+    def lcid_filter(self):
+        """Gets the lcid_filter of this ProcessRequest.  # noqa: E501
+
+        The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default.  # noqa: E501
+
+        :return: The lcid_filter of this ProcessRequest.  # noqa: E501
+        :rtype: list[LCID]
+        """
+        return self._lcid_filter
+
+    @lcid_filter.setter
+    def lcid_filter(self, lcid_filter):
+        """Sets the lcid_filter of this ProcessRequest.
+
+        The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default.  # noqa: E501
+
+        :param lcid_filter: The lcid_filter of this ProcessRequest.  # noqa: E501
+        :type lcid_filter: list[LCID]
+        """
+
+        self._lcid_filter = lcid_filter
 
     @property
     def process_param(self):

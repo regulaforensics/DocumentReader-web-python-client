@@ -32,23 +32,52 @@ class DocVisualExtendedInfo(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'p_array_fields': 'list[DocVisualExtendedField]'
+        'n_fields': 'float',
+        'p_array_fields': 'list[AnyOfDocVisualExtendedFieldRectDocVisualExtendedFieldRfid]'
     }
 
     attribute_map = {
+        'n_fields': 'nFields',
         'p_array_fields': 'pArrayFields'
     }
 
-    def __init__(self, p_array_fields=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, n_fields=None, p_array_fields=None, local_vars_configuration=None):  # noqa: E501
         """DocVisualExtendedInfo - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._n_fields = None
         self._p_array_fields = None
         self.discriminator = None
 
+        self.n_fields = n_fields
         self.p_array_fields = p_array_fields
+
+    @property
+    def n_fields(self):
+        """Gets the n_fields of this DocVisualExtendedInfo.  # noqa: E501
+
+        Number of pArrayFields array elements  # noqa: E501
+
+        :return: The n_fields of this DocVisualExtendedInfo.  # noqa: E501
+        :rtype: float
+        """
+        return self._n_fields
+
+    @n_fields.setter
+    def n_fields(self, n_fields):
+        """Sets the n_fields of this DocVisualExtendedInfo.
+
+        Number of pArrayFields array elements  # noqa: E501
+
+        :param n_fields: The n_fields of this DocVisualExtendedInfo.  # noqa: E501
+        :type n_fields: float
+        """
+        if self.local_vars_configuration.client_side_validation and n_fields is None:  # noqa: E501
+            raise ValueError("Invalid value for `n_fields`, must not be `None`")  # noqa: E501
+
+        self._n_fields = n_fields
 
     @property
     def p_array_fields(self):
@@ -56,7 +85,7 @@ class DocVisualExtendedInfo(object):
 
 
         :return: The p_array_fields of this DocVisualExtendedInfo.  # noqa: E501
-        :rtype: list[DocVisualExtendedField]
+        :rtype: list[AnyOfDocVisualExtendedFieldRectDocVisualExtendedFieldRfid]
         """
         return self._p_array_fields
 
@@ -66,7 +95,7 @@ class DocVisualExtendedInfo(object):
 
 
         :param p_array_fields: The p_array_fields of this DocVisualExtendedInfo.  # noqa: E501
-        :type p_array_fields: list[DocVisualExtendedField]
+        :type p_array_fields: list[AnyOfDocVisualExtendedFieldRectDocVisualExtendedFieldRfid]
         """
         if self.local_vars_configuration.client_side_validation and p_array_fields is None:  # noqa: E501
             raise ValueError("Invalid value for `p_array_fields`, must not be `None`")  # noqa: E501
