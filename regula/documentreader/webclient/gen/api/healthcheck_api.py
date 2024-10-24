@@ -54,7 +54,7 @@ class HealthcheckApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: DeviceInfo2
+        :rtype: DeviceInfo
         """
         kwargs['_return_http_data_only'] = True
         return self.healthz_with_http_info(**kwargs)  # noqa: E501
@@ -90,7 +90,7 @@ class HealthcheckApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(DeviceInfo2, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(DeviceInfo, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -139,7 +139,7 @@ class HealthcheckApi(object):
         auth_settings = []  # noqa: E501
         
         response_types_map = {
-            200: "DeviceInfo2",
+            200: "DeviceInfo",
         }
 
         return self.api_client.call_api(
@@ -183,7 +183,7 @@ class HealthcheckApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: DeviceInfo
+        :rtype: DeviceInfoDeprecated
         """
         kwargs['_return_http_data_only'] = True
         return self.ping_with_http_info(**kwargs)  # noqa: E501
@@ -219,7 +219,7 @@ class HealthcheckApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(DeviceInfo, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(DeviceInfoDeprecated, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -268,7 +268,7 @@ class HealthcheckApi(object):
         auth_settings = []  # noqa: E501
         
         response_types_map = {
-            200: "DeviceInfo",
+            200: "DeviceInfoDeprecated",
         }
 
         return self.api_client.call_api(

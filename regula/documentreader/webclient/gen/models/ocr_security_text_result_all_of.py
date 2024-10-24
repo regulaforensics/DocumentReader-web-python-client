@@ -38,6 +38,7 @@ class OCRSecurityTextResultAllOf(object):
         'etalon_result_type': 'int',
         'etalon_field_type': 'int',
         'etalon_light_type': 'int',
+        'etalon_field_rect': 'RectangleCoordinates',
         'security_text_result_ocr': 'str',
         'etalon_result_ocr': 'str',
         'reserved1': 'int',
@@ -51,13 +52,14 @@ class OCRSecurityTextResultAllOf(object):
         'etalon_result_type': 'EtalonResultType',
         'etalon_field_type': 'EtalonFieldType',
         'etalon_light_type': 'EtalonLightType',
+        'etalon_field_rect': 'EtalonFieldRect',
         'security_text_result_ocr': 'SecurityTextResultOCR',
         'etalon_result_ocr': 'EtalonResultOCR',
         'reserved1': 'Reserved1',
         'reserved2': 'Reserved2'
     }
 
-    def __init__(self, critical_flag=None, light_type=None, field_rect=None, etalon_result_type=None, etalon_field_type=None, etalon_light_type=None, security_text_result_ocr=None, etalon_result_ocr=None, reserved1=None, reserved2=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, critical_flag=None, light_type=None, field_rect=None, etalon_result_type=None, etalon_field_type=None, etalon_light_type=None, etalon_field_rect=None, security_text_result_ocr=None, etalon_result_ocr=None, reserved1=None, reserved2=None, local_vars_configuration=None):  # noqa: E501
         """OCRSecurityTextResultAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,28 +71,22 @@ class OCRSecurityTextResultAllOf(object):
         self._etalon_result_type = None
         self._etalon_field_type = None
         self._etalon_light_type = None
+        self._etalon_field_rect = None
         self._security_text_result_ocr = None
         self._etalon_result_ocr = None
         self._reserved1 = None
         self._reserved2 = None
         self.discriminator = None
 
-        if critical_flag is not None:
-            self.critical_flag = critical_flag
-        if light_type is not None:
-            self.light_type = light_type
-        if field_rect is not None:
-            self.field_rect = field_rect
-        if etalon_result_type is not None:
-            self.etalon_result_type = etalon_result_type
-        if etalon_field_type is not None:
-            self.etalon_field_type = etalon_field_type
-        if etalon_light_type is not None:
-            self.etalon_light_type = etalon_light_type
-        if security_text_result_ocr is not None:
-            self.security_text_result_ocr = security_text_result_ocr
-        if etalon_result_ocr is not None:
-            self.etalon_result_ocr = etalon_result_ocr
+        self.critical_flag = critical_flag
+        self.light_type = light_type
+        self.field_rect = field_rect
+        self.etalon_result_type = etalon_result_type
+        self.etalon_field_type = etalon_field_type
+        self.etalon_light_type = etalon_light_type
+        self.etalon_field_rect = etalon_field_rect
+        self.security_text_result_ocr = security_text_result_ocr
+        self.etalon_result_ocr = etalon_result_ocr
         if reserved1 is not None:
             self.reserved1 = reserved1
         if reserved2 is not None:
@@ -114,6 +110,8 @@ class OCRSecurityTextResultAllOf(object):
         :param critical_flag: The critical_flag of this OCRSecurityTextResultAllOf.  # noqa: E501
         :type critical_flag: Critical
         """
+        if self.local_vars_configuration.client_side_validation and critical_flag is None:  # noqa: E501
+            raise ValueError("Invalid value for `critical_flag`, must not be `None`")  # noqa: E501
 
         self._critical_flag = critical_flag
 
@@ -135,6 +133,8 @@ class OCRSecurityTextResultAllOf(object):
         :param light_type: The light_type of this OCRSecurityTextResultAllOf.  # noqa: E501
         :type light_type: Light
         """
+        if self.local_vars_configuration.client_side_validation and light_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `light_type`, must not be `None`")  # noqa: E501
 
         self._light_type = light_type
 
@@ -156,6 +156,8 @@ class OCRSecurityTextResultAllOf(object):
         :param field_rect: The field_rect of this OCRSecurityTextResultAllOf.  # noqa: E501
         :type field_rect: RectangleCoordinates
         """
+        if self.local_vars_configuration.client_side_validation and field_rect is None:  # noqa: E501
+            raise ValueError("Invalid value for `field_rect`, must not be `None`")  # noqa: E501
 
         self._field_rect = field_rect
 
@@ -177,6 +179,8 @@ class OCRSecurityTextResultAllOf(object):
         :param etalon_result_type: The etalon_result_type of this OCRSecurityTextResultAllOf.  # noqa: E501
         :type etalon_result_type: int
         """
+        if self.local_vars_configuration.client_side_validation and etalon_result_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `etalon_result_type`, must not be `None`")  # noqa: E501
 
         self._etalon_result_type = etalon_result_type
 
@@ -198,6 +202,8 @@ class OCRSecurityTextResultAllOf(object):
         :param etalon_field_type: The etalon_field_type of this OCRSecurityTextResultAllOf.  # noqa: E501
         :type etalon_field_type: int
         """
+        if self.local_vars_configuration.client_side_validation and etalon_field_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `etalon_field_type`, must not be `None`")  # noqa: E501
 
         self._etalon_field_type = etalon_field_type
 
@@ -219,8 +225,33 @@ class OCRSecurityTextResultAllOf(object):
         :param etalon_light_type: The etalon_light_type of this OCRSecurityTextResultAllOf.  # noqa: E501
         :type etalon_light_type: int
         """
+        if self.local_vars_configuration.client_side_validation and etalon_light_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `etalon_light_type`, must not be `None`")  # noqa: E501
 
         self._etalon_light_type = etalon_light_type
+
+    @property
+    def etalon_field_rect(self):
+        """Gets the etalon_field_rect of this OCRSecurityTextResultAllOf.  # noqa: E501
+
+
+        :return: The etalon_field_rect of this OCRSecurityTextResultAllOf.  # noqa: E501
+        :rtype: RectangleCoordinates
+        """
+        return self._etalon_field_rect
+
+    @etalon_field_rect.setter
+    def etalon_field_rect(self, etalon_field_rect):
+        """Sets the etalon_field_rect of this OCRSecurityTextResultAllOf.
+
+
+        :param etalon_field_rect: The etalon_field_rect of this OCRSecurityTextResultAllOf.  # noqa: E501
+        :type etalon_field_rect: RectangleCoordinates
+        """
+        if self.local_vars_configuration.client_side_validation and etalon_field_rect is None:  # noqa: E501
+            raise ValueError("Invalid value for `etalon_field_rect`, must not be `None`")  # noqa: E501
+
+        self._etalon_field_rect = etalon_field_rect
 
     @property
     def security_text_result_ocr(self):
@@ -240,6 +271,8 @@ class OCRSecurityTextResultAllOf(object):
         :param security_text_result_ocr: The security_text_result_ocr of this OCRSecurityTextResultAllOf.  # noqa: E501
         :type security_text_result_ocr: str
         """
+        if self.local_vars_configuration.client_side_validation and security_text_result_ocr is None:  # noqa: E501
+            raise ValueError("Invalid value for `security_text_result_ocr`, must not be `None`")  # noqa: E501
 
         self._security_text_result_ocr = security_text_result_ocr
 
@@ -261,6 +294,8 @@ class OCRSecurityTextResultAllOf(object):
         :param etalon_result_ocr: The etalon_result_ocr of this OCRSecurityTextResultAllOf.  # noqa: E501
         :type etalon_result_ocr: str
         """
+        if self.local_vars_configuration.client_side_validation and etalon_result_ocr is None:  # noqa: E501
+            raise ValueError("Invalid value for `etalon_result_ocr`, must not be `None`")  # noqa: E501
 
         self._etalon_result_ocr = etalon_result_ocr
 
