@@ -92,8 +92,6 @@ class DocumentPositionResult(object):
         :param document_position: The document_position of this DocumentPositionResult.  # noqa: E501
         :type document_position: DocumentPosition
         """
-        if self.local_vars_configuration.client_side_validation and document_position is None:  # noqa: E501
-            raise ValueError("Invalid value for `document_position`, must not be `None`")  # noqa: E501
 
         self._document_position = document_position
 
@@ -201,8 +199,6 @@ class DocumentPositionResult(object):
         :param result_type: The result_type of this DocumentPositionResult.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
 

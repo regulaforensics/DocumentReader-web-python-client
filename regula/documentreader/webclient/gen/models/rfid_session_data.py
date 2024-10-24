@@ -222,8 +222,6 @@ class RfidSessionData(object):
         :param applications: The applications of this RfidSessionData.  # noqa: E501
         :type applications: list[RfidApplication]
         """
-        if self.local_vars_configuration.client_side_validation and applications is None:  # noqa: E501
-            raise ValueError("Invalid value for `applications`, must not be `None`")  # noqa: E501
 
         self._applications = applications
 
@@ -247,8 +245,6 @@ class RfidSessionData(object):
         :param access_controls: The access_controls of this RfidSessionData.  # noqa: E501
         :type access_controls: list[RfidAccessControlInfo]
         """
-        if self.local_vars_configuration.client_side_validation and access_controls is None:  # noqa: E501
-            raise ValueError("Invalid value for `access_controls`, must not be `None`")  # noqa: E501
 
         self._access_controls = access_controls
 
@@ -270,8 +266,6 @@ class RfidSessionData(object):
         :param card_properties: The card_properties of this RfidSessionData.  # noqa: E501
         :type card_properties: RfidCardPropertiesExt
         """
-        if self.local_vars_configuration.client_side_validation and card_properties is None:  # noqa: E501
-            raise ValueError("Invalid value for `card_properties`, must not be `None`")  # noqa: E501
 
         self._card_properties = card_properties
 
@@ -293,8 +287,6 @@ class RfidSessionData(object):
         :param ext_le_support: The ext_le_support of this RfidSessionData.  # noqa: E501
         :type ext_le_support: RFIDErrorCodes
         """
-        if self.local_vars_configuration.client_side_validation and ext_le_support is None:  # noqa: E501
-            raise ValueError("Invalid value for `ext_le_support`, must not be `None`")  # noqa: E501
 
         self._ext_le_support = ext_le_support
 
@@ -318,8 +310,6 @@ class RfidSessionData(object):
         :param process_time: The process_time of this RfidSessionData.  # noqa: E501
         :type process_time: float
         """
-        if self.local_vars_configuration.client_side_validation and process_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `process_time`, must not be `None`")  # noqa: E501
 
         self._process_time = process_time
 
@@ -343,8 +333,6 @@ class RfidSessionData(object):
         :param root_files: The root_files of this RfidSessionData.  # noqa: E501
         :type root_files: list[object]
         """
-        if self.local_vars_configuration.client_side_validation and root_files is None:  # noqa: E501
-            raise ValueError("Invalid value for `root_files`, must not be `None`")  # noqa: E501
 
         self._root_files = root_files
 
@@ -368,8 +356,6 @@ class RfidSessionData(object):
         :param total_bytes_sent: The total_bytes_sent of this RfidSessionData.  # noqa: E501
         :type total_bytes_sent: float
         """
-        if self.local_vars_configuration.client_side_validation and total_bytes_sent is None:  # noqa: E501
-            raise ValueError("Invalid value for `total_bytes_sent`, must not be `None`")  # noqa: E501
 
         self._total_bytes_sent = total_bytes_sent
 
@@ -393,8 +379,6 @@ class RfidSessionData(object):
         :param total_bytes_received: The total_bytes_received of this RfidSessionData.  # noqa: E501
         :type total_bytes_received: float
         """
-        if self.local_vars_configuration.client_side_validation and total_bytes_received is None:  # noqa: E501
-            raise ValueError("Invalid value for `total_bytes_received`, must not be `None`")  # noqa: E501
 
         self._total_bytes_received = total_bytes_received
 
@@ -416,8 +400,6 @@ class RfidSessionData(object):
         :param session_key: The session_key of this RfidSessionData.  # noqa: E501
         :type session_key: RfidAccessKey
         """
-        if self.local_vars_configuration.client_side_validation and session_key is None:  # noqa: E501
-            raise ValueError("Invalid value for `session_key`, must not be `None`")  # noqa: E501
 
         self._session_key = session_key
 
@@ -439,8 +421,6 @@ class RfidSessionData(object):
         :param session_terminal: The session_terminal of this RfidSessionData.  # noqa: E501
         :type session_terminal: RfidTerminal
         """
-        if self.local_vars_configuration.client_side_validation and session_terminal is None:  # noqa: E501
-            raise ValueError("Invalid value for `session_terminal`, must not be `None`")  # noqa: E501
 
         self._session_terminal = session_terminal
 
@@ -462,8 +442,6 @@ class RfidSessionData(object):
         :param session_procedure: The session_procedure of this RfidSessionData.  # noqa: E501
         :type session_procedure: RfidAuthenticationProcedureType
         """
-        if self.local_vars_configuration.client_side_validation and session_procedure is None:  # noqa: E501
-            raise ValueError("Invalid value for `session_procedure`, must not be `None`")  # noqa: E501
 
         self._session_procedure = session_procedure
 
@@ -487,8 +465,6 @@ class RfidSessionData(object):
         :param security_objects: The security_objects of this RfidSessionData.  # noqa: E501
         :type security_objects: list[RfidSecurityObject]
         """
-        if self.local_vars_configuration.client_side_validation and security_objects is None:  # noqa: E501
-            raise ValueError("Invalid value for `security_objects`, must not be `None`")  # noqa: E501
 
         self._security_objects = security_objects
 

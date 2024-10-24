@@ -105,8 +105,6 @@ class ImagesFieldValue(object):
         :param source: The source of this ImagesFieldValue.  # noqa: E501
         :type source: Source
         """
-        if self.local_vars_configuration.client_side_validation and source is None:  # noqa: E501
-            raise ValueError("Invalid value for `source`, must not be `None`")  # noqa: E501
 
         self._source = source
 
@@ -199,8 +197,6 @@ class ImagesFieldValue(object):
         :param page_index: The page_index of this ImagesFieldValue.  # noqa: E501
         :type page_index: int
         """
-        if self.local_vars_configuration.client_side_validation and page_index is None:  # noqa: E501
-            raise ValueError("Invalid value for `page_index`, must not be `None`")  # noqa: E501
 
         self._page_index = page_index
 
@@ -222,8 +218,6 @@ class ImagesFieldValue(object):
         :param light_index: The light_index of this ImagesFieldValue.  # noqa: E501
         :type light_index: Light
         """
-        if self.local_vars_configuration.client_side_validation and light_index is None:  # noqa: E501
-            raise ValueError("Invalid value for `light_index`, must not be `None`")  # noqa: E501
 
         self._light_index = light_index
 
@@ -247,8 +241,6 @@ class ImagesFieldValue(object):
         :param container_type: The container_type of this ImagesFieldValue.  # noqa: E501
         :type container_type: int
         """
-        if self.local_vars_configuration.client_side_validation and container_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `container_type`, must not be `None`")  # noqa: E501
 
         self._container_type = container_type
 

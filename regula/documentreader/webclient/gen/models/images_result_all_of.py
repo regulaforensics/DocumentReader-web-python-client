@@ -68,8 +68,6 @@ class ImagesResultAllOf(object):
         :param images: The images of this ImagesResultAllOf.  # noqa: E501
         :type images: Images
         """
-        if self.local_vars_configuration.client_side_validation and images is None:  # noqa: E501
-            raise ValueError("Invalid value for `images`, must not be `None`")  # noqa: E501
 
         self._images = images
 

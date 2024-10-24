@@ -103,8 +103,6 @@ class ProcessResponse(object):
         :param chip_page: The chip_page of this ProcessResponse.  # noqa: E501
         :type chip_page: RfidLocation
         """
-        if self.local_vars_configuration.client_side_validation and chip_page is None:  # noqa: E501
-            raise ValueError("Invalid value for `chip_page`, must not be `None`")  # noqa: E501
 
         self._chip_page = chip_page
 
@@ -126,8 +124,6 @@ class ProcessResponse(object):
         :param processing_finished: The processing_finished of this ProcessResponse.  # noqa: E501
         :type processing_finished: ProcessingStatus
         """
-        if self.local_vars_configuration.client_side_validation and processing_finished is None:  # noqa: E501
-            raise ValueError("Invalid value for `processing_finished`, must not be `None`")  # noqa: E501
 
         self._processing_finished = processing_finished
 
@@ -149,8 +145,6 @@ class ProcessResponse(object):
         :param container_list: The container_list of this ProcessResponse.  # noqa: E501
         :type container_list: ContainerList
         """
-        if self.local_vars_configuration.client_side_validation and container_list is None:  # noqa: E501
-            raise ValueError("Invalid value for `container_list`, must not be `None`")  # noqa: E501
 
         self._container_list = container_list
 
@@ -172,8 +166,6 @@ class ProcessResponse(object):
         :param transaction_info: The transaction_info of this ProcessResponse.  # noqa: E501
         :type transaction_info: TransactionInfo
         """
-        if self.local_vars_configuration.client_side_validation and transaction_info is None:  # noqa: E501
-            raise ValueError("Invalid value for `transaction_info`, must not be `None`")  # noqa: E501
 
         self._transaction_info = transaction_info
 
@@ -241,8 +233,6 @@ class ProcessResponse(object):
         :param more_pages_available: The more_pages_available of this ProcessResponse.  # noqa: E501
         :type more_pages_available: int
         """
-        if self.local_vars_configuration.client_side_validation and more_pages_available is None:  # noqa: E501
-            raise ValueError("Invalid value for `more_pages_available`, must not be `None`")  # noqa: E501
 
         self._more_pages_available = more_pages_available
 
@@ -266,8 +256,6 @@ class ProcessResponse(object):
         :param elapsed_time: The elapsed_time of this ProcessResponse.  # noqa: E501
         :type elapsed_time: int
         """
-        if self.local_vars_configuration.client_side_validation and elapsed_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `elapsed_time`, must not be `None`")  # noqa: E501
 
         self._elapsed_time = elapsed_time
 

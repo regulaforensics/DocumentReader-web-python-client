@@ -82,8 +82,6 @@ class RfidOrigin(object):
         :param dg: The dg of this RfidOrigin.  # noqa: E501
         :type dg: int
         """
-        if self.local_vars_configuration.client_side_validation and dg is None:  # noqa: E501
-            raise ValueError("Invalid value for `dg`, must not be `None`")  # noqa: E501
 
         self._dg = dg
 
@@ -107,8 +105,6 @@ class RfidOrigin(object):
         :param dg_tag: The dg_tag of this RfidOrigin.  # noqa: E501
         :type dg_tag: int
         """
-        if self.local_vars_configuration.client_side_validation and dg_tag is None:  # noqa: E501
-            raise ValueError("Invalid value for `dg_tag`, must not be `None`")  # noqa: E501
 
         self._dg_tag = dg_tag
 
@@ -132,8 +128,6 @@ class RfidOrigin(object):
         :param tag_entry: The tag_entry of this RfidOrigin.  # noqa: E501
         :type tag_entry: int
         """
-        if self.local_vars_configuration.client_side_validation and tag_entry is None:  # noqa: E501
-            raise ValueError("Invalid value for `tag_entry`, must not be `None`")  # noqa: E501
 
         self._tag_entry = tag_entry
 
@@ -157,8 +151,6 @@ class RfidOrigin(object):
         :param entry_view: The entry_view of this RfidOrigin.  # noqa: E501
         :type entry_view: int
         """
-        if self.local_vars_configuration.client_side_validation and entry_view is None:  # noqa: E501
-            raise ValueError("Invalid value for `entry_view`, must not be `None`")  # noqa: E501
 
         self._entry_view = entry_view
 

@@ -78,8 +78,6 @@ class RfidDistinguishedName(object):
         :param data: The data of this RfidDistinguishedName.  # noqa: E501
         :type data: str
         """
-        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
-            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 
@@ -101,8 +99,6 @@ class RfidDistinguishedName(object):
         :param friendly_name: The friendly_name of this RfidDistinguishedName.  # noqa: E501
         :type friendly_name: TrfFtString
         """
-        if self.local_vars_configuration.client_side_validation and friendly_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `friendly_name`, must not be `None`")  # noqa: E501
 
         self._friendly_name = friendly_name
 
@@ -126,8 +122,6 @@ class RfidDistinguishedName(object):
         :param attributes: The attributes of this RfidDistinguishedName.  # noqa: E501
         :type attributes: list[RfidAttributeName]
         """
-        if self.local_vars_configuration.client_side_validation and attributes is None:  # noqa: E501
-            raise ValueError("Invalid value for `attributes`, must not be `None`")  # noqa: E501
 
         self._attributes = attributes
 

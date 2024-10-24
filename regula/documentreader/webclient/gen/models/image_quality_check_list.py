@@ -76,8 +76,6 @@ class ImageQualityCheckList(object):
         :param result: The result of this ImageQualityCheckList.  # noqa: E501
         :type result: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and result is None:  # noqa: E501
-            raise ValueError("Invalid value for `result`, must not be `None`")  # noqa: E501
 
         self._result = result
 
@@ -99,8 +97,6 @@ class ImageQualityCheckList(object):
         :param list: The list of this ImageQualityCheckList.  # noqa: E501
         :type list: list[ImageQualityCheck]
         """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
 
         self._list = list
 
@@ -124,8 +120,6 @@ class ImageQualityCheckList(object):
         :param count: The count of this ImageQualityCheckList.  # noqa: E501
         :type count: float
         """
-        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
-            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 

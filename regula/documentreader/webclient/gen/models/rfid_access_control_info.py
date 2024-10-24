@@ -86,8 +86,6 @@ class RfidAccessControlInfo(object):
         :param type: The type of this RfidAccessControlInfo.  # noqa: E501
         :type type: RfidAccessControlProcedureType
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -109,8 +107,6 @@ class RfidAccessControlInfo(object):
         :param status: The status of this RfidAccessControlInfo.  # noqa: E501
         :type status: RFIDErrorCodes
         """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 
@@ -157,8 +153,6 @@ class RfidAccessControlInfo(object):
         :param notifications: The notifications of this RfidAccessControlInfo.  # noqa: E501
         :type notifications: list[ParsingErrorCodes]
         """
-        if self.local_vars_configuration.client_side_validation and notifications is None:  # noqa: E501
-            raise ValueError("Invalid value for `notifications`, must not be `None`")  # noqa: E501
 
         self._notifications = notifications
 

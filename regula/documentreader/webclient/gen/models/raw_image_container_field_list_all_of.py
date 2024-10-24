@@ -70,8 +70,6 @@ class RawImageContainerFieldListAllOf(object):
         :param format: The format of this RawImageContainerFieldListAllOf.  # noqa: E501
         :type format: str
         """
-        if self.local_vars_configuration.client_side_validation and format is None:  # noqa: E501
-            raise ValueError("Invalid value for `format`, must not be `None`")  # noqa: E501
 
         self._format = format
 

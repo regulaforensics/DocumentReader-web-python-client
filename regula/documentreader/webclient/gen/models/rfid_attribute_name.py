@@ -74,8 +74,6 @@ class RfidAttributeName(object):
         :param type: The type of this RfidAttributeName.  # noqa: E501
         :type type: str
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -97,8 +95,6 @@ class RfidAttributeName(object):
         :param value: The value of this RfidAttributeName.  # noqa: E501
         :type value: TrfFtString
         """
-        if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
 

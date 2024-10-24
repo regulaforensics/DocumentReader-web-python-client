@@ -82,8 +82,6 @@ class RfidAccessKey(object):
         :param access_key: The access_key of this RfidAccessKey.  # noqa: E501
         :type access_key: str
         """
-        if self.local_vars_configuration.client_side_validation and access_key is None:  # noqa: E501
-            raise ValueError("Invalid value for `access_key`, must not be `None`")  # noqa: E501
 
         self._access_key = access_key
 
@@ -105,8 +103,6 @@ class RfidAccessKey(object):
         :param key_type: The key_type of this RfidAccessKey.  # noqa: E501
         :type key_type: RfidPasswordType
         """
-        if self.local_vars_configuration.client_side_validation and key_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `key_type`, must not be `None`")  # noqa: E501
 
         self._key_type = key_type
 
@@ -128,8 +124,6 @@ class RfidAccessKey(object):
         :param access_type: The access_type of this RfidAccessKey.  # noqa: E501
         :type access_type: RfidAccessControlProcedureType
         """
-        if self.local_vars_configuration.client_side_validation and access_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `access_type`, must not be `None`")  # noqa: E501
 
         self._access_type = access_type
 
@@ -153,8 +147,6 @@ class RfidAccessKey(object):
         :param check_full_key_matching: The check_full_key_matching of this RfidAccessKey.  # noqa: E501
         :type check_full_key_matching: bool
         """
-        if self.local_vars_configuration.client_side_validation and check_full_key_matching is None:  # noqa: E501
-            raise ValueError("Invalid value for `check_full_key_matching`, must not be `None`")  # noqa: E501
 
         self._check_full_key_matching = check_full_key_matching
 

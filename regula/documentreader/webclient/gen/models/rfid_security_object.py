@@ -86,8 +86,6 @@ class RfidSecurityObject(object):
         :param version: The version of this RfidSecurityObject.  # noqa: E501
         :type version: float
         """
-        if self.local_vars_configuration.client_side_validation and version is None:  # noqa: E501
-            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
 
         self._version = version
 
@@ -111,8 +109,6 @@ class RfidSecurityObject(object):
         :param object_type: The object_type of this RfidSecurityObject.  # noqa: E501
         :type object_type: str
         """
-        if self.local_vars_configuration.client_side_validation and object_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `object_type`, must not be `None`")  # noqa: E501
 
         self._object_type = object_type
 
@@ -136,8 +132,6 @@ class RfidSecurityObject(object):
         :param file_reference: The file_reference of this RfidSecurityObject.  # noqa: E501
         :type file_reference: float
         """
-        if self.local_vars_configuration.client_side_validation and file_reference is None:  # noqa: E501
-            raise ValueError("Invalid value for `file_reference`, must not be `None`")  # noqa: E501
 
         self._file_reference = file_reference
 
@@ -161,8 +155,6 @@ class RfidSecurityObject(object):
         :param notifications: The notifications of this RfidSecurityObject.  # noqa: E501
         :type notifications: list[ParsingErrorCodes]
         """
-        if self.local_vars_configuration.client_side_validation and notifications is None:  # noqa: E501
-            raise ValueError("Invalid value for `notifications`, must not be `None`")  # noqa: E501
 
         self._notifications = notifications
 
@@ -186,8 +178,6 @@ class RfidSecurityObject(object):
         :param signer_infos: The signer_infos of this RfidSecurityObject.  # noqa: E501
         :type signer_infos: list[RfidSignerInfoEx]
         """
-        if self.local_vars_configuration.client_side_validation and signer_infos is None:  # noqa: E501
-            raise ValueError("Invalid value for `signer_infos`, must not be `None`")  # noqa: E501
 
         self._signer_infos = signer_infos
 

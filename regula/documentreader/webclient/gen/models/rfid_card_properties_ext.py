@@ -120,8 +120,6 @@ class RfidCardPropertiesExt(object):
         :param rfid_type: The rfid_type of this RfidCardPropertiesExt.  # noqa: E501
         :type rfid_type: RfidType
         """
-        if self.local_vars_configuration.client_side_validation and rfid_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `rfid_type`, must not be `None`")  # noqa: E501
 
         self._rfid_type = rfid_type
 
@@ -145,8 +143,6 @@ class RfidCardPropertiesExt(object):
         :param baudrate1: The baudrate1 of this RfidCardPropertiesExt.  # noqa: E501
         :type baudrate1: str
         """
-        if self.local_vars_configuration.client_side_validation and baudrate1 is None:  # noqa: E501
-            raise ValueError("Invalid value for `baudrate1`, must not be `None`")  # noqa: E501
 
         self._baudrate1 = baudrate1
 
@@ -170,8 +166,6 @@ class RfidCardPropertiesExt(object):
         :param baudrate2: The baudrate2 of this RfidCardPropertiesExt.  # noqa: E501
         :type baudrate2: str
         """
-        if self.local_vars_configuration.client_side_validation and baudrate2 is None:  # noqa: E501
-            raise ValueError("Invalid value for `baudrate2`, must not be `None`")  # noqa: E501
 
         self._baudrate2 = baudrate2
 
@@ -195,8 +189,6 @@ class RfidCardPropertiesExt(object):
         :param support_4: The support_4 of this RfidCardPropertiesExt.  # noqa: E501
         :type support_4: bool
         """
-        if self.local_vars_configuration.client_side_validation and support_4 is None:  # noqa: E501
-            raise ValueError("Invalid value for `support_4`, must not be `None`")  # noqa: E501
 
         self._support_4 = support_4
 
@@ -218,8 +210,6 @@ class RfidCardPropertiesExt(object):
         :param chip_type_a: The chip_type_a of this RfidCardPropertiesExt.  # noqa: E501
         :type chip_type_a: RfidAChip
         """
-        if self.local_vars_configuration.client_side_validation and chip_type_a is None:  # noqa: E501
-            raise ValueError("Invalid value for `chip_type_a`, must not be `None`")  # noqa: E501
 
         self._chip_type_a = chip_type_a
 
@@ -243,8 +233,6 @@ class RfidCardPropertiesExt(object):
         :param support_mifare: The support_mifare of this RfidCardPropertiesExt.  # noqa: E501
         :type support_mifare: bool
         """
-        if self.local_vars_configuration.client_side_validation and support_mifare is None:  # noqa: E501
-            raise ValueError("Invalid value for `support_mifare`, must not be `None`")  # noqa: E501
 
         self._support_mifare = support_mifare
 
@@ -268,8 +256,6 @@ class RfidCardPropertiesExt(object):
         :param mifare_memory: The mifare_memory of this RfidCardPropertiesExt.  # noqa: E501
         :type mifare_memory: float
         """
-        if self.local_vars_configuration.client_side_validation and mifare_memory is None:  # noqa: E501
-            raise ValueError("Invalid value for `mifare_memory`, must not be `None`")  # noqa: E501
 
         self._mifare_memory = mifare_memory
 
@@ -293,8 +279,6 @@ class RfidCardPropertiesExt(object):
         :param uid: The uid of this RfidCardPropertiesExt.  # noqa: E501
         :type uid: str
         """
-        if self.local_vars_configuration.client_side_validation and uid is None:  # noqa: E501
-            raise ValueError("Invalid value for `uid`, must not be `None`")  # noqa: E501
 
         self._uid = uid
 
@@ -385,8 +369,6 @@ class RfidCardPropertiesExt(object):
         :param bit_rate_s: The bit_rate_s of this RfidCardPropertiesExt.  # noqa: E501
         :type bit_rate_s: RfidBaudRate
         """
-        if self.local_vars_configuration.client_side_validation and bit_rate_s is None:  # noqa: E501
-            raise ValueError("Invalid value for `bit_rate_s`, must not be `None`")  # noqa: E501
 
         self._bit_rate_s = bit_rate_s
 
@@ -408,8 +390,6 @@ class RfidCardPropertiesExt(object):
         :param bit_rate_r: The bit_rate_r of this RfidCardPropertiesExt.  # noqa: E501
         :type bit_rate_r: RfidBaudRate
         """
-        if self.local_vars_configuration.client_side_validation and bit_rate_r is None:  # noqa: E501
-            raise ValueError("Invalid value for `bit_rate_r`, must not be `None`")  # noqa: E501
 
         self._bit_rate_r = bit_rate_r
 
@@ -433,8 +413,6 @@ class RfidCardPropertiesExt(object):
         :param atr: The atr of this RfidCardPropertiesExt.  # noqa: E501
         :type atr: str
         """
-        if self.local_vars_configuration.client_side_validation and atr is None:  # noqa: E501
-            raise ValueError("Invalid value for `atr`, must not be `None`")  # noqa: E501
 
         self._atr = atr
 

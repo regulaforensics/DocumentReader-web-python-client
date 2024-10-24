@@ -80,8 +80,6 @@ class DocVisualExtendedFieldRfidAllOf(object):
         :param rfid_origin_dg: The rfid_origin_dg of this DocVisualExtendedFieldRfidAllOf.  # noqa: E501
         :type rfid_origin_dg: RfidDataGroupTypeTag
         """
-        if self.local_vars_configuration.client_side_validation and rfid_origin_dg is None:  # noqa: E501
-            raise ValueError("Invalid value for `rfid_origin_dg`, must not be `None`")  # noqa: E501
 
         self._rfid_origin_dg = rfid_origin_dg
 
@@ -126,8 +124,6 @@ class DocVisualExtendedFieldRfidAllOf(object):
         :param rfid_origin_tag_entry: The rfid_origin_tag_entry of this DocVisualExtendedFieldRfidAllOf.  # noqa: E501
         :type rfid_origin_tag_entry: float
         """
-        if self.local_vars_configuration.client_side_validation and rfid_origin_tag_entry is None:  # noqa: E501
-            raise ValueError("Invalid value for `rfid_origin_tag_entry`, must not be `None`")  # noqa: E501
 
         self._rfid_origin_tag_entry = rfid_origin_tag_entry
 

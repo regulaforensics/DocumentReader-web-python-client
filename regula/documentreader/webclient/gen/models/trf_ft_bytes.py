@@ -82,8 +82,6 @@ class TrfFtBytes(object):
         :param type: The type of this TrfFtBytes.  # noqa: E501
         :type type: AnyOfGraphicFieldTypeTextFieldType
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -107,8 +105,6 @@ class TrfFtBytes(object):
         :param status: The status of this TrfFtBytes.  # noqa: E501
         :type status: float
         """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 
@@ -132,8 +128,6 @@ class TrfFtBytes(object):
         :param length: The length of this TrfFtBytes.  # noqa: E501
         :type length: float
         """
-        if self.local_vars_configuration.client_side_validation and length is None:  # noqa: E501
-            raise ValueError("Invalid value for `length`, must not be `None`")  # noqa: E501
 
         self._length = length
 
@@ -157,8 +151,6 @@ class TrfFtBytes(object):
         :param data: The data of this TrfFtBytes.  # noqa: E501
         :type data: str
         """
-        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
-            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 

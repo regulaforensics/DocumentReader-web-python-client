@@ -46,6 +46,38 @@ class ResultItem(object):
         'page_idx': 'page_idx',
         'result_type': 'result_type'
     }
+    discriminator_value_class_map = {
+        1 : 'DocumentImageResult',
+        102 : 'TextDataResult',
+        103 : 'GraphicsResult',
+        104 : 'DocumentBinaryInfoResult',
+        15 : 'LexicalAnalysisResult',
+        16 : 'DocumentImageResult',
+        17 : 'TextDataResult',
+        18 : 'TextDataResult',
+        19 : 'GraphicsResult',
+        20 : 'AuthenticityResult',
+        26 : 'TextDataResult',
+        3 : 'TextDataResult',
+        30 : 'ImageQualityResult',
+        32 : 'GraphicsResult',
+        33 : 'StatusResult',
+        34 : 'AuthenticityResult',
+        35 : 'GraphicsResult',
+        36 : 'TextResult',
+        37 : 'ImagesResult',
+        38 : 'GraphicsResult',
+        39 : 'AuthenticityResult',
+        49 : 'EncryptedRCLResult',
+        5 : 'DocBarCodeInfo',
+        50 : 'LicenseResult',
+        6 : 'GraphicsResult',
+        61 : 'DocumentPositionResult',
+        62 : 'DocumentPositionResult',
+        8 : 'DocumentTypesCandidatesResult',
+        85 : 'DocumentPositionResult',
+        9 : 'ChosenDocumentTypeResult',
+    }
 
     def __init__(self, buf_length=None, light=None, list_idx=None, page_idx=None, result_type=0, local_vars_configuration=None):  # noqa: E501
         """ResultItem - a model defined in OpenAPI"""  # noqa: E501
@@ -58,7 +90,7 @@ class ResultItem(object):
         self._list_idx = None
         self._page_idx = None
         self._result_type = None
-        self.discriminator = None
+        self.discriminator = 'result_type'
 
         if buf_length is not None:
             self.buf_length = buf_length
@@ -174,10 +206,15 @@ class ResultItem(object):
         :param result_type: The result_type of this ResultItem.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
+
+    def get_real_child_model(self, data):
+        """Returns the real base class specified by the discriminator"""
+        discriminator_key = self.attribute_map[self.discriminator]
+        discriminator_value = data[discriminator_key]
+        from regula.documentreader.webclient.ext.models import RawResultItem
+        return self.discriminator_value_class_map.get(discriminator_value, RawResultItem.__name__)
 
     def to_dict(self):
         """Returns the model properties as a dict"""

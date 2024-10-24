@@ -97,8 +97,6 @@ class ChosenDocumentTypeResult(object):
         :param one_candidate: The one_candidate of this ChosenDocumentTypeResult.  # noqa: E501
         :type one_candidate: OneCandidate
         """
-        if self.local_vars_configuration.client_side_validation and one_candidate is None:  # noqa: E501
-            raise ValueError("Invalid value for `one_candidate`, must not be `None`")  # noqa: E501
 
         self._one_candidate = one_candidate
 
@@ -227,8 +225,6 @@ class ChosenDocumentTypeResult(object):
         :param result_type: The result_type of this ChosenDocumentTypeResult.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
 

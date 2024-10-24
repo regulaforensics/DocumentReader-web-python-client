@@ -104,8 +104,6 @@ class TextFieldValue(object):
         :param source: The source of this TextFieldValue.  # noqa: E501
         :type source: Source
         """
-        if self.local_vars_configuration.client_side_validation and source is None:  # noqa: E501
-            raise ValueError("Invalid value for `source`, must not be `None`")  # noqa: E501
 
         self._source = source
 
@@ -129,8 +127,6 @@ class TextFieldValue(object):
         :param value: The value of this TextFieldValue.  # noqa: E501
         :type value: str
         """
-        if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
 
@@ -175,8 +171,6 @@ class TextFieldValue(object):
         :param original_validity: The original_validity of this TextFieldValue.  # noqa: E501
         :type original_validity: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and original_validity is None:  # noqa: E501
-            raise ValueError("Invalid value for `original_validity`, must not be `None`")  # noqa: E501
 
         self._original_validity = original_validity
 
@@ -221,8 +215,6 @@ class TextFieldValue(object):
         :param page_index: The page_index of this TextFieldValue.  # noqa: E501
         :type page_index: int
         """
-        if self.local_vars_configuration.client_side_validation and page_index is None:  # noqa: E501
-            raise ValueError("Invalid value for `page_index`, must not be `None`")  # noqa: E501
 
         self._page_index = page_index
 
@@ -246,8 +238,6 @@ class TextFieldValue(object):
         :param probability: The probability of this TextFieldValue.  # noqa: E501
         :type probability: int
         """
-        if self.local_vars_configuration.client_side_validation and probability is None:  # noqa: E501
-            raise ValueError("Invalid value for `probability`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 probability is not None and probability > 100):  # noqa: E501
             raise ValueError("Invalid value for `probability`, must be a value less than or equal to `100`")  # noqa: E501

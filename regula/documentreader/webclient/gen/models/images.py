@@ -82,8 +82,6 @@ class Images(object):
         :param field_count: The field_count of this Images.  # noqa: E501
         :type field_count: int
         """
-        if self.local_vars_configuration.client_side_validation and field_count is None:  # noqa: E501
-            raise ValueError("Invalid value for `field_count`, must not be `None`")  # noqa: E501
 
         self._field_count = field_count
 
@@ -107,8 +105,6 @@ class Images(object):
         :param available_source_count: The available_source_count of this Images.  # noqa: E501
         :type available_source_count: int
         """
-        if self.local_vars_configuration.client_side_validation and available_source_count is None:  # noqa: E501
-            raise ValueError("Invalid value for `available_source_count`, must not be `None`")  # noqa: E501
 
         self._available_source_count = available_source_count
 
@@ -130,8 +126,6 @@ class Images(object):
         :param available_source_list: The available_source_list of this Images.  # noqa: E501
         :type available_source_list: list[ImagesAvailableSource]
         """
-        if self.local_vars_configuration.client_side_validation and available_source_list is None:  # noqa: E501
-            raise ValueError("Invalid value for `available_source_list`, must not be `None`")  # noqa: E501
 
         self._available_source_list = available_source_list
 
@@ -153,8 +147,6 @@ class Images(object):
         :param field_list: The field_list of this Images.  # noqa: E501
         :type field_list: list[ImagesField]
         """
-        if self.local_vars_configuration.client_side_validation and field_list is None:  # noqa: E501
-            raise ValueError("Invalid value for `field_list`, must not be `None`")  # noqa: E501
 
         self._field_list = field_list
 

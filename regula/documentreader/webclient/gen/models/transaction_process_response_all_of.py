@@ -68,8 +68,6 @@ class TransactionProcessResponseAllOf(object):
         :param core_lib_result_code: The core_lib_result_code of this TransactionProcessResponseAllOf.  # noqa: E501
         :type core_lib_result_code: int
         """
-        if self.local_vars_configuration.client_side_validation and core_lib_result_code is None:  # noqa: E501
-            raise ValueError("Invalid value for `core_lib_result_code`, must not be `None`")  # noqa: E501
 
         self._core_lib_result_code = core_lib_result_code
 

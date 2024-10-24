@@ -108,8 +108,6 @@ class TextField(object):
         :param field_type: The field_type of this TextField.  # noqa: E501
         :type field_type: TextFieldType
         """
-        if self.local_vars_configuration.client_side_validation and field_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `field_type`, must not be `None`")  # noqa: E501
 
         self._field_type = field_type
 
@@ -133,8 +131,6 @@ class TextField(object):
         :param field_name: The field_name of this TextField.  # noqa: E501
         :type field_name: str
         """
-        if self.local_vars_configuration.client_side_validation and field_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `field_name`, must not be `None`")  # noqa: E501
 
         self._field_name = field_name
 
@@ -156,8 +152,6 @@ class TextField(object):
         :param lcid: The lcid of this TextField.  # noqa: E501
         :type lcid: LCID
         """
-        if self.local_vars_configuration.client_side_validation and lcid is None:  # noqa: E501
-            raise ValueError("Invalid value for `lcid`, must not be `None`")  # noqa: E501
 
         self._lcid = lcid
 
@@ -181,8 +175,6 @@ class TextField(object):
         :param lcid_name: The lcid_name of this TextField.  # noqa: E501
         :type lcid_name: str
         """
-        if self.local_vars_configuration.client_side_validation and lcid_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `lcid_name`, must not be `None`")  # noqa: E501
 
         self._lcid_name = lcid_name
 
@@ -204,8 +196,6 @@ class TextField(object):
         :param status: The status of this TextField.  # noqa: E501
         :type status: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 
@@ -227,8 +217,6 @@ class TextField(object):
         :param validity_status: The validity_status of this TextField.  # noqa: E501
         :type validity_status: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and validity_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `validity_status`, must not be `None`")  # noqa: E501
 
         self._validity_status = validity_status
 
@@ -250,8 +238,6 @@ class TextField(object):
         :param comparison_status: The comparison_status of this TextField.  # noqa: E501
         :type comparison_status: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and comparison_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `comparison_status`, must not be `None`")  # noqa: E501
 
         self._comparison_status = comparison_status
 
@@ -275,8 +261,6 @@ class TextField(object):
         :param value: The value of this TextField.  # noqa: E501
         :type value: str
         """
-        if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
 
@@ -298,8 +282,6 @@ class TextField(object):
         :param value_list: The value_list of this TextField.  # noqa: E501
         :type value_list: list[TextFieldValue]
         """
-        if self.local_vars_configuration.client_side_validation and value_list is None:  # noqa: E501
-            raise ValueError("Invalid value for `value_list`, must not be `None`")  # noqa: E501
 
         self._value_list = value_list
 
@@ -323,8 +305,6 @@ class TextField(object):
         :param validity_list: The validity_list of this TextField.  # noqa: E501
         :type validity_list: list[SourceValidity]
         """
-        if self.local_vars_configuration.client_side_validation and validity_list is None:  # noqa: E501
-            raise ValueError("Invalid value for `validity_list`, must not be `None`")  # noqa: E501
 
         self._validity_list = validity_list
 
@@ -346,8 +326,6 @@ class TextField(object):
         :param comparison_list: The comparison_list of this TextField.  # noqa: E501
         :type comparison_list: list[CrossSourceValueComparison]
         """
-        if self.local_vars_configuration.client_side_validation and comparison_list is None:  # noqa: E501
-            raise ValueError("Invalid value for `comparison_list`, must not be `None`")  # noqa: E501
 
         self._comparison_list = comparison_list
 

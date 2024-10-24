@@ -96,8 +96,6 @@ class LexicalAnalysisResult(object):
         :param list_verified_fields: The list_verified_fields of this LexicalAnalysisResult.  # noqa: E501
         :type list_verified_fields: ListVerifiedFields
         """
-        if self.local_vars_configuration.client_side_validation and list_verified_fields is None:  # noqa: E501
-            raise ValueError("Invalid value for `list_verified_fields`, must not be `None`")  # noqa: E501
 
         self._list_verified_fields = list_verified_fields
 
@@ -205,8 +203,6 @@ class LexicalAnalysisResult(object):
         :param result_type: The result_type of this LexicalAnalysisResult.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
 

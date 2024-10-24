@@ -128,8 +128,6 @@ class RfidDG1(object):
         :param type: The type of this RfidDG1.  # noqa: E501
         :type type: RfidDataGroupTypeTag
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -151,8 +149,6 @@ class RfidDG1(object):
         :param document_id: The document_id of this RfidDG1.  # noqa: E501
         :type document_id: DocumentFormat
         """
-        if self.local_vars_configuration.client_side_validation and document_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `document_id`, must not be `None`")  # noqa: E501
 
         self._document_id = document_id
 
@@ -176,8 +172,6 @@ class RfidDG1(object):
         :param document_type: The document_type of this RfidDG1.  # noqa: E501
         :type document_type: str
         """
-        if self.local_vars_configuration.client_side_validation and document_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `document_type`, must not be `None`")  # noqa: E501
 
         self._document_type = document_type
 
@@ -201,8 +195,6 @@ class RfidDG1(object):
         :param state: The state of this RfidDG1.  # noqa: E501
         :type state: str
         """
-        if self.local_vars_configuration.client_side_validation and state is None:  # noqa: E501
-            raise ValueError("Invalid value for `state`, must not be `None`")  # noqa: E501
 
         self._state = state
 
@@ -226,8 +218,6 @@ class RfidDG1(object):
         :param holder: The holder of this RfidDG1.  # noqa: E501
         :type holder: str
         """
-        if self.local_vars_configuration.client_side_validation and holder is None:  # noqa: E501
-            raise ValueError("Invalid value for `holder`, must not be `None`")  # noqa: E501
 
         self._holder = holder
 
@@ -251,8 +241,6 @@ class RfidDG1(object):
         :param document_number: The document_number of this RfidDG1.  # noqa: E501
         :type document_number: str
         """
-        if self.local_vars_configuration.client_side_validation and document_number is None:  # noqa: E501
-            raise ValueError("Invalid value for `document_number`, must not be `None`")  # noqa: E501
 
         self._document_number = document_number
 
@@ -276,8 +264,6 @@ class RfidDG1(object):
         :param check_digit_document_number: The check_digit_document_number of this RfidDG1.  # noqa: E501
         :type check_digit_document_number: float
         """
-        if self.local_vars_configuration.client_side_validation and check_digit_document_number is None:  # noqa: E501
-            raise ValueError("Invalid value for `check_digit_document_number`, must not be `None`")  # noqa: E501
 
         self._check_digit_document_number = check_digit_document_number
 
@@ -301,8 +287,6 @@ class RfidDG1(object):
         :param nationality: The nationality of this RfidDG1.  # noqa: E501
         :type nationality: str
         """
-        if self.local_vars_configuration.client_side_validation and nationality is None:  # noqa: E501
-            raise ValueError("Invalid value for `nationality`, must not be `None`")  # noqa: E501
 
         self._nationality = nationality
 
@@ -326,8 +310,6 @@ class RfidDG1(object):
         :param birthday: The birthday of this RfidDG1.  # noqa: E501
         :type birthday: str
         """
-        if self.local_vars_configuration.client_side_validation and birthday is None:  # noqa: E501
-            raise ValueError("Invalid value for `birthday`, must not be `None`")  # noqa: E501
 
         self._birthday = birthday
 
@@ -351,8 +333,6 @@ class RfidDG1(object):
         :param check_digit_birthday: The check_digit_birthday of this RfidDG1.  # noqa: E501
         :type check_digit_birthday: float
         """
-        if self.local_vars_configuration.client_side_validation and check_digit_birthday is None:  # noqa: E501
-            raise ValueError("Invalid value for `check_digit_birthday`, must not be `None`")  # noqa: E501
 
         self._check_digit_birthday = check_digit_birthday
 
@@ -376,8 +356,6 @@ class RfidDG1(object):
         :param sex: The sex of this RfidDG1.  # noqa: E501
         :type sex: str
         """
-        if self.local_vars_configuration.client_side_validation and sex is None:  # noqa: E501
-            raise ValueError("Invalid value for `sex`, must not be `None`")  # noqa: E501
 
         self._sex = sex
 
@@ -401,8 +379,6 @@ class RfidDG1(object):
         :param expiry_date: The expiry_date of this RfidDG1.  # noqa: E501
         :type expiry_date: str
         """
-        if self.local_vars_configuration.client_side_validation and expiry_date is None:  # noqa: E501
-            raise ValueError("Invalid value for `expiry_date`, must not be `None`")  # noqa: E501
 
         self._expiry_date = expiry_date
 
@@ -426,8 +402,6 @@ class RfidDG1(object):
         :param check_digit_expiry_date: The check_digit_expiry_date of this RfidDG1.  # noqa: E501
         :type check_digit_expiry_date: float
         """
-        if self.local_vars_configuration.client_side_validation and check_digit_expiry_date is None:  # noqa: E501
-            raise ValueError("Invalid value for `check_digit_expiry_date`, must not be `None`")  # noqa: E501
 
         self._check_digit_expiry_date = check_digit_expiry_date
 
@@ -451,8 +425,6 @@ class RfidDG1(object):
         :param optional_data: The optional_data of this RfidDG1.  # noqa: E501
         :type optional_data: str
         """
-        if self.local_vars_configuration.client_side_validation and optional_data is None:  # noqa: E501
-            raise ValueError("Invalid value for `optional_data`, must not be `None`")  # noqa: E501
 
         self._optional_data = optional_data
 
@@ -476,8 +448,6 @@ class RfidDG1(object):
         :param check_digit_optional_data: The check_digit_optional_data of this RfidDG1.  # noqa: E501
         :type check_digit_optional_data: float
         """
-        if self.local_vars_configuration.client_side_validation and check_digit_optional_data is None:  # noqa: E501
-            raise ValueError("Invalid value for `check_digit_optional_data`, must not be `None`")  # noqa: E501
 
         self._check_digit_optional_data = check_digit_optional_data
 
@@ -501,8 +471,6 @@ class RfidDG1(object):
         :param check_digit_composite: The check_digit_composite of this RfidDG1.  # noqa: E501
         :type check_digit_composite: float
         """
-        if self.local_vars_configuration.client_side_validation and check_digit_composite is None:  # noqa: E501
-            raise ValueError("Invalid value for `check_digit_composite`, must not be `None`")  # noqa: E501
 
         self._check_digit_composite = check_digit_composite
 

@@ -80,8 +80,6 @@ class SymbolRecognitionResult(object):
         :param symbol_rect: The symbol_rect of this SymbolRecognitionResult.  # noqa: E501
         :type symbol_rect: RectangleCoordinates
         """
-        if self.local_vars_configuration.client_side_validation and symbol_rect is None:  # noqa: E501
-            raise ValueError("Invalid value for `symbol_rect`, must not be `None`")  # noqa: E501
 
         self._symbol_rect = symbol_rect
 
@@ -105,8 +103,6 @@ class SymbolRecognitionResult(object):
         :param candidates_count: The candidates_count of this SymbolRecognitionResult.  # noqa: E501
         :type candidates_count: float
         """
-        if self.local_vars_configuration.client_side_validation and candidates_count is None:  # noqa: E501
-            raise ValueError("Invalid value for `candidates_count`, must not be `None`")  # noqa: E501
 
         self._candidates_count = candidates_count
 
@@ -130,8 +126,6 @@ class SymbolRecognitionResult(object):
         :param list_of_candidates: The list_of_candidates of this SymbolRecognitionResult.  # noqa: E501
         :type list_of_candidates: list[SymbolCandidate]
         """
-        if self.local_vars_configuration.client_side_validation and list_of_candidates is None:  # noqa: E501
-            raise ValueError("Invalid value for `list_of_candidates`, must not be `None`")  # noqa: E501
 
         self._list_of_candidates = list_of_candidates
 

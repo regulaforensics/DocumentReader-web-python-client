@@ -70,8 +70,6 @@ class LicenseResultAllOf(object):
         :param license: The license of this LicenseResultAllOf.  # noqa: E501
         :type license: str
         """
-        if self.local_vars_configuration.client_side_validation and license is None:  # noqa: E501
-            raise ValueError("Invalid value for `license`, must not be `None`")  # noqa: E501
 
         self._license = license
 

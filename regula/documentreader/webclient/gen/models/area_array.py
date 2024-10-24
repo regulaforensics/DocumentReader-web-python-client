@@ -78,8 +78,6 @@ class AreaArray(object):
         :param count: The count of this AreaArray.  # noqa: E501
         :type count: float
         """
-        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
-            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -101,8 +99,6 @@ class AreaArray(object):
         :param list: The list of this AreaArray.  # noqa: E501
         :type list: list[RectangleCoordinates]
         """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
 
         self._list = list
 
@@ -124,8 +120,6 @@ class AreaArray(object):
         :param points: The points of this AreaArray.  # noqa: E501
         :type points: list[PointArray]
         """
-        if self.local_vars_configuration.client_side_validation and points is None:  # noqa: E501
-            raise ValueError("Invalid value for `points`, must not be `None`")  # noqa: E501
 
         self._points = points
 

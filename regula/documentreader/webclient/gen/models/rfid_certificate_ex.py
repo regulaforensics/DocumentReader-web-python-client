@@ -118,8 +118,6 @@ class RfidCertificateEx(object):
         :param version: The version of this RfidCertificateEx.  # noqa: E501
         :type version: float
         """
-        if self.local_vars_configuration.client_side_validation and version is None:  # noqa: E501
-            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
 
         self._version = version
 
@@ -143,8 +141,6 @@ class RfidCertificateEx(object):
         :param serial_number: The serial_number of this RfidCertificateEx.  # noqa: E501
         :type serial_number: str
         """
-        if self.local_vars_configuration.client_side_validation and serial_number is None:  # noqa: E501
-            raise ValueError("Invalid value for `serial_number`, must not be `None`")  # noqa: E501
 
         self._serial_number = serial_number
 
@@ -168,8 +164,6 @@ class RfidCertificateEx(object):
         :param signature_algorithm: The signature_algorithm of this RfidCertificateEx.  # noqa: E501
         :type signature_algorithm: str
         """
-        if self.local_vars_configuration.client_side_validation and signature_algorithm is None:  # noqa: E501
-            raise ValueError("Invalid value for `signature_algorithm`, must not be `None`")  # noqa: E501
 
         self._signature_algorithm = signature_algorithm
 
@@ -191,8 +185,6 @@ class RfidCertificateEx(object):
         :param issuer: The issuer of this RfidCertificateEx.  # noqa: E501
         :type issuer: RfidDistinguishedName
         """
-        if self.local_vars_configuration.client_side_validation and issuer is None:  # noqa: E501
-            raise ValueError("Invalid value for `issuer`, must not be `None`")  # noqa: E501
 
         self._issuer = issuer
 
@@ -214,8 +206,6 @@ class RfidCertificateEx(object):
         :param validity: The validity of this RfidCertificateEx.  # noqa: E501
         :type validity: RfidValidity
         """
-        if self.local_vars_configuration.client_side_validation and validity is None:  # noqa: E501
-            raise ValueError("Invalid value for `validity`, must not be `None`")  # noqa: E501
 
         self._validity = validity
 
@@ -237,8 +227,6 @@ class RfidCertificateEx(object):
         :param subject: The subject of this RfidCertificateEx.  # noqa: E501
         :type subject: RfidDistinguishedName
         """
-        if self.local_vars_configuration.client_side_validation and subject is None:  # noqa: E501
-            raise ValueError("Invalid value for `subject`, must not be `None`")  # noqa: E501
 
         self._subject = subject
 
@@ -262,8 +250,6 @@ class RfidCertificateEx(object):
         :param subject_pk_algorithm: The subject_pk_algorithm of this RfidCertificateEx.  # noqa: E501
         :type subject_pk_algorithm: str
         """
-        if self.local_vars_configuration.client_side_validation and subject_pk_algorithm is None:  # noqa: E501
-            raise ValueError("Invalid value for `subject_pk_algorithm`, must not be `None`")  # noqa: E501
 
         self._subject_pk_algorithm = subject_pk_algorithm
 
@@ -287,8 +273,6 @@ class RfidCertificateEx(object):
         :param extensions: The extensions of this RfidCertificateEx.  # noqa: E501
         :type extensions: list[RfidPkiExtension]
         """
-        if self.local_vars_configuration.client_side_validation and extensions is None:  # noqa: E501
-            raise ValueError("Invalid value for `extensions`, must not be `None`")  # noqa: E501
 
         self._extensions = extensions
 
@@ -312,8 +296,6 @@ class RfidCertificateEx(object):
         :param notifications: The notifications of this RfidCertificateEx.  # noqa: E501
         :type notifications: list[ParsingErrorCodes]
         """
-        if self.local_vars_configuration.client_side_validation and notifications is None:  # noqa: E501
-            raise ValueError("Invalid value for `notifications`, must not be `None`")  # noqa: E501
 
         self._notifications = notifications
 
@@ -335,8 +317,6 @@ class RfidCertificateEx(object):
         :param origin: The origin of this RfidCertificateEx.  # noqa: E501
         :type origin: RfidCertificateOrigin
         """
-        if self.local_vars_configuration.client_side_validation and origin is None:  # noqa: E501
-            raise ValueError("Invalid value for `origin`, must not be `None`")  # noqa: E501
 
         self._origin = origin
 
@@ -358,8 +338,6 @@ class RfidCertificateEx(object):
         :param type: The type of this RfidCertificateEx.  # noqa: E501
         :type type: RfidCertificateType
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -381,8 +359,6 @@ class RfidCertificateEx(object):
         :param file_name: The file_name of this RfidCertificateEx.  # noqa: E501
         :type file_name: TrfFtString
         """
-        if self.local_vars_configuration.client_side_validation and file_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `file_name`, must not be `None`")  # noqa: E501
 
         self._file_name = file_name
 
@@ -404,8 +380,6 @@ class RfidCertificateEx(object):
         :param pa_status: The pa_status of this RfidCertificateEx.  # noqa: E501
         :type pa_status: RFIDErrorCodes
         """
-        if self.local_vars_configuration.client_side_validation and pa_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `pa_status`, must not be `None`")  # noqa: E501
 
         self._pa_status = pa_status
 

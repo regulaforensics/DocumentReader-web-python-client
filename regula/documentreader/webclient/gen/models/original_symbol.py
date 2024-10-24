@@ -79,8 +79,6 @@ class OriginalSymbol(object):
         :param code: The code of this OriginalSymbol.  # noqa: E501
         :type code: int
         """
-        if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
-            raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
 
         self._code = code
 
@@ -104,8 +102,6 @@ class OriginalSymbol(object):
         :param probability: The probability of this OriginalSymbol.  # noqa: E501
         :type probability: int
         """
-        if self.local_vars_configuration.client_side_validation and probability is None:  # noqa: E501
-            raise ValueError("Invalid value for `probability`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 probability is not None and probability > 100):  # noqa: E501
             raise ValueError("Invalid value for `probability`, must be a value less than or equal to `100`")  # noqa: E501

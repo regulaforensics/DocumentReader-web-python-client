@@ -72,8 +72,6 @@ class RfidValidity(object):
         :param not_before: The not_before of this RfidValidity.  # noqa: E501
         :type not_before: TrfFtString
         """
-        if self.local_vars_configuration.client_side_validation and not_before is None:  # noqa: E501
-            raise ValueError("Invalid value for `not_before`, must not be `None`")  # noqa: E501
 
         self._not_before = not_before
 
@@ -95,8 +93,6 @@ class RfidValidity(object):
         :param not_after: The not_after of this RfidValidity.  # noqa: E501
         :type not_after: TrfFtString
         """
-        if self.local_vars_configuration.client_side_validation and not_after is None:  # noqa: E501
-            raise ValueError("Invalid value for `not_after`, must not be `None`")  # noqa: E501
 
         self._not_after = not_after
 

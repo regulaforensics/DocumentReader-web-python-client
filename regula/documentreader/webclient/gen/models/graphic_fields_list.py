@@ -32,7 +32,7 @@ class GraphicFieldsList(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'p_array_fields': 'list[AnyOfGraphicFieldRectGraphicFieldRfid]',
+        'p_array_fields': 'list[GraphicField]',
         'n_fields': 'float'
     }
 
@@ -60,7 +60,7 @@ class GraphicFieldsList(object):
 
 
         :return: The p_array_fields of this GraphicFieldsList.  # noqa: E501
-        :rtype: list[AnyOfGraphicFieldRectGraphicFieldRfid]
+        :rtype: list[GraphicField]
         """
         return self._p_array_fields
 
@@ -70,10 +70,8 @@ class GraphicFieldsList(object):
 
 
         :param p_array_fields: The p_array_fields of this GraphicFieldsList.  # noqa: E501
-        :type p_array_fields: list[AnyOfGraphicFieldRectGraphicFieldRfid]
+        :type p_array_fields: list[GraphicField]
         """
-        if self.local_vars_configuration.client_side_validation and p_array_fields is None:  # noqa: E501
-            raise ValueError("Invalid value for `p_array_fields`, must not be `None`")  # noqa: E501
 
         self._p_array_fields = p_array_fields
 
@@ -97,8 +95,6 @@ class GraphicFieldsList(object):
         :param n_fields: The n_fields of this GraphicFieldsList.  # noqa: E501
         :type n_fields: float
         """
-        if self.local_vars_configuration.client_side_validation and n_fields is None:  # noqa: E501
-            raise ValueError("Invalid value for `n_fields`, must not be `None`")  # noqa: E501
 
         self._n_fields = n_fields
 

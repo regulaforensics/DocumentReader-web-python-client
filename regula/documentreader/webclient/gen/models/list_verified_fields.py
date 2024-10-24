@@ -74,8 +74,6 @@ class ListVerifiedFields(object):
         :param count: The count of this ListVerifiedFields.  # noqa: E501
         :type count: float
         """
-        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
-            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -97,8 +95,6 @@ class ListVerifiedFields(object):
         :param p_field_maps: The p_field_maps of this ListVerifiedFields.  # noqa: E501
         :type p_field_maps: list[VerifiedFieldMap]
         """
-        if self.local_vars_configuration.client_side_validation and p_field_maps is None:  # noqa: E501
-            raise ValueError("Invalid value for `p_field_maps`, must not be `None`")  # noqa: E501
 
         self._p_field_maps = p_field_maps
 

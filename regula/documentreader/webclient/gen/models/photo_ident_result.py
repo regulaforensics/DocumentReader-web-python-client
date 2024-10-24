@@ -136,8 +136,6 @@ class PhotoIdentResult(object):
         :param type: The type of this PhotoIdentResult.  # noqa: E501
         :type type: int
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -222,8 +220,6 @@ class PhotoIdentResult(object):
         :param light_index: The light_index of this PhotoIdentResult.  # noqa: E501
         :type light_index: Light
         """
-        if self.local_vars_configuration.client_side_validation and light_index is None:  # noqa: E501
-            raise ValueError("Invalid value for `light_index`, must not be `None`")  # noqa: E501
 
         self._light_index = light_index
 
@@ -245,8 +241,6 @@ class PhotoIdentResult(object):
         :param area: The area of this PhotoIdentResult.  # noqa: E501
         :type area: RectangleCoordinates
         """
-        if self.local_vars_configuration.client_side_validation and area is None:  # noqa: E501
-            raise ValueError("Invalid value for `area`, must not be `None`")  # noqa: E501
 
         self._area = area
 
@@ -268,8 +262,6 @@ class PhotoIdentResult(object):
         :param source_image: The source_image of this PhotoIdentResult.  # noqa: E501
         :type source_image: ImageData
         """
-        if self.local_vars_configuration.client_side_validation and source_image is None:  # noqa: E501
-            raise ValueError("Invalid value for `source_image`, must not be `None`")  # noqa: E501
 
         self._source_image = source_image
 
@@ -291,8 +283,6 @@ class PhotoIdentResult(object):
         :param result_images: The result_images of this PhotoIdentResult.  # noqa: E501
         :type result_images: RawImageContainerList
         """
-        if self.local_vars_configuration.client_side_validation and result_images is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_images`, must not be `None`")  # noqa: E501
 
         self._result_images = result_images
 
