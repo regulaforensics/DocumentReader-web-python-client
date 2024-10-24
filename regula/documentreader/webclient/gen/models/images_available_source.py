@@ -51,8 +51,7 @@ class ImagesAvailableSource(object):
         self._source = None
         self.discriminator = None
 
-        if container_type is not None:
-            self.container_type = container_type
+        self.container_type = container_type
         self.source = source
 
     @property
@@ -96,8 +95,6 @@ class ImagesAvailableSource(object):
         :param source: The source of this ImagesAvailableSource.  # noqa: E501
         :type source: Source
         """
-        if self.local_vars_configuration.client_side_validation and source is None:  # noqa: E501
-            raise ValueError("Invalid value for `source`, must not be `None`")  # noqa: E501
 
         self._source = source
 

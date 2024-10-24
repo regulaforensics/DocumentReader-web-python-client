@@ -58,12 +58,9 @@ class RfidOrigin(object):
         self.discriminator = None
 
         self.dg = dg
-        if dg_tag is not None:
-            self.dg_tag = dg_tag
-        if tag_entry is not None:
-            self.tag_entry = tag_entry
-        if entry_view is not None:
-            self.entry_view = entry_view
+        self.dg_tag = dg_tag
+        self.tag_entry = tag_entry
+        self.entry_view = entry_view
 
     @property
     def dg(self):
@@ -85,8 +82,6 @@ class RfidOrigin(object):
         :param dg: The dg of this RfidOrigin.  # noqa: E501
         :type dg: int
         """
-        if self.local_vars_configuration.client_side_validation and dg is None:  # noqa: E501
-            raise ValueError("Invalid value for `dg`, must not be `None`")  # noqa: E501
 
         self._dg = dg
 

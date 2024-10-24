@@ -48,8 +48,7 @@ class PointArray(object):
         self._points_list = None
         self.discriminator = None
 
-        if points_list is not None:
-            self.points_list = points_list
+        self.points_list = points_list
 
     @property
     def points_list(self):

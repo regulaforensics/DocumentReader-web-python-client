@@ -66,20 +66,14 @@ class ImageQualityCheck(object):
         self._probability = None
         self.discriminator = None
 
-        if type is not None:
-            self.type = type
-        if result is not None:
-            self.result = result
-        if feature_type is not None:
-            self.feature_type = feature_type
+        self.type = type
+        self.result = result
+        self.feature_type = feature_type
         if areas is not None:
             self.areas = areas
-        if mean is not None:
-            self.mean = mean
-        if std_dev is not None:
-            self.std_dev = std_dev
-        if probability is not None:
-            self.probability = probability
+        self.mean = mean
+        self.std_dev = std_dev
+        self.probability = probability
 
     @property
     def type(self):
@@ -169,6 +163,7 @@ class ImageQualityCheck(object):
     def mean(self):
         """Gets the mean of this ImageQualityCheck.  # noqa: E501
 
+        Check mean value  # noqa: E501
 
         :return: The mean of this ImageQualityCheck.  # noqa: E501
         :rtype: float
@@ -179,6 +174,7 @@ class ImageQualityCheck(object):
     def mean(self, mean):
         """Sets the mean of this ImageQualityCheck.
 
+        Check mean value  # noqa: E501
 
         :param mean: The mean of this ImageQualityCheck.  # noqa: E501
         :type mean: float
@@ -190,6 +186,7 @@ class ImageQualityCheck(object):
     def std_dev(self):
         """Gets the std_dev of this ImageQualityCheck.  # noqa: E501
 
+        Check deviation value  # noqa: E501
 
         :return: The std_dev of this ImageQualityCheck.  # noqa: E501
         :rtype: float
@@ -200,6 +197,7 @@ class ImageQualityCheck(object):
     def std_dev(self, std_dev):
         """Sets the std_dev of this ImageQualityCheck.
 
+        Check deviation value  # noqa: E501
 
         :param std_dev: The std_dev of this ImageQualityCheck.  # noqa: E501
         :type std_dev: float
@@ -211,6 +209,7 @@ class ImageQualityCheck(object):
     def probability(self):
         """Gets the probability of this ImageQualityCheck.  # noqa: E501
 
+        Check probability value  # noqa: E501
 
         :return: The probability of this ImageQualityCheck.  # noqa: E501
         :rtype: int
@@ -221,6 +220,7 @@ class ImageQualityCheck(object):
     def probability(self, probability):
         """Sets the probability of this ImageQualityCheck.
 
+        Check probability value  # noqa: E501
 
         :param probability: The probability of this ImageQualityCheck.  # noqa: E501
         :type probability: int

@@ -51,8 +51,7 @@ class ChosenDocumentTypeResultAllOf(object):
         self._xml_buffer = None
         self.discriminator = None
 
-        if one_candidate is not None:
-            self.one_candidate = one_candidate
+        self.one_candidate = one_candidate
         if xml_buffer is not None:
             self.xml_buffer = xml_buffer
 

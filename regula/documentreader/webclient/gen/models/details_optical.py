@@ -96,8 +96,6 @@ class DetailsOptical(object):
         :param overall_status: The overall_status of this DetailsOptical.  # noqa: E501
         :type overall_status: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and overall_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `overall_status`, must not be `None`")  # noqa: E501
 
         self._overall_status = overall_status
 
@@ -119,8 +117,6 @@ class DetailsOptical(object):
         :param doc_type: The doc_type of this DetailsOptical.  # noqa: E501
         :type doc_type: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and doc_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `doc_type`, must not be `None`")  # noqa: E501
 
         self._doc_type = doc_type
 
@@ -142,8 +138,6 @@ class DetailsOptical(object):
         :param expiry: The expiry of this DetailsOptical.  # noqa: E501
         :type expiry: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and expiry is None:  # noqa: E501
-            raise ValueError("Invalid value for `expiry`, must not be `None`")  # noqa: E501
 
         self._expiry = expiry
 
@@ -165,8 +159,6 @@ class DetailsOptical(object):
         :param image_qa: The image_qa of this DetailsOptical.  # noqa: E501
         :type image_qa: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and image_qa is None:  # noqa: E501
-            raise ValueError("Invalid value for `image_qa`, must not be `None`")  # noqa: E501
 
         self._image_qa = image_qa
 
@@ -188,8 +180,6 @@ class DetailsOptical(object):
         :param mrz: The mrz of this DetailsOptical.  # noqa: E501
         :type mrz: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and mrz is None:  # noqa: E501
-            raise ValueError("Invalid value for `mrz`, must not be `None`")  # noqa: E501
 
         self._mrz = mrz
 
@@ -213,8 +203,6 @@ class DetailsOptical(object):
         :param pages_count: The pages_count of this DetailsOptical.  # noqa: E501
         :type pages_count: int
         """
-        if self.local_vars_configuration.client_side_validation and pages_count is None:  # noqa: E501
-            raise ValueError("Invalid value for `pages_count`, must not be `None`")  # noqa: E501
 
         self._pages_count = pages_count
 
@@ -236,8 +224,6 @@ class DetailsOptical(object):
         :param security: The security of this DetailsOptical.  # noqa: E501
         :type security: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and security is None:  # noqa: E501
-            raise ValueError("Invalid value for `security`, must not be `None`")  # noqa: E501
 
         self._security = security
 
@@ -259,8 +245,6 @@ class DetailsOptical(object):
         :param text: The text of this DetailsOptical.  # noqa: E501
         :type text: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and text is None:  # noqa: E501
-            raise ValueError("Invalid value for `text`, must not be `None`")  # noqa: E501
 
         self._text = text
 

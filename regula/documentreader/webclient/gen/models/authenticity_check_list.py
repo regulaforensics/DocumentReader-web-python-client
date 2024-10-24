@@ -51,8 +51,7 @@ class AuthenticityCheckList(object):
         self._list = None
         self.discriminator = None
 
-        if count is not None:
-            self.count = count
+        self.count = count
         self.list = list
 
     @property
@@ -98,8 +97,6 @@ class AuthenticityCheckList(object):
         :param list: The list of this AuthenticityCheckList.  # noqa: E501
         :type list: list[AuthenticityCheckResult]
         """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
 
         self._list = list
 

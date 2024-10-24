@@ -92,8 +92,6 @@ class DetailsRFID(object):
         :param overall_status: The overall_status of this DetailsRFID.  # noqa: E501
         :type overall_status: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and overall_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `overall_status`, must not be `None`")  # noqa: E501
 
         self._overall_status = overall_status
 
@@ -115,8 +113,6 @@ class DetailsRFID(object):
         :param aa: The aa of this DetailsRFID.  # noqa: E501
         :type aa: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and aa is None:  # noqa: E501
-            raise ValueError("Invalid value for `aa`, must not be `None`")  # noqa: E501
 
         self._aa = aa
 
@@ -138,8 +134,6 @@ class DetailsRFID(object):
         :param bac: The bac of this DetailsRFID.  # noqa: E501
         :type bac: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and bac is None:  # noqa: E501
-            raise ValueError("Invalid value for `bac`, must not be `None`")  # noqa: E501
 
         self._bac = bac
 
@@ -161,8 +155,6 @@ class DetailsRFID(object):
         :param ca: The ca of this DetailsRFID.  # noqa: E501
         :type ca: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and ca is None:  # noqa: E501
-            raise ValueError("Invalid value for `ca`, must not be `None`")  # noqa: E501
 
         self._ca = ca
 
@@ -184,8 +176,6 @@ class DetailsRFID(object):
         :param pa: The pa of this DetailsRFID.  # noqa: E501
         :type pa: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and pa is None:  # noqa: E501
-            raise ValueError("Invalid value for `pa`, must not be `None`")  # noqa: E501
 
         self._pa = pa
 
@@ -207,8 +197,6 @@ class DetailsRFID(object):
         :param pace: The pace of this DetailsRFID.  # noqa: E501
         :type pace: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and pace is None:  # noqa: E501
-            raise ValueError("Invalid value for `pace`, must not be `None`")  # noqa: E501
 
         self._pace = pace
 
@@ -230,8 +218,6 @@ class DetailsRFID(object):
         :param ta: The ta of this DetailsRFID.  # noqa: E501
         :type ta: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and ta is None:  # noqa: E501
-            raise ValueError("Invalid value for `ta`, must not be `None`")  # noqa: E501
 
         self._ta = ta
 

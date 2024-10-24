@@ -36,7 +36,7 @@ class DataModule(object):
         'm_length': 'int',
         'm_reserved1': 'int',
         'm_reserver2': 'int',
-        'm_type': 'int'
+        'm_type': 'BarCodeModuleType'
     }
 
     attribute_map = {
@@ -60,16 +60,13 @@ class DataModule(object):
         self._m_type = None
         self.discriminator = None
 
-        if m_data is not None:
-            self.m_data = m_data
-        if m_length is not None:
-            self.m_length = m_length
+        self.m_data = m_data
+        self.m_length = m_length
         if m_reserved1 is not None:
             self.m_reserved1 = m_reserved1
         if m_reserver2 is not None:
             self.m_reserver2 = m_reserver2
-        if m_type is not None:
-            self.m_type = m_type
+        self.m_type = m_type
 
     @property
     def m_data(self):
@@ -161,7 +158,7 @@ class DataModule(object):
 
 
         :return: The m_type of this DataModule.  # noqa: E501
-        :rtype: int
+        :rtype: BarCodeModuleType
         """
         return self._m_type
 
@@ -171,7 +168,7 @@ class DataModule(object):
 
 
         :param m_type: The m_type of this DataModule.  # noqa: E501
-        :type m_type: int
+        :type m_type: BarCodeModuleType
         """
 
         self._m_type = m_type

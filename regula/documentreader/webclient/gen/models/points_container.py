@@ -53,8 +53,7 @@ class PointsContainer(object):
 
         if point_count is not None:
             self.point_count = point_count
-        if points_list is not None:
-            self.points_list = points_list
+        self.points_list = points_list
 
     @property
     def point_count(self):

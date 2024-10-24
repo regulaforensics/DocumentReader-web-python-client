@@ -63,8 +63,7 @@ class TextDataResult(object):
         self._result_type = None
         self.discriminator = None
 
-        if doc_visual_extended_info is not None:
-            self.doc_visual_extended_info = doc_visual_extended_info
+        self.doc_visual_extended_info = doc_visual_extended_info
         if buf_length is not None:
             self.buf_length = buf_length
         if light is not None:
@@ -200,8 +199,6 @@ class TextDataResult(object):
         :param result_type: The result_type of this TextDataResult.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
 

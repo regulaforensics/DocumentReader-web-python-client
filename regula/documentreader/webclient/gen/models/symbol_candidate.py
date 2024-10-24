@@ -33,15 +33,17 @@ class SymbolCandidate(object):
     """
     openapi_types = {
         'symbol_code': 'int',
-        'symbol_probability': 'int'
+        'symbol_probability': 'int',
+        'reserved': 'object'
     }
 
     attribute_map = {
         'symbol_code': 'SymbolCode',
-        'symbol_probability': 'SymbolProbability'
+        'symbol_probability': 'SymbolProbability',
+        'reserved': 'Reserved'
     }
 
-    def __init__(self, symbol_code=None, symbol_probability=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, symbol_code=None, symbol_probability=None, reserved=None, local_vars_configuration=None):  # noqa: E501
         """SymbolCandidate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -49,10 +51,12 @@ class SymbolCandidate(object):
 
         self._symbol_code = None
         self._symbol_probability = None
+        self._reserved = None
         self.discriminator = None
 
         self.symbol_code = symbol_code
         self.symbol_probability = symbol_probability
+        self.reserved = reserved
 
     @property
     def symbol_code(self):
@@ -74,8 +78,6 @@ class SymbolCandidate(object):
         :param symbol_code: The symbol_code of this SymbolCandidate.  # noqa: E501
         :type symbol_code: int
         """
-        if self.local_vars_configuration.client_side_validation and symbol_code is None:  # noqa: E501
-            raise ValueError("Invalid value for `symbol_code`, must not be `None`")  # noqa: E501
 
         self._symbol_code = symbol_code
 
@@ -99,8 +101,6 @@ class SymbolCandidate(object):
         :param symbol_probability: The symbol_probability of this SymbolCandidate.  # noqa: E501
         :type symbol_probability: int
         """
-        if self.local_vars_configuration.client_side_validation and symbol_probability is None:  # noqa: E501
-            raise ValueError("Invalid value for `symbol_probability`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 symbol_probability is not None and symbol_probability > 100):  # noqa: E501
             raise ValueError("Invalid value for `symbol_probability`, must be a value less than or equal to `100`")  # noqa: E501
@@ -109,6 +109,27 @@ class SymbolCandidate(object):
             raise ValueError("Invalid value for `symbol_probability`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._symbol_probability = symbol_probability
+
+    @property
+    def reserved(self):
+        """Gets the reserved of this SymbolCandidate.  # noqa: E501
+
+
+        :return: The reserved of this SymbolCandidate.  # noqa: E501
+        :rtype: object
+        """
+        return self._reserved
+
+    @reserved.setter
+    def reserved(self, reserved):
+        """Sets the reserved of this SymbolCandidate.
+
+
+        :param reserved: The reserved of this SymbolCandidate.  # noqa: E501
+        :type reserved: object
+        """
+
+        self._reserved = reserved
 
     def to_dict(self):
         """Returns the model properties as a dict"""

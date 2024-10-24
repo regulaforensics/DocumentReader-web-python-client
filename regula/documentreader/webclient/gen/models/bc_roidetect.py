@@ -57,14 +57,10 @@ class BcROIDETECT(object):
         self._top = None
         self.discriminator = None
 
-        if bottom is not None:
-            self.bottom = bottom
-        if left is not None:
-            self.left = left
-        if right is not None:
-            self.right = right
-        if top is not None:
-            self.top = top
+        self.bottom = bottom
+        self.left = left
+        self.right = right
+        self.top = top
 
     @property
     def bottom(self):

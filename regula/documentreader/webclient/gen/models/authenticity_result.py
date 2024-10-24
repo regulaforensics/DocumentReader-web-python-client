@@ -92,8 +92,6 @@ class AuthenticityResult(object):
         :param authenticity_check_list: The authenticity_check_list of this AuthenticityResult.  # noqa: E501
         :type authenticity_check_list: AuthenticityCheckList
         """
-        if self.local_vars_configuration.client_side_validation and authenticity_check_list is None:  # noqa: E501
-            raise ValueError("Invalid value for `authenticity_check_list`, must not be `None`")  # noqa: E501
 
         self._authenticity_check_list = authenticity_check_list
 
@@ -201,8 +199,6 @@ class AuthenticityResult(object):
         :param result_type: The result_type of this AuthenticityResult.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
 

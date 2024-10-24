@@ -48,8 +48,7 @@ class DocumentPositionResultAllOf(object):
         self._document_position = None
         self.discriminator = None
 
-        if document_position is not None:
-            self.document_position = document_position
+        self.document_position = document_position
 
     @property
     def document_position(self):

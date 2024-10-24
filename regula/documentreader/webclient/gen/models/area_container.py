@@ -54,12 +54,9 @@ class AreaContainer(object):
         self._points = None
         self.discriminator = None
 
-        if count is not None:
-            self.count = count
-        if list is not None:
-            self.list = list
-        if points is not None:
-            self.points = points
+        self.count = count
+        self.list = list
+        self.points = points
 
     @property
     def count(self):

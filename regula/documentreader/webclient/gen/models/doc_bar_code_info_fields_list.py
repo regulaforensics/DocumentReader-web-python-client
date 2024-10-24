@@ -51,10 +51,8 @@ class DocBarCodeInfoFieldsList(object):
         self._p_array_fields = None
         self.discriminator = None
 
-        if n_fields is not None:
-            self.n_fields = n_fields
-        if p_array_fields is not None:
-            self.p_array_fields = p_array_fields
+        self.n_fields = n_fields
+        self.p_array_fields = p_array_fields
 
     @property
     def n_fields(self):

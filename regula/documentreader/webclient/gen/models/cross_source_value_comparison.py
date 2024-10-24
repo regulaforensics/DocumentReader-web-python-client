@@ -76,8 +76,6 @@ class CrossSourceValueComparison(object):
         :param source_left: The source_left of this CrossSourceValueComparison.  # noqa: E501
         :type source_left: Source
         """
-        if self.local_vars_configuration.client_side_validation and source_left is None:  # noqa: E501
-            raise ValueError("Invalid value for `source_left`, must not be `None`")  # noqa: E501
 
         self._source_left = source_left
 
@@ -99,8 +97,6 @@ class CrossSourceValueComparison(object):
         :param source_right: The source_right of this CrossSourceValueComparison.  # noqa: E501
         :type source_right: Source
         """
-        if self.local_vars_configuration.client_side_validation and source_right is None:  # noqa: E501
-            raise ValueError("Invalid value for `source_right`, must not be `None`")  # noqa: E501
 
         self._source_right = source_right
 
@@ -122,8 +118,6 @@ class CrossSourceValueComparison(object):
         :param status: The status of this CrossSourceValueComparison.  # noqa: E501
         :type status: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 

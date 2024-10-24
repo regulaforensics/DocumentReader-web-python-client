@@ -63,14 +63,10 @@ class SecurityFeatureResultAllOf(object):
         self._reserved2 = None
         self.discriminator = None
 
-        if element_type is not None:
-            self.element_type = element_type
-        if element_rect is not None:
-            self.element_rect = element_rect
-        if visibility is not None:
-            self.visibility = visibility
-        if critical_flag is not None:
-            self.critical_flag = critical_flag
+        self.element_type = element_type
+        self.element_rect = element_rect
+        self.visibility = visibility
+        self.critical_flag = critical_flag
         if area_list is not None:
             self.area_list = area_list
         if reserved2 is not None:

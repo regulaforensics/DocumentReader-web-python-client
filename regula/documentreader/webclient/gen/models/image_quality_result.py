@@ -92,8 +92,6 @@ class ImageQualityResult(object):
         :param image_quality_check_list: The image_quality_check_list of this ImageQualityResult.  # noqa: E501
         :type image_quality_check_list: ImageQualityCheckList
         """
-        if self.local_vars_configuration.client_side_validation and image_quality_check_list is None:  # noqa: E501
-            raise ValueError("Invalid value for `image_quality_check_list`, must not be `None`")  # noqa: E501
 
         self._image_quality_check_list = image_quality_check_list
 
@@ -201,8 +199,6 @@ class ImageQualityResult(object):
         :param result_type: The result_type of this ImageQualityResult.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
 

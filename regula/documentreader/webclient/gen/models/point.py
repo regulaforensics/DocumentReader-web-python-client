@@ -51,10 +51,8 @@ class Point(object):
         self._y = None
         self.discriminator = None
 
-        if x is not None:
-            self.x = x
-        if y is not None:
-            self.y = y
+        self.x = x
+        self.y = y
 
     @property
     def x(self):

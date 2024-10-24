@@ -82,16 +82,11 @@ class IdentResult(object):
             self.element_diagnose = element_diagnose
         if percent_value is not None:
             self.percent_value = percent_value
-        if element_type is not None:
-            self.element_type = element_type
-        if light_index is not None:
-            self.light_index = light_index
-        if area is not None:
-            self.area = area
-        if image is not None:
-            self.image = image
-        if etalon_image is not None:
-            self.etalon_image = etalon_image
+        self.element_type = element_type
+        self.light_index = light_index
+        self.area = area
+        self.image = image
+        self.etalon_image = etalon_image
         if area_list is not None:
             self.area_list = area_list
 
@@ -115,8 +110,6 @@ class IdentResult(object):
         :param type: The type of this IdentResult.  # noqa: E501
         :type type: int
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 

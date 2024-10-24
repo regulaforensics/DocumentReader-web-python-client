@@ -39,7 +39,8 @@ class ProcessResponse(object):
         'log': 'str',
         'pass_back_object': 'dict(str, object)',
         'more_pages_available': 'int',
-        'elapsed_time': 'int'
+        'elapsed_time': 'int',
+        'metadata': 'dict(str, object)'
     }
 
     attribute_map = {
@@ -50,10 +51,11 @@ class ProcessResponse(object):
         'log': 'log',
         'pass_back_object': 'passBackObject',
         'more_pages_available': 'morePagesAvailable',
-        'elapsed_time': 'elapsedTime'
+        'elapsed_time': 'elapsedTime',
+        'metadata': 'metadata'
     }
 
-    def __init__(self, chip_page=None, processing_finished=None, container_list=None, transaction_info=None, log=None, pass_back_object=None, more_pages_available=None, elapsed_time=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, chip_page=None, processing_finished=None, container_list=None, transaction_info=None, log=None, pass_back_object=None, more_pages_available=None, elapsed_time=None, metadata=None, local_vars_configuration=None):  # noqa: E501
         """ProcessResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,10 +69,10 @@ class ProcessResponse(object):
         self._pass_back_object = None
         self._more_pages_available = None
         self._elapsed_time = None
+        self._metadata = None
         self.discriminator = None
 
-        if chip_page is not None:
-            self.chip_page = chip_page
+        self.chip_page = chip_page
         self.processing_finished = processing_finished
         self.container_list = container_list
         self.transaction_info = transaction_info
@@ -78,10 +80,10 @@ class ProcessResponse(object):
             self.log = log
         if pass_back_object is not None:
             self.pass_back_object = pass_back_object
-        if more_pages_available is not None:
-            self.more_pages_available = more_pages_available
-        if elapsed_time is not None:
-            self.elapsed_time = elapsed_time
+        self.more_pages_available = more_pages_available
+        self.elapsed_time = elapsed_time
+        if metadata is not None:
+            self.metadata = metadata
 
     @property
     def chip_page(self):
@@ -122,8 +124,6 @@ class ProcessResponse(object):
         :param processing_finished: The processing_finished of this ProcessResponse.  # noqa: E501
         :type processing_finished: ProcessingStatus
         """
-        if self.local_vars_configuration.client_side_validation and processing_finished is None:  # noqa: E501
-            raise ValueError("Invalid value for `processing_finished`, must not be `None`")  # noqa: E501
 
         self._processing_finished = processing_finished
 
@@ -145,8 +145,6 @@ class ProcessResponse(object):
         :param container_list: The container_list of this ProcessResponse.  # noqa: E501
         :type container_list: ContainerList
         """
-        if self.local_vars_configuration.client_side_validation and container_list is None:  # noqa: E501
-            raise ValueError("Invalid value for `container_list`, must not be `None`")  # noqa: E501
 
         self._container_list = container_list
 
@@ -168,8 +166,6 @@ class ProcessResponse(object):
         :param transaction_info: The transaction_info of this ProcessResponse.  # noqa: E501
         :type transaction_info: TransactionInfo
         """
-        if self.local_vars_configuration.client_side_validation and transaction_info is None:  # noqa: E501
-            raise ValueError("Invalid value for `transaction_info`, must not be `None`")  # noqa: E501
 
         self._transaction_info = transaction_info
 
@@ -262,6 +258,27 @@ class ProcessResponse(object):
         """
 
         self._elapsed_time = elapsed_time
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this ProcessResponse.  # noqa: E501
+
+
+        :return: The metadata of this ProcessResponse.  # noqa: E501
+        :rtype: dict(str, object)
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this ProcessResponse.
+
+
+        :param metadata: The metadata of this ProcessResponse.  # noqa: E501
+        :type metadata: dict(str, object)
+        """
+
+        self._metadata = metadata
 
     def to_dict(self):
         """Returns the model properties as a dict"""

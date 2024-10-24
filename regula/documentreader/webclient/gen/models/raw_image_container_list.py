@@ -51,10 +51,8 @@ class RawImageContainerList(object):
         self._images = None
         self.discriminator = None
 
-        if count is not None:
-            self.count = count
-        if images is not None:
-            self.images = images
+        self.count = count
+        self.images = images
 
     @property
     def count(self):

@@ -94,8 +94,6 @@ class LicenseResult(object):
         :param license: The license of this LicenseResult.  # noqa: E501
         :type license: str
         """
-        if self.local_vars_configuration.client_side_validation and license is None:  # noqa: E501
-            raise ValueError("Invalid value for `license`, must not be `None`")  # noqa: E501
 
         self._license = license
 
@@ -203,8 +201,6 @@ class LicenseResult(object):
         :param result_type: The result_type of this LicenseResult.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
 

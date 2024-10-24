@@ -66,10 +66,8 @@ class VerifiedFieldMap(object):
         self._matrix = None
         self.discriminator = None
 
-        if w_field_type is not None:
-            self.w_field_type = w_field_type
-        if w_lcid is not None:
-            self.w_lcid = w_lcid
+        self.w_field_type = w_field_type
+        self.w_lcid = w_lcid
         if field_mrz is not None:
             self.field_mrz = field_mrz
         if field_visual is not None:
@@ -78,8 +76,7 @@ class VerifiedFieldMap(object):
             self.field_barcode = field_barcode
         if field_rfid is not None:
             self.field_rfid = field_rfid
-        if matrix is not None:
-            self.matrix = matrix
+        self.matrix = matrix
 
     @property
     def w_field_type(self):

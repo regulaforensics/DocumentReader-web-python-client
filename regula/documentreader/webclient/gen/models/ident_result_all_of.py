@@ -63,16 +63,11 @@ class IdentResultAllOf(object):
         self._area_list = None
         self.discriminator = None
 
-        if element_type is not None:
-            self.element_type = element_type
-        if light_index is not None:
-            self.light_index = light_index
-        if area is not None:
-            self.area = area
-        if image is not None:
-            self.image = image
-        if etalon_image is not None:
-            self.etalon_image = etalon_image
+        self.element_type = element_type
+        self.light_index = light_index
+        self.area = area
+        self.image = image
+        self.etalon_image = etalon_image
         if area_list is not None:
             self.area_list = area_list
 

@@ -91,24 +91,17 @@ class FiberResult(object):
             self.element_diagnose = element_diagnose
         if percent_value is not None:
             self.percent_value = percent_value
-        if rect_count is not None:
-            self.rect_count = rect_count
-        if expected_count is not None:
-            self.expected_count = expected_count
+        self.rect_count = rect_count
+        self.expected_count = expected_count
         if light_value is not None:
             self.light_value = light_value
         if light_disp is not None:
             self.light_disp = light_disp
-        if rect_array is not None:
-            self.rect_array = rect_array
-        if width is not None:
-            self.width = width
-        if length is not None:
-            self.length = length
-        if area is not None:
-            self.area = area
-        if color_values is not None:
-            self.color_values = color_values
+        self.rect_array = rect_array
+        self.width = width
+        self.length = length
+        self.area = area
+        self.color_values = color_values
 
     @property
     def type(self):
@@ -130,8 +123,6 @@ class FiberResult(object):
         :param type: The type of this FiberResult.  # noqa: E501
         :type type: int
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 

@@ -33,6 +33,7 @@ class FDSIDList(object):
     """
     openapi_types = {
         'icao_code': 'str',
+        'count': 'float',
         'list': 'list[int]',
         'd_type': 'DocumentType',
         'd_format': 'DocumentFormat',
@@ -47,6 +48,7 @@ class FDSIDList(object):
 
     attribute_map = {
         'icao_code': 'ICAOCode',
+        'count': 'Count',
         'list': 'List',
         'd_type': 'dType',
         'd_format': 'dFormat',
@@ -59,13 +61,14 @@ class FDSIDList(object):
         'is_deprecated': 'isDeprecated'
     }
 
-    def __init__(self, icao_code=None, list=None, d_type=None, d_format=None, d_mrz=None, d_description=None, d_year=None, d_country_name=None, d_state_code=None, d_state_name=None, is_deprecated=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, icao_code=None, count=None, list=None, d_type=None, d_format=None, d_mrz=None, d_description=None, d_year=None, d_country_name=None, d_state_code=None, d_state_name=None, is_deprecated=None, local_vars_configuration=None):  # noqa: E501
         """FDSIDList - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._icao_code = None
+        self._count = None
         self._list = None
         self._d_type = None
         self._d_format = None
@@ -78,28 +81,21 @@ class FDSIDList(object):
         self._is_deprecated = None
         self.discriminator = None
 
-        if icao_code is not None:
-            self.icao_code = icao_code
-        if list is not None:
-            self.list = list
-        if d_type is not None:
-            self.d_type = d_type
-        if d_format is not None:
-            self.d_format = d_format
-        if d_mrz is not None:
-            self.d_mrz = d_mrz
+        self.icao_code = icao_code
+        self.count = count
+        self.list = list
+        self.d_type = d_type
+        self.d_format = d_format
+        self.d_mrz = d_mrz
         if d_description is not None:
             self.d_description = d_description
-        if d_year is not None:
-            self.d_year = d_year
-        if d_country_name is not None:
-            self.d_country_name = d_country_name
+        self.d_year = d_year
+        self.d_country_name = d_country_name
         if d_state_code is not None:
             self.d_state_code = d_state_code
         if d_state_name is not None:
             self.d_state_name = d_state_name
-        if is_deprecated is not None:
-            self.is_deprecated = is_deprecated
+        self.is_deprecated = is_deprecated
 
     @property
     def icao_code(self):
@@ -129,6 +125,29 @@ class FDSIDList(object):
             raise ValueError("Invalid value for `icao_code`, length must be greater than or equal to `3`")  # noqa: E501
 
         self._icao_code = icao_code
+
+    @property
+    def count(self):
+        """Gets the count of this FDSIDList.  # noqa: E501
+
+        Number of elements in the List  # noqa: E501
+
+        :return: The count of this FDSIDList.  # noqa: E501
+        :rtype: float
+        """
+        return self._count
+
+    @count.setter
+    def count(self, count):
+        """Sets the count of this FDSIDList.
+
+        Number of elements in the List  # noqa: E501
+
+        :param count: The count of this FDSIDList.  # noqa: E501
+        :type count: float
+        """
+
+        self._count = count
 
     @property
     def list(self):

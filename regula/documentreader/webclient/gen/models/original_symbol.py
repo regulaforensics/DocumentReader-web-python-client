@@ -54,10 +54,8 @@ class OriginalSymbol(object):
         self._rect = None
         self.discriminator = None
 
-        if code is not None:
-            self.code = code
-        if probability is not None:
-            self.probability = probability
+        self.code = code
+        self.probability = probability
         if rect is not None:
             self.rect = rect
 

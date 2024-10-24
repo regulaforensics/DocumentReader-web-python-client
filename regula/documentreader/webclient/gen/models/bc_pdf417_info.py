@@ -63,18 +63,12 @@ class BcPDF417INFO(object):
         self._min_y = None
         self.discriminator = None
 
-        if angle is not None:
-            self.angle = angle
-        if bc_column is not None:
-            self.bc_column = bc_column
-        if bc_error_level is not None:
-            self.bc_error_level = bc_error_level
-        if bc_row is not None:
-            self.bc_row = bc_row
-        if min_x is not None:
-            self.min_x = min_x
-        if min_y is not None:
-            self.min_y = min_y
+        self.angle = angle
+        self.bc_column = bc_column
+        self.bc_error_level = bc_error_level
+        self.bc_row = bc_row
+        self.min_x = min_x
+        self.min_y = min_y
 
     @property
     def angle(self):

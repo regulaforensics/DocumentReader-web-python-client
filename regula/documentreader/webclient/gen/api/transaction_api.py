@@ -606,7 +606,7 @@ class TransactionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: InlineResponse200
+        :rtype: TransactionProcessResult
         """
         kwargs['_return_http_data_only'] = True
         return self.api_v2_transaction_transaction_id_process_post_with_http_info(transaction_id, transaction_process_request, **kwargs)  # noqa: E501
@@ -644,7 +644,7 @@ class TransactionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(InlineResponse200, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(TransactionProcessResult, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -708,7 +708,7 @@ class TransactionApi(object):
         auth_settings = []  # noqa: E501
         
         response_types_map = {
-            200: "InlineResponse200",
+            200: "TransactionProcessResult",
             400: None,
             403: None,
         }
@@ -756,7 +756,7 @@ class TransactionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: InlineResponse2001
+        :rtype: TransactionProcessResponse
         """
         kwargs['_return_http_data_only'] = True
         return self.api_v2_transaction_transaction_id_results_get_with_http_info(transaction_id, **kwargs)  # noqa: E501
@@ -794,7 +794,7 @@ class TransactionApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(InlineResponse2001, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(TransactionProcessResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -850,7 +850,7 @@ class TransactionApi(object):
         auth_settings = []  # noqa: E501
         
         response_types_map = {
-            200: "InlineResponse2001",
+            200: "TransactionProcessResponse",
             400: None,
             403: None,
         }

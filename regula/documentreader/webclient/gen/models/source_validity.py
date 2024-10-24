@@ -72,8 +72,6 @@ class SourceValidity(object):
         :param source: The source of this SourceValidity.  # noqa: E501
         :type source: Source
         """
-        if self.local_vars_configuration.client_side_validation and source is None:  # noqa: E501
-            raise ValueError("Invalid value for `source`, must not be `None`")  # noqa: E501
 
         self._source = source
 
@@ -95,8 +93,6 @@ class SourceValidity(object):
         :param status: The status of this SourceValidity.  # noqa: E501
         :type status: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 

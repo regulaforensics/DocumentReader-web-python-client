@@ -50,22 +50,30 @@ class ResultItem(object):
         1 : 'DocumentImageResult',
         102 : 'TextDataResult',
         103 : 'GraphicsResult',
+        104 : 'DocumentBinaryInfoResult',
         15 : 'LexicalAnalysisResult',
+        16 : 'DocumentImageResult',
         17 : 'TextDataResult',
         18 : 'TextDataResult',
         19 : 'GraphicsResult',
         20 : 'AuthenticityResult',
+        26 : 'TextDataResult',
         3 : 'TextDataResult',
         30 : 'ImageQualityResult',
+        32 : 'GraphicsResult',
         33 : 'StatusResult',
         34 : 'AuthenticityResult',
+        35 : 'GraphicsResult',
         36 : 'TextResult',
         37 : 'ImagesResult',
+        38 : 'GraphicsResult',
         39 : 'AuthenticityResult',
         49 : 'EncryptedRCLResult',
         5 : 'DocBarCodeInfo',
         50 : 'LicenseResult',
         6 : 'GraphicsResult',
+        61 : 'DocumentPositionResult',
+        62 : 'DocumentPositionResult',
         8 : 'DocumentTypesCandidatesResult',
         85 : 'DocumentPositionResult',
         9 : 'ChosenDocumentTypeResult',
@@ -198,8 +206,6 @@ class ResultItem(object):
         :param result_type: The result_type of this ResultItem.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
 

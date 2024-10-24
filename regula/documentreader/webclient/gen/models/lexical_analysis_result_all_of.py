@@ -48,8 +48,7 @@ class LexicalAnalysisResultAllOf(object):
         self._list_verified_fields = None
         self.discriminator = None
 
-        if list_verified_fields is not None:
-            self.list_verified_fields = list_verified_fields
+        self.list_verified_fields = list_verified_fields
 
     @property
     def list_verified_fields(self):

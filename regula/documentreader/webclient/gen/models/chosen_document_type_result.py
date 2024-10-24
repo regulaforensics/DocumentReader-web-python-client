@@ -66,8 +66,7 @@ class ChosenDocumentTypeResult(object):
         self._result_type = None
         self.discriminator = None
 
-        if one_candidate is not None:
-            self.one_candidate = one_candidate
+        self.one_candidate = one_candidate
         if xml_buffer is not None:
             self.xml_buffer = xml_buffer
         if buf_length is not None:
@@ -226,8 +225,6 @@ class ChosenDocumentTypeResult(object):
         :param result_type: The result_type of this ChosenDocumentTypeResult.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
 

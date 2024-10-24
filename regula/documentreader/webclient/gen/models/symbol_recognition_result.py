@@ -33,26 +33,34 @@ class SymbolRecognitionResult(object):
     """
     openapi_types = {
         'symbol_rect': 'RectangleCoordinates',
-        'list_of_candidates': 'list[SymbolCandidate]'
+        'candidates_count': 'float',
+        'list_of_candidates': 'list[SymbolCandidate]',
+        'reserved': 'object'
     }
 
     attribute_map = {
         'symbol_rect': 'SymbolRect',
-        'list_of_candidates': 'ListOfCandidates'
+        'candidates_count': 'CandidatesCount',
+        'list_of_candidates': 'ListOfCandidates',
+        'reserved': 'Reserved'
     }
 
-    def __init__(self, symbol_rect=None, list_of_candidates=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, symbol_rect=None, candidates_count=None, list_of_candidates=None, reserved=None, local_vars_configuration=None):  # noqa: E501
         """SymbolRecognitionResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._symbol_rect = None
+        self._candidates_count = None
         self._list_of_candidates = None
+        self._reserved = None
         self.discriminator = None
 
         self.symbol_rect = symbol_rect
+        self.candidates_count = candidates_count
         self.list_of_candidates = list_of_candidates
+        self.reserved = reserved
 
     @property
     def symbol_rect(self):
@@ -72,10 +80,31 @@ class SymbolRecognitionResult(object):
         :param symbol_rect: The symbol_rect of this SymbolRecognitionResult.  # noqa: E501
         :type symbol_rect: RectangleCoordinates
         """
-        if self.local_vars_configuration.client_side_validation and symbol_rect is None:  # noqa: E501
-            raise ValueError("Invalid value for `symbol_rect`, must not be `None`")  # noqa: E501
 
         self._symbol_rect = symbol_rect
+
+    @property
+    def candidates_count(self):
+        """Gets the candidates_count of this SymbolRecognitionResult.  # noqa: E501
+
+        Number of significant elements of ListOfCandidates array  # noqa: E501
+
+        :return: The candidates_count of this SymbolRecognitionResult.  # noqa: E501
+        :rtype: float
+        """
+        return self._candidates_count
+
+    @candidates_count.setter
+    def candidates_count(self, candidates_count):
+        """Sets the candidates_count of this SymbolRecognitionResult.
+
+        Number of significant elements of ListOfCandidates array  # noqa: E501
+
+        :param candidates_count: The candidates_count of this SymbolRecognitionResult.  # noqa: E501
+        :type candidates_count: float
+        """
+
+        self._candidates_count = candidates_count
 
     @property
     def list_of_candidates(self):
@@ -97,10 +126,29 @@ class SymbolRecognitionResult(object):
         :param list_of_candidates: The list_of_candidates of this SymbolRecognitionResult.  # noqa: E501
         :type list_of_candidates: list[SymbolCandidate]
         """
-        if self.local_vars_configuration.client_side_validation and list_of_candidates is None:  # noqa: E501
-            raise ValueError("Invalid value for `list_of_candidates`, must not be `None`")  # noqa: E501
 
         self._list_of_candidates = list_of_candidates
+
+    @property
+    def reserved(self):
+        """Gets the reserved of this SymbolRecognitionResult.  # noqa: E501
+
+
+        :return: The reserved of this SymbolRecognitionResult.  # noqa: E501
+        :rtype: object
+        """
+        return self._reserved
+
+    @reserved.setter
+    def reserved(self, reserved):
+        """Sets the reserved of this SymbolRecognitionResult.
+
+
+        :param reserved: The reserved of this SymbolRecognitionResult.  # noqa: E501
+        :type reserved: object
+        """
+
+        self._reserved = reserved
 
     def to_dict(self):
         """Returns the model properties as a dict"""

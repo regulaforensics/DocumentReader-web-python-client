@@ -68,12 +68,9 @@ class Status(object):
 
         self.overall_status = overall_status
         self.optical = optical
-        if portrait is not None:
-            self.portrait = portrait
-        if rfid is not None:
-            self.rfid = rfid
-        if stop_list is not None:
-            self.stop_list = stop_list
+        self.portrait = portrait
+        self.rfid = rfid
+        self.stop_list = stop_list
         if details_rfid is not None:
             self.details_rfid = details_rfid
         self.details_optical = details_optical
@@ -96,8 +93,6 @@ class Status(object):
         :param overall_status: The overall_status of this Status.  # noqa: E501
         :type overall_status: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and overall_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `overall_status`, must not be `None`")  # noqa: E501
 
         self._overall_status = overall_status
 
@@ -119,8 +114,6 @@ class Status(object):
         :param optical: The optical of this Status.  # noqa: E501
         :type optical: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and optical is None:  # noqa: E501
-            raise ValueError("Invalid value for `optical`, must not be `None`")  # noqa: E501
 
         self._optical = optical
 
@@ -226,8 +219,6 @@ class Status(object):
         :param details_optical: The details_optical of this Status.  # noqa: E501
         :type details_optical: DetailsOptical
         """
-        if self.local_vars_configuration.client_side_validation and details_optical is None:  # noqa: E501
-            raise ValueError("Invalid value for `details_optical`, must not be `None`")  # noqa: E501
 
         self._details_optical = details_optical
 

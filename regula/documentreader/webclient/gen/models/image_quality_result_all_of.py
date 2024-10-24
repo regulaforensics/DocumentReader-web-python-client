@@ -68,8 +68,6 @@ class ImageQualityResultAllOf(object):
         :param image_quality_check_list: The image_quality_check_list of this ImageQualityResultAllOf.  # noqa: E501
         :type image_quality_check_list: ImageQualityCheckList
         """
-        if self.local_vars_configuration.client_side_validation and image_quality_check_list is None:  # noqa: E501
-            raise ValueError("Invalid value for `image_quality_check_list`, must not be `None`")  # noqa: E501
 
         self._image_quality_check_list = image_quality_check_list
 

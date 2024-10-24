@@ -34,7 +34,9 @@ class Source(object):
 
     MAGNETIC = "MAGNETIC"
 
-    allowable_values = [MRZ, VISUAL, BARCODE, RFID, MAGNETIC]  # noqa: E501
+    EXTERNAL = "EXTERNAL"
+
+    allowable_values = [MRZ, VISUAL, BARCODE, RFID, MAGNETIC, EXTERNAL]  # noqa: E501
 
     """
     Attributes:

@@ -75,26 +75,16 @@ class DocumentPosition(object):
         self._dpi = None
         self.discriminator = None
 
-        if doc_format is not None:
-            self.doc_format = doc_format
-        if angle is not None:
-            self.angle = angle
-        if width is not None:
-            self.width = width
-        if height is not None:
-            self.height = height
-        if center is not None:
-            self.center = center
-        if left_bottom is not None:
-            self.left_bottom = left_bottom
-        if left_top is not None:
-            self.left_top = left_top
-        if right_bottom is not None:
-            self.right_bottom = right_bottom
-        if right_top is not None:
-            self.right_top = right_top
-        if dpi is not None:
-            self.dpi = dpi
+        self.doc_format = doc_format
+        self.angle = angle
+        self.width = width
+        self.height = height
+        self.center = center
+        self.left_bottom = left_bottom
+        self.left_top = left_top
+        self.right_bottom = right_bottom
+        self.right_top = right_top
+        self.dpi = dpi
 
     @property
     def doc_format(self):
@@ -121,6 +111,7 @@ class DocumentPosition(object):
     def angle(self):
         """Gets the angle of this DocumentPosition.  # noqa: E501
 
+        Document rotation angle  # noqa: E501
 
         :return: The angle of this DocumentPosition.  # noqa: E501
         :rtype: float
@@ -131,6 +122,7 @@ class DocumentPosition(object):
     def angle(self, angle):
         """Sets the angle of this DocumentPosition.
 
+        Document rotation angle  # noqa: E501
 
         :param angle: The angle of this DocumentPosition.  # noqa: E501
         :type angle: float
@@ -142,6 +134,7 @@ class DocumentPosition(object):
     def width(self):
         """Gets the width of this DocumentPosition.  # noqa: E501
 
+        Document width  # noqa: E501
 
         :return: The width of this DocumentPosition.  # noqa: E501
         :rtype: int
@@ -152,6 +145,7 @@ class DocumentPosition(object):
     def width(self, width):
         """Sets the width of this DocumentPosition.
 
+        Document width  # noqa: E501
 
         :param width: The width of this DocumentPosition.  # noqa: E501
         :type width: int
@@ -163,6 +157,7 @@ class DocumentPosition(object):
     def height(self):
         """Gets the height of this DocumentPosition.  # noqa: E501
 
+        Document height  # noqa: E501
 
         :return: The height of this DocumentPosition.  # noqa: E501
         :rtype: int
@@ -173,6 +168,7 @@ class DocumentPosition(object):
     def height(self, height):
         """Sets the height of this DocumentPosition.
 
+        Document height  # noqa: E501
 
         :param height: The height of this DocumentPosition.  # noqa: E501
         :type height: int

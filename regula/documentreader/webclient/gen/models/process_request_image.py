@@ -78,8 +78,6 @@ class ProcessRequestImage(object):
         :param image_data: The image_data of this ProcessRequestImage.  # noqa: E501
         :type image_data: ImageData
         """
-        if self.local_vars_configuration.client_side_validation and image_data is None:  # noqa: E501
-            raise ValueError("Invalid value for `image_data`, must not be `None`")  # noqa: E501
 
         self._image_data = image_data
 

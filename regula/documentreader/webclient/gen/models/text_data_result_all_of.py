@@ -48,8 +48,7 @@ class TextDataResultAllOf(object):
         self._doc_visual_extended_info = None
         self.discriminator = None
 
-        if doc_visual_extended_info is not None:
-            self.doc_visual_extended_info = doc_visual_extended_info
+        self.doc_visual_extended_info = doc_visual_extended_info
 
     @property
     def doc_visual_extended_info(self):

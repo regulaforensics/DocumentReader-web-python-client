@@ -48,8 +48,7 @@ class DocBarCodeInfoAllOf(object):
         self._doc_bar_code_info = None
         self.discriminator = None
 
-        if doc_bar_code_info is not None:
-            self.doc_bar_code_info = doc_bar_code_info
+        self.doc_bar_code_info = doc_bar_code_info
 
     @property
     def doc_bar_code_info(self):

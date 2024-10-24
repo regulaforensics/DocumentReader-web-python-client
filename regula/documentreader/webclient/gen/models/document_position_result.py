@@ -63,8 +63,7 @@ class DocumentPositionResult(object):
         self._result_type = None
         self.discriminator = None
 
-        if document_position is not None:
-            self.document_position = document_position
+        self.document_position = document_position
         if buf_length is not None:
             self.buf_length = buf_length
         if light is not None:
@@ -200,8 +199,6 @@ class DocumentPositionResult(object):
         :param result_type: The result_type of this DocumentPositionResult.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
 

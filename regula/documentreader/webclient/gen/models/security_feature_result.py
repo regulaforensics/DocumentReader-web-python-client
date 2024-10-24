@@ -82,14 +82,10 @@ class SecurityFeatureResult(object):
             self.element_diagnose = element_diagnose
         if percent_value is not None:
             self.percent_value = percent_value
-        if element_type is not None:
-            self.element_type = element_type
-        if element_rect is not None:
-            self.element_rect = element_rect
-        if visibility is not None:
-            self.visibility = visibility
-        if critical_flag is not None:
-            self.critical_flag = critical_flag
+        self.element_type = element_type
+        self.element_rect = element_rect
+        self.visibility = visibility
+        self.critical_flag = critical_flag
         if area_list is not None:
             self.area_list = area_list
         if reserved2 is not None:
@@ -115,8 +111,6 @@ class SecurityFeatureResult(object):
         :param type: The type of this SecurityFeatureResult.  # noqa: E501
         :type type: int
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 

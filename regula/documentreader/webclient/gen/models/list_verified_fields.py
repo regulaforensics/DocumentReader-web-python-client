@@ -32,24 +32,50 @@ class ListVerifiedFields(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'count': 'float',
         'p_field_maps': 'list[VerifiedFieldMap]'
     }
 
     attribute_map = {
+        'count': 'Count',
         'p_field_maps': 'pFieldMaps'
     }
 
-    def __init__(self, p_field_maps=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, count=None, p_field_maps=None, local_vars_configuration=None):  # noqa: E501
         """ListVerifiedFields - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._count = None
         self._p_field_maps = None
         self.discriminator = None
 
-        if p_field_maps is not None:
-            self.p_field_maps = p_field_maps
+        self.count = count
+        self.p_field_maps = p_field_maps
+
+    @property
+    def count(self):
+        """Gets the count of this ListVerifiedFields.  # noqa: E501
+
+        Number of pFieldMaps array elements  # noqa: E501
+
+        :return: The count of this ListVerifiedFields.  # noqa: E501
+        :rtype: float
+        """
+        return self._count
+
+    @count.setter
+    def count(self, count):
+        """Sets the count of this ListVerifiedFields.
+
+        Number of pFieldMaps array elements  # noqa: E501
+
+        :param count: The count of this ListVerifiedFields.  # noqa: E501
+        :type count: float
+        """
+
+        self._count = count
 
     @property
     def p_field_maps(self):

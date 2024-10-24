@@ -24,6 +24,8 @@ class DocumentFormat(object):
     Do not edit the class manually.
     """
 
+    UNKNOWN = int("-1")
+
     ID1 = int("0")
 
     ID2 = int("1")
@@ -50,7 +52,7 @@ class DocumentFormat(object):
 
     FLEXIBLE = int("1002")
 
-    allowable_values = [ID1, ID2, ID3, NON, A4, ID3_X2, ID1_90, ID1_180, ID1_270, ID2_180, ID3_180, CUSTOM, FLEXIBLE]  # noqa: E501
+    allowable_values = [UNKNOWN, ID1, ID2, ID3, NON, A4, ID3_X2, ID1_90, ID1_180, ID1_270, ID2_180, ID3_180, CUSTOM, FLEXIBLE]  # noqa: E501
 
     """
     Attributes:

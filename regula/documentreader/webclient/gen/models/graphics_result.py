@@ -92,8 +92,6 @@ class GraphicsResult(object):
         :param doc_graphics_info: The doc_graphics_info of this GraphicsResult.  # noqa: E501
         :type doc_graphics_info: GraphicFieldsList
         """
-        if self.local_vars_configuration.client_side_validation and doc_graphics_info is None:  # noqa: E501
-            raise ValueError("Invalid value for `doc_graphics_info`, must not be `None`")  # noqa: E501
 
         self._doc_graphics_info = doc_graphics_info
 
@@ -201,8 +199,6 @@ class GraphicsResult(object):
         :param result_type: The result_type of this GraphicsResult.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
 
