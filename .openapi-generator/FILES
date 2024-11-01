@@ -13,6 +13,7 @@ regula/documentreader/webclient/gen/models/area_array.py
 regula/documentreader/webclient/gen/models/area_container.py
 regula/documentreader/webclient/gen/models/auth_params.py
 regula/documentreader/webclient/gen/models/authenticity_check_list.py
+regula/documentreader/webclient/gen/models/authenticity_check_result.py
 regula/documentreader/webclient/gen/models/authenticity_check_result_item.py
 regula/documentreader/webclient/gen/models/authenticity_result.py
 regula/documentreader/webclient/gen/models/authenticity_result_all_of.py
@@ -24,6 +25,7 @@ regula/documentreader/webclient/gen/models/check_result.py
 regula/documentreader/webclient/gen/models/chosen_document_type.py
 regula/documentreader/webclient/gen/models/chosen_document_type_result.py
 regula/documentreader/webclient/gen/models/chosen_document_type_result_all_of.py
+regula/documentreader/webclient/gen/models/container_list.py
 regula/documentreader/webclient/gen/models/critical.py
 regula/documentreader/webclient/gen/models/cross_source_value_comparison.py
 regula/documentreader/webclient/gen/models/data_module.py
