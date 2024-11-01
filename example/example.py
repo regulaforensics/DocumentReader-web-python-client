@@ -22,7 +22,10 @@ with open("UV.jpg", "rb") as f:
 
 with DocumentReaderApi(host) as api:
     api.license = regula_license
-
+    api.api_client.default_headers = {
+        "X-CLIENT-KEY": "123",
+        "Authorization": "Bearer 123"
+    }
     params = ProcessParams(
         scenario=Scenario.FULL_PROCESS,
         result_type_output=[
