@@ -3,7 +3,6 @@ import os
 from regula.documentreader.webclient import *
 
 host = os.getenv("API_BASE_PATH", "https://api.regulaforensics.com")
-regula_license = os.getenv("TEST_LICENSE", None)  # optional, used here only for smoke test purposes
 
 # read optional local license file
 if os.path.isfile('regula.license') and os.access('regula.license', os.R_OK):
@@ -21,7 +20,6 @@ with open("UV.jpg", "rb") as f:
     uv_page_0 = f.read()
 
 with DocumentReaderApi(host) as api:
-    api.license = regula_license
     api.api_client.default_headers = {
         "X-CLIENT-KEY": "123",
         "Authorization": "Bearer 123"
