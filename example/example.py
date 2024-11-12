@@ -29,7 +29,7 @@ with DocumentReaderApi(host) as api:
     params = ProcessParams(already_cropped=True, scenario=Scenario.FULL_PROCESS)
 
     # Add license to request
-    # request = RecognitionRequest(system_info=ProcessSystemInfo(license="license"), process_params=params, images=[
+    # request = RecognitionRequest(system_info=ProcessSystemInfo(license=base64.b64encode(regula_license).decode()), process_params=params, images=[
     #     RecognitionImage(image=white_page_0, light_index=Light.WHITE, page_index=0),
     # ])
 
