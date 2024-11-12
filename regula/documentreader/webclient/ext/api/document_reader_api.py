@@ -20,12 +20,8 @@ class DocumentReaderApi(HealthcheckApi, ProcessApi):
             configuration = Configuration(host=host)
             configuration.debug = debug
             configuration.verify_ssl = verify_ssl
-
             self.api_client = ApiClient(configuration=configuration)
-
         super().__init__(self.api_client)
-
-        self.__license = None
 
     def __enter__(self):
         return self
@@ -36,19 +32,7 @@ class DocumentReaderApi(HealthcheckApi, ProcessApi):
     def set_configuration(self, configuration) -> None:
         self.api_client.configuration = configuration
 
-    @property
-    def license(self) -> Base64String:
-        return self.__license
-
-    @license.setter
-    def license(self, value: Union[Base64String, bytes]):
-        if isinstance(value, bytes):
-            self.__license = base64.b64encode(value).decode("utf-8")
-        else:
-            self.__license = value
-
     def process(self, process_request: ProcessRequest) -> RecognitionResponse:
-        process_request.system_info.license = self.license
         return RecognitionResponse(self.api_process(process_request))
 
     def deserialize_to_recognition_response(self, content: Union[bytes, bytearray, str]) -> RecognitionResponse:

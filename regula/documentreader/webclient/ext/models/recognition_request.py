@@ -75,13 +75,17 @@ class RecognitionRequest(ProcessRequest):
                 else:
                     input_images.append(image)
             super().__init__(
-                process_param=process_params, list=input_images,
-                system_info=system_info, tag=tag
+                process_param=process_params,
+                list=input_images,
+                system_info=system_info,
+                tag=tag
             )
         if container_list:
             super().__init__(
-                process_param=process_params, container_list=container_list,
-                system_info=system_info, tag=tag
+                process_param=process_params,
+                container_list=container_list,
+                system_info=system_info,
+                tag=tag
             )
 
     @property
