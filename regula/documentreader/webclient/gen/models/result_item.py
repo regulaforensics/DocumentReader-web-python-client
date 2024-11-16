@@ -51,6 +51,7 @@ class ResultItem(object):
         102 : 'TextDataResult',
         103 : 'GraphicsResult',
         15 : 'LexicalAnalysisResult',
+        16 : 'DocumentImageResult',
         17 : 'TextDataResult',
         18 : 'TextDataResult',
         19 : 'GraphicsResult',

@@ -60,6 +60,7 @@ class ProcessParams(object):
         'check_required_text_fields': 'bool',
         'return_cropped_barcode': 'bool',
         'image_qa': 'ImageQA',
+        'strict_image_quality': 'bool',
         'respect_image_quality': 'bool',
         'force_doc_format': 'DocumentFormat',
         'no_graphics': 'bool',
@@ -85,7 +86,8 @@ class ProcessParams(object):
         'check_auth': 'bool',
         'auth_params': 'AuthParams',
         'mrz_detect_mode': 'MrzDetectModeEnum',
-        'generate_numeric_codes': 'bool'
+        'generate_numeric_codes': 'bool',
+        'strict_barcode_digital_signature_check': 'bool'
     }
 
     attribute_map = {
@@ -117,6 +119,7 @@ class ProcessParams(object):
         'check_required_text_fields': 'checkRequiredTextFields',
         'return_cropped_barcode': 'returnCroppedBarcode',
         'image_qa': 'imageQa',
+        'strict_image_quality': 'strictImageQuality',
         'respect_image_quality': 'respectImageQuality',
         'force_doc_format': 'forceDocFormat',
         'no_graphics': 'noGraphics',
@@ -142,10 +145,11 @@ class ProcessParams(object):
         'check_auth': 'checkAuth',
         'auth_params': 'authParams',
         'mrz_detect_mode': 'mrzDetectMode',
-        'generate_numeric_codes': 'generateNumericCodes'
+        'generate_numeric_codes': 'generateNumericCodes',
+        'strict_barcode_digital_signature_check': 'strictBarcodeDigitalSignatureCheck'
     }
 
-    def __init__(self, lcid_filter=None, lcid_ignore_filter=None, one_shot_identification=None, use_face_api=None, face_api=None, do_detect_can=None, image_output_max_height=None, image_output_max_width=None, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, process_auth=None, device_id=None, device_type=None, device_type_hex=None, ignore_device_id_from_image=None, document_id_list=None, rfid=None, check_auth=None, auth_params=None, mrz_detect_mode=None, generate_numeric_codes=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, lcid_filter=None, lcid_ignore_filter=None, one_shot_identification=None, use_face_api=None, face_api=None, do_detect_can=None, image_output_max_height=None, image_output_max_width=None, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, strict_image_quality=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, process_auth=None, device_id=None, device_type=None, device_type_hex=None, ignore_device_id_from_image=None, document_id_list=None, rfid=None, check_auth=None, auth_params=None, mrz_detect_mode=None, generate_numeric_codes=None, strict_barcode_digital_signature_check=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -179,6 +183,7 @@ class ProcessParams(object):
         self._check_required_text_fields = None
         self._return_cropped_barcode = None
         self._image_qa = None
+        self._strict_image_quality = None
         self._respect_image_quality = None
         self._force_doc_format = None
         self._no_graphics = None
@@ -205,6 +210,7 @@ class ProcessParams(object):
         self._auth_params = None
         self._mrz_detect_mode = None
         self._generate_numeric_codes = None
+        self._strict_barcode_digital_signature_check = None
         self.discriminator = None
 
         if lcid_filter is not None:
@@ -262,6 +268,8 @@ class ProcessParams(object):
             self.return_cropped_barcode = return_cropped_barcode
         if image_qa is not None:
             self.image_qa = image_qa
+        if strict_image_quality is not None:
+            self.strict_image_quality = strict_image_quality
         if respect_image_quality is not None:
             self.respect_image_quality = respect_image_quality
         if force_doc_format is not None:
@@ -314,6 +322,8 @@ class ProcessParams(object):
             self.mrz_detect_mode = mrz_detect_mode
         if generate_numeric_codes is not None:
             self.generate_numeric_codes = generate_numeric_codes
+        if strict_barcode_digital_signature_check is not None:
+            self.strict_barcode_digital_signature_check = strict_barcode_digital_signature_check
 
     @property
     def lcid_filter(self):
@@ -952,10 +962,33 @@ class ProcessParams(object):
         self._image_qa = image_qa
 
     @property
+    def strict_image_quality(self):
+        """Gets the strict_image_quality of this ProcessParams.  # noqa: E501
+
+        When enabled, the image quality check status affects the document optical and overall status. Disabled by default.  # noqa: E501
+
+        :return: The strict_image_quality of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._strict_image_quality
+
+    @strict_image_quality.setter
+    def strict_image_quality(self, strict_image_quality):
+        """Sets the strict_image_quality of this ProcessParams.
+
+        When enabled, the image quality check status affects the document optical and overall status. Disabled by default.  # noqa: E501
+
+        :param strict_image_quality: The strict_image_quality of this ProcessParams.  # noqa: E501
+        :type strict_image_quality: bool
+        """
+
+        self._strict_image_quality = strict_image_quality
+
+    @property
     def respect_image_quality(self):
         """Gets the respect_image_quality of this ProcessParams.  # noqa: E501
 
-        When enabled, image quality checks status affects document optical and overall status. Disabled by default.  # noqa: E501
+        Deprecated. Please use strictImageQuality instead. When enabled, image quality checks status affects document optical and overall status. Disabled by default.  # noqa: E501
 
         :return: The respect_image_quality of this ProcessParams.  # noqa: E501
         :rtype: bool
@@ -966,7 +999,7 @@ class ProcessParams(object):
     def respect_image_quality(self, respect_image_quality):
         """Sets the respect_image_quality of this ProcessParams.
 
-        When enabled, image quality checks status affects document optical and overall status. Disabled by default.  # noqa: E501
+        Deprecated. Please use strictImageQuality instead. When enabled, image quality checks status affects document optical and overall status. Disabled by default.  # noqa: E501
 
         :param respect_image_quality: The respect_image_quality of this ProcessParams.  # noqa: E501
         :type respect_image_quality: bool
@@ -1538,6 +1571,29 @@ class ProcessParams(object):
         """
 
         self._generate_numeric_codes = generate_numeric_codes
+
+    @property
+    def strict_barcode_digital_signature_check(self):
+        """Gets the strict_barcode_digital_signature_check of this ProcessParams.  # noqa: E501
+
+        This parameter if enabled will require all necessary certificates to verify digital signature in barcode data to be present in order for the Barcode format check to succeed.  # noqa: E501
+
+        :return: The strict_barcode_digital_signature_check of this ProcessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._strict_barcode_digital_signature_check
+
+    @strict_barcode_digital_signature_check.setter
+    def strict_barcode_digital_signature_check(self, strict_barcode_digital_signature_check):
+        """Sets the strict_barcode_digital_signature_check of this ProcessParams.
+
+        This parameter if enabled will require all necessary certificates to verify digital signature in barcode data to be present in order for the Barcode format check to succeed.  # noqa: E501
+
+        :param strict_barcode_digital_signature_check: The strict_barcode_digital_signature_check of this ProcessParams.  # noqa: E501
+        :type strict_barcode_digital_signature_check: bool
+        """
+
+        self._strict_barcode_digital_signature_check = strict_barcode_digital_signature_check
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -31,7 +31,6 @@ from regula.documentreader.webclient.gen.models.data_module import DataModule
 from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical
 from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID
 from regula.documentreader.webclient.gen.models.device_info import DeviceInfo
-from regula.documentreader.webclient.gen.models.device_info2 import DeviceInfo2
 from regula.documentreader.webclient.gen.models.doc_bar_code_info import DocBarCodeInfo
 from regula.documentreader.webclient.gen.models.doc_bar_code_info_all_of import DocBarCodeInfoAllOf
 from regula.documentreader.webclient.gen.models.doc_bar_code_info_fields_list import DocBarCodeInfoFieldsList
@@ -63,6 +62,8 @@ from regula.documentreader.webclient.gen.models.graphic_field_type import Graphi
 from regula.documentreader.webclient.gen.models.graphic_fields_list import GraphicFieldsList
 from regula.documentreader.webclient.gen.models.graphics_result import GraphicsResult
 from regula.documentreader.webclient.gen.models.graphics_result_all_of import GraphicsResultAllOf
+from regula.documentreader.webclient.gen.models.healthcheck import Healthcheck
+from regula.documentreader.webclient.gen.models.healthcheck_documents_database import HealthcheckDocumentsDatabase
 from regula.documentreader.webclient.gen.models.ident_result import IdentResult
 from regula.documentreader.webclient.gen.models.ident_result_all_of import IdentResultAllOf
 from regula.documentreader.webclient.gen.models.image_data import ImageData
