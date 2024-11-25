@@ -20,6 +20,8 @@ regula/documentreader/webclient/gen/models/authenticity_result_all_of.py
 regula/documentreader/webclient/gen/models/authenticity_result_type.py
 regula/documentreader/webclient/gen/models/bc_pdf417_info.py
 regula/documentreader/webclient/gen/models/bc_roidetect.py
+regula/documentreader/webclient/gen/models/byte_array_result.py
+regula/documentreader/webclient/gen/models/byte_array_result_all_of.py
 regula/documentreader/webclient/gen/models/check_diagnose.py
 regula/documentreader/webclient/gen/models/check_result.py
 regula/documentreader/webclient/gen/models/chosen_document_type.py
@@ -32,7 +34,6 @@ regula/documentreader/webclient/gen/models/data_module.py
 regula/documentreader/webclient/gen/models/details_optical.py
 regula/documentreader/webclient/gen/models/details_rfid.py
 regula/documentreader/webclient/gen/models/device_info.py
-regula/documentreader/webclient/gen/models/device_info2.py
 regula/documentreader/webclient/gen/models/doc_bar_code_info.py
 regula/documentreader/webclient/gen/models/doc_bar_code_info_all_of.py
 regula/documentreader/webclient/gen/models/doc_bar_code_info_fields_list.py
@@ -51,6 +52,7 @@ regula/documentreader/webclient/gen/models/document_types_candidates.py
 regula/documentreader/webclient/gen/models/document_types_candidates_list.py
 regula/documentreader/webclient/gen/models/document_types_candidates_result.py
 regula/documentreader/webclient/gen/models/document_types_candidates_result_all_of.py
+regula/documentreader/webclient/gen/models/documents_database.py
 regula/documentreader/webclient/gen/models/encrypted_rcl_result.py
 regula/documentreader/webclient/gen/models/encrypted_rcl_result_all_of.py
 regula/documentreader/webclient/gen/models/face_api.py
@@ -64,6 +66,8 @@ regula/documentreader/webclient/gen/models/graphic_field_type.py
 regula/documentreader/webclient/gen/models/graphic_fields_list.py
 regula/documentreader/webclient/gen/models/graphics_result.py
 regula/documentreader/webclient/gen/models/graphics_result_all_of.py
+regula/documentreader/webclient/gen/models/healthcheck.py
+regula/documentreader/webclient/gen/models/healthcheck_documents_database.py
 regula/documentreader/webclient/gen/models/ident_result.py
 regula/documentreader/webclient/gen/models/ident_result_all_of.py
 regula/documentreader/webclient/gen/models/image_data.py

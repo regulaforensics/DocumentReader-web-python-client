@@ -32,7 +32,7 @@ class GetTransactionsByTagResponse(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'int',
+        'id': 'str',
         'state': 'int',
         'updated_at': 'datetime'
     }
@@ -68,7 +68,7 @@ class GetTransactionsByTagResponse(object):
         Transaction id  # noqa: E501
 
         :return: The id of this GetTransactionsByTagResponse.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._id
 
@@ -79,7 +79,7 @@ class GetTransactionsByTagResponse(object):
         Transaction id  # noqa: E501
 
         :param id: The id of this GetTransactionsByTagResponse.  # noqa: E501
-        :type id: int
+        :type id: str
         """
 
         self._id = id

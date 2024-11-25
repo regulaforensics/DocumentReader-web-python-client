@@ -33,7 +33,7 @@ class ContainerList(object):
     """
     openapi_types = {
         'count': 'int',
-        'list': 'list[ResultItem]'
+        'list': 'list[AnyOfStatusResultTextResultDocumentImageResultImagesResultChosenDocumentTypeResultDocumentTypesCandidatesResultTextDataResultGraphicsResultLexicalAnalysisResultAuthenticityResultImageQualityResultDocumentPositionResultDocBarCodeInfoLicenseResultEncryptedRCLResultByteArrayResult]'
     }
 
     attribute_map = {
@@ -84,7 +84,7 @@ class ContainerList(object):
 
 
         :return: The list of this ContainerList.  # noqa: E501
-        :rtype: list[ResultItem]
+        :rtype: list[AnyOfStatusResultTextResultDocumentImageResultImagesResultChosenDocumentTypeResultDocumentTypesCandidatesResultTextDataResultGraphicsResultLexicalAnalysisResultAuthenticityResultImageQualityResultDocumentPositionResultDocBarCodeInfoLicenseResultEncryptedRCLResultByteArrayResult]
         """
         return self._list
 
@@ -94,7 +94,7 @@ class ContainerList(object):
 
 
         :param list: The list of this ContainerList.  # noqa: E501
-        :type list: list[ResultItem]
+        :type list: list[AnyOfStatusResultTextResultDocumentImageResultImagesResultChosenDocumentTypeResultDocumentTypesCandidatesResultTextDataResultGraphicsResultLexicalAnalysisResultAuthenticityResultImageQualityResultDocumentPositionResultDocBarCodeInfoLicenseResultEncryptedRCLResultByteArrayResult]
         """
         if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
             raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
