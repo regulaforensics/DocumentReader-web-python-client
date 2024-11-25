@@ -31,7 +31,7 @@ class HealthcheckApi(object):
         self.api_client = api_client
 
     def healthz(self, **kwargs):  # noqa: E501
-        """Server healthcheck  # noqa: E501
+        """Server health check  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -54,13 +54,13 @@ class HealthcheckApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: DeviceInfo2
+        :rtype: Healthcheck
         """
         kwargs['_return_http_data_only'] = True
         return self.healthz_with_http_info(**kwargs)  # noqa: E501
 
     def healthz_with_http_info(self, **kwargs):  # noqa: E501
-        """Server healthcheck  # noqa: E501
+        """Server health check  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -90,7 +90,7 @@ class HealthcheckApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(DeviceInfo2, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(Healthcheck, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -139,7 +139,7 @@ class HealthcheckApi(object):
         auth_settings = []  # noqa: E501
         
         response_types_map = {
-            200: "DeviceInfo2",
+            200: "Healthcheck",
         }
 
         return self.api_client.call_api(
@@ -289,7 +289,7 @@ class HealthcheckApi(object):
             _request_auth=local_var_params.get('_request_auth'))
 
     def readyz(self, **kwargs):  # noqa: E501
-        """License healthcheck  # noqa: E501
+        """License health check  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -318,7 +318,7 @@ class HealthcheckApi(object):
         return self.readyz_with_http_info(**kwargs)  # noqa: E501
 
     def readyz_with_http_info(self, **kwargs):  # noqa: E501
-        """License healthcheck  # noqa: E501
+        """License health check  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

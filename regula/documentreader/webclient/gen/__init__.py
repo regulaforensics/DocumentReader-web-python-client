@@ -36,6 +36,8 @@ from regula.documentreader.webclient.gen.models.authenticity_result_all_of impor
 from regula.documentreader.webclient.gen.models.authenticity_result_type import AuthenticityResultType
 from regula.documentreader.webclient.gen.models.bc_pdf417_info import BcPDF417INFO
 from regula.documentreader.webclient.gen.models.bc_roidetect import BcROIDETECT
+from regula.documentreader.webclient.gen.models.byte_array_result import ByteArrayResult
+from regula.documentreader.webclient.gen.models.byte_array_result_all_of import ByteArrayResultAllOf
 from regula.documentreader.webclient.gen.models.check_diagnose import CheckDiagnose
 from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from regula.documentreader.webclient.gen.models.chosen_document_type import ChosenDocumentType
@@ -48,7 +50,6 @@ from regula.documentreader.webclient.gen.models.data_module import DataModule
 from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical
 from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID
 from regula.documentreader.webclient.gen.models.device_info import DeviceInfo
-from regula.documentreader.webclient.gen.models.device_info2 import DeviceInfo2
 from regula.documentreader.webclient.gen.models.doc_bar_code_info import DocBarCodeInfo
 from regula.documentreader.webclient.gen.models.doc_bar_code_info_all_of import DocBarCodeInfoAllOf
 from regula.documentreader.webclient.gen.models.doc_bar_code_info_fields_list import DocBarCodeInfoFieldsList
@@ -67,6 +68,7 @@ from regula.documentreader.webclient.gen.models.document_types_candidates import
 from regula.documentreader.webclient.gen.models.document_types_candidates_list import DocumentTypesCandidatesList
 from regula.documentreader.webclient.gen.models.document_types_candidates_result import DocumentTypesCandidatesResult
 from regula.documentreader.webclient.gen.models.document_types_candidates_result_all_of import DocumentTypesCandidatesResultAllOf
+from regula.documentreader.webclient.gen.models.documents_database import DocumentsDatabase
 from regula.documentreader.webclient.gen.models.encrypted_rcl_result import EncryptedRCLResult
 from regula.documentreader.webclient.gen.models.encrypted_rcl_result_all_of import EncryptedRCLResultAllOf
 from regula.documentreader.webclient.gen.models.fdsid_list import FDSIDList
@@ -80,6 +82,8 @@ from regula.documentreader.webclient.gen.models.graphic_field_type import Graphi
 from regula.documentreader.webclient.gen.models.graphic_fields_list import GraphicFieldsList
 from regula.documentreader.webclient.gen.models.graphics_result import GraphicsResult
 from regula.documentreader.webclient.gen.models.graphics_result_all_of import GraphicsResultAllOf
+from regula.documentreader.webclient.gen.models.healthcheck import Healthcheck
+from regula.documentreader.webclient.gen.models.healthcheck_documents_database import HealthcheckDocumentsDatabase
 from regula.documentreader.webclient.gen.models.ident_result import IdentResult
 from regula.documentreader.webclient.gen.models.ident_result_all_of import IdentResultAllOf
 from regula.documentreader.webclient.gen.models.image_data import ImageData
