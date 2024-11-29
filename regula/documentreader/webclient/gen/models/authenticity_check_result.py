@@ -34,16 +34,18 @@ class AuthenticityCheckResult(object):
     openapi_types = {
         'type': 'AuthenticityResultType',
         'result': 'CheckResult',
+        'count': 'int',
         'list': 'list[AuthenticityCheckResultItem]'
     }
 
     attribute_map = {
         'type': 'Type',
         'result': 'Result',
+        'count': 'Count',
         'list': 'List'
     }
 
-    def __init__(self, type=None, result=None, list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, type=None, result=None, count=None, list=None, local_vars_configuration=None):  # noqa: E501
         """AuthenticityCheckResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -51,11 +53,14 @@ class AuthenticityCheckResult(object):
 
         self._type = None
         self._result = None
+        self._count = None
         self._list = None
         self.discriminator = None
 
         self.type = type
         self.result = result
+        if count is not None:
+            self.count = count
         self.list = list
 
     @property
@@ -103,6 +108,29 @@ class AuthenticityCheckResult(object):
             raise ValueError("Invalid value for `result`, must not be `None`")  # noqa: E501
 
         self._result = result
+
+    @property
+    def count(self):
+        """Gets the count of this AuthenticityCheckResult.  # noqa: E501
+
+        Count of items in List  # noqa: E501
+
+        :return: The count of this AuthenticityCheckResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._count
+
+    @count.setter
+    def count(self, count):
+        """Sets the count of this AuthenticityCheckResult.
+
+        Count of items in List  # noqa: E501
+
+        :param count: The count of this AuthenticityCheckResult.  # noqa: E501
+        :type count: int
+        """
+
+        self._count = count
 
     @property
     def list(self):

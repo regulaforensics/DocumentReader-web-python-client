@@ -40,7 +40,7 @@ class PArrayField(object):
         'bc_roi_detect': 'BcROIDETECT',
         'bc_text_decoder_types': 'int',
         'bc_text_field_type': 'int',
-        'bc_type_decode': 'int',
+        'bc_type_decode': 'BarcodeType',
         'bc_type_detect': 'int'
     }
 
@@ -75,26 +75,19 @@ class PArrayField(object):
         self._bc_type_detect = None
         self.discriminator = None
 
-        if bc_angle_detect is not None:
-            self.bc_angle_detect = bc_angle_detect
-        if bc_code_result is not None:
-            self.bc_code_result = bc_code_result
-        if bc_count_module is not None:
-            self.bc_count_module = bc_count_module
-        if bc_data_module is not None:
-            self.bc_data_module = bc_data_module
+        self.bc_angle_detect = bc_angle_detect
+        self.bc_code_result = bc_code_result
+        self.bc_count_module = bc_count_module
+        self.bc_data_module = bc_data_module
         if bc_pdf417_info is not None:
             self.bc_pdf417_info = bc_pdf417_info
-        if bc_roi_detect is not None:
-            self.bc_roi_detect = bc_roi_detect
+        self.bc_roi_detect = bc_roi_detect
         if bc_text_decoder_types is not None:
             self.bc_text_decoder_types = bc_text_decoder_types
         if bc_text_field_type is not None:
             self.bc_text_field_type = bc_text_field_type
-        if bc_type_decode is not None:
-            self.bc_type_decode = bc_type_decode
-        if bc_type_detect is not None:
-            self.bc_type_detect = bc_type_detect
+        self.bc_type_decode = bc_type_decode
+        self.bc_type_detect = bc_type_detect
 
     @property
     def bc_angle_detect(self):
@@ -114,6 +107,8 @@ class PArrayField(object):
         :param bc_angle_detect: The bc_angle_detect of this PArrayField.  # noqa: E501
         :type bc_angle_detect: float
         """
+        if self.local_vars_configuration.client_side_validation and bc_angle_detect is None:  # noqa: E501
+            raise ValueError("Invalid value for `bc_angle_detect`, must not be `None`")  # noqa: E501
 
         self._bc_angle_detect = bc_angle_detect
 
@@ -135,6 +130,8 @@ class PArrayField(object):
         :param bc_code_result: The bc_code_result of this PArrayField.  # noqa: E501
         :type bc_code_result: int
         """
+        if self.local_vars_configuration.client_side_validation and bc_code_result is None:  # noqa: E501
+            raise ValueError("Invalid value for `bc_code_result`, must not be `None`")  # noqa: E501
 
         self._bc_code_result = bc_code_result
 
@@ -156,6 +153,8 @@ class PArrayField(object):
         :param bc_count_module: The bc_count_module of this PArrayField.  # noqa: E501
         :type bc_count_module: int
         """
+        if self.local_vars_configuration.client_side_validation and bc_count_module is None:  # noqa: E501
+            raise ValueError("Invalid value for `bc_count_module`, must not be `None`")  # noqa: E501
 
         self._bc_count_module = bc_count_module
 
@@ -177,6 +176,8 @@ class PArrayField(object):
         :param bc_data_module: The bc_data_module of this PArrayField.  # noqa: E501
         :type bc_data_module: list[DataModule]
         """
+        if self.local_vars_configuration.client_side_validation and bc_data_module is None:  # noqa: E501
+            raise ValueError("Invalid value for `bc_data_module`, must not be `None`")  # noqa: E501
 
         self._bc_data_module = bc_data_module
 
@@ -219,6 +220,8 @@ class PArrayField(object):
         :param bc_roi_detect: The bc_roi_detect of this PArrayField.  # noqa: E501
         :type bc_roi_detect: BcROIDETECT
         """
+        if self.local_vars_configuration.client_side_validation and bc_roi_detect is None:  # noqa: E501
+            raise ValueError("Invalid value for `bc_roi_detect`, must not be `None`")  # noqa: E501
 
         self._bc_roi_detect = bc_roi_detect
 
@@ -270,7 +273,7 @@ class PArrayField(object):
 
 
         :return: The bc_type_decode of this PArrayField.  # noqa: E501
-        :rtype: int
+        :rtype: BarcodeType
         """
         return self._bc_type_decode
 
@@ -280,8 +283,10 @@ class PArrayField(object):
 
 
         :param bc_type_decode: The bc_type_decode of this PArrayField.  # noqa: E501
-        :type bc_type_decode: int
+        :type bc_type_decode: BarcodeType
         """
+        if self.local_vars_configuration.client_side_validation and bc_type_decode is None:  # noqa: E501
+            raise ValueError("Invalid value for `bc_type_decode`, must not be `None`")  # noqa: E501
 
         self._bc_type_decode = bc_type_decode
 
@@ -303,6 +308,8 @@ class PArrayField(object):
         :param bc_type_detect: The bc_type_detect of this PArrayField.  # noqa: E501
         :type bc_type_detect: int
         """
+        if self.local_vars_configuration.client_side_validation and bc_type_detect is None:  # noqa: E501
+            raise ValueError("Invalid value for `bc_type_detect`, must not be `None`")  # noqa: E501
 
         self._bc_type_detect = bc_type_detect
 

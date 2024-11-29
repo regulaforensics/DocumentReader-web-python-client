@@ -44,30 +44,6 @@ class AuthenticityCheckResultItem(object):
         'element_diagnose': 'ElementDiagnose',
         'percent_value': 'PercentValue'
     }
-    discriminator_value_class_map = {
-        1 : 'SecurityFeatureResult',
-        1024 : 'IdentResult',
-        1048576 : 'IdentResult',
-        128 : 'PhotoIdentResult',
-        131072 : 'IdentResult',
-        16 : 'FiberResult',
-        16384 : 'FiberResult',
-        2 : 'SecurityFeatureResult',
-        2048 : 'IdentResult',
-        256 : 'PhotoIdentResult',
-        262144 : 'IdentResult',
-        32 : 'IdentResult',
-        32768 : 'IdentResult',
-        4 : 'IdentResult',
-        4096 : 'SecurityFeatureResult',
-        512 : 'SecurityFeatureResult',
-        524288 : 'IdentResult',
-        64 : 'OCRSecurityTextResult',
-        65536 : 'SecurityFeatureResult',
-        8 : 'SecurityFeatureResult',
-        8192 : 'SecurityFeatureResult',
-        8388608 : 'SecurityFeatureResult',
-    }
 
     def __init__(self, type=0, element_result=None, element_diagnose=None, percent_value=None, local_vars_configuration=None):  # noqa: E501
         """AuthenticityCheckResultItem - a model defined in OpenAPI"""  # noqa: E501
@@ -79,7 +55,7 @@ class AuthenticityCheckResultItem(object):
         self._element_result = None
         self._element_diagnose = None
         self._percent_value = None
-        self.discriminator = 'type'
+        self.discriminator = None
 
         self.type = type
         if element_result is not None:
@@ -176,13 +152,6 @@ class AuthenticityCheckResultItem(object):
         """
 
         self._percent_value = percent_value
-
-    def get_real_child_model(self, data):
-        """Returns the real base class specified by the discriminator"""
-        discriminator_key = self.attribute_map[self.discriminator]
-        discriminator_value = data[discriminator_key]
-        from regula.documentreader.webclient.ext.models import RawAuthenticityCheckResultItem
-        return self.discriminator_value_class_map.get(discriminator_value, RawAuthenticityCheckResultItem.__name__)
 
     def to_dict(self):
         """Returns the model properties as a dict"""

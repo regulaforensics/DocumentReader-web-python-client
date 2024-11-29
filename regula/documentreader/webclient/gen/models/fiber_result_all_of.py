@@ -72,24 +72,17 @@ class FiberResultAllOf(object):
         self._color_values = None
         self.discriminator = None
 
-        if rect_count is not None:
-            self.rect_count = rect_count
-        if expected_count is not None:
-            self.expected_count = expected_count
+        self.rect_count = rect_count
+        self.expected_count = expected_count
         if light_value is not None:
             self.light_value = light_value
         if light_disp is not None:
             self.light_disp = light_disp
-        if rect_array is not None:
-            self.rect_array = rect_array
-        if width is not None:
-            self.width = width
-        if length is not None:
-            self.length = length
-        if area is not None:
-            self.area = area
-        if color_values is not None:
-            self.color_values = color_values
+        self.rect_array = rect_array
+        self.width = width
+        self.length = length
+        self.area = area
+        self.color_values = color_values
 
     @property
     def rect_count(self):
@@ -111,6 +104,8 @@ class FiberResultAllOf(object):
         :param rect_count: The rect_count of this FiberResultAllOf.  # noqa: E501
         :type rect_count: int
         """
+        if self.local_vars_configuration.client_side_validation and rect_count is None:  # noqa: E501
+            raise ValueError("Invalid value for `rect_count`, must not be `None`")  # noqa: E501
 
         self._rect_count = rect_count
 
@@ -134,6 +129,8 @@ class FiberResultAllOf(object):
         :param expected_count: The expected_count of this FiberResultAllOf.  # noqa: E501
         :type expected_count: int
         """
+        if self.local_vars_configuration.client_side_validation and expected_count is None:  # noqa: E501
+            raise ValueError("Invalid value for `expected_count`, must not be `None`")  # noqa: E501
 
         self._expected_count = expected_count
 
@@ -201,6 +198,8 @@ class FiberResultAllOf(object):
         :param rect_array: The rect_array of this FiberResultAllOf.  # noqa: E501
         :type rect_array: list[RectangleCoordinates]
         """
+        if self.local_vars_configuration.client_side_validation and rect_array is None:  # noqa: E501
+            raise ValueError("Invalid value for `rect_array`, must not be `None`")  # noqa: E501
 
         self._rect_array = rect_array
 
@@ -224,6 +223,8 @@ class FiberResultAllOf(object):
         :param width: The width of this FiberResultAllOf.  # noqa: E501
         :type width: list[int]
         """
+        if self.local_vars_configuration.client_side_validation and width is None:  # noqa: E501
+            raise ValueError("Invalid value for `width`, must not be `None`")  # noqa: E501
 
         self._width = width
 
@@ -247,6 +248,8 @@ class FiberResultAllOf(object):
         :param length: The length of this FiberResultAllOf.  # noqa: E501
         :type length: list[int]
         """
+        if self.local_vars_configuration.client_side_validation and length is None:  # noqa: E501
+            raise ValueError("Invalid value for `length`, must not be `None`")  # noqa: E501
 
         self._length = length
 
@@ -270,6 +273,8 @@ class FiberResultAllOf(object):
         :param area: The area of this FiberResultAllOf.  # noqa: E501
         :type area: list[int]
         """
+        if self.local_vars_configuration.client_side_validation and area is None:  # noqa: E501
+            raise ValueError("Invalid value for `area`, must not be `None`")  # noqa: E501
 
         self._area = area
 
@@ -293,6 +298,8 @@ class FiberResultAllOf(object):
         :param color_values: The color_values of this FiberResultAllOf.  # noqa: E501
         :type color_values: list[int]
         """
+        if self.local_vars_configuration.client_side_validation and color_values is None:  # noqa: E501
+            raise ValueError("Invalid value for `color_values`, must not be `None`")  # noqa: E501
 
         self._color_values = color_values
 

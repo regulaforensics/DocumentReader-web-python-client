@@ -35,6 +35,7 @@ class Text(object):
         'status': 'CheckResult',
         'validity_status': 'CheckResult',
         'comparison_status': 'CheckResult',
+        'date_format': 'str',
         'field_list': 'list[TextField]',
         'available_source_list': 'list[TextAvailableSource]'
     }
@@ -43,11 +44,12 @@ class Text(object):
         'status': 'status',
         'validity_status': 'validityStatus',
         'comparison_status': 'comparisonStatus',
+        'date_format': 'dateFormat',
         'field_list': 'fieldList',
         'available_source_list': 'availableSourceList'
     }
 
-    def __init__(self, status=None, validity_status=None, comparison_status=None, field_list=None, available_source_list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, status=None, validity_status=None, comparison_status=None, date_format=None, field_list=None, available_source_list=None, local_vars_configuration=None):  # noqa: E501
         """Text - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,6 +58,7 @@ class Text(object):
         self._status = None
         self._validity_status = None
         self._comparison_status = None
+        self._date_format = None
         self._field_list = None
         self._available_source_list = None
         self.discriminator = None
@@ -63,6 +66,7 @@ class Text(object):
         self.status = status
         self.validity_status = validity_status
         self.comparison_status = comparison_status
+        self.date_format = date_format
         self.field_list = field_list
         self.available_source_list = available_source_list
 
@@ -134,6 +138,31 @@ class Text(object):
             raise ValueError("Invalid value for `comparison_status`, must not be `None`")  # noqa: E501
 
         self._comparison_status = comparison_status
+
+    @property
+    def date_format(self):
+        """Gets the date_format of this Text.  # noqa: E501
+
+        Date format  # noqa: E501
+
+        :return: The date_format of this Text.  # noqa: E501
+        :rtype: str
+        """
+        return self._date_format
+
+    @date_format.setter
+    def date_format(self, date_format):
+        """Sets the date_format of this Text.
+
+        Date format  # noqa: E501
+
+        :param date_format: The date_format of this Text.  # noqa: E501
+        :type date_format: str
+        """
+        if self.local_vars_configuration.client_side_validation and date_format is None:  # noqa: E501
+            raise ValueError("Invalid value for `date_format`, must not be `None`")  # noqa: E501
+
+        self._date_format = date_format
 
     @property
     def field_list(self):

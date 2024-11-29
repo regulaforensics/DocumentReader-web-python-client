@@ -48,8 +48,7 @@ class TextDataResultAllOf(object):
         self._doc_visual_extended_info = None
         self.discriminator = None
 
-        if doc_visual_extended_info is not None:
-            self.doc_visual_extended_info = doc_visual_extended_info
+        self.doc_visual_extended_info = doc_visual_extended_info
 
     @property
     def doc_visual_extended_info(self):
@@ -69,6 +68,8 @@ class TextDataResultAllOf(object):
         :param doc_visual_extended_info: The doc_visual_extended_info of this TextDataResultAllOf.  # noqa: E501
         :type doc_visual_extended_info: DocVisualExtendedInfo
         """
+        if self.local_vars_configuration.client_side_validation and doc_visual_extended_info is None:  # noqa: E501
+            raise ValueError("Invalid value for `doc_visual_extended_info`, must not be `None`")  # noqa: E501
 
         self._doc_visual_extended_info = doc_visual_extended_info
 

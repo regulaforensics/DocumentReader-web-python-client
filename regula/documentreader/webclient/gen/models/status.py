@@ -68,12 +68,9 @@ class Status(object):
 
         self.overall_status = overall_status
         self.optical = optical
-        if portrait is not None:
-            self.portrait = portrait
-        if rfid is not None:
-            self.rfid = rfid
-        if stop_list is not None:
-            self.stop_list = stop_list
+        self.portrait = portrait
+        self.rfid = rfid
+        self.stop_list = stop_list
         if details_rfid is not None:
             self.details_rfid = details_rfid
         self.details_optical = details_optical
@@ -142,6 +139,8 @@ class Status(object):
         :param portrait: The portrait of this Status.  # noqa: E501
         :type portrait: CheckResult
         """
+        if self.local_vars_configuration.client_side_validation and portrait is None:  # noqa: E501
+            raise ValueError("Invalid value for `portrait`, must not be `None`")  # noqa: E501
 
         self._portrait = portrait
 
@@ -163,6 +162,8 @@ class Status(object):
         :param rfid: The rfid of this Status.  # noqa: E501
         :type rfid: CheckResult
         """
+        if self.local_vars_configuration.client_side_validation and rfid is None:  # noqa: E501
+            raise ValueError("Invalid value for `rfid`, must not be `None`")  # noqa: E501
 
         self._rfid = rfid
 
@@ -184,6 +185,8 @@ class Status(object):
         :param stop_list: The stop_list of this Status.  # noqa: E501
         :type stop_list: CheckResult
         """
+        if self.local_vars_configuration.client_side_validation and stop_list is None:  # noqa: E501
+            raise ValueError("Invalid value for `stop_list`, must not be `None`")  # noqa: E501
 
         self._stop_list = stop_list
 

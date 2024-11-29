@@ -26,13 +26,89 @@ class Light(object):
 
     OFF = int("0")
 
+    OVI = int("1")
+
+    WHITE_TOP = int("2")
+
+    WHITE_SIDE = int("4")
+
+    WHITE_FRONT = int("8388608")
+
     WHITE = int("6")
+
+    IR_TOP = int("8")
+
+    IR_SIDE = int("16")
+
+    IR_FRONT = int("16777216")
 
     IR = int("24")
 
+    WHITE_GRAY = int("33554432")
+
     UV = int("128")
 
-    allowable_values = [OFF, WHITE, IR, UV]  # noqa: E501
+    OVD = int("67108864")
+
+    VIDEODETECTION = int("134217728")
+
+    IR_870_OBL = int("268435456")
+
+    IR_LUMINESCENCE = int("256")
+
+    AXIAL_WHITE_LEFT = int("1024")
+
+    AXIAL_WHITE_RIGHT = int("2048")
+
+    AXIAL_WHITE_FRONT = int("512")
+
+    IR_720 = int("4096")
+
+    IR_940 = int("8192")
+
+    AXIAL_WHITE_FULL = int("3072")
+
+    RAW_DATA = int("2147483648")
+
+    RAW_DATA_GRBG = int("2415919104")
+
+    RAW_DATA_GBGR = int("2684354560")
+
+    RAW_DATA_RGGB = int("2952790016")
+
+    RAW_DATA_BGGR = int("3221225472")
+
+    TRANSMITTED = int("32")
+
+    TRANSMITTED_IR = int("64")
+
+    ANTI_STOKES = int("65536")
+
+    TRANSMITTED_IR940 = int("16384")
+
+    OVD_RIGHT = int("262144")
+
+    OVD_LEFT = int("131072")
+
+    IR_700 = int("32768")
+
+    IR_870 = int("16777216")
+
+    HOLO = int("67108864")
+
+    IR_BOTTOM = int("64")
+
+    WHITE_BOTTOM = int("32")
+
+    UVC = int("524288")
+
+    UVB = int("1048576")
+
+    WHITE_OBL = int("2097152")
+
+    WHITE_SPECIAL = int("4194304")
+
+    allowable_values = [OFF, OVI, WHITE_TOP, WHITE_SIDE, WHITE_FRONT, WHITE, IR_TOP, IR_SIDE, IR_FRONT, IR, WHITE_GRAY, UV, OVD, VIDEODETECTION, IR_870_OBL, IR_LUMINESCENCE, AXIAL_WHITE_LEFT, AXIAL_WHITE_RIGHT, AXIAL_WHITE_FRONT, IR_720, IR_940, AXIAL_WHITE_FULL, RAW_DATA, RAW_DATA_GRBG, RAW_DATA_GBGR, RAW_DATA_RGGB, RAW_DATA_BGGR, TRANSMITTED, TRANSMITTED_IR, ANTI_STOKES, TRANSMITTED_IR940, OVD_RIGHT, OVD_LEFT, IR_700, IR_870, HOLO, IR_BOTTOM, WHITE_BOTTOM, UVC, UVB, WHITE_OBL, WHITE_SPECIAL]  # noqa: E501
 
     """
     Attributes:

@@ -32,27 +32,85 @@ class Images(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'field_count': 'int',
+        'available_source_count': 'int',
         'available_source_list': 'list[ImagesAvailableSource]',
         'field_list': 'list[ImagesField]'
     }
 
     attribute_map = {
+        'field_count': 'fieldCount',
+        'available_source_count': 'availableSourceCount',
         'available_source_list': 'availableSourceList',
         'field_list': 'fieldList'
     }
 
-    def __init__(self, available_source_list=None, field_list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, field_count=None, available_source_count=None, available_source_list=None, field_list=None, local_vars_configuration=None):  # noqa: E501
         """Images - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._field_count = None
+        self._available_source_count = None
         self._available_source_list = None
         self._field_list = None
         self.discriminator = None
 
+        self.field_count = field_count
+        self.available_source_count = available_source_count
         self.available_source_list = available_source_list
         self.field_list = field_list
+
+    @property
+    def field_count(self):
+        """Gets the field_count of this Images.  # noqa: E501
+
+        Fields count  # noqa: E501
+
+        :return: The field_count of this Images.  # noqa: E501
+        :rtype: int
+        """
+        return self._field_count
+
+    @field_count.setter
+    def field_count(self, field_count):
+        """Sets the field_count of this Images.
+
+        Fields count  # noqa: E501
+
+        :param field_count: The field_count of this Images.  # noqa: E501
+        :type field_count: int
+        """
+        if self.local_vars_configuration.client_side_validation and field_count is None:  # noqa: E501
+            raise ValueError("Invalid value for `field_count`, must not be `None`")  # noqa: E501
+
+        self._field_count = field_count
+
+    @property
+    def available_source_count(self):
+        """Gets the available_source_count of this Images.  # noqa: E501
+
+        Available sources count  # noqa: E501
+
+        :return: The available_source_count of this Images.  # noqa: E501
+        :rtype: int
+        """
+        return self._available_source_count
+
+    @available_source_count.setter
+    def available_source_count(self, available_source_count):
+        """Sets the available_source_count of this Images.
+
+        Available sources count  # noqa: E501
+
+        :param available_source_count: The available_source_count of this Images.  # noqa: E501
+        :type available_source_count: int
+        """
+        if self.local_vars_configuration.client_side_validation and available_source_count is None:  # noqa: E501
+            raise ValueError("Invalid value for `available_source_count`, must not be `None`")  # noqa: E501
+
+        self._available_source_count = available_source_count
 
     @property
     def available_source_list(self):

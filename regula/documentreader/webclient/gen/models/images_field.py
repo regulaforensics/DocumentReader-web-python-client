@@ -34,16 +34,18 @@ class ImagesField(object):
     openapi_types = {
         'field_name': 'str',
         'field_type': 'GraphicFieldType',
-        'value_list': 'list[ImagesFieldValue]'
+        'value_list': 'list[ImagesFieldValue]',
+        'value_count': 'float'
     }
 
     attribute_map = {
         'field_name': 'fieldName',
         'field_type': 'fieldType',
-        'value_list': 'valueList'
+        'value_list': 'valueList',
+        'value_count': 'valueCount'
     }
 
-    def __init__(self, field_name=None, field_type=None, value_list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, field_name=None, field_type=None, value_list=None, value_count=None, local_vars_configuration=None):  # noqa: E501
         """ImagesField - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -52,11 +54,13 @@ class ImagesField(object):
         self._field_name = None
         self._field_type = None
         self._value_list = None
+        self._value_count = None
         self.discriminator = None
 
         self.field_name = field_name
         self.field_type = field_type
         self.value_list = value_list
+        self.value_count = value_count
 
     @property
     def field_name(self):
@@ -128,6 +132,31 @@ class ImagesField(object):
             raise ValueError("Invalid value for `value_list`, must not be `None`")  # noqa: E501
 
         self._value_list = value_list
+
+    @property
+    def value_count(self):
+        """Gets the value_count of this ImagesField.  # noqa: E501
+
+        Field value count  # noqa: E501
+
+        :return: The value_count of this ImagesField.  # noqa: E501
+        :rtype: float
+        """
+        return self._value_count
+
+    @value_count.setter
+    def value_count(self, value_count):
+        """Sets the value_count of this ImagesField.
+
+        Field value count  # noqa: E501
+
+        :param value_count: The value_count of this ImagesField.  # noqa: E501
+        :type value_count: float
+        """
+        if self.local_vars_configuration.client_side_validation and value_count is None:  # noqa: E501
+            raise ValueError("Invalid value for `value_count`, must not be `None`")  # noqa: E501
+
+        self._value_count = value_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""

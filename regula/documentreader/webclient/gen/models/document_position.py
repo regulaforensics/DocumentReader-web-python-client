@@ -75,26 +75,16 @@ class DocumentPosition(object):
         self._dpi = None
         self.discriminator = None
 
-        if doc_format is not None:
-            self.doc_format = doc_format
-        if angle is not None:
-            self.angle = angle
-        if width is not None:
-            self.width = width
-        if height is not None:
-            self.height = height
-        if center is not None:
-            self.center = center
-        if left_bottom is not None:
-            self.left_bottom = left_bottom
-        if left_top is not None:
-            self.left_top = left_top
-        if right_bottom is not None:
-            self.right_bottom = right_bottom
-        if right_top is not None:
-            self.right_top = right_top
-        if dpi is not None:
-            self.dpi = dpi
+        self.doc_format = doc_format
+        self.angle = angle
+        self.width = width
+        self.height = height
+        self.center = center
+        self.left_bottom = left_bottom
+        self.left_top = left_top
+        self.right_bottom = right_bottom
+        self.right_top = right_top
+        self.dpi = dpi
 
     @property
     def doc_format(self):
@@ -114,6 +104,8 @@ class DocumentPosition(object):
         :param doc_format: The doc_format of this DocumentPosition.  # noqa: E501
         :type doc_format: DocumentFormat
         """
+        if self.local_vars_configuration.client_side_validation and doc_format is None:  # noqa: E501
+            raise ValueError("Invalid value for `doc_format`, must not be `None`")  # noqa: E501
 
         self._doc_format = doc_format
 
@@ -121,6 +113,7 @@ class DocumentPosition(object):
     def angle(self):
         """Gets the angle of this DocumentPosition.  # noqa: E501
 
+        Document rotation angle  # noqa: E501
 
         :return: The angle of this DocumentPosition.  # noqa: E501
         :rtype: float
@@ -131,10 +124,13 @@ class DocumentPosition(object):
     def angle(self, angle):
         """Sets the angle of this DocumentPosition.
 
+        Document rotation angle  # noqa: E501
 
         :param angle: The angle of this DocumentPosition.  # noqa: E501
         :type angle: float
         """
+        if self.local_vars_configuration.client_side_validation and angle is None:  # noqa: E501
+            raise ValueError("Invalid value for `angle`, must not be `None`")  # noqa: E501
 
         self._angle = angle
 
@@ -142,6 +138,7 @@ class DocumentPosition(object):
     def width(self):
         """Gets the width of this DocumentPosition.  # noqa: E501
 
+        Document width  # noqa: E501
 
         :return: The width of this DocumentPosition.  # noqa: E501
         :rtype: int
@@ -152,10 +149,13 @@ class DocumentPosition(object):
     def width(self, width):
         """Sets the width of this DocumentPosition.
 
+        Document width  # noqa: E501
 
         :param width: The width of this DocumentPosition.  # noqa: E501
         :type width: int
         """
+        if self.local_vars_configuration.client_side_validation and width is None:  # noqa: E501
+            raise ValueError("Invalid value for `width`, must not be `None`")  # noqa: E501
 
         self._width = width
 
@@ -163,6 +163,7 @@ class DocumentPosition(object):
     def height(self):
         """Gets the height of this DocumentPosition.  # noqa: E501
 
+        Document height  # noqa: E501
 
         :return: The height of this DocumentPosition.  # noqa: E501
         :rtype: int
@@ -173,10 +174,13 @@ class DocumentPosition(object):
     def height(self, height):
         """Sets the height of this DocumentPosition.
 
+        Document height  # noqa: E501
 
         :param height: The height of this DocumentPosition.  # noqa: E501
         :type height: int
         """
+        if self.local_vars_configuration.client_side_validation and height is None:  # noqa: E501
+            raise ValueError("Invalid value for `height`, must not be `None`")  # noqa: E501
 
         self._height = height
 
@@ -198,6 +202,8 @@ class DocumentPosition(object):
         :param center: The center of this DocumentPosition.  # noqa: E501
         :type center: Point
         """
+        if self.local_vars_configuration.client_side_validation and center is None:  # noqa: E501
+            raise ValueError("Invalid value for `center`, must not be `None`")  # noqa: E501
 
         self._center = center
 
@@ -219,6 +225,8 @@ class DocumentPosition(object):
         :param left_bottom: The left_bottom of this DocumentPosition.  # noqa: E501
         :type left_bottom: Point
         """
+        if self.local_vars_configuration.client_side_validation and left_bottom is None:  # noqa: E501
+            raise ValueError("Invalid value for `left_bottom`, must not be `None`")  # noqa: E501
 
         self._left_bottom = left_bottom
 
@@ -240,6 +248,8 @@ class DocumentPosition(object):
         :param left_top: The left_top of this DocumentPosition.  # noqa: E501
         :type left_top: Point
         """
+        if self.local_vars_configuration.client_side_validation and left_top is None:  # noqa: E501
+            raise ValueError("Invalid value for `left_top`, must not be `None`")  # noqa: E501
 
         self._left_top = left_top
 
@@ -261,6 +271,8 @@ class DocumentPosition(object):
         :param right_bottom: The right_bottom of this DocumentPosition.  # noqa: E501
         :type right_bottom: Point
         """
+        if self.local_vars_configuration.client_side_validation and right_bottom is None:  # noqa: E501
+            raise ValueError("Invalid value for `right_bottom`, must not be `None`")  # noqa: E501
 
         self._right_bottom = right_bottom
 
@@ -282,6 +294,8 @@ class DocumentPosition(object):
         :param right_top: The right_top of this DocumentPosition.  # noqa: E501
         :type right_top: Point
         """
+        if self.local_vars_configuration.client_side_validation and right_top is None:  # noqa: E501
+            raise ValueError("Invalid value for `right_top`, must not be `None`")  # noqa: E501
 
         self._right_top = right_top
 
@@ -303,6 +317,8 @@ class DocumentPosition(object):
         :param dpi: The dpi of this DocumentPosition.  # noqa: E501
         :type dpi: int
         """
+        if self.local_vars_configuration.client_side_validation and dpi is None:  # noqa: E501
+            raise ValueError("Invalid value for `dpi`, must not be `None`")  # noqa: E501
 
         self._dpi = dpi
 

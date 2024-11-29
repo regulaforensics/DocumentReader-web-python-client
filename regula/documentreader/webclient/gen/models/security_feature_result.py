@@ -82,14 +82,10 @@ class SecurityFeatureResult(object):
             self.element_diagnose = element_diagnose
         if percent_value is not None:
             self.percent_value = percent_value
-        if element_type is not None:
-            self.element_type = element_type
-        if element_rect is not None:
-            self.element_rect = element_rect
-        if visibility is not None:
-            self.visibility = visibility
-        if critical_flag is not None:
-            self.critical_flag = critical_flag
+        self.element_type = element_type
+        self.element_rect = element_rect
+        self.visibility = visibility
+        self.critical_flag = critical_flag
         if area_list is not None:
             self.area_list = area_list
         if reserved2 is not None:
@@ -201,6 +197,8 @@ class SecurityFeatureResult(object):
         :param element_type: The element_type of this SecurityFeatureResult.  # noqa: E501
         :type element_type: SecurityFeatureType
         """
+        if self.local_vars_configuration.client_side_validation and element_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `element_type`, must not be `None`")  # noqa: E501
 
         self._element_type = element_type
 
@@ -222,6 +220,8 @@ class SecurityFeatureResult(object):
         :param element_rect: The element_rect of this SecurityFeatureResult.  # noqa: E501
         :type element_rect: RectangleCoordinates
         """
+        if self.local_vars_configuration.client_side_validation and element_rect is None:  # noqa: E501
+            raise ValueError("Invalid value for `element_rect`, must not be `None`")  # noqa: E501
 
         self._element_rect = element_rect
 
@@ -243,6 +243,8 @@ class SecurityFeatureResult(object):
         :param visibility: The visibility of this SecurityFeatureResult.  # noqa: E501
         :type visibility: Visibility
         """
+        if self.local_vars_configuration.client_side_validation and visibility is None:  # noqa: E501
+            raise ValueError("Invalid value for `visibility`, must not be `None`")  # noqa: E501
 
         self._visibility = visibility
 
@@ -264,6 +266,8 @@ class SecurityFeatureResult(object):
         :param critical_flag: The critical_flag of this SecurityFeatureResult.  # noqa: E501
         :type critical_flag: Critical
         """
+        if self.local_vars_configuration.client_side_validation and critical_flag is None:  # noqa: E501
+            raise ValueError("Invalid value for `critical_flag`, must not be `None`")  # noqa: E501
 
         self._critical_flag = critical_flag
 

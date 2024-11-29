@@ -32,29 +32,56 @@ class AreaArray(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'count': 'float',
         'list': 'list[RectangleCoordinates]',
         'points': 'list[PointArray]'
     }
 
     attribute_map = {
+        'count': 'Count',
         'list': 'List',
         'points': 'Points'
     }
 
-    def __init__(self, list=None, points=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, count=None, list=None, points=None, local_vars_configuration=None):  # noqa: E501
         """AreaArray - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._count = None
         self._list = None
         self._points = None
         self.discriminator = None
 
-        if list is not None:
-            self.list = list
-        if points is not None:
-            self.points = points
+        self.count = count
+        self.list = list
+        self.points = points
+
+    @property
+    def count(self):
+        """Gets the count of this AreaArray.  # noqa: E501
+
+        Number of elements in List and Points  # noqa: E501
+
+        :return: The count of this AreaArray.  # noqa: E501
+        :rtype: float
+        """
+        return self._count
+
+    @count.setter
+    def count(self, count):
+        """Sets the count of this AreaArray.
+
+        Number of elements in List and Points  # noqa: E501
+
+        :param count: The count of this AreaArray.  # noqa: E501
+        :type count: float
+        """
+        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
+
+        self._count = count
 
     @property
     def list(self):
@@ -74,6 +101,8 @@ class AreaArray(object):
         :param list: The list of this AreaArray.  # noqa: E501
         :type list: list[RectangleCoordinates]
         """
+        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
+            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
 
         self._list = list
 
@@ -95,6 +124,8 @@ class AreaArray(object):
         :param points: The points of this AreaArray.  # noqa: E501
         :type points: list[PointArray]
         """
+        if self.local_vars_configuration.client_side_validation and points is None:  # noqa: E501
+            raise ValueError("Invalid value for `points`, must not be `None`")  # noqa: E501
 
         self._points = points
 

@@ -66,20 +66,14 @@ class ImageQualityCheck(object):
         self._probability = None
         self.discriminator = None
 
-        if type is not None:
-            self.type = type
-        if result is not None:
-            self.result = result
-        if feature_type is not None:
-            self.feature_type = feature_type
+        self.type = type
+        self.result = result
+        self.feature_type = feature_type
         if areas is not None:
             self.areas = areas
-        if mean is not None:
-            self.mean = mean
-        if std_dev is not None:
-            self.std_dev = std_dev
-        if probability is not None:
-            self.probability = probability
+        self.mean = mean
+        self.std_dev = std_dev
+        self.probability = probability
 
     @property
     def type(self):
@@ -99,6 +93,8 @@ class ImageQualityCheck(object):
         :param type: The type of this ImageQualityCheck.  # noqa: E501
         :type type: ImageQualityCheckType
         """
+        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -120,6 +116,8 @@ class ImageQualityCheck(object):
         :param result: The result of this ImageQualityCheck.  # noqa: E501
         :type result: CheckResult
         """
+        if self.local_vars_configuration.client_side_validation and result is None:  # noqa: E501
+            raise ValueError("Invalid value for `result`, must not be `None`")  # noqa: E501
 
         self._result = result
 
@@ -141,6 +139,8 @@ class ImageQualityCheck(object):
         :param feature_type: The feature_type of this ImageQualityCheck.  # noqa: E501
         :type feature_type: SecurityFeatureType
         """
+        if self.local_vars_configuration.client_side_validation and feature_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `feature_type`, must not be `None`")  # noqa: E501
 
         self._feature_type = feature_type
 
@@ -169,6 +169,7 @@ class ImageQualityCheck(object):
     def mean(self):
         """Gets the mean of this ImageQualityCheck.  # noqa: E501
 
+        Check mean value  # noqa: E501
 
         :return: The mean of this ImageQualityCheck.  # noqa: E501
         :rtype: float
@@ -179,10 +180,13 @@ class ImageQualityCheck(object):
     def mean(self, mean):
         """Sets the mean of this ImageQualityCheck.
 
+        Check mean value  # noqa: E501
 
         :param mean: The mean of this ImageQualityCheck.  # noqa: E501
         :type mean: float
         """
+        if self.local_vars_configuration.client_side_validation and mean is None:  # noqa: E501
+            raise ValueError("Invalid value for `mean`, must not be `None`")  # noqa: E501
 
         self._mean = mean
 
@@ -190,6 +194,7 @@ class ImageQualityCheck(object):
     def std_dev(self):
         """Gets the std_dev of this ImageQualityCheck.  # noqa: E501
 
+        Check deviation value  # noqa: E501
 
         :return: The std_dev of this ImageQualityCheck.  # noqa: E501
         :rtype: float
@@ -200,10 +205,13 @@ class ImageQualityCheck(object):
     def std_dev(self, std_dev):
         """Sets the std_dev of this ImageQualityCheck.
 
+        Check deviation value  # noqa: E501
 
         :param std_dev: The std_dev of this ImageQualityCheck.  # noqa: E501
         :type std_dev: float
         """
+        if self.local_vars_configuration.client_side_validation and std_dev is None:  # noqa: E501
+            raise ValueError("Invalid value for `std_dev`, must not be `None`")  # noqa: E501
 
         self._std_dev = std_dev
 
@@ -211,6 +219,7 @@ class ImageQualityCheck(object):
     def probability(self):
         """Gets the probability of this ImageQualityCheck.  # noqa: E501
 
+        Check probability value  # noqa: E501
 
         :return: The probability of this ImageQualityCheck.  # noqa: E501
         :rtype: int
@@ -221,10 +230,13 @@ class ImageQualityCheck(object):
     def probability(self, probability):
         """Sets the probability of this ImageQualityCheck.
 
+        Check probability value  # noqa: E501
 
         :param probability: The probability of this ImageQualityCheck.  # noqa: E501
         :type probability: int
         """
+        if self.local_vars_configuration.client_side_validation and probability is None:  # noqa: E501
+            raise ValueError("Invalid value for `probability`, must not be `None`")  # noqa: E501
 
         self._probability = probability
 

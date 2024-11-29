@@ -66,10 +66,8 @@ class VerifiedFieldMap(object):
         self._matrix = None
         self.discriminator = None
 
-        if w_field_type is not None:
-            self.w_field_type = w_field_type
-        if w_lcid is not None:
-            self.w_lcid = w_lcid
+        self.w_field_type = w_field_type
+        self.w_lcid = w_lcid
         if field_mrz is not None:
             self.field_mrz = field_mrz
         if field_visual is not None:
@@ -78,8 +76,7 @@ class VerifiedFieldMap(object):
             self.field_barcode = field_barcode
         if field_rfid is not None:
             self.field_rfid = field_rfid
-        if matrix is not None:
-            self.matrix = matrix
+        self.matrix = matrix
 
     @property
     def w_field_type(self):
@@ -99,6 +96,8 @@ class VerifiedFieldMap(object):
         :param w_field_type: The w_field_type of this VerifiedFieldMap.  # noqa: E501
         :type w_field_type: TextFieldType
         """
+        if self.local_vars_configuration.client_side_validation and w_field_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `w_field_type`, must not be `None`")  # noqa: E501
 
         self._w_field_type = w_field_type
 
@@ -120,6 +119,8 @@ class VerifiedFieldMap(object):
         :param w_lcid: The w_lcid of this VerifiedFieldMap.  # noqa: E501
         :type w_lcid: LCID
         """
+        if self.local_vars_configuration.client_side_validation and w_lcid is None:  # noqa: E501
+            raise ValueError("Invalid value for `w_lcid`, must not be `None`")  # noqa: E501
 
         self._w_lcid = w_lcid
 
@@ -235,6 +236,8 @@ class VerifiedFieldMap(object):
         :param matrix: The matrix of this VerifiedFieldMap.  # noqa: E501
         :type matrix: list[VerificationResult]
         """
+        if self.local_vars_configuration.client_side_validation and matrix is None:  # noqa: E501
+            raise ValueError("Invalid value for `matrix`, must not be `None`")  # noqa: E501
 
         self._matrix = matrix
 

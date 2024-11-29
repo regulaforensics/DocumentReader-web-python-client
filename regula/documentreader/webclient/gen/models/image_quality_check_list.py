@@ -33,15 +33,17 @@ class ImageQualityCheckList(object):
     """
     openapi_types = {
         'result': 'CheckResult',
-        'list': 'list[ImageQualityCheck]'
+        'list': 'list[ImageQualityCheck]',
+        'count': 'float'
     }
 
     attribute_map = {
         'result': 'result',
-        'list': 'List'
+        'list': 'List',
+        'count': 'Count'
     }
 
-    def __init__(self, result=None, list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, result=None, list=None, count=None, local_vars_configuration=None):  # noqa: E501
         """ImageQualityCheckList - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -49,10 +51,12 @@ class ImageQualityCheckList(object):
 
         self._result = None
         self._list = None
+        self._count = None
         self.discriminator = None
 
         self.result = result
         self.list = list
+        self.count = count
 
     @property
     def result(self):
@@ -99,6 +103,31 @@ class ImageQualityCheckList(object):
             raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
 
         self._list = list
+
+    @property
+    def count(self):
+        """Gets the count of this ImageQualityCheckList.  # noqa: E501
+
+        Number of List array elements  # noqa: E501
+
+        :return: The count of this ImageQualityCheckList.  # noqa: E501
+        :rtype: float
+        """
+        return self._count
+
+    @count.setter
+    def count(self, count):
+        """Sets the count of this ImageQualityCheckList.
+
+        Number of List array elements  # noqa: E501
+
+        :param count: The count of this ImageQualityCheckList.  # noqa: E501
+        :type count: float
+        """
+        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
+
+        self._count = count
 
     def to_dict(self):
         """Returns the model properties as a dict"""
