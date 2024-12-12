@@ -32,23 +32,28 @@ class DocumentImage(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'image': 'str'
+        'image': 'str',
+        'format': 'str'
     }
 
     attribute_map = {
-        'image': 'image'
+        'image': 'image',
+        'format': 'format'
     }
 
-    def __init__(self, image=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, image=None, format=None, local_vars_configuration=None):  # noqa: E501
         """DocumentImage - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._image = None
+        self._format = None
         self.discriminator = None
 
         self.image = image
+        if format is not None:
+            self.format = format
 
     @property
     def image(self):
@@ -74,6 +79,29 @@ class DocumentImage(object):
             raise ValueError("Invalid value for `image`, must not be `None`")  # noqa: E501
 
         self._image = image
+
+    @property
+    def format(self):
+        """Gets the format of this DocumentImage.  # noqa: E501
+
+        Image format  # noqa: E501
+
+        :return: The format of this DocumentImage.  # noqa: E501
+        :rtype: str
+        """
+        return self._format
+
+    @format.setter
+    def format(self, format):
+        """Sets the format of this DocumentImage.
+
+        Image format  # noqa: E501
+
+        :param format: The format of this DocumentImage.  # noqa: E501
+        :type format: str
+        """
+
+        self._format = format
 
     def to_dict(self):
         """Returns the model properties as a dict"""

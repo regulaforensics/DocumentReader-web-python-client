@@ -32,7 +32,7 @@ class TransactionProcessGetResponse(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'transaction_id': 'int',
+        'transaction_id': 'str',
         'tag': 'str',
         'out_data': 'OutData',
         'in_data': 'InData'
@@ -72,7 +72,7 @@ class TransactionProcessGetResponse(object):
 
 
         :return: The transaction_id of this TransactionProcessGetResponse.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._transaction_id
 
@@ -82,7 +82,7 @@ class TransactionProcessGetResponse(object):
 
 
         :param transaction_id: The transaction_id of this TransactionProcessGetResponse.  # noqa: E501
-        :type transaction_id: int
+        :type transaction_id: str
         """
 
         self._transaction_id = transaction_id

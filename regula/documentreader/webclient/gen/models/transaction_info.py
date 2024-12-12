@@ -34,18 +34,26 @@ class TransactionInfo(object):
     openapi_types = {
         'computer_name': 'str',
         'date_time': 'str',
+        'documents_database': 'DocumentsDatabase',
+        'system_info': 'str',
+        'tag': 'str',
         'transaction_id': 'str',
-        'user_name': 'str'
+        'user_name': 'str',
+        'version': 'str'
     }
 
     attribute_map = {
         'computer_name': 'ComputerName',
         'date_time': 'DateTime',
+        'documents_database': 'DocumentsDatabase',
+        'system_info': 'SystemInfo',
+        'tag': 'Tag',
         'transaction_id': 'TransactionID',
-        'user_name': 'UserName'
+        'user_name': 'UserName',
+        'version': 'Version'
     }
 
-    def __init__(self, computer_name=None, date_time=None, transaction_id=None, user_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, computer_name=None, date_time=None, documents_database=None, system_info=None, tag=None, transaction_id=None, user_name=None, version=None, local_vars_configuration=None):  # noqa: E501
         """TransactionInfo - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,23 +61,36 @@ class TransactionInfo(object):
 
         self._computer_name = None
         self._date_time = None
+        self._documents_database = None
+        self._system_info = None
+        self._tag = None
         self._transaction_id = None
         self._user_name = None
+        self._version = None
         self.discriminator = None
 
         if computer_name is not None:
             self.computer_name = computer_name
         if date_time is not None:
             self.date_time = date_time
+        if documents_database is not None:
+            self.documents_database = documents_database
+        if system_info is not None:
+            self.system_info = system_info
+        if tag is not None:
+            self.tag = tag
         if transaction_id is not None:
             self.transaction_id = transaction_id
         if user_name is not None:
             self.user_name = user_name
+        if version is not None:
+            self.version = version
 
     @property
     def computer_name(self):
         """Gets the computer_name of this TransactionInfo.  # noqa: E501
 
+        Computer name  # noqa: E501
 
         :return: The computer_name of this TransactionInfo.  # noqa: E501
         :rtype: str
@@ -80,6 +101,7 @@ class TransactionInfo(object):
     def computer_name(self, computer_name):
         """Sets the computer_name of this TransactionInfo.
 
+        Computer name  # noqa: E501
 
         :param computer_name: The computer_name of this TransactionInfo.  # noqa: E501
         :type computer_name: str
@@ -91,6 +113,7 @@ class TransactionInfo(object):
     def date_time(self):
         """Gets the date_time of this TransactionInfo.  # noqa: E501
 
+        Date and time  # noqa: E501
 
         :return: The date_time of this TransactionInfo.  # noqa: E501
         :rtype: str
@@ -101,6 +124,7 @@ class TransactionInfo(object):
     def date_time(self, date_time):
         """Sets the date_time of this TransactionInfo.
 
+        Date and time  # noqa: E501
 
         :param date_time: The date_time of this TransactionInfo.  # noqa: E501
         :type date_time: str
@@ -109,9 +133,77 @@ class TransactionInfo(object):
         self._date_time = date_time
 
     @property
+    def documents_database(self):
+        """Gets the documents_database of this TransactionInfo.  # noqa: E501
+
+
+        :return: The documents_database of this TransactionInfo.  # noqa: E501
+        :rtype: DocumentsDatabase
+        """
+        return self._documents_database
+
+    @documents_database.setter
+    def documents_database(self, documents_database):
+        """Sets the documents_database of this TransactionInfo.
+
+
+        :param documents_database: The documents_database of this TransactionInfo.  # noqa: E501
+        :type documents_database: DocumentsDatabase
+        """
+
+        self._documents_database = documents_database
+
+    @property
+    def system_info(self):
+        """Gets the system_info of this TransactionInfo.  # noqa: E501
+
+        System information  # noqa: E501
+
+        :return: The system_info of this TransactionInfo.  # noqa: E501
+        :rtype: str
+        """
+        return self._system_info
+
+    @system_info.setter
+    def system_info(self, system_info):
+        """Sets the system_info of this TransactionInfo.
+
+        System information  # noqa: E501
+
+        :param system_info: The system_info of this TransactionInfo.  # noqa: E501
+        :type system_info: str
+        """
+
+        self._system_info = system_info
+
+    @property
+    def tag(self):
+        """Gets the tag of this TransactionInfo.  # noqa: E501
+
+        Transaction tag  # noqa: E501
+
+        :return: The tag of this TransactionInfo.  # noqa: E501
+        :rtype: str
+        """
+        return self._tag
+
+    @tag.setter
+    def tag(self, tag):
+        """Sets the tag of this TransactionInfo.
+
+        Transaction tag  # noqa: E501
+
+        :param tag: The tag of this TransactionInfo.  # noqa: E501
+        :type tag: str
+        """
+
+        self._tag = tag
+
+    @property
     def transaction_id(self):
         """Gets the transaction_id of this TransactionInfo.  # noqa: E501
 
+        Transaction identifier  # noqa: E501
 
         :return: The transaction_id of this TransactionInfo.  # noqa: E501
         :rtype: str
@@ -122,6 +214,7 @@ class TransactionInfo(object):
     def transaction_id(self, transaction_id):
         """Sets the transaction_id of this TransactionInfo.
 
+        Transaction identifier  # noqa: E501
 
         :param transaction_id: The transaction_id of this TransactionInfo.  # noqa: E501
         :type transaction_id: str
@@ -133,6 +226,7 @@ class TransactionInfo(object):
     def user_name(self):
         """Gets the user_name of this TransactionInfo.  # noqa: E501
 
+        User name  # noqa: E501
 
         :return: The user_name of this TransactionInfo.  # noqa: E501
         :rtype: str
@@ -143,12 +237,36 @@ class TransactionInfo(object):
     def user_name(self, user_name):
         """Sets the user_name of this TransactionInfo.
 
+        User name  # noqa: E501
 
         :param user_name: The user_name of this TransactionInfo.  # noqa: E501
         :type user_name: str
         """
 
         self._user_name = user_name
+
+    @property
+    def version(self):
+        """Gets the version of this TransactionInfo.  # noqa: E501
+
+        SDK version  # noqa: E501
+
+        :return: The version of this TransactionInfo.  # noqa: E501
+        :rtype: str
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this TransactionInfo.
+
+        SDK version  # noqa: E501
+
+        :param version: The version of this TransactionInfo.  # noqa: E501
+        :type version: str
+        """
+
+        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""
