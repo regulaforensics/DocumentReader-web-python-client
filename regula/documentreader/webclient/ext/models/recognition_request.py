@@ -61,9 +61,11 @@ class EncryptedRCLRequest(EncryptedRCLResult):
 
 class RecognitionRequest(ProcessRequest):
     def __init__(
-            self, process_params: ProcessParams,
+            self,
+            process_params: ProcessParams,
             images: List[Union[RecognitionImage, bytes, Base64String]] = None,
-            container_list: ContainerList = None, tag=None
+            container_list: ContainerList = None, tag=None,
+            system_info: ProcessSystemInfo = ProcessSystemInfo(),
     ):
         input_images = []
         if images:
@@ -73,13 +75,17 @@ class RecognitionRequest(ProcessRequest):
                 else:
                     input_images.append(image)
             super().__init__(
-                process_param=process_params, list=input_images,
-                system_info=ProcessSystemInfo(), tag=tag
+                process_param=process_params,
+                list=input_images,
+                system_info=system_info,
+                tag=tag
             )
         if container_list:
             super().__init__(
-                process_param=process_params, container_list=container_list,
-                system_info=ProcessSystemInfo(), tag=tag
+                process_param=process_params,
+                container_list=container_list,
+                system_info=system_info,
+                tag=tag
             )
 
     @property

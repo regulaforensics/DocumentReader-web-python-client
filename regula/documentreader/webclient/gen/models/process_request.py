@@ -41,7 +41,9 @@ class ProcessRequest(object):
         'ext_portrait': 'str',
         'container_list': 'ContainerList',
         'system_info': 'ProcessSystemInfo',
-        'pass_back_object': 'dict(str, object)'
+        'pass_back_object': 'dict(str, object)',
+        'dtc': 'str',
+        'image_urls': 'list[str]'
     }
 
     attribute_map = {
@@ -54,10 +56,12 @@ class ProcessRequest(object):
         'ext_portrait': 'extPortrait',
         'container_list': 'ContainerList',
         'system_info': 'systemInfo',
-        'pass_back_object': 'passBackObject'
+        'pass_back_object': 'passBackObject',
+        'dtc': 'dtc',
+        'image_urls': 'ImageUrls'
     }
 
-    def __init__(self, process_param=None, list=None, tag=None, tenant=None, env=None, live_portrait=None, ext_portrait=None, container_list=None, system_info=None, pass_back_object=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, process_param=None, list=None, tag=None, tenant=None, env=None, live_portrait=None, ext_portrait=None, container_list=None, system_info=None, pass_back_object=None, dtc=None, image_urls=None, local_vars_configuration=None):  # noqa: E501
         """ProcessRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -73,6 +77,8 @@ class ProcessRequest(object):
         self._container_list = None
         self._system_info = None
         self._pass_back_object = None
+        self._dtc = None
+        self._image_urls = None
         self.discriminator = None
 
         self.process_param = process_param
@@ -94,6 +100,10 @@ class ProcessRequest(object):
             self.system_info = system_info
         if pass_back_object is not None:
             self.pass_back_object = pass_back_object
+        if dtc is not None:
+            self.dtc = dtc
+        if image_urls is not None:
+            self.image_urls = image_urls
 
     @property
     def process_param(self):
@@ -318,6 +328,52 @@ class ProcessRequest(object):
         """
 
         self._pass_back_object = pass_back_object
+
+    @property
+    def dtc(self):
+        """Gets the dtc of this ProcessRequest.  # noqa: E501
+
+        Digital Travel Credential (DTC-VC) data in base64 format for processing  # noqa: E501
+
+        :return: The dtc of this ProcessRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._dtc
+
+    @dtc.setter
+    def dtc(self, dtc):
+        """Sets the dtc of this ProcessRequest.
+
+        Digital Travel Credential (DTC-VC) data in base64 format for processing  # noqa: E501
+
+        :param dtc: The dtc of this ProcessRequest.  # noqa: E501
+        :type dtc: str
+        """
+
+        self._dtc = dtc
+
+    @property
+    def image_urls(self):
+        """Gets the image_urls of this ProcessRequest.  # noqa: E501
+
+        URLs to the document images for processing.  # noqa: E501
+
+        :return: The image_urls of this ProcessRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._image_urls
+
+    @image_urls.setter
+    def image_urls(self, image_urls):
+        """Sets the image_urls of this ProcessRequest.
+
+        URLs to the document images for processing.  # noqa: E501
+
+        :param image_urls: The image_urls of this ProcessRequest.  # noqa: E501
+        :type image_urls: list[str]
+        """
+
+        self._image_urls = image_urls
 
     def to_dict(self):
         """Returns the model properties as a dict"""

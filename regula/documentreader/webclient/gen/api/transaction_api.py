@@ -40,7 +40,7 @@ class TransactionApi(object):
         >>> result = thread.get()
 
         :param tag_id: Tag id (required)
-        :type tag_id: int
+        :type tag_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -69,7 +69,7 @@ class TransactionApi(object):
         >>> result = thread.get()
 
         :param tag_id: Tag id (required)
-        :type tag_id: int
+        :type tag_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -310,7 +310,7 @@ class TransactionApi(object):
         >>> result = thread.get()
 
         :param transaction_id: Transaction id (required)
-        :type transaction_id: int
+        :type transaction_id: str
         :param name: File name (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
@@ -341,7 +341,7 @@ class TransactionApi(object):
         >>> result = thread.get()
 
         :param transaction_id: Transaction id (required)
-        :type transaction_id: int
+        :type transaction_id: str
         :param name: File name (required)
         :type name: str
         :param async_req: Whether to execute the request asynchronously.
@@ -455,7 +455,7 @@ class TransactionApi(object):
         >>> result = thread.get()
 
         :param transaction_id: Transaction id (required)
-        :type transaction_id: int
+        :type transaction_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -484,7 +484,7 @@ class TransactionApi(object):
         >>> result = thread.get()
 
         :param transaction_id: Transaction id (required)
-        :type transaction_id: int
+        :type transaction_id: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -590,7 +590,7 @@ class TransactionApi(object):
         >>> result = thread.get()
 
         :param transaction_id: Transaction id (required)
-        :type transaction_id: int
+        :type transaction_id: str
         :param transaction_process_request: (required)
         :type transaction_process_request: TransactionProcessRequest
         :param async_req: Whether to execute the request asynchronously.
@@ -621,7 +621,7 @@ class TransactionApi(object):
         >>> result = thread.get()
 
         :param transaction_id: Transaction id (required)
-        :type transaction_id: int
+        :type transaction_id: str
         :param transaction_process_request: (required)
         :type transaction_process_request: TransactionProcessRequest
         :param async_req: Whether to execute the request asynchronously.
@@ -740,7 +740,7 @@ class TransactionApi(object):
         >>> result = thread.get()
 
         :param transaction_id: Transaction id (required)
-        :type transaction_id: int
+        :type transaction_id: str
         :param with_images: With base64 images or url
         :type with_images: bool
         :param async_req: Whether to execute the request asynchronously.
@@ -771,7 +771,7 @@ class TransactionApi(object):
         >>> result = thread.get()
 
         :param transaction_id: Transaction id (required)
-        :type transaction_id: int
+        :type transaction_id: str
         :param with_images: With base64 images or url
         :type with_images: bool
         :param async_req: Whether to execute the request asynchronously.
