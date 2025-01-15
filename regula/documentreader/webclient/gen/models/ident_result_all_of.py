@@ -63,16 +63,11 @@ class IdentResultAllOf(object):
         self._area_list = None
         self.discriminator = None
 
-        if element_type is not None:
-            self.element_type = element_type
-        if light_index is not None:
-            self.light_index = light_index
-        if area is not None:
-            self.area = area
-        if image is not None:
-            self.image = image
-        if etalon_image is not None:
-            self.etalon_image = etalon_image
+        self.element_type = element_type
+        self.light_index = light_index
+        self.area = area
+        self.image = image
+        self.etalon_image = etalon_image
         if area_list is not None:
             self.area_list = area_list
 
@@ -94,6 +89,8 @@ class IdentResultAllOf(object):
         :param element_type: The element_type of this IdentResultAllOf.  # noqa: E501
         :type element_type: SecurityFeatureType
         """
+        if self.local_vars_configuration.client_side_validation and element_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `element_type`, must not be `None`")  # noqa: E501
 
         self._element_type = element_type
 
@@ -115,6 +112,8 @@ class IdentResultAllOf(object):
         :param light_index: The light_index of this IdentResultAllOf.  # noqa: E501
         :type light_index: Light
         """
+        if self.local_vars_configuration.client_side_validation and light_index is None:  # noqa: E501
+            raise ValueError("Invalid value for `light_index`, must not be `None`")  # noqa: E501
 
         self._light_index = light_index
 
@@ -136,6 +135,8 @@ class IdentResultAllOf(object):
         :param area: The area of this IdentResultAllOf.  # noqa: E501
         :type area: RectangleCoordinates
         """
+        if self.local_vars_configuration.client_side_validation and area is None:  # noqa: E501
+            raise ValueError("Invalid value for `area`, must not be `None`")  # noqa: E501
 
         self._area = area
 
@@ -157,6 +158,8 @@ class IdentResultAllOf(object):
         :param image: The image of this IdentResultAllOf.  # noqa: E501
         :type image: ImageData
         """
+        if self.local_vars_configuration.client_side_validation and image is None:  # noqa: E501
+            raise ValueError("Invalid value for `image`, must not be `None`")  # noqa: E501
 
         self._image = image
 
@@ -178,6 +181,8 @@ class IdentResultAllOf(object):
         :param etalon_image: The etalon_image of this IdentResultAllOf.  # noqa: E501
         :type etalon_image: ImageData
         """
+        if self.local_vars_configuration.client_side_validation and etalon_image is None:  # noqa: E501
+            raise ValueError("Invalid value for `etalon_image`, must not be `None`")  # noqa: E501
 
         self._etalon_image = etalon_image
 

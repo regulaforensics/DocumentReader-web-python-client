@@ -32,23 +32,87 @@ class StringRecognitionResult(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'string_result': 'list[SymbolRecognitionResult]'
+        'symbols_count': 'float',
+        'reserved': 'object',
+        'string_result': 'list[SymbolRecognitionResult]',
+        'buf_length': 'float',
+        'buf_text': 'str'
     }
 
     attribute_map = {
-        'string_result': 'StringResult'
+        'symbols_count': 'SymbolsCount',
+        'reserved': 'Reserved',
+        'string_result': 'StringResult',
+        'buf_length': 'Buf_Length',
+        'buf_text': 'Buf_Text'
     }
 
-    def __init__(self, string_result=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, symbols_count=None, reserved=None, string_result=None, buf_length=None, buf_text=None, local_vars_configuration=None):  # noqa: E501
         """StringRecognitionResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._symbols_count = None
+        self._reserved = None
         self._string_result = None
+        self._buf_length = None
+        self._buf_text = None
         self.discriminator = None
 
+        self.symbols_count = symbols_count
+        self.reserved = reserved
         self.string_result = string_result
+        if buf_length is not None:
+            self.buf_length = buf_length
+        if buf_text is not None:
+            self.buf_text = buf_text
+
+    @property
+    def symbols_count(self):
+        """Gets the symbols_count of this StringRecognitionResult.  # noqa: E501
+
+        Number of StringResult array elements  # noqa: E501
+
+        :return: The symbols_count of this StringRecognitionResult.  # noqa: E501
+        :rtype: float
+        """
+        return self._symbols_count
+
+    @symbols_count.setter
+    def symbols_count(self, symbols_count):
+        """Sets the symbols_count of this StringRecognitionResult.
+
+        Number of StringResult array elements  # noqa: E501
+
+        :param symbols_count: The symbols_count of this StringRecognitionResult.  # noqa: E501
+        :type symbols_count: float
+        """
+        if self.local_vars_configuration.client_side_validation and symbols_count is None:  # noqa: E501
+            raise ValueError("Invalid value for `symbols_count`, must not be `None`")  # noqa: E501
+
+        self._symbols_count = symbols_count
+
+    @property
+    def reserved(self):
+        """Gets the reserved of this StringRecognitionResult.  # noqa: E501
+
+
+        :return: The reserved of this StringRecognitionResult.  # noqa: E501
+        :rtype: object
+        """
+        return self._reserved
+
+    @reserved.setter
+    def reserved(self, reserved):
+        """Sets the reserved of this StringRecognitionResult.
+
+
+        :param reserved: The reserved of this StringRecognitionResult.  # noqa: E501
+        :type reserved: object
+        """
+
+        self._reserved = reserved
 
     @property
     def string_result(self):
@@ -74,6 +138,52 @@ class StringRecognitionResult(object):
             raise ValueError("Invalid value for `string_result`, must not be `None`")  # noqa: E501
 
         self._string_result = string_result
+
+    @property
+    def buf_length(self):
+        """Gets the buf_length of this StringRecognitionResult.  # noqa: E501
+
+        Buf_Text text string length  # noqa: E501
+
+        :return: The buf_length of this StringRecognitionResult.  # noqa: E501
+        :rtype: float
+        """
+        return self._buf_length
+
+    @buf_length.setter
+    def buf_length(self, buf_length):
+        """Sets the buf_length of this StringRecognitionResult.
+
+        Buf_Text text string length  # noqa: E501
+
+        :param buf_length: The buf_length of this StringRecognitionResult.  # noqa: E501
+        :type buf_length: float
+        """
+
+        self._buf_length = buf_length
+
+    @property
+    def buf_text(self):
+        """Gets the buf_text of this StringRecognitionResult.  # noqa: E501
+
+        Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by '^'  # noqa: E501
+
+        :return: The buf_text of this StringRecognitionResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._buf_text
+
+    @buf_text.setter
+    def buf_text(self, buf_text):
+        """Sets the buf_text of this StringRecognitionResult.
+
+        Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by '^'  # noqa: E501
+
+        :param buf_text: The buf_text of this StringRecognitionResult.  # noqa: E501
+        :type buf_text: str
+        """
+
+        self._buf_text = buf_text
 
     def to_dict(self):
         """Returns the model properties as a dict"""

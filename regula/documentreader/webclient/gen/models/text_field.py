@@ -35,6 +35,7 @@ class TextField(object):
         'field_type': 'TextFieldType',
         'field_name': 'str',
         'lcid': 'LCID',
+        'lcid_name': 'str',
         'status': 'CheckResult',
         'validity_status': 'CheckResult',
         'comparison_status': 'CheckResult',
@@ -48,6 +49,7 @@ class TextField(object):
         'field_type': 'fieldType',
         'field_name': 'fieldName',
         'lcid': 'lcid',
+        'lcid_name': 'lcidName',
         'status': 'status',
         'validity_status': 'validityStatus',
         'comparison_status': 'comparisonStatus',
@@ -57,7 +59,7 @@ class TextField(object):
         'comparison_list': 'comparisonList'
     }
 
-    def __init__(self, field_type=None, field_name=None, lcid=None, status=None, validity_status=None, comparison_status=None, value=None, value_list=None, validity_list=None, comparison_list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, field_type=None, field_name=None, lcid=None, lcid_name=None, status=None, validity_status=None, comparison_status=None, value=None, value_list=None, validity_list=None, comparison_list=None, local_vars_configuration=None):  # noqa: E501
         """TextField - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class TextField(object):
         self._field_type = None
         self._field_name = None
         self._lcid = None
+        self._lcid_name = None
         self._status = None
         self._validity_status = None
         self._comparison_status = None
@@ -77,8 +80,8 @@ class TextField(object):
 
         self.field_type = field_type
         self.field_name = field_name
-        if lcid is not None:
-            self.lcid = lcid
+        self.lcid = lcid
+        self.lcid_name = lcid_name
         self.status = status
         self.validity_status = validity_status
         self.comparison_status = comparison_status
@@ -153,8 +156,35 @@ class TextField(object):
         :param lcid: The lcid of this TextField.  # noqa: E501
         :type lcid: LCID
         """
+        if self.local_vars_configuration.client_side_validation and lcid is None:  # noqa: E501
+            raise ValueError("Invalid value for `lcid`, must not be `None`")  # noqa: E501
 
         self._lcid = lcid
+
+    @property
+    def lcid_name(self):
+        """Gets the lcid_name of this TextField.  # noqa: E501
+
+        LCID name  # noqa: E501
+
+        :return: The lcid_name of this TextField.  # noqa: E501
+        :rtype: str
+        """
+        return self._lcid_name
+
+    @lcid_name.setter
+    def lcid_name(self, lcid_name):
+        """Sets the lcid_name of this TextField.
+
+        LCID name  # noqa: E501
+
+        :param lcid_name: The lcid_name of this TextField.  # noqa: E501
+        :type lcid_name: str
+        """
+        if self.local_vars_configuration.client_side_validation and lcid_name is None:  # noqa: E501
+            raise ValueError("Invalid value for `lcid_name`, must not be `None`")  # noqa: E501
+
+        self._lcid_name = lcid_name
 
     @property
     def status(self):

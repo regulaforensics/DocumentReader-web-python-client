@@ -33,7 +33,7 @@ class ContainerList(object):
     """
     openapi_types = {
         'count': 'int',
-        'list': 'list[ResultItem]'
+        'list': 'list[AnyOfStatusResultTextResultDocumentImageResultImagesResultChosenDocumentTypeResultDocumentTypesCandidatesResultTextDataResultGraphicsResultLexicalAnalysisResultAuthenticityResultImageQualityResultDocumentPositionResultDocBarCodeInfoLicenseResultEncryptedRCLResultDocumentBinaryInfoResultByteArrayResult]'
     }
 
     attribute_map = {
@@ -51,8 +51,7 @@ class ContainerList(object):
         self._list = None
         self.discriminator = None
 
-        if count is not None:
-            self.count = count
+        self.count = count
         self.list = list
 
     @property
@@ -75,6 +74,8 @@ class ContainerList(object):
         :param count: The count of this ContainerList.  # noqa: E501
         :type count: int
         """
+        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -84,7 +85,7 @@ class ContainerList(object):
 
 
         :return: The list of this ContainerList.  # noqa: E501
-        :rtype: list[ResultItem]
+        :rtype: list[AnyOfStatusResultTextResultDocumentImageResultImagesResultChosenDocumentTypeResultDocumentTypesCandidatesResultTextDataResultGraphicsResultLexicalAnalysisResultAuthenticityResultImageQualityResultDocumentPositionResultDocBarCodeInfoLicenseResultEncryptedRCLResultDocumentBinaryInfoResultByteArrayResult]
         """
         return self._list
 
@@ -94,7 +95,7 @@ class ContainerList(object):
 
 
         :param list: The list of this ContainerList.  # noqa: E501
-        :type list: list[ResultItem]
+        :type list: list[AnyOfStatusResultTextResultDocumentImageResultImagesResultChosenDocumentTypeResultDocumentTypesCandidatesResultTextDataResultGraphicsResultLexicalAnalysisResultAuthenticityResultImageQualityResultDocumentPositionResultDocBarCodeInfoLicenseResultEncryptedRCLResultDocumentBinaryInfoResultByteArrayResult]
         """
         if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
             raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501

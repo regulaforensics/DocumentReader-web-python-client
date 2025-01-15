@@ -48,8 +48,7 @@ class DocumentPositionResultAllOf(object):
         self._document_position = None
         self.discriminator = None
 
-        if document_position is not None:
-            self.document_position = document_position
+        self.document_position = document_position
 
     @property
     def document_position(self):
@@ -69,6 +68,8 @@ class DocumentPositionResultAllOf(object):
         :param document_position: The document_position of this DocumentPositionResultAllOf.  # noqa: E501
         :type document_position: DocumentPosition
         """
+        if self.local_vars_configuration.client_side_validation and document_position is None:  # noqa: E501
+            raise ValueError("Invalid value for `document_position`, must not be `None`")  # noqa: E501
 
         self._document_position = document_position
 
