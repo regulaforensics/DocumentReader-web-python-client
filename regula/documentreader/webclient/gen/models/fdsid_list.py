@@ -117,8 +117,6 @@ class FDSIDList(object):
         :param icao_code: The icao_code of this FDSIDList.  # noqa: E501
         :type icao_code: str
         """
-        if self.local_vars_configuration.client_side_validation and icao_code is None:  # noqa: E501
-            raise ValueError("Invalid value for `icao_code`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 icao_code is not None and len(icao_code) > 3):
             raise ValueError("Invalid value for `icao_code`, length must be less than or equal to `3`")  # noqa: E501
@@ -148,8 +146,6 @@ class FDSIDList(object):
         :param count: The count of this FDSIDList.  # noqa: E501
         :type count: float
         """
-        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
-            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -173,8 +169,6 @@ class FDSIDList(object):
         :param list: The list of this FDSIDList.  # noqa: E501
         :type list: list[int]
         """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
 
         self._list = list
 
@@ -196,8 +190,6 @@ class FDSIDList(object):
         :param d_type: The d_type of this FDSIDList.  # noqa: E501
         :type d_type: DocumentType
         """
-        if self.local_vars_configuration.client_side_validation and d_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `d_type`, must not be `None`")  # noqa: E501
 
         self._d_type = d_type
 
@@ -219,8 +211,6 @@ class FDSIDList(object):
         :param d_format: The d_format of this FDSIDList.  # noqa: E501
         :type d_format: DocumentFormat
         """
-        if self.local_vars_configuration.client_side_validation and d_format is None:  # noqa: E501
-            raise ValueError("Invalid value for `d_format`, must not be `None`")  # noqa: E501
 
         self._d_format = d_format
 
@@ -244,8 +234,6 @@ class FDSIDList(object):
         :param d_mrz: The d_mrz of this FDSIDList.  # noqa: E501
         :type d_mrz: bool
         """
-        if self.local_vars_configuration.client_side_validation and d_mrz is None:  # noqa: E501
-            raise ValueError("Invalid value for `d_mrz`, must not be `None`")  # noqa: E501
 
         self._d_mrz = d_mrz
 
@@ -292,8 +280,6 @@ class FDSIDList(object):
         :param d_year: The d_year of this FDSIDList.  # noqa: E501
         :type d_year: str
         """
-        if self.local_vars_configuration.client_side_validation and d_year is None:  # noqa: E501
-            raise ValueError("Invalid value for `d_year`, must not be `None`")  # noqa: E501
 
         self._d_year = d_year
 
@@ -317,8 +303,6 @@ class FDSIDList(object):
         :param d_country_name: The d_country_name of this FDSIDList.  # noqa: E501
         :type d_country_name: str
         """
-        if self.local_vars_configuration.client_side_validation and d_country_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `d_country_name`, must not be `None`")  # noqa: E501
 
         self._d_country_name = d_country_name
 
@@ -388,8 +372,6 @@ class FDSIDList(object):
         :param is_deprecated: The is_deprecated of this FDSIDList.  # noqa: E501
         :type is_deprecated: bool
         """
-        if self.local_vars_configuration.client_side_validation and is_deprecated is None:  # noqa: E501
-            raise ValueError("Invalid value for `is_deprecated`, must not be `None`")  # noqa: E501
 
         self._is_deprecated = is_deprecated
 

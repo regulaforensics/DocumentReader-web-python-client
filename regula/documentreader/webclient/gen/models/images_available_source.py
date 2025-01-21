@@ -74,8 +74,6 @@ class ImagesAvailableSource(object):
         :param container_type: The container_type of this ImagesAvailableSource.  # noqa: E501
         :type container_type: int
         """
-        if self.local_vars_configuration.client_side_validation and container_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `container_type`, must not be `None`")  # noqa: E501
 
         self._container_type = container_type
 
@@ -97,8 +95,6 @@ class ImagesAvailableSource(object):
         :param source: The source of this ImagesAvailableSource.  # noqa: E501
         :type source: Source
         """
-        if self.local_vars_configuration.client_side_validation and source is None:  # noqa: E501
-            raise ValueError("Invalid value for `source`, must not be `None`")  # noqa: E501
 
         self._source = source
 

@@ -151,8 +151,6 @@ class ProcessRequest(object):
         :param process_param: The process_param of this ProcessRequest.  # noqa: E501
         :type process_param: ProcessParams
         """
-        if self.local_vars_configuration.client_side_validation and process_param is None:  # noqa: E501
-            raise ValueError("Invalid value for `process_param`, must not be `None`")  # noqa: E501
 
         self._process_param = process_param
 

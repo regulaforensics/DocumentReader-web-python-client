@@ -84,7 +84,8 @@ class IdentResult(object):
             self.percent_value = percent_value
         self.element_type = element_type
         self.light_index = light_index
-        self.area = area
+        if area is not None:
+            self.area = area
         self.image = image
         self.etalon_image = etalon_image
         if area_list is not None:
@@ -110,8 +111,6 @@ class IdentResult(object):
         :param type: The type of this IdentResult.  # noqa: E501
         :type type: int
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -196,8 +195,6 @@ class IdentResult(object):
         :param element_type: The element_type of this IdentResult.  # noqa: E501
         :type element_type: SecurityFeatureType
         """
-        if self.local_vars_configuration.client_side_validation and element_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `element_type`, must not be `None`")  # noqa: E501
 
         self._element_type = element_type
 
@@ -219,8 +216,6 @@ class IdentResult(object):
         :param light_index: The light_index of this IdentResult.  # noqa: E501
         :type light_index: Light
         """
-        if self.local_vars_configuration.client_side_validation and light_index is None:  # noqa: E501
-            raise ValueError("Invalid value for `light_index`, must not be `None`")  # noqa: E501
 
         self._light_index = light_index
 
@@ -242,8 +237,6 @@ class IdentResult(object):
         :param area: The area of this IdentResult.  # noqa: E501
         :type area: RectangleCoordinates
         """
-        if self.local_vars_configuration.client_side_validation and area is None:  # noqa: E501
-            raise ValueError("Invalid value for `area`, must not be `None`")  # noqa: E501
 
         self._area = area
 
@@ -265,8 +258,6 @@ class IdentResult(object):
         :param image: The image of this IdentResult.  # noqa: E501
         :type image: ImageData
         """
-        if self.local_vars_configuration.client_side_validation and image is None:  # noqa: E501
-            raise ValueError("Invalid value for `image`, must not be `None`")  # noqa: E501
 
         self._image = image
 
@@ -288,8 +279,6 @@ class IdentResult(object):
         :param etalon_image: The etalon_image of this IdentResult.  # noqa: E501
         :type etalon_image: ImageData
         """
-        if self.local_vars_configuration.client_side_validation and etalon_image is None:  # noqa: E501
-            raise ValueError("Invalid value for `etalon_image`, must not be `None`")  # noqa: E501
 
         self._etalon_image = etalon_image
 

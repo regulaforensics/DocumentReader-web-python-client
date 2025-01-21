@@ -70,8 +70,6 @@ class EncryptedRCLResultAllOf(object):
         :param encrypted_rcl: The encrypted_rcl of this EncryptedRCLResultAllOf.  # noqa: E501
         :type encrypted_rcl: str
         """
-        if self.local_vars_configuration.client_side_validation and encrypted_rcl is None:  # noqa: E501
-            raise ValueError("Invalid value for `encrypted_rcl`, must not be `None`")  # noqa: E501
 
         self._encrypted_rcl = encrypted_rcl
 

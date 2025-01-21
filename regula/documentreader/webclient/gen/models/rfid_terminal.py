@@ -76,8 +76,6 @@ class RfidTerminal(object):
         :param term_type: The term_type of this RfidTerminal.  # noqa: E501
         :type term_type: RfidTerminalType
         """
-        if self.local_vars_configuration.client_side_validation and term_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `term_type`, must not be `None`")  # noqa: E501
 
         self._term_type = term_type
 
@@ -101,8 +99,6 @@ class RfidTerminal(object):
         :param auth_req: The auth_req of this RfidTerminal.  # noqa: E501
         :type auth_req: float
         """
-        if self.local_vars_configuration.client_side_validation and auth_req is None:  # noqa: E501
-            raise ValueError("Invalid value for `auth_req`, must not be `None`")  # noqa: E501
 
         self._auth_req = auth_req
 
@@ -126,8 +122,6 @@ class RfidTerminal(object):
         :param auth_req2: The auth_req2 of this RfidTerminal.  # noqa: E501
         :type auth_req2: float
         """
-        if self.local_vars_configuration.client_side_validation and auth_req2 is None:  # noqa: E501
-            raise ValueError("Invalid value for `auth_req2`, must not be `None`")  # noqa: E501
 
         self._auth_req2 = auth_req2
 

@@ -68,8 +68,6 @@ class LexicalAnalysisResultAllOf(object):
         :param list_verified_fields: The list_verified_fields of this LexicalAnalysisResultAllOf.  # noqa: E501
         :type list_verified_fields: ListVerifiedFields
         """
-        if self.local_vars_configuration.client_side_validation and list_verified_fields is None:  # noqa: E501
-            raise ValueError("Invalid value for `list_verified_fields`, must not be `None`")  # noqa: E501
 
         self._list_verified_fields = list_verified_fields
 

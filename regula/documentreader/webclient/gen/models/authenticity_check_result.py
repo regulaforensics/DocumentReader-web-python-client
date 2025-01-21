@@ -81,8 +81,6 @@ class AuthenticityCheckResult(object):
         :param type: The type of this AuthenticityCheckResult.  # noqa: E501
         :type type: AuthenticityResultType
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -104,8 +102,6 @@ class AuthenticityCheckResult(object):
         :param result: The result of this AuthenticityCheckResult.  # noqa: E501
         :type result: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and result is None:  # noqa: E501
-            raise ValueError("Invalid value for `result`, must not be `None`")  # noqa: E501
 
         self._result = result
 
@@ -150,8 +146,6 @@ class AuthenticityCheckResult(object):
         :param list: The list of this AuthenticityCheckResult.  # noqa: E501
         :type list: list[AuthenticityCheckResultItem]
         """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
 
         self._list = list
 

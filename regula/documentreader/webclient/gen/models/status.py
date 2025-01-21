@@ -93,8 +93,6 @@ class Status(object):
         :param overall_status: The overall_status of this Status.  # noqa: E501
         :type overall_status: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and overall_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `overall_status`, must not be `None`")  # noqa: E501
 
         self._overall_status = overall_status
 
@@ -116,8 +114,6 @@ class Status(object):
         :param optical: The optical of this Status.  # noqa: E501
         :type optical: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and optical is None:  # noqa: E501
-            raise ValueError("Invalid value for `optical`, must not be `None`")  # noqa: E501
 
         self._optical = optical
 
@@ -139,8 +135,6 @@ class Status(object):
         :param portrait: The portrait of this Status.  # noqa: E501
         :type portrait: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and portrait is None:  # noqa: E501
-            raise ValueError("Invalid value for `portrait`, must not be `None`")  # noqa: E501
 
         self._portrait = portrait
 
@@ -162,8 +156,6 @@ class Status(object):
         :param rfid: The rfid of this Status.  # noqa: E501
         :type rfid: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and rfid is None:  # noqa: E501
-            raise ValueError("Invalid value for `rfid`, must not be `None`")  # noqa: E501
 
         self._rfid = rfid
 
@@ -185,8 +177,6 @@ class Status(object):
         :param stop_list: The stop_list of this Status.  # noqa: E501
         :type stop_list: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and stop_list is None:  # noqa: E501
-            raise ValueError("Invalid value for `stop_list`, must not be `None`")  # noqa: E501
 
         self._stop_list = stop_list
 
@@ -229,8 +219,6 @@ class Status(object):
         :param details_optical: The details_optical of this Status.  # noqa: E501
         :type details_optical: DetailsOptical
         """
-        if self.local_vars_configuration.client_side_validation and details_optical is None:  # noqa: E501
-            raise ValueError("Invalid value for `details_optical`, must not be `None`")  # noqa: E501
 
         self._details_optical = details_optical
 

@@ -94,8 +94,6 @@ class ByteArrayResult(object):
         :param byte_array: The byte_array of this ByteArrayResult.  # noqa: E501
         :type byte_array: str
         """
-        if self.local_vars_configuration.client_side_validation and byte_array is None:  # noqa: E501
-            raise ValueError("Invalid value for `byte_array`, must not be `None`")  # noqa: E501
 
         self._byte_array = byte_array
 
@@ -203,8 +201,6 @@ class ByteArrayResult(object):
         :param result_type: The result_type of this ByteArrayResult.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
 

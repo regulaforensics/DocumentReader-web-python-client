@@ -86,8 +86,6 @@ class DataModule(object):
         :param m_data: The m_data of this DataModule.  # noqa: E501
         :type m_data: str
         """
-        if self.local_vars_configuration.client_side_validation and m_data is None:  # noqa: E501
-            raise ValueError("Invalid value for `m_data`, must not be `None`")  # noqa: E501
 
         self._m_data = m_data
 
@@ -109,8 +107,6 @@ class DataModule(object):
         :param m_length: The m_length of this DataModule.  # noqa: E501
         :type m_length: int
         """
-        if self.local_vars_configuration.client_side_validation and m_length is None:  # noqa: E501
-            raise ValueError("Invalid value for `m_length`, must not be `None`")  # noqa: E501
 
         self._m_length = m_length
 
@@ -174,8 +170,6 @@ class DataModule(object):
         :param m_type: The m_type of this DataModule.  # noqa: E501
         :type m_type: BarCodeModuleType
         """
-        if self.local_vars_configuration.client_side_validation and m_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `m_type`, must not be `None`")  # noqa: E501
 
         self._m_type = m_type
 

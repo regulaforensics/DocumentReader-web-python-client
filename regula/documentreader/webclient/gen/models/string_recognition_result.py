@@ -88,8 +88,6 @@ class StringRecognitionResult(object):
         :param symbols_count: The symbols_count of this StringRecognitionResult.  # noqa: E501
         :type symbols_count: float
         """
-        if self.local_vars_configuration.client_side_validation and symbols_count is None:  # noqa: E501
-            raise ValueError("Invalid value for `symbols_count`, must not be `None`")  # noqa: E501
 
         self._symbols_count = symbols_count
 
@@ -134,8 +132,6 @@ class StringRecognitionResult(object):
         :param string_result: The string_result of this StringRecognitionResult.  # noqa: E501
         :type string_result: list[SymbolRecognitionResult]
         """
-        if self.local_vars_configuration.client_side_validation and string_result is None:  # noqa: E501
-            raise ValueError("Invalid value for `string_result`, must not be `None`")  # noqa: E501
 
         self._string_result = string_result
 

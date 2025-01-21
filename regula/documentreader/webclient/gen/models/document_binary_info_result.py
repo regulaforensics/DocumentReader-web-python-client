@@ -92,8 +92,6 @@ class DocumentBinaryInfoResult(object):
         :param t_doc_binary_info: The t_doc_binary_info of this DocumentBinaryInfoResult.  # noqa: E501
         :type t_doc_binary_info: TDocBinaryInfo
         """
-        if self.local_vars_configuration.client_side_validation and t_doc_binary_info is None:  # noqa: E501
-            raise ValueError("Invalid value for `t_doc_binary_info`, must not be `None`")  # noqa: E501
 
         self._t_doc_binary_info = t_doc_binary_info
 
@@ -201,8 +199,6 @@ class DocumentBinaryInfoResult(object):
         :param result_type: The result_type of this DocumentBinaryInfoResult.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
 

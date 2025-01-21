@@ -114,8 +114,6 @@ class RfidSignerInfoEx(object):
         :param version: The version of this RfidSignerInfoEx.  # noqa: E501
         :type version: float
         """
-        if self.local_vars_configuration.client_side_validation and version is None:  # noqa: E501
-            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
 
         self._version = version
 
@@ -137,8 +135,6 @@ class RfidSignerInfoEx(object):
         :param issuer: The issuer of this RfidSignerInfoEx.  # noqa: E501
         :type issuer: RfidDistinguishedName
         """
-        if self.local_vars_configuration.client_side_validation and issuer is None:  # noqa: E501
-            raise ValueError("Invalid value for `issuer`, must not be `None`")  # noqa: E501
 
         self._issuer = issuer
 
@@ -160,8 +156,6 @@ class RfidSignerInfoEx(object):
         :param serial_number: The serial_number of this RfidSignerInfoEx.  # noqa: E501
         :type serial_number: TrfFtBytes
         """
-        if self.local_vars_configuration.client_side_validation and serial_number is None:  # noqa: E501
-            raise ValueError("Invalid value for `serial_number`, must not be `None`")  # noqa: E501
 
         self._serial_number = serial_number
 
@@ -183,8 +177,6 @@ class RfidSignerInfoEx(object):
         :param subject_key_identifier: The subject_key_identifier of this RfidSignerInfoEx.  # noqa: E501
         :type subject_key_identifier: TrfFtBytes
         """
-        if self.local_vars_configuration.client_side_validation and subject_key_identifier is None:  # noqa: E501
-            raise ValueError("Invalid value for `subject_key_identifier`, must not be `None`")  # noqa: E501
 
         self._subject_key_identifier = subject_key_identifier
 
@@ -208,8 +200,6 @@ class RfidSignerInfoEx(object):
         :param digest_algorithm: The digest_algorithm of this RfidSignerInfoEx.  # noqa: E501
         :type digest_algorithm: str
         """
-        if self.local_vars_configuration.client_side_validation and digest_algorithm is None:  # noqa: E501
-            raise ValueError("Invalid value for `digest_algorithm`, must not be `None`")  # noqa: E501
 
         self._digest_algorithm = digest_algorithm
 
@@ -233,8 +223,6 @@ class RfidSignerInfoEx(object):
         :param signed_attributes: The signed_attributes of this RfidSignerInfoEx.  # noqa: E501
         :type signed_attributes: list[RfidAttributeData]
         """
-        if self.local_vars_configuration.client_side_validation and signed_attributes is None:  # noqa: E501
-            raise ValueError("Invalid value for `signed_attributes`, must not be `None`")  # noqa: E501
 
         self._signed_attributes = signed_attributes
 
@@ -258,8 +246,6 @@ class RfidSignerInfoEx(object):
         :param signature_algorithm: The signature_algorithm of this RfidSignerInfoEx.  # noqa: E501
         :type signature_algorithm: str
         """
-        if self.local_vars_configuration.client_side_validation and signature_algorithm is None:  # noqa: E501
-            raise ValueError("Invalid value for `signature_algorithm`, must not be `None`")  # noqa: E501
 
         self._signature_algorithm = signature_algorithm
 
@@ -281,8 +267,6 @@ class RfidSignerInfoEx(object):
         :param signature: The signature of this RfidSignerInfoEx.  # noqa: E501
         :type signature: TrfFtBytes
         """
-        if self.local_vars_configuration.client_side_validation and signature is None:  # noqa: E501
-            raise ValueError("Invalid value for `signature`, must not be `None`")  # noqa: E501
 
         self._signature = signature
 
@@ -304,8 +288,6 @@ class RfidSignerInfoEx(object):
         :param pa_status: The pa_status of this RfidSignerInfoEx.  # noqa: E501
         :type pa_status: RFIDErrorCodes
         """
-        if self.local_vars_configuration.client_side_validation and pa_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `pa_status`, must not be `None`")  # noqa: E501
 
         self._pa_status = pa_status
 
@@ -329,8 +311,6 @@ class RfidSignerInfoEx(object):
         :param certificate_chain: The certificate_chain of this RfidSignerInfoEx.  # noqa: E501
         :type certificate_chain: list[RfidCertificateEx]
         """
-        if self.local_vars_configuration.client_side_validation and certificate_chain is None:  # noqa: E501
-            raise ValueError("Invalid value for `certificate_chain`, must not be `None`")  # noqa: E501
 
         self._certificate_chain = certificate_chain
 
@@ -354,8 +334,6 @@ class RfidSignerInfoEx(object):
         :param data_to_hash: The data_to_hash of this RfidSignerInfoEx.  # noqa: E501
         :type data_to_hash: str
         """
-        if self.local_vars_configuration.client_side_validation and data_to_hash is None:  # noqa: E501
-            raise ValueError("Invalid value for `data_to_hash`, must not be `None`")  # noqa: E501
 
         self._data_to_hash = data_to_hash
 
@@ -377,8 +355,6 @@ class RfidSignerInfoEx(object):
         :param notifications: The notifications of this RfidSignerInfoEx.  # noqa: E501
         :type notifications: ParsingErrorCodes
         """
-        if self.local_vars_configuration.client_side_validation and notifications is None:  # noqa: E501
-            raise ValueError("Invalid value for `notifications`, must not be `None`")  # noqa: E501
 
         self._notifications = notifications
 

@@ -75,8 +75,6 @@ class ImageData(object):
         :param image: The image of this ImageData.  # noqa: E501
         :type image: str
         """
-        if self.local_vars_configuration.client_side_validation and image is None:  # noqa: E501
-            raise ValueError("Invalid value for `image`, must not be `None`")  # noqa: E501
 
         self._image = image
 

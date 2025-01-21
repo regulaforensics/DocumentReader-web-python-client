@@ -73,8 +73,6 @@ class ChosenDocumentTypeResultAllOf(object):
         :param one_candidate: The one_candidate of this ChosenDocumentTypeResultAllOf.  # noqa: E501
         :type one_candidate: OneCandidate
         """
-        if self.local_vars_configuration.client_side_validation and one_candidate is None:  # noqa: E501
-            raise ValueError("Invalid value for `one_candidate`, must not be `None`")  # noqa: E501
 
         self._one_candidate = one_candidate
 

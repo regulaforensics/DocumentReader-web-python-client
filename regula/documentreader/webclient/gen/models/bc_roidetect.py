@@ -80,8 +80,6 @@ class BcROIDETECT(object):
         :param bottom: The bottom of this BcROIDETECT.  # noqa: E501
         :type bottom: int
         """
-        if self.local_vars_configuration.client_side_validation and bottom is None:  # noqa: E501
-            raise ValueError("Invalid value for `bottom`, must not be `None`")  # noqa: E501
 
         self._bottom = bottom
 
@@ -103,8 +101,6 @@ class BcROIDETECT(object):
         :param left: The left of this BcROIDETECT.  # noqa: E501
         :type left: int
         """
-        if self.local_vars_configuration.client_side_validation and left is None:  # noqa: E501
-            raise ValueError("Invalid value for `left`, must not be `None`")  # noqa: E501
 
         self._left = left
 
@@ -126,8 +122,6 @@ class BcROIDETECT(object):
         :param right: The right of this BcROIDETECT.  # noqa: E501
         :type right: int
         """
-        if self.local_vars_configuration.client_side_validation and right is None:  # noqa: E501
-            raise ValueError("Invalid value for `right`, must not be `None`")  # noqa: E501
 
         self._right = right
 
@@ -149,8 +143,6 @@ class BcROIDETECT(object):
         :param top: The top of this BcROIDETECT.  # noqa: E501
         :type top: int
         """
-        if self.local_vars_configuration.client_side_validation and top is None:  # noqa: E501
-            raise ValueError("Invalid value for `top`, must not be `None`")  # noqa: E501
 
         self._top = top
 

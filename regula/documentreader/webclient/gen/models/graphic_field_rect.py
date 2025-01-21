@@ -80,8 +80,6 @@ class GraphicFieldRect(object):
         :param field_rect: The field_rect of this GraphicFieldRect.  # noqa: E501
         :type field_rect: RectangleCoordinates
         """
-        if self.local_vars_configuration.client_side_validation and field_rect is None:  # noqa: E501
-            raise ValueError("Invalid value for `field_rect`, must not be `None`")  # noqa: E501
 
         self._field_rect = field_rect
 
@@ -103,8 +101,6 @@ class GraphicFieldRect(object):
         :param field_type: The field_type of this GraphicFieldRect.  # noqa: E501
         :type field_type: GraphicFieldType
         """
-        if self.local_vars_configuration.client_side_validation and field_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `field_type`, must not be `None`")  # noqa: E501
 
         self._field_type = field_type
 
@@ -128,8 +124,6 @@ class GraphicFieldRect(object):
         :param field_name: The field_name of this GraphicFieldRect.  # noqa: E501
         :type field_name: str
         """
-        if self.local_vars_configuration.client_side_validation and field_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `field_name`, must not be `None`")  # noqa: E501
 
         self._field_name = field_name
 
@@ -151,8 +145,6 @@ class GraphicFieldRect(object):
         :param image: The image of this GraphicFieldRect.  # noqa: E501
         :type image: ImageData
         """
-        if self.local_vars_configuration.client_side_validation and image is None:  # noqa: E501
-            raise ValueError("Invalid value for `image`, must not be `None`")  # noqa: E501
 
         self._image = image
 

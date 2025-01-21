@@ -92,8 +92,6 @@ class GraphicFieldRfid(object):
         :param rfid_origin_dg: The rfid_origin_dg of this GraphicFieldRfid.  # noqa: E501
         :type rfid_origin_dg: RfidDataGroupTypeTag
         """
-        if self.local_vars_configuration.client_side_validation and rfid_origin_dg is None:  # noqa: E501
-            raise ValueError("Invalid value for `rfid_origin_dg`, must not be `None`")  # noqa: E501
 
         self._rfid_origin_dg = rfid_origin_dg
 
@@ -117,8 +115,6 @@ class GraphicFieldRfid(object):
         :param rfid_origin_dg_tag: The rfid_origin_dg_tag of this GraphicFieldRfid.  # noqa: E501
         :type rfid_origin_dg_tag: int
         """
-        if self.local_vars_configuration.client_side_validation and rfid_origin_dg_tag is None:  # noqa: E501
-            raise ValueError("Invalid value for `rfid_origin_dg_tag`, must not be `None`")  # noqa: E501
 
         self._rfid_origin_dg_tag = rfid_origin_dg_tag
 
@@ -142,8 +138,6 @@ class GraphicFieldRfid(object):
         :param rfid_origin_tag_entry: The rfid_origin_tag_entry of this GraphicFieldRfid.  # noqa: E501
         :type rfid_origin_tag_entry: int
         """
-        if self.local_vars_configuration.client_side_validation and rfid_origin_tag_entry is None:  # noqa: E501
-            raise ValueError("Invalid value for `rfid_origin_tag_entry`, must not be `None`")  # noqa: E501
 
         self._rfid_origin_tag_entry = rfid_origin_tag_entry
 
@@ -167,8 +161,6 @@ class GraphicFieldRfid(object):
         :param rfid_origin_entry_view: The rfid_origin_entry_view of this GraphicFieldRfid.  # noqa: E501
         :type rfid_origin_entry_view: int
         """
-        if self.local_vars_configuration.client_side_validation and rfid_origin_entry_view is None:  # noqa: E501
-            raise ValueError("Invalid value for `rfid_origin_entry_view`, must not be `None`")  # noqa: E501
 
         self._rfid_origin_entry_view = rfid_origin_entry_view
 
@@ -190,8 +182,6 @@ class GraphicFieldRfid(object):
         :param field_type: The field_type of this GraphicFieldRfid.  # noqa: E501
         :type field_type: GraphicFieldType
         """
-        if self.local_vars_configuration.client_side_validation and field_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `field_type`, must not be `None`")  # noqa: E501
 
         self._field_type = field_type
 
@@ -215,8 +205,6 @@ class GraphicFieldRfid(object):
         :param field_name: The field_name of this GraphicFieldRfid.  # noqa: E501
         :type field_name: str
         """
-        if self.local_vars_configuration.client_side_validation and field_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `field_name`, must not be `None`")  # noqa: E501
 
         self._field_name = field_name
 
@@ -238,8 +226,6 @@ class GraphicFieldRfid(object):
         :param image: The image of this GraphicFieldRfid.  # noqa: E501
         :type image: ImageData
         """
-        if self.local_vars_configuration.client_side_validation and image is None:  # noqa: E501
-            raise ValueError("Invalid value for `image`, must not be `None`")  # noqa: E501
 
         self._image = image
 

@@ -68,8 +68,6 @@ class TDocBinaryInfo(object):
         :param rfid_binary_data: The rfid_binary_data of this TDocBinaryInfo.  # noqa: E501
         :type rfid_binary_data: BinaryData
         """
-        if self.local_vars_configuration.client_side_validation and rfid_binary_data is None:  # noqa: E501
-            raise ValueError("Invalid value for `rfid_binary_data`, must not be `None`")  # noqa: E501
 
         self._rfid_binary_data = rfid_binary_data
 

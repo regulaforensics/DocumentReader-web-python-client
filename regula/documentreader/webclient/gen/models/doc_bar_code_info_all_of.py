@@ -68,8 +68,6 @@ class DocBarCodeInfoAllOf(object):
         :param doc_bar_code_info: The doc_bar_code_info of this DocBarCodeInfoAllOf.  # noqa: E501
         :type doc_bar_code_info: DocBarCodeInfoFieldsList
         """
-        if self.local_vars_configuration.client_side_validation and doc_bar_code_info is None:  # noqa: E501
-            raise ValueError("Invalid value for `doc_bar_code_info`, must not be `None`")  # noqa: E501
 
         self._doc_bar_code_info = doc_bar_code_info
 

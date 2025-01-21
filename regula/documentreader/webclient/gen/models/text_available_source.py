@@ -77,8 +77,6 @@ class TextAvailableSource(object):
         :param source: The source of this TextAvailableSource.  # noqa: E501
         :type source: Source
         """
-        if self.local_vars_configuration.client_side_validation and source is None:  # noqa: E501
-            raise ValueError("Invalid value for `source`, must not be `None`")  # noqa: E501
 
         self._source = source
 
@@ -100,8 +98,6 @@ class TextAvailableSource(object):
         :param validity_status: The validity_status of this TextAvailableSource.  # noqa: E501
         :type validity_status: CheckResult
         """
-        if self.local_vars_configuration.client_side_validation and validity_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `validity_status`, must not be `None`")  # noqa: E501
 
         self._validity_status = validity_status
 

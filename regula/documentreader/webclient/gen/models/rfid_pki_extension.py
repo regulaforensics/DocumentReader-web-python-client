@@ -74,8 +74,6 @@ class RfidPkiExtension(object):
         :param type: The type of this RfidPkiExtension.  # noqa: E501
         :type type: str
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -99,8 +97,6 @@ class RfidPkiExtension(object):
         :param data: The data of this RfidPkiExtension.  # noqa: E501
         :type data: str
         """
-        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
-            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 

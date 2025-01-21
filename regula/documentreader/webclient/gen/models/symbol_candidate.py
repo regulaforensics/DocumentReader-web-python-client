@@ -78,8 +78,6 @@ class SymbolCandidate(object):
         :param symbol_code: The symbol_code of this SymbolCandidate.  # noqa: E501
         :type symbol_code: int
         """
-        if self.local_vars_configuration.client_side_validation and symbol_code is None:  # noqa: E501
-            raise ValueError("Invalid value for `symbol_code`, must not be `None`")  # noqa: E501
 
         self._symbol_code = symbol_code
 
@@ -103,8 +101,6 @@ class SymbolCandidate(object):
         :param symbol_probability: The symbol_probability of this SymbolCandidate.  # noqa: E501
         :type symbol_probability: int
         """
-        if self.local_vars_configuration.client_side_validation and symbol_probability is None:  # noqa: E501
-            raise ValueError("Invalid value for `symbol_probability`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 symbol_probability is not None and symbol_probability > 100):  # noqa: E501
             raise ValueError("Invalid value for `symbol_probability`, must be a value less than or equal to `100`")  # noqa: E501

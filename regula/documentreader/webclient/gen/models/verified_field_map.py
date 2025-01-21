@@ -96,8 +96,6 @@ class VerifiedFieldMap(object):
         :param w_field_type: The w_field_type of this VerifiedFieldMap.  # noqa: E501
         :type w_field_type: TextFieldType
         """
-        if self.local_vars_configuration.client_side_validation and w_field_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `w_field_type`, must not be `None`")  # noqa: E501
 
         self._w_field_type = w_field_type
 
@@ -119,8 +117,6 @@ class VerifiedFieldMap(object):
         :param w_lcid: The w_lcid of this VerifiedFieldMap.  # noqa: E501
         :type w_lcid: LCID
         """
-        if self.local_vars_configuration.client_side_validation and w_lcid is None:  # noqa: E501
-            raise ValueError("Invalid value for `w_lcid`, must not be `None`")  # noqa: E501
 
         self._w_lcid = w_lcid
 
@@ -236,8 +232,6 @@ class VerifiedFieldMap(object):
         :param matrix: The matrix of this VerifiedFieldMap.  # noqa: E501
         :type matrix: list[VerificationResult]
         """
-        if self.local_vars_configuration.client_side_validation and matrix is None:  # noqa: E501
-            raise ValueError("Invalid value for `matrix`, must not be `None`")  # noqa: E501
 
         self._matrix = matrix
 

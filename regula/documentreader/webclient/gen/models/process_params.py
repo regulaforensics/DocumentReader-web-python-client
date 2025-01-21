@@ -586,8 +586,6 @@ class ProcessParams(object):
         :param scenario: The scenario of this ProcessParams.  # noqa: E501
         :type scenario: Scenario
         """
-        if self.local_vars_configuration.client_side_validation and scenario is None:  # noqa: E501
-            raise ValueError("Invalid value for `scenario`, must not be `None`")  # noqa: E501
 
         self._scenario = scenario
 

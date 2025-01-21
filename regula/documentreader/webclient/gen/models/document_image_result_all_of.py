@@ -68,8 +68,6 @@ class DocumentImageResultAllOf(object):
         :param raw_image_container: The raw_image_container of this DocumentImageResultAllOf.  # noqa: E501
         :type raw_image_container: ImageData
         """
-        if self.local_vars_configuration.client_side_validation and raw_image_container is None:  # noqa: E501
-            raise ValueError("Invalid value for `raw_image_container`, must not be `None`")  # noqa: E501
 
         self._raw_image_container = raw_image_container
 

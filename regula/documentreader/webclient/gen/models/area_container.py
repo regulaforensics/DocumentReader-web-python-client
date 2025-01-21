@@ -76,8 +76,6 @@ class AreaContainer(object):
         :param count: The count of this AreaContainer.  # noqa: E501
         :type count: int
         """
-        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
-            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -99,8 +97,6 @@ class AreaContainer(object):
         :param list: The list of this AreaContainer.  # noqa: E501
         :type list: list[RectangleCoordinates]
         """
-        if self.local_vars_configuration.client_side_validation and list is None:  # noqa: E501
-            raise ValueError("Invalid value for `list`, must not be `None`")  # noqa: E501
 
         self._list = list
 
@@ -122,8 +118,6 @@ class AreaContainer(object):
         :param points: The points of this AreaContainer.  # noqa: E501
         :type points: list[PointsContainer]
         """
-        if self.local_vars_configuration.client_side_validation and points is None:  # noqa: E501
-            raise ValueError("Invalid value for `points`, must not be `None`")  # noqa: E501
 
         self._points = points
 

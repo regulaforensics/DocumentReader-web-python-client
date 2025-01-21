@@ -80,8 +80,6 @@ class TrfFtString(object):
         :param type: The type of this TrfFtString.  # noqa: E501
         :type type: AnyOfGraphicFieldTypeTextFieldType
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -105,8 +103,6 @@ class TrfFtString(object):
         :param status: The status of this TrfFtString.  # noqa: E501
         :type status: AnyOfParsingNotificationCodesParsingErrorCodes
         """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 
@@ -130,8 +126,6 @@ class TrfFtString(object):
         :param format: The format of this TrfFtString.  # noqa: E501
         :type format: str
         """
-        if self.local_vars_configuration.client_side_validation and format is None:  # noqa: E501
-            raise ValueError("Invalid value for `format`, must not be `None`")  # noqa: E501
 
         self._format = format
 
@@ -155,8 +149,6 @@ class TrfFtString(object):
         :param data: The data of this TrfFtString.  # noqa: E501
         :type data: str
         """
-        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
-            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 

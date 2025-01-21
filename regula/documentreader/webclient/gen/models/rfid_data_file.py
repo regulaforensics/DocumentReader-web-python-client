@@ -129,8 +129,6 @@ class RfidDataFile(object):
         :param type: The type of this RfidDataFile.  # noqa: E501
         :type type: RfidDataFileType
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -173,8 +171,6 @@ class RfidDataFile(object):
         :param reading_status: The reading_status of this RfidDataFile.  # noqa: E501
         :type reading_status: RFIDErrorCodes
         """
-        if self.local_vars_configuration.client_side_validation and reading_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `reading_status`, must not be `None`")  # noqa: E501
 
         self._reading_status = reading_status
 
@@ -198,8 +194,6 @@ class RfidDataFile(object):
         :param reading_time: The reading_time of this RfidDataFile.  # noqa: E501
         :type reading_time: float
         """
-        if self.local_vars_configuration.client_side_validation and reading_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `reading_time`, must not be `None`")  # noqa: E501
 
         self._reading_time = reading_time
 
@@ -221,8 +215,6 @@ class RfidDataFile(object):
         :param pa_status: The pa_status of this RfidDataFile.  # noqa: E501
         :type pa_status: RFIDErrorCodes
         """
-        if self.local_vars_configuration.client_side_validation and pa_status is None:  # noqa: E501
-            raise ValueError("Invalid value for `pa_status`, must not be `None`")  # noqa: E501
 
         self._pa_status = pa_status
 
@@ -246,8 +238,6 @@ class RfidDataFile(object):
         :param notifications: The notifications of this RfidDataFile.  # noqa: E501
         :type notifications: list[ParsingErrorCodes]
         """
-        if self.local_vars_configuration.client_side_validation and notifications is None:  # noqa: E501
-            raise ValueError("Invalid value for `notifications`, must not be `None`")  # noqa: E501
 
         self._notifications = notifications
 
@@ -271,8 +261,6 @@ class RfidDataFile(object):
         :param doc_fields_text: The doc_fields_text of this RfidDataFile.  # noqa: E501
         :type doc_fields_text: list[TextFieldType]
         """
-        if self.local_vars_configuration.client_side_validation and doc_fields_text is None:  # noqa: E501
-            raise ValueError("Invalid value for `doc_fields_text`, must not be `None`")  # noqa: E501
 
         self._doc_fields_text = doc_fields_text
 
@@ -296,8 +284,6 @@ class RfidDataFile(object):
         :param doc_fields_graphics: The doc_fields_graphics of this RfidDataFile.  # noqa: E501
         :type doc_fields_graphics: list[GraphicFieldType]
         """
-        if self.local_vars_configuration.client_side_validation and doc_fields_graphics is None:  # noqa: E501
-            raise ValueError("Invalid value for `doc_fields_graphics`, must not be `None`")  # noqa: E501
 
         self._doc_fields_graphics = doc_fields_graphics
 
@@ -321,8 +307,6 @@ class RfidDataFile(object):
         :param doc_fields_originals: The doc_fields_originals of this RfidDataFile.  # noqa: E501
         :type doc_fields_originals: list[GraphicFieldType]
         """
-        if self.local_vars_configuration.client_side_validation and doc_fields_originals is None:  # noqa: E501
-            raise ValueError("Invalid value for `doc_fields_originals`, must not be `None`")  # noqa: E501
 
         self._doc_fields_originals = doc_fields_originals
 

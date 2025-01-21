@@ -85,8 +85,6 @@ class AuthenticityCheckResultItem(object):
         :param type: The type of this AuthenticityCheckResultItem.  # noqa: E501
         :type type: int
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 

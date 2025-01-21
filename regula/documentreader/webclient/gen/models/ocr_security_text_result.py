@@ -131,8 +131,6 @@ class OCRSecurityTextResult(object):
         :param type: The type of this OCRSecurityTextResult.  # noqa: E501
         :type type: int
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -217,8 +215,6 @@ class OCRSecurityTextResult(object):
         :param critical_flag: The critical_flag of this OCRSecurityTextResult.  # noqa: E501
         :type critical_flag: Critical
         """
-        if self.local_vars_configuration.client_side_validation and critical_flag is None:  # noqa: E501
-            raise ValueError("Invalid value for `critical_flag`, must not be `None`")  # noqa: E501
 
         self._critical_flag = critical_flag
 
@@ -240,8 +236,6 @@ class OCRSecurityTextResult(object):
         :param light_type: The light_type of this OCRSecurityTextResult.  # noqa: E501
         :type light_type: Light
         """
-        if self.local_vars_configuration.client_side_validation and light_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `light_type`, must not be `None`")  # noqa: E501
 
         self._light_type = light_type
 
@@ -263,8 +257,6 @@ class OCRSecurityTextResult(object):
         :param field_rect: The field_rect of this OCRSecurityTextResult.  # noqa: E501
         :type field_rect: RectangleCoordinates
         """
-        if self.local_vars_configuration.client_side_validation and field_rect is None:  # noqa: E501
-            raise ValueError("Invalid value for `field_rect`, must not be `None`")  # noqa: E501
 
         self._field_rect = field_rect
 
@@ -286,8 +278,6 @@ class OCRSecurityTextResult(object):
         :param etalon_result_type: The etalon_result_type of this OCRSecurityTextResult.  # noqa: E501
         :type etalon_result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and etalon_result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `etalon_result_type`, must not be `None`")  # noqa: E501
 
         self._etalon_result_type = etalon_result_type
 
@@ -309,8 +299,6 @@ class OCRSecurityTextResult(object):
         :param etalon_field_type: The etalon_field_type of this OCRSecurityTextResult.  # noqa: E501
         :type etalon_field_type: int
         """
-        if self.local_vars_configuration.client_side_validation and etalon_field_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `etalon_field_type`, must not be `None`")  # noqa: E501
 
         self._etalon_field_type = etalon_field_type
 
@@ -332,8 +320,6 @@ class OCRSecurityTextResult(object):
         :param etalon_light_type: The etalon_light_type of this OCRSecurityTextResult.  # noqa: E501
         :type etalon_light_type: int
         """
-        if self.local_vars_configuration.client_side_validation and etalon_light_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `etalon_light_type`, must not be `None`")  # noqa: E501
 
         self._etalon_light_type = etalon_light_type
 
@@ -355,8 +341,6 @@ class OCRSecurityTextResult(object):
         :param etalon_field_rect: The etalon_field_rect of this OCRSecurityTextResult.  # noqa: E501
         :type etalon_field_rect: RectangleCoordinates
         """
-        if self.local_vars_configuration.client_side_validation and etalon_field_rect is None:  # noqa: E501
-            raise ValueError("Invalid value for `etalon_field_rect`, must not be `None`")  # noqa: E501
 
         self._etalon_field_rect = etalon_field_rect
 
@@ -378,8 +362,6 @@ class OCRSecurityTextResult(object):
         :param security_text_result_ocr: The security_text_result_ocr of this OCRSecurityTextResult.  # noqa: E501
         :type security_text_result_ocr: str
         """
-        if self.local_vars_configuration.client_side_validation and security_text_result_ocr is None:  # noqa: E501
-            raise ValueError("Invalid value for `security_text_result_ocr`, must not be `None`")  # noqa: E501
 
         self._security_text_result_ocr = security_text_result_ocr
 
@@ -401,8 +383,6 @@ class OCRSecurityTextResult(object):
         :param etalon_result_ocr: The etalon_result_ocr of this OCRSecurityTextResult.  # noqa: E501
         :type etalon_result_ocr: str
         """
-        if self.local_vars_configuration.client_side_validation and etalon_result_ocr is None:  # noqa: E501
-            raise ValueError("Invalid value for `etalon_result_ocr`, must not be `None`")  # noqa: E501
 
         self._etalon_result_ocr = etalon_result_ocr
 

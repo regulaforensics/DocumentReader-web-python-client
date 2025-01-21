@@ -92,8 +92,6 @@ class ImagesResult(object):
         :param images: The images of this ImagesResult.  # noqa: E501
         :type images: Images
         """
-        if self.local_vars_configuration.client_side_validation and images is None:  # noqa: E501
-            raise ValueError("Invalid value for `images`, must not be `None`")  # noqa: E501
 
         self._images = images
 
@@ -201,8 +199,6 @@ class ImagesResult(object):
         :param result_type: The result_type of this ImagesResult.  # noqa: E501
         :type result_type: int
         """
-        if self.local_vars_configuration.client_side_validation and result_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `result_type`, must not be `None`")  # noqa: E501
 
         self._result_type = result_type
 

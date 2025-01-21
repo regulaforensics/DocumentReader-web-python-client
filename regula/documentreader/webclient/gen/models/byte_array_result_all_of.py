@@ -70,8 +70,6 @@ class ByteArrayResultAllOf(object):
         :param byte_array: The byte_array of this ByteArrayResultAllOf.  # noqa: E501
         :type byte_array: str
         """
-        if self.local_vars_configuration.client_side_validation and byte_array is None:  # noqa: E501
-            raise ValueError("Invalid value for `byte_array`, must not be `None`")  # noqa: E501
 
         self._byte_array = byte_array
 

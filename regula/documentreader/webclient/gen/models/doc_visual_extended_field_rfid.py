@@ -128,8 +128,6 @@ class DocVisualExtendedFieldRfid(object):
         :param rfid_origin_dg: The rfid_origin_dg of this DocVisualExtendedFieldRfid.  # noqa: E501
         :type rfid_origin_dg: RfidDataGroupTypeTag
         """
-        if self.local_vars_configuration.client_side_validation and rfid_origin_dg is None:  # noqa: E501
-            raise ValueError("Invalid value for `rfid_origin_dg`, must not be `None`")  # noqa: E501
 
         self._rfid_origin_dg = rfid_origin_dg
 
@@ -174,8 +172,6 @@ class DocVisualExtendedFieldRfid(object):
         :param rfid_origin_tag_entry: The rfid_origin_tag_entry of this DocVisualExtendedFieldRfid.  # noqa: E501
         :type rfid_origin_tag_entry: float
         """
-        if self.local_vars_configuration.client_side_validation and rfid_origin_tag_entry is None:  # noqa: E501
-            raise ValueError("Invalid value for `rfid_origin_tag_entry`, must not be `None`")  # noqa: E501
 
         self._rfid_origin_tag_entry = rfid_origin_tag_entry
 
@@ -239,8 +235,6 @@ class DocVisualExtendedFieldRfid(object):
         :param w_field_type: The w_field_type of this DocVisualExtendedFieldRfid.  # noqa: E501
         :type w_field_type: TextFieldType
         """
-        if self.local_vars_configuration.client_side_validation and w_field_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `w_field_type`, must not be `None`")  # noqa: E501
 
         self._w_field_type = w_field_type
 
@@ -264,8 +258,6 @@ class DocVisualExtendedFieldRfid(object):
         :param field_name: The field_name of this DocVisualExtendedFieldRfid.  # noqa: E501
         :type field_name: str
         """
-        if self.local_vars_configuration.client_side_validation and field_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `field_name`, must not be `None`")  # noqa: E501
 
         self._field_name = field_name
 
@@ -289,8 +281,6 @@ class DocVisualExtendedFieldRfid(object):
         :param strings_count: The strings_count of this DocVisualExtendedFieldRfid.  # noqa: E501
         :type strings_count: float
         """
-        if self.local_vars_configuration.client_side_validation and strings_count is None:  # noqa: E501
-            raise ValueError("Invalid value for `strings_count`, must not be `None`")  # noqa: E501
 
         self._strings_count = strings_count
 
@@ -314,8 +304,6 @@ class DocVisualExtendedFieldRfid(object):
         :param strings_result: The strings_result of this DocVisualExtendedFieldRfid.  # noqa: E501
         :type strings_result: list[StringRecognitionResult]
         """
-        if self.local_vars_configuration.client_side_validation and strings_result is None:  # noqa: E501
-            raise ValueError("Invalid value for `strings_result`, must not be `None`")  # noqa: E501
 
         self._strings_result = strings_result
 
@@ -339,8 +327,6 @@ class DocVisualExtendedFieldRfid(object):
         :param buf_length: The buf_length of this DocVisualExtendedFieldRfid.  # noqa: E501
         :type buf_length: float
         """
-        if self.local_vars_configuration.client_side_validation and buf_length is None:  # noqa: E501
-            raise ValueError("Invalid value for `buf_length`, must not be `None`")  # noqa: E501
 
         self._buf_length = buf_length
 
@@ -364,8 +350,6 @@ class DocVisualExtendedFieldRfid(object):
         :param buf_text: The buf_text of this DocVisualExtendedFieldRfid.  # noqa: E501
         :type buf_text: str
         """
-        if self.local_vars_configuration.client_side_validation and buf_text is None:  # noqa: E501
-            raise ValueError("Invalid value for `buf_text`, must not be `None`")  # noqa: E501
 
         self._buf_text = buf_text
 

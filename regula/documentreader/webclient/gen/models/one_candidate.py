@@ -110,8 +110,6 @@ class OneCandidate(object):
         :param document_name: The document_name of this OneCandidate.  # noqa: E501
         :type document_name: str
         """
-        if self.local_vars_configuration.client_side_validation and document_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `document_name`, must not be `None`")  # noqa: E501
 
         self._document_name = document_name
 
@@ -135,8 +133,6 @@ class OneCandidate(object):
         :param id: The id of this OneCandidate.  # noqa: E501
         :type id: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -160,8 +156,6 @@ class OneCandidate(object):
         :param p: The p of this OneCandidate.  # noqa: E501
         :type p: float
         """
-        if self.local_vars_configuration.client_side_validation and p is None:  # noqa: E501
-            raise ValueError("Invalid value for `p`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 p is not None and p > 1):  # noqa: E501
             raise ValueError("Invalid value for `p`, must be a value less than or equal to `1`")  # noqa: E501
@@ -191,8 +185,6 @@ class OneCandidate(object):
         :param rotated180: The rotated180 of this OneCandidate.  # noqa: E501
         :type rotated180: bool
         """
-        if self.local_vars_configuration.client_side_validation and rotated180 is None:  # noqa: E501
-            raise ValueError("Invalid value for `rotated180`, must not be `None`")  # noqa: E501
 
         self._rotated180 = rotated180
 
@@ -214,8 +206,6 @@ class OneCandidate(object):
         :param rfid_presence: The rfid_presence of this OneCandidate.  # noqa: E501
         :type rfid_presence: RfidLocation
         """
-        if self.local_vars_configuration.client_side_validation and rfid_presence is None:  # noqa: E501
-            raise ValueError("Invalid value for `rfid_presence`, must not be `None`")  # noqa: E501
 
         self._rfid_presence = rfid_presence
 
@@ -237,8 +227,6 @@ class OneCandidate(object):
         :param fdsid_list: The fdsid_list of this OneCandidate.  # noqa: E501
         :type fdsid_list: FDSIDList
         """
-        if self.local_vars_configuration.client_side_validation and fdsid_list is None:  # noqa: E501
-            raise ValueError("Invalid value for `fdsid_list`, must not be `None`")  # noqa: E501
 
         self._fdsid_list = fdsid_list
 
@@ -262,8 +250,6 @@ class OneCandidate(object):
         :param necessary_lights: The necessary_lights of this OneCandidate.  # noqa: E501
         :type necessary_lights: int
         """
-        if self.local_vars_configuration.client_side_validation and necessary_lights is None:  # noqa: E501
-            raise ValueError("Invalid value for `necessary_lights`, must not be `None`")  # noqa: E501
 
         self._necessary_lights = necessary_lights
 
@@ -287,8 +273,6 @@ class OneCandidate(object):
         :param check_authenticity: The check_authenticity of this OneCandidate.  # noqa: E501
         :type check_authenticity: int
         """
-        if self.local_vars_configuration.client_side_validation and check_authenticity is None:  # noqa: E501
-            raise ValueError("Invalid value for `check_authenticity`, must not be `None`")  # noqa: E501
 
         self._check_authenticity = check_authenticity
 
@@ -312,8 +296,6 @@ class OneCandidate(object):
         :param uv_exp: The uv_exp of this OneCandidate.  # noqa: E501
         :type uv_exp: int
         """
-        if self.local_vars_configuration.client_side_validation and uv_exp is None:  # noqa: E501
-            raise ValueError("Invalid value for `uv_exp`, must not be `None`")  # noqa: E501
 
         self._uv_exp = uv_exp
 
@@ -337,8 +319,6 @@ class OneCandidate(object):
         :param authenticity_necessary_lights: The authenticity_necessary_lights of this OneCandidate.  # noqa: E501
         :type authenticity_necessary_lights: int
         """
-        if self.local_vars_configuration.client_side_validation and authenticity_necessary_lights is None:  # noqa: E501
-            raise ValueError("Invalid value for `authenticity_necessary_lights`, must not be `None`")  # noqa: E501
 
         self._authenticity_necessary_lights = authenticity_necessary_lights
 
@@ -362,8 +342,6 @@ class OneCandidate(object):
         :param ovi_exp: The ovi_exp of this OneCandidate.  # noqa: E501
         :type ovi_exp: float
         """
-        if self.local_vars_configuration.client_side_validation and ovi_exp is None:  # noqa: E501
-            raise ValueError("Invalid value for `ovi_exp`, must not be `None`")  # noqa: E501
 
         self._ovi_exp = ovi_exp
 

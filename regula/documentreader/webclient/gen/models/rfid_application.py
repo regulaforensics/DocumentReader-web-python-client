@@ -92,8 +92,6 @@ class RfidApplication(object):
         :param type: The type of this RfidApplication.  # noqa: E501
         :type type: RfidApplicationType
         """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
 
         self._type = type
 
@@ -115,8 +113,6 @@ class RfidApplication(object):
         :param status: The status of this RfidApplication.  # noqa: E501
         :type status: RFIDErrorCodes
         """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 
@@ -140,8 +136,6 @@ class RfidApplication(object):
         :param application_id: The application_id of this RfidApplication.  # noqa: E501
         :type application_id: str
         """
-        if self.local_vars_configuration.client_side_validation and application_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `application_id`, must not be `None`")  # noqa: E501
 
         self._application_id = application_id
 
@@ -165,8 +159,6 @@ class RfidApplication(object):
         :param version: The version of this RfidApplication.  # noqa: E501
         :type version: str
         """
-        if self.local_vars_configuration.client_side_validation and version is None:  # noqa: E501
-            raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
 
         self._version = version
 
@@ -190,8 +182,6 @@ class RfidApplication(object):
         :param unicode_version: The unicode_version of this RfidApplication.  # noqa: E501
         :type unicode_version: str
         """
-        if self.local_vars_configuration.client_side_validation and unicode_version is None:  # noqa: E501
-            raise ValueError("Invalid value for `unicode_version`, must not be `None`")  # noqa: E501
 
         self._unicode_version = unicode_version
 
@@ -215,8 +205,6 @@ class RfidApplication(object):
         :param data_hash_algorithm: The data_hash_algorithm of this RfidApplication.  # noqa: E501
         :type data_hash_algorithm: str
         """
-        if self.local_vars_configuration.client_side_validation and data_hash_algorithm is None:  # noqa: E501
-            raise ValueError("Invalid value for `data_hash_algorithm`, must not be `None`")  # noqa: E501
 
         self._data_hash_algorithm = data_hash_algorithm
 
@@ -240,8 +228,6 @@ class RfidApplication(object):
         :param files: The files of this RfidApplication.  # noqa: E501
         :type files: list[RfidDataFile]
         """
-        if self.local_vars_configuration.client_side_validation and files is None:  # noqa: E501
-            raise ValueError("Invalid value for `files`, must not be `None`")  # noqa: E501
 
         self._files = files
 
