@@ -40,6 +40,8 @@ class PhotoIdentResultAllOf(object):
         'field_types_list': 'list[int]',
         'step': 'int',
         'angle': 'int',
+        'reserved1': 'int',
+        'reserved2': 'int',
         'reserved3': 'int'
     }
 
@@ -52,10 +54,12 @@ class PhotoIdentResultAllOf(object):
         'field_types_list': 'FieldTypesList',
         'step': 'Step',
         'angle': 'Angle',
+        'reserved1': 'Reserved1',
+        'reserved2': 'Reserved2',
         'reserved3': 'Reserved3'
     }
 
-    def __init__(self, light_index=None, area=None, source_image=None, result_images=None, field_types_count=None, field_types_list=None, step=None, angle=None, reserved3=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, light_index=None, area=None, source_image=None, result_images=None, field_types_count=None, field_types_list=None, step=None, angle=None, reserved1=None, reserved2=None, reserved3=None, local_vars_configuration=None):  # noqa: E501
         """PhotoIdentResultAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,17 +73,15 @@ class PhotoIdentResultAllOf(object):
         self._field_types_list = None
         self._step = None
         self._angle = None
+        self._reserved1 = None
+        self._reserved2 = None
         self._reserved3 = None
         self.discriminator = None
 
-        if light_index is not None:
-            self.light_index = light_index
-        if area is not None:
-            self.area = area
-        if source_image is not None:
-            self.source_image = source_image
-        if result_images is not None:
-            self.result_images = result_images
+        self.light_index = light_index
+        self.area = area
+        self.source_image = source_image
+        self.result_images = result_images
         if field_types_count is not None:
             self.field_types_count = field_types_count
         if field_types_list is not None:
@@ -88,6 +90,10 @@ class PhotoIdentResultAllOf(object):
             self.step = step
         if angle is not None:
             self.angle = angle
+        if reserved1 is not None:
+            self.reserved1 = reserved1
+        if reserved2 is not None:
+            self.reserved2 = reserved2
         if reserved3 is not None:
             self.reserved3 = reserved3
 
@@ -109,6 +115,8 @@ class PhotoIdentResultAllOf(object):
         :param light_index: The light_index of this PhotoIdentResultAllOf.  # noqa: E501
         :type light_index: Light
         """
+        if self.local_vars_configuration.client_side_validation and light_index is None:  # noqa: E501
+            raise ValueError("Invalid value for `light_index`, must not be `None`")  # noqa: E501
 
         self._light_index = light_index
 
@@ -130,6 +138,8 @@ class PhotoIdentResultAllOf(object):
         :param area: The area of this PhotoIdentResultAllOf.  # noqa: E501
         :type area: RectangleCoordinates
         """
+        if self.local_vars_configuration.client_side_validation and area is None:  # noqa: E501
+            raise ValueError("Invalid value for `area`, must not be `None`")  # noqa: E501
 
         self._area = area
 
@@ -151,6 +161,8 @@ class PhotoIdentResultAllOf(object):
         :param source_image: The source_image of this PhotoIdentResultAllOf.  # noqa: E501
         :type source_image: ImageData
         """
+        if self.local_vars_configuration.client_side_validation and source_image is None:  # noqa: E501
+            raise ValueError("Invalid value for `source_image`, must not be `None`")  # noqa: E501
 
         self._source_image = source_image
 
@@ -172,6 +184,8 @@ class PhotoIdentResultAllOf(object):
         :param result_images: The result_images of this PhotoIdentResultAllOf.  # noqa: E501
         :type result_images: RawImageContainerList
         """
+        if self.local_vars_configuration.client_side_validation and result_images is None:  # noqa: E501
+            raise ValueError("Invalid value for `result_images`, must not be `None`")  # noqa: E501
 
         self._result_images = result_images
 
@@ -258,6 +272,48 @@ class PhotoIdentResultAllOf(object):
         """
 
         self._angle = angle
+
+    @property
+    def reserved1(self):
+        """Gets the reserved1 of this PhotoIdentResultAllOf.  # noqa: E501
+
+
+        :return: The reserved1 of this PhotoIdentResultAllOf.  # noqa: E501
+        :rtype: int
+        """
+        return self._reserved1
+
+    @reserved1.setter
+    def reserved1(self, reserved1):
+        """Sets the reserved1 of this PhotoIdentResultAllOf.
+
+
+        :param reserved1: The reserved1 of this PhotoIdentResultAllOf.  # noqa: E501
+        :type reserved1: int
+        """
+
+        self._reserved1 = reserved1
+
+    @property
+    def reserved2(self):
+        """Gets the reserved2 of this PhotoIdentResultAllOf.  # noqa: E501
+
+
+        :return: The reserved2 of this PhotoIdentResultAllOf.  # noqa: E501
+        :rtype: int
+        """
+        return self._reserved2
+
+    @reserved2.setter
+    def reserved2(self, reserved2):
+        """Sets the reserved2 of this PhotoIdentResultAllOf.
+
+
+        :param reserved2: The reserved2 of this PhotoIdentResultAllOf.  # noqa: E501
+        :type reserved2: int
+        """
+
+        self._reserved2 = reserved2
 
     @property
     def reserved3(self):

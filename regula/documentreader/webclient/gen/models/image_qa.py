@@ -38,7 +38,9 @@ class ImageQA(object):
         'focus_check': 'bool',
         'glares_check': 'bool',
         'colorness_check': 'bool',
-        'document_position_indent': 'int'
+        'moire_check': 'bool',
+        'document_position_indent': 'int',
+        'expected_pass': 'list[InputImageQualityChecks]'
     }
 
     attribute_map = {
@@ -48,10 +50,12 @@ class ImageQA(object):
         'focus_check': 'focusCheck',
         'glares_check': 'glaresCheck',
         'colorness_check': 'colornessCheck',
-        'document_position_indent': 'documentPositionIndent'
+        'moire_check': 'moireCheck',
+        'document_position_indent': 'documentPositionIndent',
+        'expected_pass': 'expectedPass'
     }
 
-    def __init__(self, brightness_threshold=None, dpi_threshold=None, angle_threshold=None, focus_check=None, glares_check=None, colorness_check=None, document_position_indent=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, brightness_threshold=None, dpi_threshold=None, angle_threshold=None, focus_check=None, glares_check=None, colorness_check=None, moire_check=None, document_position_indent=None, expected_pass=None, local_vars_configuration=None):  # noqa: E501
         """ImageQA - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,7 +67,9 @@ class ImageQA(object):
         self._focus_check = None
         self._glares_check = None
         self._colorness_check = None
+        self._moire_check = None
         self._document_position_indent = None
+        self._expected_pass = None
         self.discriminator = None
 
         if brightness_threshold is not None:
@@ -78,8 +84,12 @@ class ImageQA(object):
             self.glares_check = glares_check
         if colorness_check is not None:
             self.colorness_check = colorness_check
+        if moire_check is not None:
+            self.moire_check = moire_check
         if document_position_indent is not None:
             self.document_position_indent = document_position_indent
+        if expected_pass is not None:
+            self.expected_pass = expected_pass
 
     @property
     def brightness_threshold(self):
@@ -220,6 +230,29 @@ class ImageQA(object):
         self._colorness_check = colorness_check
 
     @property
+    def moire_check(self):
+        """Gets the moire_check of this ImageQA.  # noqa: E501
+
+        This option enables screen capture (moire patterns) check while performing image quality validation.  # noqa: E501
+
+        :return: The moire_check of this ImageQA.  # noqa: E501
+        :rtype: bool
+        """
+        return self._moire_check
+
+    @moire_check.setter
+    def moire_check(self, moire_check):
+        """Sets the moire_check of this ImageQA.
+
+        This option enables screen capture (moire patterns) check while performing image quality validation.  # noqa: E501
+
+        :param moire_check: The moire_check of this ImageQA.  # noqa: E501
+        :type moire_check: bool
+        """
+
+        self._moire_check = moire_check
+
+    @property
     def document_position_indent(self):
         """Gets the document_position_indent of this ImageQA.  # noqa: E501
 
@@ -241,6 +274,29 @@ class ImageQA(object):
         """
 
         self._document_position_indent = document_position_indent
+
+    @property
+    def expected_pass(self):
+        """Gets the expected_pass of this ImageQA.  # noqa: E501
+
+        This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process.  # noqa: E501
+
+        :return: The expected_pass of this ImageQA.  # noqa: E501
+        :rtype: list[InputImageQualityChecks]
+        """
+        return self._expected_pass
+
+    @expected_pass.setter
+    def expected_pass(self, expected_pass):
+        """Sets the expected_pass of this ImageQA.
+
+        This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process.  # noqa: E501
+
+        :param expected_pass: The expected_pass of this ImageQA.  # noqa: E501
+        :type expected_pass: list[InputImageQualityChecks]
+        """
+
+        self._expected_pass = expected_pass
 
     def to_dict(self):
         """Returns the model properties as a dict"""

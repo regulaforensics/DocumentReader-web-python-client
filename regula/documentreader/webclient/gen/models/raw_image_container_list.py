@@ -51,10 +51,8 @@ class RawImageContainerList(object):
         self._images = None
         self.discriminator = None
 
-        if count is not None:
-            self.count = count
-        if images is not None:
-            self.images = images
+        self.count = count
+        self.images = images
 
     @property
     def count(self):
@@ -74,6 +72,8 @@ class RawImageContainerList(object):
         :param count: The count of this RawImageContainerList.  # noqa: E501
         :type count: int
         """
+        if self.local_vars_configuration.client_side_validation and count is None:  # noqa: E501
+            raise ValueError("Invalid value for `count`, must not be `None`")  # noqa: E501
 
         self._count = count
 
@@ -95,6 +95,8 @@ class RawImageContainerList(object):
         :param images: The images of this RawImageContainerList.  # noqa: E501
         :type images: list[ImageData]
         """
+        if self.local_vars_configuration.client_side_validation and images is None:  # noqa: E501
+            raise ValueError("Invalid value for `images`, must not be `None`")  # noqa: E501
 
         self._images = images
 

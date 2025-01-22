@@ -63,18 +63,12 @@ class BcPDF417INFO(object):
         self._min_y = None
         self.discriminator = None
 
-        if angle is not None:
-            self.angle = angle
-        if bc_column is not None:
-            self.bc_column = bc_column
-        if bc_error_level is not None:
-            self.bc_error_level = bc_error_level
-        if bc_row is not None:
-            self.bc_row = bc_row
-        if min_x is not None:
-            self.min_x = min_x
-        if min_y is not None:
-            self.min_y = min_y
+        self.angle = angle
+        self.bc_column = bc_column
+        self.bc_error_level = bc_error_level
+        self.bc_row = bc_row
+        self.min_x = min_x
+        self.min_y = min_y
 
     @property
     def angle(self):
@@ -94,6 +88,8 @@ class BcPDF417INFO(object):
         :param angle: The angle of this BcPDF417INFO.  # noqa: E501
         :type angle: float
         """
+        if self.local_vars_configuration.client_side_validation and angle is None:  # noqa: E501
+            raise ValueError("Invalid value for `angle`, must not be `None`")  # noqa: E501
 
         self._angle = angle
 
@@ -115,6 +111,8 @@ class BcPDF417INFO(object):
         :param bc_column: The bc_column of this BcPDF417INFO.  # noqa: E501
         :type bc_column: int
         """
+        if self.local_vars_configuration.client_side_validation and bc_column is None:  # noqa: E501
+            raise ValueError("Invalid value for `bc_column`, must not be `None`")  # noqa: E501
 
         self._bc_column = bc_column
 
@@ -136,6 +134,8 @@ class BcPDF417INFO(object):
         :param bc_error_level: The bc_error_level of this BcPDF417INFO.  # noqa: E501
         :type bc_error_level: int
         """
+        if self.local_vars_configuration.client_side_validation and bc_error_level is None:  # noqa: E501
+            raise ValueError("Invalid value for `bc_error_level`, must not be `None`")  # noqa: E501
 
         self._bc_error_level = bc_error_level
 
@@ -157,6 +157,8 @@ class BcPDF417INFO(object):
         :param bc_row: The bc_row of this BcPDF417INFO.  # noqa: E501
         :type bc_row: int
         """
+        if self.local_vars_configuration.client_side_validation and bc_row is None:  # noqa: E501
+            raise ValueError("Invalid value for `bc_row`, must not be `None`")  # noqa: E501
 
         self._bc_row = bc_row
 
@@ -178,6 +180,8 @@ class BcPDF417INFO(object):
         :param min_x: The min_x of this BcPDF417INFO.  # noqa: E501
         :type min_x: float
         """
+        if self.local_vars_configuration.client_side_validation and min_x is None:  # noqa: E501
+            raise ValueError("Invalid value for `min_x`, must not be `None`")  # noqa: E501
 
         self._min_x = min_x
 
@@ -199,6 +203,8 @@ class BcPDF417INFO(object):
         :param min_y: The min_y of this BcPDF417INFO.  # noqa: E501
         :type min_y: float
         """
+        if self.local_vars_configuration.client_side_validation and min_y is None:  # noqa: E501
+            raise ValueError("Invalid value for `min_y`, must not be `None`")  # noqa: E501
 
         self._min_y = min_y
 
