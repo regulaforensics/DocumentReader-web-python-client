@@ -63,8 +63,7 @@ class DocBarCodeInfo(object):
         self._result_type = None
         self.discriminator = None
 
-        if doc_bar_code_info is not None:
-            self.doc_bar_code_info = doc_bar_code_info
+        self.doc_bar_code_info = doc_bar_code_info
         if buf_length is not None:
             self.buf_length = buf_length
         if light is not None:
@@ -93,6 +92,8 @@ class DocBarCodeInfo(object):
         :param doc_bar_code_info: The doc_bar_code_info of this DocBarCodeInfo.  # noqa: E501
         :type doc_bar_code_info: DocBarCodeInfoFieldsList
         """
+        if self.local_vars_configuration.client_side_validation and doc_bar_code_info is None:  # noqa: E501
+            raise ValueError("Invalid value for `doc_bar_code_info`, must not be `None`")  # noqa: E501
 
         self._doc_bar_code_info = doc_bar_code_info
 

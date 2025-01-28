@@ -35,6 +35,7 @@ class TextFieldValue(object):
         'source': 'Source',
         'value': 'str',
         'original_value': 'str',
+        'original_validity': 'CheckResult',
         'original_symbols': 'list[OriginalSymbol]',
         'page_index': 'int',
         'probability': 'int',
@@ -46,6 +47,7 @@ class TextFieldValue(object):
         'source': 'source',
         'value': 'value',
         'original_value': 'originalValue',
+        'original_validity': 'originalValidity',
         'original_symbols': 'originalSymbols',
         'page_index': 'pageIndex',
         'probability': 'probability',
@@ -53,7 +55,7 @@ class TextFieldValue(object):
         'rfid_origin': 'rfidOrigin'
     }
 
-    def __init__(self, source=None, value=None, original_value=None, original_symbols=None, page_index=None, probability=None, field_rect=None, rfid_origin=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, source=None, value=None, original_value=None, original_validity=None, original_symbols=None, page_index=None, probability=None, field_rect=None, rfid_origin=None, local_vars_configuration=None):  # noqa: E501
         """TextFieldValue - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,6 +64,7 @@ class TextFieldValue(object):
         self._source = None
         self._value = None
         self._original_value = None
+        self._original_validity = None
         self._original_symbols = None
         self._page_index = None
         self._probability = None
@@ -73,11 +76,11 @@ class TextFieldValue(object):
         self.value = value
         if original_value is not None:
             self.original_value = original_value
+        self.original_validity = original_validity
         if original_symbols is not None:
             self.original_symbols = original_symbols
         self.page_index = page_index
-        if probability is not None:
-            self.probability = probability
+        self.probability = probability
         if field_rect is not None:
             self.field_rect = field_rect
         if rfid_origin is not None:
@@ -155,6 +158,29 @@ class TextFieldValue(object):
         self._original_value = original_value
 
     @property
+    def original_validity(self):
+        """Gets the original_validity of this TextFieldValue.  # noqa: E501
+
+
+        :return: The original_validity of this TextFieldValue.  # noqa: E501
+        :rtype: CheckResult
+        """
+        return self._original_validity
+
+    @original_validity.setter
+    def original_validity(self, original_validity):
+        """Sets the original_validity of this TextFieldValue.
+
+
+        :param original_validity: The original_validity of this TextFieldValue.  # noqa: E501
+        :type original_validity: CheckResult
+        """
+        if self.local_vars_configuration.client_side_validation and original_validity is None:  # noqa: E501
+            raise ValueError("Invalid value for `original_validity`, must not be `None`")  # noqa: E501
+
+        self._original_validity = original_validity
+
+    @property
     def original_symbols(self):
         """Gets the original_symbols of this TextFieldValue.  # noqa: E501
 
@@ -220,6 +246,8 @@ class TextFieldValue(object):
         :param probability: The probability of this TextFieldValue.  # noqa: E501
         :type probability: int
         """
+        if self.local_vars_configuration.client_side_validation and probability is None:  # noqa: E501
+            raise ValueError("Invalid value for `probability`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 probability is not None and probability > 100):  # noqa: E501
             raise ValueError("Invalid value for `probability`, must be a value less than or equal to `100`")  # noqa: E501
