@@ -105,6 +105,8 @@ from regula.documentreader.webclient.gen.models.in_data_transaction_images_field
 from regula.documentreader.webclient.gen.models.in_data_video import InDataVideo
 from regula.documentreader.webclient.gen.models.inline_response200 import InlineResponse200
 from regula.documentreader.webclient.gen.models.inline_response2001 import InlineResponse2001
+from regula.documentreader.webclient.gen.models.input_barcode_type import InputBarcodeType
+from regula.documentreader.webclient.gen.models.input_image_quality_checks import InputImageQualityChecks
 from regula.documentreader.webclient.gen.models.lcid import LCID
 from regula.documentreader.webclient.gen.models.lexical_analysis_result import LexicalAnalysisResult
 from regula.documentreader.webclient.gen.models.lexical_analysis_result_all_of import LexicalAnalysisResultAllOf
