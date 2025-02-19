@@ -39,7 +39,9 @@ class FaceApi(object):
         'service_timeout': 'int',
         'proxy': 'str',
         'proxy_userpwd': 'str',
-        'proxy_type': 'int'
+        'proxy_type': 'int',
+        'child_age_threshold': 'int',
+        'child_doc_validity_years': 'int'
     }
 
     attribute_map = {
@@ -50,10 +52,12 @@ class FaceApi(object):
         'service_timeout': 'serviceTimeout',
         'proxy': 'proxy',
         'proxy_userpwd': 'proxy_userpwd',
-        'proxy_type': 'proxy_type'
+        'proxy_type': 'proxy_type',
+        'child_age_threshold': 'childAgeThreshold',
+        'child_doc_validity_years': 'childDocValidityYears'
     }
 
-    def __init__(self, url=None, mode=None, search=None, threshold=None, service_timeout=None, proxy=None, proxy_userpwd=None, proxy_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, url=None, mode=None, search=None, threshold=None, service_timeout=None, proxy=None, proxy_userpwd=None, proxy_type=None, child_age_threshold=None, child_doc_validity_years=None, local_vars_configuration=None):  # noqa: E501
         """FaceApi - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,6 +71,8 @@ class FaceApi(object):
         self._proxy = None
         self._proxy_userpwd = None
         self._proxy_type = None
+        self._child_age_threshold = None
+        self._child_doc_validity_years = None
         self.discriminator = None
 
         if url is not None:
@@ -85,6 +91,10 @@ class FaceApi(object):
             self.proxy_userpwd = proxy_userpwd
         if proxy_type is not None:
             self.proxy_type = proxy_type
+        if child_age_threshold is not None:
+            self.child_age_threshold = child_age_threshold
+        if child_doc_validity_years is not None:
+            self.child_doc_validity_years = child_doc_validity_years
 
     @property
     def url(self):
@@ -267,6 +277,52 @@ class FaceApi(object):
         """
 
         self._proxy_type = proxy_type
+
+    @property
+    def child_age_threshold(self):
+        """Gets the child_age_threshold of this FaceApi.  # noqa: E501
+
+        Minimum age of a child, at which portrait comparison result will be effective. Default: 13.  # noqa: E501
+
+        :return: The child_age_threshold of this FaceApi.  # noqa: E501
+        :rtype: int
+        """
+        return self._child_age_threshold
+
+    @child_age_threshold.setter
+    def child_age_threshold(self, child_age_threshold):
+        """Sets the child_age_threshold of this FaceApi.
+
+        Minimum age of a child, at which portrait comparison result will be effective. Default: 13.  # noqa: E501
+
+        :param child_age_threshold: The child_age_threshold of this FaceApi.  # noqa: E501
+        :type child_age_threshold: int
+        """
+
+        self._child_age_threshold = child_age_threshold
+
+    @property
+    def child_doc_validity_years(self):
+        """Gets the child_doc_validity_years of this FaceApi.  # noqa: E501
+
+        Estimated duration of validity for a child's passport, years. Default: 5.  # noqa: E501
+
+        :return: The child_doc_validity_years of this FaceApi.  # noqa: E501
+        :rtype: int
+        """
+        return self._child_doc_validity_years
+
+    @child_doc_validity_years.setter
+    def child_doc_validity_years(self, child_doc_validity_years):
+        """Sets the child_doc_validity_years of this FaceApi.
+
+        Estimated duration of validity for a child's passport, years. Default: 5.  # noqa: E501
+
+        :param child_doc_validity_years: The child_doc_validity_years of this FaceApi.  # noqa: E501
+        :type child_doc_validity_years: int
+        """
+
+        self._child_doc_validity_years = child_doc_validity_years
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -54,7 +54,8 @@ class ProcessRequestImage(object):
         self._page_idx = None
         self.discriminator = None
 
-        self.image_data = image_data
+        if image_data is not None:
+            self.image_data = image_data
         if light is not None:
             self.light = light
         if page_idx is not None:
@@ -78,8 +79,6 @@ class ProcessRequestImage(object):
         :param image_data: The image_data of this ProcessRequestImage.  # noqa: E501
         :type image_data: ImageData
         """
-        if self.local_vars_configuration.client_side_validation and image_data is None:  # noqa: E501
-            raise ValueError("Invalid value for `image_data`, must not be `None`")  # noqa: E501
 
         self._image_data = image_data
 
