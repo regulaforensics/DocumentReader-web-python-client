@@ -84,7 +84,29 @@ class DocVisualExtendedField(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of DocVisualExtendedField from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "FieldType": obj.get("FieldType"),
+            "wFieldType": obj.get("wFieldType"),
+            "FieldName": obj.get("FieldName"),
+            "StringsCount": obj.get("StringsCount"),
+            "StringsResult": [StringRecognitionResult.from_dict(_item) for _item in obj["StringsResult"]] if obj.get("StringsResult") is not None else None,
+            "Buf_Length": obj.get("Buf_Length"),
+            "Buf_Text": obj.get("Buf_Text"),
+            "FieldMask": obj.get("FieldMask"),
+            "Validity": obj.get("Validity"),
+            "InComparison": obj.get("InComparison"),
+            "wLCID": obj.get("wLCID"),
+            "Reserved2": obj.get("Reserved2"),
+            "Reserved3": obj.get("Reserved3")
+        })
+        return _obj
 
 

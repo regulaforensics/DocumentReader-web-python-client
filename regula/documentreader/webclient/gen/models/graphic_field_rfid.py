@@ -9,19 +9,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
-from regula.documentreader.webclient.gen.models.graphic_field import GraphicField
 from regula.documentreader.webclient.gen.models.graphic_field_type import GraphicFieldType
 from regula.documentreader.webclient.gen.models.image_data import ImageData
 from regula.documentreader.webclient.gen.models.rfid_data_group_type_tag import RfidDataGroupTypeTag
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GraphicFieldRfid(GraphicField):
+class GraphicFieldRfid(BaseModel):
     """
     Information about one graphic field, which is a RFID
     """ # noqa: E501
+    field_type: GraphicFieldType = Field(alias="FieldType")
+    field_name: StrictStr = Field(description="Graphic field symbolic name", alias="FieldName")
+    image: ImageData
     rfid_origin_dg: RfidDataGroupTypeTag = Field(alias="RFID_OriginDG")
     rfid_origin_dg_tag: StrictInt = Field(description="Index of the source record of the image with biometric information in the information data group. Only for Result.RFID_GRAPHICS result.", alias="RFID_OriginDGTag")
     rfid_origin_tag_entry: StrictInt = Field(description="Index of the template in the record with biometric data. Only for Result.RFID_GRAPHICS result.", alias="RFID_OriginTagEntry")

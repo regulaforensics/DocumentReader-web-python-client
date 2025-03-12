@@ -27,7 +27,7 @@ setup(
         "certifi>=2024.07.04",
         "six>=1.10",
         "python-dateutil>=2.8.2",
-        "urllib3>=1.25.3, < 3.0.0",
+        "urllib3>=1.25.3, <3.0.0",
         "vistir>=0.4.0, <=0.6.1",
         "idna==3.7",
         "requests>=2.32.3",

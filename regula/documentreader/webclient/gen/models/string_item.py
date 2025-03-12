@@ -9,8 +9,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Union
 from regula.documentreader.webclient.gen.models.error_coordinates import ErrorCoordinates
 from regula.documentreader.webclient.gen.models.field_item import FieldItem
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
@@ -32,10 +32,10 @@ class StringItem(BaseModel):
     string_filling: StrictInt = Field(alias="STRING_FILLING")
     string_position: StrictInt = Field(alias="STRING_POSITION")
     symbols_param: StrictInt = Field(alias="SYMBOLS_PARAM")
-    size_error_alignment: StrictInt = Field(alias="SizeError_ALIGNMENT")
-    size_error_distance: StrictInt = Field(alias="SizeError_DISTANCE")
-    size_error_interval: StrictInt = Field(alias="SizeError_INTERVAL")
-    string_angle: StrictInt = Field(alias="StringAngle")
+    size_error_alignment: Union[StrictFloat, StrictInt] = Field(alias="SizeError_ALIGNMENT")
+    size_error_distance: Union[StrictFloat, StrictInt] = Field(alias="SizeError_DISTANCE")
+    size_error_interval: Union[StrictFloat, StrictInt] = Field(alias="SizeError_INTERVAL")
+    string_angle: Union[StrictFloat, StrictInt] = Field(alias="StringAngle")
     string_borders: RectangleCoordinates = Field(alias="StringBorders")
     symbols_count: StrictInt = Field(alias="SymbolsCount")
     symbols_estimations: List[SymbolEstimationItem] = Field(alias="SymbolsEstimations")

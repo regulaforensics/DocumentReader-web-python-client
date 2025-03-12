@@ -9,8 +9,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -18,10 +18,10 @@ class ErrorCoordinates(BaseModel):
     """
     ErrorCoordinates
     """ # noqa: E501
-    left: Optional[StrictInt] = Field(default=None, alias="Left")
-    top: Optional[StrictInt] = Field(default=None, alias="Top")
-    right: Optional[StrictInt] = Field(default=None, alias="Right")
-    bottom: Optional[StrictInt] = Field(default=None, alias="Bottom")
+    left: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="Left")
+    top: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="Top")
+    right: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="Right")
+    bottom: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="Bottom")
     __properties: ClassVar[List[str]] = ["Left", "Top", "Right", "Bottom"]
 
     model_config = ConfigDict(

@@ -9,19 +9,31 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
-from regula.documentreader.webclient.gen.models.doc_visual_extended_field import DocVisualExtendedField
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from regula.documentreader.webclient.gen.models.string_recognition_result import StringRecognitionResult
 from regula.documentreader.webclient.gen.models.text_field_type import TextFieldType
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DocVisualExtendedFieldRect(DocVisualExtendedField):
+class DocVisualExtendedFieldRect(BaseModel):
     """
     Structure and serves for storing information from one text data field. Variant with field logical type and field rectangular area coordinates on the image.
     """ # noqa: E501
+    field_type: StrictInt = Field(alias="FieldType")
+    w_field_type: TextFieldType = Field(alias="wFieldType")
+    field_name: StrictStr = Field(description="Field symbolic name (null-terminated string)", alias="FieldName")
+    strings_count: Union[StrictFloat, StrictInt] = Field(description="Number of StringsResult array elements", alias="StringsCount")
+    strings_result: List[StringRecognitionResult] = Field(description="Array of recognizing probabilities for a each line of text field. Only for Result.VISUAL_TEXT and Result.MRZ_TEXT results.", alias="StringsResult")
+    buf_length: Union[StrictFloat, StrictInt] = Field(description="Buf_Text text string length", alias="Buf_Length")
+    buf_text: StrictStr = Field(description="Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by '^'", alias="Buf_Text")
+    field_mask: Optional[StrictStr] = Field(default=None, alias="FieldMask")
+    validity: Optional[StrictInt] = Field(default=None, alias="Validity")
+    in_comparison: Optional[StrictInt] = Field(default=None, alias="InComparison")
+    w_lcid: Optional[StrictInt] = Field(default=None, alias="wLCID")
+    reserved2: Optional[StrictInt] = Field(default=None, alias="Reserved2")
+    reserved3: Optional[StrictInt] = Field(default=None, alias="Reserved3")
     field_rect: Optional[RectangleCoordinates] = Field(default=None, alias="FieldRect")
     __properties: ClassVar[List[str]] = ["FieldType", "wFieldType", "FieldName", "StringsCount", "StringsResult", "Buf_Length", "Buf_Text", "FieldMask", "Validity", "InComparison", "wLCID", "Reserved2", "Reserved3", "FieldRect"]
 

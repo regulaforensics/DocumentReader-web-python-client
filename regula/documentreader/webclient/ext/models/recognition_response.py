@@ -1,5 +1,4 @@
 import base64
-import json
 import zlib
 from typing import Optional, List
 from regula.documentreader.webclient import ImageQualityCheckList, OneCandidate
@@ -21,12 +20,8 @@ class RecognitionResponse:
     def text(self) -> Optional[Text]:
         result = self.result_by_type(Result.TEXT)
         if result:
-            return result.text
+            return Text.from_dict(result.text.to_dict())
         return None
-
-    @property
-    def json(self) -> str:
-        return self.low_lvl_response.to_json()
 
     @property
     def status(self) -> Optional[Status]:
@@ -39,13 +34,13 @@ class RecognitionResponse:
     def images(self) -> Optional[Images]:
         result = self.result_by_type(Result.IMAGES)
         if result:
-            return result.images
+            return Images.from_dict(result.images.to_dict())
         return None
 
     def authenticity(self, page_idx=0) -> Optional[AuthenticityCheckList]:
         result = self.pageable_result_by_type(Result.AUTHENTICITY, page_idx)
         if result:
-            return result.authenticity_check_list
+            return AuthenticityCheckList.from_dict(result.authenticity_check_list.to_dict())
         return None
 
     def image_quality_checks(self, page_idx=0) -> Optional[ImageQualityCheckList]:
@@ -85,3 +80,6 @@ class RecognitionResponse:
         if not isinstance(other, RecognitionResponse):
             return False
         return self.low_lvl_response == other.low_lvl_response
+
+    def to_json(self) -> str:
+        return self.low_lvl_response.to_json()

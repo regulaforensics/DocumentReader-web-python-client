@@ -9,19 +9,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from regula.documentreader.webclient.gen.models.graphic_field import GraphicField
 from regula.documentreader.webclient.gen.models.graphic_field_type import GraphicFieldType
 from regula.documentreader.webclient.gen.models.image_data import ImageData
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GraphicFieldRect(GraphicField):
+class GraphicFieldRect(BaseModel):
     """
     Information about one graphic field, which is a rectangle
     """ # noqa: E501
+    field_type: GraphicFieldType = Field(alias="FieldType")
+    field_name: StrictStr = Field(description="Graphic field symbolic name", alias="FieldName")
+    image: ImageData
     field_rect: RectangleCoordinates = Field(alias="FieldRect")
     __properties: ClassVar[List[str]] = ["FieldType", "FieldName", "image", "FieldRect"]
 

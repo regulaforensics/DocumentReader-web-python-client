@@ -10,7 +10,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.result_item import ResultItem
 from typing import Optional, Set
 from typing_extensions import Self
@@ -19,7 +19,7 @@ class ContainerList(BaseModel):
     """
     List with various objects, containing processing results
     """ # noqa: E501
-    count: StrictInt = Field(description="Length of list (Count for items)", alias="Count")
+    count: Optional[StrictInt] = Field(default=None, description="Length of list (Count for items)", alias="Count")
     list: List[ResultItem] = Field(alias="List")
     __properties: ClassVar[List[str]] = ["Count", "List"]
 

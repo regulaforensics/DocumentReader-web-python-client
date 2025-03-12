@@ -22,8 +22,8 @@ with DocumentReaderApi(host) as api:
     api.license = regula_license
 
     params = ProcessParams(
-        scenario=Scenario.FULL_PROCESS,
-        result_type_output=[
+        scenario=Scenario.FULLPROCESS,
+        resultTypeOutput=[
             # actual results
             Result.STATUS, Result.AUTHENTICITY, Result.TEXT, Result.IMAGES,
             Result.DOCUMENT_TYPE, Result.DOCUMENT_TYPE_CANDIDATES, Result.IMAGE_QUALITY,
@@ -36,10 +36,7 @@ with DocumentReaderApi(host) as api:
     )
     request = RecognitionRequest(
         process_params=params,
-        container_list=ContainerList([
-            LicenseRequest(license_),
-            EncryptedRCLRequest(encrypted_rcl)
-        ])
+        container_list=ContainerList(List = [LicenseRequest(license_), EncryptedRCLRequest(encrypted_rcl)])
     )
     response = api.process(request)
 

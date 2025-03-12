@@ -9,19 +9,31 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from regula.documentreader.webclient.gen.models.doc_visual_extended_field import DocVisualExtendedField
 from regula.documentreader.webclient.gen.models.rfid_data_group_type_tag import RfidDataGroupTypeTag
 from regula.documentreader.webclient.gen.models.string_recognition_result import StringRecognitionResult
 from regula.documentreader.webclient.gen.models.text_field_type import TextFieldType
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DocVisualExtendedFieldRfid(DocVisualExtendedField):
+class DocVisualExtendedFieldRfid(BaseModel):
     """
     Structure and serves for storing information from one text data field. Variant with field logical type and RFID data.
     """ # noqa: E501
+    field_type: StrictInt = Field(alias="FieldType")
+    w_field_type: TextFieldType = Field(alias="wFieldType")
+    field_name: StrictStr = Field(description="Field symbolic name (null-terminated string)", alias="FieldName")
+    strings_count: Union[StrictFloat, StrictInt] = Field(description="Number of StringsResult array elements", alias="StringsCount")
+    strings_result: List[StringRecognitionResult] = Field(description="Array of recognizing probabilities for a each line of text field. Only for Result.VISUAL_TEXT and Result.MRZ_TEXT results.", alias="StringsResult")
+    buf_length: Union[StrictFloat, StrictInt] = Field(description="Buf_Text text string length", alias="Buf_Length")
+    buf_text: StrictStr = Field(description="Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by '^'", alias="Buf_Text")
+    field_mask: Optional[StrictStr] = Field(default=None, alias="FieldMask")
+    validity: Optional[StrictInt] = Field(default=None, alias="Validity")
+    in_comparison: Optional[StrictInt] = Field(default=None, alias="InComparison")
+    w_lcid: Optional[StrictInt] = Field(default=None, alias="wLCID")
+    reserved2: Optional[StrictInt] = Field(default=None, alias="Reserved2")
+    reserved3: Optional[StrictInt] = Field(default=None, alias="Reserved3")
     rfid_origin_dg: RfidDataGroupTypeTag = Field(alias="RFID_OriginDG")
     rfid_origin_dg_tag: Optional[StrictInt] = Field(default=None, alias="RFID_OriginDGTag")
     rfid_origin_tag_entry: Union[StrictFloat, StrictInt] = Field(description="Record index of the text field source in the data group", alias="RFID_OriginTagEntry")

@@ -38,8 +38,8 @@ with DocumentReaderApi(host) as api:
     ])
     response = api.process(request)
 
-    request_json = request.json   # example for request & response raw json
-    response_json = response.json
+    request_json = request.to_json()   # example for request & response raw json
+    response_json = response.to_json()
 
     # status examples
     response_status = response.status

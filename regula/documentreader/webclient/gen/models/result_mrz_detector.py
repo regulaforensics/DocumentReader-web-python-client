@@ -9,8 +9,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Union
 from regula.documentreader.webclient.gen.models.mrz_rows_item import MRZRowsItem
 from typing import Optional, Set
 from typing_extensions import Self
@@ -22,7 +22,7 @@ class ResultMRZDetector(BaseModel):
     mrz_format: StrictInt = Field(alias="MRZFormat")
     mrz_rows: List[MRZRowsItem] = Field(alias="MRZRows")
     mrz_rows_num: StrictInt = Field(alias="MRZRowsNum")
-    bounding_quadrangle: List[StrictInt] = Field(alias="boundingQuadrangle")
+    bounding_quadrangle: List[Union[StrictFloat, StrictInt]] = Field(alias="boundingQuadrangle")
     __properties: ClassVar[List[str]] = ["MRZFormat", "MRZRows", "MRZRowsNum", "boundingQuadrangle"]
 
     model_config = ConfigDict(

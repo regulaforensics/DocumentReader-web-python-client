@@ -9,21 +9,29 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.container_list import ContainerList
-from regula.documentreader.webclient.gen.models.process_response import ProcessResponse
 from regula.documentreader.webclient.gen.models.processing_status import ProcessingStatus
 from regula.documentreader.webclient.gen.models.rfid_location import RfidLocation
 from regula.documentreader.webclient.gen.models.transaction_info import TransactionInfo
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TransactionProcessResponse(ProcessResponse):
+class TransactionProcessResponse(BaseModel):
     """
     TransactionProcessResponse
     """ # noqa: E501
+    chip_page: RfidLocation = Field(alias="ChipPage")
     core_lib_result_code: StrictInt = Field(alias="CoreLibResultCode")
+    processing_finished: ProcessingStatus = Field(alias="ProcessingFinished")
+    container_list: ContainerList = Field(alias="ContainerList")
+    transaction_info: TransactionInfo = Field(alias="TransactionInfo")
+    log: Optional[StrictStr] = Field(default=None, description="Base64 encoded transaction processing log")
+    pass_back_object: Optional[Dict[str, Any]] = Field(default=None, description="Free-form object provided in request. See passBackObject property of ProcessRequest.", alias="passBackObject")
+    more_pages_available: StrictInt = Field(alias="morePagesAvailable")
+    elapsed_time: StrictInt = Field(description="Time the document processing has taken, ms.", alias="elapsedTime")
+    metadata: Optional[Dict[str, Any]] = None
     __properties: ClassVar[List[str]] = ["ChipPage", "CoreLibResultCode", "ProcessingFinished", "ContainerList", "TransactionInfo", "log", "passBackObject", "morePagesAvailable", "elapsedTime", "metadata"]
 
     model_config = ConfigDict(

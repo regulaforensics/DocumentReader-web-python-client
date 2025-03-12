@@ -82,7 +82,26 @@ class ProcessResponse(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Self]:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ProcessResponse from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _obj = cls.model_validate({
+            "ChipPage": obj.get("ChipPage"),
+            "CoreLibResultCode": obj.get("CoreLibResultCode"),
+            "ProcessingFinished": obj.get("ProcessingFinished"),
+            "ContainerList": ContainerList.from_dict(obj["ContainerList"]) if obj.get("ContainerList") is not None else None,
+            "TransactionInfo": TransactionInfo.from_dict(obj["TransactionInfo"]) if obj.get("TransactionInfo") is not None else None,
+            "log": obj.get("log"),
+            "passBackObject": obj.get("passBackObject"),
+            "morePagesAvailable": obj.get("morePagesAvailable"),
+            "elapsedTime": obj.get("elapsedTime"),
+            "metadata": obj.get("metadata")
+        })
+        return _obj
 
 

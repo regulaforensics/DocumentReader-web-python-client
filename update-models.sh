@@ -8,6 +8,6 @@ DOCS_DEFINITION_FOLDER="${PWD}/../DocumentReader-web-openapi" \
 openapitools/openapi-generator-cli:v7.12.0 generate \
 -g python \
 -i /definitions/index.yml \
--o /client --openapi-normalizer REF_AS_PARENT_IN_ALLOF=true \
+-o /client \
 -t /client/generator-templates \
 -c /client/generator-config.json || exit 1
