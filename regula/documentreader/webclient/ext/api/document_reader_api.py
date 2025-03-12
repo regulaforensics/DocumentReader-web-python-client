@@ -26,8 +26,8 @@ class DocumentReaderApi(HealthcheckApi, ProcessApi):
     def __enter__(self):
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.api_client.close()
+    def __exit__(self, exc_type, exc_value, traceback):
+        pass
 
     def set_configuration(self, configuration) -> None:
         self.api_client.configuration = configuration

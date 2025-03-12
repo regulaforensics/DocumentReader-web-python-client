@@ -26,7 +26,7 @@ class RecognitionResponse:
 
     @property
     def json(self) -> str:
-        return json.dumps(self.low_lvl_response.to_dict())
+        return self.low_lvl_response.to_json()
 
     @property
     def status(self) -> Optional[Status]:

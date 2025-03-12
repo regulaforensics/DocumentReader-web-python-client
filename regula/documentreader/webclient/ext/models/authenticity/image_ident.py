@@ -4,7 +4,7 @@ from regula.documentreader.webclient import gen
 
 
 class ImageIdentChecks(gen.AuthenticityCheckResult):
-    @gen.AuthenticityCheckResult.list.getter
+    @property
     def list(self) -> List[gen.PhotoIdentResult]:
         # noinspection PyTypeChecker
         return super().list

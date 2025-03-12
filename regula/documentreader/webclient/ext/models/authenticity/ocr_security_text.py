@@ -5,7 +5,7 @@ from regula.documentreader.webclient import gen
 
 class OCRSecurityTextChecks(gen.AuthenticityCheckResult):
 
-    @gen.AuthenticityCheckResult.list.getter
+    @property
     def list(self) -> List[gen.OCRSecurityTextResult]:
         # noinspection PyTypeChecker
         return super().list

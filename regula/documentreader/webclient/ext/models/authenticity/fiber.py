@@ -5,7 +5,7 @@ from regula.documentreader.webclient import gen
 
 class FiberChecks(gen.AuthenticityCheckResult):
 
-    @gen.AuthenticityCheckResult.list.getter
+    @property
     def list(self) -> List[gen.FiberResult]:
         # noinspection PyTypeChecker
         return super().list

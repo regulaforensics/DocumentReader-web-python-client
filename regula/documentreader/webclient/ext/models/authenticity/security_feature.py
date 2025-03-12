@@ -4,7 +4,7 @@ from regula.documentreader.webclient import gen
 
 
 class SecurityFeatureChecks(gen.AuthenticityCheckResult):
-    @gen.AuthenticityCheckResult.list.getter
+    @property
     def list(self) -> List[gen.SecurityFeatureResult]:
         return super().list
 

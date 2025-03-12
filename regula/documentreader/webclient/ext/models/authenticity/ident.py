@@ -4,7 +4,7 @@ from regula.documentreader.webclient import gen
 
 
 class IdentChecks(gen.AuthenticityCheckResult):
-    @gen.AuthenticityCheckResult.list.getter
+    @property
     def list(self) -> List[gen.IdentResult]:
         # noinspection PyTypeChecker
         return super().list

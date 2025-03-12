@@ -38,7 +38,7 @@ class Text(GenText):
         field = self.get_field_by_name(field_name, lcid)
         return field.value if field else None
 
-    @GenText.field_list.getter
+    @property
     def field_list(self) -> List[TextField]:
         # fix type hinting
         return super().field_list
