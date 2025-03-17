@@ -89,6 +89,8 @@ regula/documentreader/webclient/gen/models/in_data_transaction_images_field_valu
 regula/documentreader/webclient/gen/models/in_data_video.py
 regula/documentreader/webclient/gen/models/inline_response200.py
 regula/documentreader/webclient/gen/models/inline_response2001.py
+regula/documentreader/webclient/gen/models/input_barcode_type.py
+regula/documentreader/webclient/gen/models/input_image_quality_checks.py
 regula/documentreader/webclient/gen/models/lcid.py
 regula/documentreader/webclient/gen/models/lexical_analysis_result.py
 regula/documentreader/webclient/gen/models/lexical_analysis_result_all_of.py
