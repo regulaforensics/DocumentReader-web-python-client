@@ -9,18 +9,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
-from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DocVisualExtendedFieldRectItem(BaseModel):
+class RFIDDocVisualExtendedFieldItem(BaseModel):
     """
-    DocVisualExtendedFieldRectItem
+    RFIDDocVisualExtendedFieldItem
     """ # noqa: E501
-    field_rect: Optional[RectangleCoordinates] = Field(default=None, alias="FieldRect")
-    __properties: ClassVar[List[str]] = ["FieldRect"]
+    origin_dg: StrictInt = Field(alias="OriginDG")
+    origin_dg_tag: Optional[StrictInt] = Field(default=None, alias="OriginDGTag")
+    origin_tag_entry: Union[StrictFloat, StrictInt] = Field(description="Record index of the text field source in the data group", alias="OriginTagEntry")
+    origin_entry_view: Optional[StrictInt] = Field(default=None, alias="OriginEntryView")
+    __properties: ClassVar[List[str]] = ["OriginDG", "OriginDGTag", "OriginTagEntry", "OriginEntryView"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -40,7 +42,7 @@ class DocVisualExtendedFieldRectItem(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DocVisualExtendedFieldRectItem from a JSON string"""
+        """Create an instance of RFIDDocVisualExtendedFieldItem from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -61,14 +63,11 @@ class DocVisualExtendedFieldRectItem(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of field_rect
-        if self.field_rect:
-            _dict['FieldRect'] = self.field_rect.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DocVisualExtendedFieldRectItem from a dict"""
+        """Create an instance of RFIDDocVisualExtendedFieldItem from a dict"""
         if obj is None:
             return None
 
@@ -76,7 +75,10 @@ class DocVisualExtendedFieldRectItem(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "FieldRect": RectangleCoordinates.from_dict(obj["FieldRect"]) if obj.get("FieldRect") is not None else None
+            "OriginDG": obj.get("OriginDG"),
+            "OriginDGTag": obj.get("OriginDGTag"),
+            "OriginTagEntry": obj.get("OriginTagEntry"),
+            "OriginEntryView": obj.get("OriginEntryView")
         })
         return _obj
 

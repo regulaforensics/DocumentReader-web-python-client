@@ -9,23 +9,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from regula.documentreader.webclient.gen.models.graphic_field_type import GraphicFieldType
-from regula.documentreader.webclient.gen.models.image_data import ImageData
-from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GraphicField(BaseModel):
+class TransactionProcessResponseItem(BaseModel):
     """
-    Information about one graphic field - abstract class
+    TransactionProcessResponseItem
     """ # noqa: E501
-    field_rect: RectangleCoordinates = Field(alias="FieldRect")
-    field_type: GraphicFieldType = Field(alias="FieldType")
-    field_name: StrictStr = Field(description="Graphic field symbolic name", alias="FieldName")
-    image: ImageData
-    __properties: ClassVar[List[str]] = ["FieldRect", "FieldType", "FieldName", "image"]
+    core_lib_result_code: StrictInt = Field(alias="CoreLibResultCode")
+    __properties: ClassVar[List[str]] = ["CoreLibResultCode"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -45,7 +39,7 @@ class GraphicField(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GraphicField from a JSON string"""
+        """Create an instance of TransactionProcessResponseItem from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -66,17 +60,11 @@ class GraphicField(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of field_rect
-        if self.field_rect:
-            _dict['FieldRect'] = self.field_rect.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of image
-        if self.image:
-            _dict['image'] = self.image.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GraphicField from a dict"""
+        """Create an instance of TransactionProcessResponseItem from a dict"""
         if obj is None:
             return None
 
@@ -84,10 +72,7 @@ class GraphicField(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "FieldRect": RectangleCoordinates.from_dict(obj["FieldRect"]) if obj.get("FieldRect") is not None else None,
-            "FieldType": obj.get("FieldType"),
-            "FieldName": obj.get("FieldName"),
-            "image": ImageData.from_dict(obj["image"]) if obj.get("image") is not None else None
+            "CoreLibResultCode": obj.get("CoreLibResultCode")
         })
         return _obj
 

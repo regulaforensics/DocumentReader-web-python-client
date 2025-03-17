@@ -9,21 +9,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
-from regula.documentreader.webclient.gen.models.rfid_data_group_type_tag import RfidDataGroupTypeTag
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Union
+from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_field import RFIDDocVisualExtendedField
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GraphicFieldRfidItem(BaseModel):
+class RFIDDocVisualExtendedInfo(BaseModel):
     """
-    GraphicFieldRfidItem
+    Container for extracted text fields. Fields are identified by type and language
     """ # noqa: E501
-    rfid_origin_dg: RfidDataGroupTypeTag = Field(alias="RFID_OriginDG")
-    rfid_origin_dg_tag: StrictInt = Field(description="Index of the source record of the image with biometric information in the information data group. Only for Result.RFID_GRAPHICS result.", alias="RFID_OriginDGTag")
-    rfid_origin_tag_entry: StrictInt = Field(description="Index of the template in the record with biometric data. Only for Result.RFID_GRAPHICS result.", alias="RFID_OriginTagEntry")
-    rfid_origin_entry_view: StrictInt = Field(description="Index of the variant of the biometric data template. Only for Result.RFID_GRAPHICS result.", alias="RFID_OriginEntryView")
-    __properties: ClassVar[List[str]] = ["RFID_OriginDG", "RFID_OriginDGTag", "RFID_OriginTagEntry", "RFID_OriginEntryView"]
+    n_fields: Union[StrictFloat, StrictInt] = Field(description="Number of pArrayFields array elements", alias="nFields")
+    p_array_fields: List[RFIDDocVisualExtendedField] = Field(alias="pArrayFields")
+    __properties: ClassVar[List[str]] = ["nFields", "pArrayFields"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -43,7 +41,7 @@ class GraphicFieldRfidItem(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GraphicFieldRfidItem from a JSON string"""
+        """Create an instance of RFIDDocVisualExtendedInfo from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -64,11 +62,18 @@ class GraphicFieldRfidItem(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in p_array_fields (list)
+        _items = []
+        if self.p_array_fields:
+            for _item_p_array_fields in self.p_array_fields:
+                if _item_p_array_fields:
+                    _items.append(_item_p_array_fields.to_dict())
+            _dict['pArrayFields'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GraphicFieldRfidItem from a dict"""
+        """Create an instance of RFIDDocVisualExtendedInfo from a dict"""
         if obj is None:
             return None
 
@@ -76,10 +81,8 @@ class GraphicFieldRfidItem(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "RFID_OriginDG": obj.get("RFID_OriginDG"),
-            "RFID_OriginDGTag": obj.get("RFID_OriginDGTag"),
-            "RFID_OriginTagEntry": obj.get("RFID_OriginTagEntry"),
-            "RFID_OriginEntryView": obj.get("RFID_OriginEntryView")
+            "nFields": obj.get("nFields"),
+            "pArrayFields": [RFIDDocVisualExtendedField.from_dict(_item) for _item in obj["pArrayFields"]] if obj.get("pArrayFields") is not None else None
         })
         return _obj
 

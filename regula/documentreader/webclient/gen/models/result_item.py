@@ -19,7 +19,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.document_image_result import DocumentImageResult
     from regula.documentreader.webclient.gen.models.document_binary_info_result import DocumentBinaryInfoResult
-    from regula.documentreader.webclient.gen.models.text_data_result import TextDataResult
+    from regula.documentreader.webclient.gen.models.rfid_text_data_result import RFIDTextDataResult
     from regula.documentreader.webclient.gen.models.graphics_result import GraphicsResult
     from regula.documentreader.webclient.gen.models.document_binary_info_result import DocumentBinaryInfoResult
     from regula.documentreader.webclient.gen.models.rfid_graphics_info_result import RFIDGraphicsInfoResult
@@ -77,7 +77,7 @@ class ResultItem(BaseModel):
 
     # discriminator mappings
     __discriminator_value_class_map: ClassVar[Dict[str, str]] = {
-        '1': 'DocumentImageResult','101': 'DocumentBinaryInfoResult','102': 'TextDataResult','103': 'GraphicsResult','104': 'DocumentBinaryInfoResult','105': 'RFIDGraphicsInfoResult','109': 'ByteArrayResult','15': 'LexicalAnalysisResult','16': 'DocumentImageResult','17': 'TextDataResult','18': 'TextDataResult','19': 'GraphicsResult','20': 'AuthenticityResult','26': 'TextDataResult','3': 'TextDataResult','30': 'ImageQualityResult','32': 'GraphicsResult','33': 'StatusResult','34': 'AuthenticityResult','35': 'GraphicsResult','36': 'TextResult','37': 'ImagesResult','38': 'GraphicsResult','39': 'AuthenticityResult','49': 'EncryptedRCLResult','5': 'DocBarCodeInfo','50': 'LicenseResult','6': 'GraphicsResult','61': 'MRZPositionResult','62': 'DocumentPositionResult','7': 'MRZTestQualityResult','8': 'DocumentTypesCandidatesResult','85': 'DocumentPositionResult','87': 'MRZDetectorResult','9': 'ChosenDocumentTypeResult','97': 'FaceDetectionResult'
+        '1': 'DocumentImageResult','101': 'DocumentBinaryInfoResult','102': 'RFIDTextDataResult','103': 'GraphicsResult','104': 'DocumentBinaryInfoResult','105': 'RFIDGraphicsInfoResult','109': 'ByteArrayResult','15': 'LexicalAnalysisResult','16': 'DocumentImageResult','17': 'TextDataResult','18': 'TextDataResult','19': 'GraphicsResult','20': 'AuthenticityResult','26': 'TextDataResult','3': 'TextDataResult','30': 'ImageQualityResult','32': 'GraphicsResult','33': 'StatusResult','34': 'AuthenticityResult','35': 'GraphicsResult','36': 'TextResult','37': 'ImagesResult','38': 'GraphicsResult','39': 'AuthenticityResult','49': 'EncryptedRCLResult','5': 'DocBarCodeInfo','50': 'LicenseResult','6': 'GraphicsResult','61': 'MRZPositionResult','62': 'DocumentPositionResult','7': 'MRZTestQualityResult','8': 'DocumentTypesCandidatesResult','85': 'DocumentPositionResult','87': 'MRZDetectorResult','9': 'ChosenDocumentTypeResult','97': 'FaceDetectionResult'
     }
 
     @classmethod
@@ -99,7 +99,7 @@ class ResultItem(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Union[DocumentImageResult, DocumentBinaryInfoResult, TextDataResult, GraphicsResult, DocumentBinaryInfoResult, RFIDGraphicsInfoResult, ByteArrayResult, LexicalAnalysisResult, DocumentImageResult, TextDataResult, TextDataResult, GraphicsResult, AuthenticityResult, TextDataResult, TextDataResult, ImageQualityResult, GraphicsResult, StatusResult, AuthenticityResult, GraphicsResult, TextResult, ImagesResult, GraphicsResult, AuthenticityResult, EncryptedRCLResult, DocBarCodeInfo, LicenseResult, GraphicsResult, MRZPositionResult, DocumentPositionResult, MRZTestQualityResult, DocumentTypesCandidatesResult, DocumentPositionResult, MRZDetectorResult, ChosenDocumentTypeResult, FaceDetectionResult]]:
+    def from_json(cls, json_str: str) -> Optional[Union[DocumentImageResult, DocumentBinaryInfoResult, RFIDTextDataResult, GraphicsResult, DocumentBinaryInfoResult, RFIDGraphicsInfoResult, ByteArrayResult, LexicalAnalysisResult, DocumentImageResult, TextDataResult, TextDataResult, GraphicsResult, AuthenticityResult, TextDataResult, TextDataResult, ImageQualityResult, GraphicsResult, StatusResult, AuthenticityResult, GraphicsResult, TextResult, ImagesResult, GraphicsResult, AuthenticityResult, EncryptedRCLResult, DocBarCodeInfo, LicenseResult, GraphicsResult, MRZPositionResult, DocumentPositionResult, MRZTestQualityResult, DocumentTypesCandidatesResult, DocumentPositionResult, MRZDetectorResult, ChosenDocumentTypeResult, FaceDetectionResult]]:
         """Create an instance of ResultItem from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -124,7 +124,7 @@ class ResultItem(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Union[DocumentImageResult, DocumentBinaryInfoResult, TextDataResult, GraphicsResult, DocumentBinaryInfoResult, RFIDGraphicsInfoResult, ByteArrayResult, LexicalAnalysisResult, DocumentImageResult, TextDataResult, TextDataResult, GraphicsResult, AuthenticityResult, TextDataResult, TextDataResult, ImageQualityResult, GraphicsResult, StatusResult, AuthenticityResult, GraphicsResult, TextResult, ImagesResult, GraphicsResult, AuthenticityResult, EncryptedRCLResult, DocBarCodeInfo, LicenseResult, GraphicsResult, MRZPositionResult, DocumentPositionResult, MRZTestQualityResult, DocumentTypesCandidatesResult, DocumentPositionResult, MRZDetectorResult, ChosenDocumentTypeResult, FaceDetectionResult]]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Union[DocumentImageResult, DocumentBinaryInfoResult, RFIDTextDataResult, GraphicsResult, DocumentBinaryInfoResult, RFIDGraphicsInfoResult, ByteArrayResult, LexicalAnalysisResult, DocumentImageResult, TextDataResult, TextDataResult, GraphicsResult, AuthenticityResult, TextDataResult, TextDataResult, ImageQualityResult, GraphicsResult, StatusResult, AuthenticityResult, GraphicsResult, TextResult, ImagesResult, GraphicsResult, AuthenticityResult, EncryptedRCLResult, DocBarCodeInfo, LicenseResult, GraphicsResult, MRZPositionResult, DocumentPositionResult, MRZTestQualityResult, DocumentTypesCandidatesResult, DocumentPositionResult, MRZDetectorResult, ChosenDocumentTypeResult, FaceDetectionResult]]:
         """Create an instance of ResultItem from a dict"""
         # look up the object type based on discriminator mapping
         object_type = cls.get_discriminator_value(obj)
@@ -132,8 +132,8 @@ class ResultItem(BaseModel):
             return import_module("regula.documentreader.webclient.gen.models.document_image_result").DocumentImageResult.from_dict(obj)
         if object_type ==  'DocumentBinaryInfoResult':
             return import_module("regula.documentreader.webclient.gen.models.document_binary_info_result").DocumentBinaryInfoResult.from_dict(obj)
-        if object_type ==  'TextDataResult':
-            return import_module("regula.documentreader.webclient.gen.models.text_data_result").TextDataResult.from_dict(obj)
+        if object_type ==  'RFIDTextDataResult':
+            return import_module("regula.documentreader.webclient.gen.models.rfid_text_data_result").RFIDTextDataResult.from_dict(obj)
         if object_type ==  'GraphicsResult':
             return import_module("regula.documentreader.webclient.gen.models.graphics_result").GraphicsResult.from_dict(obj)
         if object_type ==  'DocumentBinaryInfoResult':

@@ -28,6 +28,7 @@ from regula.documentreader.webclient.gen.models.mrz_detector_result import MRZDe
 from regula.documentreader.webclient.gen.models.mrz_position_result import MRZPositionResult
 from regula.documentreader.webclient.gen.models.mrz_test_quality_result import MRZTestQualityResult
 from regula.documentreader.webclient.gen.models.rfid_graphics_info_result import RFIDGraphicsInfoResult
+from regula.documentreader.webclient.gen.models.rfid_text_data_result import RFIDTextDataResult
 from regula.documentreader.webclient.gen.models.status_result import StatusResult
 from regula.documentreader.webclient.gen.models.text_data_result import TextDataResult
 from regula.documentreader.webclient.gen.models.text_result import TextResult
@@ -35,7 +36,7 @@ from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-CONTAINERLISTLISTINNER_ONE_OF_SCHEMAS = ["AuthenticityResult", "ByteArrayResult", "ChosenDocumentTypeResult", "DocBarCodeInfo", "DocumentBinaryInfoResult", "DocumentImageResult", "DocumentPositionResult", "DocumentTypesCandidatesResult", "EncryptedRCLResult", "FaceDetectionResult", "GraphicsResult", "ImageQualityResult", "ImagesResult", "LexicalAnalysisResult", "LicenseResult", "MRZDetectorResult", "MRZPositionResult", "MRZTestQualityResult", "RFIDGraphicsInfoResult", "StatusResult", "TextDataResult", "TextResult"]
+CONTAINERLISTLISTINNER_ONE_OF_SCHEMAS = ["AuthenticityResult", "ByteArrayResult", "ChosenDocumentTypeResult", "DocBarCodeInfo", "DocumentBinaryInfoResult", "DocumentImageResult", "DocumentPositionResult", "DocumentTypesCandidatesResult", "EncryptedRCLResult", "FaceDetectionResult", "GraphicsResult", "ImageQualityResult", "ImagesResult", "LexicalAnalysisResult", "LicenseResult", "MRZDetectorResult", "MRZPositionResult", "MRZTestQualityResult", "RFIDGraphicsInfoResult", "RFIDTextDataResult", "StatusResult", "TextDataResult", "TextResult"]
 
 class ContainerListListInner(BaseModel):
     """
@@ -85,8 +86,10 @@ class ContainerListListInner(BaseModel):
     oneof_schema_21_validator: Optional[MRZTestQualityResult] = None
     # data type: RFIDGraphicsInfoResult
     oneof_schema_22_validator: Optional[RFIDGraphicsInfoResult] = None
-    actual_instance: Optional[Union[AuthenticityResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, StatusResult, TextDataResult, TextResult]] = None
-    one_of_schemas: Set[str] = { "AuthenticityResult", "ByteArrayResult", "ChosenDocumentTypeResult", "DocBarCodeInfo", "DocumentBinaryInfoResult", "DocumentImageResult", "DocumentPositionResult", "DocumentTypesCandidatesResult", "EncryptedRCLResult", "FaceDetectionResult", "GraphicsResult", "ImageQualityResult", "ImagesResult", "LexicalAnalysisResult", "LicenseResult", "MRZDetectorResult", "MRZPositionResult", "MRZTestQualityResult", "RFIDGraphicsInfoResult", "StatusResult", "TextDataResult", "TextResult" }
+    # data type: RFIDTextDataResult
+    oneof_schema_23_validator: Optional[RFIDTextDataResult] = None
+    actual_instance: Optional[Union[AuthenticityResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, RFIDTextDataResult, StatusResult, TextDataResult, TextResult]] = None
+    one_of_schemas: Set[str] = { "AuthenticityResult", "ByteArrayResult", "ChosenDocumentTypeResult", "DocBarCodeInfo", "DocumentBinaryInfoResult", "DocumentImageResult", "DocumentPositionResult", "DocumentTypesCandidatesResult", "EncryptedRCLResult", "FaceDetectionResult", "GraphicsResult", "ImageQualityResult", "ImagesResult", "LexicalAnalysisResult", "LicenseResult", "MRZDetectorResult", "MRZPositionResult", "MRZTestQualityResult", "RFIDGraphicsInfoResult", "RFIDTextDataResult", "StatusResult", "TextDataResult", "TextResult" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -222,12 +225,17 @@ class ContainerListListInner(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `RFIDGraphicsInfoResult`")
         else:
             match += 1
+        # validate data type: RFIDTextDataResult
+        if not isinstance(v, RFIDTextDataResult):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RFIDTextDataResult`")
+        else:
+            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in ContainerListListInner with oneOf schemas: AuthenticityResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, StatusResult, TextDataResult, TextResult. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in ContainerListListInner with oneOf schemas: AuthenticityResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, RFIDTextDataResult, StatusResult, TextDataResult, TextResult. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in ContainerListListInner with oneOf schemas: AuthenticityResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, StatusResult, TextDataResult, TextResult. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in ContainerListListInner with oneOf schemas: AuthenticityResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, RFIDTextDataResult, StatusResult, TextDataResult, TextResult. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -374,13 +382,19 @@ class ContainerListListInner(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into RFIDTextDataResult
+        try:
+            instance.actual_instance = RFIDTextDataResult.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into ContainerListListInner with oneOf schemas: AuthenticityResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, StatusResult, TextDataResult, TextResult. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into ContainerListListInner with oneOf schemas: AuthenticityResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, RFIDTextDataResult, StatusResult, TextDataResult, TextResult. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into ContainerListListInner with oneOf schemas: AuthenticityResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, StatusResult, TextDataResult, TextResult. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ContainerListListInner with oneOf schemas: AuthenticityResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, RFIDTextDataResult, StatusResult, TextDataResult, TextResult. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -394,7 +408,7 @@ class ContainerListListInner(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], AuthenticityResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, StatusResult, TextDataResult, TextResult]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], AuthenticityResult, ByteArrayResult, ChosenDocumentTypeResult, DocBarCodeInfo, DocumentBinaryInfoResult, DocumentImageResult, DocumentPositionResult, DocumentTypesCandidatesResult, EncryptedRCLResult, FaceDetectionResult, GraphicsResult, ImageQualityResult, ImagesResult, LexicalAnalysisResult, LicenseResult, MRZDetectorResult, MRZPositionResult, MRZTestQualityResult, RFIDGraphicsInfoResult, RFIDTextDataResult, StatusResult, TextDataResult, TextResult]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

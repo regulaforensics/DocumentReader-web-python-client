@@ -9,21 +9,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from regula.documentreader.webclient.gen.models.rfid_data_group_type_tag import RfidDataGroupTypeTag
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
+from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_info import RFIDDocVisualExtendedInfo
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DocVisualExtendedFieldRfidItem(BaseModel):
+class RFIDDocVisualExtendedInfoItem(BaseModel):
     """
-    DocVisualExtendedFieldRfidItem
+    RFIDDocVisualExtendedInfoItem
     """ # noqa: E501
-    rfid_origin_dg: RfidDataGroupTypeTag = Field(alias="RFID_OriginDG")
-    rfid_origin_dg_tag: Optional[StrictInt] = Field(default=None, alias="RFID_OriginDGTag")
-    rfid_origin_tag_entry: Union[StrictFloat, StrictInt] = Field(description="Record index of the text field source in the data group", alias="RFID_OriginTagEntry")
-    rfid_origin_entry_view: Optional[StrictInt] = Field(default=None, alias="RFID_OriginEntryView")
-    __properties: ClassVar[List[str]] = ["RFID_OriginDG", "RFID_OriginDGTag", "RFID_OriginTagEntry", "RFID_OriginEntryView"]
+    doc_visual_extended_info: RFIDDocVisualExtendedInfo = Field(alias="DocVisualExtendedInfo")
+    __properties: ClassVar[List[str]] = ["DocVisualExtendedInfo"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -43,7 +40,7 @@ class DocVisualExtendedFieldRfidItem(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DocVisualExtendedFieldRfidItem from a JSON string"""
+        """Create an instance of RFIDDocVisualExtendedInfoItem from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -64,11 +61,14 @@ class DocVisualExtendedFieldRfidItem(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of doc_visual_extended_info
+        if self.doc_visual_extended_info:
+            _dict['DocVisualExtendedInfo'] = self.doc_visual_extended_info.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DocVisualExtendedFieldRfidItem from a dict"""
+        """Create an instance of RFIDDocVisualExtendedInfoItem from a dict"""
         if obj is None:
             return None
 
@@ -76,10 +76,7 @@ class DocVisualExtendedFieldRfidItem(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "RFID_OriginDG": obj.get("RFID_OriginDG"),
-            "RFID_OriginDGTag": obj.get("RFID_OriginDGTag"),
-            "RFID_OriginTagEntry": obj.get("RFID_OriginTagEntry"),
-            "RFID_OriginEntryView": obj.get("RFID_OriginEntryView")
+            "DocVisualExtendedInfo": RFIDDocVisualExtendedInfo.from_dict(obj["DocVisualExtendedInfo"]) if obj.get("DocVisualExtendedInfo") is not None else None
         })
         return _obj
 

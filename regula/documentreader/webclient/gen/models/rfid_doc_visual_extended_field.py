@@ -11,15 +11,14 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from regula.documentreader.webclient.gen.models.string_recognition_result import StringRecognitionResult
 from regula.documentreader.webclient.gen.models.text_field_type import TextFieldType
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DocVisualExtendedFieldRect(BaseModel):
+class RFIDDocVisualExtendedField(BaseModel):
     """
-    Structure and serves for storing information from one text data field. Variant with field logical type and field rectangular area coordinates on the image.
+    RFIDDocVisualExtendedField
     """ # noqa: E501
     field_type: StrictInt = Field(alias="FieldType")
     w_field_type: TextFieldType = Field(alias="wFieldType")
@@ -34,8 +33,11 @@ class DocVisualExtendedFieldRect(BaseModel):
     w_lcid: Optional[StrictInt] = Field(default=None, alias="wLCID")
     reserved2: Optional[StrictInt] = Field(default=None, alias="Reserved2")
     reserved3: Optional[StrictInt] = Field(default=None, alias="Reserved3")
-    field_rect: Optional[RectangleCoordinates] = Field(default=None, alias="FieldRect")
-    __properties: ClassVar[List[str]] = ["FieldType", "wFieldType", "FieldName", "StringsCount", "StringsResult", "Buf_Length", "Buf_Text", "FieldMask", "Validity", "InComparison", "wLCID", "Reserved2", "Reserved3", "FieldRect"]
+    origin_dg: StrictInt = Field(alias="OriginDG")
+    origin_dg_tag: Optional[StrictInt] = Field(default=None, alias="OriginDGTag")
+    origin_tag_entry: Union[StrictFloat, StrictInt] = Field(description="Record index of the text field source in the data group", alias="OriginTagEntry")
+    origin_entry_view: Optional[StrictInt] = Field(default=None, alias="OriginEntryView")
+    __properties: ClassVar[List[str]] = ["FieldType", "wFieldType", "FieldName", "StringsCount", "StringsResult", "Buf_Length", "Buf_Text", "FieldMask", "Validity", "InComparison", "wLCID", "Reserved2", "Reserved3", "OriginDG", "OriginDGTag", "OriginTagEntry", "OriginEntryView"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +57,7 @@ class DocVisualExtendedFieldRect(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DocVisualExtendedFieldRect from a JSON string"""
+        """Create an instance of RFIDDocVisualExtendedField from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -83,14 +85,11 @@ class DocVisualExtendedFieldRect(BaseModel):
                 if _item_strings_result:
                     _items.append(_item_strings_result.to_dict())
             _dict['StringsResult'] = _items
-        # override the default output from pydantic by calling `to_dict()` of field_rect
-        if self.field_rect:
-            _dict['FieldRect'] = self.field_rect.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DocVisualExtendedFieldRect from a dict"""
+        """Create an instance of RFIDDocVisualExtendedField from a dict"""
         if obj is None:
             return None
 
@@ -111,7 +110,10 @@ class DocVisualExtendedFieldRect(BaseModel):
             "wLCID": obj.get("wLCID"),
             "Reserved2": obj.get("Reserved2"),
             "Reserved3": obj.get("Reserved3"),
-            "FieldRect": RectangleCoordinates.from_dict(obj["FieldRect"]) if obj.get("FieldRect") is not None else None
+            "OriginDG": obj.get("OriginDG"),
+            "OriginDGTag": obj.get("OriginDGTag"),
+            "OriginTagEntry": obj.get("OriginTagEntry"),
+            "OriginEntryView": obj.get("OriginEntryView")
         })
         return _obj
 

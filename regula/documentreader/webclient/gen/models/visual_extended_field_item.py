@@ -11,15 +11,14 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from regula.documentreader.webclient.gen.models.rfid_data_group_type_tag import RfidDataGroupTypeTag
 from regula.documentreader.webclient.gen.models.string_recognition_result import StringRecognitionResult
 from regula.documentreader.webclient.gen.models.text_field_type import TextFieldType
 from typing import Optional, Set
 from typing_extensions import Self
 
-class DocVisualExtendedFieldRfid(BaseModel):
+class VisualExtendedFieldItem(BaseModel):
     """
-    Structure and serves for storing information from one text data field. Variant with field logical type and RFID data.
+    VisualExtendedFieldItem
     """ # noqa: E501
     field_type: StrictInt = Field(alias="FieldType")
     w_field_type: TextFieldType = Field(alias="wFieldType")
@@ -34,11 +33,7 @@ class DocVisualExtendedFieldRfid(BaseModel):
     w_lcid: Optional[StrictInt] = Field(default=None, alias="wLCID")
     reserved2: Optional[StrictInt] = Field(default=None, alias="Reserved2")
     reserved3: Optional[StrictInt] = Field(default=None, alias="Reserved3")
-    rfid_origin_dg: RfidDataGroupTypeTag = Field(alias="RFID_OriginDG")
-    rfid_origin_dg_tag: Optional[StrictInt] = Field(default=None, alias="RFID_OriginDGTag")
-    rfid_origin_tag_entry: Union[StrictFloat, StrictInt] = Field(description="Record index of the text field source in the data group", alias="RFID_OriginTagEntry")
-    rfid_origin_entry_view: Optional[StrictInt] = Field(default=None, alias="RFID_OriginEntryView")
-    __properties: ClassVar[List[str]] = ["FieldType", "wFieldType", "FieldName", "StringsCount", "StringsResult", "Buf_Length", "Buf_Text", "FieldMask", "Validity", "InComparison", "wLCID", "Reserved2", "Reserved3", "RFID_OriginDG", "RFID_OriginDGTag", "RFID_OriginTagEntry", "RFID_OriginEntryView"]
+    __properties: ClassVar[List[str]] = ["FieldType", "wFieldType", "FieldName", "StringsCount", "StringsResult", "Buf_Length", "Buf_Text", "FieldMask", "Validity", "InComparison", "wLCID", "Reserved2", "Reserved3"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -58,7 +53,7 @@ class DocVisualExtendedFieldRfid(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of DocVisualExtendedFieldRfid from a JSON string"""
+        """Create an instance of VisualExtendedFieldItem from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -90,7 +85,7 @@ class DocVisualExtendedFieldRfid(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of DocVisualExtendedFieldRfid from a dict"""
+        """Create an instance of VisualExtendedFieldItem from a dict"""
         if obj is None:
             return None
 
@@ -110,11 +105,7 @@ class DocVisualExtendedFieldRfid(BaseModel):
             "InComparison": obj.get("InComparison"),
             "wLCID": obj.get("wLCID"),
             "Reserved2": obj.get("Reserved2"),
-            "Reserved3": obj.get("Reserved3"),
-            "RFID_OriginDG": obj.get("RFID_OriginDG"),
-            "RFID_OriginDGTag": obj.get("RFID_OriginDGTag"),
-            "RFID_OriginTagEntry": obj.get("RFID_OriginTagEntry"),
-            "RFID_OriginEntryView": obj.get("RFID_OriginEntryView")
+            "Reserved3": obj.get("Reserved3")
         })
         return _obj
 

@@ -11,6 +11,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from regula.documentreader.webclient.gen.models.string_recognition_result import StringRecognitionResult
 from regula.documentreader.webclient.gen.models.text_field_type import TextFieldType
 from typing import Optional, Set
@@ -33,7 +34,8 @@ class DocVisualExtendedField(BaseModel):
     w_lcid: Optional[StrictInt] = Field(default=None, alias="wLCID")
     reserved2: Optional[StrictInt] = Field(default=None, alias="Reserved2")
     reserved3: Optional[StrictInt] = Field(default=None, alias="Reserved3")
-    __properties: ClassVar[List[str]] = ["FieldType", "wFieldType", "FieldName", "StringsCount", "StringsResult", "Buf_Length", "Buf_Text", "FieldMask", "Validity", "InComparison", "wLCID", "Reserved2", "Reserved3"]
+    field_rect: RectangleCoordinates = Field(alias="FieldRect")
+    __properties: ClassVar[List[str]] = ["FieldType", "wFieldType", "FieldName", "StringsCount", "StringsResult", "Buf_Length", "Buf_Text", "FieldMask", "Validity", "InComparison", "wLCID", "Reserved2", "Reserved3", "FieldRect"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +83,9 @@ class DocVisualExtendedField(BaseModel):
                 if _item_strings_result:
                     _items.append(_item_strings_result.to_dict())
             _dict['StringsResult'] = _items
+        # override the default output from pydantic by calling `to_dict()` of field_rect
+        if self.field_rect:
+            _dict['FieldRect'] = self.field_rect.to_dict()
         return _dict
 
     @classmethod
@@ -105,7 +110,8 @@ class DocVisualExtendedField(BaseModel):
             "InComparison": obj.get("InComparison"),
             "wLCID": obj.get("wLCID"),
             "Reserved2": obj.get("Reserved2"),
-            "Reserved3": obj.get("Reserved3")
+            "Reserved3": obj.get("Reserved3"),
+            "FieldRect": RectangleCoordinates.from_dict(obj["FieldRect"]) if obj.get("FieldRect") is not None else None
         })
         return _obj
 

@@ -9,18 +9,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
+from regula.documentreader.webclient.gen.models.result_item import ResultItem
+from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_info import RFIDDocVisualExtendedInfo
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GraphicFieldRectItem(BaseModel):
+class RFIDTextDataResult(ResultItem):
     """
-    GraphicFieldRectItem
+    RFIDTextDataResult
     """ # noqa: E501
-    field_rect: RectangleCoordinates = Field(alias="FieldRect")
-    __properties: ClassVar[List[str]] = ["FieldRect"]
+    doc_visual_extended_info: RFIDDocVisualExtendedInfo = Field(alias="DocVisualExtendedInfo")
+    __properties: ClassVar[List[str]] = ["buf_length", "light", "list_idx", "page_idx", "result_type", "DocVisualExtendedInfo"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -40,7 +41,7 @@ class GraphicFieldRectItem(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GraphicFieldRectItem from a JSON string"""
+        """Create an instance of RFIDTextDataResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -61,14 +62,14 @@ class GraphicFieldRectItem(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of field_rect
-        if self.field_rect:
-            _dict['FieldRect'] = self.field_rect.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of doc_visual_extended_info
+        if self.doc_visual_extended_info:
+            _dict['DocVisualExtendedInfo'] = self.doc_visual_extended_info.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GraphicFieldRectItem from a dict"""
+        """Create an instance of RFIDTextDataResult from a dict"""
         if obj is None:
             return None
 
@@ -76,7 +77,12 @@ class GraphicFieldRectItem(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "FieldRect": RectangleCoordinates.from_dict(obj["FieldRect"]) if obj.get("FieldRect") is not None else None
+            "buf_length": obj.get("buf_length"),
+            "light": obj.get("light"),
+            "list_idx": obj.get("list_idx"),
+            "page_idx": obj.get("page_idx"),
+            "result_type": obj.get("result_type") if obj.get("result_type") is not None else 0,
+            "DocVisualExtendedInfo": RFIDDocVisualExtendedInfo.from_dict(obj["DocVisualExtendedInfo"]) if obj.get("DocVisualExtendedInfo") is not None else None
         })
         return _obj
 
