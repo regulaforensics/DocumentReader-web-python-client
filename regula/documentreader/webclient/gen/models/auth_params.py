@@ -34,7 +34,8 @@ class AuthParams(BaseModel):
     check_photo_embedding: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Owner's photo embedding check (is photo printed or sticked)", alias="checkPhotoEmbedding")
     check_photo_comparison: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Portrait comparison check", alias="checkPhotoComparison")
     check_letter_screen: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable LetterScreen check", alias="checkLetterScreen")
-    __properties: ClassVar[List[str]] = ["checkLiveness", "livenessParams", "checkUVLuminiscence", "checkIRB900", "checkImagePatterns", "checkFibers", "checkExtMRZ", "checkExtOCR", "checkAxial", "checkBarcodeFormat", "checkIRVisibility", "checkIPI", "checkPhotoEmbedding", "checkPhotoComparison", "checkLetterScreen"]
+    check_security_text: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Security text check", alias="checkSecurityText")
+    __properties: ClassVar[List[str]] = ["checkLiveness", "livenessParams", "checkUVLuminiscence", "checkIRB900", "checkImagePatterns", "checkFibers", "checkExtMRZ", "checkExtOCR", "checkAxial", "checkBarcodeFormat", "checkIRVisibility", "checkIPI", "checkPhotoEmbedding", "checkPhotoComparison", "checkLetterScreen", "checkSecurityText"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -104,7 +105,8 @@ class AuthParams(BaseModel):
             "checkIPI": obj.get("checkIPI"),
             "checkPhotoEmbedding": obj.get("checkPhotoEmbedding"),
             "checkPhotoComparison": obj.get("checkPhotoComparison"),
-            "checkLetterScreen": obj.get("checkLetterScreen")
+            "checkLetterScreen": obj.get("checkLetterScreen"),
+            "checkSecurityText": obj.get("checkSecurityText")
         })
         return _obj
 
