@@ -282,7 +282,7 @@ class FaceApi(object):
     def child_age_threshold(self):
         """Gets the child_age_threshold of this FaceApi.  # noqa: E501
 
-        Minimum age of a child, at which portrait comparison result will be effective. Default: 13.  # noqa: E501
+        The age threshold for the portrait comparison. Default: 13.  # noqa: E501
 
         :return: The child_age_threshold of this FaceApi.  # noqa: E501
         :rtype: int
@@ -293,7 +293,7 @@ class FaceApi(object):
     def child_age_threshold(self, child_age_threshold):
         """Sets the child_age_threshold of this FaceApi.
 
-        Minimum age of a child, at which portrait comparison result will be effective. Default: 13.  # noqa: E501
+        The age threshold for the portrait comparison. Default: 13.  # noqa: E501
 
         :param child_age_threshold: The child_age_threshold of this FaceApi.  # noqa: E501
         :type child_age_threshold: int
