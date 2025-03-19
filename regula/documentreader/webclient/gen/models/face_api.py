@@ -27,7 +27,7 @@ class FaceApi(BaseModel):
     proxy: Optional[StrictStr] = Field(default=None, description="Proxy to use, should be set according to the <a href=\"https://curl.se/libcurl/c/CURLOPT_PROXY.html\" target=\"_blank\">cURL standard</a>.")
     proxy_userpwd: Optional[StrictStr] = Field(default=None, description="Username and password to use for proxy authentication, should be set according to the <a href=\"https://curl.se/libcurl/c/CURLOPT_PROXYUSERPWD.html\" target=\"_blank\">cURL standard</a>.")
     proxy_type: Optional[StrictInt] = Field(default=None, description="Proxy protocol type, should be set according to the <a href=\"https://curl.se/libcurl/c/CURLOPT_PROXYTYPE.html\" target=\"_blank\">cURL standard</a>.")
-    child_age_threshold: Optional[StrictInt] = Field(default=None, description="Minimum age of a child, at which portrait comparison result will be effective. Default: 13.", alias="childAgeThreshold")
+    child_age_threshold: Optional[StrictInt] = Field(default=None, description="The age threshold for the portrait comparison. Default: 13.", alias="childAgeThreshold")
     child_doc_validity_years: Optional[StrictInt] = Field(default=None, description="Estimated duration of validity for a child's passport, years. Default: 5.", alias="childDocValidityYears")
     __properties: ClassVar[List[str]] = ["url", "mode", "search", "threshold", "serviceTimeout", "proxy", "proxy_userpwd", "proxy_type", "childAgeThreshold", "childDocValidityYears"]
 

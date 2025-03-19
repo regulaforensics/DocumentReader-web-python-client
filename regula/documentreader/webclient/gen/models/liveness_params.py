@@ -23,7 +23,8 @@ class LivenessParams(BaseModel):
     check_holo: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Hologram detection", alias="checkHolo")
     check_ed: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Electronic device detection", alias="checkED")
     check_black_and_white_copy: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Black and white copy check", alias="checkBlackAndWhiteCopy")
-    __properties: ClassVar[List[str]] = ["checkOVI", "checkMLI", "checkHolo", "checkED", "checkBlackAndWhiteCopy"]
+    check_dynaprint: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Dynaprint check", alias="checkDynaprint")
+    __properties: ClassVar[List[str]] = ["checkOVI", "checkMLI", "checkHolo", "checkED", "checkBlackAndWhiteCopy", "checkDynaprint"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,7 +81,8 @@ class LivenessParams(BaseModel):
             "checkMLI": obj.get("checkMLI"),
             "checkHolo": obj.get("checkHolo"),
             "checkED": obj.get("checkED"),
-            "checkBlackAndWhiteCopy": obj.get("checkBlackAndWhiteCopy")
+            "checkBlackAndWhiteCopy": obj.get("checkBlackAndWhiteCopy"),
+            "checkDynaprint": obj.get("checkDynaprint")
         })
         return _obj
 
