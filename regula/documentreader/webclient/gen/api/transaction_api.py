@@ -12,9 +12,9 @@ from pydantic import Field, StrictBool, StrictBytes, StrictStr
 from typing import Any, Dict, Optional, Tuple, Union
 from typing_extensions import Annotated
 from regula.documentreader.webclient.gen.models.list_transactions_by_tag_response import ListTransactionsByTagResponse
+from regula.documentreader.webclient.gen.models.process_response import ProcessResponse
 from regula.documentreader.webclient.gen.models.transaction_process_get_response import TransactionProcessGetResponse
 from regula.documentreader.webclient.gen.models.transaction_process_request import TransactionProcessRequest
-from regula.documentreader.webclient.gen.models.transaction_process_response import TransactionProcessResponse
 from regula.documentreader.webclient.gen.models.transaction_process_result import TransactionProcessResult
 
 from regula.documentreader.webclient.gen.api_client import ApiClient, RequestSerialized
@@ -1409,7 +1409,7 @@ class TransactionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> TransactionProcessResponse:
+    ) -> ProcessResponse:
         """Get Reprocess transaction result
 
 
@@ -1449,7 +1449,7 @@ class TransactionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TransactionProcessResponse",
+            '200': "ProcessResponse",
             '400': None,
             '403': None,
         }
@@ -1481,7 +1481,7 @@ class TransactionApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[TransactionProcessResponse]:
+    ) -> ApiResponse[ProcessResponse]:
         """Get Reprocess transaction result
 
 
@@ -1521,7 +1521,7 @@ class TransactionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TransactionProcessResponse",
+            '200': "ProcessResponse",
             '400': None,
             '403': None,
         }
@@ -1593,7 +1593,7 @@ class TransactionApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "TransactionProcessResponse",
+            '200': "ProcessResponse",
             '400': None,
             '403': None,
         }

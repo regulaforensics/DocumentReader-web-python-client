@@ -224,8 +224,6 @@ from regula.documentreader.webclient.gen.models.transaction_image import Transac
 from regula.documentreader.webclient.gen.models.transaction_info import TransactionInfo
 from regula.documentreader.webclient.gen.models.transaction_process_get_response import TransactionProcessGetResponse
 from regula.documentreader.webclient.gen.models.transaction_process_request import TransactionProcessRequest
-from regula.documentreader.webclient.gen.models.transaction_process_response import TransactionProcessResponse
-from regula.documentreader.webclient.gen.models.transaction_process_response_item import TransactionProcessResponseItem
 from regula.documentreader.webclient.gen.models.transaction_process_result import TransactionProcessResult
 from regula.documentreader.webclient.gen.models.trf_ft_bytes import TrfFtBytes
 from regula.documentreader.webclient.gen.models.trf_ft_string import TrfFtString

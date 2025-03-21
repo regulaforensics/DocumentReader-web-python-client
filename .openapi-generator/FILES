@@ -228,8 +228,6 @@ regula/documentreader/webclient/gen/models/transaction_image.py
 regula/documentreader/webclient/gen/models/transaction_info.py
 regula/documentreader/webclient/gen/models/transaction_process_get_response.py
 regula/documentreader/webclient/gen/models/transaction_process_request.py
-regula/documentreader/webclient/gen/models/transaction_process_response.py
-regula/documentreader/webclient/gen/models/transaction_process_response_item.py
 regula/documentreader/webclient/gen/models/transaction_process_result.py
 regula/documentreader/webclient/gen/models/trf_ft_bytes.py
 regula/documentreader/webclient/gen/models/trf_ft_string.py

@@ -9,7 +9,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import date
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -21,7 +20,7 @@ class HealthcheckDocumentsDatabase(BaseModel):
     """ # noqa: E501
     id: Optional[StrictStr] = Field(description="Database identifier.")
     version: Optional[StrictStr] = Field(description="Database version.")
-    export_date: Optional[date] = Field(description="Date of database creation.", alias="exportDate")
+    export_date: Optional[StrictStr] = Field(description="Date of database creation.", alias="exportDate")
     description: Optional[StrictStr] = Field(description="Description of the database contents, such as the list of supported countries and documents.")
     __properties: ClassVar[List[str]] = ["id", "version", "exportDate", "description"]
 
