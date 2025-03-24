@@ -5,6 +5,10 @@
 [![documentation](https://img.shields.io/badge/docs-en-f6858d?style=flat-square)](https://support.regulaforensics.com/hc/en-us/articles/115000916306-Documentation)
 [![live](https://img.shields.io/badge/live-demo-0a8c42?style=flat-square)](https://api.regulaforensics.com/)
 
+## ⚠️ Warning: Package Name Changed
+
+Package name has been changed from `regula.documentreader.webclient` to `regula_documentreader_webclient`
+
 Documents recognition as easy as reading two bytes.
 
 If you have any problems with or questions about this client, please contact us
@@ -14,21 +18,21 @@ We are always thrilled to receive pull requests, and do our best to process them
 See [dev guide](./dev.md)
 
 ## Install package
-`regula.documentreader.webclient` is on the Python Package Index (PyPI):
+`regula_documentreader_webclient` is on the Python Package Index (PyPI):
 
 ```bash
-pip install regula.documentreader.webclient
+pip install regula_documentreader_webclient
 ```
 
 Or using `pipenv`
 ```bash
-pipenv install regula.documentreader.webclient
+pipenv install regula_documentreader_webclient
 ```
 
 ## Example
 Performing request:
 ```python
-from regula.documentreader.webclient import *
+from regula_documentreader_webclient import *
 
 with open("australia_passport.jpg", "rb") as f:
     input_image = f.read()
