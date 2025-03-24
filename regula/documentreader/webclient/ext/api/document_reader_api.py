@@ -34,8 +34,8 @@ class DocumentReaderApi(HealthcheckApi, ProcessApi):
     def process(self, process_request: ProcessRequest) -> RecognitionResponse:
         return RecognitionResponse(self.api_process(process_request))
 
-    def get_healthz(self, **kwargs):
-        return self.healthz(**kwargs)
+    def healthz(self, **kwargs):
+        return super().healthz(**kwargs)
 
     def deserialize_to_recognition_response(self, content: Union[bytes, bytearray, str]) -> RecognitionResponse:
         response = self.__to_response_object(content)

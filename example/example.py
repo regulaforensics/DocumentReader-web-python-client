@@ -24,8 +24,6 @@ with DocumentReaderApi(host) as api:
         "X-CLIENT-KEY": "123",
         "Authorization": "Bearer 123"
     }
-    healthz_response = api.get_healthz()
-
     params = ProcessParams(already_cropped=True, scenario=Scenario.FULL_PROCESS)
 
     # Add license to request
@@ -82,13 +80,12 @@ with DocumentReaderApi(host) as api:
         f.write(document_image)
     print(f"""
     ---------------------------------------------------------------------------
-                        Web API version: {api.ping().version}
+                        Web API version: {api.healthz().version}
     ---------------------------------------------------------------------------
                     Document Overall Status: {doc_overall_status}
                     Document Number Visual: {doc_number_visual}
                     Document Type: {response.result_by_type(result_type=Result.DOCUMENT_TYPE).one_candidate.document_name}
                     Validity Of Document Number Visual: {doc_number_visual_validity}
-                    License id: {healthz_response.license_id}
     """)
 
     print("-----------------------All Text Fields------------------------")
