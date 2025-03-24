@@ -40,7 +40,9 @@ class InputImageQualityChecks(object):
 
     Brightness = "brightnessCheck"
 
-    allowable_values = [Glares, Focus, Resolution, Colorness, Perspective, Bounds, Portrait, Brightness]  # noqa: E501
+    Occlusion = "occlusionCheck"
+
+    allowable_values = [Glares, Focus, Resolution, Colorness, Perspective, Bounds, Portrait, Brightness, Occlusion]  # noqa: E501
 
     """
     Attributes:
