@@ -40,7 +40,9 @@ class ImageQualityCheckType(object):
 
     Brightness = int("9")
 
-    allowable_values = [ImageGlares, ImageFocus, ImageResolution, ImageColorness, Perspective, Bounds, Portrait, Brightness]  # noqa: E501
+    Occlusion = int("10")
+
+    allowable_values = [ImageGlares, ImageFocus, ImageResolution, ImageColorness, Perspective, Bounds, Portrait, Brightness, Occlusion]  # noqa: E501
 
     """
     Attributes:
