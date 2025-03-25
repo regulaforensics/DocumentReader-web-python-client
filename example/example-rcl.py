@@ -89,7 +89,7 @@ with DocumentReaderApi(host) as api:
               MRZ-Visual values comparison: {doc_number_mrz_visual_matching}
     ---------------------------------------------------------------------------
     """.format(
-        ping_version=api.ping().version,
+        ping_version=api.healthz().version,
         doc_overall_status=doc_overall_status, doc_number_visual=doc_number_visual,
         doc_number_mrz=doc_number_mrz, doc_number_visual_validity=doc_number_mrz_validity,
         doc_number_mrz_validity=doc_number_mrz_validity, doc_number_mrz_visual_matching=doc_number_mrz_visual_matching,

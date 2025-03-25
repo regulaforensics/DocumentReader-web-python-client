@@ -26,6 +26,7 @@ class InputImageQualityChecks(str, Enum):
     DOCUMENTPOSITION = 'documentPosition'
     PORTRAITCHECK = 'portraitCheck'
     BRIGHTNESSCHECK = 'brightnessCheck'
+    OCCLUSIONCHECK = 'occlusionCheck'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

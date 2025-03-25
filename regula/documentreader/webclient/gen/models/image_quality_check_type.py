@@ -26,6 +26,7 @@ class ImageQualityCheckType(int, Enum):
     Bounds = 5
     Portrait = 7
     Brightness = 9
+    Occlusion = 10
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
