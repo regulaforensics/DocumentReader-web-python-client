@@ -80,7 +80,7 @@ with DocumentReaderApi(host) as api:
         f.write(document_image)
     print(f"""
     ---------------------------------------------------------------------------
-                        Web API version: {api.ping().version}
+                        Web API version: {api.healthz().version}
     ---------------------------------------------------------------------------
                     Document Overall Status: {doc_overall_status}
                     Document Number Visual: {doc_number_visual}
