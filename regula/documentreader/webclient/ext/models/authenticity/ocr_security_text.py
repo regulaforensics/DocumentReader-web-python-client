@@ -1,11 +1,11 @@
 from typing import List
 
-from regula.documentreader.webclient import gen
+from regula.documentreader.webclient.gen.models import AuthenticityCheckResult, OCRSecurityTextResult
 
 
-class OCRSecurityTextChecks(gen.AuthenticityCheckResult):
+class OCRSecurityTextChecks(AuthenticityCheckResult):
 
-    @gen.AuthenticityCheckResult.list.getter
-    def list(self) -> List[gen.OCRSecurityTextResult]:
+    @property
+    def list(self) -> List[OCRSecurityTextResult]:
         # noinspection PyTypeChecker
-        return super().list
+        return self.list

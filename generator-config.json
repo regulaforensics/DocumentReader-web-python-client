@@ -1,4 +1,8 @@
 {
   "packageName": "regula.documentreader.webclient.gen",
-  "extPackageName": "regula.documentreader.webclient.ext"
+  "extPackageName": "regula.documentreader.webclient.ext",
+  "typeMappings" : {
+    "ContainerListListInner": "ResultItem",
+    "AuthenticityCheckResultListInner": "AuthenticityCheckResultItem"
+  }
 }

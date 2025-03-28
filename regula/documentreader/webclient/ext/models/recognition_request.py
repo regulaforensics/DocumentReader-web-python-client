@@ -1,4 +1,3 @@
-import json
 import base64
 from typing import List, Union
 
@@ -15,7 +14,11 @@ class RecognitionImage(ProcessRequestImage):
     def __init__(self, image: Union[bytes, Base64String], light_index=None, page_index=None):
         if isinstance(image, bytes):
             image = base64.b64encode(image).decode("utf-8")
-        super().__init__(ImageData(image), light_index, page_index)
+        super().__init__(
+            ImageData = ImageData(image = image),
+            light = light_index,
+            page_index = page_index,
+        )
 
 
 class LicenseRequest(LicenseResult):
@@ -29,12 +32,12 @@ class LicenseRequest(LicenseResult):
         _buf_length = len(_license)
         _result_type = Result.LICENSE
         super().__init__(
-            __license,
-            _buf_length,
-            _light,
-            _list_idx,
-            _page_idx,
-            _result_type
+            License = __license,
+            buf_length = _buf_length,
+            light = _light,
+            list_idx = _list_idx,
+            page_idx = _page_idx,
+            result_type = _result_type
         )
 
 
@@ -50,12 +53,12 @@ class EncryptedRCLRequest(EncryptedRCLResult):
         _buf_length = len(_encrypted_rcl)
         _result_type = Result.ENCRYPTED_RCL
         super().__init__(
-            __encrypted_rcl,
-            _buf_length,
-            _light,
-            _list_idx,
-            _page_idx,
-            _result_type
+            EncryptedRCL = __encrypted_rcl,
+            buf_length = _buf_length,
+            light = _light,
+            list_idx = _list_idx,
+            page_idx = _page_idx,
+            result_type = _result_type
         )
 
 
@@ -75,19 +78,15 @@ class RecognitionRequest(ProcessRequest):
                 else:
                     input_images.append(image)
             super().__init__(
-                process_param=process_params,
-                list=input_images,
-                system_info=system_info,
+                processParam=process_params,
+                List=input_images,
+                systemInfo=system_info,
                 tag=tag
             )
         if container_list:
             super().__init__(
-                process_param=process_params,
-                container_list=container_list,
-                system_info=system_info,
+                processParam=process_params,
+                ContainerList=container_list,
+                systemInfo=system_info,
                 tag=tag
             )
-
-    @property
-    def json(self) -> str:
-        return json.dumps(self.to_dict())

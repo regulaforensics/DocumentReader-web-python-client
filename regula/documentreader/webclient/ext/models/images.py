@@ -1,10 +1,10 @@
 import base64
 from typing import Optional, List
 
-from regula.documentreader.webclient.gen.models import Images as GenImages, ImagesField as GetImagesField, Source
+from regula.documentreader.webclient.gen.models import Images as GenImages, ImagesField as GenImagesField, Source
 
 
-class ImagesField(GetImagesField):
+class ImagesField(GenImagesField):
 
     def get_value(self, source: str = None, original=False) -> Optional[bytes]:
 
@@ -33,8 +33,8 @@ class Images(GenImages):
     def get_field(self, field_type: int) -> Optional[ImagesField]:
         for field in self.field_list:
             if field.field_type == field_type:
-                return field
+                return ImagesField.from_dict(field.to_dict())
         return None
 
     def get_fields(self, field_type: int) -> List[ImagesField]:
-        return [field for field in self.field_list if field.field_type == field_type]
+        return [ImagesField.from_dict(field.to_dict()) for field in self.field_list if field.field_type == field_type]

@@ -24,7 +24,7 @@ with DocumentReaderApi(host) as api:
         "X-CLIENT-KEY": "123",
         "Authorization": "Bearer 123"
     }
-    params = ProcessParams(already_cropped=True, scenario=Scenario.FULL_PROCESS)
+    params = ProcessParams(alreadyCropped=True, scenario=Scenario.FULLPROCESS)
 
     # Add license to request
     # request = RecognitionRequest(system_info=ProcessSystemInfo(license=base64.b64encode(regula_license).decode()), process_params=params, images=[
@@ -38,8 +38,8 @@ with DocumentReaderApi(host) as api:
     ])
     response = api.process(request)
 
-    request_json = request.json   # example for request & response raw json
-    response_json = response.json
+    request_json = request.to_json()   # example for request & response raw json
+    response_json = response.to_json()
 
     # status examples
     response_status = response.status
