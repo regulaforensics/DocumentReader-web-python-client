@@ -12,6 +12,7 @@ import json
 from pydantic import ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate
+from regula.documentreader.webclient.gen.models.result import Result
 from regula.documentreader.webclient.gen.models.result_item import ResultItem
 from typing import Optional, Set
 from typing_extensions import Self
@@ -84,7 +85,7 @@ class ChosenDocumentTypeResult(ResultItem):
             "light": obj.get("light"),
             "list_idx": obj.get("list_idx"),
             "page_idx": obj.get("page_idx"),
-            "result_type": obj.get("result_type") if obj.get("result_type") is not None else 0,
+            "result_type": obj.get("result_type"),
             "OneCandidate": OneCandidate.from_dict(obj["OneCandidate"]) if obj.get("OneCandidate") is not None else None,
             "XML_buffer": obj.get("XML_buffer")
         })

@@ -23,7 +23,6 @@ class ProcessRequest(BaseModel):
     """
     ProcessRequest
     """ # noqa: E501
-    lcid_filter: Optional[List[LCID]] = Field(default=None, description="The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default.", alias="lcidFilter")
     process_param: ProcessParams = Field(alias="processParam")
     list: Optional[List[ProcessRequestImage]] = Field(default=None, alias="List")
     tag: Optional[StrictStr] = Field(default=None, description="Session ID")
@@ -36,7 +35,8 @@ class ProcessRequest(BaseModel):
     pass_back_object: Optional[Dict[str, Any]] = Field(default=None, description="Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs.", alias="passBackObject")
     dtc: Optional[StrictStr] = Field(default=None, description="Digital Travel Credential (DTC-VC) data in base64 format for processing")
     image_urls: Optional[List[StrictStr]] = Field(default=None, description="URLs to the document images for processing.", alias="ImageUrls")
-    __properties: ClassVar[List[str]] = ["lcidFilter", "processParam", "List", "tag", "tenant", "env", "livePortrait", "extPortrait", "ContainerList", "systemInfo", "passBackObject", "dtc", "ImageUrls"]
+    lcid_filter: Optional[List[LCID]] = Field(default=None, description="The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default.", alias="lcidFilter")
+    __properties: ClassVar[List[str]] = ["processParam", "List", "tag", "tenant", "env", "livePortrait", "extPortrait", "ContainerList", "systemInfo", "passBackObject", "dtc", "ImageUrls", "lcidFilter"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -105,7 +105,6 @@ class ProcessRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "lcidFilter": obj.get("lcidFilter"),
             "processParam": ProcessParams.from_dict(obj["processParam"]) if obj.get("processParam") is not None else None,
             "List": [ProcessRequestImage.from_dict(_item) for _item in obj["List"]] if obj.get("List") is not None else None,
             "tag": obj.get("tag"),
@@ -117,7 +116,8 @@ class ProcessRequest(BaseModel):
             "systemInfo": ProcessSystemInfo.from_dict(obj["systemInfo"]) if obj.get("systemInfo") is not None else None,
             "passBackObject": obj.get("passBackObject"),
             "dtc": obj.get("dtc"),
-            "ImageUrls": obj.get("ImageUrls")
+            "ImageUrls": obj.get("ImageUrls"),
+            "lcidFilter": obj.get("lcidFilter")
         })
         return _obj
 

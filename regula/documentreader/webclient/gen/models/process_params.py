@@ -12,6 +12,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.auth_params import AuthParams
+from regula.documentreader.webclient.gen.models.authenticity_result_type import AuthenticityResultType
 from regula.documentreader.webclient.gen.models.document_format import DocumentFormat
 from regula.documentreader.webclient.gen.models.document_type import DocumentType
 from regula.documentreader.webclient.gen.models.face_api import FaceApi
@@ -81,7 +82,7 @@ class ProcessParams(BaseModel):
     split_names: Optional[StrictBool] = Field(default=None, description="When enabled, the Surname and GivenNames fields from MRZ will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default.", alias="splitNames")
     disable_perforation_ocr: Optional[StrictBool] = Field(default=None, description="When enabled, OCR of perforated fields in the document template will not be performed. Disabled by default.", alias="disablePerforationOCR")
     document_group_filter: Optional[List[DocumentType]] = Field(default=None, description="List of specific eligible document types from DocumentType enum to recognize from. You may, for example, specify only passports to be recognized by setting this property. Empty by default.", alias="documentGroupFilter")
-    process_auth: Optional[StrictInt] = Field(default=None, description="Authenticity checks that should be performed regardless of the document type. The available checks are listed in the eRPRM_Authenticity enum. Note that only supported by your license checks can be added. ", alias="processAuth")
+    process_auth: Optional[AuthenticityResultType] = Field(default=None, alias="processAuth")
     device_id: Optional[StrictInt] = Field(default=None, description="This parameter is used to specify the document reader device type from which input images were captured. Default 0.", alias="deviceId")
     device_type: Optional[StrictInt] = Field(default=None, description="This parameter is used to specify the document reader device type from which input images were captured. Default 0.", alias="deviceType")
     device_type_hex: Optional[StrictStr] = Field(default=None, description="This parameter is used to specify the document reader device type from which input images were captured", alias="deviceTypeHex")
@@ -95,7 +96,8 @@ class ProcessParams(BaseModel):
     strict_barcode_digital_signature_check: Optional[StrictBool] = Field(default=None, description="This parameter if enabled will require all necessary certificates to verify digital signature in barcode data to be present in order for the Barcode format check to succeed.", alias="strictBarcodeDigitalSignatureCheck")
     select_longest_names: Optional[StrictBool] = Field(default=None, description="Select the longest value from the different value sources and write it to the value field if comparison is done successfully. The parameter applies this logic to the personal names, such as given name, surname, surname and given name, middle name and etc.", alias="selectLongestNames")
     do_barcodes: Optional[List[InputBarcodeType]] = Field(default=None, description="Set the types of barcodes to process.", alias="doBarcodes")
-    __properties: ClassVar[List[str]] = ["generateDTCVC", "lcidFilter", "checkLiveness", "lcidIgnoreFilter", "oneShotIdentification", "useFaceApi", "faceApi", "doDetectCan", "imageOutputMaxHeight", "imageOutputMaxWidth", "scenario", "resultTypeOutput", "doublePageSpread", "generateDoublePageSpreadImage", "fieldTypesFilter", "dateFormat", "measureSystem", "imageDpiOutMax", "alreadyCropped", "customParams", "config", "log", "logLevel", "forceDocID", "matchTextFieldMask", "fastDocDetect", "updateOCRValidityByGlare", "checkRequiredTextFields", "returnCroppedBarcode", "imageQa", "strictImageQuality", "respectImageQuality", "forceDocFormat", "noGraphics", "depersonalizeLog", "multiDocOnImage", "shiftExpiryDate", "minimalHolderAge", "returnUncroppedImage", "mrzFormatsFilter", "forceReadMrzBeforeLocate", "parseBarcodes", "convertCase", "splitNames", "disablePerforationOCR", "documentGroupFilter", "processAuth", "deviceId", "deviceType", "deviceTypeHex", "ignoreDeviceIdFromImage", "documentIdList", "rfid", "checkAuth", "authParams", "mrzDetectMode", "generateNumericCodes", "strictBarcodeDigitalSignatureCheck", "selectLongestNames", "doBarcodes"]
+    strict_dl_category_expiry: Optional[StrictBool] = Field(default=None, description="Set to force DL categories expiry date to affect the overall status or not. As documents usually have their own date of expiry, which might be less or greater than category expiry date, this might be handy for specific cases.", alias="strictDLCategoryExpiry")
+    __properties: ClassVar[List[str]] = ["generateDTCVC", "lcidFilter", "checkLiveness", "lcidIgnoreFilter", "oneShotIdentification", "useFaceApi", "faceApi", "doDetectCan", "imageOutputMaxHeight", "imageOutputMaxWidth", "scenario", "resultTypeOutput", "doublePageSpread", "generateDoublePageSpreadImage", "fieldTypesFilter", "dateFormat", "measureSystem", "imageDpiOutMax", "alreadyCropped", "customParams", "config", "log", "logLevel", "forceDocID", "matchTextFieldMask", "fastDocDetect", "updateOCRValidityByGlare", "checkRequiredTextFields", "returnCroppedBarcode", "imageQa", "strictImageQuality", "respectImageQuality", "forceDocFormat", "noGraphics", "depersonalizeLog", "multiDocOnImage", "shiftExpiryDate", "minimalHolderAge", "returnUncroppedImage", "mrzFormatsFilter", "forceReadMrzBeforeLocate", "parseBarcodes", "convertCase", "splitNames", "disablePerforationOCR", "documentGroupFilter", "processAuth", "deviceId", "deviceType", "deviceTypeHex", "ignoreDeviceIdFromImage", "documentIdList", "rfid", "checkAuth", "authParams", "mrzDetectMode", "generateNumericCodes", "strictBarcodeDigitalSignatureCheck", "selectLongestNames", "doBarcodes", "strictDLCategoryExpiry"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -226,7 +228,8 @@ class ProcessParams(BaseModel):
             "generateNumericCodes": obj.get("generateNumericCodes"),
             "strictBarcodeDigitalSignatureCheck": obj.get("strictBarcodeDigitalSignatureCheck"),
             "selectLongestNames": obj.get("selectLongestNames"),
-            "doBarcodes": obj.get("doBarcodes")
+            "doBarcodes": obj.get("doBarcodes"),
+            "strictDLCategoryExpiry": obj.get("strictDLCategoryExpiry")
         })
         return _obj
 

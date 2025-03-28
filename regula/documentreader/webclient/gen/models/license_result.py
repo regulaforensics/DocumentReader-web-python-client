@@ -11,6 +11,7 @@ import json
 
 from pydantic import ConfigDict, Field, StrictBytes, StrictStr
 from typing import Any, ClassVar, Dict, List, Union
+from regula.documentreader.webclient.gen.models.result import Result
 from regula.documentreader.webclient.gen.models.result_item import ResultItem
 from typing import Optional, Set
 from typing_extensions import Self
@@ -77,7 +78,7 @@ class LicenseResult(ResultItem):
             "light": obj.get("light"),
             "list_idx": obj.get("list_idx"),
             "page_idx": obj.get("page_idx"),
-            "result_type": obj.get("result_type") if obj.get("result_type") is not None else 0,
+            "result_type": obj.get("result_type"),
             "License": obj.get("License")
         })
         return _obj

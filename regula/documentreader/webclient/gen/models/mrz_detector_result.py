@@ -11,6 +11,7 @@ import json
 
 from pydantic import ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from regula.documentreader.webclient.gen.models.result import Result
 from regula.documentreader.webclient.gen.models.result_item import ResultItem
 from regula.documentreader.webclient.gen.models.result_mrz_detector import ResultMRZDetector
 from typing import Optional, Set
@@ -81,7 +82,7 @@ class MRZDetectorResult(ResultItem):
             "light": obj.get("light"),
             "list_idx": obj.get("list_idx"),
             "page_idx": obj.get("page_idx"),
-            "result_type": obj.get("result_type") if obj.get("result_type") is not None else 0,
+            "result_type": obj.get("result_type"),
             "ResultMRZDetector": ResultMRZDetector.from_dict(obj["ResultMRZDetector"]) if obj.get("ResultMRZDetector") is not None else None
         })
         return _obj

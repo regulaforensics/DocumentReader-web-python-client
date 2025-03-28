@@ -12,6 +12,7 @@ import json
 from importlib import import_module
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from regula.documentreader.webclient.gen.models.authenticity_result_type import AuthenticityResultType
 from regula.documentreader.webclient.gen.models.check_diagnose import CheckDiagnose
 from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from typing import Optional, Set
@@ -46,7 +47,7 @@ class AuthenticityCheckResultItem(BaseModel):
     """
     Common fields for all authenticity result objects
     """ # noqa: E501
-    type: StrictInt = Field(description="Same as authenticity result type, but used for safe parsing of not-described values: https://docs.regulaforensics.com/develop/doc-reader-sdk/web-service/development/enums/authenticity-result-type/", alias="Type")
+    type: AuthenticityResultType = Field(alias="Type")
     element_result: Optional[CheckResult] = Field(default=None, alias="ElementResult")
     element_diagnose: Optional[CheckDiagnose] = Field(default=None, alias="ElementDiagnose")
     percent_value: Optional[StrictInt] = Field(default=None, alias="PercentValue")

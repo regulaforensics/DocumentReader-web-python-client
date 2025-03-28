@@ -12,6 +12,7 @@ import json
 from pydantic import ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.authenticity_check_result_item import AuthenticityCheckResultItem
+from regula.documentreader.webclient.gen.models.authenticity_result_type import AuthenticityResultType
 from regula.documentreader.webclient.gen.models.check_diagnose import CheckDiagnose
 from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from regula.documentreader.webclient.gen.models.critical import Critical
@@ -94,7 +95,7 @@ class OCRSecurityTextResult(AuthenticityCheckResultItem):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Type": obj.get("Type") if obj.get("Type") is not None else 0,
+            "Type": obj.get("Type"),
             "ElementResult": obj.get("ElementResult"),
             "ElementDiagnose": obj.get("ElementDiagnose"),
             "PercentValue": obj.get("PercentValue"),

@@ -10,8 +10,9 @@ import re  # noqa: F401
 import json
 
 from importlib import import_module
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from regula.documentreader.webclient.gen.models.result import Result
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -62,7 +63,7 @@ class ResultItem(BaseModel):
     light: Optional[StrictInt] = None
     list_idx: Optional[StrictInt] = None
     page_idx: Optional[StrictInt] = None
-    result_type: StrictInt = Field(description="Same as Result type, but used for safe parsing of not-described values. See Result type.")
+    result_type: Result
     __properties: ClassVar[List[str]] = ["buf_length", "light", "list_idx", "page_idx", "result_type"]
 
     model_config = ConfigDict(
