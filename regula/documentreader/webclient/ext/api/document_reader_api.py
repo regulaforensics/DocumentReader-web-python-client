@@ -1,4 +1,3 @@
-import base64
 from typing import Union
 
 from regula.documentreader.webclient import ProcessResponse
