@@ -54,16 +54,29 @@ API_BASE_PATH="http://127.0.0.1:8080" python example.py
 ```
 
 ### Output 
+
 This sample generates the following text output:
+
 ```text
     ---------------------------------------------------------------------------
-                   Document Overall Status: not valid
-                    Document Number Visual: OO0000000
-                       Document Number MRZ: OO0000000
-        Validity Of Document Number Visual: 0
-           Validity Of Document Number MRZ: 0
-              MRZ-Visual values comparison: 1
+                        Web API version: 7.5.308602.1848
     ---------------------------------------------------------------------------
+                    Document Overall Status: not valid
+                    Document Number Visual: C01YPTNHM
+                    Document Type: Germany - ePassport (2017) Service
+                    Validity Of Document Number Visual: 2
+    
+-----------------------All Text Fields------------------------
+Source: Surname, Value: MUSTERMANN
+Source: Surname And Given Names, Value: MUSTERMANN ERIKA
+Source: Document Status, Value: SPECIMEN
+Source: Surname, Value: MUSTERMANN
+Source: Surname And Given Names, Value: MUSTERMANN ERIKA
+Source: Document Number Checkdigit, Value: 1
+Source: Document Class Code, Value: PO
+
+...
 ```
+
 Also, it stores [portrait](portrait.jpg) and [document image](document-image.jpg) images in the current folder.
 You can modify [this example](../example/example.py) and re-run it to get your own results.
