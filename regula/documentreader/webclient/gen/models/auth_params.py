@@ -46,7 +46,8 @@ class AuthParams(object):
         'check_ipi': 'bool',
         'check_photo_embedding': 'bool',
         'check_photo_comparison': 'bool',
-        'check_letter_screen': 'bool'
+        'check_letter_screen': 'bool',
+        'check_security_text': 'bool'
     }
 
     attribute_map = {
@@ -64,10 +65,11 @@ class AuthParams(object):
         'check_ipi': 'checkIPI',
         'check_photo_embedding': 'checkPhotoEmbedding',
         'check_photo_comparison': 'checkPhotoComparison',
-        'check_letter_screen': 'checkLetterScreen'
+        'check_letter_screen': 'checkLetterScreen',
+        'check_security_text': 'checkSecurityText'
     }
 
-    def __init__(self, check_liveness=None, liveness_params=None, check_uv_luminiscence=None, check_irb900=None, check_image_patterns=None, check_fibers=None, check_ext_mrz=None, check_ext_ocr=None, check_axial=None, check_barcode_format=None, check_ir_visibility=None, check_ipi=None, check_photo_embedding=None, check_photo_comparison=None, check_letter_screen=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, check_liveness=None, liveness_params=None, check_uv_luminiscence=None, check_irb900=None, check_image_patterns=None, check_fibers=None, check_ext_mrz=None, check_ext_ocr=None, check_axial=None, check_barcode_format=None, check_ir_visibility=None, check_ipi=None, check_photo_embedding=None, check_photo_comparison=None, check_letter_screen=None, check_security_text=None, local_vars_configuration=None):  # noqa: E501
         """AuthParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -88,6 +90,7 @@ class AuthParams(object):
         self._check_photo_embedding = None
         self._check_photo_comparison = None
         self._check_letter_screen = None
+        self._check_security_text = None
         self.discriminator = None
 
         if check_liveness is not None:
@@ -120,6 +123,8 @@ class AuthParams(object):
             self.check_photo_comparison = check_photo_comparison
         if check_letter_screen is not None:
             self.check_letter_screen = check_letter_screen
+        if check_security_text is not None:
+            self.check_security_text = check_security_text
 
     @property
     def check_liveness(self):
@@ -463,6 +468,29 @@ class AuthParams(object):
         """
 
         self._check_letter_screen = check_letter_screen
+
+    @property
+    def check_security_text(self):
+        """Gets the check_security_text of this AuthParams.  # noqa: E501
+
+        This parameter is used to enable Security text check  # noqa: E501
+
+        :return: The check_security_text of this AuthParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._check_security_text
+
+    @check_security_text.setter
+    def check_security_text(self, check_security_text):
+        """Sets the check_security_text of this AuthParams.
+
+        This parameter is used to enable Security text check  # noqa: E501
+
+        :param check_security_text: The check_security_text of this AuthParams.  # noqa: E501
+        :type check_security_text: bool
+        """
+
+        self._check_security_text = check_security_text
 
     def to_dict(self):
         """Returns the model properties as a dict"""

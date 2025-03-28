@@ -89,7 +89,8 @@ class ProcessParams(object):
         'mrz_detect_mode': 'MrzDetectModeEnum',
         'generate_numeric_codes': 'bool',
         'strict_barcode_digital_signature_check': 'bool',
-        'select_longest_names': 'bool'
+        'select_longest_names': 'bool',
+        'do_barcodes': 'list[InputBarcodeType]'
     }
 
     attribute_map = {
@@ -150,10 +151,11 @@ class ProcessParams(object):
         'mrz_detect_mode': 'mrzDetectMode',
         'generate_numeric_codes': 'generateNumericCodes',
         'strict_barcode_digital_signature_check': 'strictBarcodeDigitalSignatureCheck',
-        'select_longest_names': 'selectLongestNames'
+        'select_longest_names': 'selectLongestNames',
+        'do_barcodes': 'doBarcodes'
     }
 
-    def __init__(self, generate_dtcvc=None, lcid_filter=None, lcid_ignore_filter=None, one_shot_identification=None, use_face_api=None, face_api=None, do_detect_can=None, image_output_max_height=None, image_output_max_width=None, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, strict_image_quality=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, process_auth=None, device_id=None, device_type=None, device_type_hex=None, ignore_device_id_from_image=None, document_id_list=None, rfid=None, check_auth=None, auth_params=None, mrz_detect_mode=None, generate_numeric_codes=None, strict_barcode_digital_signature_check=None, select_longest_names=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, generate_dtcvc=None, lcid_filter=None, lcid_ignore_filter=None, one_shot_identification=None, use_face_api=None, face_api=None, do_detect_can=None, image_output_max_height=None, image_output_max_width=None, scenario=None, result_type_output=None, double_page_spread=None, generate_double_page_spread_image=None, field_types_filter=None, date_format=None, measure_system=None, image_dpi_out_max=None, already_cropped=None, custom_params=None, config=None, log=None, log_level=None, force_doc_id=None, match_text_field_mask=None, fast_doc_detect=None, update_ocr_validity_by_glare=None, check_required_text_fields=None, return_cropped_barcode=None, image_qa=None, strict_image_quality=None, respect_image_quality=None, force_doc_format=None, no_graphics=None, depersonalize_log=None, multi_doc_on_image=None, shift_expiry_date=None, minimal_holder_age=None, return_uncropped_image=None, mrz_formats_filter=None, force_read_mrz_before_locate=None, parse_barcodes=None, convert_case=None, split_names=None, disable_perforation_ocr=None, document_group_filter=None, process_auth=None, device_id=None, device_type=None, device_type_hex=None, ignore_device_id_from_image=None, document_id_list=None, rfid=None, check_auth=None, auth_params=None, mrz_detect_mode=None, generate_numeric_codes=None, strict_barcode_digital_signature_check=None, select_longest_names=None, do_barcodes=None, local_vars_configuration=None):  # noqa: E501
         """ProcessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -217,6 +219,7 @@ class ProcessParams(object):
         self._generate_numeric_codes = None
         self._strict_barcode_digital_signature_check = None
         self._select_longest_names = None
+        self._do_barcodes = None
         self.discriminator = None
 
         if generate_dtcvc is not None:
@@ -334,6 +337,8 @@ class ProcessParams(object):
             self.strict_barcode_digital_signature_check = strict_barcode_digital_signature_check
         if select_longest_names is not None:
             self.select_longest_names = select_longest_names
+        if do_barcodes is not None:
+            self.do_barcodes = do_barcodes
 
     @property
     def generate_dtcvc(self):
@@ -1650,6 +1655,29 @@ class ProcessParams(object):
         """
 
         self._select_longest_names = select_longest_names
+
+    @property
+    def do_barcodes(self):
+        """Gets the do_barcodes of this ProcessParams.  # noqa: E501
+
+        Set the types of barcodes to process.  # noqa: E501
+
+        :return: The do_barcodes of this ProcessParams.  # noqa: E501
+        :rtype: list[InputBarcodeType]
+        """
+        return self._do_barcodes
+
+    @do_barcodes.setter
+    def do_barcodes(self, do_barcodes):
+        """Sets the do_barcodes of this ProcessParams.
+
+        Set the types of barcodes to process.  # noqa: E501
+
+        :param do_barcodes: The do_barcodes of this ProcessParams.  # noqa: E501
+        :type do_barcodes: list[InputBarcodeType]
+        """
+
+        self._do_barcodes = do_barcodes
 
     def to_dict(self):
         """Returns the model properties as a dict"""

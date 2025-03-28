@@ -35,17 +35,21 @@ class LivenessParams(object):
         'check_ovi': 'bool',
         'check_mli': 'bool',
         'check_holo': 'bool',
-        'check_ed': 'bool'
+        'check_ed': 'bool',
+        'check_black_and_white_copy': 'bool',
+        'check_dynaprint': 'bool'
     }
 
     attribute_map = {
         'check_ovi': 'checkOVI',
         'check_mli': 'checkMLI',
         'check_holo': 'checkHolo',
-        'check_ed': 'checkED'
+        'check_ed': 'checkED',
+        'check_black_and_white_copy': 'checkBlackAndWhiteCopy',
+        'check_dynaprint': 'checkDynaprint'
     }
 
-    def __init__(self, check_ovi=None, check_mli=None, check_holo=None, check_ed=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, check_ovi=None, check_mli=None, check_holo=None, check_ed=None, check_black_and_white_copy=None, check_dynaprint=None, local_vars_configuration=None):  # noqa: E501
         """LivenessParams - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -55,6 +59,8 @@ class LivenessParams(object):
         self._check_mli = None
         self._check_holo = None
         self._check_ed = None
+        self._check_black_and_white_copy = None
+        self._check_dynaprint = None
         self.discriminator = None
 
         if check_ovi is not None:
@@ -65,6 +71,10 @@ class LivenessParams(object):
             self.check_holo = check_holo
         if check_ed is not None:
             self.check_ed = check_ed
+        if check_black_and_white_copy is not None:
+            self.check_black_and_white_copy = check_black_and_white_copy
+        if check_dynaprint is not None:
+            self.check_dynaprint = check_dynaprint
 
     @property
     def check_ovi(self):
@@ -157,6 +167,52 @@ class LivenessParams(object):
         """
 
         self._check_ed = check_ed
+
+    @property
+    def check_black_and_white_copy(self):
+        """Gets the check_black_and_white_copy of this LivenessParams.  # noqa: E501
+
+        This parameter is used to enable Black and white copy check  # noqa: E501
+
+        :return: The check_black_and_white_copy of this LivenessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._check_black_and_white_copy
+
+    @check_black_and_white_copy.setter
+    def check_black_and_white_copy(self, check_black_and_white_copy):
+        """Sets the check_black_and_white_copy of this LivenessParams.
+
+        This parameter is used to enable Black and white copy check  # noqa: E501
+
+        :param check_black_and_white_copy: The check_black_and_white_copy of this LivenessParams.  # noqa: E501
+        :type check_black_and_white_copy: bool
+        """
+
+        self._check_black_and_white_copy = check_black_and_white_copy
+
+    @property
+    def check_dynaprint(self):
+        """Gets the check_dynaprint of this LivenessParams.  # noqa: E501
+
+        This parameter is used to enable Dynaprint check  # noqa: E501
+
+        :return: The check_dynaprint of this LivenessParams.  # noqa: E501
+        :rtype: bool
+        """
+        return self._check_dynaprint
+
+    @check_dynaprint.setter
+    def check_dynaprint(self, check_dynaprint):
+        """Sets the check_dynaprint of this LivenessParams.
+
+        This parameter is used to enable Dynaprint check  # noqa: E501
+
+        :param check_dynaprint: The check_dynaprint of this LivenessParams.  # noqa: E501
+        :type check_dynaprint: bool
+        """
+
+        self._check_dynaprint = check_dynaprint
 
     def to_dict(self):
         """Returns the model properties as a dict"""
