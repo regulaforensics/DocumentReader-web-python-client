@@ -1,11 +1,11 @@
 from typing import List
 
-from regula.documentreader.webclient import gen
+from regula.documentreader.webclient.gen.models import FiberResult, AuthenticityCheckResult
 
 
-class FiberChecks(gen.AuthenticityCheckResult):
+class FiberChecks(AuthenticityCheckResult):
 
-    @gen.AuthenticityCheckResult.list.getter
-    def list(self) -> List[gen.FiberResult]:
+    @property
+    def list(self) -> List[FiberResult]:
         # noinspection PyTypeChecker
         return super().list

@@ -1,10 +1,11 @@
 from typing import List
 
-from regula.documentreader.webclient import gen
+from regula.documentreader.webclient.gen.models import AuthenticityCheckResult, PhotoIdentResult
 
 
-class ImageIdentChecks(gen.AuthenticityCheckResult):
-    @gen.AuthenticityCheckResult.list.getter
-    def list(self) -> List[gen.PhotoIdentResult]:
+class ImageIdentChecks(AuthenticityCheckResult):
+
+    @property
+    def list(self) -> List[PhotoIdentResult]:
         # noinspection PyTypeChecker
-        return super().list
+        return self.list

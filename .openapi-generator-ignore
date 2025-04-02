@@ -11,3 +11,5 @@ README.md
 .gitignore
 setup.py
 regula/documentreader/webclient/__init__.py
+pyproject.toml
+.github/workflows/python.yml
