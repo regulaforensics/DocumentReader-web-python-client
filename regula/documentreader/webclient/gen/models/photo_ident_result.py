@@ -34,10 +34,9 @@ class PhotoIdentResult(AuthenticityCheckResultItem):
     field_types_list: Optional[List[StrictInt]] = Field(default=None, alias="FieldTypesList")
     step: Optional[StrictInt] = Field(default=None, alias="Step")
     angle: Optional[StrictInt] = Field(default=None, alias="Angle")
-    reserved1: Optional[StrictInt] = Field(default=None, alias="Reserved1")
-    reserved2: Optional[StrictInt] = Field(default=None, alias="Reserved2")
+    result: Optional[StrictInt] = Field(default=None, alias="Result")
     reserved3: Optional[StrictInt] = Field(default=None, alias="Reserved3")
-    __properties: ClassVar[List[str]] = ["Type", "ElementResult", "ElementDiagnose", "PercentValue", "LightIndex", "Area", "SourceImage", "ResultImages", "FieldTypesCount", "FieldTypesList", "Step", "Angle", "Reserved1", "Reserved2", "Reserved3"]
+    __properties: ClassVar[List[str]] = ["Type", "ElementResult", "ElementDiagnose", "PercentValue", "LightIndex", "Area", "SourceImage", "ResultImages", "FieldTypesCount", "FieldTypesList", "Step", "Angle", "Result", "Reserved3"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -111,8 +110,7 @@ class PhotoIdentResult(AuthenticityCheckResultItem):
             "FieldTypesList": obj.get("FieldTypesList"),
             "Step": obj.get("Step"),
             "Angle": obj.get("Angle"),
-            "Reserved1": obj.get("Reserved1"),
-            "Reserved2": obj.get("Reserved2"),
+            "Result": obj.get("Result"),
             "Reserved3": obj.get("Reserved3")
         })
         return _obj
