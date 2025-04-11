@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, cast
 
 from regula.documentreader.webclient.gen.models import AuthenticityCheckResult, PhotoIdentResult
 
@@ -6,6 +6,6 @@ from regula.documentreader.webclient.gen.models import AuthenticityCheckResult, 
 class ImageIdentChecks(AuthenticityCheckResult):
 
     @property
-    def list(self) -> List[PhotoIdentResult]:
-        # noinspection PyTypeChecker
-        return self.list
+    def checks_list(self) -> List[PhotoIdentResult]:
+        image_ident_list: List[PhotoIdentResult] = cast(List[PhotoIdentResult], self.list)
+        return image_ident_list

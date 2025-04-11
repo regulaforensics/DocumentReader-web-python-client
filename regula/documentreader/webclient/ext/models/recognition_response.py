@@ -20,7 +20,7 @@ class RecognitionResponse:
     def text(self) -> Optional[Text]:
         result = self.result_by_type(Result.TEXT)
         if result:
-            return Text.from_dict(result.text.to_dict())
+            return Text.from_json(result.text.to_json())
         return None
 
     @property
@@ -34,13 +34,13 @@ class RecognitionResponse:
     def images(self) -> Optional[Images]:
         result = self.result_by_type(Result.IMAGES)
         if result:
-            return Images.from_dict(result.images.to_dict())
+            return Images.from_json(result.images.to_json())
         return None
 
     def authenticity(self, page_idx=0) -> Optional[AuthenticityCheckList]:
         result = self.pageable_result_by_type(Result.AUTHENTICITY, page_idx)
         if result:
-            return AuthenticityCheckList.from_dict(result.authenticity_check_list.to_dict())
+            return AuthenticityCheckList.from_json(result.authenticity_check_list.to_json())
         return None
 
     def image_quality_checks(self, page_idx=0) -> Optional[ImageQualityCheckList]:

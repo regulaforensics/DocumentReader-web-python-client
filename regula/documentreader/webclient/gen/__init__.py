@@ -150,6 +150,7 @@ from regula.documentreader.webclient.gen.models.out_data import OutData
 from regula.documentreader.webclient.gen.models.out_data_transaction_images_field_value import OutDataTransactionImagesFieldValue
 from regula.documentreader.webclient.gen.models.p_array_field import PArrayField
 from regula.documentreader.webclient.gen.models.parsed_data import ParsedData
+from regula.documentreader.webclient.gen.models.parsing_error_codes import ParsingErrorCodes
 from regula.documentreader.webclient.gen.models.parsing_notification_codes import ParsingNotificationCodes
 from regula.documentreader.webclient.gen.models.per_document_config import PerDocumentConfig
 from regula.documentreader.webclient.gen.models.photo_ident_item import PhotoIdentItem

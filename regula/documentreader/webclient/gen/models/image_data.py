@@ -18,7 +18,7 @@ class ImageData(BaseModel):
     """
     ImageData
     """ # noqa: E501
-    image: StrictStr = Field(description="Base64 encoded image")
+    image: Optional[StrictStr] = Field(default=None, description="Base64 encoded image")
     format: Optional[StrictStr] = Field(default=None, description="Image format")
     __properties: ClassVar[List[str]] = ["image", "format"]
 

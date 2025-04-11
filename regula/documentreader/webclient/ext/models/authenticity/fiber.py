@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, cast
 
 from regula.documentreader.webclient.gen.models import FiberResult, AuthenticityCheckResult
 
@@ -6,6 +6,6 @@ from regula.documentreader.webclient.gen.models import FiberResult, Authenticity
 class FiberChecks(AuthenticityCheckResult):
 
     @property
-    def list(self) -> List[FiberResult]:
-        # noinspection PyTypeChecker
-        return super().list
+    def checks_list(self) -> List[FiberResult]:
+        fiber_list: List[FiberResult] = cast(List[FiberResult], self.list)
+        return fiber_list

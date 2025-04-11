@@ -135,6 +135,7 @@ regula/documentreader/webclient/gen/models/out_data.py
 regula/documentreader/webclient/gen/models/out_data_transaction_images_field_value.py
 regula/documentreader/webclient/gen/models/p_array_field.py
 regula/documentreader/webclient/gen/models/parsed_data.py
+regula/documentreader/webclient/gen/models/parsing_error_codes.py
 regula/documentreader/webclient/gen/models/parsing_notification_codes.py
 regula/documentreader/webclient/gen/models/per_document_config.py
 regula/documentreader/webclient/gen/models/photo_ident_item.py

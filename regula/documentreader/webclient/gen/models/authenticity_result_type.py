@@ -18,7 +18,6 @@ class AuthenticityResultType(int, Enum):
     """
     allowed enum values
     """
-    NONE = 0
     UV_LUMINESCENCE = 1
     IR_B900 = 2
     IMAGE_PATTERN = 4
@@ -27,13 +26,10 @@ class AuthenticityResultType(int, Enum):
     IR_VISIBILITY = 32
     OCR_SECURITY_TEXT = 64
     IPI = 128
-    IR_PHOTO = 256
     PHOTO_EMBED_TYPE = 512
     OVI = 1024
-    IR_LUMINESCENCE = 2048
     HOLOGRAMS = 4096
     PHOTO_AREA = 8192
-    UV_BACKGROUND = 16384
     PORTRAIT_COMPARISON = 32768
     BARCODE_FORMAT_CHECK = 65536
     KINEGRAM = 131072
@@ -44,7 +40,6 @@ class AuthenticityResultType(int, Enum):
     EXTENDED_OCR_CHECK = 4194304
     EXTENDED_MRZ_CHECK = 8388608
     ENCRYPTED_IPI = 16777216
-    STATUS_ONLY = 2147483648
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
