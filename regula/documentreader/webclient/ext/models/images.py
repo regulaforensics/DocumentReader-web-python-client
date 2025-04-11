@@ -33,8 +33,8 @@ class Images(GenImages):
     def get_field(self, field_type: int) -> Optional[ImagesField]:
         for field in self.field_list:
             if field.field_type == field_type:
-                return ImagesField.from_dict(field.to_dict())
+                return ImagesField.from_json(field.to_json())
         return None
 
     def get_fields(self, field_type: int) -> List[ImagesField]:
-        return [ImagesField.from_dict(field.to_dict()) for field in self.field_list if field.field_type == field_type]
+        return [ImagesField.from_json(field.to_json()) for field in self.field_list if field.field_type == field_type]

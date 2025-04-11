@@ -9,7 +9,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import ConfigDict, Field
+from pydantic import ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.area_container import AreaContainer
 from regula.documentreader.webclient.gen.models.authenticity_check_result_item import AuthenticityCheckResultItem
@@ -33,7 +33,9 @@ class IdentResult(AuthenticityCheckResultItem):
     image: ImageData = Field(alias="Image")
     etalon_image: ImageData = Field(alias="EtalonImage")
     area_list: Optional[AreaContainer] = Field(default=None, alias="AreaList")
-    __properties: ClassVar[List[str]] = ["Type", "ElementResult", "ElementDiagnose", "PercentValue", "ElementType", "LightIndex", "Area", "Image", "EtalonImage", "AreaList"]
+    element_id: Optional[StrictInt] = Field(default=None, alias="ElementID")
+    result: Optional[StrictInt] = Field(default=None, alias="Result")
+    __properties: ClassVar[List[str]] = ["Type", "ElementResult", "ElementDiagnose", "PercentValue", "ElementType", "LightIndex", "Area", "Image", "EtalonImage", "AreaList", "ElementID", "Result"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -107,7 +109,9 @@ class IdentResult(AuthenticityCheckResultItem):
             "Area": RectangleCoordinates.from_dict(obj["Area"]) if obj.get("Area") is not None else None,
             "Image": ImageData.from_dict(obj["Image"]) if obj.get("Image") is not None else None,
             "EtalonImage": ImageData.from_dict(obj["EtalonImage"]) if obj.get("EtalonImage") is not None else None,
-            "AreaList": AreaContainer.from_dict(obj["AreaList"]) if obj.get("AreaList") is not None else None
+            "AreaList": AreaContainer.from_dict(obj["AreaList"]) if obj.get("AreaList") is not None else None,
+            "ElementID": obj.get("ElementID"),
+            "Result": obj.get("Result")
         })
         return _obj
 

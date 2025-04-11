@@ -38,7 +38,6 @@ class BarcodeType(int, Enum):
     ALL_1D = 17
     CODE11 = 18
     JABCODE = 19
-    END = 20
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

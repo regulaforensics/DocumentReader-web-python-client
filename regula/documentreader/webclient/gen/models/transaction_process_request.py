@@ -24,13 +24,16 @@ class TransactionProcessRequest(BaseModel):
     """ # noqa: E501
     process_param: ProcessParams = Field(alias="processParam")
     list: Optional[List[ProcessRequestImage]] = Field(default=None, alias="List")
+    tag: Optional[StrictStr] = Field(default=None, description="Session ID")
+    tenant: Optional[StrictStr] = Field(default=None, description="Customer name")
+    env: Optional[StrictStr] = Field(default=None, description="Environment type")
     live_portrait: Optional[StrictStr] = Field(default=None, description="Live portrait photo", alias="livePortrait")
     ext_portrait: Optional[StrictStr] = Field(default=None, description="Portrait photo from an external source", alias="extPortrait")
     container_list: Optional[ContainerList] = Field(default=None, alias="ContainerList")
     system_info: Optional[ProcessSystemInfo] = Field(default=None, alias="systemInfo")
     pass_back_object: Optional[Dict[str, Any]] = Field(default=None, description="Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs.", alias="passBackObject")
     dtc: Optional[StrictStr] = Field(default=None, description="Digital Travel Credential (DTC-VC) data in base64 format for processing")
-    __properties: ClassVar[List[str]] = ["processParam", "List", "livePortrait", "extPortrait", "ContainerList", "systemInfo", "passBackObject", "dtc"]
+    __properties: ClassVar[List[str]] = ["processParam", "List", "tag", "tenant", "env", "livePortrait", "extPortrait", "ContainerList", "systemInfo", "passBackObject", "dtc"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -101,6 +104,9 @@ class TransactionProcessRequest(BaseModel):
         _obj = cls.model_validate({
             "processParam": ProcessParams.from_dict(obj["processParam"]) if obj.get("processParam") is not None else None,
             "List": [ProcessRequestImage.from_dict(_item) for _item in obj["List"]] if obj.get("List") is not None else None,
+            "tag": obj.get("tag"),
+            "tenant": obj.get("tenant"),
+            "env": obj.get("env"),
             "livePortrait": obj.get("livePortrait"),
             "extPortrait": obj.get("extPortrait"),
             "ContainerList": ContainerList.from_dict(obj["ContainerList"]) if obj.get("ContainerList") is not None else None,
