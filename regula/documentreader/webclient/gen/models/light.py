@@ -60,6 +60,12 @@ class Light(int, Enum):
     UVB = 1048576
     WHITE_OBL = 2097152
     WHITE_SPECIAL = 4194304
+    WHITE_UV = 134
+    WHITE_FULL_HOLO = 67108870
+    HR_LIGHT = 1073741824
+    HR_WHITE = 1073741830
+    HR_UV = 1073741952
+    HR_IR = 1073741848
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

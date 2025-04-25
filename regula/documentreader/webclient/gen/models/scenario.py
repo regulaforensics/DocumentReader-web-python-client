@@ -37,6 +37,7 @@ class Scenario(str, Enum):
     CREDITCARD = 'CreditCard'
     CAPTURE = 'Capture'
     DTC = 'DTC'
+    RFID = 'RFID'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

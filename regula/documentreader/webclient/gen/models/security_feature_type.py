@@ -71,6 +71,8 @@ class SecurityFeatureType(int, Enum):
     CONTACT_CHIP_CLASSIFICATION = 51
     HEAD_POSITION_CHECK = 52
     LIVENESS_BLACK_AND_WHITE_COPY_CHECK = 53
+    LIVENESS_DYNAPRINT = 54
+    LIVENESS_GEOMETRY_CHECK = 55
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
