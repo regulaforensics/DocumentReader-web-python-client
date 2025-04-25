@@ -20,7 +20,7 @@ class SymbolRecognitionResult(BaseModel):
     """
     Describes a single character recognition results in the text field line
     """ # noqa: E501
-    symbol_rect: RectangleCoordinates = Field(alias="SymbolRect")
+    symbol_rect: Optional[RectangleCoordinates] = Field(default=None, alias="SymbolRect")
     candidates_count: Union[StrictFloat, StrictInt] = Field(description="Number of significant elements of ListOfCandidates array", alias="CandidatesCount")
     list_of_candidates: List[SymbolCandidate] = Field(description="Array of candidate characters. Sorted in descending order of recognition probabilities (the first element has highest probability)", alias="ListOfCandidates")
     base_line_bottom: Optional[StrictInt] = Field(default=None, alias="BaseLineBottom")

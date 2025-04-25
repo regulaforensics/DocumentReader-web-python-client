@@ -24,7 +24,8 @@ class LivenessParams(BaseModel):
     check_ed: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Electronic device detection", alias="checkED")
     check_black_and_white_copy: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Black and white copy check", alias="checkBlackAndWhiteCopy")
     check_dynaprint: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Dynaprint check", alias="checkDynaprint")
-    __properties: ClassVar[List[str]] = ["checkOVI", "checkMLI", "checkHolo", "checkED", "checkBlackAndWhiteCopy", "checkDynaprint"]
+    check_geometry: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Geometry check", alias="checkGeometry")
+    __properties: ClassVar[List[str]] = ["checkOVI", "checkMLI", "checkHolo", "checkED", "checkBlackAndWhiteCopy", "checkDynaprint", "checkGeometry"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,7 +83,8 @@ class LivenessParams(BaseModel):
             "checkHolo": obj.get("checkHolo"),
             "checkED": obj.get("checkED"),
             "checkBlackAndWhiteCopy": obj.get("checkBlackAndWhiteCopy"),
-            "checkDynaprint": obj.get("checkDynaprint")
+            "checkDynaprint": obj.get("checkDynaprint"),
+            "checkGeometry": obj.get("checkGeometry")
         })
         return _obj
 
