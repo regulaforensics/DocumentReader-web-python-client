@@ -662,6 +662,9 @@ class TextFieldType(int, Enum):
     EF_CARD_ACCESS = 692
     SHORT_FLIGHT_NUMBER = 693
     AIRLINE_CODE = 694
+    FT_MVC_AGENCY = 695
+    FT_ISSUING_STATE_CODE_ALPHA2 = 696
+    FT_NATIONALITY_CODE_ALPHA2 = 697
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

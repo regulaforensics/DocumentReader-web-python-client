@@ -27,4 +27,3 @@ jobs:
         working-directory: example
         env:
           API_BASE_PATH: "https://nightly-api.regulaforensics.com"
-          TEST_LICENSE: ${{secrets.TEST_LICENSE}}
