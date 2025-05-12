@@ -21,12 +21,12 @@ class ChosenDocumentType(BaseModel):
     """
     Contains information about one document type candidate
     """ # noqa: E501
-    document_name: StrictStr = Field(description="Document name", alias="DocumentName")
+    document_name: Optional[StrictStr] = Field(default=None, description="Document name", alias="DocumentName")
     id: StrictInt = Field(description="Unique document type template identifier (Regula's internal numeric code)", alias="ID")
     p: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="A measure of the likelihood of correct recognition in the analysis of this type of document", alias="P")
     rotated180: StrictInt = Field(description="true if the document of the given type is rotated by 180 degrees", alias="Rotated180")
     rfid_presence: RfidLocation = Field(alias="RFID_Presence")
-    fdsid_list: FDSIDList = Field(alias="FDSIDList")
+    fdsid_list: Optional[FDSIDList] = Field(default=None, alias="FDSIDList")
     necessary_lights: StrictInt = Field(description="Combination of lighting scheme identifiers (Light enum) required to conduct OCR for this type of document", alias="NecessaryLights")
     check_authenticity: StrictInt = Field(description="Set of authentication options provided for this type of document (combination of Authenticity enum)", alias="CheckAuthenticity")
     uv_exp: StrictInt = Field(description="The required exposure value of the camera when receiving images of a document of this type for a UV lighting scheme", alias="UVExp")

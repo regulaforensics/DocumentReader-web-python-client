@@ -98,7 +98,8 @@ class ProcessParams(BaseModel):
     do_barcodes: Optional[List[InputBarcodeType]] = Field(default=None, description="Set the types of barcodes to process.", alias="doBarcodes")
     strict_dl_category_expiry: Optional[StrictBool] = Field(default=None, description="Set to force DL categories expiry date to affect the overall status or not. As documents usually have their own date of expiry, which might be less or greater than category expiry date, this might be handy for specific cases.", alias="strictDLCategoryExpiry")
     generate_alpha2_codes: Optional[StrictBool] = Field(default=None, description="Set to generate Alpha-2 codes for nationality and issuing state fields.", alias="generateAlpha2Codes")
-    __properties: ClassVar[List[str]] = ["generateDTCVC", "lcidFilter", "checkLiveness", "lcidIgnoreFilter", "oneShotIdentification", "useFaceApi", "faceApi", "doDetectCan", "imageOutputMaxHeight", "imageOutputMaxWidth", "scenario", "resultTypeOutput", "doublePageSpread", "generateDoublePageSpreadImage", "fieldTypesFilter", "dateFormat", "measureSystem", "imageDpiOutMax", "alreadyCropped", "customParams", "config", "log", "logLevel", "forceDocID", "matchTextFieldMask", "fastDocDetect", "updateOCRValidityByGlare", "checkRequiredTextFields", "returnCroppedBarcode", "imageQa", "strictImageQuality", "respectImageQuality", "forceDocFormat", "noGraphics", "depersonalizeLog", "multiDocOnImage", "shiftExpiryDate", "minimalHolderAge", "returnUncroppedImage", "mrzFormatsFilter", "forceReadMrzBeforeLocate", "parseBarcodes", "convertCase", "splitNames", "disablePerforationOCR", "documentGroupFilter", "processAuth", "deviceId", "deviceType", "deviceTypeHex", "ignoreDeviceIdFromImage", "documentIdList", "rfid", "checkAuth", "authParams", "mrzDetectMode", "generateNumericCodes", "strictBarcodeDigitalSignatureCheck", "selectLongestNames", "doBarcodes", "strictDLCategoryExpiry", "generateAlpha2Codes"]
+    pdf_pages_limit: Optional[StrictInt] = Field(default=None, description="Limits the number of pages to be processed from a PDF file.", alias="pdfPagesLimit")
+    __properties: ClassVar[List[str]] = ["generateDTCVC", "lcidFilter", "checkLiveness", "lcidIgnoreFilter", "oneShotIdentification", "useFaceApi", "faceApi", "doDetectCan", "imageOutputMaxHeight", "imageOutputMaxWidth", "scenario", "resultTypeOutput", "doublePageSpread", "generateDoublePageSpreadImage", "fieldTypesFilter", "dateFormat", "measureSystem", "imageDpiOutMax", "alreadyCropped", "customParams", "config", "log", "logLevel", "forceDocID", "matchTextFieldMask", "fastDocDetect", "updateOCRValidityByGlare", "checkRequiredTextFields", "returnCroppedBarcode", "imageQa", "strictImageQuality", "respectImageQuality", "forceDocFormat", "noGraphics", "depersonalizeLog", "multiDocOnImage", "shiftExpiryDate", "minimalHolderAge", "returnUncroppedImage", "mrzFormatsFilter", "forceReadMrzBeforeLocate", "parseBarcodes", "convertCase", "splitNames", "disablePerforationOCR", "documentGroupFilter", "processAuth", "deviceId", "deviceType", "deviceTypeHex", "ignoreDeviceIdFromImage", "documentIdList", "rfid", "checkAuth", "authParams", "mrzDetectMode", "generateNumericCodes", "strictBarcodeDigitalSignatureCheck", "selectLongestNames", "doBarcodes", "strictDLCategoryExpiry", "generateAlpha2Codes", "pdfPagesLimit"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -231,7 +232,8 @@ class ProcessParams(BaseModel):
             "selectLongestNames": obj.get("selectLongestNames"),
             "doBarcodes": obj.get("doBarcodes"),
             "strictDLCategoryExpiry": obj.get("strictDLCategoryExpiry"),
-            "generateAlpha2Codes": obj.get("generateAlpha2Codes")
+            "generateAlpha2Codes": obj.get("generateAlpha2Codes"),
+            "pdfPagesLimit": obj.get("pdfPagesLimit")
         })
         return _obj
 

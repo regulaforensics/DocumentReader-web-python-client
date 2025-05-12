@@ -4,12 +4,6 @@ from regula.documentreader.webclient import *
 
 host = os.getenv("API_BASE_PATH", "https://api.regulaforensics.com")
 
-# read optional local license file
-if os.path.isfile('regula.license') and os.access('regula.license', os.R_OK):
-    with open("regula.license", "rb") as f:
-        print("Found local license file. Using it for performing request...")
-        regula_license = f.read()
-
 with open("WHITE.jpg", "rb") as f:
     white_page_0 = f.read()
 
@@ -25,11 +19,6 @@ with DocumentReaderApi(host) as api:
         "Authorization": "Bearer 123"
     }
     params = ProcessParams(alreadyCropped=True, scenario=Scenario.FULLPROCESS)
-
-    # Add license to request
-    # request = RecognitionRequest(system_info=ProcessSystemInfo(license=base64.b64encode(regula_license).decode()), process_params=params, images=[
-    #     RecognitionImage(image=white_page_0, light_index=Light.WHITE, page_index=0),
-    # ])
 
     request = RecognitionRequest(process_params=params, images=[
         RecognitionImage(image=white_page_0, light_index=Light.WHITE, page_index=0),
