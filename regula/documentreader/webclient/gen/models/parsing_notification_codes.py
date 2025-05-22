@@ -240,6 +240,8 @@ class ParsingNotificationCodes(int, Enum):
     ntfLDS_ICAO_Certificate_VisualMrz_Country_NonMatching = 2415919697
     ntfLDS_MRZ_CountryCode_VisualMrz_NonMatching = 139289
     ntfLDS_ICAO_Certificate_MRZ_Country_NonMatching = 2415919698
+    ntfLDS_ICAO_Certificate_Issuer_CountryNonUpperCase = 2415919699
+    ntfLDS_ICAO_Certificate_Subject_CountryNonUpperCase = 2415919700
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

@@ -18,12 +18,12 @@ class MRZFormat(str, Enum):
     """
     allowed enum values
     """
-    ENUM_1X30 = '1x30'
-    ENUM_3X30 = '3x30'
-    ENUM_2X36 = '2x36'
-    ENUM_2X44 = '2x44'
-    ENUM_1X6 = '1x6'
-    ENUM_2X30 = '2x30'
+    IDL = '1x30'
+    ID1 = '3x30'
+    ID2 = '2x36'
+    ID3 = '2x44'
+    CAN = '1x6'
+    ID1_2_30 = '2x30'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

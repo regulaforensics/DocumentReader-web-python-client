@@ -18,7 +18,7 @@ class LogLevel(str, Enum):
     """
     allowed enum values
     """
-    FATALERROR = 'FatalError'
+    FATAL_ERROR = 'FatalError'
     ERROR = 'Error'
     WARNING = 'Warning'
     INFO = 'Info'
