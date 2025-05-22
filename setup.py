@@ -9,7 +9,7 @@ with open("README.md", "r") as fh:
 setup(
     name="regula_documentreader_webclient",
     version=os.getenv("PACKAGE_VERSION_TO_PUBLISH", "7.4.45"),
-    python_requires=">=3.8",
+    python_requires=">=3.9",
     description="Regula's Document Reader python client",
     long_description=long_description,
     long_description_content_type="text/markdown",
