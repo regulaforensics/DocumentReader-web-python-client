@@ -1,4 +1,4 @@
-# Regula Document Reader web API Python 3.8+ client
+# Regula Document Reader web API Python 3.9+ client
 
 [![pypi](https://img.shields.io/pypi/v/regula.documentreader.webclient?style=flat-square)](https://support.regulaforensics.com/hc/en-us/articles/115000916306-Documentation)
 [![OpenAPI](https://img.shields.io/badge/OpenAPI-defs-8c0a56?style=flat-square)](https://github.com/regulaforensics/DocumentReader-web-openapi)
