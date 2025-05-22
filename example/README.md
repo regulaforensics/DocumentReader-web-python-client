@@ -1,4 +1,4 @@
-# Regula Document Reader web API Python 3.5+ client
+# Regula Document Reader web API Python 3.9+ client
 
 :bulb: Before you start: if you just want to play with an online demo, visit our [playground](https://api.regulaforensics.com).
 
@@ -10,15 +10,15 @@ you agree with our [Privacy Policy](https://regulaforensics.com/en/company/priva
 and [License Agreement](https://downloads.regulaforensics.com/work/SDK/doc/Eula.pdf).
 
 Requirements:
-- installed python 3.5 or higher
+- installed python 3.9 or higher
 - installed [pip](https://pip.pypa.io/en/stable/installing/)
 
 Verify Python and pip versions:
 ```bash
 python --version  
-> Python 3.8.2
+> Python 3.9.2
 pip --version     
-> pip 20.2.1 from /home/user/.local/lib/python3.8/site-packages/pip (python 3.8)
+> pip 22.0.4 from /home/user/.local/lib/python3.9/site-packages/pip (python 3.9)
 ```
 
 Cloning example:
