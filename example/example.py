@@ -18,7 +18,7 @@ with DocumentReaderApi(host) as api:
         "X-CLIENT-KEY": "123",
         "Authorization": "Bearer 123"
     }
-    params = ProcessParams(alreadyCropped=True, scenario=Scenario.FULLPROCESS)
+    params = ProcessParams(alreadyCropped=True, scenario=Scenario.FULL_PROCESS)
 
     request = RecognitionRequest(process_params=params, images=[
         RecognitionImage(image=white_page_0, light_index=Light.WHITE, page_index=0),

@@ -18,15 +18,15 @@ class InputImageQualityChecks(str, Enum):
     """
     allowed enum values
     """
-    GLARESCHECK = 'glaresCheck'
-    FOCUSCHECK = 'focusCheck'
-    DPITHRESHOLD = 'dpiThreshold'
-    COLORNESSCHECK = 'colornessCheck'
-    PERSPECTIVECHECK = 'perspectiveCheck'
-    DOCUMENTPOSITION = 'documentPosition'
-    PORTRAITCHECK = 'portraitCheck'
-    BRIGHTNESSCHECK = 'brightnessCheck'
-    OCCLUSIONCHECK = 'occlusionCheck'
+    Glares = 'glaresCheck'
+    Focus = 'focusCheck'
+    Resolution = 'dpiThreshold'
+    Colorness = 'colornessCheck'
+    Perspective = 'perspectiveCheck'
+    Bounds = 'documentPosition'
+    Portrait = 'portraitCheck'
+    Brightness = 'brightnessCheck'
+    Occlusion = 'occlusionCheck'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
