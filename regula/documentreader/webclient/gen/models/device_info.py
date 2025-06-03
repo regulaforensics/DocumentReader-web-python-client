@@ -12,6 +12,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from regula.documentreader.webclient.gen.models.device_info_documents_database import DeviceInfoDocumentsDatabase
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -19,13 +20,17 @@ class DeviceInfo(BaseModel):
     """
     DeviceInfo
     """ # noqa: E501
-    app_name: Optional[StrictStr] = Field(default=None, alias="app-name")
-    version: Optional[StrictStr] = None
-    license_id: Optional[StrictStr] = Field(default=None, alias="license-id")
-    license_serial: Optional[StrictStr] = Field(default=None, alias="license-serial")
-    valid_until: Optional[datetime] = Field(default=None, alias="valid-until")
-    server_time: Optional[datetime] = Field(default=None, alias="server-time")
-    __properties: ClassVar[List[str]] = ["app-name", "version", "license-id", "license-serial", "valid-until", "server-time"]
+    app_name: Optional[StrictStr] = Field(default=None, description="Application name.", alias="app-name")
+    version: Optional[StrictStr] = Field(default=None, description="Product version.")
+    license_id: Optional[StrictStr] = Field(default=None, description="Unique license identifier.", alias="license-id")
+    license_serial: Optional[StrictStr] = Field(default=None, description="License serial number.", alias="license-serial")
+    license_type: Optional[StrictStr] = Field(default=None, alias="license-type")
+    valid_until: Optional[datetime] = Field(default=None, description="License validity date.", alias="valid-until")
+    server_time: Optional[StrictStr] = Field(default=None, alias="server-time")
+    supported_scenarios: Optional[List[StrictStr]] = Field(default=None, description="List of supported scenarios.", alias="supported-scenarios")
+    metadata: Optional[Dict[str, Any]] = None
+    documents_database: Optional[DeviceInfoDocumentsDatabase] = Field(default=None, alias="documents-database")
+    __properties: ClassVar[List[str]] = ["app-name", "version", "license-id", "license-serial", "license-type", "valid-until", "server-time", "supported-scenarios", "metadata", "documents-database"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -66,6 +71,9 @@ class DeviceInfo(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of documents_database
+        if self.documents_database:
+            _dict['documents-database'] = self.documents_database.to_dict()
         return _dict
 
     @classmethod
@@ -82,8 +90,12 @@ class DeviceInfo(BaseModel):
             "version": obj.get("version"),
             "license-id": obj.get("license-id"),
             "license-serial": obj.get("license-serial"),
+            "license-type": obj.get("license-type"),
             "valid-until": obj.get("valid-until"),
-            "server-time": obj.get("server-time")
+            "server-time": obj.get("server-time"),
+            "supported-scenarios": obj.get("supported-scenarios"),
+            "metadata": obj.get("metadata"),
+            "documents-database": DeviceInfoDocumentsDatabase.from_dict(obj["documents-database"]) if obj.get("documents-database") is not None else None
         })
         return _obj
 

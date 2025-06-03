@@ -37,6 +37,7 @@ from regula.documentreader.webclient.gen.models.data_module import DataModule
 from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical
 from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID
 from regula.documentreader.webclient.gen.models.device_info import DeviceInfo
+from regula.documentreader.webclient.gen.models.device_info_documents_database import DeviceInfoDocumentsDatabase
 from regula.documentreader.webclient.gen.models.doc_bar_code_info import DocBarCodeInfo
 from regula.documentreader.webclient.gen.models.doc_bar_code_info_fields_list import DocBarCodeInfoFieldsList
 from regula.documentreader.webclient.gen.models.doc_bar_code_info_item import DocBarCodeInfoItem

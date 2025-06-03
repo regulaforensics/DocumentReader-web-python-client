@@ -41,6 +41,7 @@ regula/documentreader/webclient/gen/models/data_module.py
 regula/documentreader/webclient/gen/models/details_optical.py
 regula/documentreader/webclient/gen/models/details_rfid.py
 regula/documentreader/webclient/gen/models/device_info.py
+regula/documentreader/webclient/gen/models/device_info_documents_database.py
 regula/documentreader/webclient/gen/models/doc_bar_code_info.py
 regula/documentreader/webclient/gen/models/doc_bar_code_info_fields_list.py
 regula/documentreader/webclient/gen/models/doc_bar_code_info_item.py
