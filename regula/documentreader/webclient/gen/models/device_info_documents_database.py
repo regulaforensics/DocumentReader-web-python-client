@@ -9,18 +9,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from regula.documentreader.webclient.gen.models.parsing_notification_codes import ParsingNotificationCodes
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ProcessParamsRfid(BaseModel):
+class DeviceInfoDocumentsDatabase(BaseModel):
     """
-    Params for the RFID chip data reprocessing
+    Database information.
     """ # noqa: E501
-    pa_ignore_notification_codes: Optional[List[ParsingNotificationCodes]] = Field(default=None, description="A list of notification codes that should be ignored during passive authentication (PA)", alias="paIgnoreNotificationCodes")
-    __properties: ClassVar[List[str]] = ["paIgnoreNotificationCodes"]
+    id: Optional[StrictStr] = Field(description="Database identifier.")
+    version: Optional[StrictStr] = Field(description="Database version.")
+    export_date: Optional[StrictStr] = Field(description="Date of database creation.", alias="export-date")
+    description: Optional[StrictStr] = Field(description="Description of the database contents, such as the list of supported countries and documents.")
+    __properties: ClassVar[List[str]] = ["id", "version", "export-date", "description"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -40,7 +42,7 @@ class ProcessParamsRfid(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ProcessParamsRfid from a JSON string"""
+        """Create an instance of DeviceInfoDocumentsDatabase from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -61,11 +63,31 @@ class ProcessParamsRfid(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if id (nullable) is None
+        # and model_fields_set contains the field
+        if self.id is None and "id" in self.model_fields_set:
+            _dict['id'] = None
+
+        # set to None if version (nullable) is None
+        # and model_fields_set contains the field
+        if self.version is None and "version" in self.model_fields_set:
+            _dict['version'] = None
+
+        # set to None if export_date (nullable) is None
+        # and model_fields_set contains the field
+        if self.export_date is None and "export_date" in self.model_fields_set:
+            _dict['export-date'] = None
+
+        # set to None if description (nullable) is None
+        # and model_fields_set contains the field
+        if self.description is None and "description" in self.model_fields_set:
+            _dict['description'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ProcessParamsRfid from a dict"""
+        """Create an instance of DeviceInfoDocumentsDatabase from a dict"""
         if obj is None:
             return None
 
@@ -73,7 +95,10 @@ class ProcessParamsRfid(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "paIgnoreNotificationCodes": obj.get("paIgnoreNotificationCodes")
+            "id": obj.get("id"),
+            "version": obj.get("version"),
+            "export-date": obj.get("export-date"),
+            "description": obj.get("description")
         })
         return _obj
 
