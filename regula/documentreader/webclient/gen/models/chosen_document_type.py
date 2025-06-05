@@ -24,7 +24,7 @@ class ChosenDocumentType(BaseModel):
     document_name: Optional[StrictStr] = Field(default=None, description="Document name", alias="DocumentName")
     id: StrictInt = Field(description="Unique document type template identifier (Regula's internal numeric code)", alias="ID")
     p: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="A measure of the likelihood of correct recognition in the analysis of this type of document", alias="P")
-    rotated180: StrictInt = Field(description="true if the document of the given type is rotated by 180 degrees", alias="Rotated180")
+    rotated180: StrictInt = Field(description="Indicates if the document of the given type is rotated by 180 degrees", alias="Rotated180")
     rfid_presence: RfidLocation = Field(alias="RFID_Presence")
     fdsid_list: Optional[FDSIDList] = Field(default=None, alias="FDSIDList")
     necessary_lights: StrictInt = Field(description="Combination of lighting scheme identifiers (Light enum) required to conduct OCR for this type of document", alias="NecessaryLights")
