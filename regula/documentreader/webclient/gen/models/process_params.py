@@ -12,7 +12,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.auth_params import AuthParams
-from regula.documentreader.webclient.gen.models.authenticity_result_type import AuthenticityResultType
 from regula.documentreader.webclient.gen.models.document_format import DocumentFormat
 from regula.documentreader.webclient.gen.models.document_type import DocumentType
 from regula.documentreader.webclient.gen.models.face_api import FaceApi
@@ -82,7 +81,7 @@ class ProcessParams(BaseModel):
     split_names: Optional[StrictBool] = Field(default=None, description="When enabled, the Surname and GivenNames fields from MRZ will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default.", alias="splitNames")
     disable_perforation_ocr: Optional[StrictBool] = Field(default=None, description="When enabled, OCR of perforated fields in the document template will not be performed. Disabled by default.", alias="disablePerforationOCR")
     document_group_filter: Optional[List[DocumentType]] = Field(default=None, description="List of specific eligible document types from DocumentType enum to recognize from. You may, for example, specify only passports to be recognized by setting this property. Empty by default.", alias="documentGroupFilter")
-    process_auth: Optional[AuthenticityResultType] = Field(default=None, alias="processAuth")
+    process_auth: Optional[StrictInt] = Field(default=None, alias="processAuth")
     device_id: Optional[StrictInt] = Field(default=None, description="This parameter is used to specify the document reader device type from which input images were captured. Default 0.", alias="deviceId")
     device_type: Optional[StrictInt] = Field(default=None, description="This parameter is used to specify the document reader device type from which input images were captured. Default 0.", alias="deviceType")
     device_type_hex: Optional[StrictStr] = Field(default=None, description="This parameter is used to specify the document reader device type from which input images were captured", alias="deviceTypeHex")

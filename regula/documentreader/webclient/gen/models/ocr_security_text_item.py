@@ -14,6 +14,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.critical import Critical
 from regula.documentreader.webclient.gen.models.light import Light
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
+from regula.documentreader.webclient.gen.models.text_field_type import TextFieldType
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -24,9 +25,9 @@ class OCRSecurityTextItem(BaseModel):
     critical_flag: Critical = Field(alias="CriticalFlag")
     light_type: Light = Field(alias="LightType")
     field_rect: RectangleCoordinates = Field(alias="FieldRect")
-    etalon_result_type: StrictInt = Field(alias="EtalonResultType")
-    etalon_field_type: StrictInt = Field(alias="EtalonFieldType")
-    etalon_light_type: StrictInt = Field(alias="EtalonLightType")
+    etalon_result_type: StrictInt = Field(description="Same as Result type, but used for safe parsing of not-described values. See Result type.", alias="EtalonResultType")
+    etalon_field_type: TextFieldType = Field(alias="EtalonFieldType")
+    etalon_light_type: Light = Field(alias="EtalonLightType")
     etalon_field_rect: RectangleCoordinates = Field(alias="EtalonFieldRect")
     security_text_result_ocr: StrictStr = Field(alias="SecurityTextResultOCR")
     etalon_result_ocr: StrictStr = Field(alias="EtalonResultOCR")
@@ -95,7 +96,7 @@ class OCRSecurityTextItem(BaseModel):
             "CriticalFlag": obj.get("CriticalFlag"),
             "LightType": obj.get("LightType"),
             "FieldRect": RectangleCoordinates.from_dict(obj["FieldRect"]) if obj.get("FieldRect") is not None else None,
-            "EtalonResultType": obj.get("EtalonResultType"),
+            "EtalonResultType": obj.get("EtalonResultType") if obj.get("EtalonResultType") is not None else 0,
             "EtalonFieldType": obj.get("EtalonFieldType"),
             "EtalonLightType": obj.get("EtalonLightType"),
             "EtalonFieldRect": RectangleCoordinates.from_dict(obj["EtalonFieldRect"]) if obj.get("EtalonFieldRect") is not None else None,
