@@ -20,7 +20,6 @@ class RFIDDocVisualExtendedField(BaseModel):
     """
     RFIDDocVisualExtendedField
     """ # noqa: E501
-    field_type: StrictInt = Field(alias="FieldType")
     w_field_type: TextFieldType = Field(alias="wFieldType")
     field_name: StrictStr = Field(description="Field symbolic name (null-terminated string)", alias="FieldName")
     strings_count: Union[StrictFloat, StrictInt] = Field(description="Number of StringsResult array elements", alias="StringsCount")
@@ -37,7 +36,7 @@ class RFIDDocVisualExtendedField(BaseModel):
     origin_dg_tag: Optional[StrictInt] = Field(default=None, alias="OriginDGTag")
     origin_tag_entry: Union[StrictFloat, StrictInt] = Field(description="Record index of the text field source in the data group", alias="OriginTagEntry")
     origin_entry_view: Optional[StrictInt] = Field(default=None, alias="OriginEntryView")
-    __properties: ClassVar[List[str]] = ["FieldType", "wFieldType", "FieldName", "StringsCount", "StringsResult", "Buf_Length", "Buf_Text", "FieldMask", "Validity", "InComparison", "wLCID", "Reserved2", "Reserved3", "OriginDG", "OriginDGTag", "OriginTagEntry", "OriginEntryView"]
+    __properties: ClassVar[List[str]] = ["wFieldType", "FieldName", "StringsCount", "StringsResult", "Buf_Length", "Buf_Text", "FieldMask", "Validity", "InComparison", "wLCID", "Reserved2", "Reserved3", "OriginDG", "OriginDGTag", "OriginTagEntry", "OriginEntryView"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,7 +96,6 @@ class RFIDDocVisualExtendedField(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "FieldType": obj.get("FieldType"),
             "wFieldType": obj.get("wFieldType"),
             "FieldName": obj.get("FieldName"),
             "StringsCount": obj.get("StringsCount"),

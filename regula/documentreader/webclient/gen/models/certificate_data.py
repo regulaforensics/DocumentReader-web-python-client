@@ -9,7 +9,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -19,7 +19,7 @@ class CertificateData(BaseModel):
     CertificateData
     """ # noqa: E501
     data: StrictStr = Field(alias="Data")
-    length: StrictStr = Field(alias="Length")
+    length: StrictInt = Field(alias="Length")
     __properties: ClassVar[List[str]] = ["Data", "Length"]
 
     model_config = ConfigDict(

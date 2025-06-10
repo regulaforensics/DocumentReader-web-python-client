@@ -19,10 +19,12 @@ class Light(int, Enum):
     allowed enum values
     """
     OFF = 0
+    WHITE_TOP = 2
+    WHITE_SIDE = 4
     WHITE = 6
     IR = 24
     UV = 128
-    AXIAL_WHITE_FULL = 3072
+    AXIAL_WHITE = 3072
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

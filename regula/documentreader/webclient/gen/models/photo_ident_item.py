@@ -30,9 +30,8 @@ class PhotoIdentItem(BaseModel):
     field_types_list: Optional[List[StrictInt]] = Field(default=None, alias="FieldTypesList")
     step: Optional[StrictInt] = Field(default=None, alias="Step")
     angle: Optional[StrictInt] = Field(default=None, alias="Angle")
-    result: Optional[StrictInt] = Field(default=None, alias="Result")
     reserved3: Optional[StrictInt] = Field(default=None, alias="Reserved3")
-    __properties: ClassVar[List[str]] = ["LightIndex", "Area", "SourceImage", "ResultImages", "FieldTypesCount", "FieldTypesList", "Step", "Angle", "Result", "Reserved3"]
+    __properties: ClassVar[List[str]] = ["LightIndex", "Area", "SourceImage", "ResultImages", "FieldTypesCount", "FieldTypesList", "Step", "Angle", "Reserved3"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -102,7 +101,6 @@ class PhotoIdentItem(BaseModel):
             "FieldTypesList": obj.get("FieldTypesList"),
             "Step": obj.get("Step"),
             "Angle": obj.get("Angle"),
-            "Result": obj.get("Result"),
             "Reserved3": obj.get("Reserved3")
         })
         return _obj

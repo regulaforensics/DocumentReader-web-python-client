@@ -31,10 +31,9 @@ class OCRSecurityTextItem(BaseModel):
     etalon_field_rect: RectangleCoordinates = Field(alias="EtalonFieldRect")
     security_text_result_ocr: StrictStr = Field(alias="SecurityTextResultOCR")
     etalon_result_ocr: StrictStr = Field(alias="EtalonResultOCR")
-    result_code: Optional[StrictInt] = Field(default=None, alias="ResultCode")
     reserved1: Optional[StrictInt] = Field(default=None, alias="Reserved1")
     reserved2: Optional[StrictInt] = Field(default=None, alias="Reserved2")
-    __properties: ClassVar[List[str]] = ["CriticalFlag", "LightType", "FieldRect", "EtalonResultType", "EtalonFieldType", "EtalonLightType", "EtalonFieldRect", "SecurityTextResultOCR", "EtalonResultOCR", "ResultCode", "Reserved1", "Reserved2"]
+    __properties: ClassVar[List[str]] = ["CriticalFlag", "LightType", "FieldRect", "EtalonResultType", "EtalonFieldType", "EtalonLightType", "EtalonFieldRect", "SecurityTextResultOCR", "EtalonResultOCR", "Reserved1", "Reserved2"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -102,7 +101,6 @@ class OCRSecurityTextItem(BaseModel):
             "EtalonFieldRect": RectangleCoordinates.from_dict(obj["EtalonFieldRect"]) if obj.get("EtalonFieldRect") is not None else None,
             "SecurityTextResultOCR": obj.get("SecurityTextResultOCR"),
             "EtalonResultOCR": obj.get("EtalonResultOCR"),
-            "ResultCode": obj.get("ResultCode"),
             "Reserved1": obj.get("Reserved1"),
             "Reserved2": obj.get("Reserved2")
         })
