@@ -25,8 +25,7 @@ class SymbolRecognitionResult(BaseModel):
     list_of_candidates: List[SymbolCandidate] = Field(description="Array of candidate characters. Sorted in descending order of recognition probabilities (the first element has highest probability)", alias="ListOfCandidates")
     base_line_bottom: Optional[StrictInt] = Field(default=None, alias="BaseLineBottom")
     base_line_top: Optional[StrictInt] = Field(default=None, alias="BaseLineTop")
-    reserved: Optional[StrictInt] = Field(default=None, alias="Reserved")
-    __properties: ClassVar[List[str]] = ["SymbolRect", "CandidatesCount", "ListOfCandidates", "BaseLineBottom", "BaseLineTop", "Reserved"]
+    __properties: ClassVar[List[str]] = ["SymbolRect", "CandidatesCount", "ListOfCandidates", "BaseLineBottom", "BaseLineTop"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,8 +92,7 @@ class SymbolRecognitionResult(BaseModel):
             "CandidatesCount": obj.get("CandidatesCount"),
             "ListOfCandidates": [SymbolCandidate.from_dict(_item) for _item in obj["ListOfCandidates"]] if obj.get("ListOfCandidates") is not None else None,
             "BaseLineBottom": obj.get("BaseLineBottom"),
-            "BaseLineTop": obj.get("BaseLineTop"),
-            "Reserved": obj.get("Reserved")
+            "BaseLineTop": obj.get("BaseLineTop")
         })
         return _obj
 

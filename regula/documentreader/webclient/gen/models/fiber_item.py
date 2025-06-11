@@ -29,8 +29,7 @@ class FiberItem(BaseModel):
     length: List[StrictInt] = Field(description="Fibers length value for located areas (in pixels)", alias="Length")
     area: List[StrictInt] = Field(description="Fibers value for areas (in pixels)", alias="Area")
     color_values: List[StrictInt] = Field(description="Fibers color value", alias="ColorValues")
-    error_code: Optional[StrictInt] = Field(default=None, alias="ErrorCode")
-    __properties: ClassVar[List[str]] = ["RectCount", "ExpectedCount", "LightValue", "LightDisp", "RectArray", "Width", "Length", "Area", "ColorValues", "ErrorCode"]
+    __properties: ClassVar[List[str]] = ["RectCount", "ExpectedCount", "LightValue", "LightDisp", "RectArray", "Width", "Length", "Area", "ColorValues"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -98,8 +97,7 @@ class FiberItem(BaseModel):
             "Width": obj.get("Width"),
             "Length": obj.get("Length"),
             "Area": obj.get("Area"),
-            "ColorValues": obj.get("ColorValues"),
-            "ErrorCode": obj.get("ErrorCode")
+            "ColorValues": obj.get("ColorValues")
         })
         return _obj
 

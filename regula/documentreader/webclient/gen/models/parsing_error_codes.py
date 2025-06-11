@@ -48,6 +48,14 @@ class ParsingErrorCodes(int, Enum):
     errLDS_ASN_SignerInfo_SignAlg_IncorrectData = 2147483685
     errLDS_ASN_SignerInfo_Signature_IncorrectData = 2147483686
     errLDS_ASN_SignerInfo_UnsignedAttrs_IncorrectData = 2147483687
+    errLDS_ASN_DTC_SignerInfo_IncorrectData = 2147483712
+    errLDS_ASN_DTC_SignerInfo_Certificate_IncorrectData = 2147483713
+    errLDS_ASN_DTC_SignerInfo_DigestAlg_IncorrectData = 2147483714
+    errLDS_ASN_DTC_SignerInfo_SignedAttrs_IncorrectData = 2147483715
+    errLDS_ASN_DTC_SignerInfo_SignAlg_IncorrectData = 2147483716
+    errLDS_ASN_DTC_SignerInfo_Signature_IncorrectData = 2147483717
+    errLDS_ASN_DTC_SecurityInfo_IncorrectData = 2147483718
+    errLDS_ASN_DTC_ContentInfo_IncorrectData = 2147483719
     errLDS_ICAO_LDSObject_UnsupportedDigestAlgorithm = 2147483696
     errLDS_ICAO_SignedData_SignerInfos_Empty = 2147483697
     errLDS_ICAO_SignerInfo_UnsupportedDigestAlgorithm = 2147483698

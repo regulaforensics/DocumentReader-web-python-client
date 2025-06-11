@@ -15,6 +15,7 @@ from regula.documentreader.webclient.gen.models.barcode_type import BarcodeType
 from regula.documentreader.webclient.gen.models.bc_pdf417_info import BcPDF417INFO
 from regula.documentreader.webclient.gen.models.bc_roidetect import BcROIDETECT
 from regula.documentreader.webclient.gen.models.data_module import DataModule
+from regula.documentreader.webclient.gen.models.text_field_type import TextFieldType
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,7 @@ class PArrayField(BaseModel):
     bc_pdf417_info: Optional[BcPDF417INFO] = Field(default=None, alias="bcPDF417INFO")
     bc_roi_detect: BcROIDETECT = Field(alias="bcROI_DETECT")
     bc_text_decoder_types: Optional[StrictInt] = Field(default=None, alias="bcTextDecoderTypes")
-    bc_text_field_type: Optional[StrictInt] = Field(default=None, alias="bcTextFieldType")
+    bc_text_field_type: Optional[TextFieldType] = Field(default=None, alias="bcTextFieldType")
     bc_type_decode: BarcodeType = Field(alias="bcType_DECODE")
     bc_type_detect: StrictInt = Field(alias="bcType_DETECT")
     __properties: ClassVar[List[str]] = ["bcAngle_DETECT", "bcCodeResult", "bcCountModule", "bcDataModule", "bcPDF417INFO", "bcROI_DETECT", "bcTextDecoderTypes", "bcTextFieldType", "bcType_DECODE", "bcType_DETECT"]

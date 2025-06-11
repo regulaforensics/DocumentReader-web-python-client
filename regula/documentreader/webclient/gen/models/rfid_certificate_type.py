@@ -26,6 +26,10 @@ class RfidCertificateType(int, Enum):
     DEV_LS = 5
     DEF_LS = 6
     BLS = 7
+    LDS2 = 8
+    BCS = 9
+    BCS_NC = 10
+    DTCS = 11
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
