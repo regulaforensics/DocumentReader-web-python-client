@@ -12,7 +12,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.container_list import ContainerList
-from regula.documentreader.webclient.gen.models.lcid import LCID
 from regula.documentreader.webclient.gen.models.process_params import ProcessParams
 from regula.documentreader.webclient.gen.models.process_request_image import ProcessRequestImage
 from regula.documentreader.webclient.gen.models.process_system_info import ProcessSystemInfo
@@ -35,8 +34,7 @@ class ProcessRequest(BaseModel):
     pass_back_object: Optional[Dict[str, Any]] = Field(default=None, description="Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs.", alias="passBackObject")
     dtc: Optional[StrictStr] = Field(default=None, description="Digital Travel Credential (DTC-VC) data in base64 format for processing")
     image_urls: Optional[List[StrictStr]] = Field(default=None, description="URLs to the document images for processing.", alias="ImageUrls")
-    lcid_filter: Optional[List[LCID]] = Field(default=None, description="The list of LCID types to recognize. If empty, values with all LCID types will be extracted. Empty by default.", alias="lcidFilter")
-    __properties: ClassVar[List[str]] = ["processParam", "List", "tag", "tenant", "env", "livePortrait", "extPortrait", "ContainerList", "systemInfo", "passBackObject", "dtc", "ImageUrls", "lcidFilter"]
+    __properties: ClassVar[List[str]] = ["processParam", "List", "tag", "tenant", "env", "livePortrait", "extPortrait", "ContainerList", "systemInfo", "passBackObject", "dtc", "ImageUrls"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -116,8 +114,7 @@ class ProcessRequest(BaseModel):
             "systemInfo": ProcessSystemInfo.from_dict(obj["systemInfo"]) if obj.get("systemInfo") is not None else None,
             "passBackObject": obj.get("passBackObject"),
             "dtc": obj.get("dtc"),
-            "ImageUrls": obj.get("ImageUrls"),
-            "lcidFilter": obj.get("lcidFilter")
+            "ImageUrls": obj.get("ImageUrls")
         })
         return _obj
 

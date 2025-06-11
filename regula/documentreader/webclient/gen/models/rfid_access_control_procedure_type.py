@@ -26,6 +26,7 @@ class RfidAccessControlProcedureType(int, Enum):
     AA = 5
     RI = 6
     CARD_INFO = 10
+    DTC_INFO = 11
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

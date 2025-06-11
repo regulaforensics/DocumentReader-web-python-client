@@ -36,6 +36,11 @@ class RfidDataGroupTypeTag(int, Enum):
     DG15 = 111
     DG16 = 112
     SOD = 119
+    DG17 = 113
+    DG18 = 114
+    DG22 = 115
+    DG23 = 116
+    DG24 = 98
     EID_DG1 = 97
     EID_DG2 = 98
     EID_DG3 = 99
@@ -59,7 +64,7 @@ class RfidDataGroupTypeTag(int, Enum):
     EID_DG21 = 117
     EDL_COM = 96
     EDL_SOD = 119
-    EDL_CE = 119
+    EDL_CE = 83
     EDL_DG1 = 97
     EDL_DG2 = 107
     EDL_DG3 = 108

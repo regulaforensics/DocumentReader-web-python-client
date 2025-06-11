@@ -20,7 +20,6 @@ class VisualExtendedFieldItem(BaseModel):
     """
     VisualExtendedFieldItem
     """ # noqa: E501
-    field_type: StrictInt = Field(alias="FieldType")
     w_field_type: TextFieldType = Field(alias="wFieldType")
     field_name: StrictStr = Field(description="Field symbolic name (null-terminated string)", alias="FieldName")
     strings_count: Union[StrictFloat, StrictInt] = Field(description="Number of StringsResult array elements", alias="StringsCount")
@@ -33,7 +32,7 @@ class VisualExtendedFieldItem(BaseModel):
     w_lcid: Optional[StrictInt] = Field(default=None, alias="wLCID")
     reserved2: Optional[StrictInt] = Field(default=None, alias="Reserved2")
     reserved3: Optional[StrictInt] = Field(default=None, alias="Reserved3")
-    __properties: ClassVar[List[str]] = ["FieldType", "wFieldType", "FieldName", "StringsCount", "StringsResult", "Buf_Length", "Buf_Text", "FieldMask", "Validity", "InComparison", "wLCID", "Reserved2", "Reserved3"]
+    __properties: ClassVar[List[str]] = ["wFieldType", "FieldName", "StringsCount", "StringsResult", "Buf_Length", "Buf_Text", "FieldMask", "Validity", "InComparison", "wLCID", "Reserved2", "Reserved3"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,7 +92,6 @@ class VisualExtendedFieldItem(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "FieldType": obj.get("FieldType"),
             "wFieldType": obj.get("wFieldType"),
             "FieldName": obj.get("FieldName"),
             "StringsCount": obj.get("StringsCount"),

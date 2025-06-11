@@ -23,6 +23,9 @@ class RfidBaudRate(int, Enum):
     RFBR_212 = 2
     RFBR_424 = 4
     RFBR_848 = 8
+    RFBR_1695 = 16
+    RFBR_3390 = 32
+    RFBR_6780 = 64
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

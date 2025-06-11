@@ -32,9 +32,8 @@ class SecurityFeatureResult(AuthenticityCheckResultItem):
     visibility: Visibility = Field(alias="Visibility")
     critical_flag: Critical = Field(alias="CriticalFlag")
     area_list: Optional[AreaContainer] = Field(default=None, alias="AreaList")
-    result: Optional[StrictInt] = Field(default=None, alias="Result")
     reserved2: Optional[StrictInt] = Field(default=None, alias="Reserved2")
-    __properties: ClassVar[List[str]] = ["Type", "ElementResult", "ElementDiagnose", "PercentValue", "ElementType", "ElementRect", "Visibility", "CriticalFlag", "AreaList", "Result", "Reserved2"]
+    __properties: ClassVar[List[str]] = ["Type", "ElementResult", "ElementDiagnose", "PercentValue", "ElementType", "ElementRect", "Visibility", "CriticalFlag", "AreaList", "Reserved2"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -102,7 +101,6 @@ class SecurityFeatureResult(AuthenticityCheckResultItem):
             "Visibility": obj.get("Visibility"),
             "CriticalFlag": obj.get("CriticalFlag"),
             "AreaList": AreaContainer.from_dict(obj["AreaList"]) if obj.get("AreaList") is not None else None,
-            "Result": obj.get("Result"),
             "Reserved2": obj.get("Reserved2")
         })
         return _obj
