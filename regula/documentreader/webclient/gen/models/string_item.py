@@ -10,7 +10,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
+from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from regula.documentreader.webclient.gen.models.error_coordinates import ErrorCoordinates
 from regula.documentreader.webclient.gen.models.field_item import FieldItem
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
@@ -22,16 +23,16 @@ class StringItem(BaseModel):
     """
     StringItem
     """ # noqa: E501
-    alignment_symbols_in_string: StrictInt = Field(alias="ALIGNMENT_SYMBOLS_IN_STRING")
-    check_sums: StrictInt = Field(alias="CHECK_SUMS")
+    alignment_symbols_in_string: CheckResult = Field(alias="ALIGNMENT_SYMBOLS_IN_STRING")
+    check_sums: CheckResult = Field(alias="CHECK_SUMS")
     error_position: ErrorCoordinates = Field(alias="ErrorPOSITION")
     field_count: StrictInt = Field(alias="FieldCount")
     fields: List[FieldItem] = Field(alias="Fields")
-    strings_distance: StrictInt = Field(alias="STRINGS_DISTANCE")
-    strings_interval: StrictInt = Field(alias="STRINGS_INTERVAL")
-    string_filling: StrictInt = Field(alias="STRING_FILLING")
-    string_position: StrictInt = Field(alias="STRING_POSITION")
-    symbols_param: StrictInt = Field(alias="SYMBOLS_PARAM")
+    strings_distance: CheckResult = Field(alias="STRINGS_DISTANCE")
+    strings_interval: CheckResult = Field(alias="STRINGS_INTERVAL")
+    string_filling: CheckResult = Field(alias="STRING_FILLING")
+    strings_position: Optional[CheckResult] = Field(default=None, alias="STRINGS_POSITION")
+    symbols_param: CheckResult = Field(alias="SYMBOLS_PARAM")
     size_error_alignment: Union[StrictFloat, StrictInt] = Field(alias="SizeError_ALIGNMENT")
     size_error_distance: Union[StrictFloat, StrictInt] = Field(alias="SizeError_DISTANCE")
     size_error_interval: Union[StrictFloat, StrictInt] = Field(alias="SizeError_INTERVAL")
@@ -39,7 +40,7 @@ class StringItem(BaseModel):
     string_borders: RectangleCoordinates = Field(alias="StringBorders")
     symbols_count: StrictInt = Field(alias="SymbolsCount")
     symbols_estimations: List[SymbolEstimationItem] = Field(alias="SymbolsEstimations")
-    __properties: ClassVar[List[str]] = ["ALIGNMENT_SYMBOLS_IN_STRING", "CHECK_SUMS", "ErrorPOSITION", "FieldCount", "Fields", "STRINGS_DISTANCE", "STRINGS_INTERVAL", "STRING_FILLING", "STRING_POSITION", "SYMBOLS_PARAM", "SizeError_ALIGNMENT", "SizeError_DISTANCE", "SizeError_INTERVAL", "StringAngle", "StringBorders", "SymbolsCount", "SymbolsEstimations"]
+    __properties: ClassVar[List[str]] = ["ALIGNMENT_SYMBOLS_IN_STRING", "CHECK_SUMS", "ErrorPOSITION", "FieldCount", "Fields", "STRINGS_DISTANCE", "STRINGS_INTERVAL", "STRING_FILLING", "STRINGS_POSITION", "SYMBOLS_PARAM", "SizeError_ALIGNMENT", "SizeError_DISTANCE", "SizeError_INTERVAL", "StringAngle", "StringBorders", "SymbolsCount", "SymbolsEstimations"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -120,7 +121,7 @@ class StringItem(BaseModel):
             "STRINGS_DISTANCE": obj.get("STRINGS_DISTANCE"),
             "STRINGS_INTERVAL": obj.get("STRINGS_INTERVAL"),
             "STRING_FILLING": obj.get("STRING_FILLING"),
-            "STRING_POSITION": obj.get("STRING_POSITION"),
+            "STRINGS_POSITION": obj.get("STRINGS_POSITION"),
             "SYMBOLS_PARAM": obj.get("SYMBOLS_PARAM"),
             "SizeError_ALIGNMENT": obj.get("SizeError_ALIGNMENT"),
             "SizeError_DISTANCE": obj.get("SizeError_DISTANCE"),
