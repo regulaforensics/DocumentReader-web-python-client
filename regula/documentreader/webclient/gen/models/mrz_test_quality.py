@@ -11,6 +11,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
+from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from regula.documentreader.webclient.gen.models.string_item import StringItem
 from typing import Optional, Set
 from typing_extensions import Self
@@ -19,16 +20,16 @@ class MRZTestQuality(BaseModel):
     """
     MRZTestQuality
     """ # noqa: E501
-    check_sums: StrictInt = Field(alias="CHECK_SUMS")
-    contrast_print: StrictInt = Field(alias="CONTRAST_PRINT")
+    check_sums: CheckResult = Field(alias="CHECK_SUMS")
+    contrast_print: CheckResult = Field(alias="CONTRAST_PRINT")
     doc_format: StrictInt = Field(alias="DOC_FORMAT")
     mrz_format: StrictInt = Field(alias="MRZ_FORMAT")
-    print_position: StrictInt = Field(alias="PRINT_POSITION")
-    stain_mrz: StrictInt = Field(alias="STAIN_MRZ")
-    symbols_param: StrictInt = Field(alias="SYMBOLS_PARAM")
+    print_position: CheckResult = Field(alias="PRINT_POSITION")
+    stain_mrz: CheckResult = Field(alias="STAIN_MRZ")
+    symbols_param: CheckResult = Field(alias="SYMBOLS_PARAM")
     str_count: StrictInt = Field(alias="StrCount")
     strings: List[StringItem] = Field(alias="Strings")
-    textual_filling: StrictInt = Field(alias="TEXTUAL_FILLING")
+    textual_filling: CheckResult = Field(alias="TEXTUAL_FILLING")
     __properties: ClassVar[List[str]] = ["CHECK_SUMS", "CONTRAST_PRINT", "DOC_FORMAT", "MRZ_FORMAT", "PRINT_POSITION", "STAIN_MRZ", "SYMBOLS_PARAM", "StrCount", "Strings", "TEXTUAL_FILLING"]
 
     model_config = ConfigDict(

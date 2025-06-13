@@ -11,7 +11,7 @@ import json
 
 from pydantic import ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from regula.documentreader.webclient.gen.models.mrz_position import MrzPosition
+from regula.documentreader.webclient.gen.models.document_position import DocumentPosition
 from regula.documentreader.webclient.gen.models.result import Result
 from regula.documentreader.webclient.gen.models.result_item import ResultItem
 from typing import Optional, Set
@@ -21,7 +21,7 @@ class MRZPositionResult(ResultItem):
     """
     MRZPositionResult
     """ # noqa: E501
-    mrz_position: MrzPosition = Field(alias="MrzPosition")
+    mrz_position: DocumentPosition = Field(alias="MrzPosition")
     __properties: ClassVar[List[str]] = ["buf_length", "light", "list_idx", "page_idx", "result_type", "MrzPosition"]
 
     model_config = ConfigDict(
@@ -83,7 +83,7 @@ class MRZPositionResult(ResultItem):
             "list_idx": obj.get("list_idx"),
             "page_idx": obj.get("page_idx"),
             "result_type": obj.get("result_type"),
-            "MrzPosition": MrzPosition.from_dict(obj["MrzPosition"]) if obj.get("MrzPosition") is not None else None
+            "MrzPosition": DocumentPosition.from_dict(obj["MrzPosition"]) if obj.get("MrzPosition") is not None else None
         })
         return _obj
 
