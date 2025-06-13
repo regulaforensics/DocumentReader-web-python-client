@@ -120,7 +120,6 @@ regula/documentreader/webclient/gen/models/measure_system.py
 regula/documentreader/webclient/gen/models/mrz_detect_mode_enum.py
 regula/documentreader/webclient/gen/models/mrz_detector_result.py
 regula/documentreader/webclient/gen/models/mrz_format.py
-regula/documentreader/webclient/gen/models/mrz_position.py
 regula/documentreader/webclient/gen/models/mrz_position_item.py
 regula/documentreader/webclient/gen/models/mrz_position_result.py
 regula/documentreader/webclient/gen/models/mrz_rows_item.py

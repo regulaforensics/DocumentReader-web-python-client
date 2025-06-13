@@ -11,7 +11,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from regula.documentreader.webclient.gen.models.mrz_position import MrzPosition
+from regula.documentreader.webclient.gen.models.document_position import DocumentPosition
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -19,7 +19,7 @@ class MrzPositionItem(BaseModel):
     """
     MrzPositionItem
     """ # noqa: E501
-    mrz_position: MrzPosition = Field(alias="MrzPosition")
+    mrz_position: DocumentPosition = Field(alias="MrzPosition")
     __properties: ClassVar[List[str]] = ["MrzPosition"]
 
     model_config = ConfigDict(
@@ -76,7 +76,7 @@ class MrzPositionItem(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "MrzPosition": MrzPosition.from_dict(obj["MrzPosition"]) if obj.get("MrzPosition") is not None else None
+            "MrzPosition": DocumentPosition.from_dict(obj["MrzPosition"]) if obj.get("MrzPosition") is not None else None
         })
         return _obj
 
