@@ -11,6 +11,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from regula.documentreader.webclient.gen.models.lcid import LCID
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from regula.documentreader.webclient.gen.models.string_recognition_result import StringRecognitionResult
 from regula.documentreader.webclient.gen.models.text_field_type import TextFieldType
@@ -30,7 +31,7 @@ class DocVisualExtendedField(BaseModel):
     field_mask: Optional[StrictStr] = Field(default=None, alias="FieldMask")
     validity: Optional[StrictInt] = Field(default=None, alias="Validity")
     in_comparison: Optional[StrictInt] = Field(default=None, alias="InComparison")
-    w_lcid: Optional[StrictInt] = Field(default=None, alias="wLCID")
+    w_lcid: Optional[LCID] = Field(default=None, alias="wLCID")
     reserved2: Optional[StrictInt] = Field(default=None, alias="Reserved2")
     reserved3: Optional[StrictInt] = Field(default=None, alias="Reserved3")
     field_rect: RectangleCoordinates = Field(alias="FieldRect")
