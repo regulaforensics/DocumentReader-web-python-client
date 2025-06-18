@@ -1,4 +1,4 @@
-# Regula Document Reader web API Python 3.5+ client
+# Regula Document Reader web API Python 3.9+ client
 
 :bulb: Before you start: if you just want to play with an online demo, visit our [playground](https://api.regulaforensics.com).
 
@@ -10,15 +10,15 @@ you agree with our [Privacy Policy](https://regulaforensics.com/en/company/priva
 and [License Agreement](https://downloads.regulaforensics.com/work/SDK/doc/Eula.pdf).
 
 Requirements:
-- installed python 3.5 or higher
+- installed python 3.9 or higher
 - installed [pip](https://pip.pypa.io/en/stable/installing/)
 
 Verify Python and pip versions:
 ```bash
 python --version  
-> Python 3.8.2
+> Python 3.9.2
 pip --version     
-> pip 20.2.1 from /home/user/.local/lib/python3.8/site-packages/pip (python 3.8)
+> pip 22.0.4 from /home/user/.local/lib/python3.9/site-packages/pip (python 3.9)
 ```
 
 Cloning example:
@@ -54,16 +54,29 @@ API_BASE_PATH="http://127.0.0.1:8080" python example.py
 ```
 
 ### Output 
+
 This sample generates the following text output:
+
 ```text
     ---------------------------------------------------------------------------
-                   Document Overall Status: not valid
-                    Document Number Visual: OO0000000
-                       Document Number MRZ: OO0000000
-        Validity Of Document Number Visual: 0
-           Validity Of Document Number MRZ: 0
-              MRZ-Visual values comparison: 1
+                        Web API version: 7.5.308602.1848
     ---------------------------------------------------------------------------
+                    Document Overall Status: not valid
+                    Document Number Visual: C01YPTNHM
+                    Document Type: Germany - ePassport (2017) Service
+                    Validity Of Document Number Visual: 2
+    
+-----------------------All Text Fields------------------------
+Source: Surname, Value: MUSTERMANN
+Source: Surname And Given Names, Value: MUSTERMANN ERIKA
+Source: Document Status, Value: SPECIMEN
+Source: Surname, Value: MUSTERMANN
+Source: Surname And Given Names, Value: MUSTERMANN ERIKA
+Source: Document Number Checkdigit, Value: 1
+Source: Document Class Code, Value: PO
+
+...
 ```
+
 Also, it stores [portrait](portrait.jpg) and [document image](document-image.jpg) images in the current folder.
 You can modify [this example](../example/example.py) and re-run it to get your own results.

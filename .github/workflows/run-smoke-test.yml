@@ -15,7 +15,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: 3.9
       - name: Install pipenv
         run: |
           python -m pip install --upgrade pip
@@ -27,4 +27,3 @@ jobs:
         working-directory: example
         env:
           API_BASE_PATH: "https://nightly-api.regulaforensics.com"
-          TEST_LICENSE: ${{secrets.TEST_LICENSE}}

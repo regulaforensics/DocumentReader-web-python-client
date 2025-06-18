@@ -1,11 +1,11 @@
-from typing import List
+from typing import List, cast
 
-from regula.documentreader.webclient import gen
+from regula.documentreader.webclient.gen.models import FiberResult, AuthenticityCheckResult
 
 
-class FiberChecks(gen.AuthenticityCheckResult):
+class FiberChecks(AuthenticityCheckResult):
 
-    @gen.AuthenticityCheckResult.list.getter
-    def list(self) -> List[gen.FiberResult]:
-        # noinspection PyTypeChecker
-        return super().list
+    @property
+    def checks_list(self) -> List[FiberResult]:
+        fiber_list: List[FiberResult] = cast(List[FiberResult], self.list)
+        return fiber_list

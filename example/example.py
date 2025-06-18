@@ -4,12 +4,6 @@ from regula.documentreader.webclient import *
 
 host = os.getenv("API_BASE_PATH", "https://api.regulaforensics.com")
 
-# read optional local license file
-if os.path.isfile('regula.license') and os.access('regula.license', os.R_OK):
-    with open("regula.license", "rb") as f:
-        print("Found local license file. Using it for performing request...")
-        regula_license = f.read()
-
 with open("WHITE.jpg", "rb") as f:
     white_page_0 = f.read()
 
@@ -24,12 +18,7 @@ with DocumentReaderApi(host) as api:
         "X-CLIENT-KEY": "123",
         "Authorization": "Bearer 123"
     }
-    params = ProcessParams(already_cropped=True, scenario=Scenario.FULL_PROCESS)
-
-    # Add license to request
-    # request = RecognitionRequest(system_info=ProcessSystemInfo(license=base64.b64encode(regula_license).decode()), process_params=params, images=[
-    #     RecognitionImage(image=white_page_0, light_index=Light.WHITE, page_index=0),
-    # ])
+    params = ProcessParams(alreadyCropped=True, scenario=Scenario.FULL_PROCESS)
 
     request = RecognitionRequest(process_params=params, images=[
         RecognitionImage(image=white_page_0, light_index=Light.WHITE, page_index=0),
@@ -38,8 +27,8 @@ with DocumentReaderApi(host) as api:
     ])
     response = api.process(request)
 
-    request_json = request.json   # example for request & response raw json
-    response_json = response.json
+    request_json = request.to_json()   # example for request & response raw json
+    response_json = response.to_json()
 
     # status examples
     response_status = response.status
@@ -63,13 +52,13 @@ with DocumentReaderApi(host) as api:
     #                                                      if FULL_PROCESS then auth is None
 
     doc_ir_b900_blank = doc_ir_b900.checks_by_element(SecurityFeatureType.BLANK) \
-        if doc_authenticity is not None else None
+        if doc_ir_b900 is not None else None
 
     doc_image_pattern = doc_authenticity.image_pattern_checks \
         if doc_authenticity is not None else None
 
     doc_image_pattern_blank = doc_image_pattern.checks_by_element(SecurityFeatureType.BLANK) \
-        if doc_authenticity is not None else None
+        if doc_image_pattern is not None else None
 
     # images fields example
     document_image = response.images.get_field(GraphicFieldType.DOCUMENT_FRONT).get_value()
