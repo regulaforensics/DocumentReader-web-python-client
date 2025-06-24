@@ -94,8 +94,8 @@ class RfidDataFileType(int, Enum):
     AUTHENTICITY_V2 = 302
     ATR = 400
     DIR = 401
-    _E_SIGN_PK = 500
-    _E_SIGN_SIGNED_DATA = 501
+    E_SIGN_PK = 500
+    E_SIGN_SIGNED_DATA = 501
     CERTIFICATE = 600
     MASTER_LIST = 601
     DEFECT_LIST = 602

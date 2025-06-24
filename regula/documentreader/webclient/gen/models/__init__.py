@@ -121,7 +121,6 @@ from regula.documentreader.webclient.gen.models.mrz_test_quality_item import MRZ
 from regula.documentreader.webclient.gen.models.mrz_test_quality_result import MRZTestQualityResult
 from regula.documentreader.webclient.gen.models.measure_system import MeasureSystem
 from regula.documentreader.webclient.gen.models.mrz_detect_mode_enum import MrzDetectModeEnum
-from regula.documentreader.webclient.gen.models.mrz_position import MrzPosition
 from regula.documentreader.webclient.gen.models.mrz_position_item import MrzPositionItem
 from regula.documentreader.webclient.gen.models.ocr_security_text_item import OCRSecurityTextItem
 from regula.documentreader.webclient.gen.models.ocr_security_text_result import OCRSecurityTextResult
