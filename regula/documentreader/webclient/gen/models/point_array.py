@@ -80,7 +80,7 @@ class PointArray(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "PointsList": [Point.from_dict(_item) for _item in obj["PointsList"]] if obj.get("PointsList") is not None else None
+            "PointsList": [Point.from_dict(_item) for _item in obj.get("PointsList", []) if Point.from_dict(_item) is not None]
         })
         return _obj
 

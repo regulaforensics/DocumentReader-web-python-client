@@ -161,8 +161,6 @@ class AuthenticityCheckResultItem(BaseModel):
         if object_type ==  'SecurityFeatureResult':
             return import_module("regula.documentreader.webclient.gen.models.security_feature_result").SecurityFeatureResult.from_dict(obj)
 
-        raise ValueError("AuthenticityCheckResultItem failed to lookup discriminator value from " +
-                            json.dumps(obj) + ". Discriminator property name: " + cls.__discriminator_property_name +
-                            ", mapping: " + json.dumps(cls.__discriminator_value_class_map))
+        return None
 
 

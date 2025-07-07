@@ -118,7 +118,7 @@ class RfidCertificateEx(BaseModel):
             "Validity": RfidValidity.from_dict(obj["Validity"]) if obj.get("Validity") is not None else None,
             "Subject": RfidDistinguishedName.from_dict(obj["Subject"]) if obj.get("Subject") is not None else None,
             "SubjectPKAlgorithm": obj.get("SubjectPKAlgorithm"),
-            "Extensions": [RfidPkiExtension.from_dict(_item) for _item in obj["Extensions"]] if obj.get("Extensions") is not None else None,
+            "Extensions": [RfidPkiExtension.from_dict(_item) for _item in obj.get("Extensions", []) if RfidPkiExtension.from_dict(_item) is not None],
             "Notifications": obj.get("Notifications"),
             "Origin": obj.get("Origin"),
             "Type": obj.get("Type"),

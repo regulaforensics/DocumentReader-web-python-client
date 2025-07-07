@@ -98,7 +98,7 @@ class MRZTestQuality(BaseModel):
             "STAIN_MRZ": obj.get("STAIN_MRZ"),
             "SYMBOLS_PARAM": obj.get("SYMBOLS_PARAM"),
             "StrCount": obj.get("StrCount"),
-            "Strings": [StringItem.from_dict(_item) for _item in obj["Strings"]] if obj.get("Strings") is not None else None,
+            "Strings": [StringItem.from_dict(_item) for _item in obj.get("Strings", []) if StringItem.from_dict(_item) is not None],
             "TEXTUAL_FILLING": obj.get("TEXTUAL_FILLING")
         })
         return _obj

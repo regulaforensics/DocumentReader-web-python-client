@@ -81,7 +81,7 @@ class GraphicFieldsList(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "pArrayFields": [GraphicField.from_dict(_item) for _item in obj["pArrayFields"]] if obj.get("pArrayFields") is not None else None,
+            "pArrayFields": [GraphicField.from_dict(_item) for _item in obj.get("pArrayFields", []) if GraphicField.from_dict(_item) is not None],
             "nFields": obj.get("nFields")
         })
         return _obj

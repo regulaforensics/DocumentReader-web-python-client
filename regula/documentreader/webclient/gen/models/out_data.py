@@ -82,7 +82,7 @@ class OutData(BaseModel):
 
         _obj = cls.model_validate({
             "url": obj.get("url"),
-            "images": [OutDataTransactionImagesFieldValue.from_dict(_item) for _item in obj["images"]] if obj.get("images") is not None else None
+            "images": [OutDataTransactionImagesFieldValue.from_dict(_item) for _item in obj.get("images", []) if OutDataTransactionImagesFieldValue.from_dict(_item) is not None]
         })
         return _obj
 

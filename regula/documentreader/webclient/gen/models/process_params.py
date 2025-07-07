@@ -191,7 +191,7 @@ class ProcessParams(BaseModel):
             "imageDpiOutMax": obj.get("imageDpiOutMax"),
             "alreadyCropped": obj.get("alreadyCropped"),
             "customParams": obj.get("customParams"),
-            "config": [PerDocumentConfig.from_dict(_item) for _item in obj["config"]] if obj.get("config") is not None else None,
+            "config": [PerDocumentConfig.from_dict(_item) for _item in obj.get("config", []) if PerDocumentConfig.from_dict(_item) is not None],
             "log": obj.get("log"),
             "logLevel": obj.get("logLevel"),
             "forceDocID": obj.get("forceDocID"),

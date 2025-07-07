@@ -86,7 +86,7 @@ class TDocBinaryInfo(BaseModel):
 
         _obj = cls.model_validate({
             "RFID_BINARY_DATA": BinaryData.from_dict(obj["RFID_BINARY_DATA"]) if obj.get("RFID_BINARY_DATA") is not None else None,
-            "RFID_RAW_DATA": [RfidRawData.from_dict(_item) for _item in obj["RFID_RAW_DATA"]] if obj.get("RFID_RAW_DATA") is not None else None
+            "RFID_RAW_DATA": [RfidRawData.from_dict(_item) for _item in obj.get("RFID_RAW_DATA", []) if RfidRawData.from_dict(_item) is not None]
         })
         return _obj
 

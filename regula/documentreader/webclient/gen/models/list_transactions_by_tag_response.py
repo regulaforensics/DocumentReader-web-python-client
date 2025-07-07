@@ -81,7 +81,7 @@ class ListTransactionsByTagResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "items": [GetTransactionsByTagResponse.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
+            "items": [GetTransactionsByTagResponse.from_dict(_item) for _item in obj.get("items", []) if GetTransactionsByTagResponse.from_dict(_item) is not None],
             "metadata": obj.get("metadata")
         })
         return _obj

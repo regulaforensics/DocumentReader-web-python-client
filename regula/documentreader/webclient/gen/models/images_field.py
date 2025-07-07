@@ -86,7 +86,7 @@ class ImagesField(BaseModel):
         _obj = cls.model_validate({
             "fieldName": obj.get("fieldName"),
             "fieldType": obj.get("fieldType"),
-            "valueList": [ImagesFieldValue.from_dict(_item) for _item in obj["valueList"]] if obj.get("valueList") is not None else None,
+            "valueList": [ImagesFieldValue.from_dict(_item) for _item in obj.get("valueList", []) if ImagesFieldValue.from_dict(_item) is not None],
             "valueCount": obj.get("valueCount")
         })
         return _obj

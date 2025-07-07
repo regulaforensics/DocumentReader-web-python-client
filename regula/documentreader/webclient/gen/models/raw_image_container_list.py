@@ -82,7 +82,7 @@ class RawImageContainerList(BaseModel):
 
         _obj = cls.model_validate({
             "Count": obj.get("Count"),
-            "Images": [ImageData.from_dict(_item) for _item in obj["Images"]] if obj.get("Images") is not None else None
+            "Images": [ImageData.from_dict(_item) for _item in obj.get("Images", []) if ImageData.from_dict(_item) is not None]
         })
         return _obj
 

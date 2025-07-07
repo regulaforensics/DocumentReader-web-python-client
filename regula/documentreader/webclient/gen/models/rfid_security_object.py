@@ -89,7 +89,7 @@ class RfidSecurityObject(BaseModel):
             "ObjectType": obj.get("ObjectType"),
             "FileReference": obj.get("FileReference"),
             "Notifications": obj.get("Notifications"),
-            "SignerInfos": [RfidSignerInfoEx.from_dict(_item) for _item in obj["SignerInfos"]] if obj.get("SignerInfos") is not None else None
+            "SignerInfos": [RfidSignerInfoEx.from_dict(_item) for _item in obj.get("SignerInfos", []) if RfidSignerInfoEx.from_dict(_item) is not None]
         })
         return _obj
 

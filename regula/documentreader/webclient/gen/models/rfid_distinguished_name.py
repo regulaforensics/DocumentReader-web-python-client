@@ -88,7 +88,7 @@ class RfidDistinguishedName(BaseModel):
         _obj = cls.model_validate({
             "Data": obj.get("Data"),
             "FriendlyName": TrfFtString.from_dict(obj["FriendlyName"]) if obj.get("FriendlyName") is not None else None,
-            "Attributes": [RfidAttributeName.from_dict(_item) for _item in obj["Attributes"]] if obj.get("Attributes") is not None else None
+            "Attributes": [RfidAttributeName.from_dict(_item) for _item in obj.get("Attributes", []) if RfidAttributeName.from_dict(_item) is not None]
         })
         return _obj
 

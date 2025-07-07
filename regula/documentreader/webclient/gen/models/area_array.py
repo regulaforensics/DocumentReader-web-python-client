@@ -91,8 +91,8 @@ class AreaArray(BaseModel):
 
         _obj = cls.model_validate({
             "Count": obj.get("Count"),
-            "List": [RectangleCoordinates.from_dict(_item) for _item in obj["List"]] if obj.get("List") is not None else None,
-            "Points": [PointArray.from_dict(_item) for _item in obj["Points"]] if obj.get("Points") is not None else None
+            "List": [RectangleCoordinates.from_dict(_item) for _item in obj.get("List", []) if RectangleCoordinates.from_dict(_item) is not None],
+            "Points": [PointArray.from_dict(_item) for _item in obj.get("Points", []) if PointArray.from_dict(_item) is not None]
         })
         return _obj
 

@@ -120,11 +120,11 @@ class RfidSignerInfoEx(BaseModel):
             "SerialNumber": TrfFtBytes.from_dict(obj["SerialNumber"]) if obj.get("SerialNumber") is not None else None,
             "SubjectKeyIdentifier": TrfFtBytes.from_dict(obj["SubjectKeyIdentifier"]) if obj.get("SubjectKeyIdentifier") is not None else None,
             "DigestAlgorithm": obj.get("DigestAlgorithm"),
-            "SignedAttributes": [RfidAttributeData.from_dict(_item) for _item in obj["SignedAttributes"]] if obj.get("SignedAttributes") is not None else None,
+            "SignedAttributes": [RfidAttributeData.from_dict(_item) for _item in obj.get("SignedAttributes", []) if RfidAttributeData.from_dict(_item) is not None],
             "SignatureAlgorithm": obj.get("SignatureAlgorithm"),
             "Signature": TrfFtBytes.from_dict(obj["Signature"]) if obj.get("Signature") is not None else None,
             "PA_Status": obj.get("PA_Status"),
-            "CertificateChain": [RfidCertificateEx.from_dict(_item) for _item in obj["CertificateChain"]] if obj.get("CertificateChain") is not None else None,
+            "CertificateChain": [RfidCertificateEx.from_dict(_item) for _item in obj.get("CertificateChain", []) if RfidCertificateEx.from_dict(_item) is not None],
             "DataToHash": obj.get("DataToHash"),
             "Notifications": obj.get("Notifications")
         })
