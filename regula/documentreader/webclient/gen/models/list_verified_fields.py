@@ -83,7 +83,7 @@ class ListVerifiedFields(BaseModel):
 
         _obj = cls.model_validate({
             "Count": obj.get("Count"),
-            "pFieldMaps": [VerifiedFieldMap.from_dict(_item) for _item in obj["pFieldMaps"]] if obj.get("pFieldMaps") is not None else None,
+            "pFieldMaps": [VerifiedFieldMap.from_dict(_item) for _item in obj.get("pFieldMaps", []) if VerifiedFieldMap.from_dict(_item) is not None],
             "pDateFormat": obj.get("pDateFormat")
         })
         return _obj

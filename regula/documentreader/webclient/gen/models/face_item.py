@@ -99,7 +99,7 @@ class FaceItem(BaseModel):
             "FaceRect": RectangleCoordinates.from_dict(obj["FaceRect"]) if obj.get("FaceRect") is not None else None,
             "FieldRect": RectangleCoordinates.from_dict(obj["FieldRect"]) if obj.get("FieldRect") is not None else None,
             "GraphFieldNumber": obj.get("GraphFieldNumber"),
-            "Landmarks": [Point.from_dict(_item) for _item in obj["Landmarks"]] if obj.get("Landmarks") is not None else None,
+            "Landmarks": [Point.from_dict(_item) for _item in obj.get("Landmarks", []) if Point.from_dict(_item) is not None],
             "LightType": obj.get("LightType"),
             "Orientation": obj.get("Orientation"),
             "Probability": obj.get("Probability")

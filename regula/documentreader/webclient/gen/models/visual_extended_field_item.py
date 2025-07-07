@@ -96,7 +96,7 @@ class VisualExtendedFieldItem(BaseModel):
             "wFieldType": obj.get("wFieldType"),
             "FieldName": obj.get("FieldName"),
             "StringsCount": obj.get("StringsCount"),
-            "StringsResult": [StringRecognitionResult.from_dict(_item) for _item in obj["StringsResult"]] if obj.get("StringsResult") is not None else None,
+            "StringsResult": [StringRecognitionResult.from_dict(_item) for _item in obj.get("StringsResult", []) if StringRecognitionResult.from_dict(_item) is not None],
             "Buf_Length": obj.get("Buf_Length"),
             "Buf_Text": obj.get("Buf_Text"),
             "FieldMask": obj.get("FieldMask"),

@@ -131,8 +131,8 @@ class RfidSessionData(BaseModel):
             "SDKVersion": obj.get("SDKVersion"),
             "DriverVersion": obj.get("DriverVersion"),
             "FirmwareVersion": obj.get("FirmwareVersion"),
-            "Applications": [RfidApplication.from_dict(_item) for _item in obj["Applications"]] if obj.get("Applications") is not None else None,
-            "AccessControls": [RfidAccessControlInfo.from_dict(_item) for _item in obj["AccessControls"]] if obj.get("AccessControls") is not None else None,
+            "Applications": [RfidApplication.from_dict(_item) for _item in obj.get("Applications", []) if RfidApplication.from_dict(_item) is not None],
+            "AccessControls": [RfidAccessControlInfo.from_dict(_item) for _item in obj.get("AccessControls", []) if RfidAccessControlInfo.from_dict(_item) is not None],
             "CardProperties": RfidCardPropertiesExt.from_dict(obj["CardProperties"]) if obj.get("CardProperties") is not None else None,
             "ExtLeSupport": obj.get("ExtLeSupport"),
             "ProcessTime": obj.get("ProcessTime"),
@@ -142,7 +142,7 @@ class RfidSessionData(BaseModel):
             "Session_key": RfidAccessKey.from_dict(obj["Session_key"]) if obj.get("Session_key") is not None else None,
             "Session_terminal": RfidTerminal.from_dict(obj["Session_terminal"]) if obj.get("Session_terminal") is not None else None,
             "Session_procedure": obj.get("Session_procedure"),
-            "SecurityObjects": [RfidSecurityObject.from_dict(_item) for _item in obj["SecurityObjects"]] if obj.get("SecurityObjects") is not None else None,
+            "SecurityObjects": [RfidSecurityObject.from_dict(_item) for _item in obj.get("SecurityObjects", []) if RfidSecurityObject.from_dict(_item) is not None],
             "Status": obj.get("Status")
         })
         return _obj

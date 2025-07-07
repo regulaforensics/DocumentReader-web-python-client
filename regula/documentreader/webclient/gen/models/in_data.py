@@ -86,7 +86,7 @@ class InData(BaseModel):
 
         _obj = cls.model_validate({
             "video": InDataVideo.from_dict(obj["video"]) if obj.get("video") is not None else None,
-            "images": [InDataTransactionImagesFieldValue.from_dict(_item) for _item in obj["images"]] if obj.get("images") is not None else None
+            "images": [InDataTransactionImagesFieldValue.from_dict(_item) for _item in obj.get("images", []) if InDataTransactionImagesFieldValue.from_dict(_item) is not None]
         })
         return _obj
 

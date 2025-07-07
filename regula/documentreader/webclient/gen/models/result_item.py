@@ -202,8 +202,6 @@ class ResultItem(BaseModel):
         if object_type ==  'FaceDetectionResult':
             return import_module("regula.documentreader.webclient.gen.models.face_detection_result").FaceDetectionResult.from_dict(obj)
 
-        raise ValueError("ResultItem failed to lookup discriminator value from " +
-                            json.dumps(obj) + ". Discriminator property name: " + cls.__discriminator_property_name +
-                            ", mapping: " + json.dumps(cls.__discriminator_value_class_map))
+        return None
 
 

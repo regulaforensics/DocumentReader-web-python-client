@@ -104,7 +104,7 @@ class ProcessRequest(BaseModel):
 
         _obj = cls.model_validate({
             "processParam": ProcessParams.from_dict(obj["processParam"]) if obj.get("processParam") is not None else None,
-            "List": [ProcessRequestImage.from_dict(_item) for _item in obj["List"]] if obj.get("List") is not None else None,
+            "List": [ProcessRequestImage.from_dict(_item) for _item in obj.get("List", []) if ProcessRequestImage.from_dict(_item) is not None],
             "tag": obj.get("tag"),
             "tenant": obj.get("tenant"),
             "env": obj.get("env"),

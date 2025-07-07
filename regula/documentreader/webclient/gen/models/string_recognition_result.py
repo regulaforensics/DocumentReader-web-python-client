@@ -85,7 +85,7 @@ class StringRecognitionResult(BaseModel):
 
         _obj = cls.model_validate({
             "SymbolsCount": obj.get("SymbolsCount"),
-            "StringResult": [SymbolRecognitionResult.from_dict(_item) for _item in obj["StringResult"]] if obj.get("StringResult") is not None else None,
+            "StringResult": [SymbolRecognitionResult.from_dict(_item) for _item in obj.get("StringResult", []) if SymbolRecognitionResult.from_dict(_item) is not None],
             "Buf_Length": obj.get("Buf_Length"),
             "Buf_Text": obj.get("Buf_Text"),
             "Reserved": obj.get("Reserved")

@@ -20,6 +20,10 @@ class with ours using typeMappings in the generator config.
 2. The generator treats the discriminator value as a string, 
 but in our case it's numbers. To solve this problem, changes 
 have been made to the model_generic.mustache template.
+3. By default, when the discriminator was unknown, the client
+threw an error. To avoid this, such models will be skipped.
+To solve this problem, changes have been made
+to the model_generic.mustache template.
 
 ## Problem solving 
 

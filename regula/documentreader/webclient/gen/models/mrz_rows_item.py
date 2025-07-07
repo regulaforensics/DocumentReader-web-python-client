@@ -84,7 +84,7 @@ class MRZRowsItem(BaseModel):
         _obj = cls.model_validate({
             "length": obj.get("length"),
             "maxLength": obj.get("maxLength"),
-            "symbols": [Symbol.from_dict(_item) for _item in obj["symbols"]] if obj.get("symbols") is not None else None
+            "symbols": [Symbol.from_dict(_item) for _item in obj.get("symbols", []) if Symbol.from_dict(_item) is not None]
         })
         return _obj
 

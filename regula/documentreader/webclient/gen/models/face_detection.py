@@ -86,7 +86,7 @@ class FaceDetection(BaseModel):
         _obj = cls.model_validate({
             "Count": obj.get("Count"),
             "CountFalseDetection": obj.get("CountFalseDetection"),
-            "Res": [FaceItem.from_dict(_item) for _item in obj["Res"]] if obj.get("Res") is not None else None,
+            "Res": [FaceItem.from_dict(_item) for _item in obj.get("Res", []) if FaceItem.from_dict(_item) is not None],
             "Reserved1": obj.get("Reserved1"),
             "Reserved2": obj.get("Reserved2")
         })

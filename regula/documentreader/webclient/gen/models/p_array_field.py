@@ -102,7 +102,7 @@ class PArrayField(BaseModel):
             "bcAngle_DETECT": obj.get("bcAngle_DETECT"),
             "bcCodeResult": obj.get("bcCodeResult"),
             "bcCountModule": obj.get("bcCountModule"),
-            "bcDataModule": [DataModule.from_dict(_item) for _item in obj["bcDataModule"]] if obj.get("bcDataModule") is not None else None,
+            "bcDataModule": [DataModule.from_dict(_item) for _item in obj.get("bcDataModule", []) if DataModule.from_dict(_item) is not None],
             "bcPDF417INFO": BcPDF417INFO.from_dict(obj["bcPDF417INFO"]) if obj.get("bcPDF417INFO") is not None else None,
             "bcROI_DETECT": BcROIDETECT.from_dict(obj["bcROI_DETECT"]) if obj.get("bcROI_DETECT") is not None else None,
             "bcTextDecoderTypes": obj.get("bcTextDecoderTypes"),

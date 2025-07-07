@@ -20,11 +20,11 @@ class TransactionProcessResult(BaseModel):
     """
     TransactionProcessResult
     """ # noqa: E501
-    out_data: Optional[OutData] = Field(default=None, alias="OutData")
-    in_data: Optional[InData] = Field(default=None, alias="InData")
+    out_data: Optional[OutData] = Field(default=None, alias="outData")
+    in_data: Optional[InData] = Field(default=None, alias="inData")
     tag: Optional[StrictStr] = None
     transaction_id: Optional[StrictStr] = Field(default=None, alias="transactionId")
-    __properties: ClassVar[List[str]] = ["OutData", "InData", "tag", "transactionId"]
+    __properties: ClassVar[List[str]] = ["outData", "inData", "tag", "transactionId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -67,10 +67,10 @@ class TransactionProcessResult(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of out_data
         if self.out_data:
-            _dict['OutData'] = self.out_data.to_dict()
+            _dict['outData'] = self.out_data.to_dict()
         # override the default output from pydantic by calling `to_dict()` of in_data
         if self.in_data:
-            _dict['InData'] = self.in_data.to_dict()
+            _dict['inData'] = self.in_data.to_dict()
         return _dict
 
     @classmethod
@@ -83,8 +83,8 @@ class TransactionProcessResult(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "OutData": OutData.from_dict(obj["OutData"]) if obj.get("OutData") is not None else None,
-            "InData": InData.from_dict(obj["InData"]) if obj.get("InData") is not None else None,
+            "outData": OutData.from_dict(obj["outData"]) if obj.get("outData") is not None else None,
+            "inData": InData.from_dict(obj["inData"]) if obj.get("inData") is not None else None,
             "tag": obj.get("tag"),
             "transactionId": obj.get("transactionId")
         })

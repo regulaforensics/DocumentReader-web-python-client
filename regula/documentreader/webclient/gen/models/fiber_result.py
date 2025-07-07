@@ -101,7 +101,7 @@ class FiberResult(AuthenticityCheckResultItem):
             "ExpectedCount": obj.get("ExpectedCount"),
             "LightValue": obj.get("LightValue"),
             "LightDisp": obj.get("LightDisp"),
-            "RectArray": [RectangleCoordinates.from_dict(_item) for _item in obj["RectArray"]] if obj.get("RectArray") is not None else None,
+            "RectArray": [RectangleCoordinates.from_dict(_item) for _item in obj.get("RectArray", []) if RectangleCoordinates.from_dict(_item) is not None],
             "Width": obj.get("Width"),
             "Length": obj.get("Length"),
             "Area": obj.get("Area"),

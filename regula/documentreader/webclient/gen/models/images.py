@@ -93,8 +93,8 @@ class Images(BaseModel):
         _obj = cls.model_validate({
             "fieldCount": obj.get("fieldCount"),
             "availableSourceCount": obj.get("availableSourceCount"),
-            "availableSourceList": [ImagesAvailableSource.from_dict(_item) for _item in obj["availableSourceList"]] if obj.get("availableSourceList") is not None else None,
-            "fieldList": [ImagesField.from_dict(_item) for _item in obj["fieldList"]] if obj.get("fieldList") is not None else None
+            "availableSourceList": [ImagesAvailableSource.from_dict(_item) for _item in obj.get("availableSourceList", []) if ImagesAvailableSource.from_dict(_item) is not None],
+            "fieldList": [ImagesField.from_dict(_item) for _item in obj.get("fieldList", []) if ImagesField.from_dict(_item) is not None]
         })
         return _obj
 

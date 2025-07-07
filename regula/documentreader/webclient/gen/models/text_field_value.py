@@ -104,7 +104,7 @@ class TextFieldValue(BaseModel):
             "value": obj.get("value"),
             "originalValue": obj.get("originalValue"),
             "originalValidity": obj.get("originalValidity"),
-            "originalSymbols": [OriginalSymbol.from_dict(_item) for _item in obj["originalSymbols"]] if obj.get("originalSymbols") is not None else None,
+            "originalSymbols": [OriginalSymbol.from_dict(_item) for _item in obj.get("originalSymbols", []) if OriginalSymbol.from_dict(_item) is not None],
             "pageIndex": obj.get("pageIndex"),
             "probability": obj.get("probability"),
             "fieldRect": RectangleCoordinates.from_dict(obj["fieldRect"]) if obj.get("fieldRect") is not None else None,
