@@ -117,9 +117,9 @@ class TextField(BaseModel):
             "validityStatus": obj.get("validityStatus"),
             "comparisonStatus": obj.get("comparisonStatus"),
             "value": obj.get("value"),
-            "valueList": [TextFieldValue.from_dict(_item) for _item in obj["valueList"]] if obj.get("valueList") is not None else None,
-            "validityList": [SourceValidity.from_dict(_item) for _item in obj["validityList"]] if obj.get("validityList") is not None else None,
-            "comparisonList": [CrossSourceValueComparison.from_dict(_item) for _item in obj["comparisonList"]] if obj.get("comparisonList") is not None else None
+            "valueList": [TextFieldValue.from_dict(_item) for _item in obj.get("valueList", []) if TextFieldValue.from_dict(_item) is not None],
+            "validityList": [SourceValidity.from_dict(_item) for _item in obj.get("validityList", []) if SourceValidity.from_dict(_item) is not None],
+            "comparisonList": [CrossSourceValueComparison.from_dict(_item) for _item in obj.get("comparisonList", []) if CrossSourceValueComparison.from_dict(_item) is not None]
         })
         return _obj
 

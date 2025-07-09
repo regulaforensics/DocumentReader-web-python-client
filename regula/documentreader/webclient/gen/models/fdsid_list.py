@@ -22,13 +22,13 @@ class FDSIDList(BaseModel):
     Extended document type info and Regula's 'Information Reference Systems' links
     """ # noqa: E501
     icao_code: Annotated[str, Field(min_length=3, strict=True, max_length=3)] = Field(description="ICAO code of the issuing country", alias="ICAOCode")
-    count: Union[StrictFloat, StrictInt] = Field(description="Number of elements in the List", alias="Count")
-    list: List[StrictInt] = Field(description="Document identifiers in 'Information Reference Systems'", alias="List")
+    count: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Number of elements in the List", alias="Count")
+    list: Optional[List[StrictInt]] = Field(default=None, description="Document identifiers in 'Information Reference Systems'", alias="List")
     d_type: DocumentType = Field(alias="dType")
     d_format: DocumentFormat = Field(alias="dFormat")
     d_mrz: StrictBool = Field(description="Flag indicating the presence of MRZ on the document", alias="dMRZ")
     d_description: Optional[StrictStr] = Field(default=None, description="Document description", alias="dDescription")
-    d_year: StrictStr = Field(description="Year of publication of the document", alias="dYear")
+    d_year: Optional[StrictStr] = Field(default=None, description="Year of publication of the document", alias="dYear")
     d_country_name: StrictStr = Field(description="Issuing country name", alias="dCountryName")
     d_state_code: Optional[StrictStr] = Field(default=None, description="Issuing state code", alias="dStateCode")
     d_state_name: Optional[StrictStr] = Field(default=None, description="Issuing state name", alias="dStateName")

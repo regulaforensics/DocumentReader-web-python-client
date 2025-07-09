@@ -94,7 +94,7 @@ class RfidApplication(BaseModel):
             "Version": obj.get("Version"),
             "UnicodeVersion": obj.get("UnicodeVersion"),
             "DataHashAlgorithm": obj.get("DataHashAlgorithm"),
-            "Files": [RfidDataFile.from_dict(_item) for _item in obj["Files"]] if obj.get("Files") is not None else None
+            "Files": [RfidDataFile.from_dict(_item) for _item in obj.get("Files", []) if RfidDataFile.from_dict(_item) is not None]
         })
         return _obj
 

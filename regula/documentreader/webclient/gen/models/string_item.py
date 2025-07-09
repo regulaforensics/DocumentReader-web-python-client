@@ -117,7 +117,7 @@ class StringItem(BaseModel):
             "CHECK_SUMS": obj.get("CHECK_SUMS"),
             "ErrorPOSITION": ErrorCoordinates.from_dict(obj["ErrorPOSITION"]) if obj.get("ErrorPOSITION") is not None else None,
             "FieldCount": obj.get("FieldCount"),
-            "Fields": [FieldItem.from_dict(_item) for _item in obj["Fields"]] if obj.get("Fields") is not None else None,
+            "Fields": [FieldItem.from_dict(_item) for _item in obj.get("Fields", []) if FieldItem.from_dict(_item) is not None],
             "STRINGS_DISTANCE": obj.get("STRINGS_DISTANCE"),
             "STRINGS_INTERVAL": obj.get("STRINGS_INTERVAL"),
             "STRING_FILLING": obj.get("STRING_FILLING"),
@@ -129,7 +129,7 @@ class StringItem(BaseModel):
             "StringAngle": obj.get("StringAngle"),
             "StringBorders": RectangleCoordinates.from_dict(obj["StringBorders"]) if obj.get("StringBorders") is not None else None,
             "SymbolsCount": obj.get("SymbolsCount"),
-            "SymbolsEstimations": [SymbolEstimationItem.from_dict(_item) for _item in obj["SymbolsEstimations"]] if obj.get("SymbolsEstimations") is not None else None
+            "SymbolsEstimations": [SymbolEstimationItem.from_dict(_item) for _item in obj.get("SymbolsEstimations", []) if SymbolEstimationItem.from_dict(_item) is not None]
         })
         return _obj
 

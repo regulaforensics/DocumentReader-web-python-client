@@ -82,7 +82,7 @@ class ContainerList(BaseModel):
 
         _obj = cls.model_validate({
             "Count": obj.get("Count"),
-            "List": [ResultItem.from_dict(_item) for _item in obj["List"]] if obj.get("List") is not None else None
+            "List": [ResultItem.from_dict(_item) for _item in obj.get("List", []) if ResultItem.from_dict(_item) is not None]
         })
         return _obj
 

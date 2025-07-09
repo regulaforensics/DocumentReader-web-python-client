@@ -88,7 +88,7 @@ class AuthenticityCheckResult(BaseModel):
             "Type": obj.get("Type"),
             "Result": obj.get("Result"),
             "Count": obj.get("Count"),
-            "List": [AuthenticityCheckResultItem.from_dict(_item) for _item in obj["List"]] if obj.get("List") is not None else None
+            "List": [AuthenticityCheckResultItem.from_dict(_item) for _item in obj.get("List", []) if AuthenticityCheckResultItem.from_dict(_item) is not None]
         })
         return _obj
 

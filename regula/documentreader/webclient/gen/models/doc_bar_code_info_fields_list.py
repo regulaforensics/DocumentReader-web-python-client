@@ -82,7 +82,7 @@ class DocBarCodeInfoFieldsList(BaseModel):
 
         _obj = cls.model_validate({
             "nFields": obj.get("nFields"),
-            "pArrayFields": [PArrayField.from_dict(_item) for _item in obj["pArrayFields"]] if obj.get("pArrayFields") is not None else None
+            "pArrayFields": [PArrayField.from_dict(_item) for _item in obj.get("pArrayFields", []) if PArrayField.from_dict(_item) is not None]
         })
         return _obj
 

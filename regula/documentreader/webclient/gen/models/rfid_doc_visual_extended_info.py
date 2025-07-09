@@ -82,7 +82,7 @@ class RFIDDocVisualExtendedInfo(BaseModel):
 
         _obj = cls.model_validate({
             "nFields": obj.get("nFields"),
-            "pArrayFields": [RFIDDocVisualExtendedField.from_dict(_item) for _item in obj["pArrayFields"]] if obj.get("pArrayFields") is not None else None
+            "pArrayFields": [RFIDDocVisualExtendedField.from_dict(_item) for _item in obj.get("pArrayFields", []) if RFIDDocVisualExtendedField.from_dict(_item) is not None]
         })
         return _obj
 

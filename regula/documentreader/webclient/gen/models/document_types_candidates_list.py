@@ -83,7 +83,7 @@ class DocumentTypesCandidatesList(BaseModel):
 
         _obj = cls.model_validate({
             "RecResult": obj.get("RecResult"),
-            "Candidates": [OneCandidate.from_dict(_item) for _item in obj["Candidates"]] if obj.get("Candidates") is not None else None
+            "Candidates": [OneCandidate.from_dict(_item) for _item in obj.get("Candidates", []) if OneCandidate.from_dict(_item) is not None]
         })
         return _obj
 

@@ -98,8 +98,8 @@ class Text(BaseModel):
             "validityStatus": obj.get("validityStatus"),
             "comparisonStatus": obj.get("comparisonStatus"),
             "dateFormat": obj.get("dateFormat"),
-            "fieldList": [TextField.from_dict(_item) for _item in obj["fieldList"]] if obj.get("fieldList") is not None else None,
-            "availableSourceList": [TextAvailableSource.from_dict(_item) for _item in obj["availableSourceList"]] if obj.get("availableSourceList") is not None else None
+            "fieldList": [TextField.from_dict(_item) for _item in obj.get("fieldList", []) if TextField.from_dict(_item) is not None],
+            "availableSourceList": [TextAvailableSource.from_dict(_item) for _item in obj.get("availableSourceList", []) if TextAvailableSource.from_dict(_item) is not None]
         })
         return _obj
 

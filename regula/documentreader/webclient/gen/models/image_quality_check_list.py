@@ -84,7 +84,7 @@ class ImageQualityCheckList(BaseModel):
 
         _obj = cls.model_validate({
             "result": obj.get("result"),
-            "List": [ImageQualityCheck.from_dict(_item) for _item in obj["List"]] if obj.get("List") is not None else None,
+            "List": [ImageQualityCheck.from_dict(_item) for _item in obj.get("List", []) if ImageQualityCheck.from_dict(_item) is not None],
             "Count": obj.get("Count")
         })
         return _obj

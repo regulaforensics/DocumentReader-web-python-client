@@ -90,7 +90,7 @@ class SymbolRecognitionResult(BaseModel):
         _obj = cls.model_validate({
             "SymbolRect": RectangleCoordinates.from_dict(obj["SymbolRect"]) if obj.get("SymbolRect") is not None else None,
             "CandidatesCount": obj.get("CandidatesCount"),
-            "ListOfCandidates": [SymbolCandidate.from_dict(_item) for _item in obj["ListOfCandidates"]] if obj.get("ListOfCandidates") is not None else None,
+            "ListOfCandidates": [SymbolCandidate.from_dict(_item) for _item in obj.get("ListOfCandidates", []) if SymbolCandidate.from_dict(_item) is not None],
             "BaseLineBottom": obj.get("BaseLineBottom"),
             "BaseLineTop": obj.get("BaseLineTop")
         })

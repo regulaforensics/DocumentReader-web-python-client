@@ -98,7 +98,8 @@ class ProcessParams(BaseModel):
     strict_dl_category_expiry: Optional[StrictBool] = Field(default=None, description="Set to force DL categories expiry date to affect the overall status or not. As documents usually have their own date of expiry, which might be less or greater than category expiry date, this might be handy for specific cases.", alias="strictDLCategoryExpiry")
     generate_alpha2_codes: Optional[StrictBool] = Field(default=None, description="Set to generate Alpha-2 codes for nationality and issuing state fields.", alias="generateAlpha2Codes")
     pdf_pages_limit: Optional[StrictInt] = Field(default=None, description="Limits the number of pages to be processed from a PDF file.", alias="pdfPagesLimit")
-    __properties: ClassVar[List[str]] = ["generateDTCVC", "lcidFilter", "checkLiveness", "lcidIgnoreFilter", "oneShotIdentification", "useFaceApi", "faceApi", "doDetectCan", "imageOutputMaxHeight", "imageOutputMaxWidth", "scenario", "resultTypeOutput", "doublePageSpread", "generateDoublePageSpreadImage", "fieldTypesFilter", "dateFormat", "measureSystem", "imageDpiOutMax", "alreadyCropped", "customParams", "config", "log", "logLevel", "forceDocID", "matchTextFieldMask", "fastDocDetect", "updateOCRValidityByGlare", "checkRequiredTextFields", "returnCroppedBarcode", "imageQa", "strictImageQuality", "respectImageQuality", "forceDocFormat", "noGraphics", "depersonalizeLog", "multiDocOnImage", "shiftExpiryDate", "minimalHolderAge", "returnUncroppedImage", "mrzFormatsFilter", "forceReadMrzBeforeLocate", "parseBarcodes", "convertCase", "splitNames", "disablePerforationOCR", "documentGroupFilter", "processAuth", "deviceId", "deviceType", "deviceTypeHex", "ignoreDeviceIdFromImage", "documentIdList", "rfid", "checkAuth", "authParams", "mrzDetectMode", "generateNumericCodes", "strictBarcodeDigitalSignatureCheck", "selectLongestNames", "doBarcodes", "strictDLCategoryExpiry", "generateAlpha2Codes", "pdfPagesLimit"]
+    disable_auth_resolution_filter: Optional[StrictBool] = Field(default=None, description="This parameter if enabled will ignore the minimum barcode resolution needed to start processing.", alias="disableAuthResolutionFilter")
+    __properties: ClassVar[List[str]] = ["generateDTCVC", "lcidFilter", "checkLiveness", "lcidIgnoreFilter", "oneShotIdentification", "useFaceApi", "faceApi", "doDetectCan", "imageOutputMaxHeight", "imageOutputMaxWidth", "scenario", "resultTypeOutput", "doublePageSpread", "generateDoublePageSpreadImage", "fieldTypesFilter", "dateFormat", "measureSystem", "imageDpiOutMax", "alreadyCropped", "customParams", "config", "log", "logLevel", "forceDocID", "matchTextFieldMask", "fastDocDetect", "updateOCRValidityByGlare", "checkRequiredTextFields", "returnCroppedBarcode", "imageQa", "strictImageQuality", "respectImageQuality", "forceDocFormat", "noGraphics", "depersonalizeLog", "multiDocOnImage", "shiftExpiryDate", "minimalHolderAge", "returnUncroppedImage", "mrzFormatsFilter", "forceReadMrzBeforeLocate", "parseBarcodes", "convertCase", "splitNames", "disablePerforationOCR", "documentGroupFilter", "processAuth", "deviceId", "deviceType", "deviceTypeHex", "ignoreDeviceIdFromImage", "documentIdList", "rfid", "checkAuth", "authParams", "mrzDetectMode", "generateNumericCodes", "strictBarcodeDigitalSignatureCheck", "selectLongestNames", "doBarcodes", "strictDLCategoryExpiry", "generateAlpha2Codes", "pdfPagesLimit", "disableAuthResolutionFilter"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -190,7 +191,7 @@ class ProcessParams(BaseModel):
             "imageDpiOutMax": obj.get("imageDpiOutMax"),
             "alreadyCropped": obj.get("alreadyCropped"),
             "customParams": obj.get("customParams"),
-            "config": [PerDocumentConfig.from_dict(_item) for _item in obj["config"]] if obj.get("config") is not None else None,
+            "config": [PerDocumentConfig.from_dict(_item) for _item in obj.get("config", []) if PerDocumentConfig.from_dict(_item) is not None],
             "log": obj.get("log"),
             "logLevel": obj.get("logLevel"),
             "forceDocID": obj.get("forceDocID"),
@@ -232,7 +233,8 @@ class ProcessParams(BaseModel):
             "doBarcodes": obj.get("doBarcodes"),
             "strictDLCategoryExpiry": obj.get("strictDLCategoryExpiry"),
             "generateAlpha2Codes": obj.get("generateAlpha2Codes"),
-            "pdfPagesLimit": obj.get("pdfPagesLimit")
+            "pdfPagesLimit": obj.get("pdfPagesLimit"),
+            "disableAuthResolutionFilter": obj.get("disableAuthResolutionFilter")
         })
         return _obj
 

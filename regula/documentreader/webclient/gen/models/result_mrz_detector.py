@@ -84,7 +84,7 @@ class ResultMRZDetector(BaseModel):
 
         _obj = cls.model_validate({
             "MRZFormat": obj.get("MRZFormat"),
-            "MRZRows": [MRZRowsItem.from_dict(_item) for _item in obj["MRZRows"]] if obj.get("MRZRows") is not None else None,
+            "MRZRows": [MRZRowsItem.from_dict(_item) for _item in obj.get("MRZRows", []) if MRZRowsItem.from_dict(_item) is not None],
             "MRZRowsNum": obj.get("MRZRowsNum"),
             "boundingQuadrangle": obj.get("boundingQuadrangle")
         })

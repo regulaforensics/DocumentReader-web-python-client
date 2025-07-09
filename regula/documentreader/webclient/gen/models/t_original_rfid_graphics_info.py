@@ -80,7 +80,7 @@ class TOriginalRFIDGraphicsInfo(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "RFID_ORIGINAL_GRAPH_DATA": [GraphData.from_dict(_item) for _item in obj["RFID_ORIGINAL_GRAPH_DATA"]] if obj.get("RFID_ORIGINAL_GRAPH_DATA") is not None else None
+            "RFID_ORIGINAL_GRAPH_DATA": [GraphData.from_dict(_item) for _item in obj.get("RFID_ORIGINAL_GRAPH_DATA", []) if GraphData.from_dict(_item) is not None]
         })
         return _obj
 
