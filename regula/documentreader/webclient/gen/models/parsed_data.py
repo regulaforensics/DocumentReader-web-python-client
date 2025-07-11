@@ -9,8 +9,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from regula.documentreader.webclient.gen.models.parsing_notification_codes import ParsingNotificationCodes
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -18,7 +19,7 @@ class ParsedData(BaseModel):
     """
     ParsedData
     """ # noqa: E501
-    parsing_notifications: Optional[List[StrictInt]] = Field(default=None, alias="ParsingNotifications")
+    parsing_notifications: Optional[List[ParsingNotificationCodes]] = Field(default=None, alias="ParsingNotifications")
     __properties: ClassVar[List[str]] = ["ParsingNotifications"]
 
     model_config = ConfigDict(
