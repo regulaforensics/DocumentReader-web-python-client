@@ -11,7 +11,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from regula.documentreader.webclient.gen.models.parsing_error_codes import ParsingErrorCodes
 from regula.documentreader.webclient.gen.models.rfid_access_control_procedure_type import RfidAccessControlProcedureType
 from regula.documentreader.webclient.gen.models.rfid_error_codes import RFIDErrorCodes
 from typing import Optional, Set
@@ -24,7 +23,7 @@ class RfidAccessControlInfo(BaseModel):
     type: RfidAccessControlProcedureType = Field(alias="Type")
     status: RFIDErrorCodes = Field(alias="Status")
     active_option_idx: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Index of the active variant of the procedure", alias="ActiveOptionIdx")
-    notifications: List[ParsingErrorCodes] = Field(description="List of remarks arisen during the procedure.", alias="Notifications")
+    notifications: List[StrictInt] = Field(description="List of remarks arisen during the procedure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.", alias="Notifications")
     access_control_options: Optional[List[Any]] = Field(default=None, description="List of structures with are used to describe the variants of the authentication or secure data access procedure performance within the context of the communication session with electronic document", alias="AccessControlOptions")
     __properties: ClassVar[List[str]] = ["Type", "Status", "ActiveOptionIdx", "Notifications", "AccessControlOptions"]
 

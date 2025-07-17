@@ -11,7 +11,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Union
-from regula.documentreader.webclient.gen.models.parsing_error_codes import ParsingErrorCodes
 from regula.documentreader.webclient.gen.models.rfid_signer_info_ex import RfidSignerInfoEx
 from typing import Optional, Set
 from typing_extensions import Self
@@ -23,7 +22,7 @@ class RfidSecurityObject(BaseModel):
     version: Union[StrictFloat, StrictInt] = Field(description="Security object version", alias="Version")
     object_type: StrictStr = Field(description="Identifier of the security object", alias="ObjectType")
     file_reference: Union[StrictFloat, StrictInt] = Field(description="Reference to the source file of the security object data", alias="FileReference")
-    notifications: List[ParsingErrorCodes] = Field(description="List of remarks arisen during the analysis of SO data structure.", alias="Notifications")
+    notifications: List[StrictInt] = Field(description="List of remarks arisen during the analysis of SO data structure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.", alias="Notifications")
     signer_infos: List[RfidSignerInfoEx] = Field(description="List of containers to store information about digital signature objects contained in the SO", alias="SignerInfos")
     __properties: ClassVar[List[str]] = ["Version", "ObjectType", "FileReference", "Notifications", "SignerInfos"]
 

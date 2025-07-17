@@ -11,7 +11,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Union
-from regula.documentreader.webclient.gen.models.parsing_error_codes import ParsingErrorCodes
 from regula.documentreader.webclient.gen.models.rfid_certificate_origin import RfidCertificateOrigin
 from regula.documentreader.webclient.gen.models.rfid_certificate_type import RfidCertificateType
 from regula.documentreader.webclient.gen.models.rfid_distinguished_name import RfidDistinguishedName
@@ -34,7 +33,7 @@ class RfidCertificateEx(BaseModel):
     subject: RfidDistinguishedName = Field(alias="Subject")
     subject_pk_algorithm: StrictStr = Field(description="Certificate public key algorithm identifier (OID); String in the format S1 (S2), where S1 – algorithm name, S2 – identifier (OID string).", alias="SubjectPKAlgorithm")
     extensions: List[RfidPkiExtension] = Field(description="List of the certificate extensions", alias="Extensions")
-    notifications: List[ParsingErrorCodes] = Field(description="List of remarks arisen during the analysis of the certificate data structure and its validity verification.", alias="Notifications")
+    notifications: List[StrictInt] = Field(description="List of remarks arisen during the analysis of the certificate data structure and its validity verification. Can be ParsingErrorCodes or ParsingNotificationCodes enum.", alias="Notifications")
     origin: RfidCertificateOrigin = Field(alias="Origin")
     type: RfidCertificateType = Field(alias="Type")
     file_name: TrfFtString = Field(alias="FileName")
