@@ -11,7 +11,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Union
-from regula.documentreader.webclient.gen.models.parsing_error_codes import ParsingErrorCodes
 from regula.documentreader.webclient.gen.models.rfid_attribute_data import RfidAttributeData
 from regula.documentreader.webclient.gen.models.rfid_certificate_ex import RfidCertificateEx
 from regula.documentreader.webclient.gen.models.rfid_distinguished_name import RfidDistinguishedName
@@ -35,7 +34,7 @@ class RfidSignerInfoEx(BaseModel):
     pa_status: RFIDErrorCodes = Field(alias="PA_Status")
     certificate_chain: List[RfidCertificateEx] = Field(description="Certificate chain, used for the digital signature verification.", alias="CertificateChain")
     data_to_hash: StrictStr = Field(description="Binary data array used to calculate the hash value for digital signature verification. Base64 encoded.", alias="DataToHash")
-    notifications: List[ParsingErrorCodes] = Field(alias="Notifications")
+    notifications: List[StrictInt] = Field(description="Can be ParsingErrorCodes or ParsingNotificationCodes enum.", alias="Notifications")
     __properties: ClassVar[List[str]] = ["Version", "Issuer", "SerialNumber", "SubjectKeyIdentifier", "DigestAlgorithm", "SignedAttributes", "SignatureAlgorithm", "Signature", "PA_Status", "CertificateChain", "DataToHash", "Notifications"]
 
     model_config = ConfigDict(
