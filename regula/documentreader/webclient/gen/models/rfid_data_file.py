@@ -13,7 +13,6 @@ from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, Stric
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from regula.documentreader.webclient.gen.models.graphic_field_type import GraphicFieldType
 from regula.documentreader.webclient.gen.models.parsed_data import ParsedData
-from regula.documentreader.webclient.gen.models.parsing_error_codes import ParsingErrorCodes
 from regula.documentreader.webclient.gen.models.rfid_data_file_type import RfidDataFileType
 from regula.documentreader.webclient.gen.models.rfid_error_codes import RFIDErrorCodes
 from regula.documentreader.webclient.gen.models.security_object_certificates import SecurityObjectCertificates
@@ -32,7 +31,7 @@ class RfidDataFile(BaseModel):
     reading_status: RFIDErrorCodes = Field(alias="ReadingStatus")
     reading_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time of reading, milliseconds", alias="ReadingTime")
     pa_status: Optional[RFIDErrorCodes] = Field(default=None, alias="PA_Status")
-    notifications: Optional[List[ParsingErrorCodes]] = Field(default=None, description="List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure.", alias="Notifications")
+    notifications: Optional[List[StrictInt]] = Field(default=None, description="List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.", alias="Notifications")
     doc_fields_text: Optional[List[TextFieldType]] = Field(default=None, description="List of document text fields formed on the basis of the file contents", alias="DocFields_Text")
     doc_fields_graphics: Optional[List[GraphicFieldType]] = Field(default=None, description="List of document graphic fields formed on the basis of the file contents", alias="DocFields_Graphics")
     doc_fields_originals: Optional[List[GraphicFieldType]] = Field(default=None, description="List of the original binary representation of graphic document fields formed on the basis of the file contents", alias="DocFields_Originals")
