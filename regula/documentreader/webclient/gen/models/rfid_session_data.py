@@ -9,7 +9,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from regula.documentreader.webclient.gen.models.rfid_access_control_info import RfidAccessControlInfo
@@ -27,7 +27,7 @@ class RfidSessionData(BaseModel):
     """
     Structure is used to describe the results of work with the SDK within the context of the current communication session with electronic document
     """ # noqa: E501
-    virtual_mode: Optional[StrictStr] = Field(default=None, description="Sign of virtual session when working with loaded data from a previous communication session with the electronic document", alias="VirtualMode")
+    virtual_mode: Optional[StrictBool] = Field(default=None, description="Sign of virtual session when working with loaded data from a previous communication session with the electronic document", alias="VirtualMode")
     sdk_version: Optional[StrictStr] = Field(default=None, description="Text SDKVersion value in format A.B (e.g. 3.1)", alias="SDKVersion")
     driver_version: Optional[StrictStr] = Field(default=None, description="Text DriverVersion value in format A.B.C.D (e.g. 6.2.5.4)", alias="DriverVersion")
     firmware_version: Optional[StrictStr] = Field(default=None, description="Text FirmwareVersion value in format A.B (e.g. 5.19)", alias="FirmwareVersion")

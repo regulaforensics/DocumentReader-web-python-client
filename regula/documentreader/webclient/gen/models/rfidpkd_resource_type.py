@@ -26,6 +26,8 @@ class RFIDPKDResourceType(int, Enum):
     DEFL = 5
     DEVL = 6
     BL = 7
+    LDIF_TA = 8
+    ML_TA = 9
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
