@@ -25,6 +25,7 @@ class ImageQualityCheckType(int, Enum):
     Perspective = 4
     Bounds = 5
     Portrait = 7
+    Handwritten = 8
     Brightness = 9
     Occlusion = 10
 
