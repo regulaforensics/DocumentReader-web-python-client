@@ -36,8 +36,22 @@ class DocumentReaderApi(HealthcheckApi, ProcessApi):
 
     def deserialize_to_recognition_response(self, content: Union[bytes, bytearray, str]) -> RecognitionResponse:
         response = self.__to_response_object(content)
-        response = self.api_client.deserialize(response, ProcessResponse)
-        return RecognitionResponse(response)
+
+        if hasattr(response, 'to_str'):
+            response_text = response.to_str()
+        elif hasattr(response, 'data'):
+            data = response.data
+            if isinstance(data, (bytes, bytearray)):
+                response_text = data.decode('utf-8')
+            else:
+                response_text = str(data)
+        else:
+            response_text = str(content) if not isinstance(content, str) else content
+
+        content_type = "application/json"
+        process_response = self.api_client.deserialize(response_text, "ProcessResponse", content_type)
+
+        return RecognitionResponse(process_response)
 
     @staticmethod
     def __to_response_object(content: Union[bytes, bytearray, str]):
