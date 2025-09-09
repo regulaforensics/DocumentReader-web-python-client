@@ -9,9 +9,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
-from regula.documentreader.webclient.gen.models.rfid_application_type import RfidApplicationType
 from regula.documentreader.webclient.gen.models.rfid_data_file import RfidDataFile
 from regula.documentreader.webclient.gen.models.rfid_error_codes import RFIDErrorCodes
 from typing import Optional, Set
@@ -21,7 +20,7 @@ class RfidApplication(BaseModel):
     """
     Structure is used to describe the contents of a single LDS application and their analysis within the context of the communication session with electronic document
     """ # noqa: E501
-    type: RfidApplicationType = Field(alias="Type")
+    type: StrictInt = Field(alias="Type")
     status: RFIDErrorCodes = Field(alias="Status")
     application_id: StrictStr = Field(description="Application identifier", alias="ApplicationID")
     version: StrictStr = Field(description="Version of the application", alias="Version")

@@ -162,7 +162,6 @@ regula/documentreader/webclient/gen/models/rfid_access_control_info.py
 regula/documentreader/webclient/gen/models/rfid_access_control_procedure_type.py
 regula/documentreader/webclient/gen/models/rfid_access_key.py
 regula/documentreader/webclient/gen/models/rfid_application.py
-regula/documentreader/webclient/gen/models/rfid_application_type.py
 regula/documentreader/webclient/gen/models/rfid_attribute_data.py
 regula/documentreader/webclient/gen/models/rfid_attribute_name.py
 regula/documentreader/webclient/gen/models/rfid_authentication_procedure_type.py
@@ -173,7 +172,6 @@ regula/documentreader/webclient/gen/models/rfid_certificate_origin.py
 regula/documentreader/webclient/gen/models/rfid_certificate_type.py
 regula/documentreader/webclient/gen/models/rfid_data_file.py
 regula/documentreader/webclient/gen/models/rfid_data_file_type.py
-regula/documentreader/webclient/gen/models/rfid_data_group_type_tag.py
 regula/documentreader/webclient/gen/models/rfid_dg1.py
 regula/documentreader/webclient/gen/models/rfid_distinguished_name.py
 regula/documentreader/webclient/gen/models/rfid_doc_visual_extended_field.py
