@@ -197,7 +197,6 @@ from regula.documentreader.webclient.gen.models.rfid_certificate_type import Rfi
 from regula.documentreader.webclient.gen.models.rfid_dg1 import RfidDG1
 from regula.documentreader.webclient.gen.models.rfid_data_file import RfidDataFile
 from regula.documentreader.webclient.gen.models.rfid_data_file_type import RfidDataFileType
-from regula.documentreader.webclient.gen.models.rfid_data_group_type_tag import RfidDataGroupTypeTag
 from regula.documentreader.webclient.gen.models.rfid_distinguished_name import RfidDistinguishedName
 from regula.documentreader.webclient.gen.models.rfid_location import RfidLocation
 from regula.documentreader.webclient.gen.models.rfid_origin import RfidOrigin
