@@ -18,7 +18,7 @@ class RfidApplicationType(int, Enum):
     """
     allowed enum values
     """
-    UNSPECIFIED = 0
+    ROOT_FILES = 0
     E_PASSPORT = 1
     E_ID = 2
     E_SIGN = 3
@@ -27,7 +27,6 @@ class RfidApplicationType(int, Enum):
     LDS2_VisaRecords = 6
     LDS2_AddBiometrics = 7
     eDTC_PC = 8
-    ROOT_FILES = 0
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

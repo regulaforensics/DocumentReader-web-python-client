@@ -21,6 +21,8 @@ regula/documentreader/webclient/gen/models/authenticity_check_result_list_inner.
 regula/documentreader/webclient/gen/models/authenticity_result.py
 regula/documentreader/webclient/gen/models/authenticity_result_type.py
 regula/documentreader/webclient/gen/models/bar_code_module_type.py
+regula/documentreader/webclient/gen/models/barcode_position_item.py
+regula/documentreader/webclient/gen/models/barcode_position_result.py
 regula/documentreader/webclient/gen/models/barcode_type.py
 regula/documentreader/webclient/gen/models/bc_pdf417_info.py
 regula/documentreader/webclient/gen/models/bc_roidetect.py
@@ -173,7 +175,6 @@ regula/documentreader/webclient/gen/models/rfid_certificate_origin.py
 regula/documentreader/webclient/gen/models/rfid_certificate_type.py
 regula/documentreader/webclient/gen/models/rfid_data_file.py
 regula/documentreader/webclient/gen/models/rfid_data_file_type.py
-regula/documentreader/webclient/gen/models/rfid_data_group_type_tag.py
 regula/documentreader/webclient/gen/models/rfid_dg1.py
 regula/documentreader/webclient/gen/models/rfid_distinguished_name.py
 regula/documentreader/webclient/gen/models/rfid_doc_visual_extended_field.py
