@@ -12,7 +12,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Union
 from regula.documentreader.webclient.gen.models.document_format import DocumentFormat
-from regula.documentreader.webclient.gen.models.rfid_data_group_type_tag import RfidDataGroupTypeTag
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -20,7 +19,7 @@ class RfidDG1(BaseModel):
     """
     Structure used to store the contents of EF.DG1 informational data group of ePassport application – document MRZ data
     """ # noqa: E501
-    type: RfidDataGroupTypeTag = Field(alias="Type")
+    type: StrictInt = Field(alias="Type")
     document_id: DocumentFormat = Field(alias="DocumentID")
     document_type: StrictStr = Field(description="Symbolic code of document type", alias="DocumentType")
     state: StrictStr = Field(description="Symbolic code of document issuing state", alias="State")

@@ -17,6 +17,8 @@ from regula.documentreader.webclient.gen.models.authenticity_check_result_list_i
 from regula.documentreader.webclient.gen.models.authenticity_result import AuthenticityResult
 from regula.documentreader.webclient.gen.models.authenticity_result_type import AuthenticityResultType
 from regula.documentreader.webclient.gen.models.bar_code_module_type import BarCodeModuleType
+from regula.documentreader.webclient.gen.models.barcode_position_item import BarcodePositionItem
+from regula.documentreader.webclient.gen.models.barcode_position_result import BarcodePositionResult
 from regula.documentreader.webclient.gen.models.barcode_type import BarcodeType
 from regula.documentreader.webclient.gen.models.bc_pdf417_info import BcPDF417INFO
 from regula.documentreader.webclient.gen.models.bc_roidetect import BcROIDETECT
@@ -178,7 +180,6 @@ from regula.documentreader.webclient.gen.models.rfid_certificate_type import Rfi
 from regula.documentreader.webclient.gen.models.rfid_dg1 import RfidDG1
 from regula.documentreader.webclient.gen.models.rfid_data_file import RfidDataFile
 from regula.documentreader.webclient.gen.models.rfid_data_file_type import RfidDataFileType
-from regula.documentreader.webclient.gen.models.rfid_data_group_type_tag import RfidDataGroupTypeTag
 from regula.documentreader.webclient.gen.models.rfid_distinguished_name import RfidDistinguishedName
 from regula.documentreader.webclient.gen.models.rfid_location import RfidLocation
 from regula.documentreader.webclient.gen.models.rfid_origin import RfidOrigin
