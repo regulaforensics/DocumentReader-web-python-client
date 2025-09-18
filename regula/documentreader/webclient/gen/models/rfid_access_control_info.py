@@ -15,22 +15,25 @@ from regula.documentreader.webclient.gen.models.rfid_access_control_procedure_ty
 from regula.documentreader.webclient.gen.models.rfid_error_codes import RFIDErrorCodes
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidAccessControlInfo(BaseModel):
     """
     Structure is used to describe the results of a single authentication procedure or a procedure of secure data access within the context of the communication session with electronic document
     """ # noqa: E501
-    type: RfidAccessControlProcedureType = Field(alias="Type")
-    status: RFIDErrorCodes = Field(alias="Status")
-    active_option_idx: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Index of the active variant of the procedure", alias="ActiveOptionIdx")
-    notifications: List[StrictInt] = Field(description="List of remarks arisen during the procedure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.", alias="Notifications")
-    access_control_options: Optional[List[Any]] = Field(default=None, description="List of structures with are used to describe the variants of the authentication or secure data access procedure performance within the context of the communication session with electronic document", alias="AccessControlOptions")
+    type: SkipValidation[RfidAccessControlProcedureType] = Field(alias="Type")
+    status: SkipValidation[RFIDErrorCodes] = Field(alias="Status")
+    active_option_idx: SkipValidation[Optional[float]] = Field(alias="ActiveOptionIdx", default=None, description="Index of the active variant of the procedure")
+    notifications: SkipValidation[List[int]] = Field(alias="Notifications", description="List of remarks arisen during the procedure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.")
+    access_control_options: SkipValidation[Optional[List[object]]] = Field(alias="AccessControlOptions", default=None, description="List of structures with are used to describe the variants of the authentication or secure data access procedure performance within the context of the communication session with electronic document")
     __properties: ClassVar[List[str]] = ["Type", "Status", "ActiveOptionIdx", "Notifications", "AccessControlOptions"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

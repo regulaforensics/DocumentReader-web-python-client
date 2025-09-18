@@ -11,25 +11,29 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from uuid import UUID
 from regula.documentreader.webclient.gen.models.in_data import InData
 from regula.documentreader.webclient.gen.models.out_data import OutData
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class TransactionProcessGetResponse(BaseModel):
     """
     TransactionProcessGetResponse
     """ # noqa: E501
-    transaction_id: Optional[StrictStr] = Field(default=None, alias="transactionId")
-    tag: Optional[StrictStr] = None
-    out_data: Optional[OutData] = Field(default=None, alias="outData")
-    in_data: Optional[InData] = Field(default=None, alias="inData")
+    transaction_id: SkipValidation[Optional[str]] = Field(alias="transactionId", default=None)
+    tag: SkipValidation[Optional[str]] = Field(alias="tag", default=None)
+    out_data: SkipValidation[Optional[OutData]] = Field(alias="outData", default=None)
+    in_data: SkipValidation[Optional[InData]] = Field(alias="inData", default=None)
     __properties: ClassVar[List[str]] = ["transactionId", "tag", "outData", "inData"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -13,24 +13,27 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class LivenessParams(BaseModel):
     """
     LivenessParams
     """ # noqa: E501
-    check_ovi: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable OVI check", alias="checkOVI")
-    check_mli: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable MLI check", alias="checkMLI")
-    check_holo: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Hologram detection", alias="checkHolo")
-    check_ed: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Electronic device detection", alias="checkED")
-    check_black_and_white_copy: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Black and white copy check", alias="checkBlackAndWhiteCopy")
-    check_dynaprint: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Dynaprint check", alias="checkDynaprint")
-    check_geometry: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Geometry check", alias="checkGeometry")
+    check_ovi: SkipValidation[Optional[bool]] = Field(alias="checkOVI", default=None, description="This parameter is used to enable OVI check")
+    check_mli: SkipValidation[Optional[bool]] = Field(alias="checkMLI", default=None, description="This parameter is used to enable MLI check")
+    check_holo: SkipValidation[Optional[bool]] = Field(alias="checkHolo", default=None, description="This parameter is used to enable Hologram detection")
+    check_ed: SkipValidation[Optional[bool]] = Field(alias="checkED", default=None, description="This parameter is used to enable Electronic device detection")
+    check_black_and_white_copy: SkipValidation[Optional[bool]] = Field(alias="checkBlackAndWhiteCopy", default=None, description="This parameter is used to enable Black and white copy check")
+    check_dynaprint: SkipValidation[Optional[bool]] = Field(alias="checkDynaprint", default=None, description="This parameter is used to enable Dynaprint check")
+    check_geometry: SkipValidation[Optional[bool]] = Field(alias="checkGeometry", default=None, description="This parameter is used to enable Geometry check")
     __properties: ClassVar[List[str]] = ["checkOVI", "checkMLI", "checkHolo", "checkED", "checkBlackAndWhiteCopy", "checkDynaprint", "checkGeometry"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

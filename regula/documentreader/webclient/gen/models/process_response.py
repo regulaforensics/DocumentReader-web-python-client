@@ -17,27 +17,30 @@ from regula.documentreader.webclient.gen.models.rfid_location import RfidLocatio
 from regula.documentreader.webclient.gen.models.transaction_info import TransactionInfo
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ProcessResponse(BaseModel):
     """
     ProcessResponse
     """ # noqa: E501
-    chip_page: RfidLocation = Field(alias="ChipPage")
-    core_lib_result_code: Optional[StrictInt] = Field(default=None, alias="CoreLibResultCode")
-    processing_finished: ProcessingStatus = Field(alias="ProcessingFinished")
-    container_list: ContainerList = Field(alias="ContainerList")
-    transaction_info: TransactionInfo = Field(alias="TransactionInfo")
-    log: Optional[StrictStr] = Field(default=None, description="Base64 encoded transaction processing log")
-    pass_back_object: Optional[Dict[str, Any]] = Field(default=None, description="Free-form object provided in request. See passBackObject property of ProcessRequest.", alias="passBackObject")
-    more_pages_available: StrictInt = Field(alias="morePagesAvailable")
-    elapsed_time: StrictInt = Field(description="Time the document processing has taken, ms.", alias="elapsedTime")
-    metadata: Optional[Dict[str, Any]] = None
+    chip_page: SkipValidation[RfidLocation] = Field(alias="ChipPage")
+    core_lib_result_code: SkipValidation[Optional[int]] = Field(alias="CoreLibResultCode", default=None)
+    processing_finished: SkipValidation[ProcessingStatus] = Field(alias="ProcessingFinished")
+    container_list: SkipValidation[ContainerList] = Field(alias="ContainerList")
+    transaction_info: SkipValidation[TransactionInfo] = Field(alias="TransactionInfo")
+    log: SkipValidation[Optional[str]] = Field(alias="log", default=None, description="Base64 encoded transaction processing log")
+    pass_back_object: SkipValidation[Optional[Dict[str, object]]] = Field(alias="passBackObject", default=None, description="Free-form object provided in request. See passBackObject property of ProcessRequest.")
+    more_pages_available: SkipValidation[int] = Field(alias="morePagesAvailable")
+    elapsed_time: SkipValidation[int] = Field(alias="elapsedTime", description="Time the document processing has taken, ms.")
+    metadata: SkipValidation[Optional[Dict[str, object]]] = Field(alias="metadata", default=None)
     __properties: ClassVar[List[str]] = ["ChipPage", "CoreLibResultCode", "ProcessingFinished", "ContainerList", "TransactionInfo", "log", "passBackObject", "morePagesAvailable", "elapsedTime", "metadata"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

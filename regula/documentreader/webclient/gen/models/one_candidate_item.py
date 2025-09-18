@@ -14,19 +14,22 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class OneCandidateItem(BaseModel):
     """
     OneCandidateItem
     """ # noqa: E501
-    one_candidate: OneCandidate = Field(alias="OneCandidate")
-    xml_buffer: Optional[StrictStr] = Field(default=None, alias="XML_buffer")
+    one_candidate: SkipValidation[OneCandidate] = Field(alias="OneCandidate")
+    xml_buffer: SkipValidation[Optional[str]] = Field(alias="XML_buffer", default=None)
     __properties: ClassVar[List[str]] = ["OneCandidate", "XML_buffer"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

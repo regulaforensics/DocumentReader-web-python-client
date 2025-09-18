@@ -18,34 +18,37 @@ from regula.documentreader.webclient.gen.models.rectangle_coordinates import Rec
 from regula.documentreader.webclient.gen.models.symbol_estimation_item import SymbolEstimationItem
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class StringItem(BaseModel):
     """
     StringItem
     """ # noqa: E501
-    alignment_symbols_in_string: CheckResult = Field(alias="ALIGNMENT_SYMBOLS_IN_STRING")
-    check_sums: CheckResult = Field(alias="CHECK_SUMS")
-    error_position: ErrorCoordinates = Field(alias="ErrorPOSITION")
-    field_count: StrictInt = Field(alias="FieldCount")
-    fields: List[FieldItem] = Field(alias="Fields")
-    strings_distance: CheckResult = Field(alias="STRINGS_DISTANCE")
-    strings_interval: CheckResult = Field(alias="STRINGS_INTERVAL")
-    string_filling: CheckResult = Field(alias="STRING_FILLING")
-    strings_position: Optional[CheckResult] = Field(default=None, alias="STRINGS_POSITION")
-    symbols_param: CheckResult = Field(alias="SYMBOLS_PARAM")
-    size_error_alignment: Union[StrictFloat, StrictInt] = Field(alias="SizeError_ALIGNMENT")
-    size_error_distance: Union[StrictFloat, StrictInt] = Field(alias="SizeError_DISTANCE")
-    size_error_interval: Union[StrictFloat, StrictInt] = Field(alias="SizeError_INTERVAL")
-    string_angle: Union[StrictFloat, StrictInt] = Field(alias="StringAngle")
-    string_borders: RectangleCoordinates = Field(alias="StringBorders")
-    symbols_count: StrictInt = Field(alias="SymbolsCount")
-    symbols_estimations: List[SymbolEstimationItem] = Field(alias="SymbolsEstimations")
+    alignment_symbols_in_string: SkipValidation[CheckResult] = Field(alias="ALIGNMENT_SYMBOLS_IN_STRING")
+    check_sums: SkipValidation[CheckResult] = Field(alias="CHECK_SUMS")
+    error_position: SkipValidation[ErrorCoordinates] = Field(alias="ErrorPOSITION")
+    field_count: SkipValidation[int] = Field(alias="FieldCount")
+    fields: SkipValidation[List[FieldItem]] = Field(alias="Fields")
+    strings_distance: SkipValidation[CheckResult] = Field(alias="STRINGS_DISTANCE")
+    strings_interval: SkipValidation[CheckResult] = Field(alias="STRINGS_INTERVAL")
+    string_filling: SkipValidation[CheckResult] = Field(alias="STRING_FILLING")
+    strings_position: SkipValidation[Optional[CheckResult]] = Field(alias="STRINGS_POSITION", default=None)
+    symbols_param: SkipValidation[CheckResult] = Field(alias="SYMBOLS_PARAM")
+    size_error_alignment: SkipValidation[float] = Field(alias="SizeError_ALIGNMENT")
+    size_error_distance: SkipValidation[float] = Field(alias="SizeError_DISTANCE")
+    size_error_interval: SkipValidation[float] = Field(alias="SizeError_INTERVAL")
+    string_angle: SkipValidation[float] = Field(alias="StringAngle")
+    string_borders: SkipValidation[RectangleCoordinates] = Field(alias="StringBorders")
+    symbols_count: SkipValidation[int] = Field(alias="SymbolsCount")
+    symbols_estimations: SkipValidation[List[SymbolEstimationItem]] = Field(alias="SymbolsEstimations")
     __properties: ClassVar[List[str]] = ["ALIGNMENT_SYMBOLS_IN_STRING", "CHECK_SUMS", "ErrorPOSITION", "FieldCount", "Fields", "STRINGS_DISTANCE", "STRINGS_INTERVAL", "STRING_FILLING", "STRINGS_POSITION", "SYMBOLS_PARAM", "SizeError_ALIGNMENT", "SizeError_DISTANCE", "SizeError_INTERVAL", "StringAngle", "StringBorders", "SymbolsCount", "SymbolsEstimations"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

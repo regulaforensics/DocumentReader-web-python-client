@@ -13,19 +13,22 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class PerDocumentConfig(BaseModel):
     """
     PerDocumentConfig
     """ # noqa: E501
-    doc_id: Optional[List[StrictInt]] = Field(default=None, description="Specific template IDs, for which apply current custom configuration", alias="docID")
-    exclude_auth_checks: Optional[StrictInt] = Field(default=None, description="Contains items from AuthenticityResultType as sum via OR operation", alias="excludeAuthChecks")
+    doc_id: SkipValidation[Optional[List[int]]] = Field(alias="docID", default=None, description="Specific template IDs, for which apply current custom configuration")
+    exclude_auth_checks: SkipValidation[Optional[int]] = Field(alias="excludeAuthChecks", default=None, description="Contains items from AuthenticityResultType as sum via OR operation")
     __properties: ClassVar[List[str]] = ["docID", "excludeAuthChecks"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

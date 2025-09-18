@@ -14,22 +14,25 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.bar_code_module_type import BarCodeModuleType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class DataModule(BaseModel):
     """
     DataModule
     """ # noqa: E501
-    m_data: StrictStr = Field(alias="mData")
-    m_length: StrictInt = Field(alias="mLength")
-    m_reserved1: Optional[StrictInt] = Field(default=None, alias="mReserved1")
-    m_reserver2: Optional[StrictInt] = Field(default=None, alias="mReserver2")
-    m_type: BarCodeModuleType = Field(alias="mType")
+    m_data: SkipValidation[str] = Field(alias="mData")
+    m_length: SkipValidation[int] = Field(alias="mLength")
+    m_reserved1: SkipValidation[Optional[int]] = Field(alias="mReserved1", default=None)
+    m_reserver2: SkipValidation[Optional[int]] = Field(alias="mReserver2", default=None)
+    m_type: SkipValidation[BarCodeModuleType] = Field(alias="mType")
     __properties: ClassVar[List[str]] = ["mData", "mLength", "mReserved1", "mReserver2", "mType"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

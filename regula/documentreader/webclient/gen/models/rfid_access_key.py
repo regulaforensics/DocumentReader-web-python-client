@@ -15,21 +15,24 @@ from regula.documentreader.webclient.gen.models.rfid_access_control_procedure_ty
 from regula.documentreader.webclient.gen.models.rfid_password_type import RfidPasswordType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidAccessKey(BaseModel):
     """
     Structure is used to describe the contents of secure data access key within the context of the communication session with electronic document
     """ # noqa: E501
-    access_key: StrictStr = Field(description="Key contents", alias="AccessKey")
-    key_type: RfidPasswordType = Field(alias="KeyType")
-    access_type: RfidAccessControlProcedureType = Field(alias="AccessType")
-    check_full_key_matching: StrictBool = Field(description="Logical sign of the need for a full comparison of AccessKey contents with the contents of DG1 (MRZ) data group", alias="CheckFullKeyMatching")
+    access_key: SkipValidation[str] = Field(alias="AccessKey", description="Key contents")
+    key_type: SkipValidation[RfidPasswordType] = Field(alias="KeyType")
+    access_type: SkipValidation[RfidAccessControlProcedureType] = Field(alias="AccessType")
+    check_full_key_matching: SkipValidation[bool] = Field(alias="CheckFullKeyMatching", description="Logical sign of the need for a full comparison of AccessKey contents with the contents of DG1 (MRZ) data group")
     __properties: ClassVar[List[str]] = ["AccessKey", "KeyType", "AccessType", "CheckFullKeyMatching"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

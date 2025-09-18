@@ -16,18 +16,21 @@ from regula.documentreader.webclient.gen.models.result_item import ResultItem
 from regula.documentreader.webclient.gen.models.status import Status
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class StatusResult(ResultItem):
     """
     StatusResult
     """ # noqa: E501
-    status: Status = Field(alias="Status")
+    status: SkipValidation[Status] = Field(alias="Status")
     __properties: ClassVar[List[str]] = ["buf_length", "light", "list_idx", "page_idx", "result_type", "Status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

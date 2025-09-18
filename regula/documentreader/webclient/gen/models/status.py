@@ -16,24 +16,27 @@ from regula.documentreader.webclient.gen.models.details_optical import DetailsOp
 from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class Status(BaseModel):
     """
     Status
     """ # noqa: E501
-    overall_status: CheckResult = Field(alias="overallStatus")
-    optical: CheckResult
-    portrait: CheckResult
-    rfid: CheckResult
-    stop_list: CheckResult = Field(alias="stopList")
-    details_rfid: Optional[DetailsRFID] = Field(default=None, alias="detailsRFID")
-    details_optical: DetailsOptical = Field(alias="detailsOptical")
+    overall_status: SkipValidation[CheckResult] = Field(alias="overallStatus")
+    optical: SkipValidation[CheckResult] = Field(alias="optical")
+    portrait: SkipValidation[CheckResult] = Field(alias="portrait")
+    rfid: SkipValidation[CheckResult] = Field(alias="rfid")
+    stop_list: SkipValidation[CheckResult] = Field(alias="stopList")
+    details_rfid: SkipValidation[Optional[DetailsRFID]] = Field(alias="detailsRFID", default=None)
+    details_optical: SkipValidation[DetailsOptical] = Field(alias="detailsOptical")
     __properties: ClassVar[List[str]] = ["overallStatus", "optical", "portrait", "rfid", "stopList", "detailsRFID", "detailsOptical"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

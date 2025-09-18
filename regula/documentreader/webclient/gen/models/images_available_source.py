@@ -14,19 +14,22 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.source import Source
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ImagesAvailableSource(BaseModel):
     """
     ImagesAvailableSource
     """ # noqa: E501
-    container_type: StrictInt = Field(description="Same as Result type, but used for safe parsing of not-described values. See Result type.", alias="containerType")
-    source: Source
+    container_type: SkipValidation[int] = Field(alias="containerType", description="Same as Result type, but used for safe parsing of not-described values. See Result type.")
+    source: SkipValidation[Source] = Field(alias="source")
     __properties: ClassVar[List[str]] = ["containerType", "source"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

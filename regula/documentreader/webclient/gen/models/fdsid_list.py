@@ -16,29 +16,32 @@ from regula.documentreader.webclient.gen.models.document_format import DocumentF
 from regula.documentreader.webclient.gen.models.document_type import DocumentType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class FDSIDList(BaseModel):
     """
     Extended document type info and Regula's 'Information Reference Systems' links
     """ # noqa: E501
-    icao_code: Annotated[str, Field(min_length=3, strict=True, max_length=3)] = Field(description="ICAO code of the issuing country", alias="ICAOCode")
-    count: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Number of elements in the List", alias="Count")
-    list: Optional[List[StrictInt]] = Field(default=None, description="Document identifiers in 'Information Reference Systems'", alias="List")
-    d_type: DocumentType = Field(alias="dType")
-    d_format: DocumentFormat = Field(alias="dFormat")
-    d_mrz: StrictBool = Field(description="Flag indicating the presence of MRZ on the document", alias="dMRZ")
-    d_description: Optional[StrictStr] = Field(default=None, description="Document description", alias="dDescription")
-    d_year: Optional[StrictStr] = Field(default=None, description="Year of publication of the document", alias="dYear")
-    d_country_name: StrictStr = Field(description="Issuing country name", alias="dCountryName")
-    d_state_code: Optional[StrictStr] = Field(default=None, description="Issuing state code", alias="dStateCode")
-    d_state_name: Optional[StrictStr] = Field(default=None, description="Issuing state name", alias="dStateName")
-    is_deprecated: StrictBool = Field(description="Whether the document is deprecated", alias="isDeprecated")
+    icao_code: SkipValidation[str] = Field(alias="ICAOCode", description="ICAO code of the issuing country")
+    count: SkipValidation[Optional[float]] = Field(alias="Count", default=None, description="Number of elements in the List")
+    list: SkipValidation[Optional[List[int]]] = Field(alias="List", default=None, description="Document identifiers in &#39;Information Reference Systems&#39;")
+    d_type: SkipValidation[DocumentType] = Field(alias="dType")
+    d_format: SkipValidation[DocumentFormat] = Field(alias="dFormat")
+    d_mrz: SkipValidation[bool] = Field(alias="dMRZ", description="Flag indicating the presence of MRZ on the document")
+    d_description: SkipValidation[Optional[str]] = Field(alias="dDescription", default=None, description="Document description")
+    d_year: SkipValidation[Optional[str]] = Field(alias="dYear", default=None, description="Year of publication of the document")
+    d_country_name: SkipValidation[str] = Field(alias="dCountryName", description="Issuing country name")
+    d_state_code: SkipValidation[Optional[str]] = Field(alias="dStateCode", default=None, description="Issuing state code")
+    d_state_name: SkipValidation[Optional[str]] = Field(alias="dStateName", default=None, description="Issuing state name")
+    is_deprecated: SkipValidation[bool] = Field(alias="isDeprecated", description="Whether the document is deprecated")
     __properties: ClassVar[List[str]] = ["ICAOCode", "Count", "List", "dType", "dFormat", "dMRZ", "dDescription", "dYear", "dCountryName", "dStateCode", "dStateName", "isDeprecated"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

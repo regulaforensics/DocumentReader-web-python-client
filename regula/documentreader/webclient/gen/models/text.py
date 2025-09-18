@@ -16,23 +16,26 @@ from regula.documentreader.webclient.gen.models.text_available_source import Tex
 from regula.documentreader.webclient.gen.models.text_field import TextField
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class Text(BaseModel):
     """
     Contains all document text fields data with validity and cross-source compare checks
     """ # noqa: E501
-    status: CheckResult
-    validity_status: CheckResult = Field(alias="validityStatus")
-    comparison_status: CheckResult = Field(alias="comparisonStatus")
-    date_format: StrictStr = Field(description="Date format", alias="dateFormat")
-    field_list: List[TextField] = Field(alias="fieldList")
-    available_source_list: List[TextAvailableSource] = Field(alias="availableSourceList")
+    status: SkipValidation[CheckResult] = Field(alias="status")
+    validity_status: SkipValidation[CheckResult] = Field(alias="validityStatus")
+    comparison_status: SkipValidation[CheckResult] = Field(alias="comparisonStatus")
+    date_format: SkipValidation[str] = Field(alias="dateFormat", description="Date format")
+    field_list: SkipValidation[List[TextField]] = Field(alias="fieldList")
+    available_source_list: SkipValidation[List[TextAvailableSource]] = Field(alias="availableSourceList")
     __properties: ClassVar[List[str]] = ["status", "validityStatus", "comparisonStatus", "dateFormat", "fieldList", "availableSourceList"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

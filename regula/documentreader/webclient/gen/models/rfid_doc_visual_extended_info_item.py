@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_info import RFIDDocVisualExtendedInfo
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RFIDDocVisualExtendedInfoItem(BaseModel):
     """
     RFIDDocVisualExtendedInfoItem
     """ # noqa: E501
-    doc_visual_extended_info: RFIDDocVisualExtendedInfo = Field(alias="DocVisualExtendedInfo")
+    doc_visual_extended_info: SkipValidation[RFIDDocVisualExtendedInfo] = Field(alias="DocVisualExtendedInfo")
     __properties: ClassVar[List[str]] = ["DocVisualExtendedInfo"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

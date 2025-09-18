@@ -15,20 +15,23 @@ from regula.documentreader.webclient.gen.models.rfid_attribute_name import RfidA
 from regula.documentreader.webclient.gen.models.trf_ft_string import TrfFtString
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidDistinguishedName(BaseModel):
     """
     Contents of the identifier in binary form. Base64 encoded.
     """ # noqa: E501
-    data: StrictStr = Field(description="Contents of the identifier in binary form. Base64 encoded.", alias="Data")
-    friendly_name: TrfFtString = Field(alias="FriendlyName")
-    attributes: List[RfidAttributeName] = Field(description="List of individual attributes contained in the identifier", alias="Attributes")
+    data: SkipValidation[str] = Field(alias="Data", description="Contents of the identifier in binary form. Base64 encoded.")
+    friendly_name: SkipValidation[TrfFtString] = Field(alias="FriendlyName")
+    attributes: SkipValidation[List[RfidAttributeName]] = Field(alias="Attributes", description="List of individual attributes contained in the identifier")
     __properties: ClassVar[List[str]] = ["Data", "FriendlyName", "Attributes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

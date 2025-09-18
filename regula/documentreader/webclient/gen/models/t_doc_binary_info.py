@@ -15,19 +15,22 @@ from regula.documentreader.webclient.gen.models.binary_data import BinaryData
 from regula.documentreader.webclient.gen.models.rfid_raw_data import RfidRawData
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class TDocBinaryInfo(BaseModel):
     """
     TDocBinaryInfo
     """ # noqa: E501
-    rfid_binary_data: Optional[BinaryData] = Field(default=None, alias="RFID_BINARY_DATA")
-    rfid_raw_data: Optional[List[RfidRawData]] = Field(default=None, alias="RFID_RAW_DATA")
+    rfid_binary_data: SkipValidation[Optional[BinaryData]] = Field(alias="RFID_BINARY_DATA", default=None)
+    rfid_raw_data: SkipValidation[Optional[List[RfidRawData]]] = Field(alias="RFID_RAW_DATA", default=None)
     __properties: ClassVar[List[str]] = ["RFID_BINARY_DATA", "RFID_RAW_DATA"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

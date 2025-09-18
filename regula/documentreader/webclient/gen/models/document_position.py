@@ -15,32 +15,35 @@ from regula.documentreader.webclient.gen.models.document_format import DocumentF
 from regula.documentreader.webclient.gen.models.point import Point
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class DocumentPosition(BaseModel):
     """
     DocumentPosition
     """ # noqa: E501
-    doc_format: DocumentFormat = Field(alias="docFormat")
-    angle: Union[StrictFloat, StrictInt] = Field(description="Document rotation angle", alias="Angle")
-    width: StrictInt = Field(description="Document width", alias="Width")
-    height: StrictInt = Field(description="Document height", alias="Height")
-    center: Point = Field(alias="Center")
-    left_bottom: Point = Field(alias="LeftBottom")
-    left_top: Point = Field(alias="LeftTop")
-    right_bottom: Point = Field(alias="RightBottom")
-    right_top: Point = Field(alias="RightTop")
-    dpi: StrictInt = Field(alias="Dpi")
-    inverse: Optional[StrictInt] = Field(default=None, alias="Inverse")
-    obj_area: Optional[StrictInt] = Field(default=None, alias="ObjArea")
-    obj_int_angle_dev: Optional[StrictInt] = Field(default=None, alias="ObjIntAngleDev")
-    perspective_tr: Optional[StrictInt] = Field(default=None, alias="PerspectiveTr")
-    result_status: Optional[StrictInt] = Field(default=None, alias="ResultStatus")
+    doc_format: SkipValidation[DocumentFormat] = Field(alias="docFormat")
+    angle: SkipValidation[float] = Field(alias="Angle", description="Document rotation angle")
+    width: SkipValidation[int] = Field(alias="Width", description="Document width")
+    height: SkipValidation[int] = Field(alias="Height", description="Document height")
+    center: SkipValidation[Point] = Field(alias="Center")
+    left_bottom: SkipValidation[Point] = Field(alias="LeftBottom")
+    left_top: SkipValidation[Point] = Field(alias="LeftTop")
+    right_bottom: SkipValidation[Point] = Field(alias="RightBottom")
+    right_top: SkipValidation[Point] = Field(alias="RightTop")
+    dpi: SkipValidation[int] = Field(alias="Dpi")
+    inverse: SkipValidation[Optional[int]] = Field(alias="Inverse", default=None)
+    obj_area: SkipValidation[Optional[int]] = Field(alias="ObjArea", default=None)
+    obj_int_angle_dev: SkipValidation[Optional[int]] = Field(alias="ObjIntAngleDev", default=None)
+    perspective_tr: SkipValidation[Optional[int]] = Field(alias="PerspectiveTr", default=None)
+    result_status: SkipValidation[Optional[int]] = Field(alias="ResultStatus", default=None)
     __properties: ClassVar[List[str]] = ["docFormat", "Angle", "Width", "Height", "Center", "LeftBottom", "LeftTop", "RightBottom", "RightTop", "Dpi", "Inverse", "ObjArea", "ObjIntAngleDev", "PerspectiveTr", "ResultStatus"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

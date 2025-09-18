@@ -15,26 +15,29 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.healthcheck_documents_database import HealthcheckDocumentsDatabase
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class Healthcheck(BaseModel):
     """
     Healthcheck
     """ # noqa: E501
-    app: StrictStr = Field(description="Application name.")
-    license_id: Optional[StrictStr] = Field(description="Unique license identifier.", alias="licenseId")
-    license_type: Optional[StrictStr] = Field(description="License type.", alias="licenseType")
-    license_serial: Optional[StrictStr] = Field(description="License serial number.", alias="licenseSerial")
-    license_valid_until: Optional[datetime] = Field(description="License validity date.", alias="licenseValidUntil")
-    scenarios: Optional[List[StrictStr]] = Field(description="List of supported scenarios.")
-    version: Optional[StrictStr] = Field(description="Product version.")
-    metadata: Optional[Dict[str, Any]] = None
-    documents_database: Optional[HealthcheckDocumentsDatabase] = Field(default=None, alias="documentsDatabase")
+    app: SkipValidation[str] = Field(alias="app", description="Application name.")
+    license_id: SkipValidation[str] = Field(alias="licenseId", description="Unique license identifier.")
+    license_type: SkipValidation[str] = Field(alias="licenseType", description="License type.")
+    license_serial: SkipValidation[str] = Field(alias="licenseSerial", description="License serial number.")
+    license_valid_until: SkipValidation[datetime] = Field(alias="licenseValidUntil", description="License validity date.")
+    scenarios: SkipValidation[List[str]] = Field(alias="scenarios", description="List of supported scenarios.")
+    version: SkipValidation[str] = Field(alias="version", description="Product version.")
+    metadata: SkipValidation[Optional[Dict[str, object]]] = Field(alias="metadata", default=None)
+    documents_database: SkipValidation[Optional[HealthcheckDocumentsDatabase]] = Field(alias="documentsDatabase", default=None)
     __properties: ClassVar[List[str]] = ["app", "licenseId", "licenseType", "licenseSerial", "licenseValidUntil", "scenarios", "version", "metadata", "documentsDatabase"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

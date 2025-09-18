@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.point import Point
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class PointArray(BaseModel):
     """
     PointArray
     """ # noqa: E501
-    points_list: List[Point] = Field(alias="PointsList")
+    points_list: SkipValidation[List[Point]] = Field(alias="PointsList")
     __properties: ClassVar[List[str]] = ["PointsList"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

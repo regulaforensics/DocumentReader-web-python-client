@@ -20,30 +20,33 @@ from regula.documentreader.webclient.gen.models.rfid_validity import RfidValidit
 from regula.documentreader.webclient.gen.models.trf_ft_string import TrfFtString
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidCertificateEx(BaseModel):
     """
     Structure is used to describe the certificate contents used for the digital signature verification of the document security object within the context of the communication session with electronic document.
     """ # noqa: E501
-    version: Union[StrictFloat, StrictInt] = Field(description="Version of Certificate ASN.1 structure", alias="Version")
-    serial_number: StrictStr = Field(description="Certificate serial number. Base64 encoded.", alias="SerialNumber")
-    signature_algorithm: StrictStr = Field(description="Certificate digital signature algorithm identifier (OID); String in the format S1 (S2), where S1 – algorithm name, S2 – identifier (OID string).", alias="SignatureAlgorithm")
-    issuer: RfidDistinguishedName = Field(alias="Issuer")
-    validity: RfidValidity = Field(alias="Validity")
-    subject: RfidDistinguishedName = Field(alias="Subject")
-    subject_pk_algorithm: StrictStr = Field(description="Certificate public key algorithm identifier (OID); String in the format S1 (S2), where S1 – algorithm name, S2 – identifier (OID string).", alias="SubjectPKAlgorithm")
-    extensions: List[RfidPkiExtension] = Field(description="List of the certificate extensions", alias="Extensions")
-    notifications: List[StrictInt] = Field(description="List of remarks arisen during the analysis of the certificate data structure and its validity verification. Can be ParsingErrorCodes or ParsingNotificationCodes enum.", alias="Notifications")
-    origin: RfidCertificateOrigin = Field(alias="Origin")
-    type: RfidCertificateType = Field(alias="Type")
-    file_name: TrfFtString = Field(alias="FileName")
-    pa_status: RFIDErrorCodes = Field(alias="PA_Status")
+    version: SkipValidation[float] = Field(alias="Version", description="Version of Certificate ASN.1 structure")
+    serial_number: SkipValidation[str] = Field(alias="SerialNumber", description="Certificate serial number. Base64 encoded.")
+    signature_algorithm: SkipValidation[str] = Field(alias="SignatureAlgorithm", description="Certificate digital signature algorithm identifier (OID); String in the format S1 (S2), where S1 – algorithm name, S2 – identifier (OID string).")
+    issuer: SkipValidation[RfidDistinguishedName] = Field(alias="Issuer")
+    validity: SkipValidation[RfidValidity] = Field(alias="Validity")
+    subject: SkipValidation[RfidDistinguishedName] = Field(alias="Subject")
+    subject_pk_algorithm: SkipValidation[str] = Field(alias="SubjectPKAlgorithm", description="Certificate public key algorithm identifier (OID); String in the format S1 (S2), where S1 – algorithm name, S2 – identifier (OID string).")
+    extensions: SkipValidation[List[RfidPkiExtension]] = Field(alias="Extensions", description="List of the certificate extensions")
+    notifications: SkipValidation[List[int]] = Field(alias="Notifications", description="List of remarks arisen during the analysis of the certificate data structure and its validity verification. Can be ParsingErrorCodes or ParsingNotificationCodes enum.")
+    origin: SkipValidation[RfidCertificateOrigin] = Field(alias="Origin")
+    type: SkipValidation[RfidCertificateType] = Field(alias="Type")
+    file_name: SkipValidation[TrfFtString] = Field(alias="FileName")
+    pa_status: SkipValidation[RFIDErrorCodes] = Field(alias="PA_Status")
     __properties: ClassVar[List[str]] = ["Version", "SerialNumber", "SignatureAlgorithm", "Issuer", "Validity", "Subject", "SubjectPKAlgorithm", "Extensions", "Notifications", "Origin", "Type", "FileName", "PA_Status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

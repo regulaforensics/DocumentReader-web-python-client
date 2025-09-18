@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.doc_bar_code_info_fields_list import DocBarCodeInfoFieldsList
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class DocBarCodeInfoItem(BaseModel):
     """
     DocBarCodeInfoItem
     """ # noqa: E501
-    doc_bar_code_info: DocBarCodeInfoFieldsList = Field(alias="DocBarCodeInfo")
+    doc_bar_code_info: SkipValidation[DocBarCodeInfoFieldsList] = Field(alias="DocBarCodeInfo")
     __properties: ClassVar[List[str]] = ["DocBarCodeInfo"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

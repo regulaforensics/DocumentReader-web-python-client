@@ -14,22 +14,25 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from regula.documentreader.webclient.gen.models.symbol_recognition_result import SymbolRecognitionResult
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class StringRecognitionResult(BaseModel):
     """
     Describes single row recognition results in multi-line text field of a document
     """ # noqa: E501
-    symbols_count: Union[StrictFloat, StrictInt] = Field(description="Number of StringResult array elements", alias="SymbolsCount")
-    string_result: List[SymbolRecognitionResult] = Field(description="Array of recognition results for individual characters of a string", alias="StringResult")
-    buf_length: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Buf_Text text string length", alias="Buf_Length")
-    buf_text: Optional[StrictStr] = Field(default=None, description="Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by '^'", alias="Buf_Text")
-    reserved: Optional[StrictInt] = Field(default=None, alias="Reserved")
+    symbols_count: SkipValidation[float] = Field(alias="SymbolsCount", description="Number of StringResult array elements")
+    string_result: SkipValidation[List[SymbolRecognitionResult]] = Field(alias="StringResult", description="Array of recognition results for individual characters of a string")
+    buf_length: SkipValidation[Optional[float]] = Field(alias="Buf_Length", default=None, description="Buf_Text text string length")
+    buf_text: SkipValidation[Optional[str]] = Field(alias="Buf_Text", default=None, description="Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by &#39;^&#39;")
+    reserved: SkipValidation[Optional[int]] = Field(alias="Reserved", default=None)
     __properties: ClassVar[List[str]] = ["SymbolsCount", "StringResult", "Buf_Length", "Buf_Text", "Reserved"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

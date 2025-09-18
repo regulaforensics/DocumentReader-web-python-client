@@ -13,21 +13,24 @@ from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ErrorCoordinates(BaseModel):
     """
     ErrorCoordinates
     """ # noqa: E501
-    left: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="Left")
-    top: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="Top")
-    right: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="Right")
-    bottom: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="Bottom")
+    left: SkipValidation[Optional[float]] = Field(alias="Left", default=None)
+    top: SkipValidation[Optional[float]] = Field(alias="Top", default=None)
+    right: SkipValidation[Optional[float]] = Field(alias="Right", default=None)
+    bottom: SkipValidation[Optional[float]] = Field(alias="Bottom", default=None)
     __properties: ClassVar[List[str]] = ["Left", "Top", "Right", "Bottom"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

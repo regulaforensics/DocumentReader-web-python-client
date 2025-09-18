@@ -16,29 +16,32 @@ from regula.documentreader.webclient.gen.models.fdsid_list import FDSIDList
 from regula.documentreader.webclient.gen.models.rfid_location import RfidLocation
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ChosenDocumentType(BaseModel):
     """
     Contains information about one document type candidate
     """ # noqa: E501
-    document_name: Optional[StrictStr] = Field(default=None, description="Document name", alias="DocumentName")
-    id: StrictInt = Field(description="Unique document type template identifier (Regula's internal numeric code)", alias="ID")
-    p: Union[Annotated[float, Field(le=1, strict=True, ge=0)], Annotated[int, Field(le=1, strict=True, ge=0)]] = Field(description="A measure of the likelihood of correct recognition in the analysis of this type of document", alias="P")
-    rotated180: StrictInt = Field(description="Indicates if the document of the given type is rotated by 180 degrees", alias="Rotated180")
-    rfid_presence: RfidLocation = Field(alias="RFID_Presence")
-    fdsid_list: Optional[FDSIDList] = Field(default=None, alias="FDSIDList")
-    necessary_lights: StrictInt = Field(description="Combination of lighting scheme identifiers (Light enum) required to conduct OCR for this type of document", alias="NecessaryLights")
-    check_authenticity: StrictInt = Field(description="Set of authentication options provided for this type of document (combination of Authenticity enum)", alias="CheckAuthenticity")
-    uv_exp: StrictInt = Field(description="The required exposure value of the camera when receiving images of a document of this type for a UV lighting scheme", alias="UVExp")
-    authenticity_necessary_lights: StrictInt = Field(description="Combination of lighting scheme identifiers (combination of Light enum) needed to perform all authenticity checks specified in CheckAuthenticity", alias="AuthenticityNecessaryLights")
-    ovi_exp: Union[StrictFloat, StrictInt] = Field(description="Camera exposure value necessary when obtaining document images of the given type for AXIAL lighting scheme", alias="OVIExp")
-    rotation_angle: Optional[StrictInt] = Field(default=None, alias="RotationAngle")
+    document_name: SkipValidation[Optional[str]] = Field(alias="DocumentName", default=None, description="Document name")
+    id: SkipValidation[int] = Field(alias="ID", description="Unique document type template identifier (Regula&#39;s internal numeric code)")
+    p: SkipValidation[float] = Field(alias="P", description="A measure of the likelihood of correct recognition in the analysis of this type of document")
+    rotated180: SkipValidation[int] = Field(alias="Rotated180", description="Indicates if the document of the given type is rotated by 180 degrees")
+    rfid_presence: SkipValidation[RfidLocation] = Field(alias="RFID_Presence")
+    fdsid_list: SkipValidation[Optional[FDSIDList]] = Field(alias="FDSIDList", default=None)
+    necessary_lights: SkipValidation[int] = Field(alias="NecessaryLights", description="Combination of lighting scheme identifiers (Light enum) required to conduct OCR for this type of document")
+    check_authenticity: SkipValidation[int] = Field(alias="CheckAuthenticity", description="Set of authentication options provided for this type of document (combination of Authenticity enum)")
+    uv_exp: SkipValidation[int] = Field(alias="UVExp", description="The required exposure value of the camera when receiving images of a document of this type for a UV lighting scheme")
+    authenticity_necessary_lights: SkipValidation[int] = Field(alias="AuthenticityNecessaryLights", description="Combination of lighting scheme identifiers (combination of Light enum) needed to perform all authenticity checks specified in CheckAuthenticity")
+    ovi_exp: SkipValidation[float] = Field(alias="OVIExp", description="Camera exposure value necessary when obtaining document images of the given type for AXIAL lighting scheme")
+    rotation_angle: SkipValidation[Optional[int]] = Field(alias="RotationAngle", default=None)
     __properties: ClassVar[List[str]] = ["DocumentName", "ID", "P", "Rotated180", "RFID_Presence", "FDSIDList", "NecessaryLights", "CheckAuthenticity", "UVExp", "AuthenticityNecessaryLights", "OVIExp", "RotationAngle"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

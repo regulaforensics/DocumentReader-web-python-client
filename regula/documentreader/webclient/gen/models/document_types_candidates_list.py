@@ -15,19 +15,22 @@ from regula.documentreader.webclient.gen.models.document_type_recognition_result
 from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class DocumentTypesCandidatesList(BaseModel):
     """
     DocumentTypesCandidatesList
     """ # noqa: E501
-    rec_result: Optional[DocumentTypeRecognitionResult] = Field(default=None, alias="RecResult")
-    candidates: Optional[List[OneCandidate]] = Field(default=None, alias="Candidates")
+    rec_result: SkipValidation[Optional[DocumentTypeRecognitionResult]] = Field(alias="RecResult", default=None)
+    candidates: SkipValidation[Optional[List[OneCandidate]]] = Field(alias="Candidates", default=None)
     __properties: ClassVar[List[str]] = ["RecResult", "Candidates"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

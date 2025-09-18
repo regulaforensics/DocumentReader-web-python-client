@@ -14,21 +14,24 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.light import Light
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class InDataTransactionImagesFieldValue(BaseModel):
     """
     InDataTransactionImagesFieldValue
     """ # noqa: E501
-    light: Optional[Light] = None
-    list_idx: Optional[StrictInt] = Field(default=None, alias="listIdx")
-    page_idx: Optional[StrictInt] = Field(default=None, description="Page index of the image from input list", alias="pageIdx")
-    url: Optional[StrictStr] = Field(default=None, description="Image url")
+    light: SkipValidation[Optional[Light]] = Field(alias="light", default=None)
+    list_idx: SkipValidation[Optional[int]] = Field(alias="listIdx", default=None)
+    page_idx: SkipValidation[Optional[int]] = Field(alias="pageIdx", default=None, description="Page index of the image from input list")
+    url: SkipValidation[Optional[str]] = Field(alias="url", default=None, description="Image url")
     __properties: ClassVar[List[str]] = ["light", "listIdx", "pageIdx", "url"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -13,21 +13,24 @@ from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, Stric
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class TrfFtBytes(BaseModel):
     """
     Structure is used to store an array of binary information that is a part of one of the informational data groups
     """ # noqa: E501
-    type: StrictInt = Field(description="Logical type of the field", alias="Type")
-    status: Union[StrictFloat, StrictInt] = Field(description="Result of logical analysis of compliance of the contents of the field with the requirements of the specification", alias="Status")
-    length: Union[StrictFloat, StrictInt] = Field(description="Length of Data array", alias="Length")
-    data: Optional[StrictStr] = Field(description="Binary data array. Base64 encoded.", alias="Data")
+    type: SkipValidation[int] = Field(alias="Type", description="Logical type of the field")
+    status: SkipValidation[float] = Field(alias="Status", description="Result of logical analysis of compliance of the contents of the field with the requirements of the specification")
+    length: SkipValidation[float] = Field(alias="Length", description="Length of Data array")
+    data: SkipValidation[str] = Field(alias="Data", description="Binary data array. Base64 encoded.")
     __properties: ClassVar[List[str]] = ["Type", "Status", "Length", "Data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

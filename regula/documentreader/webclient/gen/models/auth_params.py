@@ -14,33 +14,36 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.liveness_params import LivenessParams
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class AuthParams(BaseModel):
     """
     AuthParams
     """ # noqa: E501
-    check_liveness: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable document liveness check", alias="checkLiveness")
-    liveness_params: Optional[LivenessParams] = Field(default=None, alias="livenessParams")
-    check_uv_luminiscence: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Document luminescence check in UV light", alias="checkUVLuminiscence")
-    check_irb900: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable B900 ink MRZ contrast check in IR light", alias="checkIRB900")
-    check_image_patterns: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Image patterns presence/absence check (position, shape, color)", alias="checkImagePatterns")
-    check_fibers: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Fibers detection", alias="checkFibers")
-    check_ext_mrz: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Extended MRZ Check", alias="checkExtMRZ")
-    check_ext_ocr: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Extended OCR Check", alias="checkExtOCR")
-    check_axial: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable laminate integrity check in axial light", alias="checkAxial")
-    check_barcode_format: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Barcode format check (code metadata, data format, contents format, etc.)", alias="checkBarcodeFormat")
-    check_ir_visibility: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Document elements visibility check in IR light", alias="checkIRVisibility")
-    check_ipi: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Invisible Personal Information (IPI) check", alias="checkIPI")
-    check_photo_embedding: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Owner's photo embedding check (is photo printed or sticked)", alias="checkPhotoEmbedding")
-    check_photo_comparison: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Portrait comparison check", alias="checkPhotoComparison")
-    check_letter_screen: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable LetterScreen check", alias="checkLetterScreen")
-    check_security_text: Optional[StrictBool] = Field(default=None, description="This parameter is used to enable Security text check", alias="checkSecurityText")
+    check_liveness: SkipValidation[Optional[bool]] = Field(alias="checkLiveness", default=None, description="This parameter is used to enable document liveness check")
+    liveness_params: SkipValidation[Optional[LivenessParams]] = Field(alias="livenessParams", default=None)
+    check_uv_luminiscence: SkipValidation[Optional[bool]] = Field(alias="checkUVLuminiscence", default=None, description="This parameter is used to enable Document luminescence check in UV light")
+    check_irb900: SkipValidation[Optional[bool]] = Field(alias="checkIRB900", default=None, description="This parameter is used to enable B900 ink MRZ contrast check in IR light")
+    check_image_patterns: SkipValidation[Optional[bool]] = Field(alias="checkImagePatterns", default=None, description="This parameter is used to enable Image patterns presence/absence check (position, shape, color)")
+    check_fibers: SkipValidation[Optional[bool]] = Field(alias="checkFibers", default=None, description="This parameter is used to enable Fibers detection")
+    check_ext_mrz: SkipValidation[Optional[bool]] = Field(alias="checkExtMRZ", default=None, description="This parameter is used to enable Extended MRZ Check")
+    check_ext_ocr: SkipValidation[Optional[bool]] = Field(alias="checkExtOCR", default=None, description="This parameter is used to enable Extended OCR Check")
+    check_axial: SkipValidation[Optional[bool]] = Field(alias="checkAxial", default=None, description="This parameter is used to enable laminate integrity check in axial light")
+    check_barcode_format: SkipValidation[Optional[bool]] = Field(alias="checkBarcodeFormat", default=None, description="This parameter is used to enable Barcode format check (code metadata, data format, contents format, etc.)")
+    check_ir_visibility: SkipValidation[Optional[bool]] = Field(alias="checkIRVisibility", default=None, description="This parameter is used to enable Document elements visibility check in IR light")
+    check_ipi: SkipValidation[Optional[bool]] = Field(alias="checkIPI", default=None, description="This parameter is used to enable Invisible Personal Information (IPI) check")
+    check_photo_embedding: SkipValidation[Optional[bool]] = Field(alias="checkPhotoEmbedding", default=None, description="This parameter is used to enable Owner&#39;s photo embedding check (is photo printed or sticked)")
+    check_photo_comparison: SkipValidation[Optional[bool]] = Field(alias="checkPhotoComparison", default=None, description="This parameter is used to enable Portrait comparison check")
+    check_letter_screen: SkipValidation[Optional[bool]] = Field(alias="checkLetterScreen", default=None, description="This parameter is used to enable LetterScreen check")
+    check_security_text: SkipValidation[Optional[bool]] = Field(alias="checkSecurityText", default=None, description="This parameter is used to enable Security text check")
     __properties: ClassVar[List[str]] = ["checkLiveness", "livenessParams", "checkUVLuminiscence", "checkIRB900", "checkImagePatterns", "checkFibers", "checkExtMRZ", "checkExtOCR", "checkAxial", "checkBarcodeFormat", "checkIRVisibility", "checkIPI", "checkPhotoEmbedding", "checkPhotoComparison", "checkLetterScreen", "checkSecurityText"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

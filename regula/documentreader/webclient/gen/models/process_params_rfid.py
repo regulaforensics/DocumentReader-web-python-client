@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.parsing_notification_codes import ParsingNotificationCodes
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ProcessParamsRfid(BaseModel):
     """
     Params for the RFID chip data reprocessing
     """ # noqa: E501
-    pa_ignore_notification_codes: Optional[List[ParsingNotificationCodes]] = Field(default=None, description="A list of notification codes that should be ignored during passive authentication (PA)", alias="paIgnoreNotificationCodes")
+    pa_ignore_notification_codes: SkipValidation[Optional[List[ParsingNotificationCodes]]] = Field(alias="paIgnoreNotificationCodes", default=None, description="A list of notification codes that should be ignored during passive authentication (PA)")
     __properties: ClassVar[List[str]] = ["paIgnoreNotificationCodes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

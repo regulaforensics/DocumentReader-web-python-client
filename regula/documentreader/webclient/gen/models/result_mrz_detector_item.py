@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.result_mrz_detector import ResultMRZDetector
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ResultMRZDetectorItem(BaseModel):
     """
     ResultMRZDetectorItem
     """ # noqa: E501
-    result_mrz_detector: ResultMRZDetector = Field(alias="ResultMRZDetector")
+    result_mrz_detector: SkipValidation[ResultMRZDetector] = Field(alias="ResultMRZDetector")
     __properties: ClassVar[List[str]] = ["ResultMRZDetector"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

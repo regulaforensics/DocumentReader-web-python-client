@@ -13,23 +13,26 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class FieldItem(BaseModel):
     """
     FieldItem
     """ # noqa: E501
-    field_length: StrictInt = Field(alias="FieldLength")
-    field_pos: StrictInt = Field(alias="FieldPos")
-    field_type: StrictInt = Field(alias="FieldType")
-    test_result: StrictInt = Field(alias="TEST_RESULT")
-    valid_check_sum: StrictInt = Field(alias="ValidCheckSum")
-    reserved: StrictInt
+    field_length: SkipValidation[int] = Field(alias="FieldLength")
+    field_pos: SkipValidation[int] = Field(alias="FieldPos")
+    field_type: SkipValidation[int] = Field(alias="FieldType")
+    test_result: SkipValidation[int] = Field(alias="TEST_RESULT")
+    valid_check_sum: SkipValidation[int] = Field(alias="ValidCheckSum")
+    reserved: SkipValidation[int] = Field(alias="reserved")
     __properties: ClassVar[List[str]] = ["FieldLength", "FieldPos", "FieldType", "TEST_RESULT", "ValidCheckSum", "reserved"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

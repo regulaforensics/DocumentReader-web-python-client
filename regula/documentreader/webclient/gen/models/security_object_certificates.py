@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.certificate_data import CertificateData
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class SecurityObjectCertificates(BaseModel):
     """
     SecurityObjectCertificates
     """ # noqa: E501
-    certificate_data: Optional[CertificateData] = Field(default=None, alias="Certificate_Data")
+    certificate_data: SkipValidation[Optional[CertificateData]] = Field(alias="Certificate_Data", default=None)
     __properties: ClassVar[List[str]] = ["Certificate_Data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

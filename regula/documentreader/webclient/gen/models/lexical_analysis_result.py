@@ -16,18 +16,21 @@ from regula.documentreader.webclient.gen.models.result import Result
 from regula.documentreader.webclient.gen.models.result_item import ResultItem
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class LexicalAnalysisResult(ResultItem):
     """
     Lexical data analysis allows you to compare the results of reading the text data of the MRZ, the document filling area, barcodes and data from the memory of the RFID chip for an additional assessment of the authenticity of the document. Single result for all pages. Consider using Result.TEXT type for more simplicity. 
     """ # noqa: E501
-    list_verified_fields: ListVerifiedFields = Field(alias="ListVerifiedFields")
+    list_verified_fields: SkipValidation[ListVerifiedFields] = Field(alias="ListVerifiedFields")
     __properties: ClassVar[List[str]] = ["buf_length", "light", "list_idx", "page_idx", "result_type", "ListVerifiedFields"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 
