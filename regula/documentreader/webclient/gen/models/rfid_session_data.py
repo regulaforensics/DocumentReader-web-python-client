@@ -40,7 +40,7 @@ class RfidSessionData(BaseModel):
     root_files: SkipValidation[List[object]] = Field(alias="RootFiles", description="List of containers to store information about the read files of the root Master File")
     total_bytes_sent: SkipValidation[float] = Field(alias="TotalBytesSent", description="Total number of bytes transmitted to the RFID-chip during the whole session")
     total_bytes_received: SkipValidation[float] = Field(alias="TotalBytesReceived", description="Total number of bytes received from the RFID-chip during the whole session")
-    session_key: SkipValidation[RfidAccessKey] = Field(alias="Session_key")
+    session_key: SkipValidation[Optional[RfidAccessKey]] = Field(alias="Session_key", default=None)
     session_terminal: SkipValidation[RfidTerminal] = Field(alias="Session_terminal")
     session_procedure: SkipValidation[RfidAuthenticationProcedureType] = Field(alias="Session_procedure")
     security_objects: SkipValidation[List[RfidSecurityObject]] = Field(alias="SecurityObjects", description="List of containers to store information about the detected document security objects")
