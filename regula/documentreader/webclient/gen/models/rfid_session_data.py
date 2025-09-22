@@ -39,7 +39,7 @@ class RfidSessionData(BaseModel):
     root_files: List[Any] = Field(description="List of containers to store information about the read files of the root Master File", alias="RootFiles")
     total_bytes_sent: Union[StrictFloat, StrictInt] = Field(description="Total number of bytes transmitted to the RFID-chip during the whole session", alias="TotalBytesSent")
     total_bytes_received: Union[StrictFloat, StrictInt] = Field(description="Total number of bytes received from the RFID-chip during the whole session", alias="TotalBytesReceived")
-    session_key: RfidAccessKey = Field(alias="Session_key")
+    session_key: Optional[RfidAccessKey] = Field(default=None, alias="Session_key")
     session_terminal: RfidTerminal = Field(alias="Session_terminal")
     session_procedure: RfidAuthenticationProcedureType = Field(alias="Session_procedure")
     security_objects: List[RfidSecurityObject] = Field(description="List of containers to store information about the detected document security objects", alias="SecurityObjects")

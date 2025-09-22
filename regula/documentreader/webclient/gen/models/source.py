@@ -24,6 +24,8 @@ class Source(str, Enum):
     RFID = 'RFID'
     MAGNETIC = 'MAGNETIC'
     EXTERNAL = 'EXTERNAL'
+    LIVE = 'LIVE'
+    FINGERPRINT = 'FINGERPRINT'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

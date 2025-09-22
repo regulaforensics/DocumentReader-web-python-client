@@ -26,7 +26,7 @@ class RFIDDocVisualExtendedField(BaseModel):
     strings_count: Union[StrictFloat, StrictInt] = Field(description="Number of StringsResult array elements", alias="StringsCount")
     strings_result: List[StringRecognitionResult] = Field(description="Array of recognizing probabilities for a each line of text field. Only for Result.VISUAL_TEXT and Result.MRZ_TEXT results.", alias="StringsResult")
     buf_length: Union[StrictFloat, StrictInt] = Field(description="Buf_Text text string length", alias="Buf_Length")
-    buf_text: StrictStr = Field(description="Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by '^'", alias="Buf_Text")
+    buf_text: Optional[StrictStr] = Field(default=None, description="Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by '^'", alias="Buf_Text")
     field_mask: Optional[StrictStr] = Field(default=None, alias="FieldMask")
     validity: Optional[StrictInt] = Field(default=None, alias="Validity")
     in_comparison: Optional[StrictInt] = Field(default=None, alias="InComparison")
