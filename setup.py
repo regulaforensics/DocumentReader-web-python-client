@@ -33,6 +33,7 @@ setup(
         "requests>=2.32.3",
         "pydantic>=2",
         "typing-extensions>=4.7.1",
+        "lazy-imports==1.0.1",
     ],
     packages=find_packages(exclude=["test", "tests", "example"]),
     include_package_data=True,
