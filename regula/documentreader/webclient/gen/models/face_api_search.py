@@ -9,7 +9,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
@@ -21,7 +21,7 @@ class FaceApiSearch(BaseModel):
     """ # noqa: E501
     limit: SkipValidation[Optional[int]] = Field(alias="limit", default=None, description="The maximum number of results to be returned.")
     threshold: SkipValidation[Optional[float]] = Field(alias="threshold", default=None, description="The similarity threshold.")
-    group_ids: SkipValidation[Optional[List[int]]] = Field(alias="group_ids", default=None, description=" The groups where to conduct the search.")
+    group_ids: SkipValidation[Optional[List[str]]] = Field(alias="group_ids", default=None, description=" The groups where to conduct the search.")
     __properties: ClassVar[List[str]] = ["limit", "threshold", "group_ids"]
 
     model_config = ConfigDict(
