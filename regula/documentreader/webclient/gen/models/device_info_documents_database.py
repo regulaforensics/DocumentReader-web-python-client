@@ -13,21 +13,24 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class DeviceInfoDocumentsDatabase(BaseModel):
     """
     Database information.
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(description="Database identifier.")
-    version: Optional[StrictStr] = Field(description="Database version.")
-    export_date: Optional[StrictStr] = Field(description="Date of database creation.", alias="export-date")
-    description: Optional[StrictStr] = Field(description="Description of the database contents, such as the list of supported countries and documents.")
+    id: SkipValidation[str] = Field(alias="id", description="Database identifier.")
+    version: SkipValidation[str] = Field(alias="version", description="Database version.")
+    export_date: SkipValidation[str] = Field(alias="export-date", description="Date of database creation.")
+    description: SkipValidation[str] = Field(alias="description", description="Description of the database contents, such as the list of supported countries and documents.")
     __properties: ClassVar[List[str]] = ["id", "version", "export-date", "description"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

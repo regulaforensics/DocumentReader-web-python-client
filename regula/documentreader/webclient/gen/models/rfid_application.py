@@ -16,24 +16,27 @@ from regula.documentreader.webclient.gen.models.rfid_data_file import RfidDataFi
 from regula.documentreader.webclient.gen.models.rfid_error_codes import RFIDErrorCodes
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidApplication(BaseModel):
     """
     Structure is used to describe the contents of a single LDS application and their analysis within the context of the communication session with electronic document
     """ # noqa: E501
-    type: RfidApplicationType = Field(alias="Type")
-    status: RFIDErrorCodes = Field(alias="Status")
-    application_id: StrictStr = Field(description="Application identifier", alias="ApplicationID")
-    version: StrictStr = Field(description="Version of the application", alias="Version")
-    unicode_version: StrictStr = Field(description="Unicode version for application", alias="UnicodeVersion")
-    data_hash_algorithm: StrictStr = Field(description="Algorithm for calculating hash values for files for the procedure of PA", alias="DataHashAlgorithm")
-    files: List[RfidDataFile] = Field(description="List of containers to store information about the read files of the application", alias="Files")
+    type: SkipValidation[RfidApplicationType] = Field(alias="Type")
+    status: SkipValidation[RFIDErrorCodes] = Field(alias="Status")
+    application_id: SkipValidation[str] = Field(alias="ApplicationID", description="Application identifier")
+    version: SkipValidation[str] = Field(alias="Version", description="Version of the application")
+    unicode_version: SkipValidation[str] = Field(alias="UnicodeVersion", description="Unicode version for application")
+    data_hash_algorithm: SkipValidation[str] = Field(alias="DataHashAlgorithm", description="Algorithm for calculating hash values for files for the procedure of PA")
+    files: SkipValidation[List[RfidDataFile]] = Field(alias="Files", description="List of containers to store information about the read files of the application")
     __properties: ClassVar[List[str]] = ["Type", "Status", "ApplicationID", "Version", "UnicodeVersion", "DataHashAlgorithm", "Files"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

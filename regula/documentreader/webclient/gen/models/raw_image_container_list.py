@@ -14,19 +14,22 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.image_data import ImageData
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RawImageContainerList(BaseModel):
     """
     RawImageContainerList
     """ # noqa: E501
-    count: StrictInt = Field(alias="Count")
-    images: List[ImageData] = Field(alias="Images")
+    count: SkipValidation[int] = Field(alias="Count")
+    images: SkipValidation[List[ImageData]] = Field(alias="Images")
     __properties: ClassVar[List[str]] = ["Count", "Images"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class DocVisualExtendedFieldItem(BaseModel):
     """
     DocVisualExtendedFieldItem
     """ # noqa: E501
-    field_rect: RectangleCoordinates = Field(alias="FieldRect")
+    field_rect: SkipValidation[RectangleCoordinates] = Field(alias="FieldRect")
     __properties: ClassVar[List[str]] = ["FieldRect"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

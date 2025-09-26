@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b8e94a46b2f9a7e7843c4f028edcce9c52f53e1568585b929aa8ec5adca42d47"
+            "sha256": "a39e6d4a60d45e81be088ea086e1c7e60a6000e7eb1b783227ce24d8535b3150"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -147,6 +147,15 @@
             "index": "pypi",
             "markers": "python_version >= '3.5'",
             "version": "==3.7"
+        },
+        "lazy-imports": {
+            "hashes": [
+                "sha256:7d3e4b1547cb574ec7ef3c47a074673e2612330b2b50bf7eec939f2c393fc261",
+                "sha256:eb5accc33bf9987e5197e79476bbeb960b74a2c16619bdf41281b3240f730846"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.9'",
+            "version": "==1.0.1"
         },
         "pydantic": {
             "hashes": [

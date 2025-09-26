@@ -13,21 +13,24 @@ from pydantic import BaseModel, ConfigDict, StrictInt
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class BcROIDETECT(BaseModel):
     """
     BcROIDETECT
     """ # noqa: E501
-    bottom: StrictInt
-    left: StrictInt
-    right: StrictInt
-    top: StrictInt
+    bottom: SkipValidation[int] = Field(alias="bottom")
+    left: SkipValidation[int] = Field(alias="left")
+    right: SkipValidation[int] = Field(alias="right")
+    top: SkipValidation[int] = Field(alias="top")
     __properties: ClassVar[List[str]] = ["bottom", "left", "right", "top"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

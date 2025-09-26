@@ -14,20 +14,23 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from regula.documentreader.webclient.gen.models.verified_field_map import VerifiedFieldMap
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ListVerifiedFields(BaseModel):
     """
     ListVerifiedFields
     """ # noqa: E501
-    count: Union[StrictFloat, StrictInt] = Field(description="Number of pFieldMaps array elements", alias="Count")
-    p_field_maps: List[VerifiedFieldMap] = Field(alias="pFieldMaps")
-    p_date_format: Optional[StrictStr] = Field(default=None, alias="pDateFormat")
+    count: SkipValidation[float] = Field(alias="Count", description="Number of pFieldMaps array elements")
+    p_field_maps: SkipValidation[List[VerifiedFieldMap]] = Field(alias="pFieldMaps")
+    p_date_format: SkipValidation[Optional[str]] = Field(alias="pDateFormat", default=None)
     __properties: ClassVar[List[str]] = ["Count", "pFieldMaps", "pDateFormat"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

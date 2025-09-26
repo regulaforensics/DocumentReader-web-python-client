@@ -14,24 +14,27 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class DetailsRFID(BaseModel):
     """
     Details on performed RFID checks
     """ # noqa: E501
-    overall_status: CheckResult = Field(alias="overallStatus")
-    aa: CheckResult = Field(alias="AA")
-    bac: CheckResult = Field(alias="BAC")
-    ca: CheckResult = Field(alias="CA")
-    pa: CheckResult = Field(alias="PA")
-    pace: CheckResult = Field(alias="PACE")
-    ta: CheckResult = Field(alias="TA")
+    overall_status: SkipValidation[CheckResult] = Field(alias="overallStatus")
+    aa: SkipValidation[CheckResult] = Field(alias="AA")
+    bac: SkipValidation[CheckResult] = Field(alias="BAC")
+    ca: SkipValidation[CheckResult] = Field(alias="CA")
+    pa: SkipValidation[CheckResult] = Field(alias="PA")
+    pace: SkipValidation[CheckResult] = Field(alias="PACE")
+    ta: SkipValidation[CheckResult] = Field(alias="TA")
     __properties: ClassVar[List[str]] = ["overallStatus", "AA", "BAC", "CA", "PA", "PACE", "TA"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

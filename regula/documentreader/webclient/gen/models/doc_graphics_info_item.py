@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.graphic_fields_list import GraphicFieldsList
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class DocGraphicsInfoItem(BaseModel):
     """
     DocGraphicsInfoItem
     """ # noqa: E501
-    doc_graphics_info: GraphicFieldsList = Field(alias="DocGraphicsInfo")
+    doc_graphics_info: SkipValidation[GraphicFieldsList] = Field(alias="DocGraphicsInfo")
     __properties: ClassVar[List[str]] = ["DocGraphicsInfo"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -15,20 +15,23 @@ from regula.documentreader.webclient.gen.models.point_array import PointArray
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class AreaArray(BaseModel):
     """
     AreaArray
     """ # noqa: E501
-    count: Union[StrictFloat, StrictInt] = Field(description="Number of elements in List and Points", alias="Count")
-    list: List[RectangleCoordinates] = Field(alias="List")
-    points: List[PointArray] = Field(alias="Points")
+    count: SkipValidation[float] = Field(alias="Count", description="Number of elements in List and Points")
+    list: SkipValidation[List[RectangleCoordinates]] = Field(alias="List")
+    points: SkipValidation[List[PointArray]] = Field(alias="Points")
     __properties: ClassVar[List[str]] = ["Count", "List", "Points"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

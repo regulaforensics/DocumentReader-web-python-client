@@ -17,28 +17,31 @@ from regula.documentreader.webclient.gen.models.process_request_image import Pro
 from regula.documentreader.webclient.gen.models.process_system_info import ProcessSystemInfo
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class TransactionProcessRequest(BaseModel):
     """
     TransactionProcessRequest
     """ # noqa: E501
-    process_param: ProcessParams = Field(alias="processParam")
-    list: Optional[List[ProcessRequestImage]] = Field(default=None, alias="List")
-    tag: Optional[StrictStr] = Field(default=None, description="Session ID")
-    tenant: Optional[StrictStr] = Field(default=None, description="Customer name")
-    env: Optional[StrictStr] = Field(default=None, description="Environment type")
-    live_portrait: Optional[StrictStr] = Field(default=None, description="Live portrait photo", alias="livePortrait")
-    ext_portrait: Optional[StrictStr] = Field(default=None, description="Portrait photo from an external source", alias="extPortrait")
-    container_list: Optional[ContainerList] = Field(default=None, alias="ContainerList")
-    system_info: Optional[ProcessSystemInfo] = Field(default=None, alias="systemInfo")
-    pass_back_object: Optional[Dict[str, Any]] = Field(default=None, description="Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs.", alias="passBackObject")
-    dtc: Optional[StrictStr] = Field(default=None, description="Digital Travel Credential (DTC-VC) data in base64 format for processing")
+    process_param: SkipValidation[ProcessParams] = Field(alias="processParam")
+    list: SkipValidation[Optional[List[ProcessRequestImage]]] = Field(alias="List", default=None)
+    tag: SkipValidation[Optional[str]] = Field(alias="tag", default=None, description="Session ID")
+    tenant: SkipValidation[Optional[str]] = Field(alias="tenant", default=None, description="Customer name")
+    env: SkipValidation[Optional[str]] = Field(alias="env", default=None, description="Environment type")
+    live_portrait: SkipValidation[Optional[str]] = Field(alias="livePortrait", default=None, description="Live portrait photo")
+    ext_portrait: SkipValidation[Optional[str]] = Field(alias="extPortrait", default=None, description="Portrait photo from an external source")
+    container_list: SkipValidation[Optional[ContainerList]] = Field(alias="ContainerList", default=None)
+    system_info: SkipValidation[Optional[ProcessSystemInfo]] = Field(alias="systemInfo", default=None)
+    pass_back_object: SkipValidation[Optional[Dict[str, object]]] = Field(alias="passBackObject", default=None, description="Free-form object to be included in response. Must be object, not list or simple value. Do not affect document processing. Use it freely to pass your app params. Stored in process logs.")
+    dtc: SkipValidation[Optional[str]] = Field(alias="dtc", default=None, description="Digital Travel Credential (DTC-VC) data in base64 format for processing")
     __properties: ClassVar[List[str]] = ["processParam", "List", "tag", "tenant", "env", "livePortrait", "extPortrait", "ContainerList", "systemInfo", "passBackObject", "dtc"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -17,24 +17,27 @@ from regula.documentreader.webclient.gen.models.image_quality_check_type import 
 from regula.documentreader.webclient.gen.models.security_feature_type import SecurityFeatureType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ImageQualityCheck(BaseModel):
     """
     ImageQualityCheck
     """ # noqa: E501
-    type: ImageQualityCheckType
-    result: CheckResult
-    feature_type: SecurityFeatureType = Field(alias="featureType")
-    areas: Optional[AreaArray] = None
-    mean: Union[StrictFloat, StrictInt] = Field(description="Check mean value")
-    std_dev: Union[StrictFloat, StrictInt] = Field(description="Check deviation value")
-    probability: StrictInt = Field(description="Check probability value")
+    type: SkipValidation[ImageQualityCheckType] = Field(alias="type")
+    result: SkipValidation[CheckResult] = Field(alias="result")
+    feature_type: SkipValidation[SecurityFeatureType] = Field(alias="featureType")
+    areas: SkipValidation[Optional[AreaArray]] = Field(alias="areas", default=None)
+    mean: SkipValidation[float] = Field(alias="mean", description="Check mean value")
+    std_dev: SkipValidation[float] = Field(alias="std_dev", description="Check deviation value")
+    probability: SkipValidation[int] = Field(alias="probability", description="Check probability value")
     __properties: ClassVar[List[str]] = ["type", "result", "featureType", "areas", "mean", "std_dev", "probability"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

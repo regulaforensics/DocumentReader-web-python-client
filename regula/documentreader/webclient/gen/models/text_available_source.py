@@ -15,20 +15,23 @@ from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from regula.documentreader.webclient.gen.models.source import Source
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class TextAvailableSource(BaseModel):
     """
     TextAvailableSource
     """ # noqa: E501
-    source: Source
-    validity_status: CheckResult = Field(alias="validityStatus")
-    container_type: Optional[StrictInt] = Field(default=0, description="Same as Result type, but used for safe parsing of not-described values. See Result type.", alias="containerType")
+    source: SkipValidation[Source] = Field(alias="source")
+    validity_status: SkipValidation[CheckResult] = Field(alias="validityStatus")
+    container_type: SkipValidation[Optional[int]] = Field(alias="containerType", default=None, description="Same as Result type, but used for safe parsing of not-described values. See Result type.")
     __properties: ClassVar[List[str]] = ["source", "validityStatus", "containerType"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -19,28 +19,31 @@ from regula.documentreader.webclient.gen.models.text_field_type import TextField
 from regula.documentreader.webclient.gen.models.text_field_value import TextFieldValue
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class TextField(BaseModel):
     """
     TextField
     """ # noqa: E501
-    field_type: TextFieldType = Field(alias="fieldType")
-    field_name: StrictStr = Field(description="Field name. Only use to search values for fields with fieldType=50(other). In general, use fieldType for lookup.", alias="fieldName")
-    lcid: LCID
-    lcid_name: Optional[StrictStr] = Field(default=None, description="LCID name", alias="lcidName")
-    status: CheckResult
-    validity_status: CheckResult = Field(alias="validityStatus")
-    comparison_status: CheckResult = Field(alias="comparisonStatus")
-    value: StrictStr = Field(description="The most confidence value, selected from valueList")
-    value_list: List[TextFieldValue] = Field(alias="valueList")
-    validity_list: List[SourceValidity] = Field(description="Validity of all field values for given source. If there are two values on different pages for one field-source pair, then validity also will include logical match checking. If such values do not match, validity will return error.", alias="validityList")
-    comparison_list: List[CrossSourceValueComparison] = Field(alias="comparisonList")
+    field_type: SkipValidation[TextFieldType] = Field(alias="fieldType")
+    field_name: SkipValidation[str] = Field(alias="fieldName", description="Field name. Only use to search values for fields with fieldType&#x3D;50(other). In general, use fieldType for lookup.")
+    lcid: SkipValidation[LCID] = Field(alias="lcid")
+    lcid_name: SkipValidation[Optional[str]] = Field(alias="lcidName", default=None, description="LCID name")
+    status: SkipValidation[CheckResult] = Field(alias="status")
+    validity_status: SkipValidation[CheckResult] = Field(alias="validityStatus")
+    comparison_status: SkipValidation[CheckResult] = Field(alias="comparisonStatus")
+    value: SkipValidation[str] = Field(alias="value", description="The most confidence value, selected from valueList")
+    value_list: SkipValidation[List[TextFieldValue]] = Field(alias="valueList")
+    validity_list: SkipValidation[List[SourceValidity]] = Field(alias="validityList", description="Validity of all field values for given source. If there are two values on different pages for one field-source pair, then validity also will include logical match checking. If such values do not match, validity will return error.")
+    comparison_list: SkipValidation[List[CrossSourceValueComparison]] = Field(alias="comparisonList")
     __properties: ClassVar[List[str]] = ["fieldType", "fieldName", "lcid", "lcidName", "status", "validityStatus", "comparisonStatus", "value", "valueList", "validityList", "comparisonList"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

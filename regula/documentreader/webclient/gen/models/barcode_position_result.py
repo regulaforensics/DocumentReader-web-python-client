@@ -16,18 +16,21 @@ from regula.documentreader.webclient.gen.models.result import Result
 from regula.documentreader.webclient.gen.models.result_item import ResultItem
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class BarcodePositionResult(ResultItem):
     """
     Contains information about barcode position on the input image, its center, angle, etc
     """ # noqa: E501
-    barcode_position: DocumentPosition = Field(alias="BarcodePosition")
+    barcode_position: SkipValidation[DocumentPosition] = Field(alias="BarcodePosition")
     __properties: ClassVar[List[str]] = ["buf_length", "light", "list_idx", "page_idx", "result_type", "BarcodePosition"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

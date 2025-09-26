@@ -17,26 +17,29 @@ from regula.documentreader.webclient.gen.models.raw_image_container_list import 
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class PhotoIdentItem(BaseModel):
     """
     PhotoIdentItem
     """ # noqa: E501
-    light_index: Light = Field(alias="LightIndex")
-    area: RectangleCoordinates = Field(alias="Area")
-    source_image: ImageData = Field(alias="SourceImage")
-    result_images: RawImageContainerList = Field(alias="ResultImages")
-    field_types_count: Optional[StrictInt] = Field(default=None, alias="FieldTypesCount")
-    field_types_list: Optional[List[StrictInt]] = Field(default=None, alias="FieldTypesList")
-    step: Optional[StrictInt] = Field(default=None, alias="Step")
-    angle: Optional[StrictInt] = Field(default=None, alias="Angle")
-    reserved3: Optional[StrictInt] = Field(default=None, alias="Reserved3")
+    light_index: SkipValidation[Light] = Field(alias="LightIndex")
+    area: SkipValidation[RectangleCoordinates] = Field(alias="Area")
+    source_image: SkipValidation[ImageData] = Field(alias="SourceImage")
+    result_images: SkipValidation[RawImageContainerList] = Field(alias="ResultImages")
+    field_types_count: SkipValidation[Optional[int]] = Field(alias="FieldTypesCount", default=None)
+    field_types_list: SkipValidation[Optional[List[int]]] = Field(alias="FieldTypesList", default=None)
+    step: SkipValidation[Optional[int]] = Field(alias="Step", default=None)
+    angle: SkipValidation[Optional[int]] = Field(alias="Angle", default=None)
+    reserved3: SkipValidation[Optional[int]] = Field(alias="Reserved3", default=None)
     __properties: ClassVar[List[str]] = ["LightIndex", "Area", "SourceImage", "ResultImages", "FieldTypesCount", "FieldTypesList", "Step", "Angle", "Reserved3"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

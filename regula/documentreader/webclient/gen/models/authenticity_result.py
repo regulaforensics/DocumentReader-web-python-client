@@ -16,18 +16,21 @@ from regula.documentreader.webclient.gen.models.result import Result
 from regula.documentreader.webclient.gen.models.result_item import ResultItem
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class AuthenticityResult(ResultItem):
     """
     AuthenticityResult
     """ # noqa: E501
-    authenticity_check_list: AuthenticityCheckList = Field(alias="AuthenticityCheckList")
+    authenticity_check_list: SkipValidation[AuthenticityCheckList] = Field(alias="AuthenticityCheckList")
     __properties: ClassVar[List[str]] = ["buf_length", "light", "list_idx", "page_idx", "result_type", "AuthenticityCheckList"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

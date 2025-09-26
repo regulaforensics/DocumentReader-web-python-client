@@ -10,24 +10,28 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
+from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class GetTransactionsByTagResponse(BaseModel):
     """
     GetTransactionsByTagResponse
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Transaction id")
-    state: Optional[StrictInt] = Field(default=None, description="Transaction status")
-    updated_at: Optional[datetime] = Field(default=None, description="Last time updated", alias="updatedAt")
+    id: SkipValidation[Optional[str]] = Field(alias="id", default=None, description="Transaction id")
+    state: SkipValidation[Optional[int]] = Field(alias="state", default=None, description="Transaction status")
+    updated_at: SkipValidation[Optional[datetime]] = Field(alias="updatedAt", default=None, description="Last time updated")
     __properties: ClassVar[List[str]] = ["id", "state", "updatedAt"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

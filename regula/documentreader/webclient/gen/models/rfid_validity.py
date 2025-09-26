@@ -14,19 +14,22 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.trf_ft_string import TrfFtString
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidValidity(BaseModel):
     """
     Structure contains information on a certificate validity.
     """ # noqa: E501
-    not_before: TrfFtString = Field(alias="NotBefore")
-    not_after: TrfFtString = Field(alias="NotAfter")
+    not_before: SkipValidation[TrfFtString] = Field(alias="NotBefore")
+    not_after: SkipValidation[TrfFtString] = Field(alias="NotAfter")
     __properties: ClassVar[List[str]] = ["NotBefore", "NotAfter"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

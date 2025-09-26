@@ -16,18 +16,21 @@ from regula.documentreader.webclient.gen.models.result import Result
 from regula.documentreader.webclient.gen.models.result_item import ResultItem
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ImageQualityResult(ResultItem):
     """
     ImageQualityResult
     """ # noqa: E501
-    image_quality_check_list: ImageQualityCheckList = Field(alias="ImageQualityCheckList")
+    image_quality_check_list: SkipValidation[ImageQualityCheckList] = Field(alias="ImageQualityCheckList")
     __properties: ClassVar[List[str]] = ["buf_length", "light", "list_idx", "page_idx", "result_type", "ImageQualityCheckList"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

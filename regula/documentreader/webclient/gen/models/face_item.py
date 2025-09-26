@@ -16,25 +16,28 @@ from regula.documentreader.webclient.gen.models.point import Point
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class FaceItem(BaseModel):
     """
     FaceItem
     """ # noqa: E501
-    coincidence_to_photo_area: StrictInt = Field(alias="CoincidenceToPhotoArea")
-    face_rect: RectangleCoordinates = Field(alias="FaceRect")
-    field_rect: RectangleCoordinates = Field(alias="FieldRect")
-    graph_field_number: StrictInt = Field(alias="GraphFieldNumber")
-    landmarks: List[Point] = Field(alias="Landmarks")
-    light_type: Light = Field(alias="LightType")
-    orientation: StrictInt = Field(alias="Orientation")
-    probability: StrictInt = Field(alias="Probability")
+    coincidence_to_photo_area: SkipValidation[int] = Field(alias="CoincidenceToPhotoArea")
+    face_rect: SkipValidation[RectangleCoordinates] = Field(alias="FaceRect")
+    field_rect: SkipValidation[RectangleCoordinates] = Field(alias="FieldRect")
+    graph_field_number: SkipValidation[int] = Field(alias="GraphFieldNumber")
+    landmarks: SkipValidation[List[Point]] = Field(alias="Landmarks")
+    light_type: SkipValidation[Light] = Field(alias="LightType")
+    orientation: SkipValidation[int] = Field(alias="Orientation")
+    probability: SkipValidation[int] = Field(alias="Probability")
     __properties: ClassVar[List[str]] = ["CoincidenceToPhotoArea", "FaceRect", "FieldRect", "GraphFieldNumber", "Landmarks", "LightType", "Orientation", "Probability"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -18,23 +18,26 @@ from regula.documentreader.webclient.gen.models.security_feature_type import Sec
 from regula.documentreader.webclient.gen.models.visibility import Visibility
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class SecurityFeatureItem(BaseModel):
     """
     SecurityFeatureItem
     """ # noqa: E501
-    element_type: SecurityFeatureType = Field(alias="ElementType")
-    element_rect: RectangleCoordinates = Field(alias="ElementRect")
-    visibility: Visibility = Field(alias="Visibility")
-    critical_flag: Critical = Field(alias="CriticalFlag")
-    area_list: Optional[AreaContainer] = Field(default=None, alias="AreaList")
-    reserved2: Optional[StrictInt] = Field(default=None, alias="Reserved2")
+    element_type: SkipValidation[SecurityFeatureType] = Field(alias="ElementType")
+    element_rect: SkipValidation[RectangleCoordinates] = Field(alias="ElementRect")
+    visibility: SkipValidation[Visibility] = Field(alias="Visibility")
+    critical_flag: SkipValidation[Critical] = Field(alias="CriticalFlag")
+    area_list: SkipValidation[Optional[AreaContainer]] = Field(alias="AreaList", default=None)
+    reserved2: SkipValidation[Optional[int]] = Field(alias="Reserved2", default=None)
     __properties: ClassVar[List[str]] = ["ElementType", "ElementRect", "Visibility", "CriticalFlag", "AreaList", "Reserved2"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

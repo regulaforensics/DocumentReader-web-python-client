@@ -13,21 +13,24 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidOrigin(BaseModel):
     """
     Location of data in RFID chip
     """ # noqa: E501
-    dg: StrictInt = Field(description="Source data group file")
-    dg_tag: StrictInt = Field(description="Index of the source record of the image with biometric information in the information data group", alias="dgTag")
-    tag_entry: StrictInt = Field(description="Index of the template in the record with biometric data", alias="tagEntry")
-    entry_view: StrictInt = Field(description="Index of the variant of the biometric data template", alias="entryView")
+    dg: SkipValidation[int] = Field(alias="dg", description="Source data group file")
+    dg_tag: SkipValidation[int] = Field(alias="dgTag", description="Index of the source record of the image with biometric information in the information data group")
+    tag_entry: SkipValidation[int] = Field(alias="tagEntry", description="Index of the template in the record with biometric data")
+    entry_view: SkipValidation[int] = Field(alias="entryView", description="Index of the variant of the biometric data template")
     __properties: ClassVar[List[str]] = ["dg", "dgTag", "tagEntry", "entryView"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

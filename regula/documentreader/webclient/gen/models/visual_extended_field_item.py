@@ -16,29 +16,32 @@ from regula.documentreader.webclient.gen.models.string_recognition_result import
 from regula.documentreader.webclient.gen.models.text_field_type import TextFieldType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class VisualExtendedFieldItem(BaseModel):
     """
     VisualExtendedFieldItem
     """ # noqa: E501
-    w_field_type: TextFieldType = Field(alias="wFieldType")
-    field_name: StrictStr = Field(description="Field symbolic name (null-terminated string)", alias="FieldName")
-    strings_count: Union[StrictFloat, StrictInt] = Field(description="Number of StringsResult array elements", alias="StringsCount")
-    strings_result: List[StringRecognitionResult] = Field(description="Array of recognizing probabilities for a each line of text field. Only for Result.VISUAL_TEXT and Result.MRZ_TEXT results.", alias="StringsResult")
-    buf_length: Union[StrictFloat, StrictInt] = Field(description="Buf_Text text string length", alias="Buf_Length")
-    buf_text: Optional[StrictStr] = Field(default=None, description="Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by '^'", alias="Buf_Text")
-    field_mask: Optional[StrictStr] = Field(default=None, alias="FieldMask")
-    validity: Optional[StrictInt] = Field(default=None, alias="Validity")
-    in_comparison: Optional[StrictInt] = Field(default=None, alias="InComparison")
-    w_lcid: Optional[LCID] = Field(default=None, alias="wLCID")
-    reserved2: Optional[StrictInt] = Field(default=None, alias="Reserved2")
-    reserved3: Optional[StrictInt] = Field(default=None, alias="Reserved3")
+    w_field_type: SkipValidation[TextFieldType] = Field(alias="wFieldType")
+    field_name: SkipValidation[str] = Field(alias="FieldName", description="Field symbolic name (null-terminated string)")
+    strings_count: SkipValidation[float] = Field(alias="StringsCount", description="Number of StringsResult array elements")
+    strings_result: SkipValidation[List[StringRecognitionResult]] = Field(alias="StringsResult", description="Array of recognizing probabilities for a each line of text field. Only for Result.VISUAL_TEXT and Result.MRZ_TEXT results.")
+    buf_length: SkipValidation[float] = Field(alias="Buf_Length", description="Buf_Text text string length")
+    buf_text: SkipValidation[Optional[str]] = Field(alias="Buf_Text", default=None, description="Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by &#39;^&#39;")
+    field_mask: SkipValidation[Optional[str]] = Field(alias="FieldMask", default=None)
+    validity: SkipValidation[Optional[int]] = Field(alias="Validity", default=None)
+    in_comparison: SkipValidation[Optional[int]] = Field(alias="InComparison", default=None)
+    w_lcid: SkipValidation[Optional[LCID]] = Field(alias="wLCID", default=None)
+    reserved2: SkipValidation[Optional[int]] = Field(alias="Reserved2", default=None)
+    reserved3: SkipValidation[Optional[int]] = Field(alias="Reserved3", default=None)
     __properties: ClassVar[List[str]] = ["wFieldType", "FieldName", "StringsCount", "StringsResult", "Buf_Length", "Buf_Text", "FieldMask", "Validity", "InComparison", "wLCID", "Reserved2", "Reserved3"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

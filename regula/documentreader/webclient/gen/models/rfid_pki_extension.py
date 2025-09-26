@@ -13,19 +13,22 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidPkiExtension(BaseModel):
     """
     Extension identifier (OID, ASCII string); Contents of the identifier in the format S1 (S2), where S1 – attribute name, S2 – identifier (OID string)
     """ # noqa: E501
-    type: StrictStr = Field(description="Extension identifier (OID, ASCII string); Contents of the identifier in the format S1 (S2), where S1 – attribute name, S2 – identifier (OID string)", alias="Type")
-    data: StrictStr = Field(description="Extension binary data. Base64 encoded.", alias="Data")
+    type: SkipValidation[str] = Field(alias="Type", description="Extension identifier (OID, ASCII string); Contents of the identifier in the format S1 (S2), where S1 – attribute name, S2 – identifier (OID string)")
+    data: SkipValidation[str] = Field(alias="Data", description="Extension binary data. Base64 encoded.")
     __properties: ClassVar[List[str]] = ["Type", "Data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

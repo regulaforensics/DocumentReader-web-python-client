@@ -18,27 +18,30 @@ from regula.documentreader.webclient.gen.models.data_module import DataModule
 from regula.documentreader.webclient.gen.models.text_field_type import TextFieldType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class PArrayField(BaseModel):
     """
     PArrayField
     """ # noqa: E501
-    bc_angle_detect: Union[StrictFloat, StrictInt] = Field(alias="bcAngle_DETECT")
-    bc_code_result: StrictInt = Field(alias="bcCodeResult")
-    bc_count_module: StrictInt = Field(alias="bcCountModule")
-    bc_data_module: List[DataModule] = Field(alias="bcDataModule")
-    bc_pdf417_info: Optional[BcPDF417INFO] = Field(default=None, alias="bcPDF417INFO")
-    bc_roi_detect: BcROIDETECT = Field(alias="bcROI_DETECT")
-    bc_text_decoder_types: Optional[StrictInt] = Field(default=None, alias="bcTextDecoderTypes")
-    bc_text_field_type: Optional[TextFieldType] = Field(default=None, alias="bcTextFieldType")
-    bc_type_decode: BarcodeType = Field(alias="bcType_DECODE")
-    bc_type_detect: StrictInt = Field(alias="bcType_DETECT")
+    bc_angle_detect: SkipValidation[float] = Field(alias="bcAngle_DETECT")
+    bc_code_result: SkipValidation[int] = Field(alias="bcCodeResult")
+    bc_count_module: SkipValidation[int] = Field(alias="bcCountModule")
+    bc_data_module: SkipValidation[List[DataModule]] = Field(alias="bcDataModule")
+    bc_pdf417_info: SkipValidation[Optional[BcPDF417INFO]] = Field(alias="bcPDF417INFO", default=None)
+    bc_roi_detect: SkipValidation[BcROIDETECT] = Field(alias="bcROI_DETECT")
+    bc_text_decoder_types: SkipValidation[Optional[int]] = Field(alias="bcTextDecoderTypes", default=None)
+    bc_text_field_type: SkipValidation[Optional[TextFieldType]] = Field(alias="bcTextFieldType", default=None)
+    bc_type_decode: SkipValidation[BarcodeType] = Field(alias="bcType_DECODE")
+    bc_type_detect: SkipValidation[int] = Field(alias="bcType_DETECT")
     __properties: ClassVar[List[str]] = ["bcAngle_DETECT", "bcCodeResult", "bcCountModule", "bcDataModule", "bcPDF417INFO", "bcROI_DETECT", "bcTextDecoderTypes", "bcTextFieldType", "bcType_DECODE", "bcType_DETECT"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

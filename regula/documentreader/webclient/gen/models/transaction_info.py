@@ -14,25 +14,28 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.documents_database import DocumentsDatabase
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class TransactionInfo(BaseModel):
     """
     TransactionInfo
     """ # noqa: E501
-    computer_name: Optional[StrictStr] = Field(default=None, description="Computer name", alias="ComputerName")
-    date_time: Optional[StrictStr] = Field(default=None, description="Date and time", alias="DateTime")
-    documents_database: Optional[DocumentsDatabase] = Field(default=None, alias="DocumentsDatabase")
-    system_info: Optional[StrictStr] = Field(default=None, description="System information", alias="SystemInfo")
-    tag: Optional[StrictStr] = Field(default=None, description="Transaction tag", alias="Tag")
-    transaction_id: Optional[StrictStr] = Field(default=None, description="Transaction identifier", alias="TransactionID")
-    user_name: Optional[StrictStr] = Field(default=None, description="User name", alias="UserName")
-    version: Optional[StrictStr] = Field(default=None, description="SDK version", alias="Version")
+    computer_name: SkipValidation[Optional[str]] = Field(alias="ComputerName", default=None, description="Computer name")
+    date_time: SkipValidation[Optional[str]] = Field(alias="DateTime", default=None, description="Date and time")
+    documents_database: SkipValidation[Optional[DocumentsDatabase]] = Field(alias="DocumentsDatabase", default=None)
+    system_info: SkipValidation[Optional[str]] = Field(alias="SystemInfo", default=None, description="System information")
+    tag: SkipValidation[Optional[str]] = Field(alias="Tag", default=None, description="Transaction tag")
+    transaction_id: SkipValidation[Optional[str]] = Field(alias="TransactionID", default=None, description="Transaction identifier")
+    user_name: SkipValidation[Optional[str]] = Field(alias="UserName", default=None, description="User name")
+    version: SkipValidation[Optional[str]] = Field(alias="Version", default=None, description="SDK version")
     __properties: ClassVar[List[str]] = ["ComputerName", "DateTime", "DocumentsDatabase", "SystemInfo", "Tag", "TransactionID", "UserName", "Version"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

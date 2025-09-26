@@ -11,6 +11,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictBytes, StrictStr
 from typing import Any, Dict, Optional, Tuple, Union
 from typing_extensions import Annotated
+from uuid import UUID
 from regula.documentreader.webclient.gen.models.list_transactions_by_tag_response import ListTransactionsByTagResponse
 from regula.documentreader.webclient.gen.models.process_response import ProcessResponse
 from regula.documentreader.webclient.gen.models.transaction_process_get_response import TransactionProcessGetResponse
@@ -38,7 +39,7 @@ class TransactionApi:
     @validate_call
     def api_v2_tag_tag_id_delete(
         self,
-        tag_id: Annotated[StrictStr, Field(description="Tag id")],
+        tag_id: Annotated[UUID, Field(description="Tag id")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -106,7 +107,7 @@ class TransactionApi:
     @validate_call
     def api_v2_tag_tag_id_delete_with_http_info(
         self,
-        tag_id: Annotated[StrictStr, Field(description="Tag id")],
+        tag_id: Annotated[UUID, Field(description="Tag id")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -174,7 +175,7 @@ class TransactionApi:
     @validate_call
     def api_v2_tag_tag_id_delete_without_preload_content(
         self,
-        tag_id: Annotated[StrictStr, Field(description="Tag id")],
+        tag_id: Annotated[UUID, Field(description="Tag id")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -564,7 +565,7 @@ class TransactionApi:
     @validate_call
     def api_v2_transaction_transaction_id_file_get(
         self,
-        transaction_id: Annotated[StrictStr, Field(description="Transaction id")],
+        transaction_id: Annotated[UUID, Field(description="Transaction id")],
         name: Annotated[StrictStr, Field(description="File name")],
         _request_timeout: Union[
             None,
@@ -635,7 +636,7 @@ class TransactionApi:
     @validate_call
     def api_v2_transaction_transaction_id_file_get_with_http_info(
         self,
-        transaction_id: Annotated[StrictStr, Field(description="Transaction id")],
+        transaction_id: Annotated[UUID, Field(description="Transaction id")],
         name: Annotated[StrictStr, Field(description="File name")],
         _request_timeout: Union[
             None,
@@ -706,7 +707,7 @@ class TransactionApi:
     @validate_call
     def api_v2_transaction_transaction_id_file_get_without_preload_content(
         self,
-        transaction_id: Annotated[StrictStr, Field(description="Transaction id")],
+        transaction_id: Annotated[UUID, Field(description="Transaction id")],
         name: Annotated[StrictStr, Field(description="File name")],
         _request_timeout: Union[
             None,
@@ -841,7 +842,7 @@ class TransactionApi:
     @validate_call
     def api_v2_transaction_transaction_id_get(
         self,
-        transaction_id: Annotated[StrictStr, Field(description="Transaction id")],
+        transaction_id: Annotated[UUID, Field(description="Transaction id")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -909,7 +910,7 @@ class TransactionApi:
     @validate_call
     def api_v2_transaction_transaction_id_get_with_http_info(
         self,
-        transaction_id: Annotated[StrictStr, Field(description="Transaction id")],
+        transaction_id: Annotated[UUID, Field(description="Transaction id")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -977,7 +978,7 @@ class TransactionApi:
     @validate_call
     def api_v2_transaction_transaction_id_get_without_preload_content(
         self,
-        transaction_id: Annotated[StrictStr, Field(description="Transaction id")],
+        transaction_id: Annotated[UUID, Field(description="Transaction id")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1104,7 +1105,7 @@ class TransactionApi:
     @validate_call
     def api_v2_transaction_transaction_id_process_post(
         self,
-        transaction_id: Annotated[StrictStr, Field(description="Transaction id")],
+        transaction_id: Annotated[UUID, Field(description="Transaction id")],
         transaction_process_request: TransactionProcessRequest,
         _request_timeout: Union[
             None,
@@ -1176,7 +1177,7 @@ class TransactionApi:
     @validate_call
     def api_v2_transaction_transaction_id_process_post_with_http_info(
         self,
-        transaction_id: Annotated[StrictStr, Field(description="Transaction id")],
+        transaction_id: Annotated[UUID, Field(description="Transaction id")],
         transaction_process_request: TransactionProcessRequest,
         _request_timeout: Union[
             None,
@@ -1248,7 +1249,7 @@ class TransactionApi:
     @validate_call
     def api_v2_transaction_transaction_id_process_post_without_preload_content(
         self,
-        transaction_id: Annotated[StrictStr, Field(description="Transaction id")],
+        transaction_id: Annotated[UUID, Field(description="Transaction id")],
         transaction_process_request: TransactionProcessRequest,
         _request_timeout: Union[
             None,
@@ -1395,7 +1396,7 @@ class TransactionApi:
     @validate_call
     def api_v2_transaction_transaction_id_results_get(
         self,
-        transaction_id: Annotated[StrictStr, Field(description="Transaction id")],
+        transaction_id: Annotated[UUID, Field(description="Transaction id")],
         with_images: Annotated[Optional[StrictBool], Field(description="With base64 images or url")] = None,
         _request_timeout: Union[
             None,
@@ -1467,7 +1468,7 @@ class TransactionApi:
     @validate_call
     def api_v2_transaction_transaction_id_results_get_with_http_info(
         self,
-        transaction_id: Annotated[StrictStr, Field(description="Transaction id")],
+        transaction_id: Annotated[UUID, Field(description="Transaction id")],
         with_images: Annotated[Optional[StrictBool], Field(description="With base64 images or url")] = None,
         _request_timeout: Union[
             None,
@@ -1539,7 +1540,7 @@ class TransactionApi:
     @validate_call
     def api_v2_transaction_transaction_id_results_get_without_preload_content(
         self,
-        transaction_id: Annotated[StrictStr, Field(description="Transaction id")],
+        transaction_id: Annotated[UUID, Field(description="Transaction id")],
         with_images: Annotated[Optional[StrictBool], Field(description="With base64 images or url")] = None,
         _request_timeout: Union[
             None,

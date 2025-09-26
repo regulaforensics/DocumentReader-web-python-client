@@ -15,20 +15,23 @@ from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from regula.documentreader.webclient.gen.models.source import Source
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class CrossSourceValueComparison(BaseModel):
     """
     CrossSourceValueComparison
     """ # noqa: E501
-    source_left: Source = Field(alias="sourceLeft")
-    source_right: Source = Field(alias="sourceRight")
-    status: CheckResult
+    source_left: SkipValidation[Source] = Field(alias="sourceLeft")
+    source_right: SkipValidation[Source] = Field(alias="sourceRight")
+    status: SkipValidation[CheckResult] = Field(alias="status")
     __properties: ClassVar[List[str]] = ["sourceLeft", "sourceRight", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

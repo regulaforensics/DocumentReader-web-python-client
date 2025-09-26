@@ -14,19 +14,22 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.p_array_field import PArrayField
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class DocBarCodeInfoFieldsList(BaseModel):
     """
     DocBarCodeInfoFieldsList
     """ # noqa: E501
-    n_fields: StrictInt = Field(description="Count of array fields", alias="nFields")
-    p_array_fields: List[PArrayField] = Field(description="Data from barcode", alias="pArrayFields")
+    n_fields: SkipValidation[int] = Field(alias="nFields", description="Count of array fields")
+    p_array_fields: SkipValidation[List[PArrayField]] = Field(alias="pArrayFields", description="Data from barcode")
     __properties: ClassVar[List[str]] = ["nFields", "pArrayFields"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -14,33 +14,36 @@ from typing import Any, ClassVar, Dict, List, Union
 from regula.documentreader.webclient.gen.models.document_format import DocumentFormat
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidDG1(BaseModel):
     """
     Structure used to store the contents of EF.DG1 informational data group of ePassport application – document MRZ data
     """ # noqa: E501
-    type: StrictInt = Field(alias="Type")
-    document_id: DocumentFormat = Field(alias="DocumentID")
-    document_type: StrictStr = Field(description="Symbolic code of document type", alias="DocumentType")
-    state: StrictStr = Field(description="Symbolic code of document issuing state", alias="State")
-    holder: StrictStr = Field(description="DO’s name and surname", alias="Holder")
-    document_number: StrictStr = Field(description="Document number", alias="DocumentNumber")
-    check_digit_document_number: Union[StrictFloat, StrictInt] = Field(description="Check digit of document number", alias="CheckDigitDocumentNumber")
-    nationality: StrictStr = Field(description="Symbolic code of DO’s nationality", alias="Nationality")
-    birthday: StrictStr = Field(description="DO’s date of birth", alias="Birthday")
-    check_digit_birthday: Union[StrictFloat, StrictInt] = Field(description="Check digit of DO’s date of birth", alias="CheckDigitBirthday")
-    sex: StrictStr = Field(description="DO’s sex", alias="Sex")
-    expiry_date: StrictStr = Field(description="Term of validity of the document", alias="ExpiryDate")
-    check_digit_expiry_date: Union[StrictFloat, StrictInt] = Field(description="Check digit of term of validity of the document", alias="CheckDigitExpiryDate")
-    optional_data: StrictStr = Field(description="DO’s personal number or other additional data", alias="OptionalData")
-    check_digit_optional_data: Union[StrictFloat, StrictInt] = Field(description="Check digit of additional data", alias="CheckDigitOptionalData")
-    check_digit_composite: Union[StrictFloat, StrictInt] = Field(description="General check digit", alias="CheckDigitComposite")
+    type: SkipValidation[int] = Field(alias="Type")
+    document_id: SkipValidation[DocumentFormat] = Field(alias="DocumentID")
+    document_type: SkipValidation[str] = Field(alias="DocumentType", description="Symbolic code of document type")
+    state: SkipValidation[str] = Field(alias="State", description="Symbolic code of document issuing state")
+    holder: SkipValidation[str] = Field(alias="Holder", description="DO’s name and surname")
+    document_number: SkipValidation[str] = Field(alias="DocumentNumber", description="Document number")
+    check_digit_document_number: SkipValidation[float] = Field(alias="CheckDigitDocumentNumber", description="Check digit of document number")
+    nationality: SkipValidation[str] = Field(alias="Nationality", description="Symbolic code of DO’s nationality")
+    birthday: SkipValidation[str] = Field(alias="Birthday", description="DO’s date of birth")
+    check_digit_birthday: SkipValidation[float] = Field(alias="CheckDigitBirthday", description="Check digit of DO’s date of birth")
+    sex: SkipValidation[str] = Field(alias="Sex", description="DO’s sex")
+    expiry_date: SkipValidation[str] = Field(alias="ExpiryDate", description="Term of validity of the document")
+    check_digit_expiry_date: SkipValidation[float] = Field(alias="CheckDigitExpiryDate", description="Check digit of term of validity of the document")
+    optional_data: SkipValidation[str] = Field(alias="OptionalData", description="DO’s personal number or other additional data")
+    check_digit_optional_data: SkipValidation[float] = Field(alias="CheckDigitOptionalData", description="Check digit of additional data")
+    check_digit_composite: SkipValidation[float] = Field(alias="CheckDigitComposite", description="General check digit")
     __properties: ClassVar[List[str]] = ["Type", "DocumentID", "DocumentType", "State", "Holder", "DocumentNumber", "CheckDigitDocumentNumber", "Nationality", "Birthday", "CheckDigitBirthday", "Sex", "ExpiryDate", "CheckDigitExpiryDate", "OptionalData", "CheckDigitOptionalData", "CheckDigitComposite"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

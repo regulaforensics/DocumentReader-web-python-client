@@ -15,20 +15,23 @@ from typing_extensions import Annotated
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class OriginalSymbol(BaseModel):
     """
     OriginalSymbol
     """ # noqa: E501
-    code: StrictInt = Field(description="Unicode symbol code")
-    probability: Annotated[int, Field(le=100, strict=True, ge=0)] = Field(description="Probability of correctness reading of a single character")
-    rect: Optional[RectangleCoordinates] = None
+    code: SkipValidation[int] = Field(alias="code", description="Unicode symbol code")
+    probability: SkipValidation[int] = Field(alias="probability", description="Probability of correctness reading of a single character")
+    rect: SkipValidation[Optional[RectangleCoordinates]] = Field(alias="rect", default=None)
     __properties: ClassVar[List[str]] = ["code", "probability", "rect"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

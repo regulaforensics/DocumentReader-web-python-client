@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.document_types_candidates_list import DocumentTypesCandidatesList
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class CandidatesListItem(BaseModel):
     """
     CandidatesListItem
     """ # noqa: E501
-    candidates_list: Optional[DocumentTypesCandidatesList] = Field(default=None, alias="CandidatesList")
+    candidates_list: SkipValidation[Optional[DocumentTypesCandidatesList]] = Field(alias="CandidatesList", default=None)
     __properties: ClassVar[List[str]] = ["CandidatesList"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

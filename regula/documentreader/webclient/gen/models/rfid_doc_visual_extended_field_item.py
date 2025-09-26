@@ -13,21 +13,24 @@ from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RFIDDocVisualExtendedFieldItem(BaseModel):
     """
     RFIDDocVisualExtendedFieldItem
     """ # noqa: E501
-    origin_dg: StrictInt = Field(alias="OriginDG")
-    origin_dg_tag: Optional[StrictInt] = Field(default=None, alias="OriginDGTag")
-    origin_tag_entry: Union[StrictFloat, StrictInt] = Field(description="Record index of the text field source in the data group", alias="OriginTagEntry")
-    origin_entry_view: Optional[StrictInt] = Field(default=None, alias="OriginEntryView")
+    origin_dg: SkipValidation[int] = Field(alias="OriginDG")
+    origin_dg_tag: SkipValidation[Optional[int]] = Field(alias="OriginDGTag", default=None)
+    origin_tag_entry: SkipValidation[float] = Field(alias="OriginTagEntry", description="Record index of the text field source in the data group")
+    origin_entry_view: SkipValidation[Optional[int]] = Field(alias="OriginEntryView", default=None)
     __properties: ClassVar[List[str]] = ["OriginDG", "OriginDGTag", "OriginTagEntry", "OriginEntryView"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

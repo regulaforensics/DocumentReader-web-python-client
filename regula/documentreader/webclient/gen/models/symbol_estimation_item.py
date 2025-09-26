@@ -14,34 +14,37 @@ from typing import Any, ClassVar, Dict, List, Union
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class SymbolEstimationItem(BaseModel):
     """
     SymbolEstimationItem
     """ # noqa: E501
-    alignment_nearest_symbols: StrictInt = Field(alias="ALIGNMENT_NEAREST_SYMBOLS")
-    contrast_print: StrictInt = Field(alias="CONTRAST_PRINT")
-    contrast_symbol: StrictInt = Field(alias="CONTRAST_SYMBOL")
-    char_symbol: StrictInt = Field(alias="CharSymbol")
-    edge: StrictInt = Field(alias="EDGE")
-    emptiness: StrictInt = Field(alias="EMPTINESS")
-    stain: StrictInt = Field(alias="STAIN")
-    symbols_interval: StrictInt = Field(alias="SYMBOLS_INTERVAL")
-    symbol_param: StrictInt = Field(alias="SYMBOL_PARAM")
-    symbol_size: StrictInt = Field(alias="SYMBOL_SIZE")
-    size_error_align_with_next: Union[StrictFloat, StrictInt] = Field(alias="SizeErrorAlignWithNext")
-    size_error_align_with_prev: Union[StrictFloat, StrictInt] = Field(alias="SizeErrorAlignWithPrev")
-    size_error_interv_with_next: Union[StrictFloat, StrictInt] = Field(alias="SizeErrorIntervWithNext")
-    size_error_interv_with_prev: Union[StrictFloat, StrictInt] = Field(alias="SizeErrorIntervWithPrev")
-    size_error_symbol_height: Union[StrictFloat, StrictInt] = Field(alias="SizeErrorSymbolHeight")
-    size_error_symbol_width: Union[StrictFloat, StrictInt] = Field(alias="SizeErrorSymbolWidth")
-    symbol_bounds: RectangleCoordinates = Field(alias="SymbolBounds")
+    alignment_nearest_symbols: SkipValidation[int] = Field(alias="ALIGNMENT_NEAREST_SYMBOLS")
+    contrast_print: SkipValidation[int] = Field(alias="CONTRAST_PRINT")
+    contrast_symbol: SkipValidation[int] = Field(alias="CONTRAST_SYMBOL")
+    char_symbol: SkipValidation[int] = Field(alias="CharSymbol")
+    edge: SkipValidation[int] = Field(alias="EDGE")
+    emptiness: SkipValidation[int] = Field(alias="EMPTINESS")
+    stain: SkipValidation[int] = Field(alias="STAIN")
+    symbols_interval: SkipValidation[int] = Field(alias="SYMBOLS_INTERVAL")
+    symbol_param: SkipValidation[int] = Field(alias="SYMBOL_PARAM")
+    symbol_size: SkipValidation[int] = Field(alias="SYMBOL_SIZE")
+    size_error_align_with_next: SkipValidation[float] = Field(alias="SizeErrorAlignWithNext")
+    size_error_align_with_prev: SkipValidation[float] = Field(alias="SizeErrorAlignWithPrev")
+    size_error_interv_with_next: SkipValidation[float] = Field(alias="SizeErrorIntervWithNext")
+    size_error_interv_with_prev: SkipValidation[float] = Field(alias="SizeErrorIntervWithPrev")
+    size_error_symbol_height: SkipValidation[float] = Field(alias="SizeErrorSymbolHeight")
+    size_error_symbol_width: SkipValidation[float] = Field(alias="SizeErrorSymbolWidth")
+    symbol_bounds: SkipValidation[RectangleCoordinates] = Field(alias="SymbolBounds")
     __properties: ClassVar[List[str]] = ["ALIGNMENT_NEAREST_SYMBOLS", "CONTRAST_PRINT", "CONTRAST_SYMBOL", "CharSymbol", "EDGE", "EMPTINESS", "STAIN", "SYMBOLS_INTERVAL", "SYMBOL_PARAM", "SYMBOL_SIZE", "SizeErrorAlignWithNext", "SizeErrorAlignWithPrev", "SizeErrorIntervWithNext", "SizeErrorIntervWithPrev", "SizeErrorSymbolHeight", "SizeErrorSymbolWidth", "SymbolBounds"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

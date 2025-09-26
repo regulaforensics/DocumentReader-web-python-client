@@ -13,23 +13,26 @@ from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class BcPDF417INFO(BaseModel):
     """
     BcPDF417INFO
     """ # noqa: E501
-    angle: Union[StrictFloat, StrictInt] = Field(alias="Angle")
-    bc_column: StrictInt = Field(alias="bcColumn")
-    bc_error_level: StrictInt = Field(alias="bcErrorLevel")
-    bc_row: StrictInt = Field(alias="bcRow")
-    min_x: Union[StrictFloat, StrictInt] = Field(alias="minX")
-    min_y: Union[StrictFloat, StrictInt] = Field(alias="minY")
+    angle: SkipValidation[float] = Field(alias="Angle")
+    bc_column: SkipValidation[int] = Field(alias="bcColumn")
+    bc_error_level: SkipValidation[int] = Field(alias="bcErrorLevel")
+    bc_row: SkipValidation[int] = Field(alias="bcRow")
+    min_x: SkipValidation[float] = Field(alias="minX")
+    min_y: SkipValidation[float] = Field(alias="minY")
     __properties: ClassVar[List[str]] = ["Angle", "bcColumn", "bcErrorLevel", "bcRow", "minX", "minY"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

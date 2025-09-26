@@ -14,19 +14,22 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.trf_ft_string import TrfFtString
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidAttributeName(BaseModel):
     """
     Structure contains information that serves as the distinguished name (identifier) of an object.
     """ # noqa: E501
-    type: StrictStr = Field(description="Attribute identifier (OID ASCII string); contents of the identifier in the format S1 (S2), where S1 – attribute name, S2 – identifier (OID string)", alias="Type")
-    value: TrfFtString = Field(alias="Value")
+    type: SkipValidation[str] = Field(alias="Type", description="Attribute identifier (OID ASCII string); contents of the identifier in the format S1 (S2), where S1 – attribute name, S2 – identifier (OID string)")
+    value: SkipValidation[TrfFtString] = Field(alias="Value")
     __properties: ClassVar[List[str]] = ["Type", "Value"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

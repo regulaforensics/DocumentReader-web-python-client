@@ -15,21 +15,24 @@ from regula.documentreader.webclient.gen.models.graphic_field_type import Graphi
 from regula.documentreader.webclient.gen.models.images_field_value import ImagesFieldValue
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ImagesField(BaseModel):
     """
     ImagesField
     """ # noqa: E501
-    field_name: StrictStr = Field(description="Human readable field name. Do not bind to this name - use GraphicFieldType instead.", alias="fieldName")
-    field_type: GraphicFieldType = Field(alias="fieldType")
-    value_list: List[ImagesFieldValue] = Field(alias="valueList")
-    value_count: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Field value count", alias="valueCount")
+    field_name: SkipValidation[str] = Field(alias="fieldName", description="Human readable field name. Do not bind to this name - use GraphicFieldType instead.")
+    field_type: SkipValidation[GraphicFieldType] = Field(alias="fieldType")
+    value_list: SkipValidation[List[ImagesFieldValue]] = Field(alias="valueList")
+    value_count: SkipValidation[Optional[float]] = Field(alias="valueCount", default=None, description="Field value count")
     __properties: ClassVar[List[str]] = ["fieldName", "fieldType", "valueList", "valueCount"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

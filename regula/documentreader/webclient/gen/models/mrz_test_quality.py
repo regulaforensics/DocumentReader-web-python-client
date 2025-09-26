@@ -15,27 +15,30 @@ from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from regula.documentreader.webclient.gen.models.string_item import StringItem
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class MRZTestQuality(BaseModel):
     """
     MRZTestQuality
     """ # noqa: E501
-    check_sums: CheckResult = Field(alias="CHECK_SUMS")
-    contrast_print: CheckResult = Field(alias="CONTRAST_PRINT")
-    doc_format: StrictInt = Field(alias="DOC_FORMAT")
-    mrz_format: StrictInt = Field(alias="MRZ_FORMAT")
-    print_position: CheckResult = Field(alias="PRINT_POSITION")
-    stain_mrz: CheckResult = Field(alias="STAIN_MRZ")
-    symbols_param: CheckResult = Field(alias="SYMBOLS_PARAM")
-    str_count: StrictInt = Field(alias="StrCount")
-    strings: List[StringItem] = Field(alias="Strings")
-    textual_filling: CheckResult = Field(alias="TEXTUAL_FILLING")
+    check_sums: SkipValidation[CheckResult] = Field(alias="CHECK_SUMS")
+    contrast_print: SkipValidation[CheckResult] = Field(alias="CONTRAST_PRINT")
+    doc_format: SkipValidation[int] = Field(alias="DOC_FORMAT")
+    mrz_format: SkipValidation[int] = Field(alias="MRZ_FORMAT")
+    print_position: SkipValidation[CheckResult] = Field(alias="PRINT_POSITION")
+    stain_mrz: SkipValidation[CheckResult] = Field(alias="STAIN_MRZ")
+    symbols_param: SkipValidation[CheckResult] = Field(alias="SYMBOLS_PARAM")
+    str_count: SkipValidation[int] = Field(alias="StrCount")
+    strings: SkipValidation[List[StringItem]] = Field(alias="Strings")
+    textual_filling: SkipValidation[CheckResult] = Field(alias="TEXTUAL_FILLING")
     __properties: ClassVar[List[str]] = ["CHECK_SUMS", "CONTRAST_PRINT", "DOC_FORMAT", "MRZ_FORMAT", "PRINT_POSITION", "STAIN_MRZ", "SYMBOLS_PARAM", "StrCount", "Strings", "TEXTUAL_FILLING"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 
