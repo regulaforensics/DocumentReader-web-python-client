@@ -13,19 +13,22 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ProcessSystemInfo(BaseModel):
     """
     ProcessSystemInfo
     """ # noqa: E501
-    license: Optional[StrictStr] = Field(default=None, description="Base64 encoded license file")
-    recaptcha_token: Optional[StrictStr] = Field(default=None, description="For internal use. Demo-sites recaptcha token.")
+    license: SkipValidation[Optional[str]] = Field(alias="license", default=None, description="Base64 encoded license file")
+    recaptcha_token: SkipValidation[Optional[str]] = Field(alias="recaptcha_token", default=None, description="For internal use. Demo-sites recaptcha token.")
     __properties: ClassVar[List[str]] = ["license", "recaptcha_token"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

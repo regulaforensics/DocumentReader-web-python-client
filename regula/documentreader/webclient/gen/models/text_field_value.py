@@ -19,27 +19,30 @@ from regula.documentreader.webclient.gen.models.rfid_origin import RfidOrigin
 from regula.documentreader.webclient.gen.models.source import Source
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class TextFieldValue(BaseModel):
     """
     TextFieldValue
     """ # noqa: E501
-    source: Source
-    value: StrictStr = Field(description="Parsed/processed value. Date format converted for output, delimiters removed")
-    original_value: Optional[StrictStr] = Field(default=None, description="Original value as seen in the document", alias="originalValue")
-    original_validity: CheckResult = Field(alias="originalValidity")
-    original_symbols: Optional[List[OriginalSymbol]] = Field(default=None, alias="originalSymbols")
-    page_index: StrictInt = Field(description="Page index of the image from input list", alias="pageIndex")
-    probability: Annotated[int, Field(le=100, strict=True, ge=0)] = Field(description="Min recognition probability. Combined minimum probability from single characters probabilities")
-    field_rect: Optional[RectangleCoordinates] = Field(default=None, alias="fieldRect")
-    rfid_origin: Optional[RfidOrigin] = Field(default=None, alias="rfidOrigin")
-    container_type: Optional[StrictInt] = Field(default=0, description="Same as Result type, but used for safe parsing of not-described values. See Result type.", alias="containerType")
+    source: SkipValidation[Source] = Field(alias="source")
+    value: SkipValidation[str] = Field(alias="value", description="Parsed/processed value. Date format converted for output, delimiters removed")
+    original_value: SkipValidation[Optional[str]] = Field(alias="originalValue", default=None, description="Original value as seen in the document")
+    original_validity: SkipValidation[CheckResult] = Field(alias="originalValidity")
+    original_symbols: SkipValidation[Optional[List[OriginalSymbol]]] = Field(alias="originalSymbols", default=None)
+    page_index: SkipValidation[int] = Field(alias="pageIndex", description="Page index of the image from input list")
+    probability: SkipValidation[int] = Field(alias="probability", description="Min recognition probability. Combined minimum probability from single characters probabilities")
+    field_rect: SkipValidation[Optional[RectangleCoordinates]] = Field(alias="fieldRect", default=None)
+    rfid_origin: SkipValidation[Optional[RfidOrigin]] = Field(alias="rfidOrigin", default=None)
+    container_type: SkipValidation[Optional[int]] = Field(alias="containerType", default=None, description="Same as Result type, but used for safe parsing of not-described values. See Result type.")
     __properties: ClassVar[List[str]] = ["source", "value", "originalValue", "originalValidity", "originalSymbols", "pageIndex", "probability", "fieldRect", "rfidOrigin", "containerType"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

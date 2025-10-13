@@ -14,20 +14,23 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.symbol import Symbol
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class MRZRowsItem(BaseModel):
     """
     MRZRowsItem
     """ # noqa: E501
-    length: StrictInt
-    max_length: StrictInt = Field(alias="maxLength")
-    symbols: List[Symbol]
+    length: SkipValidation[int] = Field(alias="length")
+    max_length: SkipValidation[int] = Field(alias="maxLength")
+    symbols: SkipValidation[List[Symbol]] = Field(alias="symbols")
     __properties: ClassVar[List[str]] = ["length", "maxLength", "symbols"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

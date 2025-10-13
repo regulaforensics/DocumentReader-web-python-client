@@ -16,18 +16,21 @@ from regula.documentreader.webclient.gen.models.result import Result
 from regula.documentreader.webclient.gen.models.result_item import ResultItem
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class GraphicsResult(ResultItem):
     """
     Graphic fields extracted from one of the document sources. Returns separate results for each provided page.
     """ # noqa: E501
-    doc_graphics_info: GraphicFieldsList = Field(alias="DocGraphicsInfo")
+    doc_graphics_info: SkipValidation[GraphicFieldsList] = Field(alias="DocGraphicsInfo")
     __properties: ClassVar[List[str]] = ["buf_length", "light", "list_idx", "page_idx", "result_type", "DocGraphicsInfo"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -20,29 +20,32 @@ from regula.documentreader.webclient.gen.models.text_field_type import TextField
 from regula.documentreader.webclient.gen.models.trf_ft_bytes import TrfFtBytes
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidDataFile(BaseModel):
     """
     Structure is used to describe the contents of a single file of the LDS of electronic document and the analysis of its contents within the context of the communication session with electronic document
     """ # noqa: E501
-    file_id: Optional[StrictStr] = Field(default=None, description="File identifier. Each byte of FileID represented by its hexadecimal value. The individual bytes are separated by spaces (e.g. 01 1E)", alias="FileID")
-    type: RfidDataFileType = Field(alias="Type")
-    file_data: Optional[TrfFtBytes] = Field(default=None, alias="FileData")
-    reading_status: RFIDErrorCodes = Field(alias="ReadingStatus")
-    reading_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time of reading, milliseconds", alias="ReadingTime")
-    pa_status: Optional[RFIDErrorCodes] = Field(default=None, alias="PA_Status")
-    notifications: Optional[List[StrictInt]] = Field(default=None, description="List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.", alias="Notifications")
-    doc_fields_text: Optional[List[TextFieldType]] = Field(default=None, description="List of document text fields formed on the basis of the file contents", alias="DocFields_Text")
-    doc_fields_graphics: Optional[List[GraphicFieldType]] = Field(default=None, description="List of document graphic fields formed on the basis of the file contents", alias="DocFields_Graphics")
-    doc_fields_originals: Optional[List[GraphicFieldType]] = Field(default=None, description="List of the original binary representation of graphic document fields formed on the basis of the file contents", alias="DocFields_Originals")
-    parsed_data: Optional[ParsedData] = Field(default=None, alias="ParsedData")
-    security_object_certificates: Optional[SecurityObjectCertificates] = Field(default=None, alias="SecurityObject_Certificates")
+    file_id: SkipValidation[Optional[str]] = Field(alias="FileID", default=None, description="File identifier. Each byte of FileID represented by its hexadecimal value. The individual bytes are separated by spaces (e.g. 01 1E)")
+    type: SkipValidation[RfidDataFileType] = Field(alias="Type")
+    file_data: SkipValidation[Optional[TrfFtBytes]] = Field(alias="FileData", default=None)
+    reading_status: SkipValidation[RFIDErrorCodes] = Field(alias="ReadingStatus")
+    reading_time: SkipValidation[Optional[float]] = Field(alias="ReadingTime", default=None, description="Time of reading, milliseconds")
+    pa_status: SkipValidation[Optional[RFIDErrorCodes]] = Field(alias="PA_Status", default=None)
+    notifications: SkipValidation[Optional[List[int]]] = Field(alias="Notifications", default=None, description="List of remarks arisen when reading data from the memory of the chip and analysing their ASN.1-structure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.")
+    doc_fields_text: SkipValidation[Optional[List[TextFieldType]]] = Field(alias="DocFields_Text", default=None, description="List of document text fields formed on the basis of the file contents")
+    doc_fields_graphics: SkipValidation[Optional[List[GraphicFieldType]]] = Field(alias="DocFields_Graphics", default=None, description="List of document graphic fields formed on the basis of the file contents")
+    doc_fields_originals: SkipValidation[Optional[List[GraphicFieldType]]] = Field(alias="DocFields_Originals", default=None, description="List of the original binary representation of graphic document fields formed on the basis of the file contents")
+    parsed_data: SkipValidation[Optional[ParsedData]] = Field(alias="ParsedData", default=None)
+    security_object_certificates: SkipValidation[Optional[SecurityObjectCertificates]] = Field(alias="SecurityObject_Certificates", default=None)
     __properties: ClassVar[List[str]] = ["FileID", "Type", "FileData", "ReadingStatus", "ReadingTime", "PA_Status", "Notifications", "DocFields_Text", "DocFields_Graphics", "DocFields_Originals", "ParsedData", "SecurityObject_Certificates"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

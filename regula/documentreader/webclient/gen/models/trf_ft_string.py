@@ -13,21 +13,24 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class TrfFtString(BaseModel):
     """
     Structure is used to store information about the numeric field (4 bytes) that is a part of one of the informational data groups.
     """ # noqa: E501
-    type: Optional[StrictInt] = Field(default=None, alias="Type")
-    status: Optional[StrictInt] = Field(default=None, description="Result of logical analysis of compliance of the contents of the field with the requirements of the specification", alias="Status")
-    format: Optional[StrictStr] = Field(default=None, description="Mask of format of text information (for example, «YYMMDD» for date of birth)", alias="Format")
-    data: StrictStr = Field(description="Numeric value.", alias="Data")
+    type: SkipValidation[Optional[int]] = Field(alias="Type", default=None)
+    status: SkipValidation[Optional[int]] = Field(alias="Status", default=None, description="Result of logical analysis of compliance of the contents of the field with the requirements of the specification")
+    format: SkipValidation[Optional[str]] = Field(alias="Format", default=None, description="Mask of format of text information (for example, «YYMMDD» for date of birth)")
+    data: SkipValidation[str] = Field(alias="Data", description="Numeric value.")
     __properties: ClassVar[List[str]] = ["Type", "Status", "Format", "Data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

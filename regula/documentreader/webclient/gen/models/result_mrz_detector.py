@@ -14,21 +14,24 @@ from typing import Any, ClassVar, Dict, List, Union
 from regula.documentreader.webclient.gen.models.mrz_rows_item import MRZRowsItem
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ResultMRZDetector(BaseModel):
     """
     ResultMRZDetector
     """ # noqa: E501
-    mrz_format: StrictInt = Field(alias="MRZFormat")
-    mrz_rows: List[MRZRowsItem] = Field(alias="MRZRows")
-    mrz_rows_num: StrictInt = Field(alias="MRZRowsNum")
-    bounding_quadrangle: List[Union[StrictFloat, StrictInt]] = Field(alias="boundingQuadrangle")
+    mrz_format: SkipValidation[int] = Field(alias="MRZFormat")
+    mrz_rows: SkipValidation[List[MRZRowsItem]] = Field(alias="MRZRows")
+    mrz_rows_num: SkipValidation[int] = Field(alias="MRZRowsNum")
+    bounding_quadrangle: SkipValidation[List[float]] = Field(alias="boundingQuadrangle")
     __properties: ClassVar[List[str]] = ["MRZFormat", "MRZRows", "MRZRowsNum", "boundingQuadrangle"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

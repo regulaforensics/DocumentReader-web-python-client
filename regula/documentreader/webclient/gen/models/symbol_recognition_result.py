@@ -15,22 +15,25 @@ from regula.documentreader.webclient.gen.models.rectangle_coordinates import Rec
 from regula.documentreader.webclient.gen.models.symbol_candidate import SymbolCandidate
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class SymbolRecognitionResult(BaseModel):
     """
     Describes a single character recognition results in the text field line
     """ # noqa: E501
-    symbol_rect: Optional[RectangleCoordinates] = Field(default=None, alias="SymbolRect")
-    candidates_count: Union[StrictFloat, StrictInt] = Field(description="Number of significant elements of ListOfCandidates array", alias="CandidatesCount")
-    list_of_candidates: List[SymbolCandidate] = Field(description="Array of candidate characters. Sorted in descending order of recognition probabilities (the first element has highest probability)", alias="ListOfCandidates")
-    base_line_bottom: Optional[StrictInt] = Field(default=None, alias="BaseLineBottom")
-    base_line_top: Optional[StrictInt] = Field(default=None, alias="BaseLineTop")
+    symbol_rect: SkipValidation[Optional[RectangleCoordinates]] = Field(alias="SymbolRect", default=None)
+    candidates_count: SkipValidation[float] = Field(alias="CandidatesCount", description="Number of significant elements of ListOfCandidates array")
+    list_of_candidates: SkipValidation[List[SymbolCandidate]] = Field(alias="ListOfCandidates", description="Array of candidate characters. Sorted in descending order of recognition probabilities (the first element has highest probability)")
+    base_line_bottom: SkipValidation[Optional[int]] = Field(alias="BaseLineBottom", default=None)
+    base_line_top: SkipValidation[Optional[int]] = Field(alias="BaseLineTop", default=None)
     __properties: ClassVar[List[str]] = ["SymbolRect", "CandidatesCount", "ListOfCandidates", "BaseLineBottom", "BaseLineTop"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -22,24 +22,27 @@ from regula.documentreader.webclient.gen.models.rectangle_coordinates import Rec
 from regula.documentreader.webclient.gen.models.security_feature_type import SecurityFeatureType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class IdentResult(AuthenticityCheckResultItem):
     """
     IdentResult
     """ # noqa: E501
-    element_type: SecurityFeatureType = Field(alias="ElementType")
-    light_index: Light = Field(alias="LightIndex")
-    area: Optional[RectangleCoordinates] = Field(default=None, alias="Area")
-    image: ImageData = Field(alias="Image")
-    etalon_image: ImageData = Field(alias="EtalonImage")
-    area_list: Optional[AreaContainer] = Field(default=None, alias="AreaList")
-    element_id: Optional[StrictInt] = Field(default=None, alias="ElementID")
+    element_type: SkipValidation[SecurityFeatureType] = Field(alias="ElementType")
+    light_index: SkipValidation[Light] = Field(alias="LightIndex")
+    area: SkipValidation[Optional[RectangleCoordinates]] = Field(alias="Area", default=None)
+    image: SkipValidation[ImageData] = Field(alias="Image")
+    etalon_image: SkipValidation[ImageData] = Field(alias="EtalonImage")
+    area_list: SkipValidation[Optional[AreaContainer]] = Field(alias="AreaList", default=None)
+    element_id: SkipValidation[Optional[int]] = Field(alias="ElementID", default=None)
     __properties: ClassVar[List[str]] = ["Type", "ElementResult", "ElementDiagnose", "PercentValue", "ElementType", "LightIndex", "Area", "Image", "EtalonImage", "AreaList", "ElementID"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

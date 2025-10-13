@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.document_position import DocumentPosition
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class MrzPositionItem(BaseModel):
     """
     MrzPositionItem
     """ # noqa: E501
-    mrz_position: DocumentPosition = Field(alias="MrzPosition")
+    mrz_position: SkipValidation[DocumentPosition] = Field(alias="MrzPosition")
     __properties: ClassVar[List[str]] = ["MrzPosition"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

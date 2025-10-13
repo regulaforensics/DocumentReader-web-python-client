@@ -15,6 +15,7 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from regula.documentreader.webclient.gen.models.result import Result
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
@@ -59,17 +60,19 @@ class ResultItem(BaseModel):
     """
     Common fields for all result objects
     """ # noqa: E501
-    buf_length: Optional[StrictInt] = None
-    light: Optional[StrictInt] = None
-    list_idx: Optional[StrictInt] = None
-    page_idx: Optional[StrictInt] = None
-    result_type: Result
+    buf_length: SkipValidation[Optional[int]] = Field(alias="buf_length", default=None)
+    light: SkipValidation[Optional[int]] = Field(alias="light", default=None)
+    list_idx: SkipValidation[Optional[int]] = Field(alias="list_idx", default=None)
+    page_idx: SkipValidation[Optional[int]] = Field(alias="page_idx", default=None)
+    result_type: SkipValidation[Result] = Field(alias="result_type")
     __properties: ClassVar[List[str]] = ["buf_length", "light", "list_idx", "page_idx", "result_type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.face_detection import FaceDetection
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class FaceDetectionItem(BaseModel):
     """
     FaceDetectionItem
     """ # noqa: E501
-    face_detection: Optional[FaceDetection] = Field(default=None, alias="FaceDetection")
+    face_detection: SkipValidation[Optional[FaceDetection]] = Field(alias="FaceDetection", default=None)
     __properties: ClassVar[List[str]] = ["FaceDetection"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

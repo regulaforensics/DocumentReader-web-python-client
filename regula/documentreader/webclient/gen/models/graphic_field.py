@@ -16,21 +16,24 @@ from regula.documentreader.webclient.gen.models.image_data import ImageData
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class GraphicField(BaseModel):
     """
     Information about one graphic field - abstract class
     """ # noqa: E501
-    field_rect: RectangleCoordinates = Field(alias="FieldRect")
-    field_type: GraphicFieldType = Field(alias="FieldType")
-    field_name: StrictStr = Field(description="Graphic field symbolic name", alias="FieldName")
-    image: ImageData
+    field_rect: SkipValidation[RectangleCoordinates] = Field(alias="FieldRect")
+    field_type: SkipValidation[GraphicFieldType] = Field(alias="FieldType")
+    field_name: SkipValidation[str] = Field(alias="FieldName", description="Graphic field symbolic name")
+    image: SkipValidation[ImageData] = Field(alias="image")
     __properties: ClassVar[List[str]] = ["FieldRect", "FieldType", "FieldName", "image"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

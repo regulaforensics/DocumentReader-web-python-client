@@ -14,22 +14,25 @@ from typing import Any, ClassVar, Dict, List, Union
 from regula.documentreader.webclient.gen.models.rfid_signer_info_ex import RfidSignerInfoEx
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidSecurityObject(BaseModel):
     """
     Structure is used to describe the contents of a single document security object (SO) and the results of its check within the context of the communication session with electronic document
     """ # noqa: E501
-    version: Union[StrictFloat, StrictInt] = Field(description="Security object version", alias="Version")
-    object_type: StrictStr = Field(description="Identifier of the security object", alias="ObjectType")
-    file_reference: Union[StrictFloat, StrictInt] = Field(description="Reference to the source file of the security object data", alias="FileReference")
-    notifications: List[StrictInt] = Field(description="List of remarks arisen during the analysis of SO data structure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.", alias="Notifications")
-    signer_infos: List[RfidSignerInfoEx] = Field(description="List of containers to store information about digital signature objects contained in the SO", alias="SignerInfos")
+    version: SkipValidation[float] = Field(alias="Version", description="Security object version")
+    object_type: SkipValidation[str] = Field(alias="ObjectType", description="Identifier of the security object")
+    file_reference: SkipValidation[float] = Field(alias="FileReference", description="Reference to the source file of the security object data")
+    notifications: SkipValidation[List[int]] = Field(alias="Notifications", description="List of remarks arisen during the analysis of SO data structure. Can be ParsingErrorCodes or ParsingNotificationCodes enum.")
+    signer_infos: SkipValidation[List[RfidSignerInfoEx]] = Field(alias="SignerInfos", description="List of containers to store information about digital signature objects contained in the SO")
     __properties: ClassVar[List[str]] = ["Version", "ObjectType", "FileReference", "Notifications", "SignerInfos"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

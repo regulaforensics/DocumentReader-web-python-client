@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.list_verified_fields import ListVerifiedFields
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ListVerifiedFieldsItem(BaseModel):
     """
     ListVerifiedFieldsItem
     """ # noqa: E501
-    list_verified_fields: ListVerifiedFields = Field(alias="ListVerifiedFields")
+    list_verified_fields: SkipValidation[ListVerifiedFields] = Field(alias="ListVerifiedFields")
     __properties: ClassVar[List[str]] = ["ListVerifiedFields"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

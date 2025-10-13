@@ -17,26 +17,29 @@ from regula.documentreader.webclient.gen.models.rfid_origin import RfidOrigin
 from regula.documentreader.webclient.gen.models.source import Source
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ImagesFieldValue(BaseModel):
     """
     ImagesFieldValue
     """ # noqa: E501
-    source: Source
-    value: Optional[StrictStr] = Field(default=None, description="Base64 encoded image")
-    original_value: Optional[StrictStr] = Field(default=None, description="Base64 encoded image", alias="originalValue")
-    original_page_index: Optional[StrictInt] = Field(default=None, description="Original page index", alias="originalPageIndex")
-    page_index: StrictInt = Field(description="Page index of the image from input list", alias="pageIndex")
-    light_index: Light = Field(alias="lightIndex")
-    container_type: StrictInt = Field(description="Same as Result type, but used for safe parsing of not-described values. See Result type.", alias="containerType")
-    field_rect: Optional[RectangleCoordinates] = Field(default=None, alias="fieldRect")
-    rfid_origin: Optional[RfidOrigin] = Field(default=None, alias="rfidOrigin")
+    source: SkipValidation[Source] = Field(alias="source")
+    value: SkipValidation[Optional[str]] = Field(alias="value", default=None, description="Base64 encoded image")
+    original_value: SkipValidation[Optional[str]] = Field(alias="originalValue", default=None, description="Base64 encoded image")
+    original_page_index: SkipValidation[Optional[int]] = Field(alias="originalPageIndex", default=None, description="Original page index")
+    page_index: SkipValidation[int] = Field(alias="pageIndex", description="Page index of the image from input list")
+    light_index: SkipValidation[Light] = Field(alias="lightIndex")
+    container_type: SkipValidation[int] = Field(alias="containerType", description="Same as Result type, but used for safe parsing of not-described values. See Result type.")
+    field_rect: SkipValidation[Optional[RectangleCoordinates]] = Field(alias="fieldRect", default=None)
+    rfid_origin: SkipValidation[Optional[RfidOrigin]] = Field(alias="rfidOrigin", default=None)
     __properties: ClassVar[List[str]] = ["source", "value", "originalValue", "originalPageIndex", "pageIndex", "lightIndex", "containerType", "fieldRect", "rfidOrigin"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

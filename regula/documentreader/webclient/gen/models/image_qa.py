@@ -14,26 +14,29 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from regula.documentreader.webclient.gen.models.input_image_quality_checks import InputImageQualityChecks
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ImageQA(BaseModel):
     """
     ImageQA
     """ # noqa: E501
-    brightness_threshold: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Set the threshold for an actual document brightness below which the check fails", alias="brightnessThreshold")
-    dpi_threshold: Optional[StrictInt] = Field(default=None, description="This parameter sets threshold for Image QA check of the presented document physical dpi. If actual document dpi is below this threshold, check will fail.", alias="dpiThreshold")
-    angle_threshold: Optional[StrictInt] = Field(default=None, description="This parameter sets threshold for Image QA check of the presented document perspective angle in degrees. If actual document perspective angle is above this threshold, check will fail.", alias="angleThreshold")
-    focus_check: Optional[StrictBool] = Field(default=None, description="This option enables focus check while performing image quality validation.", alias="focusCheck")
-    glares_check: Optional[StrictBool] = Field(default=None, description="This option enables glares check while performing image quality validation.", alias="glaresCheck")
-    colorness_check: Optional[StrictBool] = Field(default=None, description="This option enables colorness check while performing image quality validation.", alias="colornessCheck")
-    moire_check: Optional[StrictBool] = Field(default=None, description="This option enables screen capture (moire patterns) check while performing image quality validation.", alias="moireCheck")
-    document_position_indent: Optional[StrictInt] = Field(default=None, description="This parameter specifies the necessary margin. Default 0.", alias="documentPositionIndent")
-    expected_pass: Optional[List[InputImageQualityChecks]] = Field(default=None, description="This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process.", alias="expectedPass")
+    brightness_threshold: SkipValidation[Optional[float]] = Field(alias="brightnessThreshold", default=None, description="Set the threshold for an actual document brightness below which the check fails")
+    dpi_threshold: SkipValidation[Optional[int]] = Field(alias="dpiThreshold", default=None, description="This parameter sets threshold for Image QA check of the presented document physical dpi. If actual document dpi is below this threshold, check will fail.")
+    angle_threshold: SkipValidation[Optional[int]] = Field(alias="angleThreshold", default=None, description="This parameter sets threshold for Image QA check of the presented document perspective angle in degrees. If actual document perspective angle is above this threshold, check will fail.")
+    focus_check: SkipValidation[Optional[bool]] = Field(alias="focusCheck", default=None, description="This option enables focus check while performing image quality validation.")
+    glares_check: SkipValidation[Optional[bool]] = Field(alias="glaresCheck", default=None, description="This option enables glares check while performing image quality validation.")
+    colorness_check: SkipValidation[Optional[bool]] = Field(alias="colornessCheck", default=None, description="This option enables colorness check while performing image quality validation.")
+    moire_check: SkipValidation[Optional[bool]] = Field(alias="moireCheck", default=None, description="This option enables screen capture (moire patterns) check while performing image quality validation.")
+    document_position_indent: SkipValidation[Optional[int]] = Field(alias="documentPositionIndent", default=None, description="This parameter specifies the necessary margin. Default 0.")
+    expected_pass: SkipValidation[Optional[List[InputImageQualityChecks]]] = Field(alias="expectedPass", default=None, description="This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process.")
     __properties: ClassVar[List[str]] = ["brightnessThreshold", "dpiThreshold", "angleThreshold", "focusCheck", "glaresCheck", "colornessCheck", "moireCheck", "documentPositionIndent", "expectedPass"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

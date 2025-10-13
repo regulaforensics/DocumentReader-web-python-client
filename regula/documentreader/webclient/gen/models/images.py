@@ -15,21 +15,24 @@ from regula.documentreader.webclient.gen.models.images_available_source import I
 from regula.documentreader.webclient.gen.models.images_field import ImagesField
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class Images(BaseModel):
     """
     Images
     """ # noqa: E501
-    field_count: Optional[StrictInt] = Field(default=None, description="Fields count", alias="fieldCount")
-    available_source_count: Optional[StrictInt] = Field(default=None, description="Available sources count", alias="availableSourceCount")
-    available_source_list: List[ImagesAvailableSource] = Field(alias="availableSourceList")
-    field_list: List[ImagesField] = Field(alias="fieldList")
+    field_count: SkipValidation[Optional[int]] = Field(alias="fieldCount", default=None, description="Fields count")
+    available_source_count: SkipValidation[Optional[int]] = Field(alias="availableSourceCount", default=None, description="Available sources count")
+    available_source_list: SkipValidation[List[ImagesAvailableSource]] = Field(alias="availableSourceList")
+    field_list: SkipValidation[List[ImagesField]] = Field(alias="fieldList")
     __properties: ClassVar[List[str]] = ["fieldCount", "availableSourceCount", "availableSourceList", "fieldList"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -14,21 +14,24 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class SymbolCandidate(BaseModel):
     """
     Describes an individual character recognition candidate
     """ # noqa: E501
-    symbol_code: StrictInt = Field(description="Unicode symbol code", alias="SymbolCode")
-    symbol_probability: Annotated[int, Field(le=100, strict=True, ge=0)] = Field(description="character recognition probability (0–100,%)", alias="SymbolProbability")
-    var_class: Optional[StrictInt] = Field(default=None, alias="Class")
-    sub_class: Optional[StrictInt] = Field(default=None, alias="SubClass")
+    symbol_code: SkipValidation[int] = Field(alias="SymbolCode", description="Unicode symbol code")
+    symbol_probability: SkipValidation[int] = Field(alias="SymbolProbability", description="character recognition probability (0–100,%)")
+    var_class: SkipValidation[Optional[int]] = Field(alias="Class", default=None)
+    sub_class: SkipValidation[Optional[int]] = Field(alias="SubClass", default=None)
     __properties: ClassVar[List[str]] = ["SymbolCode", "SymbolProbability", "Class", "SubClass"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

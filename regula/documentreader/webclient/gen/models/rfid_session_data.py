@@ -22,34 +22,37 @@ from regula.documentreader.webclient.gen.models.rfid_security_object import Rfid
 from regula.documentreader.webclient.gen.models.rfid_terminal import RfidTerminal
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidSessionData(BaseModel):
     """
     Structure is used to describe the results of work with the SDK within the context of the current communication session with electronic document
     """ # noqa: E501
-    virtual_mode: Optional[StrictBool] = Field(default=None, description="Sign of virtual session when working with loaded data from a previous communication session with the electronic document", alias="VirtualMode")
-    sdk_version: Optional[StrictStr] = Field(default=None, description="Text SDKVersion value in format A.B (e.g. 3.1)", alias="SDKVersion")
-    driver_version: Optional[StrictStr] = Field(default=None, description="Text DriverVersion value in format A.B.C.D (e.g. 6.2.5.4)", alias="DriverVersion")
-    firmware_version: Optional[StrictStr] = Field(default=None, description="Text FirmwareVersion value in format A.B (e.g. 5.19)", alias="FirmwareVersion")
-    applications: List[RfidApplication] = Field(description="List of containers to store information about the involved applications of electronic document", alias="Applications")
-    access_controls: List[RfidAccessControlInfo] = Field(description="List of containers to store information about the supported procedures of authentication and secure data access within the context of the session", alias="AccessControls")
-    card_properties: RfidCardPropertiesExt = Field(alias="CardProperties")
-    ext_le_support: RFIDErrorCodes = Field(alias="ExtLeSupport")
-    process_time: Union[StrictFloat, StrictInt] = Field(description="Time of processing, milliseconds", alias="ProcessTime")
-    root_files: List[Any] = Field(description="List of containers to store information about the read files of the root Master File", alias="RootFiles")
-    total_bytes_sent: Union[StrictFloat, StrictInt] = Field(description="Total number of bytes transmitted to the RFID-chip during the whole session", alias="TotalBytesSent")
-    total_bytes_received: Union[StrictFloat, StrictInt] = Field(description="Total number of bytes received from the RFID-chip during the whole session", alias="TotalBytesReceived")
-    session_key: Optional[RfidAccessKey] = Field(default=None, alias="Session_key")
-    session_terminal: RfidTerminal = Field(alias="Session_terminal")
-    session_procedure: RfidAuthenticationProcedureType = Field(alias="Session_procedure")
-    security_objects: List[RfidSecurityObject] = Field(description="List of containers to store information about the detected document security objects", alias="SecurityObjects")
-    status: Optional[CheckResult] = Field(default=None, alias="Status")
+    virtual_mode: SkipValidation[Optional[bool]] = Field(alias="VirtualMode", default=None, description="Sign of virtual session when working with loaded data from a previous communication session with the electronic document")
+    sdk_version: SkipValidation[Optional[str]] = Field(alias="SDKVersion", default=None, description="Text SDKVersion value in format A.B (e.g. 3.1)")
+    driver_version: SkipValidation[Optional[str]] = Field(alias="DriverVersion", default=None, description="Text DriverVersion value in format A.B.C.D (e.g. 6.2.5.4)")
+    firmware_version: SkipValidation[Optional[str]] = Field(alias="FirmwareVersion", default=None, description="Text FirmwareVersion value in format A.B (e.g. 5.19)")
+    applications: SkipValidation[List[RfidApplication]] = Field(alias="Applications", description="List of containers to store information about the involved applications of electronic document")
+    access_controls: SkipValidation[List[RfidAccessControlInfo]] = Field(alias="AccessControls", description="List of containers to store information about the supported procedures of authentication and secure data access within the context of the session")
+    card_properties: SkipValidation[RfidCardPropertiesExt] = Field(alias="CardProperties")
+    ext_le_support: SkipValidation[RFIDErrorCodes] = Field(alias="ExtLeSupport")
+    process_time: SkipValidation[float] = Field(alias="ProcessTime", description="Time of processing, milliseconds")
+    root_files: SkipValidation[List[object]] = Field(alias="RootFiles", description="List of containers to store information about the read files of the root Master File")
+    total_bytes_sent: SkipValidation[float] = Field(alias="TotalBytesSent", description="Total number of bytes transmitted to the RFID-chip during the whole session")
+    total_bytes_received: SkipValidation[float] = Field(alias="TotalBytesReceived", description="Total number of bytes received from the RFID-chip during the whole session")
+    session_key: SkipValidation[Optional[RfidAccessKey]] = Field(alias="Session_key", default=None)
+    session_terminal: SkipValidation[RfidTerminal] = Field(alias="Session_terminal")
+    session_procedure: SkipValidation[RfidAuthenticationProcedureType] = Field(alias="Session_procedure")
+    security_objects: SkipValidation[List[RfidSecurityObject]] = Field(alias="SecurityObjects", description="List of containers to store information about the detected document security objects")
+    status: SkipValidation[Optional[CheckResult]] = Field(alias="Status", default=None)
     __properties: ClassVar[List[str]] = ["VirtualMode", "SDKVersion", "DriverVersion", "FirmwareVersion", "Applications", "AccessControls", "CardProperties", "ExtLeSupport", "ProcessTime", "RootFiles", "TotalBytesSent", "TotalBytesReceived", "Session_key", "Session_terminal", "Session_procedure", "SecurityObjects", "Status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -16,31 +16,34 @@ from regula.documentreader.webclient.gen.models.rfid_baud_rate import RfidBaudRa
 from regula.documentreader.webclient.gen.models.rfid_type import RfidType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidCardPropertiesExt(BaseModel):
     """
     Structure is used to store extended information about the characteristics of the RFID-chip located in the scope of the reader
     """ # noqa: E501
-    rfid_type: RfidType = Field(alias="RFID_Type")
-    baudrate1: StrictStr = Field(description="Numeric Baudrate1 value in hexadecimal format (e.g. 0x0000000F)", alias="Baudrate1")
-    baudrate2: StrictStr = Field(description="Numeric Baudrate2 value in hexadecimal format", alias="Baudrate2")
-    support_4: StrictBool = Field(description="Boolean Support_4 value", alias="Support_4")
-    chip_type_a: RfidAChip = Field(alias="ChipType_A")
-    support_mifare: StrictBool = Field(description="Sign of support for ISO/IEC 14443-3 data exchange protocol", alias="Support_Mifare")
-    mifare_memory: Union[StrictFloat, StrictInt] = Field(description="Amount of operational memory MIFARE® of the chip, kilobytes", alias="MifareMemory")
-    uid: StrictStr = Field(description="UID contents in text format. Each byte is represented by its hexadecimal value. The individual bytes are separated by spaces (e.g. F9 4F 41 60)", alias="UID")
-    atq_a: Optional[Any] = Field(description="Reply of the «A» type chip to «REQA» command of ISO/IEC 14443-3 protocol (Answer To Request, Type A – ATQA) – for the internal use by the main control library", alias="ATQ_A")
-    sak: Optional[Any] = Field(description="Response of type-A RFID-chip to SELECT command of ISO/IEC 14443-3 protocol (Select Acknowledge, SAK).", alias="SAK")
-    atq_b: Optional[Any] = Field(description="ATQ_B contents in text format. Each byte is represented by its hexadecimal value. The individual bytes are separated by spaces (e.g. 50 F9 4F 41 60 00 00 00 00 77 81 81)", alias="ATQ_B")
-    bit_rate_s: RfidBaudRate = Field(alias="BitRateS")
-    bit_rate_r: RfidBaudRate = Field(alias="BitRateR")
-    atr: StrictStr = Field(description="ATR-string of RFID-chip", alias="ATR")
+    rfid_type: SkipValidation[RfidType] = Field(alias="RFID_Type")
+    baudrate1: SkipValidation[str] = Field(alias="Baudrate1", description="Numeric Baudrate1 value in hexadecimal format (e.g. 0x0000000F)")
+    baudrate2: SkipValidation[str] = Field(alias="Baudrate2", description="Numeric Baudrate2 value in hexadecimal format")
+    support_4: SkipValidation[bool] = Field(alias="Support_4", description="Boolean Support_4 value")
+    chip_type_a: SkipValidation[RfidAChip] = Field(alias="ChipType_A")
+    support_mifare: SkipValidation[bool] = Field(alias="Support_Mifare", description="Sign of support for ISO/IEC 14443-3 data exchange protocol")
+    mifare_memory: SkipValidation[float] = Field(alias="MifareMemory", description="Amount of operational memory MIFARE® of the chip, kilobytes")
+    uid: SkipValidation[str] = Field(alias="UID", description="UID contents in text format. Each byte is represented by its hexadecimal value. The individual bytes are separated by spaces (e.g. F9 4F 41 60)")
+    atq_a: SkipValidation[object] = Field(alias="ATQ_A", description="Reply of the «A» type chip to «REQA» command of ISO/IEC 14443-3 protocol (Answer To Request, Type A – ATQA) – for the internal use by the main control library")
+    sak: SkipValidation[object] = Field(alias="SAK", description="Response of type-A RFID-chip to SELECT command of ISO/IEC 14443-3 protocol (Select Acknowledge, SAK).")
+    atq_b: SkipValidation[object] = Field(alias="ATQ_B", description="ATQ_B contents in text format. Each byte is represented by its hexadecimal value. The individual bytes are separated by spaces (e.g. 50 F9 4F 41 60 00 00 00 00 77 81 81)")
+    bit_rate_s: SkipValidation[RfidBaudRate] = Field(alias="BitRateS")
+    bit_rate_r: SkipValidation[RfidBaudRate] = Field(alias="BitRateR")
+    atr: SkipValidation[str] = Field(alias="ATR", description="ATR-string of RFID-chip")
     __properties: ClassVar[List[str]] = ["RFID_Type", "Baudrate1", "Baudrate2", "Support_4", "ChipType_A", "Support_Mifare", "MifareMemory", "UID", "ATQ_A", "SAK", "ATQ_B", "BitRateS", "BitRateR", "ATR"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

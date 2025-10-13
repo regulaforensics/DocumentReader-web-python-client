@@ -15,27 +15,30 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.device_info_documents_database import DeviceInfoDocumentsDatabase
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class DeviceInfo(BaseModel):
     """
     DeviceInfo
     """ # noqa: E501
-    app_name: Optional[StrictStr] = Field(default=None, description="Application name.", alias="app-name")
-    version: Optional[StrictStr] = Field(default=None, description="Product version.")
-    license_id: Optional[StrictStr] = Field(default=None, description="Unique license identifier.", alias="license-id")
-    license_serial: Optional[StrictStr] = Field(default=None, description="License serial number.", alias="license-serial")
-    license_type: Optional[StrictStr] = Field(default=None, alias="license-type")
-    valid_until: Optional[datetime] = Field(default=None, description="License validity date.", alias="valid-until")
-    server_time: Optional[StrictStr] = Field(default=None, alias="server-time")
-    supported_scenarios: Optional[List[StrictStr]] = Field(default=None, description="List of supported scenarios.", alias="supported-scenarios")
-    metadata: Optional[Dict[str, Any]] = None
-    documents_database: Optional[DeviceInfoDocumentsDatabase] = Field(default=None, alias="documents-database")
+    app_name: SkipValidation[Optional[str]] = Field(alias="app-name", default=None, description="Application name.")
+    version: SkipValidation[Optional[str]] = Field(alias="version", default=None, description="Product version.")
+    license_id: SkipValidation[Optional[str]] = Field(alias="license-id", default=None, description="Unique license identifier.")
+    license_serial: SkipValidation[Optional[str]] = Field(alias="license-serial", default=None, description="License serial number.")
+    license_type: SkipValidation[Optional[str]] = Field(alias="license-type", default=None)
+    valid_until: SkipValidation[Optional[datetime]] = Field(alias="valid-until", default=None, description="License validity date.")
+    server_time: SkipValidation[Optional[str]] = Field(alias="server-time", default=None)
+    supported_scenarios: SkipValidation[Optional[List[str]]] = Field(alias="supported-scenarios", default=None, description="List of supported scenarios.")
+    metadata: SkipValidation[Optional[Dict[str, object]]] = Field(alias="metadata", default=None)
+    documents_database: SkipValidation[Optional[DeviceInfoDocumentsDatabase]] = Field(alias="documents-database", default=None)
     __properties: ClassVar[List[str]] = ["app-name", "version", "license-id", "license-serial", "license-type", "valid-until", "server-time", "supported-scenarios", "metadata", "documents-database"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

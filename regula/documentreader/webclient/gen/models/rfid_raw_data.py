@@ -13,19 +13,22 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidRawData(BaseModel):
     """
     RfidRawData
     """ # noqa: E501
-    data: StrictStr = Field(alias="Data")
-    field_type: StrictInt = Field(alias="FieldType")
+    data: SkipValidation[str] = Field(alias="Data")
+    field_type: SkipValidation[int] = Field(alias="FieldType")
     __properties: ClassVar[List[str]] = ["Data", "FieldType"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

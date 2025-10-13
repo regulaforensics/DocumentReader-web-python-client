@@ -13,19 +13,22 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ImageData(BaseModel):
     """
     ImageData
     """ # noqa: E501
-    image: Optional[StrictStr] = Field(default=None, description="Base64 encoded image")
-    format: Optional[StrictStr] = Field(default=None, description="Image format")
+    image: SkipValidation[Optional[str]] = Field(alias="image", default=None, description="Base64 encoded image")
+    format: SkipValidation[Optional[str]] = Field(alias="format", default=None, description="Image format")
     __properties: ClassVar[List[str]] = ["image", "format"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

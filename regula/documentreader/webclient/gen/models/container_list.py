@@ -14,19 +14,22 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.result_item import ResultItem
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ContainerList(BaseModel):
     """
     List with various objects, containing processing results
     """ # noqa: E501
-    count: Optional[StrictInt] = Field(default=None, description="Length of list (Count for items)", alias="Count")
-    list: List[ResultItem] = Field(alias="List")
+    count: SkipValidation[Optional[int]] = Field(alias="Count", default=None, description="Length of list (Count for items)")
+    list: SkipValidation[List[ResultItem]] = Field(alias="List")
     __properties: ClassVar[List[str]] = ["Count", "List"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

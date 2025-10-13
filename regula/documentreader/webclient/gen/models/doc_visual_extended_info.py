@@ -14,19 +14,22 @@ from typing import Any, ClassVar, Dict, List, Union
 from regula.documentreader.webclient.gen.models.doc_visual_extended_field import DocVisualExtendedField
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class DocVisualExtendedInfo(BaseModel):
     """
     Container for extracted text fields. Fields are identified by type and language
     """ # noqa: E501
-    n_fields: Union[StrictFloat, StrictInt] = Field(description="Number of pArrayFields array elements", alias="nFields")
-    p_array_fields: List[DocVisualExtendedField] = Field(alias="pArrayFields")
+    n_fields: SkipValidation[float] = Field(alias="nFields", description="Number of pArrayFields array elements")
+    p_array_fields: SkipValidation[List[DocVisualExtendedField]] = Field(alias="pArrayFields")
     __properties: ClassVar[List[str]] = ["nFields", "pArrayFields"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

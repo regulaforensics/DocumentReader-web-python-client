@@ -17,28 +17,31 @@ from regula.documentreader.webclient.gen.models.rectangle_coordinates import Rec
 from regula.documentreader.webclient.gen.models.text_field_type import TextFieldType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class OCRSecurityTextItem(BaseModel):
     """
     OCRSecurityTextItem
     """ # noqa: E501
-    critical_flag: Critical = Field(alias="CriticalFlag")
-    light_type: Light = Field(alias="LightType")
-    field_rect: RectangleCoordinates = Field(alias="FieldRect")
-    etalon_result_type: StrictInt = Field(description="Same as Result type, but used for safe parsing of not-described values. See Result type.", alias="EtalonResultType")
-    etalon_field_type: TextFieldType = Field(alias="EtalonFieldType")
-    etalon_light_type: Light = Field(alias="EtalonLightType")
-    etalon_field_rect: RectangleCoordinates = Field(alias="EtalonFieldRect")
-    security_text_result_ocr: StrictStr = Field(alias="SecurityTextResultOCR")
-    etalon_result_ocr: StrictStr = Field(alias="EtalonResultOCR")
-    reserved1: Optional[StrictInt] = Field(default=None, alias="Reserved1")
-    reserved2: Optional[StrictInt] = Field(default=None, alias="Reserved2")
+    critical_flag: SkipValidation[Critical] = Field(alias="CriticalFlag")
+    light_type: SkipValidation[Light] = Field(alias="LightType")
+    field_rect: SkipValidation[RectangleCoordinates] = Field(alias="FieldRect")
+    etalon_result_type: SkipValidation[int] = Field(alias="EtalonResultType", description="Same as Result type, but used for safe parsing of not-described values. See Result type.")
+    etalon_field_type: SkipValidation[TextFieldType] = Field(alias="EtalonFieldType")
+    etalon_light_type: SkipValidation[Light] = Field(alias="EtalonLightType")
+    etalon_field_rect: SkipValidation[RectangleCoordinates] = Field(alias="EtalonFieldRect")
+    security_text_result_ocr: SkipValidation[str] = Field(alias="SecurityTextResultOCR")
+    etalon_result_ocr: SkipValidation[str] = Field(alias="EtalonResultOCR")
+    reserved1: SkipValidation[Optional[int]] = Field(alias="Reserved1", default=None)
+    reserved2: SkipValidation[Optional[int]] = Field(alias="Reserved2", default=None)
     __properties: ClassVar[List[str]] = ["CriticalFlag", "LightType", "FieldRect", "EtalonResultType", "EtalonFieldType", "EtalonLightType", "EtalonFieldRect", "SecurityTextResultOCR", "EtalonResultOCR", "Reserved1", "Reserved2"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

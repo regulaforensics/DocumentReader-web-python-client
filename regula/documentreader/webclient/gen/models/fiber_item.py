@@ -15,26 +15,29 @@ from regula.documentreader.webclient.gen.models.light import Light
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class FiberItem(BaseModel):
     """
     FiberItem
     """ # noqa: E501
-    rect_count: StrictInt = Field(description="For UV_Fibers authenticity result type", alias="RectCount")
-    expected_count: StrictInt = Field(description="Expected fibers number. For UV_Fibers authentication result type", alias="ExpectedCount")
-    light_value: Optional[Light] = Field(default=None, alias="LightValue")
-    light_disp: Optional[StrictInt] = Field(default=None, description="For UV_Background authentication result type", alias="LightDisp")
-    rect_array: List[RectangleCoordinates] = Field(description="Coordinates of located areas for defined fibers type", alias="RectArray")
-    width: List[StrictInt] = Field(description="Fibers width value for located areas (in pixels)", alias="Width")
-    length: List[StrictInt] = Field(description="Fibers length value for located areas (in pixels)", alias="Length")
-    area: List[StrictInt] = Field(description="Fibers value for areas (in pixels)", alias="Area")
-    color_values: List[StrictInt] = Field(description="Fibers color value", alias="ColorValues")
+    rect_count: SkipValidation[int] = Field(alias="RectCount", description="For UV_Fibers authenticity result type")
+    expected_count: SkipValidation[int] = Field(alias="ExpectedCount", description="Expected fibers number. For UV_Fibers authentication result type")
+    light_value: SkipValidation[Optional[Light]] = Field(alias="LightValue", default=None)
+    light_disp: SkipValidation[Optional[int]] = Field(alias="LightDisp", default=None, description="For UV_Background authentication result type")
+    rect_array: SkipValidation[List[RectangleCoordinates]] = Field(alias="RectArray", description="Coordinates of located areas for defined fibers type")
+    width: SkipValidation[List[int]] = Field(alias="Width", description="Fibers width value for located areas (in pixels)")
+    length: SkipValidation[List[int]] = Field(alias="Length", description="Fibers length value for located areas (in pixels)")
+    area: SkipValidation[List[int]] = Field(alias="Area", description="Fibers value for areas (in pixels)")
+    color_values: SkipValidation[List[int]] = Field(alias="ColorValues", description="Fibers color value")
     __properties: ClassVar[List[str]] = ["RectCount", "ExpectedCount", "LightValue", "LightDisp", "RectArray", "Width", "Length", "Area", "ColorValues"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

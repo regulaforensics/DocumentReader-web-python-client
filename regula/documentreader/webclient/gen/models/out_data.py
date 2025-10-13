@@ -14,19 +14,22 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.out_data_transaction_images_field_value import OutDataTransactionImagesFieldValue
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class OutData(BaseModel):
     """
     OutData
     """ # noqa: E501
-    url: Optional[StrictStr] = Field(default=None, description="Response url")
-    images: Optional[List[OutDataTransactionImagesFieldValue]] = None
+    url: SkipValidation[Optional[str]] = Field(alias="url", default=None, description="Response url")
+    images: SkipValidation[Optional[List[OutDataTransactionImagesFieldValue]]] = Field(alias="images", default=None)
     __properties: ClassVar[List[str]] = ["url", "images"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

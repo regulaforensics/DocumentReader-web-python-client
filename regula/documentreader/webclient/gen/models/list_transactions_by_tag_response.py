@@ -14,19 +14,22 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.get_transactions_by_tag_response import GetTransactionsByTagResponse
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ListTransactionsByTagResponse(BaseModel):
     """
     ListTransactionsByTagResponse
     """ # noqa: E501
-    items: Optional[List[GetTransactionsByTagResponse]] = None
-    metadata: Optional[Dict[str, Any]] = None
+    items: SkipValidation[Optional[List[GetTransactionsByTagResponse]]] = Field(alias="items", default=None)
+    metadata: SkipValidation[Optional[Dict[str, object]]] = Field(alias="metadata", default=None)
     __properties: ClassVar[List[str]] = ["items", "metadata"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -15,19 +15,22 @@ from regula.documentreader.webclient.gen.models.in_data_transaction_images_field
 from regula.documentreader.webclient.gen.models.in_data_video import InDataVideo
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class InData(BaseModel):
     """
     InData
     """ # noqa: E501
-    video: Optional[InDataVideo] = None
-    images: Optional[List[InDataTransactionImagesFieldValue]] = None
+    video: SkipValidation[Optional[InDataVideo]] = Field(alias="video", default=None)
+    images: SkipValidation[Optional[List[InDataTransactionImagesFieldValue]]] = Field(alias="images", default=None)
     __properties: ClassVar[List[str]] = ["video", "images"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

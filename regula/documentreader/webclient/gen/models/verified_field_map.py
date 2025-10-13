@@ -17,24 +17,27 @@ from regula.documentreader.webclient.gen.models.text_field_type import TextField
 from regula.documentreader.webclient.gen.models.verification_result import VerificationResult
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class VerifiedFieldMap(BaseModel):
     """
     VerifiedFieldMap
     """ # noqa: E501
-    w_field_type: TextFieldType = Field(alias="wFieldType")
-    w_lcid: LCID = Field(alias="wLCID")
-    field_mrz: Optional[StrictStr] = Field(default=None, description="Field data extracted from mrz(machine readable zone)", alias="Field_MRZ")
-    field_visual: Optional[StrictStr] = Field(default=None, description="Field data extracted from visual zone", alias="Field_Visual")
-    field_barcode: Optional[StrictStr] = Field(default=None, description="Field data extracted from barcode", alias="Field_Barcode")
-    field_rfid: Optional[StrictStr] = Field(default=None, description="Field data extracted from rfid chip", alias="Field_RFID")
-    matrix: Annotated[List[VerificationResult], Field(min_length=10, max_length=10)] = Field(description="results comparison matrix. Elements of the matrix with indices 0, 1, 2, 3 take one of the values Disabled(0), Verified(1) or Not_Verified(2), elements with indices 4, 5, 6, 7, 8 are one of the values Disabled(0), Compare_Match(3) or Compare_Not_Match(4). Elements of the Matrix matrix have the following semantic meaning: - element with index 0 –– the result of verification of data from the MRZ; - 1 –– the result of verification of data from the RFID microcircuit; - 2 –– the result of verification of data from text areas of the document; - 3 –– the result of verification data from barcodes; - 4 - the result of comparing MRZ data and RFID microcircuits; - 5 - the result of comparing MRZ data and text areas of document filling; - 6 - the result of comparing MRZ data and bar codes; - 7 - the result of comparing the data of text areas of the document and the RFID chip; - 8 - the result of comparing the data of the text areas of the document and barcodes; - 9 - the result of comparing the data of the RFID chip and barcodes.", alias="Matrix")
+    w_field_type: SkipValidation[TextFieldType] = Field(alias="wFieldType")
+    w_lcid: SkipValidation[LCID] = Field(alias="wLCID")
+    field_mrz: SkipValidation[Optional[str]] = Field(alias="Field_MRZ", default=None, description="Field data extracted from mrz(machine readable zone)")
+    field_visual: SkipValidation[Optional[str]] = Field(alias="Field_Visual", default=None, description="Field data extracted from visual zone")
+    field_barcode: SkipValidation[Optional[str]] = Field(alias="Field_Barcode", default=None, description="Field data extracted from barcode")
+    field_rfid: SkipValidation[Optional[str]] = Field(alias="Field_RFID", default=None, description="Field data extracted from rfid chip")
+    matrix: SkipValidation[List[VerificationResult]] = Field(alias="Matrix", description="results comparison matrix. Elements of the matrix with indices 0, 1, 2, 3 take one of the values Disabled(0), Verified(1) or Not_Verified(2), elements with indices 4, 5, 6, 7, 8 are one of the values Disabled(0), Compare_Match(3) or Compare_Not_Match(4). Elements of the Matrix matrix have the following semantic meaning: - element with index 0 –– the result of verification of data from the MRZ; - 1 –– the result of verification of data from the RFID microcircuit; - 2 –– the result of verification of data from text areas of the document; - 3 –– the result of verification data from barcodes; - 4 - the result of comparing MRZ data and RFID microcircuits; - 5 - the result of comparing MRZ data and text areas of document filling; - 6 - the result of comparing MRZ data and bar codes; - 7 - the result of comparing the data of text areas of the document and the RFID chip; - 8 - the result of comparing the data of the text areas of the document and barcodes; - 9 - the result of comparing the data of the RFID chip and barcodes.")
     __properties: ClassVar[List[str]] = ["wFieldType", "wLCID", "Field_MRZ", "Field_Visual", "Field_Barcode", "Field_RFID", "Matrix"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

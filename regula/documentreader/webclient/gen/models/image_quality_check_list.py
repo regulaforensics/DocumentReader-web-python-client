@@ -15,20 +15,23 @@ from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from regula.documentreader.webclient.gen.models.image_quality_check import ImageQualityCheck
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ImageQualityCheckList(BaseModel):
     """
     ImageQualityCheckList
     """ # noqa: E501
-    result: CheckResult
-    list: List[ImageQualityCheck] = Field(alias="List")
-    count: Union[StrictFloat, StrictInt] = Field(description="Number of List array elements", alias="Count")
+    result: SkipValidation[CheckResult] = Field(alias="result")
+    list: SkipValidation[List[ImageQualityCheck]] = Field(alias="List")
+    count: SkipValidation[float] = Field(alias="Count", description="Number of List array elements")
     __properties: ClassVar[List[str]] = ["result", "List", "Count"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -13,19 +13,22 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class InDataVideo(BaseModel):
     """
     Video
     """ # noqa: E501
-    metadata: Optional[Dict[str, Any]] = Field(default=None, description="A free-form object containing video's extended attributes.")
-    url: Optional[StrictStr] = Field(default=None, description="Video url")
+    metadata: SkipValidation[Optional[Dict[str, object]]] = Field(alias="metadata", default=None, description="A free-form object containing video&#39;s extended attributes.")
+    url: SkipValidation[Optional[str]] = Field(alias="url", default=None, description="Video url")
     __properties: ClassVar[List[str]] = ["metadata", "url"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.t_doc_binary_info import TDocBinaryInfo
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class TDocBinaryInfoItem(BaseModel):
     """
     TDocBinaryInfoItem
     """ # noqa: E501
-    t_doc_binary_info: TDocBinaryInfo = Field(alias="TDocBinaryInfo")
+    t_doc_binary_info: SkipValidation[TDocBinaryInfo] = Field(alias="TDocBinaryInfo")
     __properties: ClassVar[List[str]] = ["TDocBinaryInfo"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

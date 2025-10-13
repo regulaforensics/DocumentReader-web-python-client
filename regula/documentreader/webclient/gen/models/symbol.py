@@ -13,18 +13,21 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class Symbol(BaseModel):
     """
     Symbol
     """ # noqa: E501
-    bounding_rect: List[StrictInt] = Field(alias="boundingRect")
+    bounding_rect: SkipValidation[List[int]] = Field(alias="boundingRect")
     __properties: ClassVar[List[str]] = ["boundingRect"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

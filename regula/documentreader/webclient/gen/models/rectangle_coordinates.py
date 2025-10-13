@@ -13,21 +13,24 @@ from pydantic import BaseModel, ConfigDict, StrictInt
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RectangleCoordinates(BaseModel):
     """
     Coordinates of the rectangle region on a document image(result type 1). Represented by two points - (left, top) + (right, bottom)
     """ # noqa: E501
-    left: StrictInt
-    top: StrictInt
-    right: StrictInt
-    bottom: StrictInt
+    left: SkipValidation[int] = Field(alias="left")
+    top: SkipValidation[int] = Field(alias="top")
+    right: SkipValidation[int] = Field(alias="right")
+    bottom: SkipValidation[int] = Field(alias="bottom")
     __properties: ClassVar[List[str]] = ["left", "top", "right", "bottom"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

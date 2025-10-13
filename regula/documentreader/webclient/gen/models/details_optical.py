@@ -14,26 +14,29 @@ from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class DetailsOptical(BaseModel):
     """
     Details on performed optical checks
     """ # noqa: E501
-    overall_status: CheckResult = Field(alias="overallStatus")
-    doc_type: CheckResult = Field(alias="docType")
-    expiry: CheckResult
-    image_qa: CheckResult = Field(alias="imageQA")
-    mrz: CheckResult
-    pages_count: StrictInt = Field(description="Number of processed pages in the document", alias="pagesCount")
-    security: CheckResult
-    text: CheckResult
-    vds: Optional[StrictInt] = None
+    overall_status: SkipValidation[CheckResult] = Field(alias="overallStatus")
+    doc_type: SkipValidation[CheckResult] = Field(alias="docType")
+    expiry: SkipValidation[CheckResult] = Field(alias="expiry")
+    image_qa: SkipValidation[CheckResult] = Field(alias="imageQA")
+    mrz: SkipValidation[CheckResult] = Field(alias="mrz")
+    pages_count: SkipValidation[int] = Field(alias="pagesCount", description="Number of processed pages in the document")
+    security: SkipValidation[CheckResult] = Field(alias="security")
+    text: SkipValidation[CheckResult] = Field(alias="text")
+    vds: SkipValidation[Optional[int]] = Field(alias="vds", default=None)
     __properties: ClassVar[List[str]] = ["overallStatus", "docType", "expiry", "imageQA", "mrz", "pagesCount", "security", "text", "vds"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

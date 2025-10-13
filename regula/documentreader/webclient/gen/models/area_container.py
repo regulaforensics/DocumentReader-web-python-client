@@ -15,20 +15,23 @@ from regula.documentreader.webclient.gen.models.points_container import PointsCo
 from regula.documentreader.webclient.gen.models.rectangle_coordinates import RectangleCoordinates
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class AreaContainer(BaseModel):
     """
     Checked fragment coordinates
     """ # noqa: E501
-    count: StrictInt = Field(alias="Count")
-    list: List[RectangleCoordinates] = Field(alias="List")
-    points: List[PointsContainer] = Field(alias="Points")
+    count: SkipValidation[int] = Field(alias="Count")
+    list: SkipValidation[List[RectangleCoordinates]] = Field(alias="List")
+    points: SkipValidation[List[PointsContainer]] = Field(alias="Points")
     __properties: ClassVar[List[str]] = ["Count", "List", "Points"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

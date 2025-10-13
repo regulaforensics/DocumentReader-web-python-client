@@ -17,6 +17,7 @@ from regula.documentreader.webclient.gen.models.check_diagnose import CheckDiagn
 from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
@@ -47,16 +48,18 @@ class AuthenticityCheckResultItem(BaseModel):
     """
     Common fields for all authenticity result objects
     """ # noqa: E501
-    type: AuthenticityResultType = Field(alias="Type")
-    element_result: Optional[CheckResult] = Field(default=None, alias="ElementResult")
-    element_diagnose: Optional[CheckDiagnose] = Field(default=None, alias="ElementDiagnose")
-    percent_value: Optional[StrictInt] = Field(default=None, alias="PercentValue")
+    type: SkipValidation[AuthenticityResultType] = Field(alias="Type")
+    element_result: SkipValidation[Optional[CheckResult]] = Field(alias="ElementResult", default=None)
+    element_diagnose: SkipValidation[Optional[CheckDiagnose]] = Field(alias="ElementDiagnose", default=None)
+    percent_value: SkipValidation[Optional[int]] = Field(alias="PercentValue", default=None)
     __properties: ClassVar[List[str]] = ["Type", "ElementResult", "ElementDiagnose", "PercentValue"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

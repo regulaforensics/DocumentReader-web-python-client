@@ -18,29 +18,32 @@ from regula.documentreader.webclient.gen.models.rfid_error_codes import RFIDErro
 from regula.documentreader.webclient.gen.models.trf_ft_bytes import TrfFtBytes
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidSignerInfoEx(BaseModel):
     """
     Structure is used to describe the contents of a single copy of digital signature of the document security object and the results of its check within the context of the communication session with electronic document
     """ # noqa: E501
-    version: Union[StrictFloat, StrictInt] = Field(description="Version of SignerInfo ASN.1 structure", alias="Version")
-    issuer: RfidDistinguishedName = Field(alias="Issuer")
-    serial_number: TrfFtBytes = Field(alias="SerialNumber")
-    subject_key_identifier: TrfFtBytes = Field(alias="SubjectKeyIdentifier")
-    digest_algorithm: StrictStr = Field(description="Hash algorithm identifier (OID) for digital signature generation", alias="DigestAlgorithm")
-    signed_attributes: List[RfidAttributeData] = Field(description="List of the signed attributes", alias="SignedAttributes")
-    signature_algorithm: StrictStr = Field(description="Digital signature algorithm identifier (OID)", alias="SignatureAlgorithm")
-    signature: TrfFtBytes = Field(alias="Signature")
-    pa_status: RFIDErrorCodes = Field(alias="PA_Status")
-    certificate_chain: List[RfidCertificateEx] = Field(description="Certificate chain, used for the digital signature verification.", alias="CertificateChain")
-    data_to_hash: StrictStr = Field(description="Binary data array used to calculate the hash value for digital signature verification. Base64 encoded.", alias="DataToHash")
-    notifications: List[StrictInt] = Field(description="Can be ParsingErrorCodes or ParsingNotificationCodes enum.", alias="Notifications")
+    version: SkipValidation[float] = Field(alias="Version", description="Version of SignerInfo ASN.1 structure")
+    issuer: SkipValidation[RfidDistinguishedName] = Field(alias="Issuer")
+    serial_number: SkipValidation[TrfFtBytes] = Field(alias="SerialNumber")
+    subject_key_identifier: SkipValidation[TrfFtBytes] = Field(alias="SubjectKeyIdentifier")
+    digest_algorithm: SkipValidation[str] = Field(alias="DigestAlgorithm", description="Hash algorithm identifier (OID) for digital signature generation")
+    signed_attributes: SkipValidation[List[RfidAttributeData]] = Field(alias="SignedAttributes", description="List of the signed attributes")
+    signature_algorithm: SkipValidation[str] = Field(alias="SignatureAlgorithm", description="Digital signature algorithm identifier (OID)")
+    signature: SkipValidation[TrfFtBytes] = Field(alias="Signature")
+    pa_status: SkipValidation[RFIDErrorCodes] = Field(alias="PA_Status")
+    certificate_chain: SkipValidation[List[RfidCertificateEx]] = Field(alias="CertificateChain", description="Certificate chain, used for the digital signature verification.")
+    data_to_hash: SkipValidation[str] = Field(alias="DataToHash", description="Binary data array used to calculate the hash value for digital signature verification. Base64 encoded.")
+    notifications: SkipValidation[List[int]] = Field(alias="Notifications", description="Can be ParsingErrorCodes or ParsingNotificationCodes enum.")
     __properties: ClassVar[List[str]] = ["Version", "Issuer", "SerialNumber", "SubjectKeyIdentifier", "DigestAlgorithm", "SignedAttributes", "SignatureAlgorithm", "Signature", "PA_Status", "CertificateChain", "DataToHash", "Notifications"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

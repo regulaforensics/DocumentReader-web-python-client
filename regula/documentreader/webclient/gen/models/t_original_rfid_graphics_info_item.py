@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.t_original_rfid_graphics_info import TOriginalRFIDGraphicsInfo
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class TOriginalRFIDGraphicsInfoItem(BaseModel):
     """
     TOriginalRFIDGraphicsInfoItem
     """ # noqa: E501
-    t_original_rfid_graphics_info: TOriginalRFIDGraphicsInfo = Field(alias="TOriginalRFIDGraphicsInfo")
+    t_original_rfid_graphics_info: SkipValidation[TOriginalRFIDGraphicsInfo] = Field(alias="TOriginalRFIDGraphicsInfo")
     __properties: ClassVar[List[str]] = ["TOriginalRFIDGraphicsInfo"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

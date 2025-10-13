@@ -13,18 +13,21 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class ByteArrayItem(BaseModel):
     """
     ByteArrayItem
     """ # noqa: E501
-    byte_array: StrictStr = Field(description="Byte array in base64", alias="ByteArray")
+    byte_array: SkipValidation[str] = Field(alias="ByteArray", description="Byte array in base64")
     __properties: ClassVar[List[str]] = ["ByteArray"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

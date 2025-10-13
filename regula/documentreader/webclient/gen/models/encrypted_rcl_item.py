@@ -13,18 +13,21 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBytes, StrictStr
 from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class EncryptedRCLItem(BaseModel):
     """
     EncryptedRCLItem
     """ # noqa: E501
-    encrypted_rcl: Union[StrictBytes, StrictStr] = Field(description="Base64 encoded data", alias="EncryptedRCL")
+    encrypted_rcl: SkipValidation[bytearray] = Field(alias="EncryptedRCL", description="Base64 encoded data")
     __properties: ClassVar[List[str]] = ["EncryptedRCL"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

@@ -13,20 +13,23 @@ from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, Stric
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class FaceApiSearch(BaseModel):
     """
     A search filter that can be applied if the \"match+search\" mode is enabled. May include limit, threshold, group_ids. If the group_ids are specified, the search is performed only in these groups. Find more information in the <a href=\"https://dev.regulaforensics.com/FaceSDK-web-openapi/#tag/search/operation/search\" target=\"_blank\">OpenAPI documentation</a>.
     """ # noqa: E501
-    limit: Optional[StrictInt] = Field(default=None, description="The maximum number of results to be returned.")
-    threshold: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="The similarity threshold.")
-    group_ids: Optional[List[StrictStr]] = Field(default=None, description=" The groups where to conduct the search.")
+    limit: SkipValidation[Optional[int]] = Field(alias="limit", default=None, description="The maximum number of results to be returned.")
+    threshold: SkipValidation[Optional[float]] = Field(alias="threshold", default=None, description="The similarity threshold.")
+    group_ids: SkipValidation[Optional[List[str]]] = Field(alias="group_ids", default=None, description=" The groups where to conduct the search.")
     __properties: ClassVar[List[str]] = ["limit", "threshold", "group_ids"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

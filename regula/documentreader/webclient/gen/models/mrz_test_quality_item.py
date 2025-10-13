@@ -14,18 +14,21 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.mrz_test_quality import MRZTestQuality
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class MRZTestQualityItem(BaseModel):
     """
     MRZTestQualityItem
     """ # noqa: E501
-    mrz_test_quality: MRZTestQuality = Field(alias="MRZTestQuality")
+    mrz_test_quality: SkipValidation[MRZTestQuality] = Field(alias="MRZTestQuality")
     __properties: ClassVar[List[str]] = ["MRZTestQuality"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

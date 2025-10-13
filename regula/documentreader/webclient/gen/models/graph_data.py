@@ -14,24 +14,27 @@ from typing import Any, ClassVar, Dict, List
 from regula.documentreader.webclient.gen.models.file_image import FileImage
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class GraphData(BaseModel):
     """
     GraphData
     """ # noqa: E501
-    field_type: StrictInt = Field(alias="FieldType")
-    file_image: FileImage = Field(alias="File_Image")
-    graphics_type: StrictInt = Field(alias="GraphicsType")
-    origin_dg: StrictInt = Field(alias="OriginDG")
-    origin_dg_tag: StrictInt = Field(alias="OriginDGTag")
-    origin_entry_view: StrictInt = Field(alias="OriginEntryView")
-    origin_tag_entry: StrictInt = Field(alias="OriginTagEntry")
+    field_type: SkipValidation[int] = Field(alias="FieldType")
+    file_image: SkipValidation[FileImage] = Field(alias="File_Image")
+    graphics_type: SkipValidation[int] = Field(alias="GraphicsType")
+    origin_dg: SkipValidation[int] = Field(alias="OriginDG")
+    origin_dg_tag: SkipValidation[int] = Field(alias="OriginDGTag")
+    origin_entry_view: SkipValidation[int] = Field(alias="OriginEntryView")
+    origin_tag_entry: SkipValidation[int] = Field(alias="OriginTagEntry")
     __properties: ClassVar[List[str]] = ["FieldType", "File_Image", "GraphicsType", "OriginDG", "OriginDGTag", "OriginEntryView", "OriginTagEntry"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 

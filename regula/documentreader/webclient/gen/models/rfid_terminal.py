@@ -14,20 +14,23 @@ from typing import Any, ClassVar, Dict, List, Union
 from regula.documentreader.webclient.gen.models.rfid_terminal_type import RfidTerminalType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic import SkipValidation, Field
 
 class RfidTerminal(BaseModel):
     """
     Structure is used to describe the terminal type within the context of the communication session with electronic document
     """ # noqa: E501
-    term_type: RfidTerminalType = Field(alias="TermType")
-    auth_req: Union[StrictFloat, StrictInt] = Field(description="Declared (set) combination of flags of access rights to the functionality of the document (combination of eRfidTerminalAuthorizationRequirement values)", alias="AuthReq")
-    auth_req2: Union[StrictFloat, StrictInt] = Field(description="Declared (set) combination of flags of access rights to the functionality of the document (combination of RfidTerminalAuthorizationRequirement values)", alias="AuthReq2")
+    term_type: SkipValidation[RfidTerminalType] = Field(alias="TermType")
+    auth_req: SkipValidation[float] = Field(alias="AuthReq", description="Declared (set) combination of flags of access rights to the functionality of the document (combination of eRfidTerminalAuthorizationRequirement values)")
+    auth_req2: SkipValidation[float] = Field(alias="AuthReq2", description="Declared (set) combination of flags of access rights to the functionality of the document (combination of RfidTerminalAuthorizationRequirement values)")
     __properties: ClassVar[List[str]] = ["TermType", "AuthReq", "AuthReq2"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
+        arbitrary_types_allowed=True,
+        use_enum_values=True
     )
 
 
