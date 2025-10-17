@@ -77,6 +77,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.field_item import FieldItem
     from regula.documentreader.webclient.gen.models.file_image import FileImage
     from regula.documentreader.webclient.gen.models.get_transactions_by_tag_response import GetTransactionsByTagResponse
+    from regula.documentreader.webclient.gen.models.glares_check_params import GlaresCheckParams
     from regula.documentreader.webclient.gen.models.graph_data import GraphData
     from regula.documentreader.webclient.gen.models.graphic_field import GraphicField
     from regula.documentreader.webclient.gen.models.graphic_field_type import GraphicFieldType
@@ -312,6 +313,7 @@ from regula.documentreader.webclient.gen.models.fiber_result import FiberResult
 from regula.documentreader.webclient.gen.models.field_item import FieldItem
 from regula.documentreader.webclient.gen.models.file_image import FileImage
 from regula.documentreader.webclient.gen.models.get_transactions_by_tag_response import GetTransactionsByTagResponse
+from regula.documentreader.webclient.gen.models.glares_check_params import GlaresCheckParams
 from regula.documentreader.webclient.gen.models.graph_data import GraphData
 from regula.documentreader.webclient.gen.models.graphic_field import GraphicField
 from regula.documentreader.webclient.gen.models.graphic_field_type import GraphicFieldType
