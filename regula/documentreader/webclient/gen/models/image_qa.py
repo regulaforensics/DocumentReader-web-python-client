@@ -11,6 +11,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from regula.documentreader.webclient.gen.models.glares_check_params import GlaresCheckParams
 from regula.documentreader.webclient.gen.models.input_image_quality_checks import InputImageQualityChecks
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +30,8 @@ class ImageQA(BaseModel):
     moire_check: SkipValidation[Optional[bool]] = Field(alias="moireCheck", default=None, description="This option enables screen capture (moire patterns) check while performing image quality validation.")
     document_position_indent: SkipValidation[Optional[int]] = Field(alias="documentPositionIndent", default=None, description="This parameter specifies the necessary margin. Default 0.")
     expected_pass: SkipValidation[Optional[List[InputImageQualityChecks]]] = Field(alias="expectedPass", default=None, description="This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process.")
-    __properties: ClassVar[List[str]] = ["brightnessThreshold", "dpiThreshold", "angleThreshold", "focusCheck", "glaresCheck", "colornessCheck", "moireCheck", "documentPositionIndent", "expectedPass"]
+    glares_check_params: SkipValidation[Optional[GlaresCheckParams]] = Field(alias="glaresCheckParams", default=None)
+    __properties: ClassVar[List[str]] = ["brightnessThreshold", "dpiThreshold", "angleThreshold", "focusCheck", "glaresCheck", "colornessCheck", "moireCheck", "documentPositionIndent", "expectedPass", "glaresCheckParams"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,6 +74,9 @@ class ImageQA(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of glares_check_params
+        if self.glares_check_params:
+            _dict['glaresCheckParams'] = self.glares_check_params.to_dict()
         return _dict
 
     @classmethod
@@ -92,7 +97,8 @@ class ImageQA(BaseModel):
             "colornessCheck": obj.get("colornessCheck"),
             "moireCheck": obj.get("moireCheck"),
             "documentPositionIndent": obj.get("documentPositionIndent"),
-            "expectedPass": obj.get("expectedPass")
+            "expectedPass": obj.get("expectedPass"),
+            "glaresCheckParams": GlaresCheckParams.from_dict(obj["glaresCheckParams"]) if obj.get("glaresCheckParams") is not None else None
         })
         return _obj
 

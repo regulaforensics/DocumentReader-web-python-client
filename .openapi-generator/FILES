@@ -4,6 +4,7 @@ regula/documentreader/webclient/gen/__init__.py
 regula/documentreader/webclient/gen/api/__init__.py
 regula/documentreader/webclient/gen/api/healthcheck_api.py
 regula/documentreader/webclient/gen/api/process_api.py
+regula/documentreader/webclient/gen/api/resources_api.py
 regula/documentreader/webclient/gen/api/transaction_api.py
 regula/documentreader/webclient/gen/api_client.py
 regula/documentreader/webclient/gen/api_response.py
@@ -40,6 +41,8 @@ regula/documentreader/webclient/gen/models/container_list_list_inner.py
 regula/documentreader/webclient/gen/models/critical.py
 regula/documentreader/webclient/gen/models/cross_source_value_comparison.py
 regula/documentreader/webclient/gen/models/data_module.py
+regula/documentreader/webclient/gen/models/database_document.py
+regula/documentreader/webclient/gen/models/database_document_list.py
 regula/documentreader/webclient/gen/models/details_optical.py
 regula/documentreader/webclient/gen/models/details_rfid.py
 regula/documentreader/webclient/gen/models/device_info.py
@@ -80,6 +83,7 @@ regula/documentreader/webclient/gen/models/fiber_result.py
 regula/documentreader/webclient/gen/models/field_item.py
 regula/documentreader/webclient/gen/models/file_image.py
 regula/documentreader/webclient/gen/models/get_transactions_by_tag_response.py
+regula/documentreader/webclient/gen/models/glares_check_params.py
 regula/documentreader/webclient/gen/models/graph_data.py
 regula/documentreader/webclient/gen/models/graphic_field.py
 regula/documentreader/webclient/gen/models/graphic_field_type.py

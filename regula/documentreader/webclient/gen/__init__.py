@@ -12,6 +12,7 @@ __version__ = "1.0.0"
 __all__ = [
     "HealthcheckApi",
     "ProcessApi",
+    "ResourcesApi",
     "TransactionApi",
     "ApiResponse",
     "ApiClient",
@@ -52,6 +53,8 @@ __all__ = [
     "Critical",
     "CrossSourceValueComparison",
     "DataModule",
+    "DatabaseDocument",
+    "DatabaseDocumentList",
     "DetailsOptical",
     "DetailsRFID",
     "DeviceInfo",
@@ -92,6 +95,7 @@ __all__ = [
     "FieldItem",
     "FileImage",
     "GetTransactionsByTagResponse",
+    "GlaresCheckParams",
     "GraphData",
     "GraphicField",
     "GraphicFieldType",
@@ -255,6 +259,7 @@ if __import__("typing").TYPE_CHECKING:
     # import apis into sdk package
     from regula.documentreader.webclient.gen.api.healthcheck_api import HealthcheckApi as HealthcheckApi
     from regula.documentreader.webclient.gen.api.process_api import ProcessApi as ProcessApi
+    from regula.documentreader.webclient.gen.api.resources_api import ResourcesApi as ResourcesApi
     from regula.documentreader.webclient.gen.api.transaction_api import TransactionApi as TransactionApi
     
     # import ApiClient
@@ -299,6 +304,8 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.critical import Critical as Critical
     from regula.documentreader.webclient.gen.models.cross_source_value_comparison import CrossSourceValueComparison as CrossSourceValueComparison
     from regula.documentreader.webclient.gen.models.data_module import DataModule as DataModule
+    from regula.documentreader.webclient.gen.models.database_document import DatabaseDocument as DatabaseDocument
+    from regula.documentreader.webclient.gen.models.database_document_list import DatabaseDocumentList as DatabaseDocumentList
     from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical as DetailsOptical
     from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID as DetailsRFID
     from regula.documentreader.webclient.gen.models.device_info import DeviceInfo as DeviceInfo
@@ -339,6 +346,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.field_item import FieldItem as FieldItem
     from regula.documentreader.webclient.gen.models.file_image import FileImage as FileImage
     from regula.documentreader.webclient.gen.models.get_transactions_by_tag_response import GetTransactionsByTagResponse as GetTransactionsByTagResponse
+    from regula.documentreader.webclient.gen.models.glares_check_params import GlaresCheckParams as GlaresCheckParams
     from regula.documentreader.webclient.gen.models.graph_data import GraphData as GraphData
     from regula.documentreader.webclient.gen.models.graphic_field import GraphicField as GraphicField
     from regula.documentreader.webclient.gen.models.graphic_field_type import GraphicFieldType as GraphicFieldType
@@ -508,6 +516,7 @@ else:
             """# import apis into sdk package
 from regula.documentreader.webclient.gen.api.healthcheck_api import HealthcheckApi as HealthcheckApi
 from regula.documentreader.webclient.gen.api.process_api import ProcessApi as ProcessApi
+from regula.documentreader.webclient.gen.api.resources_api import ResourcesApi as ResourcesApi
 from regula.documentreader.webclient.gen.api.transaction_api import TransactionApi as TransactionApi
 
 # import ApiClient
@@ -552,6 +561,8 @@ from regula.documentreader.webclient.gen.models.container_list_list_inner import
 from regula.documentreader.webclient.gen.models.critical import Critical as Critical
 from regula.documentreader.webclient.gen.models.cross_source_value_comparison import CrossSourceValueComparison as CrossSourceValueComparison
 from regula.documentreader.webclient.gen.models.data_module import DataModule as DataModule
+from regula.documentreader.webclient.gen.models.database_document import DatabaseDocument as DatabaseDocument
+from regula.documentreader.webclient.gen.models.database_document_list import DatabaseDocumentList as DatabaseDocumentList
 from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical as DetailsOptical
 from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID as DetailsRFID
 from regula.documentreader.webclient.gen.models.device_info import DeviceInfo as DeviceInfo
@@ -592,6 +603,7 @@ from regula.documentreader.webclient.gen.models.fiber_result import FiberResult 
 from regula.documentreader.webclient.gen.models.field_item import FieldItem as FieldItem
 from regula.documentreader.webclient.gen.models.file_image import FileImage as FileImage
 from regula.documentreader.webclient.gen.models.get_transactions_by_tag_response import GetTransactionsByTagResponse as GetTransactionsByTagResponse
+from regula.documentreader.webclient.gen.models.glares_check_params import GlaresCheckParams as GlaresCheckParams
 from regula.documentreader.webclient.gen.models.graph_data import GraphData as GraphData
 from regula.documentreader.webclient.gen.models.graphic_field import GraphicField as GraphicField
 from regula.documentreader.webclient.gen.models.graphic_field_type import GraphicFieldType as GraphicFieldType

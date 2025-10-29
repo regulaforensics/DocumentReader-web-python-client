@@ -37,6 +37,8 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.critical import Critical
     from regula.documentreader.webclient.gen.models.cross_source_value_comparison import CrossSourceValueComparison
     from regula.documentreader.webclient.gen.models.data_module import DataModule
+    from regula.documentreader.webclient.gen.models.database_document import DatabaseDocument
+    from regula.documentreader.webclient.gen.models.database_document_list import DatabaseDocumentList
     from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical
     from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID
     from regula.documentreader.webclient.gen.models.device_info import DeviceInfo
@@ -77,6 +79,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.field_item import FieldItem
     from regula.documentreader.webclient.gen.models.file_image import FileImage
     from regula.documentreader.webclient.gen.models.get_transactions_by_tag_response import GetTransactionsByTagResponse
+    from regula.documentreader.webclient.gen.models.glares_check_params import GlaresCheckParams
     from regula.documentreader.webclient.gen.models.graph_data import GraphData
     from regula.documentreader.webclient.gen.models.graphic_field import GraphicField
     from regula.documentreader.webclient.gen.models.graphic_field_type import GraphicFieldType
@@ -272,6 +275,8 @@ from regula.documentreader.webclient.gen.models.container_list_list_inner import
 from regula.documentreader.webclient.gen.models.critical import Critical
 from regula.documentreader.webclient.gen.models.cross_source_value_comparison import CrossSourceValueComparison
 from regula.documentreader.webclient.gen.models.data_module import DataModule
+from regula.documentreader.webclient.gen.models.database_document import DatabaseDocument
+from regula.documentreader.webclient.gen.models.database_document_list import DatabaseDocumentList
 from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical
 from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID
 from regula.documentreader.webclient.gen.models.device_info import DeviceInfo
@@ -312,6 +317,7 @@ from regula.documentreader.webclient.gen.models.fiber_result import FiberResult
 from regula.documentreader.webclient.gen.models.field_item import FieldItem
 from regula.documentreader.webclient.gen.models.file_image import FileImage
 from regula.documentreader.webclient.gen.models.get_transactions_by_tag_response import GetTransactionsByTagResponse
+from regula.documentreader.webclient.gen.models.glares_check_params import GlaresCheckParams
 from regula.documentreader.webclient.gen.models.graph_data import GraphData
 from regula.documentreader.webclient.gen.models.graphic_field import GraphicField
 from regula.documentreader.webclient.gen.models.graphic_field_type import GraphicFieldType
