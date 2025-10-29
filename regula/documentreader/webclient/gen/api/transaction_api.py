@@ -1107,6 +1107,7 @@ class TransactionApi:
         self,
         transaction_id: Annotated[UUID, Field(description="Transaction id")],
         transaction_process_request: TransactionProcessRequest,
+        use_cache: Annotated[Optional[StrictBool], Field(description="Get processed values from storage in case transaction has already processed.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1127,6 +1128,8 @@ class TransactionApi:
         :type transaction_id: str
         :param transaction_process_request: (required)
         :type transaction_process_request: TransactionProcessRequest
+        :param use_cache: Get processed values from storage in case transaction has already processed.
+        :type use_cache: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1152,6 +1155,7 @@ class TransactionApi:
         _param = self._api_v2_transaction_transaction_id_process_post_serialize(
             transaction_id=transaction_id,
             transaction_process_request=transaction_process_request,
+            use_cache=use_cache,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1179,6 +1183,7 @@ class TransactionApi:
         self,
         transaction_id: Annotated[UUID, Field(description="Transaction id")],
         transaction_process_request: TransactionProcessRequest,
+        use_cache: Annotated[Optional[StrictBool], Field(description="Get processed values from storage in case transaction has already processed.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1199,6 +1204,8 @@ class TransactionApi:
         :type transaction_id: str
         :param transaction_process_request: (required)
         :type transaction_process_request: TransactionProcessRequest
+        :param use_cache: Get processed values from storage in case transaction has already processed.
+        :type use_cache: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1224,6 +1231,7 @@ class TransactionApi:
         _param = self._api_v2_transaction_transaction_id_process_post_serialize(
             transaction_id=transaction_id,
             transaction_process_request=transaction_process_request,
+            use_cache=use_cache,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1251,6 +1259,7 @@ class TransactionApi:
         self,
         transaction_id: Annotated[UUID, Field(description="Transaction id")],
         transaction_process_request: TransactionProcessRequest,
+        use_cache: Annotated[Optional[StrictBool], Field(description="Get processed values from storage in case transaction has already processed.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1271,6 +1280,8 @@ class TransactionApi:
         :type transaction_id: str
         :param transaction_process_request: (required)
         :type transaction_process_request: TransactionProcessRequest
+        :param use_cache: Get processed values from storage in case transaction has already processed.
+        :type use_cache: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1296,6 +1307,7 @@ class TransactionApi:
         _param = self._api_v2_transaction_transaction_id_process_post_serialize(
             transaction_id=transaction_id,
             transaction_process_request=transaction_process_request,
+            use_cache=use_cache,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1318,6 +1330,7 @@ class TransactionApi:
         self,
         transaction_id,
         transaction_process_request,
+        use_cache,
         _request_auth,
         _content_type,
         _headers,
@@ -1342,6 +1355,10 @@ class TransactionApi:
         if transaction_id is not None:
             _path_params['transactionId'] = transaction_id
         # process the query parameters
+        if use_cache is not None:
+            
+            _query_params.append(('useCache', use_cache))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

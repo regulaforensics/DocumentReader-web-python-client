@@ -3,14 +3,14 @@ from typing import Union
 from regula.documentreader.webclient import ProcessResponse
 from regula.documentreader.webclient.gen import ApiClient
 from regula.documentreader.webclient.ext.models.recognition_response import RecognitionResponse
-from regula.documentreader.webclient.gen.api import HealthcheckApi, ProcessApi
+from regula.documentreader.webclient.gen.api import HealthcheckApi, ProcessApi, ResourcesApi, TransactionApi
 from regula.documentreader.webclient.gen.configuration import Configuration
 from regula.documentreader.webclient.gen.models import ProcessRequest
 
 Base64String = str
 
 
-class DocumentReaderApi(HealthcheckApi, ProcessApi):
+class DocumentReaderApi(HealthcheckApi, ProcessApi, ResourcesApi, TransactionApi):
 
     def __init__(self, host=None, debug=False, verify_ssl=True, api_client=None):
         if api_client:

@@ -12,6 +12,7 @@ __version__ = "1.0.0"
 __all__ = [
     "HealthcheckApi",
     "ProcessApi",
+    "ResourcesApi",
     "TransactionApi",
     "ApiResponse",
     "ApiClient",
@@ -52,6 +53,8 @@ __all__ = [
     "Critical",
     "CrossSourceValueComparison",
     "DataModule",
+    "DatabaseDocument",
+    "DatabaseDocumentList",
     "DetailsOptical",
     "DetailsRFID",
     "DeviceInfo",
@@ -256,6 +259,7 @@ if __import__("typing").TYPE_CHECKING:
     # import apis into sdk package
     from regula.documentreader.webclient.gen.api.healthcheck_api import HealthcheckApi as HealthcheckApi
     from regula.documentreader.webclient.gen.api.process_api import ProcessApi as ProcessApi
+    from regula.documentreader.webclient.gen.api.resources_api import ResourcesApi as ResourcesApi
     from regula.documentreader.webclient.gen.api.transaction_api import TransactionApi as TransactionApi
     
     # import ApiClient
@@ -300,6 +304,8 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.critical import Critical as Critical
     from regula.documentreader.webclient.gen.models.cross_source_value_comparison import CrossSourceValueComparison as CrossSourceValueComparison
     from regula.documentreader.webclient.gen.models.data_module import DataModule as DataModule
+    from regula.documentreader.webclient.gen.models.database_document import DatabaseDocument as DatabaseDocument
+    from regula.documentreader.webclient.gen.models.database_document_list import DatabaseDocumentList as DatabaseDocumentList
     from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical as DetailsOptical
     from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID as DetailsRFID
     from regula.documentreader.webclient.gen.models.device_info import DeviceInfo as DeviceInfo
@@ -510,6 +516,7 @@ else:
             """# import apis into sdk package
 from regula.documentreader.webclient.gen.api.healthcheck_api import HealthcheckApi as HealthcheckApi
 from regula.documentreader.webclient.gen.api.process_api import ProcessApi as ProcessApi
+from regula.documentreader.webclient.gen.api.resources_api import ResourcesApi as ResourcesApi
 from regula.documentreader.webclient.gen.api.transaction_api import TransactionApi as TransactionApi
 
 # import ApiClient
@@ -554,6 +561,8 @@ from regula.documentreader.webclient.gen.models.container_list_list_inner import
 from regula.documentreader.webclient.gen.models.critical import Critical as Critical
 from regula.documentreader.webclient.gen.models.cross_source_value_comparison import CrossSourceValueComparison as CrossSourceValueComparison
 from regula.documentreader.webclient.gen.models.data_module import DataModule as DataModule
+from regula.documentreader.webclient.gen.models.database_document import DatabaseDocument as DatabaseDocument
+from regula.documentreader.webclient.gen.models.database_document_list import DatabaseDocumentList as DatabaseDocumentList
 from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical as DetailsOptical
 from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID as DetailsRFID
 from regula.documentreader.webclient.gen.models.device_info import DeviceInfo as DeviceInfo
