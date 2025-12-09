@@ -23,7 +23,7 @@ class StringRecognitionResult(BaseModel):
     symbols_count: SkipValidation[float] = Field(alias="SymbolsCount", description="Number of StringResult array elements")
     string_result: SkipValidation[List[SymbolRecognitionResult]] = Field(alias="StringResult", description="Array of recognition results for individual characters of a string")
     buf_length: SkipValidation[Optional[float]] = Field(alias="Buf_Length", default=None, description="Buf_Text text string length")
-    buf_text: SkipValidation[Optional[str]] = Field(alias="Buf_Text", default=None, description="Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by &#39;^&#39;")
+    buf_text: SkipValidation[Optional[str]] = Field(alias="Buf_Text", default=None, description="Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by '^'")
     reserved: SkipValidation[Optional[int]] = Field(alias="Reserved", default=None)
     __properties: ClassVar[List[str]] = ["SymbolsCount", "StringResult", "Buf_Length", "Buf_Text", "Reserved"]
 

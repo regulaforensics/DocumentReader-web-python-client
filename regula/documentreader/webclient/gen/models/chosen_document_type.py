@@ -23,7 +23,7 @@ class ChosenDocumentType(BaseModel):
     Contains information about one document type candidate
     """ # noqa: E501
     document_name: SkipValidation[Optional[str]] = Field(alias="DocumentName", default=None, description="Document name")
-    id: SkipValidation[int] = Field(alias="ID", description="Unique document type template identifier (Regula&#39;s internal numeric code)")
+    id: SkipValidation[int] = Field(alias="ID", description="Unique document type template identifier (Regula's internal numeric code)")
     p: SkipValidation[float] = Field(alias="P", description="A measure of the likelihood of correct recognition in the analysis of this type of document")
     rotated180: SkipValidation[int] = Field(alias="Rotated180", description="Indicates if the document of the given type is rotated by 180 degrees")
     rfid_presence: SkipValidation[RfidLocation] = Field(alias="RFID_Presence")

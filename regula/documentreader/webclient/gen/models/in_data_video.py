@@ -19,7 +19,7 @@ class InDataVideo(BaseModel):
     """
     Video
     """ # noqa: E501
-    metadata: SkipValidation[Optional[Dict[str, object]]] = Field(alias="metadata", default=None, description="A free-form object containing video&#39;s extended attributes.")
+    metadata: SkipValidation[Optional[Dict[str, object]]] = Field(alias="metadata", default=None, description="A free-form object containing video's extended attributes.")
     url: SkipValidation[Optional[str]] = Field(alias="url", default=None, description="Video url")
     __properties: ClassVar[List[str]] = ["metadata", "url"]
 

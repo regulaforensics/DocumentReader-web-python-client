@@ -19,8 +19,8 @@ class GlaresCheckParams(BaseModel):
     """
     GlaresCheckParams
     """ # noqa: E501
-    img_margin_part: SkipValidation[Optional[float]] = Field(alias="imgMarginPart", default=None, description="Margin from the edges of the image. 0.35 &#x3D; 35%")
-    max_glaring_part: SkipValidation[Optional[float]] = Field(alias="maxGlaringPart", default=None, description="The maximum allowable part of the area occupied by the glare. The same: 0.06 &#x3D; 6%")
+    img_margin_part: SkipValidation[Optional[float]] = Field(alias="imgMarginPart", default=None, description="Margin from the edges of the image. 0.35 = 35%")
+    max_glaring_part: SkipValidation[Optional[float]] = Field(alias="maxGlaringPart", default=None, description="The maximum allowable part of the area occupied by the glare. The same: 0.06 = 6%")
     __properties: ClassVar[List[str]] = ["imgMarginPart", "maxGlaringPart"]
 
     model_config = ConfigDict(

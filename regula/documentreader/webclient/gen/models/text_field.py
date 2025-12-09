@@ -26,7 +26,7 @@ class TextField(BaseModel):
     TextField
     """ # noqa: E501
     field_type: SkipValidation[TextFieldType] = Field(alias="fieldType")
-    field_name: SkipValidation[str] = Field(alias="fieldName", description="Field name. Only use to search values for fields with fieldType&#x3D;50(other). In general, use fieldType for lookup.")
+    field_name: SkipValidation[str] = Field(alias="fieldName", description="Field name. Only use to search values for fields with fieldType=50(other). In general, use fieldType for lookup.")
     lcid: SkipValidation[LCID] = Field(alias="lcid")
     lcid_name: SkipValidation[Optional[str]] = Field(alias="lcidName", default=None, description="LCID name")
     status: SkipValidation[CheckResult] = Field(alias="status")

@@ -21,15 +21,15 @@ class FaceApi(BaseModel):
     FaceApi
     """ # noqa: E501
     url: SkipValidation[Optional[str]] = Field(alias="url", default=None, description="The URL of the Regula Face Web service to be used.")
-    mode: SkipValidation[Optional[str]] = Field(alias="mode", default=None, description="The processing mode: \&quot;match\&quot; or \&quot;match+search\&quot;.")
+    mode: SkipValidation[Optional[str]] = Field(alias="mode", default=None, description="The processing mode: \"match\" or \"match+search\".")
     search: SkipValidation[Optional[FaceApiSearch]] = Field(alias="search", default=None)
-    threshold: SkipValidation[Optional[int]] = Field(alias="threshold", default=None, description="The similarity threshold, 0-100. Above 75 means that the faces&#39; similarity is verified, below 75 is not.")
+    threshold: SkipValidation[Optional[int]] = Field(alias="threshold", default=None, description="The similarity threshold, 0-100. Above 75 means that the faces' similarity is verified, below 75 is not.")
     service_timeout: SkipValidation[Optional[int]] = Field(alias="serviceTimeout", default=None, description="The Regula Face Web service requests timeout, ms.")
-    proxy: SkipValidation[Optional[str]] = Field(alias="proxy", default=None, description="Proxy to use, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXY.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;.")
-    proxy_userpwd: SkipValidation[Optional[str]] = Field(alias="proxy_userpwd", default=None, description="Username and password to use for proxy authentication, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXYUSERPWD.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;.")
-    proxy_type: SkipValidation[Optional[int]] = Field(alias="proxy_type", default=None, description="Proxy protocol type, should be set according to the &lt;a href&#x3D;\&quot;https://curl.se/libcurl/c/CURLOPT_PROXYTYPE.html\&quot; target&#x3D;\&quot;_blank\&quot;&gt;cURL standard&lt;/a&gt;.")
+    proxy: SkipValidation[Optional[str]] = Field(alias="proxy", default=None, description="Proxy to use, should be set according to the <a href=\"https://curl.se/libcurl/c/CURLOPT_PROXY.html\" target=\"_blank\">cURL standard</a>.")
+    proxy_userpwd: SkipValidation[Optional[str]] = Field(alias="proxy_userpwd", default=None, description="Username and password to use for proxy authentication, should be set according to the <a href=\"https://curl.se/libcurl/c/CURLOPT_PROXYUSERPWD.html\" target=\"_blank\">cURL standard</a>.")
+    proxy_type: SkipValidation[Optional[int]] = Field(alias="proxy_type", default=None, description="Proxy protocol type, should be set according to the <a href=\"https://curl.se/libcurl/c/CURLOPT_PROXYTYPE.html\" target=\"_blank\">cURL standard</a>.")
     child_age_threshold: SkipValidation[Optional[int]] = Field(alias="childAgeThreshold", default=None, description="The age threshold for the portrait comparison. Default: 13.")
-    child_doc_validity_years: SkipValidation[Optional[int]] = Field(alias="childDocValidityYears", default=None, description="Estimated duration of validity for a child&#39;s passport, years. Default: 5.")
+    child_doc_validity_years: SkipValidation[Optional[int]] = Field(alias="childDocValidityYears", default=None, description="Estimated duration of validity for a child's passport, years. Default: 5.")
     __properties: ClassVar[List[str]] = ["url", "mode", "search", "threshold", "serviceTimeout", "proxy", "proxy_userpwd", "proxy_type", "childAgeThreshold", "childDocValidityYears"]
 
     model_config = ConfigDict(
