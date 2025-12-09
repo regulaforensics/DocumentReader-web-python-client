@@ -32,7 +32,7 @@ class AuthParams(BaseModel):
     check_barcode_format: SkipValidation[Optional[bool]] = Field(alias="checkBarcodeFormat", default=None, description="This parameter is used to enable Barcode format check (code metadata, data format, contents format, etc.)")
     check_ir_visibility: SkipValidation[Optional[bool]] = Field(alias="checkIRVisibility", default=None, description="This parameter is used to enable Document elements visibility check in IR light")
     check_ipi: SkipValidation[Optional[bool]] = Field(alias="checkIPI", default=None, description="This parameter is used to enable Invisible Personal Information (IPI) check")
-    check_photo_embedding: SkipValidation[Optional[bool]] = Field(alias="checkPhotoEmbedding", default=None, description="This parameter is used to enable Owner&#39;s photo embedding check (is photo printed or sticked)")
+    check_photo_embedding: SkipValidation[Optional[bool]] = Field(alias="checkPhotoEmbedding", default=None, description="This parameter is used to enable Owner's photo embedding check (is photo printed or sticked)")
     check_photo_comparison: SkipValidation[Optional[bool]] = Field(alias="checkPhotoComparison", default=None, description="This parameter is used to enable Portrait comparison check")
     check_letter_screen: SkipValidation[Optional[bool]] = Field(alias="checkLetterScreen", default=None, description="This parameter is used to enable LetterScreen check")
     check_security_text: SkipValidation[Optional[bool]] = Field(alias="checkSecurityText", default=None, description="This parameter is used to enable Security text check")

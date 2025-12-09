@@ -29,7 +29,7 @@ class {{classname}}({{#parent}}{{{.}}}{{/parent}}{{^parent}}BaseModel{{/parent}}
     {{#description}}{{{description}}}{{/description}}{{^description}}{{{classname}}}{{/description}}
     """ # noqa: E501
 {{#vars}}
-    {{name}}: SkipValidation[{{^required}}Optional[{{/required}}{{dataType}}{{^required}}]{{/required}}] = Field(alias="{{baseName}}"{{^required}}, default=None{{/required}}{{#description}}, description="{{description}}"{{/description}})
+    {{name}}: SkipValidation[{{^required}}Optional[{{/required}}{{dataType}}{{^required}}]{{/required}}] = Field(alias="{{baseName}}"{{^required}}, default=None{{/required}}{{#description}}, description="{{{description}}}"{{/description}})
 {{/vars}}
 {{#isAdditionalPropertiesTrue}}
     additional_properties: Dict[str, Any] = {}
