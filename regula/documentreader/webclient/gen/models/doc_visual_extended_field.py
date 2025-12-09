@@ -28,7 +28,7 @@ class DocVisualExtendedField(BaseModel):
     strings_count: SkipValidation[float] = Field(alias="StringsCount", description="Number of StringsResult array elements")
     strings_result: SkipValidation[List[StringRecognitionResult]] = Field(alias="StringsResult", description="Array of recognizing probabilities for a each line of text field. Only for Result.VISUAL_TEXT and Result.MRZ_TEXT results.")
     buf_length: SkipValidation[float] = Field(alias="Buf_Length", description="Buf_Text text string length")
-    buf_text: SkipValidation[Optional[str]] = Field(alias="Buf_Text", default=None, description="Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by &#39;^&#39;")
+    buf_text: SkipValidation[Optional[str]] = Field(alias="Buf_Text", default=None, description="Text field data in UTF8 format. Results of reading different lines of a multi-line field are separated by '^'")
     field_mask: SkipValidation[Optional[str]] = Field(alias="FieldMask", default=None)
     validity: SkipValidation[Optional[int]] = Field(alias="Validity", default=None)
     in_comparison: SkipValidation[Optional[int]] = Field(alias="InComparison", default=None)

@@ -86,7 +86,7 @@ class BinaryData(BaseModel):
     digital_signature: SkipValidation[Optional[Dict[str, object]]] = Field(alias="Digital_Signature", default=None)
     rfid_session_data: SkipValidation[Optional[RfidSessionData]] = Field(alias="RFID_Session_Data", default=None)
     rfid_session_data_status: SkipValidation[Optional[DetailsRFID]] = Field(alias="RFID_Session_Data_Status", default=None)
-    rfid_e_passp_directory: SkipValidation[Optional[List[RfidDataFileType]]] = Field(alias="RFID_ePassp_Directory", default=None, description="Indexes of groups that aren&#39;t read")
+    rfid_e_passp_directory: SkipValidation[Optional[List[RfidDataFileType]]] = Field(alias="RFID_ePassp_Directory", default=None, description="Indexes of groups that aren't read")
     __properties: ClassVar[List[str]] = ["RFID_Authentication_Info", "RFID_MIFARE_Data_Validity", "RFID_MIFARE_Data", "RFID_EF_COM", "RFID_DG1", "RFID_DG2", "RFID_DG3", "RFID_DG4", "RFID_DG5", "RFID_DG6", "RFID_DG7", "RFID_DG8", "RFID_DG9", "RFID_DG10", "RFID_DG11", "RFID_DG12", "RFID_DG13", "RFID_DG14", "RFID_DG15", "RFID_DG16", "RFID_EF_SOD", "eID_DG1", "eID_DG2", "eID_DG3", "eID_DG4", "eID_DG5", "eID_DG6", "eID_DG7", "eID_DG8", "eID_DG9", "eID_DG10", "eID_DG11", "eID_DG12", "eID_DG13", "eID_DG14", "eID_DG15", "eID_DG16", "eID_DG17", "eID_DG18", "eID_DG19", "eID_DG20", "eID_DG21", "eDL_COM", "eDL_SOD", "eDL_DG1", "eDL_DG2", "eDL_DG3", "eDL_DG4", "eDL_DG5", "eDL_DG6", "eDL_DG7", "eDL_DG8", "eDL_DG9", "eDL_DG10", "eDL_DG11", "eDL_DG12", "eDL_DG13", "eDL_DG14", "Visible_Digital_Seal", "Visible_Digital_Seal_NC", "Digital_Signature", "RFID_Session_Data", "RFID_Session_Data_Status", "RFID_ePassp_Directory"]
 
     model_config = ConfigDict(

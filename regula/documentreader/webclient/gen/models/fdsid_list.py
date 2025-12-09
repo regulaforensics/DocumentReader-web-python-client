@@ -24,7 +24,7 @@ class FDSIDList(BaseModel):
     """ # noqa: E501
     icao_code: SkipValidation[str] = Field(alias="ICAOCode", description="ICAO code of the issuing country")
     count: SkipValidation[Optional[float]] = Field(alias="Count", default=None, description="Number of elements in the List")
-    list: SkipValidation[Optional[List[int]]] = Field(alias="List", default=None, description="Document identifiers in &#39;Information Reference Systems&#39;")
+    list: SkipValidation[Optional[List[int]]] = Field(alias="List", default=None, description="Document identifiers in 'Information Reference Systems'")
     d_type: SkipValidation[DocumentType] = Field(alias="dType")
     d_format: SkipValidation[DocumentFormat] = Field(alias="dFormat")
     d_mrz: SkipValidation[bool] = Field(alias="dMRZ", description="Flag indicating the presence of MRZ on the document")
