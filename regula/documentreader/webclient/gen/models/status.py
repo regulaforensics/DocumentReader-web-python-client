@@ -12,6 +12,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.check_result import CheckResult
+from regula.documentreader.webclient.gen.models.details_age import DetailsAge
 from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical
 from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID
 from typing import Optional, Set
@@ -29,7 +30,10 @@ class Status(BaseModel):
     stop_list: SkipValidation[CheckResult] = Field(alias="stopList")
     details_rfid: SkipValidation[Optional[DetailsRFID]] = Field(alias="detailsRFID", default=None)
     details_optical: SkipValidation[DetailsOptical] = Field(alias="detailsOptical")
-    __properties: ClassVar[List[str]] = ["overallStatus", "optical", "portrait", "rfid", "stopList", "detailsRFID", "detailsOptical"]
+    age: SkipValidation[CheckResult] = Field(alias="age")
+    details_age: SkipValidation[DetailsAge] = Field(alias="detailsAge")
+    m_dl: SkipValidation[CheckResult] = Field(alias="mDL")
+    __properties: ClassVar[List[str]] = ["overallStatus", "optical", "portrait", "rfid", "stopList", "detailsRFID", "detailsOptical", "age", "detailsAge", "mDL"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -78,6 +82,9 @@ class Status(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of details_optical
         if self.details_optical:
             _dict['detailsOptical'] = self.details_optical.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of details_age
+        if self.details_age:
+            _dict['detailsAge'] = self.details_age.to_dict()
         return _dict
 
     @classmethod
@@ -96,7 +103,10 @@ class Status(BaseModel):
             "rfid": obj.get("rfid"),
             "stopList": obj.get("stopList"),
             "detailsRFID": DetailsRFID.from_dict(obj["detailsRFID"]) if obj.get("detailsRFID") is not None else None,
-            "detailsOptical": DetailsOptical.from_dict(obj["detailsOptical"]) if obj.get("detailsOptical") is not None else None
+            "detailsOptical": DetailsOptical.from_dict(obj["detailsOptical"]) if obj.get("detailsOptical") is not None else None,
+            "age": obj.get("age"),
+            "detailsAge": DetailsAge.from_dict(obj["detailsAge"]) if obj.get("detailsAge") is not None else None,
+            "mDL": obj.get("mDL")
         })
         return _obj
 

@@ -667,6 +667,9 @@ class TextFieldType(int, Enum):
     FT_NATIONALITY_CODE_ALPHA2 = 697
     FT_FIRST_ISSUE_DATE_CHECK_DIGIT = 698
     FT_FIRST_ISSUE_DATE_CHECKSUM = 699
+    FT_COMMERCIAL_INDICATOR = 701
+    FT_NON_DOMICILED_INDICATOR = 702
+    FT_JURISDICTION_SPECIFIC_DATA = 703
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

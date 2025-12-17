@@ -54,6 +54,12 @@ class Result(int, Enum):
     RFID_BINARY_DATA = 104
     RFID_ORIGINAL_GRAPHICS = 105
     DTC_VC = 109
+    MDL_DEVICE_RAW_RESPONSE = 120
+    MDL_DEVICE_PARSED_RESPONSE = 121
+    MDL_SERVER_RAW_RESPONSE = 122
+    MDL_SERVER_PARSED_RESPONSE = 123
+    VDS_NC = 124
+    VDS = 125
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

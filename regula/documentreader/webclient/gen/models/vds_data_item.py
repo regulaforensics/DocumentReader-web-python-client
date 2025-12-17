@@ -9,21 +9,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
+from regula.documentreader.webclient.gen.models.vds_data import VDSData
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic import SkipValidation, Field
 
-class TrfFtString(BaseModel):
+class VDSDataItem(BaseModel):
     """
-    Structure is used to store information about the numeric field (4 bytes) that is a part of one of the informational data groups.
+    VDSDataItem
     """ # noqa: E501
-    type: SkipValidation[Optional[int]] = Field(alias="Type", default=None)
-    status: SkipValidation[Optional[int]] = Field(alias="Status", default=None, description="Result of logical analysis of compliance of the contents of the field with the requirements of the specification")
-    format: SkipValidation[Optional[str]] = Field(alias="Format", default=None, description="Mask of format of text information (for example, «YYMMDD» for date of birth)")
-    data: SkipValidation[Optional[str]] = Field(alias="Data", default=None, description="Numeric value.")
-    __properties: ClassVar[List[str]] = ["Type", "Status", "Format", "Data"]
+    dft_vds: SkipValidation[VDSData] = Field(alias="dftVDS")
+    __properties: ClassVar[List[str]] = ["dftVDS"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -45,7 +43,7 @@ class TrfFtString(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TrfFtString from a JSON string"""
+        """Create an instance of VDSDataItem from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -66,11 +64,14 @@ class TrfFtString(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of dft_vds
+        if self.dft_vds:
+            _dict['dftVDS'] = self.dft_vds.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TrfFtString from a dict"""
+        """Create an instance of VDSDataItem from a dict"""
         if obj is None:
             return None
 
@@ -78,10 +79,7 @@ class TrfFtString(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Type": obj.get("Type"),
-            "Status": obj.get("Status"),
-            "Format": obj.get("Format"),
-            "Data": obj.get("Data")
+            "dftVDS": VDSData.from_dict(obj["dftVDS"]) if obj.get("dftVDS") is not None else None
         })
         return _obj
 
