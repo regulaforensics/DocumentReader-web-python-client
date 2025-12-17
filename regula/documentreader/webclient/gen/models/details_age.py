@@ -9,21 +9,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List
+from regula.documentreader.webclient.gen.models.check_result import CheckResult
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic import SkipValidation, Field
 
-class TrfFtString(BaseModel):
+class DetailsAge(BaseModel):
     """
-    Structure is used to store information about the numeric field (4 bytes) that is a part of one of the informational data groups.
+    DetailsAge
     """ # noqa: E501
-    type: SkipValidation[Optional[int]] = Field(alias="Type", default=None)
-    status: SkipValidation[Optional[int]] = Field(alias="Status", default=None, description="Result of logical analysis of compliance of the contents of the field with the requirements of the specification")
-    format: SkipValidation[Optional[str]] = Field(alias="Format", default=None, description="Mask of format of text information (for example, «YYMMDD» for date of birth)")
-    data: SkipValidation[Optional[str]] = Field(alias="Data", default=None, description="Numeric value.")
-    __properties: ClassVar[List[str]] = ["Type", "Status", "Format", "Data"]
+    threshold: SkipValidation[int] = Field(alias="threshold")
+    over_threshold: SkipValidation[CheckResult] = Field(alias="overThreshold")
+    over18: SkipValidation[CheckResult] = Field(alias="over18")
+    over21: SkipValidation[CheckResult] = Field(alias="over21")
+    over25: SkipValidation[CheckResult] = Field(alias="over25")
+    over65: SkipValidation[CheckResult] = Field(alias="over65")
+    __properties: ClassVar[List[str]] = ["threshold", "overThreshold", "over18", "over21", "over25", "over65"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -45,7 +48,7 @@ class TrfFtString(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TrfFtString from a JSON string"""
+        """Create an instance of DetailsAge from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,7 +73,7 @@ class TrfFtString(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TrfFtString from a dict"""
+        """Create an instance of DetailsAge from a dict"""
         if obj is None:
             return None
 
@@ -78,10 +81,12 @@ class TrfFtString(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Type": obj.get("Type"),
-            "Status": obj.get("Status"),
-            "Format": obj.get("Format"),
-            "Data": obj.get("Data")
+            "threshold": obj.get("threshold"),
+            "overThreshold": obj.get("overThreshold"),
+            "over18": obj.get("over18"),
+            "over21": obj.get("over21"),
+            "over25": obj.get("over25"),
+            "over65": obj.get("over65")
         })
         return _obj
 

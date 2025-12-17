@@ -43,6 +43,7 @@ regula/documentreader/webclient/gen/models/cross_source_value_comparison.py
 regula/documentreader/webclient/gen/models/data_module.py
 regula/documentreader/webclient/gen/models/database_document.py
 regula/documentreader/webclient/gen/models/database_document_list.py
+regula/documentreader/webclient/gen/models/details_age.py
 regula/documentreader/webclient/gen/models/details_optical.py
 regula/documentreader/webclient/gen/models/details_rfid.py
 regula/documentreader/webclient/gen/models/device_info.py
@@ -50,6 +51,7 @@ regula/documentreader/webclient/gen/models/device_info_documents_database.py
 regula/documentreader/webclient/gen/models/doc_bar_code_info.py
 regula/documentreader/webclient/gen/models/doc_bar_code_info_fields_list.py
 regula/documentreader/webclient/gen/models/doc_bar_code_info_item.py
+regula/documentreader/webclient/gen/models/doc_feature.py
 regula/documentreader/webclient/gen/models/doc_graphics_info_item.py
 regula/documentreader/webclient/gen/models/doc_visual_extended_field.py
 regula/documentreader/webclient/gen/models/doc_visual_extended_field_item.py
@@ -122,7 +124,11 @@ regula/documentreader/webclient/gen/models/list_verified_fields.py
 regula/documentreader/webclient/gen/models/list_verified_fields_item.py
 regula/documentreader/webclient/gen/models/liveness_params.py
 regula/documentreader/webclient/gen/models/log_level.py
+regula/documentreader/webclient/gen/models/mdl_device_engagement.py
+regula/documentreader/webclient/gen/models/mdl_device_retrieval.py
+regula/documentreader/webclient/gen/models/mdl_server_retrieval.py
 regula/documentreader/webclient/gen/models/measure_system.py
+regula/documentreader/webclient/gen/models/message.py
 regula/documentreader/webclient/gen/models/mrz_detect_mode_enum.py
 regula/documentreader/webclient/gen/models/mrz_detector_result.py
 regula/documentreader/webclient/gen/models/mrz_format.py
@@ -146,6 +152,7 @@ regula/documentreader/webclient/gen/models/parsing_notification_codes.py
 regula/documentreader/webclient/gen/models/per_document_config.py
 regula/documentreader/webclient/gen/models/photo_ident_item.py
 regula/documentreader/webclient/gen/models/photo_ident_result.py
+regula/documentreader/webclient/gen/models/pid.py
 regula/documentreader/webclient/gen/models/point.py
 regula/documentreader/webclient/gen/models/point_array.py
 regula/documentreader/webclient/gen/models/points_container.py
@@ -237,6 +244,14 @@ regula/documentreader/webclient/gen/models/transaction_process_request.py
 regula/documentreader/webclient/gen/models/transaction_process_result.py
 regula/documentreader/webclient/gen/models/trf_ft_bytes.py
 regula/documentreader/webclient/gen/models/trf_ft_string.py
+regula/documentreader/webclient/gen/models/vd_item.py
+regula/documentreader/webclient/gen/models/vds_data.py
+regula/documentreader/webclient/gen/models/vds_data_item.py
+regula/documentreader/webclient/gen/models/vds_data_result.py
+regula/documentreader/webclient/gen/models/vdsnc_data.py
+regula/documentreader/webclient/gen/models/vdsnc_data_item.py
+regula/documentreader/webclient/gen/models/vdsnc_data_result.py
+regula/documentreader/webclient/gen/models/ve_item.py
 regula/documentreader/webclient/gen/models/verification_result.py
 regula/documentreader/webclient/gen/models/verified_field_map.py
 regula/documentreader/webclient/gen/models/visibility.py

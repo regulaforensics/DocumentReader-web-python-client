@@ -9,21 +9,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from regula.documentreader.webclient.gen.models.pid import PID
+from regula.documentreader.webclient.gen.models.ve_item import VEItem
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic import SkipValidation, Field
 
-class TrfFtString(BaseModel):
+class Message(BaseModel):
     """
-    Structure is used to store information about the numeric field (4 bytes) that is a part of one of the informational data groups.
+    Message
     """ # noqa: E501
-    type: SkipValidation[Optional[int]] = Field(alias="Type", default=None)
-    status: SkipValidation[Optional[int]] = Field(alias="Status", default=None, description="Result of logical analysis of compliance of the contents of the field with the requirements of the specification")
-    format: SkipValidation[Optional[str]] = Field(alias="Format", default=None, description="Mask of format of text information (for example, «YYMMDD» for date of birth)")
-    data: SkipValidation[Optional[str]] = Field(alias="Data", default=None, description="Numeric value.")
-    __properties: ClassVar[List[str]] = ["Type", "Status", "Format", "Data"]
+    pid: SkipValidation[Optional[PID]] = Field(alias="pid", default=None)
+    uvci: SkipValidation[Optional[str]] = Field(alias="uvci", default=None)
+    ve: SkipValidation[Optional[List[VEItem]]] = Field(alias="ve", default=None)
+    __properties: ClassVar[List[str]] = ["pid", "uvci", "ve"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -45,7 +46,7 @@ class TrfFtString(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TrfFtString from a JSON string"""
+        """Create an instance of Message from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -66,11 +67,21 @@ class TrfFtString(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of pid
+        if self.pid:
+            _dict['pid'] = self.pid.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in ve (list)
+        _items = []
+        if self.ve:
+            for _item_ve in self.ve:
+                if _item_ve:
+                    _items.append(_item_ve.to_dict())
+            _dict['ve'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TrfFtString from a dict"""
+        """Create an instance of Message from a dict"""
         if obj is None:
             return None
 
@@ -78,10 +89,9 @@ class TrfFtString(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "Type": obj.get("Type"),
-            "Status": obj.get("Status"),
-            "Format": obj.get("Format"),
-            "Data": obj.get("Data")
+            "pid": PID.from_dict(obj["pid"]) if obj.get("pid") is not None else None,
+            "uvci": obj.get("uvci"),
+            "ve": [VEItem.from_dict(_item) for _item in obj.get("ve", []) if VEItem.from_dict(_item) is not None]
         })
         return _obj
 
