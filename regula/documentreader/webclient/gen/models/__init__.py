@@ -39,6 +39,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.data_module import DataModule
     from regula.documentreader.webclient.gen.models.database_document import DatabaseDocument
     from regula.documentreader.webclient.gen.models.database_document_list import DatabaseDocumentList
+    from regula.documentreader.webclient.gen.models.details_age import DetailsAge
     from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical
     from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID
     from regula.documentreader.webclient.gen.models.device_info import DeviceInfo
@@ -118,6 +119,9 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.list_verified_fields_item import ListVerifiedFieldsItem
     from regula.documentreader.webclient.gen.models.liveness_params import LivenessParams
     from regula.documentreader.webclient.gen.models.log_level import LogLevel
+    from regula.documentreader.webclient.gen.models.mdl_device_engagement import MDLDeviceEngagement
+    from regula.documentreader.webclient.gen.models.mdl_device_retrieval import MDLDeviceRetrieval
+    from regula.documentreader.webclient.gen.models.mdl_server_retrieval import MDLServerRetrieval
     from regula.documentreader.webclient.gen.models.mrz_detector_result import MRZDetectorResult
     from regula.documentreader.webclient.gen.models.mrz_format import MRZFormat
     from regula.documentreader.webclient.gen.models.mrz_position_result import MRZPositionResult
@@ -277,6 +281,7 @@ from regula.documentreader.webclient.gen.models.cross_source_value_comparison im
 from regula.documentreader.webclient.gen.models.data_module import DataModule
 from regula.documentreader.webclient.gen.models.database_document import DatabaseDocument
 from regula.documentreader.webclient.gen.models.database_document_list import DatabaseDocumentList
+from regula.documentreader.webclient.gen.models.details_age import DetailsAge
 from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical
 from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID
 from regula.documentreader.webclient.gen.models.device_info import DeviceInfo
@@ -356,6 +361,9 @@ from regula.documentreader.webclient.gen.models.list_verified_fields import List
 from regula.documentreader.webclient.gen.models.list_verified_fields_item import ListVerifiedFieldsItem
 from regula.documentreader.webclient.gen.models.liveness_params import LivenessParams
 from regula.documentreader.webclient.gen.models.log_level import LogLevel
+from regula.documentreader.webclient.gen.models.mdl_device_engagement import MDLDeviceEngagement
+from regula.documentreader.webclient.gen.models.mdl_device_retrieval import MDLDeviceRetrieval
+from regula.documentreader.webclient.gen.models.mdl_server_retrieval import MDLServerRetrieval
 from regula.documentreader.webclient.gen.models.mrz_detector_result import MRZDetectorResult
 from regula.documentreader.webclient.gen.models.mrz_format import MRZFormat
 from regula.documentreader.webclient.gen.models.mrz_position_result import MRZPositionResult

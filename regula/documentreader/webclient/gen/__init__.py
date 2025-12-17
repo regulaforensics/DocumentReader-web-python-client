@@ -55,6 +55,7 @@ __all__ = [
     "DataModule",
     "DatabaseDocument",
     "DatabaseDocumentList",
+    "DetailsAge",
     "DetailsOptical",
     "DetailsRFID",
     "DeviceInfo",
@@ -134,6 +135,9 @@ __all__ = [
     "ListVerifiedFieldsItem",
     "LivenessParams",
     "LogLevel",
+    "MDLDeviceEngagement",
+    "MDLDeviceRetrieval",
+    "MDLServerRetrieval",
     "MRZDetectorResult",
     "MRZFormat",
     "MRZPositionResult",
@@ -306,6 +310,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.data_module import DataModule as DataModule
     from regula.documentreader.webclient.gen.models.database_document import DatabaseDocument as DatabaseDocument
     from regula.documentreader.webclient.gen.models.database_document_list import DatabaseDocumentList as DatabaseDocumentList
+    from regula.documentreader.webclient.gen.models.details_age import DetailsAge as DetailsAge
     from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical as DetailsOptical
     from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID as DetailsRFID
     from regula.documentreader.webclient.gen.models.device_info import DeviceInfo as DeviceInfo
@@ -385,6 +390,9 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.list_verified_fields_item import ListVerifiedFieldsItem as ListVerifiedFieldsItem
     from regula.documentreader.webclient.gen.models.liveness_params import LivenessParams as LivenessParams
     from regula.documentreader.webclient.gen.models.log_level import LogLevel as LogLevel
+    from regula.documentreader.webclient.gen.models.mdl_device_engagement import MDLDeviceEngagement as MDLDeviceEngagement
+    from regula.documentreader.webclient.gen.models.mdl_device_retrieval import MDLDeviceRetrieval as MDLDeviceRetrieval
+    from regula.documentreader.webclient.gen.models.mdl_server_retrieval import MDLServerRetrieval as MDLServerRetrieval
     from regula.documentreader.webclient.gen.models.mrz_detector_result import MRZDetectorResult as MRZDetectorResult
     from regula.documentreader.webclient.gen.models.mrz_format import MRZFormat as MRZFormat
     from regula.documentreader.webclient.gen.models.mrz_position_result import MRZPositionResult as MRZPositionResult
@@ -563,6 +571,7 @@ from regula.documentreader.webclient.gen.models.cross_source_value_comparison im
 from regula.documentreader.webclient.gen.models.data_module import DataModule as DataModule
 from regula.documentreader.webclient.gen.models.database_document import DatabaseDocument as DatabaseDocument
 from regula.documentreader.webclient.gen.models.database_document_list import DatabaseDocumentList as DatabaseDocumentList
+from regula.documentreader.webclient.gen.models.details_age import DetailsAge as DetailsAge
 from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical as DetailsOptical
 from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID as DetailsRFID
 from regula.documentreader.webclient.gen.models.device_info import DeviceInfo as DeviceInfo
@@ -642,6 +651,9 @@ from regula.documentreader.webclient.gen.models.list_verified_fields import List
 from regula.documentreader.webclient.gen.models.list_verified_fields_item import ListVerifiedFieldsItem as ListVerifiedFieldsItem
 from regula.documentreader.webclient.gen.models.liveness_params import LivenessParams as LivenessParams
 from regula.documentreader.webclient.gen.models.log_level import LogLevel as LogLevel
+from regula.documentreader.webclient.gen.models.mdl_device_engagement import MDLDeviceEngagement as MDLDeviceEngagement
+from regula.documentreader.webclient.gen.models.mdl_device_retrieval import MDLDeviceRetrieval as MDLDeviceRetrieval
+from regula.documentreader.webclient.gen.models.mdl_server_retrieval import MDLServerRetrieval as MDLServerRetrieval
 from regula.documentreader.webclient.gen.models.mrz_detector_result import MRZDetectorResult as MRZDetectorResult
 from regula.documentreader.webclient.gen.models.mrz_format import MRZFormat as MRZFormat
 from regula.documentreader.webclient.gen.models.mrz_position_result import MRZPositionResult as MRZPositionResult
