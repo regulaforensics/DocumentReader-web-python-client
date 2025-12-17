@@ -9,21 +9,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Union
+from regula.documentreader.webclient.gen.models.trf_ft_bytes import TrfFtBytes
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic import SkipValidation, Field
 
-class TrfFtString(BaseModel):
+class DocFeature(BaseModel):
     """
-    Structure is used to store information about the numeric field (4 bytes) that is a part of one of the informational data groups.
+    DocFeature
     """ # noqa: E501
-    type: SkipValidation[Optional[int]] = Field(alias="Type", default=None)
-    status: SkipValidation[Optional[int]] = Field(alias="Status", default=None, description="Result of logical analysis of compliance of the contents of the field with the requirements of the specification")
-    format: SkipValidation[Optional[str]] = Field(alias="Format", default=None, description="Mask of format of text information (for example, «YYMMDD» for date of birth)")
-    data: SkipValidation[Optional[str]] = Field(alias="Data", default=None, description="Numeric value.")
-    __properties: ClassVar[List[str]] = ["Type", "Status", "Format", "Data"]
+    type: SkipValidation[float] = Field(alias="Type")
+    data: SkipValidation[TrfFtBytes] = Field(alias="Data")
+    __properties: ClassVar[List[str]] = ["Type", "Data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -45,7 +44,7 @@ class TrfFtString(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TrfFtString from a JSON string"""
+        """Create an instance of DocFeature from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -66,11 +65,14 @@ class TrfFtString(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['Data'] = self.data.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TrfFtString from a dict"""
+        """Create an instance of DocFeature from a dict"""
         if obj is None:
             return None
 
@@ -79,9 +81,7 @@ class TrfFtString(BaseModel):
 
         _obj = cls.model_validate({
             "Type": obj.get("Type"),
-            "Status": obj.get("Status"),
-            "Format": obj.get("Format"),
-            "Data": obj.get("Data")
+            "Data": TrfFtBytes.from_dict(obj["Data"]) if obj.get("Data") is not None else None
         })
         return _obj
 

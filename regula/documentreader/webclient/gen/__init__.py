@@ -55,6 +55,7 @@ __all__ = [
     "DataModule",
     "DatabaseDocument",
     "DatabaseDocumentList",
+    "DetailsAge",
     "DetailsOptical",
     "DetailsRFID",
     "DeviceInfo",
@@ -62,6 +63,7 @@ __all__ = [
     "DocBarCodeInfo",
     "DocBarCodeInfoFieldsList",
     "DocBarCodeInfoItem",
+    "DocFeature",
     "DocGraphicsInfoItem",
     "DocVisualExtendedField",
     "DocVisualExtendedFieldItem",
@@ -134,6 +136,9 @@ __all__ = [
     "ListVerifiedFieldsItem",
     "LivenessParams",
     "LogLevel",
+    "MDLDeviceEngagement",
+    "MDLDeviceRetrieval",
+    "MDLServerRetrieval",
     "MRZDetectorResult",
     "MRZFormat",
     "MRZPositionResult",
@@ -142,6 +147,7 @@ __all__ = [
     "MRZTestQualityItem",
     "MRZTestQualityResult",
     "MeasureSystem",
+    "Message",
     "MrzDetectModeEnum",
     "MrzPositionItem",
     "OCRSecurityTextItem",
@@ -152,6 +158,7 @@ __all__ = [
     "OutData",
     "OutDataTransactionImagesFieldValue",
     "PArrayField",
+    "PID",
     "ParsedData",
     "ParsingErrorCodes",
     "ParsingNotificationCodes",
@@ -249,6 +256,14 @@ __all__ = [
     "TransactionProcessResult",
     "TrfFtBytes",
     "TrfFtString",
+    "VDItem",
+    "VDSData",
+    "VDSDataItem",
+    "VDSDataResult",
+    "VDSNCData",
+    "VDSNCDataItem",
+    "VDSNCDataResult",
+    "VEItem",
     "VerificationResult",
     "VerifiedFieldMap",
     "Visibility",
@@ -306,6 +321,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.data_module import DataModule as DataModule
     from regula.documentreader.webclient.gen.models.database_document import DatabaseDocument as DatabaseDocument
     from regula.documentreader.webclient.gen.models.database_document_list import DatabaseDocumentList as DatabaseDocumentList
+    from regula.documentreader.webclient.gen.models.details_age import DetailsAge as DetailsAge
     from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical as DetailsOptical
     from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID as DetailsRFID
     from regula.documentreader.webclient.gen.models.device_info import DeviceInfo as DeviceInfo
@@ -313,6 +329,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.doc_bar_code_info import DocBarCodeInfo as DocBarCodeInfo
     from regula.documentreader.webclient.gen.models.doc_bar_code_info_fields_list import DocBarCodeInfoFieldsList as DocBarCodeInfoFieldsList
     from regula.documentreader.webclient.gen.models.doc_bar_code_info_item import DocBarCodeInfoItem as DocBarCodeInfoItem
+    from regula.documentreader.webclient.gen.models.doc_feature import DocFeature as DocFeature
     from regula.documentreader.webclient.gen.models.doc_graphics_info_item import DocGraphicsInfoItem as DocGraphicsInfoItem
     from regula.documentreader.webclient.gen.models.doc_visual_extended_field import DocVisualExtendedField as DocVisualExtendedField
     from regula.documentreader.webclient.gen.models.doc_visual_extended_field_item import DocVisualExtendedFieldItem as DocVisualExtendedFieldItem
@@ -385,6 +402,9 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.list_verified_fields_item import ListVerifiedFieldsItem as ListVerifiedFieldsItem
     from regula.documentreader.webclient.gen.models.liveness_params import LivenessParams as LivenessParams
     from regula.documentreader.webclient.gen.models.log_level import LogLevel as LogLevel
+    from regula.documentreader.webclient.gen.models.mdl_device_engagement import MDLDeviceEngagement as MDLDeviceEngagement
+    from regula.documentreader.webclient.gen.models.mdl_device_retrieval import MDLDeviceRetrieval as MDLDeviceRetrieval
+    from regula.documentreader.webclient.gen.models.mdl_server_retrieval import MDLServerRetrieval as MDLServerRetrieval
     from regula.documentreader.webclient.gen.models.mrz_detector_result import MRZDetectorResult as MRZDetectorResult
     from regula.documentreader.webclient.gen.models.mrz_format import MRZFormat as MRZFormat
     from regula.documentreader.webclient.gen.models.mrz_position_result import MRZPositionResult as MRZPositionResult
@@ -393,6 +413,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.mrz_test_quality_item import MRZTestQualityItem as MRZTestQualityItem
     from regula.documentreader.webclient.gen.models.mrz_test_quality_result import MRZTestQualityResult as MRZTestQualityResult
     from regula.documentreader.webclient.gen.models.measure_system import MeasureSystem as MeasureSystem
+    from regula.documentreader.webclient.gen.models.message import Message as Message
     from regula.documentreader.webclient.gen.models.mrz_detect_mode_enum import MrzDetectModeEnum as MrzDetectModeEnum
     from regula.documentreader.webclient.gen.models.mrz_position_item import MrzPositionItem as MrzPositionItem
     from regula.documentreader.webclient.gen.models.ocr_security_text_item import OCRSecurityTextItem as OCRSecurityTextItem
@@ -403,6 +424,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.out_data import OutData as OutData
     from regula.documentreader.webclient.gen.models.out_data_transaction_images_field_value import OutDataTransactionImagesFieldValue as OutDataTransactionImagesFieldValue
     from regula.documentreader.webclient.gen.models.p_array_field import PArrayField as PArrayField
+    from regula.documentreader.webclient.gen.models.pid import PID as PID
     from regula.documentreader.webclient.gen.models.parsed_data import ParsedData as ParsedData
     from regula.documentreader.webclient.gen.models.parsing_error_codes import ParsingErrorCodes as ParsingErrorCodes
     from regula.documentreader.webclient.gen.models.parsing_notification_codes import ParsingNotificationCodes as ParsingNotificationCodes
@@ -500,6 +522,14 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.transaction_process_result import TransactionProcessResult as TransactionProcessResult
     from regula.documentreader.webclient.gen.models.trf_ft_bytes import TrfFtBytes as TrfFtBytes
     from regula.documentreader.webclient.gen.models.trf_ft_string import TrfFtString as TrfFtString
+    from regula.documentreader.webclient.gen.models.vd_item import VDItem as VDItem
+    from regula.documentreader.webclient.gen.models.vds_data import VDSData as VDSData
+    from regula.documentreader.webclient.gen.models.vds_data_item import VDSDataItem as VDSDataItem
+    from regula.documentreader.webclient.gen.models.vds_data_result import VDSDataResult as VDSDataResult
+    from regula.documentreader.webclient.gen.models.vdsnc_data import VDSNCData as VDSNCData
+    from regula.documentreader.webclient.gen.models.vdsnc_data_item import VDSNCDataItem as VDSNCDataItem
+    from regula.documentreader.webclient.gen.models.vdsnc_data_result import VDSNCDataResult as VDSNCDataResult
+    from regula.documentreader.webclient.gen.models.ve_item import VEItem as VEItem
     from regula.documentreader.webclient.gen.models.verification_result import VerificationResult as VerificationResult
     from regula.documentreader.webclient.gen.models.verified_field_map import VerifiedFieldMap as VerifiedFieldMap
     from regula.documentreader.webclient.gen.models.visibility import Visibility as Visibility
@@ -563,6 +593,7 @@ from regula.documentreader.webclient.gen.models.cross_source_value_comparison im
 from regula.documentreader.webclient.gen.models.data_module import DataModule as DataModule
 from regula.documentreader.webclient.gen.models.database_document import DatabaseDocument as DatabaseDocument
 from regula.documentreader.webclient.gen.models.database_document_list import DatabaseDocumentList as DatabaseDocumentList
+from regula.documentreader.webclient.gen.models.details_age import DetailsAge as DetailsAge
 from regula.documentreader.webclient.gen.models.details_optical import DetailsOptical as DetailsOptical
 from regula.documentreader.webclient.gen.models.details_rfid import DetailsRFID as DetailsRFID
 from regula.documentreader.webclient.gen.models.device_info import DeviceInfo as DeviceInfo
@@ -570,6 +601,7 @@ from regula.documentreader.webclient.gen.models.device_info_documents_database i
 from regula.documentreader.webclient.gen.models.doc_bar_code_info import DocBarCodeInfo as DocBarCodeInfo
 from regula.documentreader.webclient.gen.models.doc_bar_code_info_fields_list import DocBarCodeInfoFieldsList as DocBarCodeInfoFieldsList
 from regula.documentreader.webclient.gen.models.doc_bar_code_info_item import DocBarCodeInfoItem as DocBarCodeInfoItem
+from regula.documentreader.webclient.gen.models.doc_feature import DocFeature as DocFeature
 from regula.documentreader.webclient.gen.models.doc_graphics_info_item import DocGraphicsInfoItem as DocGraphicsInfoItem
 from regula.documentreader.webclient.gen.models.doc_visual_extended_field import DocVisualExtendedField as DocVisualExtendedField
 from regula.documentreader.webclient.gen.models.doc_visual_extended_field_item import DocVisualExtendedFieldItem as DocVisualExtendedFieldItem
@@ -642,6 +674,9 @@ from regula.documentreader.webclient.gen.models.list_verified_fields import List
 from regula.documentreader.webclient.gen.models.list_verified_fields_item import ListVerifiedFieldsItem as ListVerifiedFieldsItem
 from regula.documentreader.webclient.gen.models.liveness_params import LivenessParams as LivenessParams
 from regula.documentreader.webclient.gen.models.log_level import LogLevel as LogLevel
+from regula.documentreader.webclient.gen.models.mdl_device_engagement import MDLDeviceEngagement as MDLDeviceEngagement
+from regula.documentreader.webclient.gen.models.mdl_device_retrieval import MDLDeviceRetrieval as MDLDeviceRetrieval
+from regula.documentreader.webclient.gen.models.mdl_server_retrieval import MDLServerRetrieval as MDLServerRetrieval
 from regula.documentreader.webclient.gen.models.mrz_detector_result import MRZDetectorResult as MRZDetectorResult
 from regula.documentreader.webclient.gen.models.mrz_format import MRZFormat as MRZFormat
 from regula.documentreader.webclient.gen.models.mrz_position_result import MRZPositionResult as MRZPositionResult
@@ -650,6 +685,7 @@ from regula.documentreader.webclient.gen.models.mrz_test_quality import MRZTestQ
 from regula.documentreader.webclient.gen.models.mrz_test_quality_item import MRZTestQualityItem as MRZTestQualityItem
 from regula.documentreader.webclient.gen.models.mrz_test_quality_result import MRZTestQualityResult as MRZTestQualityResult
 from regula.documentreader.webclient.gen.models.measure_system import MeasureSystem as MeasureSystem
+from regula.documentreader.webclient.gen.models.message import Message as Message
 from regula.documentreader.webclient.gen.models.mrz_detect_mode_enum import MrzDetectModeEnum as MrzDetectModeEnum
 from regula.documentreader.webclient.gen.models.mrz_position_item import MrzPositionItem as MrzPositionItem
 from regula.documentreader.webclient.gen.models.ocr_security_text_item import OCRSecurityTextItem as OCRSecurityTextItem
@@ -660,6 +696,7 @@ from regula.documentreader.webclient.gen.models.original_symbol import OriginalS
 from regula.documentreader.webclient.gen.models.out_data import OutData as OutData
 from regula.documentreader.webclient.gen.models.out_data_transaction_images_field_value import OutDataTransactionImagesFieldValue as OutDataTransactionImagesFieldValue
 from regula.documentreader.webclient.gen.models.p_array_field import PArrayField as PArrayField
+from regula.documentreader.webclient.gen.models.pid import PID as PID
 from regula.documentreader.webclient.gen.models.parsed_data import ParsedData as ParsedData
 from regula.documentreader.webclient.gen.models.parsing_error_codes import ParsingErrorCodes as ParsingErrorCodes
 from regula.documentreader.webclient.gen.models.parsing_notification_codes import ParsingNotificationCodes as ParsingNotificationCodes
@@ -757,6 +794,14 @@ from regula.documentreader.webclient.gen.models.transaction_process_request impo
 from regula.documentreader.webclient.gen.models.transaction_process_result import TransactionProcessResult as TransactionProcessResult
 from regula.documentreader.webclient.gen.models.trf_ft_bytes import TrfFtBytes as TrfFtBytes
 from regula.documentreader.webclient.gen.models.trf_ft_string import TrfFtString as TrfFtString
+from regula.documentreader.webclient.gen.models.vd_item import VDItem as VDItem
+from regula.documentreader.webclient.gen.models.vds_data import VDSData as VDSData
+from regula.documentreader.webclient.gen.models.vds_data_item import VDSDataItem as VDSDataItem
+from regula.documentreader.webclient.gen.models.vds_data_result import VDSDataResult as VDSDataResult
+from regula.documentreader.webclient.gen.models.vdsnc_data import VDSNCData as VDSNCData
+from regula.documentreader.webclient.gen.models.vdsnc_data_item import VDSNCDataItem as VDSNCDataItem
+from regula.documentreader.webclient.gen.models.vdsnc_data_result import VDSNCDataResult as VDSNCDataResult
+from regula.documentreader.webclient.gen.models.ve_item import VEItem as VEItem
 from regula.documentreader.webclient.gen.models.verification_result import VerificationResult as VerificationResult
 from regula.documentreader.webclient.gen.models.verified_field_map import VerifiedFieldMap as VerifiedFieldMap
 from regula.documentreader.webclient.gen.models.visibility import Visibility as Visibility
