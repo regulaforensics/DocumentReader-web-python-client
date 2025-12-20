@@ -126,6 +126,8 @@ regula/documentreader/webclient/gen/models/liveness_params.py
 regula/documentreader/webclient/gen/models/log_level.py
 regula/documentreader/webclient/gen/models/mdl_device_engagement.py
 regula/documentreader/webclient/gen/models/mdl_device_retrieval.py
+regula/documentreader/webclient/gen/models/mdl_item.py
+regula/documentreader/webclient/gen/models/mdl_result.py
 regula/documentreader/webclient/gen/models/mdl_server_retrieval.py
 regula/documentreader/webclient/gen/models/measure_system.py
 regula/documentreader/webclient/gen/models/message.py
