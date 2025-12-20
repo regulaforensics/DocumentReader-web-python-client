@@ -122,6 +122,8 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.log_level import LogLevel
     from regula.documentreader.webclient.gen.models.mdl_device_engagement import MDLDeviceEngagement
     from regula.documentreader.webclient.gen.models.mdl_device_retrieval import MDLDeviceRetrieval
+    from regula.documentreader.webclient.gen.models.mdl_item import MDLItem
+    from regula.documentreader.webclient.gen.models.mdl_result import MDLResult
     from regula.documentreader.webclient.gen.models.mdl_server_retrieval import MDLServerRetrieval
     from regula.documentreader.webclient.gen.models.mrz_detector_result import MRZDetectorResult
     from regula.documentreader.webclient.gen.models.mrz_format import MRZFormat
@@ -375,6 +377,8 @@ from regula.documentreader.webclient.gen.models.liveness_params import LivenessP
 from regula.documentreader.webclient.gen.models.log_level import LogLevel
 from regula.documentreader.webclient.gen.models.mdl_device_engagement import MDLDeviceEngagement
 from regula.documentreader.webclient.gen.models.mdl_device_retrieval import MDLDeviceRetrieval
+from regula.documentreader.webclient.gen.models.mdl_item import MDLItem
+from regula.documentreader.webclient.gen.models.mdl_result import MDLResult
 from regula.documentreader.webclient.gen.models.mdl_server_retrieval import MDLServerRetrieval
 from regula.documentreader.webclient.gen.models.mrz_detector_result import MRZDetectorResult
 from regula.documentreader.webclient.gen.models.mrz_format import MRZFormat
