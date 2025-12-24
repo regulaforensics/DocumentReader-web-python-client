@@ -81,14 +81,14 @@ class PArrayField(BaseModel):
         _items = []
         if self.bc_data_module:
             for _item_bc_data_module in self.bc_data_module:
-                if _item_bc_data_module:
+                if _item_bc_data_module and hasattr(_item_bc_data_module, "to_dict"):
                     _items.append(_item_bc_data_module.to_dict())
             _dict['bcDataModule'] = _items
         # override the default output from pydantic by calling `to_dict()` of bc_pdf417_info
-        if self.bc_pdf417_info:
+        if self.bc_pdf417_info and isinstance(self.bc_pdf417_info, BcPDF417INFO):
             _dict['bcPDF417INFO'] = self.bc_pdf417_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of bc_roi_detect
-        if self.bc_roi_detect:
+        if self.bc_roi_detect and isinstance(self.bc_roi_detect, BcROIDETECT):
             _dict['bcROI_DETECT'] = self.bc_roi_detect.to_dict()
         return _dict
 

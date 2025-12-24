@@ -82,14 +82,14 @@ class TextFieldValue(BaseModel):
         _items = []
         if self.original_symbols:
             for _item_original_symbols in self.original_symbols:
-                if _item_original_symbols:
+                if _item_original_symbols and hasattr(_item_original_symbols, "to_dict"):
                     _items.append(_item_original_symbols.to_dict())
             _dict['originalSymbols'] = _items
         # override the default output from pydantic by calling `to_dict()` of field_rect
-        if self.field_rect:
+        if self.field_rect and isinstance(self.field_rect, RectangleCoordinates):
             _dict['fieldRect'] = self.field_rect.to_dict()
         # override the default output from pydantic by calling `to_dict()` of rfid_origin
-        if self.rfid_origin:
+        if self.rfid_origin and isinstance(self.rfid_origin, RfidOrigin):
             _dict['rfidOrigin'] = self.rfid_origin.to_dict()
         return _dict
 

@@ -67,7 +67,7 @@ class DocumentImageResult(ResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of raw_image_container
-        if self.raw_image_container:
+        if self.raw_image_container and isinstance(self.raw_image_container, ImageData):
             _dict['RawImageContainer'] = self.raw_image_container.to_dict()
         return _dict
 

@@ -79,16 +79,16 @@ class IdentResult(AuthenticityCheckResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of area
-        if self.area:
+        if self.area and isinstance(self.area, RectangleCoordinates):
             _dict['Area'] = self.area.to_dict()
         # override the default output from pydantic by calling `to_dict()` of image
-        if self.image:
+        if self.image and isinstance(self.image, ImageData):
             _dict['Image'] = self.image.to_dict()
         # override the default output from pydantic by calling `to_dict()` of etalon_image
-        if self.etalon_image:
+        if self.etalon_image and isinstance(self.etalon_image, ImageData):
             _dict['EtalonImage'] = self.etalon_image.to_dict()
         # override the default output from pydantic by calling `to_dict()` of area_list
-        if self.area_list:
+        if self.area_list and isinstance(self.area_list, AreaContainer):
             _dict['AreaList'] = self.area_list.to_dict()
         return _dict
 

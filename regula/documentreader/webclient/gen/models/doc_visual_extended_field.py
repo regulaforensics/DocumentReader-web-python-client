@@ -83,11 +83,11 @@ class DocVisualExtendedField(BaseModel):
         _items = []
         if self.strings_result:
             for _item_strings_result in self.strings_result:
-                if _item_strings_result:
+                if _item_strings_result and hasattr(_item_strings_result, "to_dict"):
                     _items.append(_item_strings_result.to_dict())
             _dict['StringsResult'] = _items
         # override the default output from pydantic by calling `to_dict()` of field_rect
-        if self.field_rect:
+        if self.field_rect and isinstance(self.field_rect, RectangleCoordinates):
             _dict['FieldRect'] = self.field_rect.to_dict()
         return _dict
 

@@ -83,23 +83,23 @@ class RfidCertificateEx(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of issuer
-        if self.issuer:
+        if self.issuer and isinstance(self.issuer, RfidDistinguishedName):
             _dict['Issuer'] = self.issuer.to_dict()
         # override the default output from pydantic by calling `to_dict()` of validity
-        if self.validity:
+        if self.validity and isinstance(self.validity, RfidValidity):
             _dict['Validity'] = self.validity.to_dict()
         # override the default output from pydantic by calling `to_dict()` of subject
-        if self.subject:
+        if self.subject and isinstance(self.subject, RfidDistinguishedName):
             _dict['Subject'] = self.subject.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in extensions (list)
         _items = []
         if self.extensions:
             for _item_extensions in self.extensions:
-                if _item_extensions:
+                if _item_extensions and hasattr(_item_extensions, "to_dict"):
                     _items.append(_item_extensions.to_dict())
             _dict['Extensions'] = _items
         # override the default output from pydantic by calling `to_dict()` of file_name
-        if self.file_name:
+        if self.file_name and isinstance(self.file_name, TrfFtString):
             _dict['FileName'] = self.file_name.to_dict()
         return _dict
 

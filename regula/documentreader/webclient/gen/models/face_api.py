@@ -74,7 +74,7 @@ class FaceApi(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of search
-        if self.search:
+        if self.search and isinstance(self.search, FaceApiSearch):
             _dict['search'] = self.search.to_dict()
         return _dict
 

@@ -72,7 +72,7 @@ class FaceDetection(BaseModel):
         _items = []
         if self.res:
             for _item_res in self.res:
-                if _item_res:
+                if _item_res and hasattr(_item_res, "to_dict"):
                     _items.append(_item_res.to_dict())
             _dict['Res'] = _items
         return _dict

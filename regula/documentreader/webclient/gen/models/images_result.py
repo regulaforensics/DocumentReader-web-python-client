@@ -67,7 +67,7 @@ class ImagesResult(ResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of images
-        if self.images:
+        if self.images and isinstance(self.images, Images):
             _dict['Images'] = self.images.to_dict()
         return _dict
 

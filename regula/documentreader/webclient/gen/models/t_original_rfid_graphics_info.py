@@ -68,7 +68,7 @@ class TOriginalRFIDGraphicsInfo(BaseModel):
         _items = []
         if self.rfid_original_graph_data:
             for _item_rfid_original_graph_data in self.rfid_original_graph_data:
-                if _item_rfid_original_graph_data:
+                if _item_rfid_original_graph_data and hasattr(_item_rfid_original_graph_data, "to_dict"):
                     _items.append(_item_rfid_original_graph_data.to_dict())
             _dict['RFID_ORIGINAL_GRAPH_DATA'] = _items
         return _dict

@@ -70,10 +70,10 @@ class TransactionProcessResult(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of out_data
-        if self.out_data:
+        if self.out_data and isinstance(self.out_data, OutData):
             _dict['outData'] = self.out_data.to_dict()
         # override the default output from pydantic by calling `to_dict()` of in_data
-        if self.in_data:
+        if self.in_data and isinstance(self.in_data, InData):
             _dict['inData'] = self.in_data.to_dict()
         return _dict
 

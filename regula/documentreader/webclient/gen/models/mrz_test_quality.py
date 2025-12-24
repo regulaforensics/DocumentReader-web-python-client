@@ -78,7 +78,7 @@ class MRZTestQuality(BaseModel):
         _items = []
         if self.strings:
             for _item_strings in self.strings:
-                if _item_strings:
+                if _item_strings and hasattr(_item_strings, "to_dict"):
                     _items.append(_item_strings.to_dict())
             _dict['Strings'] = _items
         return _dict
