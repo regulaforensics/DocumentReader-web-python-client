@@ -77,10 +77,10 @@ class ProcessResponse(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of container_list
-        if self.container_list:
+        if self.container_list and isinstance(self.container_list, ContainerList):
             _dict['ContainerList'] = self.container_list.to_dict()
         # override the default output from pydantic by calling `to_dict()` of transaction_info
-        if self.transaction_info:
+        if self.transaction_info and isinstance(self.transaction_info, TransactionInfo):
             _dict['TransactionInfo'] = self.transaction_info.to_dict()
         return _dict
 

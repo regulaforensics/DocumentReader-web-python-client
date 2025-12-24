@@ -76,10 +76,10 @@ class ImagesFieldValue(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of field_rect
-        if self.field_rect:
+        if self.field_rect and isinstance(self.field_rect, RectangleCoordinates):
             _dict['fieldRect'] = self.field_rect.to_dict()
         # override the default output from pydantic by calling `to_dict()` of rfid_origin
-        if self.rfid_origin:
+        if self.rfid_origin and isinstance(self.rfid_origin, RfidOrigin):
             _dict['rfidOrigin'] = self.rfid_origin.to_dict()
         return _dict
 

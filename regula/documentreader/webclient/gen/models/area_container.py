@@ -71,14 +71,14 @@ class AreaContainer(BaseModel):
         _items = []
         if self.list:
             for _item_list in self.list:
-                if _item_list:
+                if _item_list and hasattr(_item_list, "to_dict"):
                     _items.append(_item_list.to_dict())
             _dict['List'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in points (list)
         _items = []
         if self.points:
             for _item_points in self.points:
-                if _item_points:
+                if _item_points and hasattr(_item_points, "to_dict"):
                     _items.append(_item_points.to_dict())
             _dict['Points'] = _items
         return _dict

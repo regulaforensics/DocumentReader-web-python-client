@@ -67,7 +67,7 @@ class TextResult(ResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of text
-        if self.text:
+        if self.text and isinstance(self.text, Text):
             _dict['Text'] = self.text.to_dict()
         return _dict
 

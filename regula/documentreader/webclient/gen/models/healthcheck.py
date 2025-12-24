@@ -74,7 +74,7 @@ class Healthcheck(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of documents_database
-        if self.documents_database:
+        if self.documents_database and isinstance(self.documents_database, HealthcheckDocumentsDatabase):
             _dict['documentsDatabase'] = self.documents_database.to_dict()
         # set to None if license_id (nullable) is None
         # and model_fields_set contains the field

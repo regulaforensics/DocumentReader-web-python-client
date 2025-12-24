@@ -67,13 +67,13 @@ class TDocBinaryInfo(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of rfid_binary_data
-        if self.rfid_binary_data:
+        if self.rfid_binary_data and isinstance(self.rfid_binary_data, BinaryData):
             _dict['RFID_BINARY_DATA'] = self.rfid_binary_data.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in rfid_raw_data (list)
         _items = []
         if self.rfid_raw_data:
             for _item_rfid_raw_data in self.rfid_raw_data:
-                if _item_rfid_raw_data:
+                if _item_rfid_raw_data and hasattr(_item_rfid_raw_data, "to_dict"):
                     _items.append(_item_rfid_raw_data.to_dict())
             _dict['RFID_RAW_DATA'] = _items
         return _dict

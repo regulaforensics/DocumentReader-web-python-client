@@ -65,7 +65,7 @@ class TransactionImage(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of image
-        if self.image:
+        if self.image and isinstance(self.image, ImagesFieldValue):
             _dict['image'] = self.image.to_dict()
         return _dict
 

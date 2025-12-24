@@ -67,7 +67,7 @@ class LexicalAnalysisResult(ResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of list_verified_fields
-        if self.list_verified_fields:
+        if self.list_verified_fields and isinstance(self.list_verified_fields, ListVerifiedFields):
             _dict['ListVerifiedFields'] = self.list_verified_fields.to_dict()
         return _dict
 

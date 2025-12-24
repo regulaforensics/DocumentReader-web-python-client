@@ -78,10 +78,10 @@ class SecurityFeatureResult(AuthenticityCheckResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of element_rect
-        if self.element_rect:
+        if self.element_rect and isinstance(self.element_rect, RectangleCoordinates):
             _dict['ElementRect'] = self.element_rect.to_dict()
         # override the default output from pydantic by calling `to_dict()` of area_list
-        if self.area_list:
+        if self.area_list and isinstance(self.area_list, AreaContainer):
             _dict['AreaList'] = self.area_list.to_dict()
         return _dict
 

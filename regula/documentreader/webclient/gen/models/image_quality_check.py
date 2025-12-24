@@ -74,7 +74,7 @@ class ImageQualityCheck(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of areas
-        if self.areas:
+        if self.areas and isinstance(self.areas, AreaArray):
             _dict['areas'] = self.areas.to_dict()
         return _dict
 

@@ -75,20 +75,20 @@ class VDSNCData(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of certificate
-        if self.certificate:
+        if self.certificate and isinstance(self.certificate, TrfFtBytes):
             _dict['Certificate'] = self.certificate.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in certificate_chain (list)
         _items = []
         if self.certificate_chain:
             for _item_certificate_chain in self.certificate_chain:
-                if _item_certificate_chain:
+                if _item_certificate_chain and hasattr(_item_certificate_chain, "to_dict"):
                     _items.append(_item_certificate_chain.to_dict())
             _dict['CertificateChain'] = _items
         # override the default output from pydantic by calling `to_dict()` of message
-        if self.message:
+        if self.message and isinstance(self.message, Message):
             _dict['Message'] = self.message.to_dict()
         # override the default output from pydantic by calling `to_dict()` of signature
-        if self.signature:
+        if self.signature and isinstance(self.signature, TrfFtBytes):
             _dict['Signature'] = self.signature.to_dict()
         return _dict
 

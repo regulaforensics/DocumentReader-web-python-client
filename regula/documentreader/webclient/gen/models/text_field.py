@@ -83,21 +83,21 @@ class TextField(BaseModel):
         _items = []
         if self.value_list:
             for _item_value_list in self.value_list:
-                if _item_value_list:
+                if _item_value_list and hasattr(_item_value_list, "to_dict"):
                     _items.append(_item_value_list.to_dict())
             _dict['valueList'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in validity_list (list)
         _items = []
         if self.validity_list:
             for _item_validity_list in self.validity_list:
-                if _item_validity_list:
+                if _item_validity_list and hasattr(_item_validity_list, "to_dict"):
                     _items.append(_item_validity_list.to_dict())
             _dict['validityList'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in comparison_list (list)
         _items = []
         if self.comparison_list:
             for _item_comparison_list in self.comparison_list:
-                if _item_comparison_list:
+                if _item_comparison_list and hasattr(_item_comparison_list, "to_dict"):
                     _items.append(_item_comparison_list.to_dict())
             _dict['comparisonList'] = _items
         return _dict

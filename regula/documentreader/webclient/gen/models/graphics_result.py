@@ -67,7 +67,7 @@ class GraphicsResult(ResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of doc_graphics_info
-        if self.doc_graphics_info:
+        if self.doc_graphics_info and isinstance(self.doc_graphics_info, GraphicFieldsList):
             _dict['DocGraphicsInfo'] = self.doc_graphics_info.to_dict()
         return _dict
 
