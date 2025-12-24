@@ -67,7 +67,7 @@ class VDSNCDataResult(ResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of dft_vds_nc
-        if self.dft_vds_nc:
+        if self.dft_vds_nc and isinstance(self.dft_vds_nc, VDSNCData):
             _dict['dftVDS_NC'] = self.dft_vds_nc.to_dict()
         return _dict
 

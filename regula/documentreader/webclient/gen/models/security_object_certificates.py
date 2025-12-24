@@ -65,7 +65,7 @@ class SecurityObjectCertificates(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of certificate_data
-        if self.certificate_data:
+        if self.certificate_data and isinstance(self.certificate_data, CertificateData):
             _dict['Certificate_Data'] = self.certificate_data.to_dict()
         return _dict
 

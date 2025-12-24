@@ -65,7 +65,7 @@ class DocBarCodeInfoItem(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of doc_bar_code_info
-        if self.doc_bar_code_info:
+        if self.doc_bar_code_info and isinstance(self.doc_bar_code_info, DocBarCodeInfoFieldsList):
             _dict['DocBarCodeInfo'] = self.doc_bar_code_info.to_dict()
         return _dict
 

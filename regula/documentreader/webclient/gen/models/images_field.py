@@ -72,7 +72,7 @@ class ImagesField(BaseModel):
         _items = []
         if self.value_list:
             for _item_value_list in self.value_list:
-                if _item_value_list:
+                if _item_value_list and hasattr(_item_value_list, "to_dict"):
                     _items.append(_item_value_list.to_dict())
             _dict['valueList'] = _items
         return _dict

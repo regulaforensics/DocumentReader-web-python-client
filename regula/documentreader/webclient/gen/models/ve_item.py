@@ -71,7 +71,7 @@ class VEItem(BaseModel):
         _items = []
         if self.vd:
             for _item_vd in self.vd:
-                if _item_vd:
+                if _item_vd and hasattr(_item_vd, "to_dict"):
                     _items.append(_item_vd.to_dict())
             _dict['vd'] = _items
         return _dict

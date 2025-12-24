@@ -82,10 +82,10 @@ class OCRSecurityTextResult(AuthenticityCheckResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of field_rect
-        if self.field_rect:
+        if self.field_rect and isinstance(self.field_rect, RectangleCoordinates):
             _dict['FieldRect'] = self.field_rect.to_dict()
         # override the default output from pydantic by calling `to_dict()` of etalon_field_rect
-        if self.etalon_field_rect:
+        if self.etalon_field_rect and isinstance(self.etalon_field_rect, RectangleCoordinates):
             _dict['EtalonFieldRect'] = self.etalon_field_rect.to_dict()
         return _dict
 

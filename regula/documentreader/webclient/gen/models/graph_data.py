@@ -71,7 +71,7 @@ class GraphData(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of file_image
-        if self.file_image:
+        if self.file_image and isinstance(self.file_image, FileImage):
             _dict['File_Image'] = self.file_image.to_dict()
         return _dict
 

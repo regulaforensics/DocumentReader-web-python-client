@@ -67,7 +67,7 @@ class StatusResult(ResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of status
-        if self.status:
+        if self.status and isinstance(self.status, Status):
             _dict['Status'] = self.status.to_dict()
         return _dict
 

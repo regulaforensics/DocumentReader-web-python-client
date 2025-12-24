@@ -76,13 +76,13 @@ class PhotoIdentItem(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of area
-        if self.area:
+        if self.area and isinstance(self.area, RectangleCoordinates):
             _dict['Area'] = self.area.to_dict()
         # override the default output from pydantic by calling `to_dict()` of source_image
-        if self.source_image:
+        if self.source_image and isinstance(self.source_image, ImageData):
             _dict['SourceImage'] = self.source_image.to_dict()
         # override the default output from pydantic by calling `to_dict()` of result_images
-        if self.result_images:
+        if self.result_images and isinstance(self.result_images, RawImageContainerList):
             _dict['ResultImages'] = self.result_images.to_dict()
         return _dict
 

@@ -70,7 +70,7 @@ class ListVerifiedFields(BaseModel):
         _items = []
         if self.p_field_maps:
             for _item_p_field_maps in self.p_field_maps:
-                if _item_p_field_maps:
+                if _item_p_field_maps and hasattr(_item_p_field_maps, "to_dict"):
                     _items.append(_item_p_field_maps.to_dict())
             _dict['pFieldMaps'] = _items
         return _dict

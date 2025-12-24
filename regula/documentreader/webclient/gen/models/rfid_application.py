@@ -76,7 +76,7 @@ class RfidApplication(BaseModel):
         _items = []
         if self.files:
             for _item_files in self.files:
-                if _item_files:
+                if _item_files and hasattr(_item_files, "to_dict"):
                     _items.append(_item_files.to_dict())
             _dict['Files'] = _items
         return _dict

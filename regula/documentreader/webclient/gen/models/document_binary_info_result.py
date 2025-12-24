@@ -67,7 +67,7 @@ class DocumentBinaryInfoResult(ResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of t_doc_binary_info
-        if self.t_doc_binary_info:
+        if self.t_doc_binary_info and isinstance(self.t_doc_binary_info, TDocBinaryInfo):
             _dict['TDocBinaryInfo'] = self.t_doc_binary_info.to_dict()
         return _dict
 
