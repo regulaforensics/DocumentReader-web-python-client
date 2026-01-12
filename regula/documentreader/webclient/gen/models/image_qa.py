@@ -75,7 +75,7 @@ class ImageQA(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of glares_check_params
-        if self.glares_check_params:
+        if self.glares_check_params and isinstance(self.glares_check_params, GlaresCheckParams):
             _dict['glaresCheckParams'] = self.glares_check_params.to_dict()
         return _dict
 

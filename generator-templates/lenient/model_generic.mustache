@@ -191,7 +191,7 @@ class {{classname}}({{#parent}}{{{.}}}{{/parent}}{{^parent}}BaseModel{{/parent}}
         _items = []
         if self.{{{name}}}:
             for _item_{{{name}}} in self.{{{name}}}:
-                if _item_{{{name}}}:
+                if _item_{{{name}}} and hasattr(_item_{{{name}}}, "to_dict"):
                     _items.append(_item_{{{name}}}.to_dict())
             _dict['{{{baseName}}}'] = _items
         {{/items.isEnumOrRef}}
@@ -231,7 +231,7 @@ class {{classname}}({{#parent}}{{{.}}}{{/parent}}{{^parent}}BaseModel{{/parent}}
         {{^isPrimitiveType}}
         {{^isEnumOrRef}}
         # override the default output from pydantic by calling `to_dict()` of {{{name}}}
-        if self.{{{name}}}:
+        if self.{{{name}}} and isinstance(self.{{{name}}}, {{{dataType}}}):
             _dict['{{{baseName}}}'] = self.{{{name}}}.to_dict()
         {{/isEnumOrRef}}
         {{/isPrimitiveType}}

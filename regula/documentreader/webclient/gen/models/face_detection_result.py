@@ -67,7 +67,7 @@ class FaceDetectionResult(ResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of face_detection
-        if self.face_detection:
+        if self.face_detection and isinstance(self.face_detection, FaceDetection):
             _dict['FaceDetection'] = self.face_detection.to_dict()
         return _dict
 

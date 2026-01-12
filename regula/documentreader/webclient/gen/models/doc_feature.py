@@ -66,7 +66,7 @@ class DocFeature(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of data
-        if self.data:
+        if self.data and isinstance(self.data, TrfFtBytes):
             _dict['Data'] = self.data.to_dict()
         return _dict
 

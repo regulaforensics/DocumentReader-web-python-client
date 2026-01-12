@@ -67,7 +67,7 @@ class AuthenticityResult(ResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of authenticity_check_list
-        if self.authenticity_check_list:
+        if self.authenticity_check_list and isinstance(self.authenticity_check_list, AuthenticityCheckList):
             _dict['AuthenticityCheckList'] = self.authenticity_check_list.to_dict()
         return _dict
 

@@ -131,13 +131,13 @@ class BinaryData(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of rfid_dg1
-        if self.rfid_dg1:
+        if self.rfid_dg1 and isinstance(self.rfid_dg1, RfidDG1):
             _dict['RFID_DG1'] = self.rfid_dg1.to_dict()
         # override the default output from pydantic by calling `to_dict()` of rfid_session_data
-        if self.rfid_session_data:
+        if self.rfid_session_data and isinstance(self.rfid_session_data, RfidSessionData):
             _dict['RFID_Session_Data'] = self.rfid_session_data.to_dict()
         # override the default output from pydantic by calling `to_dict()` of rfid_session_data_status
-        if self.rfid_session_data_status:
+        if self.rfid_session_data_status and isinstance(self.rfid_session_data_status, DetailsRFID):
             _dict['RFID_Session_Data_Status'] = self.rfid_session_data_status.to_dict()
         return _dict
 

@@ -69,7 +69,7 @@ class AuthenticityCheckList(BaseModel):
         _items = []
         if self.list:
             for _item_list in self.list:
-                if _item_list:
+                if _item_list and hasattr(_item_list, "to_dict"):
                     _items.append(_item_list.to_dict())
             _dict['List'] = _items
         return _dict

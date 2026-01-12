@@ -70,10 +70,10 @@ class GraphicField(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of field_rect
-        if self.field_rect:
+        if self.field_rect and isinstance(self.field_rect, RectangleCoordinates):
             _dict['FieldRect'] = self.field_rect.to_dict()
         # override the default output from pydantic by calling `to_dict()` of image
-        if self.image:
+        if self.image and isinstance(self.image, ImageData):
             _dict['image'] = self.image.to_dict()
         return _dict
 

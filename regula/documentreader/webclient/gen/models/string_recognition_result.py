@@ -72,7 +72,7 @@ class StringRecognitionResult(BaseModel):
         _items = []
         if self.string_result:
             for _item_string_result in self.string_result:
-                if _item_string_result:
+                if _item_string_result and hasattr(_item_string_result, "to_dict"):
                     _items.append(_item_string_result.to_dict())
             _dict['StringResult'] = _items
         return _dict

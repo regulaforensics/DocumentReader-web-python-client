@@ -65,7 +65,7 @@ class VDSDataItem(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of dft_vds
-        if self.dft_vds:
+        if self.dft_vds and isinstance(self.dft_vds, VDSData):
             _dict['dftVDS'] = self.dft_vds.to_dict()
         return _dict
 

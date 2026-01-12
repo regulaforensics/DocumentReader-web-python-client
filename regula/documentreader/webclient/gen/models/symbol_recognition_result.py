@@ -70,13 +70,13 @@ class SymbolRecognitionResult(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of symbol_rect
-        if self.symbol_rect:
+        if self.symbol_rect and isinstance(self.symbol_rect, RectangleCoordinates):
             _dict['SymbolRect'] = self.symbol_rect.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in list_of_candidates (list)
         _items = []
         if self.list_of_candidates:
             for _item_list_of_candidates in self.list_of_candidates:
-                if _item_list_of_candidates:
+                if _item_list_of_candidates and hasattr(_item_list_of_candidates, "to_dict"):
                     _items.append(_item_list_of_candidates.to_dict())
             _dict['ListOfCandidates'] = _items
         return _dict

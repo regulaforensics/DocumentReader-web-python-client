@@ -79,20 +79,20 @@ class ProcessRequest(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of process_param
-        if self.process_param:
+        if self.process_param and isinstance(self.process_param, ProcessParams):
             _dict['processParam'] = self.process_param.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in list (list)
         _items = []
         if self.list:
             for _item_list in self.list:
-                if _item_list:
+                if _item_list and hasattr(_item_list, "to_dict"):
                     _items.append(_item_list.to_dict())
             _dict['List'] = _items
         # override the default output from pydantic by calling `to_dict()` of container_list
-        if self.container_list:
+        if self.container_list and isinstance(self.container_list, ContainerList):
             _dict['ContainerList'] = self.container_list.to_dict()
         # override the default output from pydantic by calling `to_dict()` of system_info
-        if self.system_info:
+        if self.system_info and isinstance(self.system_info, ProcessSystemInfo):
             _dict['systemInfo'] = self.system_info.to_dict()
         return _dict
 

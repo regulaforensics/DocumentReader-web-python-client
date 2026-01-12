@@ -82,13 +82,13 @@ class RfidDataFile(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of file_data
-        if self.file_data:
+        if self.file_data and isinstance(self.file_data, TrfFtBytes):
             _dict['FileData'] = self.file_data.to_dict()
         # override the default output from pydantic by calling `to_dict()` of parsed_data
-        if self.parsed_data:
+        if self.parsed_data and isinstance(self.parsed_data, ParsedData):
             _dict['ParsedData'] = self.parsed_data.to_dict()
         # override the default output from pydantic by calling `to_dict()` of security_object_certificates
-        if self.security_object_certificates:
+        if self.security_object_certificates and isinstance(self.security_object_certificates, SecurityObjectCertificates):
             _dict['SecurityObject_Certificates'] = self.security_object_certificates.to_dict()
         return _dict
 

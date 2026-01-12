@@ -65,7 +65,7 @@ class DocVisualExtendedInfoItem(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of doc_visual_extended_info
-        if self.doc_visual_extended_info:
+        if self.doc_visual_extended_info and isinstance(self.doc_visual_extended_info, DocVisualExtendedInfo):
             _dict['DocVisualExtendedInfo'] = self.doc_visual_extended_info.to_dict()
         return _dict
 

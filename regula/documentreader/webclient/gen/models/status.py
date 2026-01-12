@@ -77,13 +77,13 @@ class Status(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of details_rfid
-        if self.details_rfid:
+        if self.details_rfid and isinstance(self.details_rfid, DetailsRFID):
             _dict['detailsRFID'] = self.details_rfid.to_dict()
         # override the default output from pydantic by calling `to_dict()` of details_optical
-        if self.details_optical:
+        if self.details_optical and isinstance(self.details_optical, DetailsOptical):
             _dict['detailsOptical'] = self.details_optical.to_dict()
         # override the default output from pydantic by calling `to_dict()` of details_age
-        if self.details_age:
+        if self.details_age and isinstance(self.details_age, DetailsAge):
             _dict['detailsAge'] = self.details_age.to_dict()
         return _dict
 

@@ -69,7 +69,7 @@ class GraphicFieldsList(BaseModel):
         _items = []
         if self.p_array_fields:
             for _item_p_array_fields in self.p_array_fields:
-                if _item_p_array_fields:
+                if _item_p_array_fields and hasattr(_item_p_array_fields, "to_dict"):
                     _items.append(_item_p_array_fields.to_dict())
             _dict['pArrayFields'] = _items
         return _dict

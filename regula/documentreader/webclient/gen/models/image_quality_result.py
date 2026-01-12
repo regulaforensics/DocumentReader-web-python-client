@@ -67,7 +67,7 @@ class ImageQualityResult(ResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of image_quality_check_list
-        if self.image_quality_check_list:
+        if self.image_quality_check_list and isinstance(self.image_quality_check_list, ImageQualityCheckList):
             _dict['ImageQualityCheckList'] = self.image_quality_check_list.to_dict()
         return _dict
 

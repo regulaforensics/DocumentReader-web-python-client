@@ -65,7 +65,7 @@ class DocumentPositionItem(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of document_position
-        if self.document_position:
+        if self.document_position and isinstance(self.document_position, DocumentPosition):
             _dict['DocumentPosition'] = self.document_position.to_dict()
         return _dict
 

@@ -80,19 +80,19 @@ class DocumentPosition(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of center
-        if self.center:
+        if self.center and isinstance(self.center, Point):
             _dict['Center'] = self.center.to_dict()
         # override the default output from pydantic by calling `to_dict()` of left_bottom
-        if self.left_bottom:
+        if self.left_bottom and isinstance(self.left_bottom, Point):
             _dict['LeftBottom'] = self.left_bottom.to_dict()
         # override the default output from pydantic by calling `to_dict()` of left_top
-        if self.left_top:
+        if self.left_top and isinstance(self.left_top, Point):
             _dict['LeftTop'] = self.left_top.to_dict()
         # override the default output from pydantic by calling `to_dict()` of right_bottom
-        if self.right_bottom:
+        if self.right_bottom and isinstance(self.right_bottom, Point):
             _dict['RightBottom'] = self.right_bottom.to_dict()
         # override the default output from pydantic by calling `to_dict()` of right_top
-        if self.right_top:
+        if self.right_top and isinstance(self.right_top, Point):
             _dict['RightTop'] = self.right_top.to_dict()
         return _dict
 

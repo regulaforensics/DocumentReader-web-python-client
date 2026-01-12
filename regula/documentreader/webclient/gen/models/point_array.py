@@ -68,7 +68,7 @@ class PointArray(BaseModel):
         _items = []
         if self.points_list:
             for _item_points_list in self.points_list:
-                if _item_points_list:
+                if _item_points_list and hasattr(_item_points_list, "to_dict"):
                     _items.append(_item_points_list.to_dict())
             _dict['PointsList'] = _items
         return _dict

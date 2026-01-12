@@ -92,30 +92,30 @@ class RfidSessionData(BaseModel):
         _items = []
         if self.applications:
             for _item_applications in self.applications:
-                if _item_applications:
+                if _item_applications and hasattr(_item_applications, "to_dict"):
                     _items.append(_item_applications.to_dict())
             _dict['Applications'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in access_controls (list)
         _items = []
         if self.access_controls:
             for _item_access_controls in self.access_controls:
-                if _item_access_controls:
+                if _item_access_controls and hasattr(_item_access_controls, "to_dict"):
                     _items.append(_item_access_controls.to_dict())
             _dict['AccessControls'] = _items
         # override the default output from pydantic by calling `to_dict()` of card_properties
-        if self.card_properties:
+        if self.card_properties and isinstance(self.card_properties, RfidCardPropertiesExt):
             _dict['CardProperties'] = self.card_properties.to_dict()
         # override the default output from pydantic by calling `to_dict()` of session_key
-        if self.session_key:
+        if self.session_key and isinstance(self.session_key, RfidAccessKey):
             _dict['Session_key'] = self.session_key.to_dict()
         # override the default output from pydantic by calling `to_dict()` of session_terminal
-        if self.session_terminal:
+        if self.session_terminal and isinstance(self.session_terminal, RfidTerminal):
             _dict['Session_terminal'] = self.session_terminal.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in security_objects (list)
         _items = []
         if self.security_objects:
             for _item_security_objects in self.security_objects:
-                if _item_security_objects:
+                if _item_security_objects and hasattr(_item_security_objects, "to_dict"):
                     _items.append(_item_security_objects.to_dict())
             _dict['SecurityObjects'] = _items
         return _dict

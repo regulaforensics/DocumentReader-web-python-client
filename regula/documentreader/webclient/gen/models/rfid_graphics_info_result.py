@@ -67,7 +67,7 @@ class RFIDGraphicsInfoResult(ResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of t_original_rfid_graphics_info
-        if self.t_original_rfid_graphics_info:
+        if self.t_original_rfid_graphics_info and isinstance(self.t_original_rfid_graphics_info, TOriginalRFIDGraphicsInfo):
             _dict['TOriginalRFIDGraphicsInfo'] = self.t_original_rfid_graphics_info.to_dict()
         return _dict
 

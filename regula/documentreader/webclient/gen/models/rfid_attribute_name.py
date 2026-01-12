@@ -66,7 +66,7 @@ class RfidAttributeName(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of value
-        if self.value:
+        if self.value and isinstance(self.value, TrfFtString):
             _dict['Value'] = self.value.to_dict()
         return _dict
 

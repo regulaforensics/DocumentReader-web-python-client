@@ -70,7 +70,7 @@ class MRZRowsItem(BaseModel):
         _items = []
         if self.symbols:
             for _item_symbols in self.symbols:
-                if _item_symbols:
+                if _item_symbols and hasattr(_item_symbols, "to_dict"):
                     _items.append(_item_symbols.to_dict())
             _dict['symbols'] = _items
         return _dict

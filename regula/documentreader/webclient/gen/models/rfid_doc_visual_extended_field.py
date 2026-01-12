@@ -85,7 +85,7 @@ class RFIDDocVisualExtendedField(BaseModel):
         _items = []
         if self.strings_result:
             for _item_strings_result in self.strings_result:
-                if _item_strings_result:
+                if _item_strings_result and hasattr(_item_strings_result, "to_dict"):
                     _items.append(_item_strings_result.to_dict())
             _dict['StringsResult'] = _items
         return _dict

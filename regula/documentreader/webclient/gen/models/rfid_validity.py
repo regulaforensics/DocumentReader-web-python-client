@@ -66,10 +66,10 @@ class RfidValidity(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of not_before
-        if self.not_before:
+        if self.not_before and isinstance(self.not_before, TrfFtString):
             _dict['NotBefore'] = self.not_before.to_dict()
         # override the default output from pydantic by calling `to_dict()` of not_after
-        if self.not_after:
+        if self.not_after and isinstance(self.not_after, TrfFtString):
             _dict['NotAfter'] = self.not_after.to_dict()
         return _dict
 

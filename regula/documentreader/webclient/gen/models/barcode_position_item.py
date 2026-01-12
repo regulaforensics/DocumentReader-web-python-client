@@ -65,7 +65,7 @@ class BarcodePositionItem(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of barcode_position
-        if self.barcode_position:
+        if self.barcode_position and isinstance(self.barcode_position, DocumentPosition):
             _dict['BarcodePosition'] = self.barcode_position.to_dict()
         return _dict
 

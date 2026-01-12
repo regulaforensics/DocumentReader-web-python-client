@@ -69,7 +69,7 @@ class OutData(BaseModel):
         _items = []
         if self.images:
             for _item_images in self.images:
-                if _item_images:
+                if _item_images and hasattr(_item_images, "to_dict"):
                     _items.append(_item_images.to_dict())
             _dict['images'] = _items
         return _dict

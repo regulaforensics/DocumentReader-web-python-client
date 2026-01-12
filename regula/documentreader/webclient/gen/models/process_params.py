@@ -147,23 +147,23 @@ class ProcessParams(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of face_api
-        if self.face_api:
+        if self.face_api and isinstance(self.face_api, FaceApi):
             _dict['faceApi'] = self.face_api.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in config (list)
         _items = []
         if self.config:
             for _item_config in self.config:
-                if _item_config:
+                if _item_config and hasattr(_item_config, "to_dict"):
                     _items.append(_item_config.to_dict())
             _dict['config'] = _items
         # override the default output from pydantic by calling `to_dict()` of image_qa
-        if self.image_qa:
+        if self.image_qa and isinstance(self.image_qa, ImageQA):
             _dict['imageQa'] = self.image_qa.to_dict()
         # override the default output from pydantic by calling `to_dict()` of rfid
-        if self.rfid:
+        if self.rfid and isinstance(self.rfid, ProcessParamsRfid):
             _dict['rfid'] = self.rfid.to_dict()
         # override the default output from pydantic by calling `to_dict()` of auth_params
-        if self.auth_params:
+        if self.auth_params and isinstance(self.auth_params, AuthParams):
             _dict['authParams'] = self.auth_params.to_dict()
         return _dict
 

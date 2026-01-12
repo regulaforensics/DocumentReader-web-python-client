@@ -80,7 +80,7 @@ class AuthParams(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of liveness_params
-        if self.liveness_params:
+        if self.liveness_params and isinstance(self.liveness_params, LivenessParams):
             _dict['livenessParams'] = self.liveness_params.to_dict()
         return _dict
 

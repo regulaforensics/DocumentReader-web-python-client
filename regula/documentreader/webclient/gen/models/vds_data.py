@@ -82,18 +82,18 @@ class VDSData(BaseModel):
         _items = []
         if self.certificate_chain:
             for _item_certificate_chain in self.certificate_chain:
-                if _item_certificate_chain:
+                if _item_certificate_chain and hasattr(_item_certificate_chain, "to_dict"):
                     _items.append(_item_certificate_chain.to_dict())
             _dict['CertificateChain'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in doc_features (list)
         _items = []
         if self.doc_features:
             for _item_doc_features in self.doc_features:
-                if _item_doc_features:
+                if _item_doc_features and hasattr(_item_doc_features, "to_dict"):
                     _items.append(_item_doc_features.to_dict())
             _dict['DocFeatures'] = _items
         # override the default output from pydantic by calling `to_dict()` of signature
-        if self.signature:
+        if self.signature and isinstance(self.signature, TrfFtBytes):
             _dict['Signature'] = self.signature.to_dict()
         return _dict
 

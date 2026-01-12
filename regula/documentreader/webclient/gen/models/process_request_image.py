@@ -68,7 +68,7 @@ class ProcessRequestImage(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of image_data
-        if self.image_data:
+        if self.image_data and isinstance(self.image_data, ImageData):
             _dict['ImageData'] = self.image_data.to_dict()
         return _dict
 

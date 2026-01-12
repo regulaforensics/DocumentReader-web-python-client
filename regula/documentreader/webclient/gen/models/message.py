@@ -68,13 +68,13 @@ class Message(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of pid
-        if self.pid:
+        if self.pid and isinstance(self.pid, PID):
             _dict['pid'] = self.pid.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in ve (list)
         _items = []
         if self.ve:
             for _item_ve in self.ve:
-                if _item_ve:
+                if _item_ve and hasattr(_item_ve, "to_dict"):
                     _items.append(_item_ve.to_dict())
             _dict['ve'] = _items
         return _dict

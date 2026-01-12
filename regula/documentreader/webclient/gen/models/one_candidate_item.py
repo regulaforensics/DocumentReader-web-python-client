@@ -68,7 +68,7 @@ class OneCandidateItem(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of one_candidate
-        if self.one_candidate:
+        if self.one_candidate and isinstance(self.one_candidate, OneCandidate):
             _dict['OneCandidate'] = self.one_candidate.to_dict()
         return _dict
 

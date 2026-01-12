@@ -85,23 +85,23 @@ class StringItem(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of error_position
-        if self.error_position:
+        if self.error_position and isinstance(self.error_position, ErrorCoordinates):
             _dict['ErrorPOSITION'] = self.error_position.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in fields (list)
         _items = []
         if self.fields:
             for _item_fields in self.fields:
-                if _item_fields:
+                if _item_fields and hasattr(_item_fields, "to_dict"):
                     _items.append(_item_fields.to_dict())
             _dict['Fields'] = _items
         # override the default output from pydantic by calling `to_dict()` of string_borders
-        if self.string_borders:
+        if self.string_borders and isinstance(self.string_borders, RectangleCoordinates):
             _dict['StringBorders'] = self.string_borders.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in symbols_estimations (list)
         _items = []
         if self.symbols_estimations:
             for _item_symbols_estimations in self.symbols_estimations:
-                if _item_symbols_estimations:
+                if _item_symbols_estimations and hasattr(_item_symbols_estimations, "to_dict"):
                     _items.append(_item_symbols_estimations.to_dict())
             _dict['SymbolsEstimations'] = _items
         return _dict

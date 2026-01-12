@@ -72,7 +72,7 @@ class RfidSecurityObject(BaseModel):
         _items = []
         if self.signer_infos:
             for _item_signer_infos in self.signer_infos:
-                if _item_signer_infos:
+                if _item_signer_infos and hasattr(_item_signer_infos, "to_dict"):
                     _items.append(_item_signer_infos.to_dict())
             _dict['SignerInfos'] = _items
         return _dict

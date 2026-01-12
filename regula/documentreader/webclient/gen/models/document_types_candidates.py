@@ -70,7 +70,7 @@ class DocumentTypesCandidates(BaseModel):
         _items = []
         if self.candidates:
             for _item_candidates in self.candidates:
-                if _item_candidates:
+                if _item_candidates and hasattr(_item_candidates, "to_dict"):
                     _items.append(_item_candidates.to_dict())
             _dict['Candidates'] = _items
         return _dict

@@ -77,7 +77,7 @@ class FiberItem(BaseModel):
         _items = []
         if self.rect_array:
             for _item_rect_array in self.rect_array:
-                if _item_rect_array:
+                if _item_rect_array and hasattr(_item_rect_array, "to_dict"):
                     _items.append(_item_rect_array.to_dict())
             _dict['RectArray'] = _items
         return _dict

@@ -65,7 +65,7 @@ class MRZTestQualityItem(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of mrz_test_quality
-        if self.mrz_test_quality:
+        if self.mrz_test_quality and isinstance(self.mrz_test_quality, MRZTestQuality):
             _dict['MRZTestQuality'] = self.mrz_test_quality.to_dict()
         return _dict
 

@@ -81,7 +81,7 @@ class SymbolEstimationItem(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of symbol_bounds
-        if self.symbol_bounds:
+        if self.symbol_bounds and isinstance(self.symbol_bounds, RectangleCoordinates):
             _dict['SymbolBounds'] = self.symbol_bounds.to_dict()
         return _dict
 

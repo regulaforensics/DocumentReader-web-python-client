@@ -80,29 +80,29 @@ class RfidSignerInfoEx(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of issuer
-        if self.issuer:
+        if self.issuer and isinstance(self.issuer, RfidDistinguishedName):
             _dict['Issuer'] = self.issuer.to_dict()
         # override the default output from pydantic by calling `to_dict()` of serial_number
-        if self.serial_number:
+        if self.serial_number and isinstance(self.serial_number, TrfFtBytes):
             _dict['SerialNumber'] = self.serial_number.to_dict()
         # override the default output from pydantic by calling `to_dict()` of subject_key_identifier
-        if self.subject_key_identifier:
+        if self.subject_key_identifier and isinstance(self.subject_key_identifier, TrfFtBytes):
             _dict['SubjectKeyIdentifier'] = self.subject_key_identifier.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in signed_attributes (list)
         _items = []
         if self.signed_attributes:
             for _item_signed_attributes in self.signed_attributes:
-                if _item_signed_attributes:
+                if _item_signed_attributes and hasattr(_item_signed_attributes, "to_dict"):
                     _items.append(_item_signed_attributes.to_dict())
             _dict['SignedAttributes'] = _items
         # override the default output from pydantic by calling `to_dict()` of signature
-        if self.signature:
+        if self.signature and isinstance(self.signature, TrfFtBytes):
             _dict['Signature'] = self.signature.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in certificate_chain (list)
         _items = []
         if self.certificate_chain:
             for _item_certificate_chain in self.certificate_chain:
-                if _item_certificate_chain:
+                if _item_certificate_chain and hasattr(_item_certificate_chain, "to_dict"):
                     _items.append(_item_certificate_chain.to_dict())
             _dict['CertificateChain'] = _items
         return _dict

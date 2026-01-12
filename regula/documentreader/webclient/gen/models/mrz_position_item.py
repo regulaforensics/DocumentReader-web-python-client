@@ -65,7 +65,7 @@ class MrzPositionItem(BaseModel):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of mrz_position
-        if self.mrz_position:
+        if self.mrz_position and isinstance(self.mrz_position, DocumentPosition):
             _dict['MrzPosition'] = self.mrz_position.to_dict()
         return _dict
 

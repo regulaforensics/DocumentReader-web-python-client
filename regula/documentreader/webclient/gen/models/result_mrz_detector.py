@@ -71,7 +71,7 @@ class ResultMRZDetector(BaseModel):
         _items = []
         if self.mrz_rows:
             for _item_mrz_rows in self.mrz_rows:
-                if _item_mrz_rows:
+                if _item_mrz_rows and hasattr(_item_mrz_rows, "to_dict"):
                     _items.append(_item_mrz_rows.to_dict())
             _dict['MRZRows'] = _items
         return _dict

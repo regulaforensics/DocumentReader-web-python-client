@@ -67,7 +67,7 @@ class MRZDetectorResult(ResultItem):
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of result_mrz_detector
-        if self.result_mrz_detector:
+        if self.result_mrz_detector and isinstance(self.result_mrz_detector, ResultMRZDetector):
             _dict['ResultMRZDetector'] = self.result_mrz_detector.to_dict()
         return _dict
 
