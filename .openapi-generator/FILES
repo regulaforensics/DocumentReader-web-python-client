@@ -28,6 +28,8 @@ regula/documentreader/webclient/gen/models/barcode_type.py
 regula/documentreader/webclient/gen/models/bc_pdf417_info.py
 regula/documentreader/webclient/gen/models/bc_roidetect.py
 regula/documentreader/webclient/gen/models/binary_data.py
+regula/documentreader/webclient/gen/models/bsiv2_item.py
+regula/documentreader/webclient/gen/models/bsiv2_result.py
 regula/documentreader/webclient/gen/models/byte_array_item.py
 regula/documentreader/webclient/gen/models/byte_array_result.py
 regula/documentreader/webclient/gen/models/candidates_list_item.py
