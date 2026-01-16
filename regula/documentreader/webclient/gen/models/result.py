@@ -45,6 +45,7 @@ class Result(int, Enum):
     LICENSE = 50
     MRZ_POSITION = 61
     BARCODE_POSITION = 62
+    BSI_XML_V2 = 73
     DOCUMENT_POSITION = 85
     MRZ_DETECTOR = 87
     FACE_DETECTION = 97

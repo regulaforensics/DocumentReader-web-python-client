@@ -17,6 +17,8 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.authenticity_check_result_list_inner import AuthenticityCheckResultListInner
     from regula.documentreader.webclient.gen.models.authenticity_result import AuthenticityResult
     from regula.documentreader.webclient.gen.models.authenticity_result_type import AuthenticityResultType
+    from regula.documentreader.webclient.gen.models.bsiv2_item import BSIV2Item
+    from regula.documentreader.webclient.gen.models.bsiv2_result import BSIV2Result
     from regula.documentreader.webclient.gen.models.bar_code_module_type import BarCodeModuleType
     from regula.documentreader.webclient.gen.models.barcode_position_item import BarcodePositionItem
     from regula.documentreader.webclient.gen.models.barcode_position_result import BarcodePositionResult
@@ -272,6 +274,8 @@ from regula.documentreader.webclient.gen.models.authenticity_check_result_item i
 from regula.documentreader.webclient.gen.models.authenticity_check_result_list_inner import AuthenticityCheckResultListInner
 from regula.documentreader.webclient.gen.models.authenticity_result import AuthenticityResult
 from regula.documentreader.webclient.gen.models.authenticity_result_type import AuthenticityResultType
+from regula.documentreader.webclient.gen.models.bsiv2_item import BSIV2Item
+from regula.documentreader.webclient.gen.models.bsiv2_result import BSIV2Result
 from regula.documentreader.webclient.gen.models.bar_code_module_type import BarCodeModuleType
 from regula.documentreader.webclient.gen.models.barcode_position_item import BarcodePositionItem
 from regula.documentreader.webclient.gen.models.barcode_position_result import BarcodePositionResult
