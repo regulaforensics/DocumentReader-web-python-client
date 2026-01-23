@@ -30,7 +30,7 @@ setup(
         "urllib3>=1.25.3, <3.0.0",
         "vistir>=0.4.0, <=0.6.1",
         "idna==3.7",
-        "requests>=2.32.3",
+        "requests>=2.32.4",
         "pydantic>=2",
         "typing-extensions>=4.7.1",
         "lazy-imports==1.0.1",
