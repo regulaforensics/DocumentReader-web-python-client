@@ -26,6 +26,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.bc_pdf417_info import BcPDF417INFO
     from regula.documentreader.webclient.gen.models.bc_roidetect import BcROIDETECT
     from regula.documentreader.webclient.gen.models.binary_data import BinaryData
+    from regula.documentreader.webclient.gen.models.bsi_tr03135 import BsiTr03135
     from regula.documentreader.webclient.gen.models.byte_array_item import ByteArrayItem
     from regula.documentreader.webclient.gen.models.byte_array_result import ByteArrayResult
     from regula.documentreader.webclient.gen.models.candidates_list_item import CandidatesListItem
@@ -283,6 +284,7 @@ from regula.documentreader.webclient.gen.models.barcode_type import BarcodeType
 from regula.documentreader.webclient.gen.models.bc_pdf417_info import BcPDF417INFO
 from regula.documentreader.webclient.gen.models.bc_roidetect import BcROIDETECT
 from regula.documentreader.webclient.gen.models.binary_data import BinaryData
+from regula.documentreader.webclient.gen.models.bsi_tr03135 import BsiTr03135
 from regula.documentreader.webclient.gen.models.byte_array_item import ByteArrayItem
 from regula.documentreader.webclient.gen.models.byte_array_result import ByteArrayResult
 from regula.documentreader.webclient.gen.models.candidates_list_item import CandidatesListItem
