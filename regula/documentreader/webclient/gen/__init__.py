@@ -42,6 +42,7 @@ __all__ = [
     "BcPDF417INFO",
     "BcROIDETECT",
     "BinaryData",
+    "BsiTr03135",
     "ByteArrayItem",
     "ByteArrayResult",
     "CandidatesListItem",
@@ -312,6 +313,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.bc_pdf417_info import BcPDF417INFO as BcPDF417INFO
     from regula.documentreader.webclient.gen.models.bc_roidetect import BcROIDETECT as BcROIDETECT
     from regula.documentreader.webclient.gen.models.binary_data import BinaryData as BinaryData
+    from regula.documentreader.webclient.gen.models.bsi_tr03135 import BsiTr03135 as BsiTr03135
     from regula.documentreader.webclient.gen.models.byte_array_item import ByteArrayItem as ByteArrayItem
     from regula.documentreader.webclient.gen.models.byte_array_result import ByteArrayResult as ByteArrayResult
     from regula.documentreader.webclient.gen.models.candidates_list_item import CandidatesListItem as CandidatesListItem
@@ -588,6 +590,7 @@ from regula.documentreader.webclient.gen.models.barcode_type import BarcodeType 
 from regula.documentreader.webclient.gen.models.bc_pdf417_info import BcPDF417INFO as BcPDF417INFO
 from regula.documentreader.webclient.gen.models.bc_roidetect import BcROIDETECT as BcROIDETECT
 from regula.documentreader.webclient.gen.models.binary_data import BinaryData as BinaryData
+from regula.documentreader.webclient.gen.models.bsi_tr03135 import BsiTr03135 as BsiTr03135
 from regula.documentreader.webclient.gen.models.byte_array_item import ByteArrayItem as ByteArrayItem
 from regula.documentreader.webclient.gen.models.byte_array_result import ByteArrayResult as ByteArrayResult
 from regula.documentreader.webclient.gen.models.candidates_list_item import CandidatesListItem as CandidatesListItem

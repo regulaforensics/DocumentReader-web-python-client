@@ -12,6 +12,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.auth_params import AuthParams
+from regula.documentreader.webclient.gen.models.bsi_tr03135 import BsiTr03135
 from regula.documentreader.webclient.gen.models.document_format import DocumentFormat
 from regula.documentreader.webclient.gen.models.document_type import DocumentType
 from regula.documentreader.webclient.gen.models.face_api import FaceApi
@@ -103,8 +104,8 @@ class ProcessParams(BaseModel):
     disable_auth_resolution_filter: SkipValidation[Optional[bool]] = Field(alias="disableAuthResolutionFilter", default=None, description="This parameter if enabled will ignore the minimum barcode resolution needed to start processing.")
     strict_security_checks: SkipValidation[Optional[bool]] = Field(alias="strictSecurityChecks", default=None, description="When enabled, this parameter marks security checks that don’t meet minimum requirements as 'Failed' (instead of 'WasNotDone'), which causes the overall security status to be 'Failed'.")
     return_transliterated_fields: SkipValidation[Optional[bool]] = Field(alias="returnTransliteratedFields", default=None, description="Allows transliteration to be turned on or off; by default, it is enabled.")
-    bsi_tr03135_results: SkipValidation[Optional[bool]] = Field(alias="bsiTr03135Results", default=None, description="When enabled, returns processing results in accordance with the BSI TR-03135 standard in addition to the existing processing results.")
-    __properties: ClassVar[List[str]] = ["generateDTCVC", "lcidFilter", "checkLiveness", "lcidIgnoreFilter", "oneShotIdentification", "useFaceApi", "faceApi", "doDetectCan", "imageOutputMaxHeight", "imageOutputMaxWidth", "scenario", "resultTypeOutput", "doublePageSpread", "generateDoublePageSpreadImage", "fieldTypesFilter", "fieldTypesIgnoreFilter", "dateFormat", "measureSystem", "imageDpiOutMax", "alreadyCropped", "customParams", "config", "log", "logLevel", "forceDocID", "matchTextFieldMask", "fastDocDetect", "updateOCRValidityByGlare", "checkRequiredTextFields", "returnCroppedBarcode", "imageQa", "strictImageQuality", "respectImageQuality", "forceDocFormat", "noGraphics", "depersonalizeLog", "multiDocOnImage", "shiftExpiryDate", "minimalHolderAge", "returnUncroppedImage", "mrzFormatsFilter", "forceReadMrzBeforeLocate", "parseBarcodes", "convertCase", "splitNames", "disablePerforationOCR", "documentGroupFilter", "processAuth", "deviceId", "deviceType", "deviceTypeHex", "ignoreDeviceIdFromImage", "documentIdList", "rfid", "checkAuth", "authParams", "mrzDetectMode", "generateNumericCodes", "strictBarcodeDigitalSignatureCheck", "selectLongestNames", "doBarcodes", "strictDLCategoryExpiry", "generateAlpha2Codes", "pdfPagesLimit", "disableAuthResolutionFilter", "strictSecurityChecks", "returnTransliteratedFields", "bsiTr03135Results"]
+    bsi_tr03135: SkipValidation[Optional[BsiTr03135]] = Field(alias="bsiTr03135", default=None)
+    __properties: ClassVar[List[str]] = ["generateDTCVC", "lcidFilter", "checkLiveness", "lcidIgnoreFilter", "oneShotIdentification", "useFaceApi", "faceApi", "doDetectCan", "imageOutputMaxHeight", "imageOutputMaxWidth", "scenario", "resultTypeOutput", "doublePageSpread", "generateDoublePageSpreadImage", "fieldTypesFilter", "fieldTypesIgnoreFilter", "dateFormat", "measureSystem", "imageDpiOutMax", "alreadyCropped", "customParams", "config", "log", "logLevel", "forceDocID", "matchTextFieldMask", "fastDocDetect", "updateOCRValidityByGlare", "checkRequiredTextFields", "returnCroppedBarcode", "imageQa", "strictImageQuality", "respectImageQuality", "forceDocFormat", "noGraphics", "depersonalizeLog", "multiDocOnImage", "shiftExpiryDate", "minimalHolderAge", "returnUncroppedImage", "mrzFormatsFilter", "forceReadMrzBeforeLocate", "parseBarcodes", "convertCase", "splitNames", "disablePerforationOCR", "documentGroupFilter", "processAuth", "deviceId", "deviceType", "deviceTypeHex", "ignoreDeviceIdFromImage", "documentIdList", "rfid", "checkAuth", "authParams", "mrzDetectMode", "generateNumericCodes", "strictBarcodeDigitalSignatureCheck", "selectLongestNames", "doBarcodes", "strictDLCategoryExpiry", "generateAlpha2Codes", "pdfPagesLimit", "disableAuthResolutionFilter", "strictSecurityChecks", "returnTransliteratedFields", "bsiTr03135"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -166,6 +167,9 @@ class ProcessParams(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of auth_params
         if self.auth_params and isinstance(self.auth_params, AuthParams):
             _dict['authParams'] = self.auth_params.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of bsi_tr03135
+        if self.bsi_tr03135 and isinstance(self.bsi_tr03135, BsiTr03135):
+            _dict['bsiTr03135'] = self.bsi_tr03135.to_dict()
         return _dict
 
     @classmethod
@@ -245,7 +249,7 @@ class ProcessParams(BaseModel):
             "disableAuthResolutionFilter": obj.get("disableAuthResolutionFilter"),
             "strictSecurityChecks": obj.get("strictSecurityChecks"),
             "returnTransliteratedFields": obj.get("returnTransliteratedFields"),
-            "bsiTr03135Results": obj.get("bsiTr03135Results")
+            "bsiTr03135": BsiTr03135.from_dict(obj["bsiTr03135"]) if obj.get("bsiTr03135") is not None else None
         })
         return _obj
 
