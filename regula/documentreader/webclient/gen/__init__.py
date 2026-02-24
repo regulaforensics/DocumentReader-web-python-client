@@ -180,6 +180,7 @@ __all__ = [
     "ProcessResponse",
     "ProcessSystemInfo",
     "ProcessingStatus",
+    "PropertiesParams",
     "RFIDDocVisualExtendedField",
     "RFIDDocVisualExtendedFieldItem",
     "RFIDDocVisualExtendedInfo",
@@ -451,6 +452,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.process_response import ProcessResponse as ProcessResponse
     from regula.documentreader.webclient.gen.models.process_system_info import ProcessSystemInfo as ProcessSystemInfo
     from regula.documentreader.webclient.gen.models.processing_status import ProcessingStatus as ProcessingStatus
+    from regula.documentreader.webclient.gen.models.properties_params import PropertiesParams as PropertiesParams
     from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_field import RFIDDocVisualExtendedField as RFIDDocVisualExtendedField
     from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_field_item import RFIDDocVisualExtendedFieldItem as RFIDDocVisualExtendedFieldItem
     from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_info import RFIDDocVisualExtendedInfo as RFIDDocVisualExtendedInfo
@@ -728,6 +730,7 @@ from regula.documentreader.webclient.gen.models.process_request_image import Pro
 from regula.documentreader.webclient.gen.models.process_response import ProcessResponse as ProcessResponse
 from regula.documentreader.webclient.gen.models.process_system_info import ProcessSystemInfo as ProcessSystemInfo
 from regula.documentreader.webclient.gen.models.processing_status import ProcessingStatus as ProcessingStatus
+from regula.documentreader.webclient.gen.models.properties_params import PropertiesParams as PropertiesParams
 from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_field import RFIDDocVisualExtendedField as RFIDDocVisualExtendedField
 from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_field_item import RFIDDocVisualExtendedFieldItem as RFIDDocVisualExtendedFieldItem
 from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_info import RFIDDocVisualExtendedInfo as RFIDDocVisualExtendedInfo
