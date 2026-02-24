@@ -38,6 +38,7 @@ class Scenario(str, Enum):
     CAPTURE = 'Capture'
     DTC = 'DTC'
     RFID = 'RFID'
+    MDL = 'mDL'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
