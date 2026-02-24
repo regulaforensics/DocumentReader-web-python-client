@@ -40,6 +40,7 @@ class AuthenticityResultType(int, Enum):
     EXTENDED_OCR_CHECK = 4194304
     EXTENDED_MRZ_CHECK = 8388608
     ENCRYPTED_IPI = 16777216
+    PROPERTY = 33554432
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

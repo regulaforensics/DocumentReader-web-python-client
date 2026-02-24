@@ -168,6 +168,7 @@ regula/documentreader/webclient/gen/models/process_request_image.py
 regula/documentreader/webclient/gen/models/process_response.py
 regula/documentreader/webclient/gen/models/process_system_info.py
 regula/documentreader/webclient/gen/models/processing_status.py
+regula/documentreader/webclient/gen/models/properties_params.py
 regula/documentreader/webclient/gen/models/raw_image_container_item.py
 regula/documentreader/webclient/gen/models/raw_image_container_list.py
 regula/documentreader/webclient/gen/models/rectangle_coordinates.py
