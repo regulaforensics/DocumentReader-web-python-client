@@ -164,6 +164,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.process_response import ProcessResponse
     from regula.documentreader.webclient.gen.models.process_system_info import ProcessSystemInfo
     from regula.documentreader.webclient.gen.models.processing_status import ProcessingStatus
+    from regula.documentreader.webclient.gen.models.properties_params import PropertiesParams
     from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_field import RFIDDocVisualExtendedField
     from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_field_item import RFIDDocVisualExtendedFieldItem
     from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_info import RFIDDocVisualExtendedInfo
@@ -422,6 +423,7 @@ from regula.documentreader.webclient.gen.models.process_request_image import Pro
 from regula.documentreader.webclient.gen.models.process_response import ProcessResponse
 from regula.documentreader.webclient.gen.models.process_system_info import ProcessSystemInfo
 from regula.documentreader.webclient.gen.models.processing_status import ProcessingStatus
+from regula.documentreader.webclient.gen.models.properties_params import PropertiesParams
 from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_field import RFIDDocVisualExtendedField
 from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_field_item import RFIDDocVisualExtendedFieldItem
 from regula.documentreader.webclient.gen.models.rfid_doc_visual_extended_info import RFIDDocVisualExtendedInfo

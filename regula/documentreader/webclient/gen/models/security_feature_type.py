@@ -79,6 +79,7 @@ class SecurityFeatureType(int, Enum):
     PORTRAIT_COMPARISON_BARCODE_VS_GHOST = 59
     PORTRAIT_COMPARISON_GHOST_VS_LIVE = 60
     PORTRAIT_COMPARISON_EXT_VS_GHOST = 61
+    SIGNATURE_PRESENCE = 62
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

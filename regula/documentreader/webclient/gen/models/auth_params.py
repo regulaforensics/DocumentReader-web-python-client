@@ -12,6 +12,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from regula.documentreader.webclient.gen.models.liveness_params import LivenessParams
+from regula.documentreader.webclient.gen.models.properties_params import PropertiesParams
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic import SkipValidation, Field
@@ -36,7 +37,9 @@ class AuthParams(BaseModel):
     check_photo_comparison: SkipValidation[Optional[bool]] = Field(alias="checkPhotoComparison", default=None, description="This parameter is used to enable Portrait comparison check")
     check_letter_screen: SkipValidation[Optional[bool]] = Field(alias="checkLetterScreen", default=None, description="This parameter is used to enable LetterScreen check")
     check_security_text: SkipValidation[Optional[bool]] = Field(alias="checkSecurityText", default=None, description="This parameter is used to enable Security text check")
-    __properties: ClassVar[List[str]] = ["checkLiveness", "livenessParams", "checkUVLuminiscence", "checkIRB900", "checkImagePatterns", "checkFibers", "checkExtMRZ", "checkExtOCR", "checkAxial", "checkBarcodeFormat", "checkIRVisibility", "checkIPI", "checkPhotoEmbedding", "checkPhotoComparison", "checkLetterScreen", "checkSecurityText"]
+    check_properties: SkipValidation[Optional[bool]] = Field(alias="checkProperties", default=None, description="Set to true to enable detection of the document properties, such as holder's signature and other attributes.")
+    properties_params: SkipValidation[Optional[PropertiesParams]] = Field(alias="propertiesParams", default=None)
+    __properties: ClassVar[List[str]] = ["checkLiveness", "livenessParams", "checkUVLuminiscence", "checkIRB900", "checkImagePatterns", "checkFibers", "checkExtMRZ", "checkExtOCR", "checkAxial", "checkBarcodeFormat", "checkIRVisibility", "checkIPI", "checkPhotoEmbedding", "checkPhotoComparison", "checkLetterScreen", "checkSecurityText", "checkProperties", "propertiesParams"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,6 +85,9 @@ class AuthParams(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of liveness_params
         if self.liveness_params and isinstance(self.liveness_params, LivenessParams):
             _dict['livenessParams'] = self.liveness_params.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of properties_params
+        if self.properties_params and isinstance(self.properties_params, PropertiesParams):
+            _dict['propertiesParams'] = self.properties_params.to_dict()
         return _dict
 
     @classmethod
@@ -109,7 +115,9 @@ class AuthParams(BaseModel):
             "checkPhotoEmbedding": obj.get("checkPhotoEmbedding"),
             "checkPhotoComparison": obj.get("checkPhotoComparison"),
             "checkLetterScreen": obj.get("checkLetterScreen"),
-            "checkSecurityText": obj.get("checkSecurityText")
+            "checkSecurityText": obj.get("checkSecurityText"),
+            "checkProperties": obj.get("checkProperties"),
+            "propertiesParams": PropertiesParams.from_dict(obj["propertiesParams"]) if obj.get("propertiesParams") is not None else None
         })
         return _obj
 
