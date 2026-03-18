@@ -35,7 +35,9 @@ class DatabaseDocument(BaseModel):
     year: SkipValidation[Optional[str]] = Field(alias="year", default=None, description="The year when the document was issued.")
     sovereignty: SkipValidation[Optional[str]] = Field(alias="sovereignty", default=None, description="Guardian country.")
     deprecated: SkipValidation[Optional[bool]] = Field(alias="deprecated", default=None, description="Whether the document is no longer in circulation.")
-    __properties: ClassVar[List[str]] = ["barcode_fields", "country", "createad", "doc_type", "document", "graphic_fields", "id", "mrz", "region", "rfid_chip", "text_fields", "updated", "year", "sovereignty", "deprecated"]
+    icao_code: SkipValidation[Optional[str]] = Field(alias="icao_code", default=None, description="ICAO country code.")
+    doc_codes: SkipValidation[Optional[str]] = Field(alias="doc_codes", default=None, description="Document codes.")
+    __properties: ClassVar[List[str]] = ["barcode_fields", "country", "createad", "doc_type", "document", "graphic_fields", "id", "mrz", "region", "rfid_chip", "text_fields", "updated", "year", "sovereignty", "deprecated", "icao_code", "doc_codes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -104,7 +106,9 @@ class DatabaseDocument(BaseModel):
             "updated": obj.get("updated"),
             "year": obj.get("year"),
             "sovereignty": obj.get("sovereignty"),
-            "deprecated": obj.get("deprecated")
+            "deprecated": obj.get("deprecated"),
+            "icao_code": obj.get("icao_code"),
+            "doc_codes": obj.get("doc_codes")
         })
         return _obj
 
