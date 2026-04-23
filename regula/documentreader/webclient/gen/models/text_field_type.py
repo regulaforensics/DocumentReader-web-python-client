@@ -672,6 +672,7 @@ class TextFieldType(int, Enum):
     FT_NON_DOMICILED_INDICATOR = 702
     FT_JURISDICTION_SPECIFIC_DATA = 703
     FT_DATA_DATE_OF_EXPIRY = 704
+    FT_CONSUL = 705
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
