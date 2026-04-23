@@ -68,6 +68,7 @@ class RfidDataFileType(int, Enum):
     ID_DG19 = 119
     ID_DG20 = 120
     ID_DG21 = 121
+    ID_DG22 = 122
     DL_COM = 150
     DL_DG1 = 151
     DL_DG2 = 152
