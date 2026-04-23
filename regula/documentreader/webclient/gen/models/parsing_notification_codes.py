@@ -201,6 +201,8 @@ class ParsingNotificationCodes(int, Enum):
     ntfLDS_Biometrics_BDB_Data_PoseAngleU_Roll = 2417491968
     ntfLDS_Biometrics_BDB_Data_FaceImageType = 2417557504
     ntfLDS_Biometrics_BDB_Data_ImageDataType = 2417623040
+    ntfLDS_SI_Storage_CS_NonConsistant = 2432696593
+    ntfLDS_SI_Storage_CS_PACE_CAM_Key_Missing = 2432696594
     ntfLDS_Biometrics_RB_Data_Incorrect = 2449539072
     ntfLDS_Biometrics_RB_Item_Incorrect = 2449604608
     ntfLDS_Biometrics_RB_Item_Missing = 2449670144
