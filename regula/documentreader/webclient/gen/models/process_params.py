@@ -78,7 +78,6 @@ class ProcessParams(BaseModel):
     minimal_holder_age: SkipValidation[Optional[int]] = Field(alias="minimalHolderAge", default=None, description="This options allows specifying the minimal age in years of the document holder for the document to be considered valid.")
     return_uncropped_image: SkipValidation[Optional[bool]] = Field(alias="returnUncroppedImage", default=None, description="When enabled, returns input images in output. Disabled by default.")
     mrz_formats_filter: SkipValidation[Optional[List[MRZFormat]]] = Field(alias="mrzFormatsFilter", default=None, description="This option allows limiting MRZ formats to be recognized by specifying them in array.")
-    force_read_mrz_before_locate: SkipValidation[Optional[bool]] = Field(alias="forceReadMrzBeforeLocate", default=None, description="When enabled, make sure that in series processing MRZ is located fully inside the result document image, if present on the document. Enabling this option may add extra processing time, by disabling optimizations, but allows more stability in output image quality. Disabled by default.")
     parse_barcodes: SkipValidation[Optional[bool]] = Field(alias="parseBarcodes", default=None, description="This option can be disabled to stop parsing after barcode is read. Enabled by default.")
     convert_case: SkipValidation[Optional[TextPostProcessing]] = Field(alias="convertCase", default=None)
     split_names: SkipValidation[Optional[bool]] = Field(alias="splitNames", default=None, description="When enabled, the Surname and GivenNames fields from MRZ will be divided into ft_First_Name, ft_Second_Name, ft_Third_Name, ft_Fourth_Name, ft_Last_Name fields. Disabled by default.")
@@ -107,7 +106,8 @@ class ProcessParams(BaseModel):
     bsi_tr03135: SkipValidation[Optional[BsiTr03135]] = Field(alias="bsiTr03135", default=None)
     strict_expiry_date: SkipValidation[Optional[bool]] = Field(alias="strictExpiryDate", default=None, description="When disabled, date of expiry doesn't affect the MRZ and text statuses.")
     check_vds: SkipValidation[Optional[bool]] = Field(alias="checkVDS", default=None, description="This parameter is used to enable Visible Digital Seal check. Disabled by default.")
-    __properties: ClassVar[List[str]] = ["generateDTCVC", "lcidFilter", "checkLiveness", "lcidIgnoreFilter", "oneShotIdentification", "useFaceApi", "faceApi", "doDetectCan", "imageOutputMaxHeight", "imageOutputMaxWidth", "scenario", "resultTypeOutput", "doublePageSpread", "generateDoublePageSpreadImage", "fieldTypesFilter", "fieldTypesIgnoreFilter", "dateFormat", "measureSystem", "imageDpiOutMax", "alreadyCropped", "customParams", "config", "log", "logLevel", "forceDocID", "matchTextFieldMask", "fastDocDetect", "updateOCRValidityByGlare", "checkRequiredTextFields", "returnCroppedBarcode", "imageQa", "strictImageQuality", "respectImageQuality", "forceDocFormat", "noGraphics", "depersonalizeLog", "multiDocOnImage", "shiftExpiryDate", "minimalHolderAge", "returnUncroppedImage", "mrzFormatsFilter", "forceReadMrzBeforeLocate", "parseBarcodes", "convertCase", "splitNames", "disablePerforationOCR", "documentGroupFilter", "processAuth", "deviceId", "deviceType", "deviceTypeHex", "ignoreDeviceIdFromImage", "documentIdList", "rfid", "checkAuth", "authParams", "mrzDetectMode", "generateNumericCodes", "strictBarcodeDigitalSignatureCheck", "selectLongestNames", "doBarcodes", "strictDLCategoryExpiry", "generateAlpha2Codes", "pdfPagesLimit", "disableAuthResolutionFilter", "strictSecurityChecks", "returnTransliteratedFields", "bsiTr03135", "strictExpiryDate", "checkVDS"]
+    strict_age_check: SkipValidation[Optional[bool]] = Field(alias="strictAgeCheck", default=None, description="When enabled, the age check status affects the overall status.")
+    __properties: ClassVar[List[str]] = ["generateDTCVC", "lcidFilter", "checkLiveness", "lcidIgnoreFilter", "oneShotIdentification", "useFaceApi", "faceApi", "doDetectCan", "imageOutputMaxHeight", "imageOutputMaxWidth", "scenario", "resultTypeOutput", "doublePageSpread", "generateDoublePageSpreadImage", "fieldTypesFilter", "fieldTypesIgnoreFilter", "dateFormat", "measureSystem", "imageDpiOutMax", "alreadyCropped", "customParams", "config", "log", "logLevel", "forceDocID", "matchTextFieldMask", "fastDocDetect", "updateOCRValidityByGlare", "checkRequiredTextFields", "returnCroppedBarcode", "imageQa", "strictImageQuality", "respectImageQuality", "forceDocFormat", "noGraphics", "depersonalizeLog", "multiDocOnImage", "shiftExpiryDate", "minimalHolderAge", "returnUncroppedImage", "mrzFormatsFilter", "parseBarcodes", "convertCase", "splitNames", "disablePerforationOCR", "documentGroupFilter", "processAuth", "deviceId", "deviceType", "deviceTypeHex", "ignoreDeviceIdFromImage", "documentIdList", "rfid", "checkAuth", "authParams", "mrzDetectMode", "generateNumericCodes", "strictBarcodeDigitalSignatureCheck", "selectLongestNames", "doBarcodes", "strictDLCategoryExpiry", "generateAlpha2Codes", "pdfPagesLimit", "disableAuthResolutionFilter", "strictSecurityChecks", "returnTransliteratedFields", "bsiTr03135", "strictExpiryDate", "checkVDS", "strictAgeCheck"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -225,7 +225,6 @@ class ProcessParams(BaseModel):
             "minimalHolderAge": obj.get("minimalHolderAge"),
             "returnUncroppedImage": obj.get("returnUncroppedImage"),
             "mrzFormatsFilter": obj.get("mrzFormatsFilter"),
-            "forceReadMrzBeforeLocate": obj.get("forceReadMrzBeforeLocate"),
             "parseBarcodes": obj.get("parseBarcodes"),
             "convertCase": obj.get("convertCase"),
             "splitNames": obj.get("splitNames"),
@@ -253,7 +252,8 @@ class ProcessParams(BaseModel):
             "returnTransliteratedFields": obj.get("returnTransliteratedFields"),
             "bsiTr03135": BsiTr03135.from_dict(obj["bsiTr03135"]) if obj.get("bsiTr03135") is not None else None,
             "strictExpiryDate": obj.get("strictExpiryDate"),
-            "checkVDS": obj.get("checkVDS")
+            "checkVDS": obj.get("checkVDS"),
+            "strictAgeCheck": obj.get("strictAgeCheck")
         })
         return _obj
 
