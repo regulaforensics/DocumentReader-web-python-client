@@ -26,7 +26,8 @@ class LivenessParams(BaseModel):
     check_black_and_white_copy: SkipValidation[Optional[bool]] = Field(alias="checkBlackAndWhiteCopy", default=None, description="This parameter is used to enable Black and white copy check")
     check_dynaprint: SkipValidation[Optional[bool]] = Field(alias="checkDynaprint", default=None, description="This parameter is used to enable Dynaprint check")
     check_geometry: SkipValidation[Optional[bool]] = Field(alias="checkGeometry", default=None, description="This parameter is used to enable Geometry check")
-    __properties: ClassVar[List[str]] = ["checkOVI", "checkMLI", "checkHolo", "checkED", "checkBlackAndWhiteCopy", "checkDynaprint", "checkGeometry"]
+    check_barcode_background: SkipValidation[Optional[bool]] = Field(alias="checkBarcodeBackground", default=None, description="This parameter is used to enable Barcode background check as part of the Liveness checks")
+    __properties: ClassVar[List[str]] = ["checkOVI", "checkMLI", "checkHolo", "checkED", "checkBlackAndWhiteCopy", "checkDynaprint", "checkGeometry", "checkBarcodeBackground"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,7 +88,8 @@ class LivenessParams(BaseModel):
             "checkED": obj.get("checkED"),
             "checkBlackAndWhiteCopy": obj.get("checkBlackAndWhiteCopy"),
             "checkDynaprint": obj.get("checkDynaprint"),
-            "checkGeometry": obj.get("checkGeometry")
+            "checkGeometry": obj.get("checkGeometry"),
+            "checkBarcodeBackground": obj.get("checkBarcodeBackground")
         })
         return _obj
 
