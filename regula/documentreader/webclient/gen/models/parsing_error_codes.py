@@ -124,6 +124,8 @@ class ParsingErrorCodes(int, Enum):
     errLDS_CV_Certificate_CHAT_UnsupportedTerminalType = 2164260963
     errLDS_CV_Certificate_PrivateKey_Unsupported = 2164260964
     errLDS_CV_Certificate_PrivateKey_InvalidParams = 2164260965
+    errLDS_PACE_CAM_Data_Usage_Incorrect = 2164261163
+    errLDS_PACE_IM_MappingData_Incorrect = 2164261167
     errLDS_CV_Certificate_IncorrectData = 2164261216
     errLDS_CV_Certificate_CPI_IncorrectData = 2164261217
     errLDS_CV_Certificate_CAR_IncorrectData = 2164261218

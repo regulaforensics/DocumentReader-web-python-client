@@ -28,6 +28,7 @@ class ParsingNotificationCodes(int, Enum):
     ntfLDS_ASN_Certificate_ForcedDefaultCSCARole = 2415919118
     ntfLDS_ASN_Certificate_ForcedDefaultDSRole = 2415919119
     ntfLDS_ASN_Certificate_IncorrectIssuerSubjectDS = 2415919120
+    ntfLDS_ASN_Certificate_NonMatchingDSRole = 2415919121
     ntfLDS_ASN_Certificate_DuplicatingExtensions = 2415919127
     ntfLDS_ICAO_Certificate_Version_Missed = 2415919616
     ntfLDS_ICAO_Certificate_Version_Incorrect = 2415919617
@@ -162,6 +163,10 @@ class ParsingNotificationCodes(int, Enum):
     ntfLDS_Auth_SignerInfo_Certificate_Revoked = 2415919384
     ntfLDS_Auth_SignerInfo_Certificate_SignatureInvalid = 2415919385
     ntfLDS_UnsupportedImageFormat = 2415919386
+    ntfLDS_MDL_Certificate_Chain_SoP_NonMatching = 2415920128
+    ntfLDS_MDL_Certificate_UnsupportedPublicKeyAlgorithm = 2415920129
+    ntfLDS_MDL_Certificate_UnsupportedSignatureAlgorithm = 2415920130
+    ntfLDS_MDL_Certificate_UnsupportedPublicKeyParams = 2415920131
     ntfLDS_MRZ_DocumentType_Unknown = 139272
     ntfLDS_MRZ_IssuingState_SyntaxError = 139273
     ntfLDS_MRZ_Name_IsVoid = 139274
