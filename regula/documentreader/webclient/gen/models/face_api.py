@@ -30,7 +30,8 @@ class FaceApi(BaseModel):
     proxy_type: SkipValidation[Optional[int]] = Field(alias="proxy_type", default=None, description="Proxy protocol type, should be set according to the <a href=\"https://curl.se/libcurl/c/CURLOPT_PROXYTYPE.html\" target=\"_blank\">cURL standard</a>.")
     child_age_threshold: SkipValidation[Optional[int]] = Field(alias="childAgeThreshold", default=None, description="The age threshold for the portrait comparison. Default: 13.")
     child_doc_validity_years: SkipValidation[Optional[int]] = Field(alias="childDocValidityYears", default=None, description="Estimated duration of validity for a child's passport, years. Default: 5.")
-    __properties: ClassVar[List[str]] = ["url", "mode", "search", "threshold", "serviceTimeout", "proxy", "proxy_userpwd", "proxy_type", "childAgeThreshold", "childDocValidityYears"]
+    liveness_transaction_id: SkipValidation[Optional[str]] = Field(alias="livenessTransactionId", default=None, description="This parameter allows you to use a liveness transaction id instead of a selfie photo.")
+    __properties: ClassVar[List[str]] = ["url", "mode", "search", "threshold", "serviceTimeout", "proxy", "proxy_userpwd", "proxy_type", "childAgeThreshold", "childDocValidityYears", "livenessTransactionId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,7 +98,8 @@ class FaceApi(BaseModel):
             "proxy_userpwd": obj.get("proxy_userpwd"),
             "proxy_type": obj.get("proxy_type"),
             "childAgeThreshold": obj.get("childAgeThreshold"),
-            "childDocValidityYears": obj.get("childDocValidityYears")
+            "childDocValidityYears": obj.get("childDocValidityYears"),
+            "livenessTransactionId": obj.get("livenessTransactionId")
         })
         return _obj
 
