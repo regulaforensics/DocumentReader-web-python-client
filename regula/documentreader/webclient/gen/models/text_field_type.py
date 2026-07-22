@@ -673,6 +673,9 @@ class TextFieldType(int, Enum):
     FT_JURISDICTION_SPECIFIC_DATA = 703
     FT_DATA_DATE_OF_EXPIRY = 704
     FT_CONSUL = 705
+    DL_CLASS_CODE_B3_FROM = 706
+    DL_CLASS_CODE_B3_TO = 707
+    DL_CLASS_CODE_B3_NOTES = 708
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
