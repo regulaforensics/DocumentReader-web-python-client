@@ -29,8 +29,9 @@ class Healthcheck(BaseModel):
     scenarios: SkipValidation[List[str]] = Field(alias="scenarios", description="List of supported scenarios.")
     version: SkipValidation[str] = Field(alias="version", description="Product version.")
     metadata: SkipValidation[Optional[Dict[str, object]]] = Field(alias="metadata", default=None)
+    country_filter: SkipValidation[Optional[List[str]]] = Field(alias="countryFilter", default=None, description="The list of country identifiers that are defined for processing in the license. If the array is empty, there are no restrictions for processing.")
     documents_database: SkipValidation[Optional[HealthcheckDocumentsDatabase]] = Field(alias="documentsDatabase", default=None)
-    __properties: ClassVar[List[str]] = ["app", "licenseId", "licenseType", "licenseSerial", "licenseValidUntil", "scenarios", "version", "metadata", "documentsDatabase"]
+    __properties: ClassVar[List[str]] = ["app", "licenseId", "licenseType", "licenseSerial", "licenseValidUntil", "scenarios", "version", "metadata", "countryFilter", "documentsDatabase"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -126,6 +127,7 @@ class Healthcheck(BaseModel):
             "scenarios": obj.get("scenarios"),
             "version": obj.get("version"),
             "metadata": obj.get("metadata"),
+            "countryFilter": obj.get("countryFilter"),
             "documentsDatabase": HealthcheckDocumentsDatabase.from_dict(obj["documentsDatabase"]) if obj.get("documentsDatabase") is not None else None
         })
         return _obj
