@@ -157,6 +157,7 @@ __all__ = [
     "MrzPositionItem",
     "OCRSecurityTextItem",
     "OCRSecurityTextResult",
+    "OcclusionCheckParams",
     "OneCandidate",
     "OneCandidateItem",
     "OriginalSymbol",
@@ -429,6 +430,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.mrz_position_item import MrzPositionItem as MrzPositionItem
     from regula.documentreader.webclient.gen.models.ocr_security_text_item import OCRSecurityTextItem as OCRSecurityTextItem
     from regula.documentreader.webclient.gen.models.ocr_security_text_result import OCRSecurityTextResult as OCRSecurityTextResult
+    from regula.documentreader.webclient.gen.models.occlusion_check_params import OcclusionCheckParams as OcclusionCheckParams
     from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate as OneCandidate
     from regula.documentreader.webclient.gen.models.one_candidate_item import OneCandidateItem as OneCandidateItem
     from regula.documentreader.webclient.gen.models.original_symbol import OriginalSymbol as OriginalSymbol
@@ -707,6 +709,7 @@ from regula.documentreader.webclient.gen.models.mrz_detect_mode_enum import MrzD
 from regula.documentreader.webclient.gen.models.mrz_position_item import MrzPositionItem as MrzPositionItem
 from regula.documentreader.webclient.gen.models.ocr_security_text_item import OCRSecurityTextItem as OCRSecurityTextItem
 from regula.documentreader.webclient.gen.models.ocr_security_text_result import OCRSecurityTextResult as OCRSecurityTextResult
+from regula.documentreader.webclient.gen.models.occlusion_check_params import OcclusionCheckParams as OcclusionCheckParams
 from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate as OneCandidate
 from regula.documentreader.webclient.gen.models.one_candidate_item import OneCandidateItem as OneCandidateItem
 from regula.documentreader.webclient.gen.models.original_symbol import OriginalSymbol as OriginalSymbol

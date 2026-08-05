@@ -141,6 +141,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.mrz_position_item import MrzPositionItem
     from regula.documentreader.webclient.gen.models.ocr_security_text_item import OCRSecurityTextItem
     from regula.documentreader.webclient.gen.models.ocr_security_text_result import OCRSecurityTextResult
+    from regula.documentreader.webclient.gen.models.occlusion_check_params import OcclusionCheckParams
     from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate
     from regula.documentreader.webclient.gen.models.one_candidate_item import OneCandidateItem
     from regula.documentreader.webclient.gen.models.original_symbol import OriginalSymbol
@@ -400,6 +401,7 @@ from regula.documentreader.webclient.gen.models.mrz_detect_mode_enum import MrzD
 from regula.documentreader.webclient.gen.models.mrz_position_item import MrzPositionItem
 from regula.documentreader.webclient.gen.models.ocr_security_text_item import OCRSecurityTextItem
 from regula.documentreader.webclient.gen.models.ocr_security_text_result import OCRSecurityTextResult
+from regula.documentreader.webclient.gen.models.occlusion_check_params import OcclusionCheckParams
 from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate
 from regula.documentreader.webclient.gen.models.one_candidate_item import OneCandidateItem
 from regula.documentreader.webclient.gen.models.original_symbol import OriginalSymbol

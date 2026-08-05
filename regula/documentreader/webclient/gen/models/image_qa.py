@@ -13,6 +13,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, Stri
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from regula.documentreader.webclient.gen.models.glares_check_params import GlaresCheckParams
 from regula.documentreader.webclient.gen.models.input_image_quality_checks import InputImageQualityChecks
+from regula.documentreader.webclient.gen.models.occlusion_check_params import OcclusionCheckParams
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic import SkipValidation, Field
@@ -31,7 +32,8 @@ class ImageQA(BaseModel):
     document_position_indent: SkipValidation[Optional[int]] = Field(alias="documentPositionIndent", default=None, description="This parameter specifies the necessary margin. Default 0.")
     expected_pass: SkipValidation[Optional[List[InputImageQualityChecks]]] = Field(alias="expectedPass", default=None, description="This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process.")
     glares_check_params: SkipValidation[Optional[GlaresCheckParams]] = Field(alias="glaresCheckParams", default=None)
-    __properties: ClassVar[List[str]] = ["brightnessThreshold", "dpiThreshold", "angleThreshold", "focusCheck", "glaresCheck", "colornessCheck", "moireCheck", "documentPositionIndent", "expectedPass", "glaresCheckParams"]
+    occlusion_check_params: SkipValidation[Optional[OcclusionCheckParams]] = Field(alias="occlusionCheckParams", default=None)
+    __properties: ClassVar[List[str]] = ["brightnessThreshold", "dpiThreshold", "angleThreshold", "focusCheck", "glaresCheck", "colornessCheck", "moireCheck", "documentPositionIndent", "expectedPass", "glaresCheckParams", "occlusionCheckParams"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -77,6 +79,9 @@ class ImageQA(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of glares_check_params
         if self.glares_check_params and isinstance(self.glares_check_params, GlaresCheckParams):
             _dict['glaresCheckParams'] = self.glares_check_params.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of occlusion_check_params
+        if self.occlusion_check_params and isinstance(self.occlusion_check_params, OcclusionCheckParams):
+            _dict['occlusionCheckParams'] = self.occlusion_check_params.to_dict()
         return _dict
 
     @classmethod
@@ -98,7 +103,8 @@ class ImageQA(BaseModel):
             "moireCheck": obj.get("moireCheck"),
             "documentPositionIndent": obj.get("documentPositionIndent"),
             "expectedPass": obj.get("expectedPass"),
-            "glaresCheckParams": GlaresCheckParams.from_dict(obj["glaresCheckParams"]) if obj.get("glaresCheckParams") is not None else None
+            "glaresCheckParams": GlaresCheckParams.from_dict(obj["glaresCheckParams"]) if obj.get("glaresCheckParams") is not None else None,
+            "occlusionCheckParams": OcclusionCheckParams.from_dict(obj["occlusionCheckParams"]) if obj.get("occlusionCheckParams") is not None else None
         })
         return _obj
 
