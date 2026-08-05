@@ -143,6 +143,7 @@ regula/documentreader/webclient/gen/models/mrz_rows_item.py
 regula/documentreader/webclient/gen/models/mrz_test_quality.py
 regula/documentreader/webclient/gen/models/mrz_test_quality_item.py
 regula/documentreader/webclient/gen/models/mrz_test_quality_result.py
+regula/documentreader/webclient/gen/models/occlusion_check_params.py
 regula/documentreader/webclient/gen/models/ocr_security_text_item.py
 regula/documentreader/webclient/gen/models/ocr_security_text_result.py
 regula/documentreader/webclient/gen/models/one_candidate.py
