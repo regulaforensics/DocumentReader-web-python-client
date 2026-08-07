@@ -32,8 +32,9 @@ class ImageQA(BaseModel):
     document_position_indent: SkipValidation[Optional[int]] = Field(alias="documentPositionIndent", default=None, description="This parameter specifies the necessary margin. Default 0.")
     expected_pass: SkipValidation[Optional[List[InputImageQualityChecks]]] = Field(alias="expectedPass", default=None, description="This parameter controls the quality checks that the image should pass to be considered a valid input during the scanning process.")
     glares_check_params: SkipValidation[Optional[GlaresCheckParams]] = Field(alias="glaresCheckParams", default=None)
+    occlusion_check: SkipValidation[Optional[bool]] = Field(alias="occlusionCheck", default=None, description="This option enables the occlusion detection to identify cases where parts of a document are covered by fingers, hands, or other objects during image capture.")
     occlusion_check_params: SkipValidation[Optional[OcclusionCheckParams]] = Field(alias="occlusionCheckParams", default=None)
-    __properties: ClassVar[List[str]] = ["brightnessThreshold", "dpiThreshold", "angleThreshold", "focusCheck", "glaresCheck", "colornessCheck", "moireCheck", "documentPositionIndent", "expectedPass", "glaresCheckParams", "occlusionCheckParams"]
+    __properties: ClassVar[List[str]] = ["brightnessThreshold", "dpiThreshold", "angleThreshold", "focusCheck", "glaresCheck", "colornessCheck", "moireCheck", "documentPositionIndent", "expectedPass", "glaresCheckParams", "occlusionCheck", "occlusionCheckParams"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -104,6 +105,7 @@ class ImageQA(BaseModel):
             "documentPositionIndent": obj.get("documentPositionIndent"),
             "expectedPass": obj.get("expectedPass"),
             "glaresCheckParams": GlaresCheckParams.from_dict(obj["glaresCheckParams"]) if obj.get("glaresCheckParams") is not None else None,
+            "occlusionCheck": obj.get("occlusionCheck"),
             "occlusionCheckParams": OcclusionCheckParams.from_dict(obj["occlusionCheckParams"]) if obj.get("occlusionCheckParams") is not None else None
         })
         return _obj
