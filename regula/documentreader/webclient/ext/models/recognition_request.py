@@ -69,6 +69,7 @@ class RecognitionRequest(ProcessRequest):
             images: List[Union[RecognitionImage, bytes, Base64String]] = None,
             container_list: ContainerList = None, tag=None,
             system_info: ProcessSystemInfo = ProcessSystemInfo(),
+            tenant: str = None, env: str = None
     ):
         input_images = []
         if images:
@@ -81,12 +82,16 @@ class RecognitionRequest(ProcessRequest):
                 processParam=process_params,
                 List=input_images,
                 systemInfo=system_info,
-                tag=tag
+                tag=tag,
+                tenant=tenant,
+                env=env
             )
         if container_list:
             super().__init__(
                 processParam=process_params,
                 ContainerList=container_list,
                 systemInfo=system_info,
-                tag=tag
+                tag=tag,
+                tenant=tenant,
+                env=env
             )
