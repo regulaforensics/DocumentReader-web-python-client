@@ -1,27 +1,32 @@
+# This repository is public and cannot call reusable workflows from a private
+# repository (regulaforensics/reusable-workflows). The logic below is a local
+# copy that mirrors the reusable workflow exactly. SHA pins are kept up-to-date
+# by Renovate (see renovate.json).
 name: Trivy Scan
 
 on:
   pull_request:
     branches:
+      - develop
+      - staging
+      - production
+      - stable
       - main
       - master
-      - develop
-      - stable
 
 jobs:
   trivy-scan:
-    name: Scanner
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-    - name: Run Trivy vulnerability scanner in fs mode
-      uses: aquasecurity/trivy-action@master
-      with:
-        scan-type: 'fs'
-        exit-code: '1'
-        ignore-unfixed: true
-        severity: 'CRITICAL,HIGH,MEDIUM,LOW'
-      env:
-        TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db:2
+      - name: Run Trivy scanner
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: 'fs'
+          exit-code: '1'
+          ignore-unfixed: true
+          severity: 'CRITICAL,HIGH,MEDIUM,LOW'
+        env:
+          TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db:2
