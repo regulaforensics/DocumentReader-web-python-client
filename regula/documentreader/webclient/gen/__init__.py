@@ -198,6 +198,7 @@ __all__ = [
     "ResultMRZDetector",
     "ResultMRZDetectorItem",
     "RfidAChip",
+    "RfidAccessControl",
     "RfidAccessControlInfo",
     "RfidAccessControlProcedureType",
     "RfidAccessKey",
@@ -471,6 +472,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.result_mrz_detector import ResultMRZDetector as ResultMRZDetector
     from regula.documentreader.webclient.gen.models.result_mrz_detector_item import ResultMRZDetectorItem as ResultMRZDetectorItem
     from regula.documentreader.webclient.gen.models.rfid_a_chip import RfidAChip as RfidAChip
+    from regula.documentreader.webclient.gen.models.rfid_access_control import RfidAccessControl as RfidAccessControl
     from regula.documentreader.webclient.gen.models.rfid_access_control_info import RfidAccessControlInfo as RfidAccessControlInfo
     from regula.documentreader.webclient.gen.models.rfid_access_control_procedure_type import RfidAccessControlProcedureType as RfidAccessControlProcedureType
     from regula.documentreader.webclient.gen.models.rfid_access_key import RfidAccessKey as RfidAccessKey
@@ -750,6 +752,7 @@ from regula.documentreader.webclient.gen.models.result_item import ResultItem as
 from regula.documentreader.webclient.gen.models.result_mrz_detector import ResultMRZDetector as ResultMRZDetector
 from regula.documentreader.webclient.gen.models.result_mrz_detector_item import ResultMRZDetectorItem as ResultMRZDetectorItem
 from regula.documentreader.webclient.gen.models.rfid_a_chip import RfidAChip as RfidAChip
+from regula.documentreader.webclient.gen.models.rfid_access_control import RfidAccessControl as RfidAccessControl
 from regula.documentreader.webclient.gen.models.rfid_access_control_info import RfidAccessControlInfo as RfidAccessControlInfo
 from regula.documentreader.webclient.gen.models.rfid_access_control_procedure_type import RfidAccessControlProcedureType as RfidAccessControlProcedureType
 from regula.documentreader.webclient.gen.models.rfid_access_key import RfidAccessKey as RfidAccessKey
