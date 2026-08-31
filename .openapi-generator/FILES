@@ -178,6 +178,7 @@ regula/documentreader/webclient/gen/models/result_item.py
 regula/documentreader/webclient/gen/models/result_mrz_detector.py
 regula/documentreader/webclient/gen/models/result_mrz_detector_item.py
 regula/documentreader/webclient/gen/models/rfid_a_chip.py
+regula/documentreader/webclient/gen/models/rfid_access_control.py
 regula/documentreader/webclient/gen/models/rfid_access_control_info.py
 regula/documentreader/webclient/gen/models/rfid_access_control_procedure_type.py
 regula/documentreader/webclient/gen/models/rfid_access_key.py
