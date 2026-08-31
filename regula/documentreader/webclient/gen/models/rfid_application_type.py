@@ -27,6 +27,8 @@ class RfidApplicationType(int, Enum):
     LDS2_VisaRecords = 6
     LDS2_AddBiometrics = 7
     eDTC_PC = 8
+    APPLET_ROOT = 50
+    USER_DEFINED = 100
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
