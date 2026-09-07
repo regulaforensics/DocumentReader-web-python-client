@@ -1,0 +1,42 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "enabledManagers": [
+    "github-actions"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "prBodyNotes": [
+    "https://redmine.regulaforensics.com/issues/58096"
+  ],
+  "packageRules": [
+    {
+      "description": "Update all GitHub Actions to latest, including major version bumps",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "groupName": "GitHub Actions dependencies",
+      "groupSlug": "github-actions-deps",
+      "matchUpdateTypes": [
+        "major",
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "schedule": [
+        "before 6am on wednesday"
+      ],
+      "automerge": false,
+      "enabled": true
+    }
+  ],
+  "github-actions": {
+    "enabled": true,
+    "pinDigests": true
+  }
+}

@@ -26,6 +26,7 @@ class RfidPasswordType(int, Enum):
     PIN_E_SIGN = 5
     SAI = 6
     MRZ_HASH = 7
+    PIN_LOCAL = 8
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

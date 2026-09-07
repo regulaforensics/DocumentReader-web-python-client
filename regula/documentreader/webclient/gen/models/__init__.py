@@ -141,6 +141,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.mrz_position_item import MrzPositionItem
     from regula.documentreader.webclient.gen.models.ocr_security_text_item import OCRSecurityTextItem
     from regula.documentreader.webclient.gen.models.ocr_security_text_result import OCRSecurityTextResult
+    from regula.documentreader.webclient.gen.models.occlusion_check_params import OcclusionCheckParams
     from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate
     from regula.documentreader.webclient.gen.models.one_candidate_item import OneCandidateItem
     from regula.documentreader.webclient.gen.models.original_symbol import OriginalSymbol
@@ -181,6 +182,7 @@ if __import__("typing").TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.result_mrz_detector import ResultMRZDetector
     from regula.documentreader.webclient.gen.models.result_mrz_detector_item import ResultMRZDetectorItem
     from regula.documentreader.webclient.gen.models.rfid_a_chip import RfidAChip
+    from regula.documentreader.webclient.gen.models.rfid_access_control import RfidAccessControl
     from regula.documentreader.webclient.gen.models.rfid_access_control_info import RfidAccessControlInfo
     from regula.documentreader.webclient.gen.models.rfid_access_control_procedure_type import RfidAccessControlProcedureType
     from regula.documentreader.webclient.gen.models.rfid_access_key import RfidAccessKey
@@ -400,6 +402,7 @@ from regula.documentreader.webclient.gen.models.mrz_detect_mode_enum import MrzD
 from regula.documentreader.webclient.gen.models.mrz_position_item import MrzPositionItem
 from regula.documentreader.webclient.gen.models.ocr_security_text_item import OCRSecurityTextItem
 from regula.documentreader.webclient.gen.models.ocr_security_text_result import OCRSecurityTextResult
+from regula.documentreader.webclient.gen.models.occlusion_check_params import OcclusionCheckParams
 from regula.documentreader.webclient.gen.models.one_candidate import OneCandidate
 from regula.documentreader.webclient.gen.models.one_candidate_item import OneCandidateItem
 from regula.documentreader.webclient.gen.models.original_symbol import OriginalSymbol
@@ -440,6 +443,7 @@ from regula.documentreader.webclient.gen.models.result_item import ResultItem
 from regula.documentreader.webclient.gen.models.result_mrz_detector import ResultMRZDetector
 from regula.documentreader.webclient.gen.models.result_mrz_detector_item import ResultMRZDetectorItem
 from regula.documentreader.webclient.gen.models.rfid_a_chip import RfidAChip
+from regula.documentreader.webclient.gen.models.rfid_access_control import RfidAccessControl
 from regula.documentreader.webclient.gen.models.rfid_access_control_info import RfidAccessControlInfo
 from regula.documentreader.webclient.gen.models.rfid_access_control_procedure_type import RfidAccessControlProcedureType
 from regula.documentreader.webclient.gen.models.rfid_access_key import RfidAccessKey

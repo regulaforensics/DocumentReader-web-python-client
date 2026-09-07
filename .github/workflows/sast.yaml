@@ -1,4 +1,8 @@
-name: Semgrep SAST
+# This repository is public and cannot call reusable workflows from a private
+# repository (regulaforensics/reusable-workflows). The logic below is a local
+# copy that mirrors the reusable workflow exactly. SHA pins are kept up-to-date
+# by Renovate (see renovate.json).
+name: SAST
 
 on:
   pull_request:
@@ -10,49 +14,32 @@ on:
       - main
       - master
 
-env:
-  # Fail workflow or not if vulnerabilities found
-  FAIL_ON_VULNERABILITIES: true
-  # List of paths (space separated) to ignore
-  # Supports PATTERNS
-  # EXCLUDE_PATHS: 'foo bar/baz file.txt dir/*.yml'
-  EXCLUDE_PATHS: 'generator-templates regula/documentreader/webclient/gen .github'
-  # List of rules (space separated) to ignore
-  # EXCLUDE_RULES: 'generic.secrets.security.detected-aws-account-id.detected-aws-account-id'
-  # See https://github.com/semgrep/semgrep-rules for rules registry
-  EXCLUDE_RULES: ''
-
 jobs:
   semgrep:
     name: semgrep-oss/scan
     runs-on: ubuntu-latest
     container:
-      image: semgrep/semgrep
+      image: semgrep/semgrep@sha256:65dcd4408adda7c183a6b4550cb1e9b19f7f627a6fbb7e0559bd466bedc44d7b
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Scan
         shell: bash
+        env:
+          EXCLUDE_PATHS: 'generator-templates regula/documentreader/webclient/gen .github'
+          EXCLUDE_RULES: ''
         run: |
           EXCLUDED_PATHS=()
-          if [[ ! -z $EXCLUDE_PATHS ]]; then
+          if [[ -n "$EXCLUDE_PATHS" ]]; then
             for path in $EXCLUDE_PATHS; do
-              EXCLUDED_PATHS+=("--exclude $path")
+              EXCLUDED_PATHS+=("--exclude" "$path")
             done
           fi
 
           EXCLUDED_RULES=()
-          if [[ ! -z $EXCLUDE_RULES ]]; then
+          if [[ -n "$EXCLUDE_RULES" ]]; then
             for rule in $EXCLUDE_RULES; do
-              EXCLUDED_RULES+=("--exclude-rule $rule")
+              EXCLUDED_RULES+=("--exclude-rule" "$rule")
             done
           fi
 
-          if [[ $FAIL_ON_VULNERABILITIES == "true" ]]; then
-            semgrep scan --config auto ${EXCLUDED_PATHS[@]} ${EXCLUDED_RULES[@]} --error --verbose
-          elif [[ $FAIL_ON_VULNERABILITIES == "false" ]]; then
-            semgrep scan --config auto ${EXCLUDED_PATHS[@]} ${EXCLUDED_RULES[@]} --error --verbose || true
-          else
-            echo "Bad FAIL_ON_VULNERABILITIES env var value"
-            exit 1
-          fi
-
+          semgrep scan --config auto "${EXCLUDED_PATHS[@]}" "${EXCLUDED_RULES[@]}" --error --verbose
