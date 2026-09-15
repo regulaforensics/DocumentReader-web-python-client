@@ -12,7 +12,7 @@ from typing_extensions import Self
 
 class GraphicFieldType(int, Enum):
     """
-    GraphicFieldType
+    Enumeration contains identifiers determining the logical type of the graphic data obtained while reading document filling fields or barcodes
     """
 
     """
