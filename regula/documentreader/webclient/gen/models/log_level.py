@@ -12,7 +12,7 @@ from typing_extensions import Self
 
 class LogLevel(str, Enum):
     """
-    LogLevel
+    Enumeration contains identificators which determinate the level of logs detalization
     """
 
     """
