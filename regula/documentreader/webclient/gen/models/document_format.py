@@ -25,6 +25,7 @@ class DocumentFormat(int, Enum):
     NON = 3
     A4 = 4
     ID3_X2 = 5
+    ID2_TURKEY = 6
     ID1_90 = 10
     ID1_180 = 11
     ID1_270 = 12

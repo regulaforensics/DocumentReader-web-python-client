@@ -20,14 +20,14 @@ class DetailsOptical(BaseModel):
     """
     Details on performed optical checks
     """ # noqa: E501
-    overall_status: SkipValidation[CheckResult] = Field(alias="overallStatus")
-    doc_type: SkipValidation[CheckResult] = Field(alias="docType")
-    expiry: SkipValidation[CheckResult] = Field(alias="expiry")
-    image_qa: SkipValidation[CheckResult] = Field(alias="imageQA")
-    mrz: SkipValidation[CheckResult] = Field(alias="mrz")
+    overall_status: SkipValidation[CheckResult] = Field(alias="overallStatus", description="Overall optical checks combined status")
+    doc_type: SkipValidation[CheckResult] = Field(alias="docType", description="Status of document type recognition")
+    expiry: SkipValidation[CheckResult] = Field(alias="expiry", description="Status of document expiration")
+    image_qa: SkipValidation[CheckResult] = Field(alias="imageQA", description="Status of document image quality check")
+    mrz: SkipValidation[CheckResult] = Field(alias="mrz", description="Status of document MRZ")
     pages_count: SkipValidation[int] = Field(alias="pagesCount", description="Number of processed pages in the document")
-    security: SkipValidation[CheckResult] = Field(alias="security")
-    text: SkipValidation[CheckResult] = Field(alias="text")
+    security: SkipValidation[CheckResult] = Field(alias="security", description="Authenticity verification status")
+    text: SkipValidation[CheckResult] = Field(alias="text", description="Status of text fields analysis")
     vds: SkipValidation[Optional[int]] = Field(alias="vds", default=None)
     __properties: ClassVar[List[str]] = ["overallStatus", "docType", "expiry", "imageQA", "mrz", "pagesCount", "security", "text", "vds"]
 
