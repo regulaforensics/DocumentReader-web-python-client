@@ -12,7 +12,7 @@ from typing_extensions import Self
 
 class MDLDeviceEngagement(int, Enum):
     """
-    MDLDeviceEngagement
+    Enumeration contains possible data engagement methods with mDL
     """
 
     """

@@ -12,7 +12,7 @@ from typing_extensions import Self
 
 class MDLDeviceRetrieval(int, Enum):
     """
-    MDLDeviceRetrieval
+    Enumeration contains possible data retrieval methods from mDL
     """
 
     """

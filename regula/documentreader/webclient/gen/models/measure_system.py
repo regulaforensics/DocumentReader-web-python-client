@@ -12,7 +12,7 @@ from typing_extensions import Self
 
 class MeasureSystem(int, Enum):
     """
-    MeasureSystem
+    Enumeration contains a pool of constants that identify the system for measuring distances and weight
     """
 
     """

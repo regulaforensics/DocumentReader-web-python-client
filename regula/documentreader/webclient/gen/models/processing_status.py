@@ -12,7 +12,7 @@ from typing_extensions import Self
 
 class ProcessingStatus(int, Enum):
     """
-    ProcessingStatus
+    Enumeration contains a set of constants that define scanning process completion status
     """
 
     """

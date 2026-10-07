@@ -12,7 +12,7 @@ from typing_extensions import Self
 
 class Result(int, Enum):
     """
-    Result
+    Enumeration contains a pool of constants which determine the type of resulting data formed during the data scanning and processing cycle and passed to the user application
     """
 
     """
