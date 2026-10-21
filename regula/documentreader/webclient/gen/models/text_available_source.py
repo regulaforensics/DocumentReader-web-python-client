@@ -22,7 +22,7 @@ class TextAvailableSource(BaseModel):
     TextAvailableSource
     """ # noqa: E501
     source: SkipValidation[Source] = Field(alias="source")
-    validity_status: SkipValidation[CheckResult] = Field(alias="validityStatus")
+    validity_status: SkipValidation[CheckResult] = Field(alias="validityStatus", description="Overall status of validity from all fields for given source")
     container_type: SkipValidation[Optional[int]] = Field(alias="containerType", default=None, description="Same as Result type, but used for safe parsing of not-described values. See Result type.")
     __properties: ClassVar[List[str]] = ["source", "validityStatus", "containerType"]
 

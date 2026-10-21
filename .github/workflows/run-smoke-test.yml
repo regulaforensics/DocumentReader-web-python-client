@@ -26,4 +26,4 @@ jobs:
         run: python example.py
         working-directory: example
         env:
-          API_BASE_PATH: "https://nightly-api.regulaforensics.com"
+          API_BASE_PATH: ${{ github.base_ref == 'develop' && 'https://nightly-api.regulaforensics.com' || github.base_ref == 'stable' && 'https://rc-api.regulaforensics.com' || github.base_ref == 'master' && 'https://api.regulaforensics.com' || 'https://nightly-api.regulaforensics.com' }}

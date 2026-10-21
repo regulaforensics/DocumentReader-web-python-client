@@ -21,7 +21,7 @@ class SymbolRecognitionResult(BaseModel):
     """
     Describes a single character recognition results in the text field line
     """ # noqa: E501
-    symbol_rect: SkipValidation[Optional[RectangleCoordinates]] = Field(alias="SymbolRect", default=None)
+    symbol_rect: SkipValidation[Optional[RectangleCoordinates]] = Field(alias="SymbolRect", default=None, description="Coordinates of the symbol in the normalized image of the document")
     candidates_count: SkipValidation[float] = Field(alias="CandidatesCount", description="Number of significant elements of ListOfCandidates array")
     list_of_candidates: SkipValidation[List[SymbolCandidate]] = Field(alias="ListOfCandidates", description="Array of candidate characters. Sorted in descending order of recognition probabilities (the first element has highest probability)")
     base_line_bottom: SkipValidation[Optional[int]] = Field(alias="BaseLineBottom", default=None)

@@ -27,13 +27,13 @@ class FiberResult(AuthenticityCheckResultItem):
     """ # noqa: E501
     rect_count: SkipValidation[int] = Field(alias="RectCount", description="For UV_Fibers authenticity result type")
     expected_count: SkipValidation[int] = Field(alias="ExpectedCount", description="Expected fibers number. For UV_Fibers authentication result type")
-    light_value: SkipValidation[Optional[Light]] = Field(alias="LightValue", default=None)
+    light_value: SkipValidation[Optional[Light]] = Field(alias="LightValue", default=None, description="For UV_Background authentication result type")
     light_disp: SkipValidation[Optional[int]] = Field(alias="LightDisp", default=None, description="For UV_Background authentication result type")
     rect_array: SkipValidation[List[RectangleCoordinates]] = Field(alias="RectArray", description="Coordinates of located areas for defined fibers type")
     width: SkipValidation[List[int]] = Field(alias="Width", description="Fibers width value for located areas (in pixels)")
     length: SkipValidation[List[int]] = Field(alias="Length", description="Fibers length value for located areas (in pixels)")
     area: SkipValidation[List[int]] = Field(alias="Area", description="Fibers value for areas (in pixels)")
-    color_values: SkipValidation[List[int]] = Field(alias="ColorValues", description="Fibers color value")
+    color_values: SkipValidation[List[int]] = Field(alias="ColorValues", description="Fibers color value. Example: [BLUE, GREEN, RED]")
     __properties: ClassVar[List[str]] = ["Type", "ElementResult", "ElementDiagnose", "PercentValue", "RectCount", "ExpectedCount", "LightValue", "LightDisp", "RectArray", "Width", "Length", "Area", "ColorValues"]
 
     model_config = ConfigDict(

@@ -23,11 +23,11 @@ class Status(BaseModel):
     """
     Status
     """ # noqa: E501
-    overall_status: SkipValidation[CheckResult] = Field(alias="overallStatus")
-    optical: SkipValidation[CheckResult] = Field(alias="optical")
-    portrait: SkipValidation[CheckResult] = Field(alias="portrait")
-    rfid: SkipValidation[CheckResult] = Field(alias="rfid")
-    stop_list: SkipValidation[CheckResult] = Field(alias="stopList")
+    overall_status: SkipValidation[CheckResult] = Field(alias="overallStatus", description="Overall checks status. Rootx status")
+    optical: SkipValidation[CheckResult] = Field(alias="optical", description="Overall optical checks combined status")
+    portrait: SkipValidation[CheckResult] = Field(alias="portrait", description="Portrait comparison status")
+    rfid: SkipValidation[CheckResult] = Field(alias="rfid", description="Overall RFID checks combined status")
+    stop_list: SkipValidation[CheckResult] = Field(alias="stopList", description="Stop list check status")
     details_rfid: SkipValidation[Optional[DetailsRFID]] = Field(alias="detailsRFID", default=None)
     details_optical: SkipValidation[DetailsOptical] = Field(alias="detailsOptical")
     age: SkipValidation[CheckResult] = Field(alias="age")

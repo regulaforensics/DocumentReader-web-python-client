@@ -26,7 +26,7 @@ class OneCandidate(BaseModel):
     id: SkipValidation[int] = Field(alias="ID", description="Unique document type template identifier (Regula's internal numeric code)")
     p: SkipValidation[float] = Field(alias="P", description="A measure of the likelihood of correct recognition in the analysis of this type of document")
     rotated180: SkipValidation[int] = Field(alias="Rotated180", description="Indicates if the document of the given type is rotated by 180 degrees")
-    rfid_presence: SkipValidation[RfidLocation] = Field(alias="RFID_Presence")
+    rfid_presence: SkipValidation[RfidLocation] = Field(alias="RFID_Presence", description="Indication of the presence of an RFID chip in the document (electronic document indicator)")
     fdsid_list: SkipValidation[Optional[FDSIDList]] = Field(alias="FDSIDList", default=None)
     necessary_lights: SkipValidation[int] = Field(alias="NecessaryLights", description="Combination of lighting scheme identifiers (Light enum) required to conduct OCR for this type of document")
     check_authenticity: SkipValidation[int] = Field(alias="CheckAuthenticity", description="Set of authentication options provided for this type of document (combination of Authenticity enum)")

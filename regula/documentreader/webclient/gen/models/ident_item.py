@@ -27,8 +27,8 @@ class IdentItem(BaseModel):
     element_type: SkipValidation[SecurityFeatureType] = Field(alias="ElementType")
     light_index: SkipValidation[Light] = Field(alias="LightIndex")
     area: SkipValidation[Optional[RectangleCoordinates]] = Field(alias="Area", default=None)
-    image: SkipValidation[ImageData] = Field(alias="Image")
-    etalon_image: SkipValidation[ImageData] = Field(alias="EtalonImage")
+    image: SkipValidation[ImageData] = Field(alias="Image", description="Original image")
+    etalon_image: SkipValidation[ImageData] = Field(alias="EtalonImage", description="Reference image")
     area_list: SkipValidation[Optional[AreaContainer]] = Field(alias="AreaList", default=None)
     element_id: SkipValidation[Optional[int]] = Field(alias="ElementID", default=None)
     __properties: ClassVar[List[str]] = ["ElementType", "LightIndex", "Area", "Image", "EtalonImage", "AreaList", "ElementID"]

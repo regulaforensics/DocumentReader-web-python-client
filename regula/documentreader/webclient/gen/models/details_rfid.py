@@ -20,13 +20,13 @@ class DetailsRFID(BaseModel):
     """
     Details on performed RFID checks
     """ # noqa: E501
-    overall_status: SkipValidation[CheckResult] = Field(alias="overallStatus")
-    aa: SkipValidation[CheckResult] = Field(alias="AA")
-    bac: SkipValidation[CheckResult] = Field(alias="BAC")
-    ca: SkipValidation[CheckResult] = Field(alias="CA")
-    pa: SkipValidation[CheckResult] = Field(alias="PA")
-    pace: SkipValidation[CheckResult] = Field(alias="PACE")
-    ta: SkipValidation[CheckResult] = Field(alias="TA")
+    overall_status: SkipValidation[CheckResult] = Field(alias="overallStatus", description="Overall RFID checks combined status")
+    aa: SkipValidation[CheckResult] = Field(alias="AA", description="Active Authentication status")
+    bac: SkipValidation[CheckResult] = Field(alias="BAC", description="Basic Access Control (BAC) status")
+    ca: SkipValidation[CheckResult] = Field(alias="CA", description="Chip Authentication status")
+    pa: SkipValidation[CheckResult] = Field(alias="PA", description="Passive Authentication status")
+    pace: SkipValidation[CheckResult] = Field(alias="PACE", description="Password Authenticated Connection Establishment (PACE) status")
+    ta: SkipValidation[CheckResult] = Field(alias="TA", description="Terminal Authentication status")
     __properties: ClassVar[List[str]] = ["overallStatus", "AA", "BAC", "CA", "PA", "PACE", "TA"]
 
     model_config = ConfigDict(

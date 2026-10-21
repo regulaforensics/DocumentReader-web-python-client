@@ -20,7 +20,7 @@ class DocVisualExtendedFieldItem(BaseModel):
     """
     DocVisualExtendedFieldItem
     """ # noqa: E501
-    field_rect: SkipValidation[RectangleCoordinates] = Field(alias="FieldRect")
+    field_rect: SkipValidation[RectangleCoordinates] = Field(alias="FieldRect", description="Coordinates of the text field in the normalized image of the document. Only for Result.VISUAL_TEXT and Result.MRZ_TEXT results.")
     __properties: ClassVar[List[str]] = ["FieldRect"]
 
     model_config = ConfigDict(
