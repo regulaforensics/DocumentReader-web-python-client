@@ -676,6 +676,7 @@ class TextFieldType(int, Enum):
     DL_CLASS_CODE_B3_FROM = 706
     DL_CLASS_CODE_B3_TO = 707
     DL_CLASS_CODE_B3_NOTES = 708
+    FT_ADDRESS_POST_OFFICE = 709
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
