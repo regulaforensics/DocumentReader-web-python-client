@@ -150,6 +150,8 @@ class CheckDiagnose(int, Enum):
     PROPERTY_NO_SIGNATURE = 260
     PROPERTY_TEXT_AS_SIGNATURE = 261
     PROPERTY_FINGERPRINT_AS_SIGNATURE = 262
+    PROPERTY_DOCUMENT_DAMAGED = 263
+    PROPERTY_DOCUMENT_CANCELLED = 264
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
