@@ -32,8 +32,8 @@ class TextFieldValue(BaseModel):
     original_symbols: SkipValidation[Optional[List[OriginalSymbol]]] = Field(alias="originalSymbols", default=None)
     page_index: SkipValidation[int] = Field(alias="pageIndex", description="Page index of the image from input list")
     probability: SkipValidation[int] = Field(alias="probability", description="Min recognition probability. Combined minimum probability from single characters probabilities")
-    field_rect: SkipValidation[Optional[RectangleCoordinates]] = Field(alias="fieldRect", default=None)
-    rfid_origin: SkipValidation[Optional[RfidOrigin]] = Field(alias="rfidOrigin", default=None)
+    field_rect: SkipValidation[Optional[RectangleCoordinates]] = Field(alias="fieldRect", default=None, description="Only for visual and mrz results. Coordinates of the rectangle region on a document image(result type 1). Represented by two points - (left, top) + (right, bottom)")
+    rfid_origin: SkipValidation[Optional[RfidOrigin]] = Field(alias="rfidOrigin", default=None, description="Only for RFID images. Text location in RFID chip.")
     container_type: SkipValidation[Optional[int]] = Field(alias="containerType", default=None, description="Same as Result type, but used for safe parsing of not-described values. See Result type.")
     __properties: ClassVar[List[str]] = ["source", "value", "originalValue", "originalValidity", "originalSymbols", "pageIndex", "probability", "fieldRect", "rfidOrigin", "containerType"]
 

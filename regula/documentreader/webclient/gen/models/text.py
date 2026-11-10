@@ -22,9 +22,9 @@ class Text(BaseModel):
     """
     Contains all document text fields data with validity and cross-source compare checks
     """ # noqa: E501
-    status: SkipValidation[CheckResult] = Field(alias="status")
-    validity_status: SkipValidation[CheckResult] = Field(alias="validityStatus")
-    comparison_status: SkipValidation[CheckResult] = Field(alias="comparisonStatus")
+    status: SkipValidation[CheckResult] = Field(alias="status", description="Overall status of all checks from all text fields")
+    validity_status: SkipValidation[CheckResult] = Field(alias="validityStatus", description="Overall status of validity from all text fields from all sources")
+    comparison_status: SkipValidation[CheckResult] = Field(alias="comparisonStatus", description="Overall status of data comparison from different sources for each text field")
     date_format: SkipValidation[str] = Field(alias="dateFormat", description="Date format")
     field_list: SkipValidation[List[TextField]] = Field(alias="fieldList")
     available_source_list: SkipValidation[List[TextAvailableSource]] = Field(alias="availableSourceList")

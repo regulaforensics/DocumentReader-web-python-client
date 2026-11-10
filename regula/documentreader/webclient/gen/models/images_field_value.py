@@ -25,13 +25,13 @@ class ImagesFieldValue(BaseModel):
     """ # noqa: E501
     source: SkipValidation[Source] = Field(alias="source")
     value: SkipValidation[Optional[str]] = Field(alias="value", default=None, description="Base64 encoded image")
-    original_value: SkipValidation[Optional[str]] = Field(alias="originalValue", default=None, description="Base64 encoded image")
+    original_value: SkipValidation[Optional[str]] = Field(alias="originalValue", default=None, description="Only for images from RFID. Image as was originally stored in the RFID chip.")
     original_page_index: SkipValidation[Optional[int]] = Field(alias="originalPageIndex", default=None, description="Original page index")
     page_index: SkipValidation[int] = Field(alias="pageIndex", description="Page index of the image from input list")
     light_index: SkipValidation[Light] = Field(alias="lightIndex")
     container_type: SkipValidation[int] = Field(alias="containerType", description="Same as Result type, but used for safe parsing of not-described values. See Result type.")
-    field_rect: SkipValidation[Optional[RectangleCoordinates]] = Field(alias="fieldRect", default=None)
-    rfid_origin: SkipValidation[Optional[RfidOrigin]] = Field(alias="rfidOrigin", default=None)
+    field_rect: SkipValidation[Optional[RectangleCoordinates]] = Field(alias="fieldRect", default=None, description="Only for images from VISUAL. Coordinates of the image in the normalized image of the document.")
+    rfid_origin: SkipValidation[Optional[RfidOrigin]] = Field(alias="rfidOrigin", default=None, description="Only for images from RFID. Image location in RFID chip.")
     __properties: ClassVar[List[str]] = ["source", "value", "originalValue", "originalPageIndex", "pageIndex", "lightIndex", "containerType", "fieldRect", "rfidOrigin"]
 
     model_config = ConfigDict(

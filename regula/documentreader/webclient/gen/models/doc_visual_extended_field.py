@@ -35,7 +35,7 @@ class DocVisualExtendedField(BaseModel):
     w_lcid: SkipValidation[Optional[LCID]] = Field(alias="wLCID", default=None)
     reserved2: SkipValidation[Optional[int]] = Field(alias="Reserved2", default=None)
     reserved3: SkipValidation[Optional[int]] = Field(alias="Reserved3", default=None)
-    field_rect: SkipValidation[RectangleCoordinates] = Field(alias="FieldRect")
+    field_rect: SkipValidation[RectangleCoordinates] = Field(alias="FieldRect", description="Coordinates of the text field in the normalized image of the document. Only for Result.VISUAL_TEXT and Result.MRZ_TEXT results.")
     __properties: ClassVar[List[str]] = ["wFieldType", "FieldName", "StringsCount", "StringsResult", "Buf_Length", "Buf_Text", "FieldMask", "Validity", "InComparison", "wLCID", "Reserved2", "Reserved3", "FieldRect"]
 
     model_config = ConfigDict(

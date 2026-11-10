@@ -21,7 +21,7 @@ class ImageQualityCheckList(BaseModel):
     """
     ImageQualityCheckList
     """ # noqa: E501
-    result: SkipValidation[CheckResult] = Field(alias="result")
+    result: SkipValidation[CheckResult] = Field(alias="result", description="Overall image quality status, combined from check statuses in the list.")
     list: SkipValidation[List[ImageQualityCheck]] = Field(alias="List")
     count: SkipValidation[float] = Field(alias="Count", description="Number of List array elements")
     __properties: ClassVar[List[str]] = ["result", "List", "Count"]

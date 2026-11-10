@@ -21,7 +21,7 @@ class DocumentTypesCandidatesList(BaseModel):
     """
     DocumentTypesCandidatesList
     """ # noqa: E501
-    rec_result: SkipValidation[Optional[DocumentTypeRecognitionResult]] = Field(alias="RecResult", default=None)
+    rec_result: SkipValidation[Optional[DocumentTypeRecognitionResult]] = Field(alias="RecResult", default=None, description="Overall recognition result")
     candidates: SkipValidation[Optional[List[OneCandidate]]] = Field(alias="Candidates", default=None)
     __properties: ClassVar[List[str]] = ["RecResult", "Candidates"]
 

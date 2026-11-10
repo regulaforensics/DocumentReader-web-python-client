@@ -20,7 +20,8 @@ class PropertiesParams(BaseModel):
     PropertiesParams
     """ # noqa: E501
     check_holders_signature: SkipValidation[Optional[bool]] = Field(alias="checkHoldersSignature", default=None, description="Set to true to enable detection of the document holder’s signature.")
-    __properties: ClassVar[List[str]] = ["checkHoldersSignature"]
+    check_document_damage: SkipValidation[Optional[bool]] = Field(alias="checkDocumentDamage", default=None, description="Set to true to enable detection of damaged or defaced documents.")
+    __properties: ClassVar[List[str]] = ["checkHoldersSignature", "checkDocumentDamage"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,7 +76,8 @@ class PropertiesParams(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "checkHoldersSignature": obj.get("checkHoldersSignature")
+            "checkHoldersSignature": obj.get("checkHoldersSignature"),
+            "checkDocumentDamage": obj.get("checkDocumentDamage")
         })
         return _obj
 
