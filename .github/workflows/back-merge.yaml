@@ -8,7 +8,7 @@ on:
 
 jobs:
   back-merge:
-    uses: regulaforensics/reusable-workflows/.github/workflows/back-merge.yaml@58823cdb24d4f765591814a716b438b05e340464 # main
+    uses: regulaforensics/reusable-workflows/.github/workflows/back-merge.yaml@3dff8fcca7cd28960d8c47a088048968e9c22334 # main
     with:
       source_branch: ${{ github.ref_name }}
       merge_pairs: "master:stable,stable:develop"
