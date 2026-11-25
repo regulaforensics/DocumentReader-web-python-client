@@ -91,6 +91,7 @@ class ProcessApi:
             '200': "ProcessResponse",
             '400': None,
             '403': None,
+            '413': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -163,6 +164,7 @@ class ProcessApi:
             '200': "ProcessResponse",
             '400': None,
             '403': None,
+            '413': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -235,6 +237,7 @@ class ProcessApi:
             '200': "ProcessResponse",
             '400': None,
             '403': None,
+            '413': None,
         }
         response_data = self.api_client.call_api(
             *_param,
