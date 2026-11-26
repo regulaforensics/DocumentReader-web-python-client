@@ -33,6 +33,7 @@ if TYPE_CHECKING:
     from regula.documentreader.webclient.gen.models.ident_result import IdentResult
     from regula.documentreader.webclient.gen.models.ident_result import IdentResult
     from regula.documentreader.webclient.gen.models.ident_result import IdentResult
+    from regula.documentreader.webclient.gen.models.security_feature_result import SecurityFeatureResult
     from regula.documentreader.webclient.gen.models.ident_result import IdentResult
     from regula.documentreader.webclient.gen.models.security_feature_result import SecurityFeatureResult
     from regula.documentreader.webclient.gen.models.security_feature_result import SecurityFeatureResult
@@ -68,7 +69,7 @@ class AuthenticityCheckResultItem(BaseModel):
 
     # discriminator mappings
     __discriminator_value_class_map: ClassVar[Dict[str, str]] = {
-        '1': 'SecurityFeatureResult','1024': 'IdentResult','1048576': 'IdentResult','128': 'PhotoIdentResult','131072': 'IdentResult','16': 'FiberResult','16777216': 'OCRSecurityTextResult','2': 'SecurityFeatureResult','2097152': 'IdentResult','262144': 'IdentResult','32': 'IdentResult','32768': 'IdentResult','4': 'IdentResult','4096': 'SecurityFeatureResult','4194304': 'SecurityFeatureResult','512': 'SecurityFeatureResult','524288': 'IdentResult','64': 'OCRSecurityTextResult','65536': 'SecurityFeatureResult','8': 'SecurityFeatureResult','8192': 'SecurityFeatureResult','8388608': 'SecurityFeatureResult'
+        '1': 'SecurityFeatureResult','1024': 'IdentResult','1048576': 'IdentResult','128': 'PhotoIdentResult','131072': 'IdentResult','16': 'FiberResult','16777216': 'OCRSecurityTextResult','2': 'SecurityFeatureResult','2097152': 'IdentResult','262144': 'IdentResult','32': 'IdentResult','32768': 'IdentResult','33554432': 'SecurityFeatureResult','4': 'IdentResult','4096': 'SecurityFeatureResult','4194304': 'SecurityFeatureResult','512': 'SecurityFeatureResult','524288': 'IdentResult','64': 'OCRSecurityTextResult','65536': 'SecurityFeatureResult','8': 'SecurityFeatureResult','8192': 'SecurityFeatureResult','8388608': 'SecurityFeatureResult'
     }
 
     @classmethod
@@ -90,7 +91,7 @@ class AuthenticityCheckResultItem(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Optional[Union[SecurityFeatureResult, IdentResult, IdentResult, PhotoIdentResult, IdentResult, FiberResult, OCRSecurityTextResult, SecurityFeatureResult, IdentResult, IdentResult, IdentResult, IdentResult, IdentResult, SecurityFeatureResult, SecurityFeatureResult, SecurityFeatureResult, IdentResult, OCRSecurityTextResult, SecurityFeatureResult, SecurityFeatureResult, SecurityFeatureResult, SecurityFeatureResult]]:
+    def from_json(cls, json_str: str) -> Optional[Union[SecurityFeatureResult, IdentResult, IdentResult, PhotoIdentResult, IdentResult, FiberResult, OCRSecurityTextResult, SecurityFeatureResult, IdentResult, IdentResult, IdentResult, IdentResult, SecurityFeatureResult, IdentResult, SecurityFeatureResult, SecurityFeatureResult, SecurityFeatureResult, IdentResult, OCRSecurityTextResult, SecurityFeatureResult, SecurityFeatureResult, SecurityFeatureResult, SecurityFeatureResult]]:
         """Create an instance of AuthenticityCheckResultItem from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -115,7 +116,7 @@ class AuthenticityCheckResultItem(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Union[SecurityFeatureResult, IdentResult, IdentResult, PhotoIdentResult, IdentResult, FiberResult, OCRSecurityTextResult, SecurityFeatureResult, IdentResult, IdentResult, IdentResult, IdentResult, IdentResult, SecurityFeatureResult, SecurityFeatureResult, SecurityFeatureResult, IdentResult, OCRSecurityTextResult, SecurityFeatureResult, SecurityFeatureResult, SecurityFeatureResult, SecurityFeatureResult]]:
+    def from_dict(cls, obj: Dict[str, Any]) -> Optional[Union[SecurityFeatureResult, IdentResult, IdentResult, PhotoIdentResult, IdentResult, FiberResult, OCRSecurityTextResult, SecurityFeatureResult, IdentResult, IdentResult, IdentResult, IdentResult, SecurityFeatureResult, IdentResult, SecurityFeatureResult, SecurityFeatureResult, SecurityFeatureResult, IdentResult, OCRSecurityTextResult, SecurityFeatureResult, SecurityFeatureResult, SecurityFeatureResult, SecurityFeatureResult]]:
         """Create an instance of AuthenticityCheckResultItem from a dict"""
         # look up the object type based on discriminator mapping
         object_type = cls.get_discriminator_value(obj)
@@ -143,6 +144,8 @@ class AuthenticityCheckResultItem(BaseModel):
             return import_module("regula.documentreader.webclient.gen.models.ident_result").IdentResult.from_dict(obj)
         if object_type ==  'IdentResult':
             return import_module("regula.documentreader.webclient.gen.models.ident_result").IdentResult.from_dict(obj)
+        if object_type ==  'SecurityFeatureResult':
+            return import_module("regula.documentreader.webclient.gen.models.security_feature_result").SecurityFeatureResult.from_dict(obj)
         if object_type ==  'IdentResult':
             return import_module("regula.documentreader.webclient.gen.models.ident_result").IdentResult.from_dict(obj)
         if object_type ==  'SecurityFeatureResult':
